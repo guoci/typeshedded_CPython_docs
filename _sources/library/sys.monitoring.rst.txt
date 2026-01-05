@@ -45,7 +45,6 @@ Registering and using tools
 '''''''''''''''''''''''''''
 
 .. function:: use_tool_id(tool_id: int, name: str, /) -> None
-              monitoring.use_tool_id(tool_id: int, name: str, /) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L19>`__)
 
@@ -54,14 +53,12 @@ Registering and using tools
    Raises a :exc:`ValueError` if *tool_id* is in use.
 
 .. function:: clear_tool_id(tool_id: int, /) -> None
-              monitoring.clear_tool_id(tool_id: int, /) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L22>`__)
 
    Unregister all events and callback functions associated with *tool_id*.
 
 .. function:: free_tool_id(tool_id: int, /) -> None
-              monitoring.free_tool_id(tool_id: int, /) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L24>`__)
 
@@ -69,7 +66,6 @@ Registering and using tools
    Will call :func:`clear_tool_id` before releasing *tool_id*.
 
 .. function:: get_tool(tool_id: int, /) -> str | None
-              monitoring.get_tool(tool_id: int, /) -> str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L25>`__)
 
@@ -92,7 +88,6 @@ Events
 The following events are supported:
 
 .. monitoring-event:: BRANCH_LEFT
-                      monitoring.events.BRANCH_LEFT
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L49>`__)
 
@@ -103,91 +98,78 @@ The following events are supported:
    that it will be consistent for the duration of the program.
 
 .. monitoring-event:: BRANCH_RIGHT
-                      monitoring.events.BRANCH_RIGHT
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L50>`__)
 
    A conditional branch goes right.
 
 .. monitoring-event:: CALL
-                      monitoring.events.CALL
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L31>`__)
 
    A call in Python code (event occurs before the call).
 
 .. monitoring-event:: C_RAISE
-                      monitoring.events.C_RAISE
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L32>`__)
 
    An exception raised from any callable, except for Python functions (event occurs after the exit).
 
 .. monitoring-event:: C_RETURN
-                      monitoring.events.C_RETURN
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L33>`__)
 
    Return from any callable, except for Python functions (event occurs after the return).
 
 .. monitoring-event:: EXCEPTION_HANDLED
-                      monitoring.events.EXCEPTION_HANDLED
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L34>`__)
 
    An exception is handled.
 
 .. monitoring-event:: INSTRUCTION
-                      monitoring.events.INSTRUCTION
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L35>`__)
 
    A VM instruction is about to be executed.
 
 .. monitoring-event:: JUMP
-                      monitoring.events.JUMP
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L36>`__)
 
    An unconditional jump in the control flow graph is made.
 
 .. monitoring-event:: LINE
-                      monitoring.events.LINE
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L37>`__)
 
    An instruction is about to be executed that has a different line number from the preceding instruction.
 
 .. monitoring-event:: PY_RESUME
-                      monitoring.events.PY_RESUME
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L39>`__)
 
    Resumption of a Python function (for generator and coroutine functions), except for ``throw()`` calls.
 
 .. monitoring-event:: PY_RETURN
-                      monitoring.events.PY_RETURN
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L40>`__)
 
    Return from a Python function (occurs immediately before the return, the callee's frame will be on the stack).
 
 .. monitoring-event:: PY_START
-                      monitoring.events.PY_START
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L41>`__)
 
    Start of a Python function (occurs immediately after the call, the callee's frame will be on the stack)
 
 .. monitoring-event:: PY_THROW
-                      monitoring.events.PY_THROW
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L42>`__)
 
    A Python function is resumed by a ``throw()`` call.
 
 .. monitoring-event:: PY_UNWIND
-                      monitoring.events.PY_UNWIND
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L43>`__)
 
@@ -195,28 +177,24 @@ The following events are supported:
    function and that are allowed to continue to propagate.
 
 .. monitoring-event:: PY_YIELD
-                      monitoring.events.PY_YIELD
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L44>`__)
 
    Yield from a Python function (occurs immediately before the yield, the callee's frame will be on the stack).
 
 .. monitoring-event:: RAISE
-                      monitoring.events.RAISE
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L45>`__)
 
    An exception is raised, except those that cause a :monitoring-event:`STOP_ITERATION` event.
 
 .. monitoring-event:: RERAISE
-                      monitoring.events.RERAISE
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L46>`__)
 
    An exception is re-raised, for example at the end of a :keyword:`finally` block.
 
 .. monitoring-event:: STOP_ITERATION
-                      monitoring.events.STOP_ITERATION
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L47>`__)
 
@@ -232,7 +210,6 @@ For example, to specify both :monitoring-event:`PY_RETURN` and :monitoring-event
 events, use the expression ``PY_RETURN | PY_START``.
 
 .. monitoring-event:: NO_EVENTS
-                      monitoring.events.NO_EVENTS
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L38>`__)
 
@@ -341,14 +318,12 @@ Setting events globally
 Events can be controlled globally by modifying the set of events being monitored.
 
 .. function:: get_events(tool_id: int, /) -> int
-              monitoring.get_events(tool_id: int, /) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L59>`__)
 
    Returns the ``int`` representing all the active events.
 
 .. function:: set_events(tool_id: int, event_set: int, /) -> None
-              monitoring.set_events(tool_id: int, event_set: int, /) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L60>`__)
 
@@ -366,14 +341,12 @@ to accept a look-alike object from functions which are not defined
 in Python (see :ref:`c-api-monitoring`).
 
 .. function:: get_local_events(tool_id: int, code: CodeType, /) -> int
-              monitoring.get_local_events(tool_id: int, code: CodeType, /) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L61>`__)
 
    Returns all the :ref:`local events <monitoring-event-local>` for *code*
 
 .. function:: set_local_events(tool_id: int, code: CodeType, event_set: int, /) -> None
-              monitoring.set_local_events(tool_id: int, code: CodeType, event_set: int, /) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L62>`__)
 
@@ -386,6 +359,9 @@ Disabling events
 ''''''''''''''''
 
 .. data:: DISABLE
+   :type: object
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L65>`__)
 
    A special value that can be returned from a callback function to disable
    events for the current code location.
@@ -406,7 +382,6 @@ by the interpreter in a non-specific location (that is, no traceback will be
 provided).
 
 .. function:: restart_events() -> None
-              monitoring.restart_events() -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L63>`__)
 
@@ -420,7 +395,6 @@ Registering callback functions
 ------------------------------
 
 .. function:: register_callback(tool_id: int, event: int, func: Callable | None, /) -> Callable | None
-              monitoring.register_callback(tool_id: int, event: int, func: ((...) -> typing.Any) | None, /) -> ((...) -> typing.Any) | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L68>`__)
 
@@ -447,6 +421,9 @@ Callback function arguments
 '''''''''''''''''''''''''''
 
 .. data:: MISSING
+   :type: object
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/sys/_monitoring.pyi#L66>`__)
 
    A special value that is passed to a callback function to indicate
    that there are no arguments to the call.

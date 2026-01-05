@@ -1009,8 +1009,8 @@ samples (high cumulative/direct multiplier). These are frequently-nested
 functions that appear deep in many call chains.</p></li>
 </ul>
 <p>Use <a class="reference internal" href="#cmdoption-profiling.sampling-no-summary"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-summary</span></code></a> to suppress both the legend and summary sections.</p>
-<p>To save pstats output to a file instead of stdout:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -o profile.txt script.py</span>
+<p>To save pstats output to a binary file instead of stdout:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -o profile.pstats script.py</span>
 </pre></div>
 </div>
 <p>The pstats format supports several options for controlling the display.
@@ -1547,7 +1547,9 @@ Requires <code class="docutils literal notranslate"><span class="pre">--async-aw
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-profiling.sampling-pstats">
 <span class="sig-name descname"><span class="pre">--pstats</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-profiling.sampling-pstats" title="Link to this definition">¶</a></dt>
-<dd><p>Generate text statistics output. This is the default.</p>
+<dd><p>Generate pstats statistics. This is the default.
+When written to stdout, the output is a text table; with <a class="reference internal" href="#cmdoption-profiling.sampling-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-o</span></code></a>,
+it is a binary pstats file.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -1592,8 +1594,9 @@ Requires <code class="docutils literal notranslate"><span class="pre">--async-aw
 <dt class="sig sig-object std" id="cmdoption-profiling.sampling-o">
 <span id="cmdoption-profiling.sampling-output"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--output</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path&gt;</span></span><a class="headerlink" href="#cmdoption-profiling.sampling-o" title="Link to this definition">¶</a></dt>
 <dd><p>Output file or directory path. Default behavior varies by format:
-<a class="reference internal" href="#cmdoption-profiling.sampling-pstats"><code class="xref std std-option docutils literal notranslate"><span class="pre">--pstats</span></code></a> writes to stdout, while other formats generate a file
-named <code class="docutils literal notranslate"><span class="pre">&lt;format&gt;_&lt;PID&gt;.&lt;ext&gt;</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">flamegraph_12345.html</span></code>).
+<a class="reference internal" href="#cmdoption-profiling.sampling-pstats"><code class="xref std std-option docutils literal notranslate"><span class="pre">--pstats</span></code></a> prints a text table to stdout, while <code class="docutils literal notranslate"><span class="pre">-o</span></code> writes a
+binary pstats file. Other formats generate a file named
+<code class="docutils literal notranslate"><span class="pre">&lt;format&gt;_&lt;PID&gt;.&lt;ext&gt;</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">flamegraph_12345.html</span></code>).
 <a class="reference internal" href="#cmdoption-profiling.sampling-heatmap"><code class="xref std std-option docutils literal notranslate"><span class="pre">--heatmap</span></code></a> creates a directory named <code class="docutils literal notranslate"><span class="pre">heatmap_&lt;PID&gt;</span></code>.</p>
 </dd></dl>
 
@@ -1846,7 +1849,7 @@ opens the browser; subprocess outputs are never auto-opened.</p>
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br>
     <br>
-      Last updated on Jan 02, 2026 (20:10 UTC).
+      Last updated on Jan 05, 2026 (14:34 UTC).
     
       <a href="/bugs.html">Found a bug</a>?
     

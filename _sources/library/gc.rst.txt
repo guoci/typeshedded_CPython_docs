@@ -334,6 +334,9 @@ The following variables are provided for read-only access (you can mutate the
 values but should not rebind them):
 
 .. data:: garbage
+   :type: list[typing.Any]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gc.pyi#L37>`__)
 
    A list of objects which the collector found to be unreachable but could
    not be freed (uncollectable objects).  Starting with Python 3.4, this
@@ -354,6 +357,9 @@ values but should not rebind them):
       up in :data:`gc.garbage` anymore.
 
 .. data:: callbacks
+   :type: list[(Literal['start', 'stop'], dict[str, int]) -> object]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gc.pyi#L36>`__)
 
    A list of callbacks that will be invoked by the garbage collector before and
    after collection.  The callbacks will be called with two arguments,
@@ -402,17 +408,26 @@ The following constants are provided for use with :func:`set_debug`:
 
 
 .. data:: DEBUG_STATS
+   :type: Literal[1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gc.pyi#L31>`__)
 
    Print statistics during collection.  This information can be useful when tuning
    the collection frequency.
 
 
 .. data:: DEBUG_COLLECTABLE
+   :type: Literal[2]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gc.pyi#L28>`__)
 
    Print information on collectable objects found.
 
 
 .. data:: DEBUG_UNCOLLECTABLE
+   :type: Literal[4]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gc.pyi#L32>`__)
 
    Print information of uncollectable objects found (objects which are not
    reachable but cannot be freed by the collector).  These objects will be added
@@ -423,12 +438,18 @@ The following constants are provided for use with :func:`set_debug`:
       :term:`interpreter shutdown`, if it isn't empty.
 
 .. data:: DEBUG_SAVEALL
+   :type: Literal[32]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gc.pyi#L30>`__)
 
    When set, all unreachable objects found will be appended to *garbage* rather
    than being freed.  This can be useful for debugging a leaking program.
 
 
 .. data:: DEBUG_LEAK
+   :type: Literal[38]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gc.pyi#L29>`__)
 
    The debugging flags necessary for the collector to print information about a
    leaking program (equal to ``DEBUG_COLLECTABLE | DEBUG_UNCOLLECTABLE |

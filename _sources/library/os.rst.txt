@@ -57,6 +57,9 @@ Notes on the availability of these functions:
 
 
 .. data:: name
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L690>`__)
 
    The name of the operating system dependent module imported.  The following
    names have currently been registered: ``'posix'``, ``'nt'``,
@@ -185,6 +188,9 @@ process and user.
 
 
 .. data:: environ
+   :type: _Environ[str]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L729>`__)
 
    A :term:`mapping` object where keys and values are strings that represent
    the process environment.  For example, ``environ['HOME']`` is the pathname
@@ -234,6 +240,9 @@ process and user.
 
 
 .. data:: environb
+   :type: _Environ[bytes]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L731>`__)
 
    Bytes version of :data:`environ`: a :term:`mapping` object where both keys
    and values are :class:`bytes` objects representing the process environment.
@@ -274,8 +283,6 @@ process and user.
               fchdir(fd)
               getcwd()
    :noindex:
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1724>`__)
 
    These functions are described in :ref:`os-file-dir`.
 
@@ -895,6 +902,9 @@ process and user.
 
 
 .. data:: supports_bytes_environ
+   :type: bool
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L515>`__)
 
    ``True`` if the native OS type of the environment is bytes (eg. ``False`` on
    Windows).
@@ -1749,6 +1759,9 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. data:: RWF_NOWAIT
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1588>`__)
 
    Do not wait for data which is not immediately available. If this flag is
    specified, the system call will return instantly if it would have to read
@@ -1764,6 +1777,9 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. data:: RWF_HIPRI
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1587>`__)
 
    High priority read/write. Allows block-based filesystems to use polling
    of the device, which provides lower latency, but may use additional
@@ -1853,6 +1869,9 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. data:: RWF_DSYNC
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1585>`__)
 
    Provide a per-write equivalent of the :data:`O_DSYNC` :func:`os.open` flag.
    This flag effect applies only to the data range written by the system call.
@@ -1863,6 +1882,9 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. data:: RWF_SYNC
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1586>`__)
 
    Provide a per-write equivalent of the :data:`O_SYNC` :func:`os.open` flag.
    This flag effect applies only to the data range written by the system call.
@@ -1873,6 +1895,9 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. data:: RWF_APPEND
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1584>`__)
 
    Provide a per-write equivalent of the :data:`O_APPEND` :func:`os.open`
    flag. This flag is meaningful only for :func:`os.pwritev`, and its
@@ -3019,6 +3044,9 @@ features:
 
 
 .. data:: pathconf_names
+   :type: dict[str, int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L741>`__)
 
    Dictionary mapping names accepted by :func:`pathconf` and :func:`fpathconf` to
    the integer values defined for those names by the host operating system.  This
@@ -4164,6 +4192,9 @@ features:
 
 
 .. data:: supports_dir_fd
+   :type: set[(...) -> typing.Any]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L517>`__)
 
    A :class:`set` object indicating which functions in the :mod:`os`
    module accept an open file descriptor for their *dir_fd* parameter.
@@ -4189,6 +4220,9 @@ features:
 
 
 .. data:: supports_effective_ids
+   :type: set[(...) -> typing.Any]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L519>`__)
 
    A :class:`set` object indicating whether :func:`os.access` permits
    specifying ``True`` for its *effective_ids* parameter on the local platform.
@@ -4208,6 +4242,9 @@ features:
 
 
 .. data:: supports_fd
+   :type: set[(...) -> typing.Any]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L518>`__)
 
    A :class:`set` object indicating which functions in the
    :mod:`os` module permit specifying their *path* parameter as an open file
@@ -4228,6 +4265,9 @@ features:
 
 
 .. data:: supports_follow_symlinks
+   :type: set[(...) -> typing.Any]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L520>`__)
 
    A :class:`set` object indicating which functions in the :mod:`os` module
    accept ``False`` for their *follow_symlinks* parameter on the local platform.
@@ -4701,6 +4741,9 @@ features:
    .. versionadded:: 3.10
 
 .. data:: EFD_CLOEXEC
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2772>`__)
 
    Set close-on-exec flag for new :func:`eventfd` file descriptor.
 
@@ -4709,6 +4752,9 @@ features:
    .. versionadded:: 3.10
 
 .. data:: EFD_NONBLOCK
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2773>`__)
 
    Set :const:`O_NONBLOCK` status flag for new :func:`eventfd` file
    descriptor.
@@ -4718,6 +4764,9 @@ features:
    .. versionadded:: 3.10
 
 .. data:: EFD_SEMAPHORE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2774>`__)
 
    Provide semaphore-like semantics for reads from an :func:`eventfd` file
    descriptor. On read the internal counter is decremented by one.
@@ -4914,6 +4963,9 @@ Naturally, they are all only available on Linux.
    .. versionadded:: 3.13
 
 .. data:: TFD_NONBLOCK
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2817>`__)
 
    A flag for the :func:`timerfd_create` function,
    which sets the :const:`O_NONBLOCK` status flag for the new timer file
@@ -4924,6 +4976,9 @@ Naturally, they are all only available on Linux.
    .. versionadded:: 3.13
 
 .. data:: TFD_CLOEXEC
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2818>`__)
 
    A flag for the :func:`timerfd_create` function,
    If :const:`TFD_CLOEXEC` is set as a flag, set close-on-exec flag for new file
@@ -4934,6 +4989,9 @@ Naturally, they are all only available on Linux.
    .. versionadded:: 3.13
 
 .. data:: TFD_TIMER_ABSTIME
+   :type: Literal[1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2815>`__)
 
    A flag for the :func:`timerfd_settime` and :func:`timerfd_settime_ns` functions.
    If this flag is set, *initial* is interpreted as an absolute value on the
@@ -4944,6 +5002,9 @@ Naturally, they are all only available on Linux.
    .. versionadded:: 3.13
 
 .. data:: TFD_TIMER_CANCEL_ON_SET
+   :type: Literal[2]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2816>`__)
 
    A flag for the :func:`timerfd_settime` and :func:`timerfd_settime_ns`
    functions along with :const:`TFD_TIMER_ABSTIME`.
@@ -5048,18 +5109,27 @@ These functions are all available on Linux only.
 
 
 .. data:: XATTR_SIZE_MAX
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L557>`__)
 
    The maximum size the value of an extended attribute can be. Currently, this
    is 64 KiB on Linux.
 
 
 .. data:: XATTR_CREATE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L558>`__)
 
    This is a possible value for the flags argument in :func:`setxattr`. It
    indicates the operation must create an attribute.
 
 
 .. data:: XATTR_REPLACE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L559>`__)
 
    This is a possible value for the flags argument in :func:`setxattr`. It
    indicates the operation must replace an existing attribute.
@@ -5133,8 +5203,6 @@ to be ignored.
               execve(path, args, env)
               execvp(file, args)
               execvpe(file, args, env)
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2185>`__)
 
    These functions all execute a new program, replacing the current process; they
    do not return.  On Unix, the new executable is loaded into the current process,
@@ -5215,6 +5283,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_OK
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L737>`__)
 
    Exit code that means no error occurred. May be taken from the defined value of
    ``EXIT_SUCCESS`` on some platforms. Generally has a value of zero.
@@ -5223,6 +5294,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_USAGE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L744>`__)
 
    Exit code that means the command was used incorrectly, such as when the wrong
    number of arguments are given.
@@ -5231,6 +5305,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_DATAERR
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L745>`__)
 
    Exit code that means the input data was incorrect.
 
@@ -5238,6 +5315,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_NOINPUT
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L746>`__)
 
    Exit code that means an input file did not exist or was not readable.
 
@@ -5245,6 +5325,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_NOUSER
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L747>`__)
 
    Exit code that means a specified user did not exist.
 
@@ -5252,6 +5335,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_NOHOST
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L748>`__)
 
    Exit code that means a specified host did not exist.
 
@@ -5259,6 +5345,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_UNAVAILABLE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L749>`__)
 
    Exit code that means that a required service is unavailable.
 
@@ -5266,6 +5355,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_SOFTWARE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L750>`__)
 
    Exit code that means an internal software error was detected.
 
@@ -5273,6 +5365,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_OSERR
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L751>`__)
 
    Exit code that means an operating system error was detected, such as the
    inability to fork or create a pipe.
@@ -5281,6 +5376,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_OSFILE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L752>`__)
 
    Exit code that means some system file did not exist, could not be opened, or had
    some other kind of error.
@@ -5289,6 +5387,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_CANTCREAT
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L753>`__)
 
    Exit code that means a user specified output file could not be created.
 
@@ -5296,6 +5397,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_IOERR
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L754>`__)
 
    Exit code that means that an error occurred while doing I/O on some file.
 
@@ -5303,6 +5407,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_TEMPFAIL
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L755>`__)
 
    Exit code that means a temporary failure occurred.  This indicates something
    that may not really be an error, such as a network connection that couldn't be
@@ -5312,6 +5419,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_PROTOCOL
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L756>`__)
 
    Exit code that means that a protocol exchange was illegal, invalid, or not
    understood.
@@ -5320,6 +5430,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_NOPERM
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L757>`__)
 
    Exit code that means that there were insufficient permissions to perform the
    operation (but not intended for file system problems).
@@ -5328,6 +5441,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: EX_CONFIG
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L758>`__)
 
    Exit code that means that some kind of configuration error occurred.
 
@@ -5732,8 +5848,6 @@ written in Python, such as a mail server's external command delivery program.
               spawnvp(mode, file, args)
               spawnvpe(mode, file, args, env)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2297>`__)
-
    Execute the program *path* in a new process.
 
    (Note that the :mod:`subprocess` module provides more powerful facilities for
@@ -5816,6 +5930,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: P_WAIT
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L766>`__)
 
    Possible value for the *mode* parameter to the :func:`spawn\* <spawnl>` family of
    functions.  If this is given as *mode*, the :func:`spawn\* <spawnl>` functions will not
@@ -6118,6 +6235,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: WCONTINUED
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L774>`__)
 
    This *options* flag for :func:`waitpid`, :func:`wait3`, :func:`wait4`, and
    :func:`waitid` causes child processes to be reported if they have been
@@ -6127,6 +6247,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: WEXITED
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L568>`__)
 
    This *options* flag for :func:`waitid` causes child processes that have terminated to
    be reported.
@@ -6140,6 +6263,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: WSTOPPED
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L569>`__)
 
    This *options* flag for :func:`waitid` causes child processes that have been stopped
    by the delivery of a signal to be reported.
@@ -6152,6 +6278,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: WUNTRACED
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L775>`__)
 
    This *options* flag for :func:`waitpid`, :func:`wait3`, and :func:`wait4` causes
    child processes to also be reported if they have been stopped but their
@@ -6163,6 +6292,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: WNOHANG
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L773>`__)
 
    This *options* flag causes :func:`waitpid`, :func:`wait3`, :func:`wait4`, and
    :func:`waitid` to return right away if no child process status is available
@@ -6172,6 +6304,9 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. data:: WNOWAIT
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L570>`__)
 
    This *options* flag causes :func:`waitid` to leave the child in a waitable state, so that
    a later :func:`!wait*` call can be used to retrieve the child status information again.
@@ -6353,25 +6488,40 @@ operating system.
 .. _os-scheduling-policy:
 
 .. data:: SCHED_OTHER
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L579>`__)
 
    The default scheduling policy.
 
 .. data:: SCHED_BATCH
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L586>`__)
 
    Scheduling policy for CPU-intensive processes that tries to preserve
    interactivity on the rest of the computer.
 
 .. data:: SCHED_DEADLINE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L591>`__)
 
    Scheduling policy for tasks with deadline constraints.
 
    .. versionadded:: 3.14
 
 .. data:: SCHED_IDLE
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L587>`__)
 
    Scheduling policy for extremely low priority background tasks.
 
 .. data:: SCHED_NORMAL
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L592>`__)
 
    Alias for :data:`SCHED_OTHER`.
 
@@ -6382,14 +6532,23 @@ operating system.
    Scheduling policy for sporadic server programs.
 
 .. data:: SCHED_FIFO
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L580>`__)
 
    A First In First Out scheduling policy.
 
 .. data:: SCHED_RR
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L581>`__)
 
    A round-robin scheduling policy.
 
 .. data:: SCHED_RESET_ON_FORK
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L588>`__)
 
    This flag can be OR'ed with any other scheduling policy. When a process with
    this flag set forks, its child's scheduling policy and priority are reset to
@@ -6539,6 +6698,9 @@ Miscellaneous System Information
 
 
 .. data:: confstr_names
+   :type: dict[str, int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L740>`__)
 
    Dictionary mapping names accepted by :func:`confstr` to the integer values
    defined for those names by the host operating system. This can be used to
@@ -6611,6 +6773,9 @@ Miscellaneous System Information
 
 
 .. data:: sysconf_names
+   :type: dict[str, int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L742>`__)
 
    Dictionary mapping names accepted by :func:`sysconf` to the integer values
    defined for those names by the host operating system. This can be used to
@@ -6629,6 +6794,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: . (dot); in pathnames
 .. data:: curdir
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L74>`__)
 
    The constant string used by the operating system to refer to the current
    directory. This is ``'.'`` for Windows and POSIX. Also available via
@@ -6637,6 +6805,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: ..; in pathnames
 .. data:: pardir
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L75>`__)
 
    The constant string used by the operating system to refer to the parent
    directory. This is ``'..'`` for Windows and POSIX. Also available via
@@ -6646,6 +6817,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 .. index:: single: / (slash); in pathnames
 .. index:: single: \ (backslash); in pathnames (Windows)
 .. data:: sep
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L76>`__)
 
    The character used by the operating system to separate pathname components.
    This is ``'/'`` for POSIX and ``'\\'`` for Windows.  Note that knowing this
@@ -6656,6 +6830,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: / (slash); in pathnames
 .. data:: altsep
+   :type: LiteralString | None
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L77>`__)
 
    An alternative character used by the operating system to separate pathname
    components, or ``None`` if only one separator character exists.  This is set to
@@ -6665,6 +6842,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: . (dot); in pathnames
 .. data:: extsep
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L78>`__)
 
    The character which separates the base filename from the extension; for example,
    the ``'.'`` in :file:`os.py`. Also available via :mod:`os.path`.
@@ -6673,6 +6853,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 .. index:: single: : (colon); path separator (POSIX)
    single: ; (semicolon)
 .. data:: pathsep
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L79>`__)
 
    The character conventionally used by the operating system to separate search
    path components (as in :envvar:`PATH`), such as ``':'`` for POSIX or ``';'`` for
@@ -6680,6 +6863,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 
 .. data:: defpath
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L80>`__)
 
    The default search path used by :func:`exec\*p\* <execl>` and
    :func:`spawn\*p\* <spawnl>` if the environment doesn't have a ``'PATH'``
@@ -6687,6 +6873,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 
 .. data:: linesep
+   :type: Literal['\n', '\r\n']
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L689>`__)
 
    The string used to separate (or, rather, terminate) lines on the current
    platform.  This may be a single character, such as ``'\n'`` for POSIX, or
@@ -6696,6 +6885,9 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 
 .. data:: devnull
+   :type: LiteralString
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/posixpath.pyi#L81>`__)
 
    The file path of the null device. For example: ``'/dev/null'`` for
    POSIX, ``'nul'`` for Windows.  Also available via :mod:`os.path`.
@@ -6794,6 +6986,9 @@ Random numbers
       which is deprecated.
 
 .. data:: GRND_NONBLOCK
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L604>`__)
 
    By  default, when reading from ``/dev/random``, :func:`getrandom` blocks if
    no random bytes are available, and when reading from ``/dev/urandom``, it blocks
@@ -6805,6 +7000,9 @@ Random numbers
    .. versionadded:: 3.6
 
 .. data:: GRND_RANDOM
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L605>`__)
 
    If  this  bit  is  set,  then  random bytes are drawn from the
    ``/dev/random`` pool instead of the ``/dev/urandom`` pool.

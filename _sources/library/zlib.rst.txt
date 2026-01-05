@@ -297,7 +297,7 @@ Decompression objects support the following methods and attributes:
 
 
 .. attribute:: Decompress.unused_data
-               Decompress.unused_data
+   :type: bytes
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L66>`__)
 
@@ -308,7 +308,7 @@ Decompression objects support the following methods and attributes:
 
 
 .. attribute:: Decompress.unconsumed_tail
-               Decompress.unconsumed_tail
+   :type: bytes
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L68>`__)
 
@@ -320,7 +320,7 @@ Decompression objects support the following methods and attributes:
 
 
 .. attribute:: Decompress.eof
-               Decompress.eof
+   :type: bool
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L70>`__)
 
@@ -387,11 +387,17 @@ The following constants are available to configure compression and decompression
 behavior:
 
 .. data:: DEFLATED
+   :type: Literal[8]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L22>`__)
 
    The deflate compression method.
 
 
 .. data:: MAX_WBITS
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L25>`__)
 
    The maximum window size, expressed as a power of 2.
    For example, if :const:`!MAX_WBITS` is ``15`` it results in a window size
@@ -399,16 +405,25 @@ behavior:
 
 
 .. data:: DEF_MEM_LEVEL
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L23>`__)
 
    The default memory level for compression objects.
 
 
 .. data:: DEF_BUF_SIZE
+   :type: Literal[16384]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L24>`__)
 
    The default buffer size for decompression operations.
 
 
 .. data:: Z_NO_COMPRESSION
+   :type: Literal[0]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L28>`__)
 
    Compression level ``0``; no compression.
 
@@ -416,37 +431,58 @@ behavior:
 
 
 .. data:: Z_BEST_SPEED
+   :type: Literal[1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L31>`__)
 
    Compression level ``1``; fastest and produces the least compression.
 
 
 .. data:: Z_BEST_COMPRESSION
+   :type: Literal[9]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L30>`__)
 
    Compression level ``9``; slowest and produces the most compression.
 
 
 .. data:: Z_DEFAULT_COMPRESSION
+   :type: Literal[-1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L33>`__)
 
    Default compression level (``-1``); a compromise between speed and
    compression. Currently equivalent to compression level ``6``.
 
 
 .. data:: Z_DEFAULT_STRATEGY
+   :type: Literal[0]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L34>`__)
 
    Default compression strategy, for normal data.
 
 
 .. data:: Z_FILTERED
+   :type: Literal[1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L35>`__)
 
    Compression strategy for data produced by a filter (or predictor).
 
 
 .. data:: Z_HUFFMAN_ONLY
+   :type: Literal[2]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L39>`__)
 
    Compression strategy that forces Huffman coding only.
 
 
 .. data:: Z_RLE
+   :type: Literal[3]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L41>`__)
 
    Compression strategy that limits match distances to one (run-length encoding).
 
@@ -457,6 +493,9 @@ behavior:
 
 
 .. data:: Z_FIXED
+   :type: Literal[4]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L37>`__)
 
    Compression strategy that prevents the use of dynamic Huffman codes.
 
@@ -467,6 +506,9 @@ behavior:
 
 
 .. data:: Z_NO_FLUSH
+   :type: Literal[0]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L40>`__)
 
    Flush mode ``0``. No special flushing behavior.
 
@@ -474,26 +516,41 @@ behavior:
 
 
 .. data:: Z_PARTIAL_FLUSH
+   :type: Literal[1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L29>`__)
 
    Flush mode ``1``. Flush as much output as possible.
 
 
 .. data:: Z_SYNC_FLUSH
+   :type: Literal[2]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L42>`__)
 
    Flush mode ``2``. All output is flushed and the output is aligned to a byte boundary.
 
 
 .. data:: Z_FULL_FLUSH
+   :type: Literal[3]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L38>`__)
 
    Flush mode ``3``. All output is flushed and the compression state is reset.
 
 
 .. data:: Z_FINISH
+   :type: Literal[4]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L36>`__)
 
    Flush mode ``4``. All pending input is processed, no more input is expected.
 
 
 .. data:: Z_BLOCK
+   :type: Literal[5]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L32>`__)
 
    Flush mode ``5``. A deflate block is completed and emitted.
 
@@ -504,6 +561,9 @@ behavior:
 
 
 .. data:: Z_TREES
+   :type: Literal[6]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L43>`__)
 
    Flush mode ``6``, for inflate operations. Instructs inflate to return when
    it gets to the next deflate block boundary.
@@ -519,6 +579,9 @@ the following constants:
 
 
 .. data:: ZLIB_VERSION
+   :type: str
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L26>`__)
 
    The version string of the zlib library that was used for building the module.
    This may be different from the zlib library actually used at runtime, which
@@ -526,6 +589,9 @@ the following constants:
 
 
 .. data:: ZLIB_RUNTIME_VERSION
+   :type: str
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L27>`__)
 
    The version string of the zlib library actually loaded by the interpreter.
 
@@ -533,6 +599,9 @@ the following constants:
 
 
 .. data:: ZLIBNG_VERSION
+   :type: str
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zlib.pyi#L47>`__)
 
    The version string of the zlib-ng library that was used for building the
    module if zlib-ng was used. When present, the :data:`ZLIB_VERSION` and

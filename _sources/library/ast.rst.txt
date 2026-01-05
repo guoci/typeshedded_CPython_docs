@@ -417,8 +417,6 @@ Literals
 .. class:: List(elts, ctx)
            Tuple(elts, ctx)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1180>`__)
-
    A list or tuple. ``elts`` holds a list of nodes representing the elements.
    ``ctx`` is :class:`Store` if the container is an assignment target (i.e.
    ``(x,y)=something``), and :class:`Load` otherwise.
@@ -500,8 +498,6 @@ Variables
 .. class:: Load()
            Store()
            Del()
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1247>`__)
 
    Variable references can be used to load the value of a variable, to assign
    a new value to it, or to delete it. Variable references are given a context
@@ -597,8 +593,6 @@ Expressions
            Not
            Invert
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1270>`__)
-
    Unary operator tokens. :class:`Not` is the ``not`` keyword, :class:`Invert`
    is the ``~`` operator.
 
@@ -643,8 +637,6 @@ Expressions
            BitAnd
            MatMult
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1254>`__)
-
    Binary operator tokens.
 
 
@@ -673,8 +665,6 @@ Expressions
 
 .. class:: And
            Or
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1251>`__)
 
    Boolean operator tokens.
 
@@ -712,8 +702,6 @@ Expressions
            IsNot
            In
            NotIn
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1273>`__)
 
    Comparison operator tokens.
 
@@ -872,8 +860,6 @@ Comprehensions
            SetComp(elt, generators)
            GeneratorExp(elt, generators)
            DictComp(key, value, generators)
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L911>`__)
 
    List and set comprehensions, generator expressions, and dictionary
    comprehensions. ``elt`` (or ``key`` and ``value``) is a single node
@@ -1404,8 +1390,6 @@ Control flow
 
 .. class:: Break
            Continue
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L802>`__)
 
    The ``break`` and ``continue`` statements.
 
@@ -2281,8 +2265,6 @@ Function and class definitions
 .. class:: Yield(value)
            YieldFrom(value)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L983>`__)
-
    A ``yield`` or ``yield from`` expression. Because these are expressions, they
    must be wrapped in an :class:`Expr` node if the value sent back is not used.
 
@@ -2305,8 +2287,6 @@ Function and class definitions
 
 .. class:: Global(names)
            Nonlocal(names)
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L768>`__)
 
    ``global`` and ``nonlocal`` statements. ``names`` is a list of raw strings.
 
@@ -2418,8 +2398,6 @@ Async and await
 
 .. class:: AsyncFor(target, iter, body, orelse, type_comment)
            AsyncWith(items, body, type_comment)
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L501>`__)
 
    ``async for`` loops and ``async with`` context managers. They have the same
    fields as :class:`For` and :class:`With`, respectively. Only valid in the
@@ -2803,6 +2781,9 @@ The following flags may be passed to :func:`compile` in order to change
 effects on the compilation of a program:
 
 .. data:: PyCF_ALLOW_TOP_LEVEL_AWAIT
+   :type: Literal[8192]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ast.pyi#L140>`__)
 
    Enables support for top-level ``await``, ``async for``, ``async with``
    and async comprehensions.
@@ -2810,11 +2791,17 @@ effects on the compilation of a program:
    .. versionadded:: 3.8
 
 .. data:: PyCF_ONLY_AST
+   :type: Literal[1024]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ast.pyi#L141>`__)
 
    Generates and returns an abstract syntax tree instead of returning a
    compiled code object.
 
 .. data:: PyCF_OPTIMIZED_AST
+   :type: Literal[33792]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ast.pyi#L145>`__)
 
    The returned AST is optimized according to the *optimize* argument
    in :func:`compile` or :func:`ast.parse`.
@@ -2822,6 +2809,9 @@ effects on the compilation of a program:
    .. versionadded:: 3.13
 
 .. data:: PyCF_TYPE_COMMENTS
+   :type: Literal[4096]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ast.pyi#L142>`__)
 
    Enables support for :pep:`484` and :pep:`526` style type comments
    (``# type: <type>``, ``# type: ignore <stuff>``).

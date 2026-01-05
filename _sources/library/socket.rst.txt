@@ -389,6 +389,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    depending on the system.
 
 .. data:: AF_UNSPEC
+   :type: Literal[AddressFamily.AF_UNSPEC]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socket.pyi#L1133>`__)
 
    :const:`AF_UNSPEC` means that
    :func:`getaddrinfo` should return socket addresses for any
@@ -531,6 +534,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    .. versionadded:: 3.4
 
 .. data:: CAN_RAW_FD_FRAMES
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L442>`__)
 
    Enables CAN FD support in a CAN_RAW socket. This is disabled by default.
    This allows your application to send both CAN and CAN FD frames; however,
@@ -543,6 +549,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    .. versionadded:: 3.5
 
 .. data:: CAN_RAW_JOIN_FILTERS
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L444>`__)
 
    Joins the applied CAN filters such that only CAN frames that match all
    given CAN filters are passed to user space.
@@ -554,6 +563,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    .. versionadded:: 3.9
 
 .. data:: CAN_ISOTP
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L446>`__)
 
    CAN_ISOTP, in the CAN protocol family, is the ISO-TP (ISO 15765-2) protocol.
    ISO-TP constants, documented in the Linux documentation.
@@ -563,6 +575,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    .. versionadded:: 3.7
 
 .. data:: CAN_J1939
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L448>`__)
 
    CAN_J1939, in the CAN protocol family, is the SAE J1939 protocol.
    J1939 constants, documented in the Linux documentation.
@@ -594,6 +609,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
 
 
 .. data:: ETH_P_ALL
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L495>`__)
 
    :data:`!ETH_P_ALL` can be used in the :class:`~socket.socket`
    constructor as *proto* for the :const:`AF_PACKET` family in order to
@@ -665,6 +683,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
   .. versionadded:: 3.4
 
 .. data:: has_ipv6
+   :type: bool
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L594>`__)
 
    This constant contains a boolean value which indicates if IPv6 is supported on
    this platform.
@@ -762,6 +783,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    .. versionadded:: 3.14
 
 .. data:: AF_QIPCRTR
+   :type: Literal[AddressFamily.AF_QIPCRTR]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socket.pyi#L1170>`__)
 
    Constant for Qualcomm's IPC router protocol, used to communicate with
    service providing remote processors.
@@ -784,6 +808,9 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    .. availability:: FreeBSD.
 
 .. data:: SO_INCOMING_CPU
+   :type: int
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L615>`__)
 
    Constant to optimize CPU locality, to be used in conjunction with
    :data:`SO_REUSEPORT`.
@@ -1053,6 +1080,9 @@ The following functions all create :ref:`socket objects <socket-objects>`.
 
 
 .. data:: SocketType
+   :type: (self: socket, family: int = ..., type: int = ..., proto: int = ..., fileno: SupportsIndex | None = None) -> None
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L1157>`__)
 
    This is a Python type object that represents the socket object type. It is the
    same as ``type(socket(...))``.
@@ -2375,7 +2405,7 @@ values given to the :class:`~socket.socket` constructor.
 
 
 .. attribute:: socket.family
-               socket.family() -> AddressFamily
+   :type: family(self: socket) -> AddressFamily
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socket.pyi#L1375>`__)
 
@@ -2383,7 +2413,7 @@ values given to the :class:`~socket.socket` constructor.
 
 
 .. attribute:: socket.type
-               socket.type() -> SocketKind
+   :type: type(self: socket) -> SocketKind
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socket.pyi#L1382>`__)
 
@@ -2391,7 +2421,7 @@ values given to the :class:`~socket.socket` constructor.
 
 
 .. attribute:: socket.proto
-               socket.proto() -> int
+   :type: proto(self: socket) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_socket.pyi#L797>`__)
 

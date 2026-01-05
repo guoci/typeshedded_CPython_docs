@@ -702,7 +702,7 @@ which provides resolution of 100 nanoseconds. If <em>secs</em> is zero, <code cl
 <p>To voluntarily relinquish the CPU, specify a real-time <a class="reference internal" href="os.html#os-scheduling-policy"><span class="std std-ref">scheduling
 policy</span></a> and use <a class="reference internal" href="os.html#os.sched_yield" title="os.sched_yield"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.sched_yield()</span></code></a> instead.</p>
 </div>
-<p class="audit-hook" id="audit_event_time_sleep_9">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">time.sleep</span></code> with argument <code class="docutils literal notranslate"><span class="pre">secs</span></code>.</p>
+<p class="audit-hook" id="audit_event_time_sleep_15">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">time.sleep</span></code> with argument <code class="docutils literal notranslate"><span class="pre">secs</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>The function now sleeps at least <em>secs</em> even if the sleep is interrupted
 by a signal, except if the signal handler raises an exception (see
@@ -1275,8 +1275,9 @@ the systems ‘zoneinfo’ timezone database, usually located at
 <a class="reference internal" href="#time.clock_gettime" title="time.clock_gettime"><code class="xref py py-func docutils literal notranslate"><span class="pre">clock_gettime()</span></code></a>.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_BOOTTIME">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_BOOTTIME</span></span><a class="headerlink" href="#time.CLOCK_BOOTTIME" title="Link to this definition">¶</a></dt>
-<dd><p>Identical to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_MONOTONIC</span></code></a>, except it also includes any time that
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_BOOTTIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_BOOTTIME" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L39">typeshed</a>)</p>
+<p>Identical to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_MONOTONIC</span></code></a>, except it also includes any time that
 the system is suspended.</p>
 <p>This allows applications to get a suspend-aware monotonic  clock  without
 having to deal with the complications of <a class="reference internal" href="#time.CLOCK_REALTIME" title="time.CLOCK_REALTIME"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_REALTIME</span></code></a>, which may
@@ -1306,8 +1307,9 @@ hardware source, and may give close to nanosecond resolution.
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_MONOTONIC">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_MONOTONIC</span></span><a class="headerlink" href="#time.CLOCK_MONOTONIC" title="Link to this definition">¶</a></dt>
-<dd><p>Clock that cannot be set and represents monotonic time since some unspecified
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_MONOTONIC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_MONOTONIC" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L45">typeshed</a>)</p>
+<p>Clock that cannot be set and represents monotonic time since some unspecified
 starting point.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
@@ -1319,8 +1321,9 @@ starting point.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_MONOTONIC_RAW">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_MONOTONIC_RAW</span></span><a class="headerlink" href="#time.CLOCK_MONOTONIC_RAW" title="Link to this definition">¶</a></dt>
-<dd><p>Similar to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_MONOTONIC</span></code></a>, but provides access to a raw
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_MONOTONIC_RAW</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_MONOTONIC_RAW" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L46">typeshed</a>)</p>
+<p>Similar to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_MONOTONIC</span></code></a>, but provides access to a raw
 hardware-based time that is not subject to NTP adjustments.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux &gt;= 2.6.28, macOS &gt;= 10.12.</p>
@@ -1345,8 +1348,9 @@ the system at context switch and hence has less accuracy.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_PROCESS_CPUTIME_ID">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_PROCESS_CPUTIME_ID</span></span><a class="headerlink" href="#time.CLOCK_PROCESS_CPUTIME_ID" title="Link to this definition">¶</a></dt>
-<dd><p>High-resolution per-process timer from the CPU.</p>
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_PROCESS_CPUTIME_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_PROCESS_CPUTIME_ID" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L47">typeshed</a>)</p>
+<p>High-resolution per-process timer from the CPU.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </div>
@@ -1369,8 +1373,9 @@ the system at context switch and hence has less accuracy.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_TAI">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_TAI</span></span><a class="headerlink" href="#time.CLOCK_TAI" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://www.nist.gov/pml/time-and-frequency-division/how-utcnist-related-coordinated-universal-time-utc-international">International Atomic Time</a></p>
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_TAI</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_TAI" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L60">typeshed</a>)</p>
+<p><a class="reference external" href="https://www.nist.gov/pml/time-and-frequency-division/how-utcnist-related-coordinated-universal-time-utc-international">International Atomic Time</a></p>
 <p>The system must have a current leap second table in order for this to give
 the correct answer.  PTP or NTP software can maintain a leap second table.</p>
 <div class="availability docutils container">
@@ -1383,8 +1388,9 @@ the correct answer.  PTP or NTP software can maintain a leap second table.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_THREAD_CPUTIME_ID">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_THREAD_CPUTIME_ID</span></span><a class="headerlink" href="#time.CLOCK_THREAD_CPUTIME_ID" title="Link to this definition">¶</a></dt>
-<dd><p>Thread-specific CPU-time clock.</p>
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_THREAD_CPUTIME_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_THREAD_CPUTIME_ID" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L49">typeshed</a>)</p>
+<p>Thread-specific CPU-time clock.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </div>
@@ -1438,8 +1444,9 @@ at context switches and therefore has less accuracy.</p>
 <a class="reference internal" href="#time.clock_settime" title="time.clock_settime"><code class="xref py py-func docutils literal notranslate"><span class="pre">clock_settime()</span></code></a>.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_REALTIME">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_REALTIME</span></span><a class="headerlink" href="#time.CLOCK_REALTIME" title="Link to this definition">¶</a></dt>
-<dd><p>Real-time clock.  Setting this clock requires appropriate privileges.
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_REALTIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_REALTIME" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L48">typeshed</a>)</p>
+<p>Real-time clock.  Setting this clock requires appropriate privileges.
 The clock is the same for all processes.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
@@ -1454,29 +1461,33 @@ The clock is the same for all processes.</p>
 <span id="time-timezone-constants"></span><h2>Timezone Constants<a class="headerlink" href="#timezone-constants" title="Link to this heading">¶</a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.altzone">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">altzone</span></span><a class="headerlink" href="#time.altzone" title="Link to this definition">¶</a></dt>
-<dd><p>The offset of the local DST timezone, in seconds west of UTC, if one is defined.
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">altzone</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.altzone" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L33">typeshed</a>)</p>
+<p>The offset of the local DST timezone, in seconds west of UTC, if one is defined.
 This is negative if the local DST timezone is east of UTC (as in Western Europe,
 including the UK).  Only use this if <code class="docutils literal notranslate"><span class="pre">daylight</span></code> is nonzero.  See note below.</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.daylight">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">daylight</span></span><a class="headerlink" href="#time.daylight" title="Link to this definition">¶</a></dt>
-<dd><p>Nonzero if a DST timezone is defined.  See note below.</p>
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">daylight</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.daylight" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L34">typeshed</a>)</p>
+<p>Nonzero if a DST timezone is defined.  See note below.</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.timezone">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">timezone</span></span><a class="headerlink" href="#time.timezone" title="Link to this definition">¶</a></dt>
-<dd><p>The offset of the local (non-DST) timezone, in seconds west of UTC (negative in
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">timezone</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.timezone" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L35">typeshed</a>)</p>
+<p>The offset of the local (non-DST) timezone, in seconds west of UTC (negative in
 most of Western Europe, positive in the US, zero in the UK).  See note below.</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.tzname">
-<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">tzname</span></span><a class="headerlink" href="#time.tzname" title="Link to this definition">¶</a></dt>
-<dd><p>A tuple of two strings: the first is the name of the local non-DST timezone, the
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">tzname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#time.tzname" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/time.pyi#L36">typeshed</a>)</p>
+<p>A tuple of two strings: the first is the name of the local non-DST timezone, the
 second is the name of the local DST timezone.  If no DST timezone is defined,
 the second string should not be used.  See note below.</p>
 </dd></dl>
@@ -1640,7 +1651,7 @@ with <span class="target" id="index-23"></span><a class="rfc reference external"
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br>
     <br>
-      Last updated on Jan 02, 2026 (20:10 UTC).
+      Last updated on Jan 05, 2026 (14:34 UTC).
     
       <a href="/bugs.html">Found a bug</a>?
     

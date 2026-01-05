@@ -52,6 +52,9 @@ Readline library in general.
   unusable.
 
 .. data:: backend
+   :type: Literal['editline', 'readline']
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/readline.pyi#L143>`__)
 
    The name of the underlying Readline library being used, either
    ``"readline"`` or ``"editline"``.
@@ -178,8 +181,6 @@ The following functions operate on a history file:
 
 .. function:: get_history_length()
               set_history_length(length)
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/readline.pyi#L53>`__)
 
    Set or return the desired number of lines to save in the history file.
    The :func:`write_history_file` function uses this value to truncate
@@ -361,8 +362,6 @@ with a custom completer, a different set of word delimiters should be set.
 .. function:: get_begidx()
               get_endidx()
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/readline.pyi#L120>`__)
-
    Get the beginning or ending index of the completion scope.
    These indexes are the *start* and *end* arguments passed to the
    :c:data:`!rl_attempted_completion_function` callback of the
@@ -373,8 +372,6 @@ with a custom completer, a different set of word delimiters should be set.
 
 .. function:: set_completer_delims(string)
               get_completer_delims()
-
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/readline.pyi#L126>`__)
 
    Set or get the word delimiters for completion.  These determine the
    start of the word to be considered for completion (the completion scope).

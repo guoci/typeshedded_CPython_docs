@@ -1152,7 +1152,7 @@ relevant to a particular option, or fail to pass a required option attribute,
 :mod:`optparse` raises :exc:`OptionError`.
 
 .. attribute:: Option.action
-               Option.action
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L122>`__)
 
@@ -1163,7 +1163,7 @@ relevant to a particular option, or fail to pass a required option attribute,
    <optparse-standard-option-actions>`.
 
 .. attribute:: Option.type
-               Option.type
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L123>`__)
 
@@ -1174,7 +1174,7 @@ relevant to a particular option, or fail to pass a required option attribute,
    <optparse-standard-option-types>`.
 
 .. attribute:: Option.dest
-               Option.dest
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L124>`__)
 
@@ -1186,7 +1186,7 @@ relevant to a particular option, or fail to pass a required option attribute,
    the command line.
 
 .. attribute:: Option.default
-               Option.default
+   :type: typing.Any
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L125>`__)
 
@@ -1194,7 +1194,7 @@ relevant to a particular option, or fail to pass a required option attribute,
    the command line.  See also :meth:`OptionParser.set_defaults`.
 
 .. attribute:: Option.nargs
-               Option.nargs
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L126>`__)
 
@@ -1205,14 +1205,14 @@ relevant to a particular option, or fail to pass a required option attribute,
    :attr:`~Option.dest`.
 
 .. attribute:: Option.const
-               Option.const
+   :type: typing.Any | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L127>`__)
 
    For actions that store a constant value, the constant value to store.
 
 .. attribute:: Option.choices
-               Option.choices[str] | tuple[str, ...] | None
+   :type: list[str] | tuple[str, ...] | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L128>`__)
 
@@ -1220,7 +1220,7 @@ relevant to a particular option, or fail to pass a required option attribute,
    from.
 
 .. attribute:: Option.callback
-               Option.callback((...) -> object) | None
+   :type: ((...) -> object) | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L131>`__)
 
@@ -1231,13 +1231,11 @@ relevant to a particular option, or fail to pass a required option attribute,
 .. attribute:: Option.callback_args
                Option.callback_kwargs
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L132>`__)
-
    Additional positional and keyword arguments to pass to ``callback`` after the
    four standard callback arguments.
 
 .. attribute:: Option.help
-               Option.help
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L134>`__)
 
@@ -1247,7 +1245,7 @@ relevant to a particular option, or fail to pass a required option attribute,
    hide this option, use the special value :const:`optparse.SUPPRESS_HELP`.
 
 .. attribute:: Option.metavar
-               Option.metavar
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L135>`__)
 
@@ -2075,7 +2073,7 @@ To add new types, you need to define your own subclass of :mod:`optparse`'s
 :mod:`optparse`'s types: :attr:`~Option.TYPES` and :attr:`~Option.TYPE_CHECKER`.
 
 .. attribute:: Option.TYPES
-               Option.TYPES[str, ...]
+   :type: tuple[str, ...]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L118>`__)
 
@@ -2083,7 +2081,7 @@ To add new types, you need to define your own subclass of :mod:`optparse`'s
    :attr:`TYPES` that builds on the standard one.
 
 .. attribute:: Option.TYPE_CHECKER
-               Option.TYPE_CHECKER[str, (Option, str, str) -> object]
+   :type: dict[str, (Option, str, str) -> object]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L119>`__)
 
@@ -2180,28 +2178,28 @@ When you add an action, you need to categorize it by listing it in at least one
 of the following class attributes of Option (all are lists of strings):
 
 .. attribute:: Option.ACTIONS
-               Option.ACTIONS[str, ...]
+   :type: tuple[str, ...]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L111>`__)
 
    All actions must be listed in ACTIONS.
 
 .. attribute:: Option.STORE_ACTIONS
-               Option.STORE_ACTIONS[str, ...]
+   :type: tuple[str, ...]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L116>`__)
 
    "store" actions are additionally listed here.
 
 .. attribute:: Option.TYPED_ACTIONS
-               Option.TYPED_ACTIONS[str, ...]
+   :type: tuple[str, ...]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L117>`__)
 
    "typed" actions are additionally listed here.
 
 .. attribute:: Option.ALWAYS_TYPED_ACTIONS
-               Option.ALWAYS_TYPED_ACTIONS[str, ...]
+   :type: tuple[str, ...]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/optparse.pyi#L112>`__)
 

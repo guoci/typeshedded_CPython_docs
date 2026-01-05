@@ -1374,8 +1374,11 @@ the library to load.
 
 
 .. data:: find_library(name)
+   :type: find_library(name: str) -> str | None
    :module: ctypes.util
    :noindex:
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/util.pyi#L3>`__)
 
    Try to find a library and return a pathname.  *name* is the library name without
    any prefix like *lib*, suffix like ``.so``, ``.dylib`` or version number (this
@@ -1584,21 +1587,30 @@ correct library and dependencies are loaded.
 
 
 .. data:: RTLD_GLOBAL
+   :type: int
    :noindex:
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L20>`__)
 
    Flag to use as *mode* parameter.  On platforms where this flag is not available,
    it is defined as the integer zero.
 
 
 .. data:: RTLD_LOCAL
+   :type: int
    :noindex:
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L21>`__)
 
    Flag to use as *mode* parameter.  On platforms where this is not available, it
    is the same as *RTLD_GLOBAL*.
 
 
 .. data:: DEFAULT_MODE
+   :type: int
    :noindex:
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L58>`__)
 
    The default mode which is used to load shared libraries.  On OSX 10.3, this is
    *RTLD_GLOBAL*, otherwise it is the same as *RTLD_LOCAL*.
@@ -1621,7 +1633,7 @@ underscore to not clash with exported function names:
 
 
 .. attribute:: PyDLL._handle
-               PyDLL._handle
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L83>`__)
 
@@ -1629,7 +1641,7 @@ underscore to not clash with exported function names:
 
 
 .. attribute:: PyDLL._name
-               PyDLL._name
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L82>`__)
 
@@ -1662,7 +1674,10 @@ attribute of the loader instance.
 These prefabricated library loaders are available:
 
 .. data:: cdll
+   :type: LibraryLoader[CDLL]
    :noindex:
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L116>`__)
 
    Creates :class:`CDLL` instances.
 
@@ -1684,7 +1699,10 @@ These prefabricated library loaders are available:
 
 
 .. data:: pydll
+   :type: LibraryLoader[PyDLL]
    :noindex:
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L120>`__)
 
    Creates :class:`PyDLL` instances.
 
@@ -1693,7 +1711,10 @@ For accessing the C Python api directly, a ready-to-use Python shared library
 object is available:
 
 .. data:: pythonapi
+   :type: PyDLL
    :noindex:
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L121>`__)
 
    An instance of :class:`PyDLL` that exposes Python C API functions as
    attributes.  Note that all these functions are assumed to return C

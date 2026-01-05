@@ -138,17 +138,26 @@ The module defines the following items:
 
 
 .. data:: ZIP_STORED
+   :type: Literal[0]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L404>`__)
 
    The numeric constant for an uncompressed archive member.
 
 
 .. data:: ZIP_DEFLATED
+   :type: Literal[8]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L405>`__)
 
    The numeric constant for the usual ZIP compression method.  This requires the
    :mod:`zlib` module.
 
 
 .. data:: ZIP_BZIP2
+   :type: Literal[12]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L406>`__)
 
    The numeric constant for the BZIP2 compression method.  This requires the
    :mod:`bz2` module.
@@ -156,6 +165,9 @@ The module defines the following items:
    .. versionadded:: 3.3
 
 .. data:: ZIP_LZMA
+   :type: Literal[14]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L407>`__)
 
    The numeric constant for the LZMA compression method.  This requires the
    :mod:`lzma` module.
@@ -163,6 +175,9 @@ The module defines the following items:
    .. versionadded:: 3.3
 
 .. data:: ZIP_ZSTANDARD
+   :type: Literal[93]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L409>`__)
 
    The numeric constant for Zstandard compression. This requires the
    :mod:`compression.zstd` module.
@@ -618,14 +633,14 @@ ZipFile objects
 The following data attributes are also available:
 
 .. attribute:: ZipFile.filename
-               ZipFile.filename
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L122>`__)
 
    Name of the ZIP file.
 
 .. attribute:: ZipFile.debug
-               ZipFile.debug
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L123>`__)
 
@@ -634,7 +649,7 @@ The following data attributes are also available:
    ``sys.stdout``.
 
 .. attribute:: ZipFile.comment
-               ZipFile.comment
+   :type: bytes
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L124>`__)
 
@@ -677,7 +692,7 @@ objects:
 Path objects are traversable using the ``/`` operator or ``joinpath``.
 
 .. attribute:: Path.name
-               Path.name() -> str
+   :type: name(self: Path) -> str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/_path/__init__.pyi#L37>`__)
 
@@ -750,6 +765,9 @@ Path objects are traversable using the ``/`` operator or ``joinpath``.
    directory in the zip file.
 
 .. data:: Path.suffix
+   :type: suffix(self: Path) -> str
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/_path/__init__.pyi#L43>`__)
 
    The last dot-separated portion of the final component, if any.
    This is commonly called the file extension.
@@ -758,6 +776,9 @@ Path objects are traversable using the ``/`` operator or ``joinpath``.
       Added :data:`Path.suffix` property.
 
 .. data:: Path.stem
+   :type: stem(self: Path) -> str
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/_path/__init__.pyi#L47>`__)
 
    The final path component, without its suffix.
 
@@ -765,6 +786,9 @@ Path objects are traversable using the ``/`` operator or ``joinpath``.
       Added :data:`Path.stem` property.
 
 .. data:: Path.suffixes
+   :type: suffixes(self: Path) -> list[str]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/_path/__init__.pyi#L45>`__)
 
    A list of the path’s suffixes, commonly called file extensions.
 
@@ -952,7 +976,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.filename
-               ZipInfo.filename
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L298>`__)
 
@@ -960,7 +984,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.date_time
-               ZipInfo.date_time[int, int, int, int, int, int]
+   :type: tuple[int, int, int, int, int, int]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L299>`__)
 
@@ -1000,7 +1024,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.compress_type
-               ZipInfo.compress_type
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L300>`__)
 
@@ -1008,7 +1032,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.comment
-               ZipInfo.comment
+   :type: bytes
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L301>`__)
 
@@ -1016,7 +1040,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.extra
-               ZipInfo.extra
+   :type: bytes
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L302>`__)
 
@@ -1026,7 +1050,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.create_system
-               ZipInfo.create_system
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L303>`__)
 
@@ -1034,7 +1058,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.create_version
-               ZipInfo.create_version
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L304>`__)
 
@@ -1042,7 +1066,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.extract_version
-               ZipInfo.extract_version
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L305>`__)
 
@@ -1050,7 +1074,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.reserved
-               ZipInfo.reserved
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L306>`__)
 
@@ -1058,7 +1082,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.flag_bits
-               ZipInfo.flag_bits
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L307>`__)
 
@@ -1066,7 +1090,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.volume
-               ZipInfo.volume
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L308>`__)
 
@@ -1074,7 +1098,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.internal_attr
-               ZipInfo.internal_attr
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L309>`__)
 
@@ -1082,7 +1106,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.external_attr
-               ZipInfo.external_attr
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L310>`__)
 
@@ -1090,7 +1114,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.header_offset
-               ZipInfo.header_offset
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L311>`__)
 
@@ -1098,7 +1122,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.CRC
-               ZipInfo.CRC
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L312>`__)
 
@@ -1106,7 +1130,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.compress_size
-               ZipInfo.compress_size
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L313>`__)
 
@@ -1114,7 +1138,7 @@ Instances have the following methods and attributes:
 
 
 .. attribute:: ZipInfo.file_size
-               ZipInfo.file_size
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L314>`__)
 

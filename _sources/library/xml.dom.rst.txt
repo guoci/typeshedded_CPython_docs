@@ -116,6 +116,9 @@ Some convenience constants are also provided:
 
 
 .. data:: EMPTY_NAMESPACE
+   :type: None
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/__init__.pyi#L100>`__)
 
    The value used to indicate that no namespace is associated with a node in the
    DOM.  This is typically found as the :attr:`namespaceURI` of a node, or used as
@@ -123,12 +126,18 @@ Some convenience constants are also provided:
 
 
 .. data:: XML_NAMESPACE
+   :type: Literal['http://www.w3.org/XML/1998/namespace']
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/__init__.pyi#L97>`__)
 
    The namespace URI associated with the reserved prefix ``xml``, as defined by
    `Namespaces in XML <https://www.w3.org/TR/REC-xml-names/>`_ (section 4).
 
 
 .. data:: XMLNS_NAMESPACE
+   :type: Literal['http://www.w3.org/2000/xmlns/']
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/__init__.pyi#L98>`__)
 
    The namespace URI for namespace declarations, as defined by `Document Object
    Model (DOM) Level 2 Core Specification
@@ -136,6 +145,9 @@ Some convenience constants are also provided:
 
 
 .. data:: XHTML_NAMESPACE
+   :type: Literal['http://www.w3.org/1999/xhtml']
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/__init__.pyi#L99>`__)
 
    The URI of the XHTML namespace as defined by `XHTML 1.0: The Extensible
    HyperText Markup Language <https://www.w3.org/TR/xhtml1/>`_ (section 3.1.1).
@@ -255,6 +267,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.nodeType
+   :type: Literal[1]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L314>`__)
 
@@ -267,7 +280,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.parentNode
-               Node.parentNode
+   :type: Document | DocumentFragment | Element | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L322>`__)
 
@@ -279,7 +292,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.attributes
-               Node.attributes
+   :type: NamedNodeMap
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L318>`__)
 
@@ -289,7 +302,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.previousSibling
-               Node.previousSibling
+   :type: CDATASection | Comment | DocumentType | Element | Notation | ProcessingInstruction | Text | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L324>`__)
 
@@ -302,7 +315,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.nextSibling
-               Node.nextSibling
+   :type: CDATASection | Comment | DocumentType | Element | Notation | ProcessingInstruction | Text | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L323>`__)
 
@@ -312,7 +325,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.childNodes
-               Node.childNodes[_ElementChildren]
+   :type: NodeList[_ElementChildren]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L325>`__)
 
@@ -320,7 +333,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.firstChild
-               Node.firstChild
+   :type: CDATASection | Comment | Element | ProcessingInstruction | Text | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L327>`__)
 
@@ -329,7 +342,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.lastChild
-               Node.lastChild
+   :type: CDATASection | Comment | Element | ProcessingInstruction | Text | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L331>`__)
 
@@ -338,7 +351,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.localName
-               Node.localName
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L338>`__)
 
@@ -347,7 +360,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.prefix
-               Node.prefix
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L336>`__)
 
@@ -356,7 +369,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.namespaceURI
-               Node.namespaceURI
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L335>`__)
 
@@ -365,7 +378,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.nodeName
-               Node.nodeName
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L315>`__)
 
@@ -377,7 +390,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.nodeValue
-               Node.nodeValue
+   :type: None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L316>`__)
 
@@ -505,7 +518,7 @@ objects:
 
 
 .. attribute:: NodeList.length
-               NodeList.length
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minicompat.pyi#L13>`__)
 
@@ -542,7 +555,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.publicId
-               DocumentType.publicId
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L549>`__)
 
@@ -551,7 +564,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.systemId
-               DocumentType.systemId
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L550>`__)
 
@@ -560,7 +573,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.internalSubset
-               DocumentType.internalSubset
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L575>`__)
 
@@ -570,7 +583,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.name
-               DocumentType.name
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L574>`__)
 
@@ -579,7 +592,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.entities
-               DocumentType.entities[Entity]
+   :type: ReadOnlySequentialNamedNodeMap[Entity]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L576>`__)
 
@@ -591,7 +604,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.notations
-               DocumentType.notations[Notation]
+   :type: ReadOnlySequentialNamedNodeMap[Notation]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L577>`__)
 
@@ -613,7 +626,7 @@ inherits properties from :class:`Node`.
 
 
 .. attribute:: Document.documentElement
-               Document.documentElement
+   :type: Element | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L698>`__)
 
@@ -722,7 +735,7 @@ of that class.
 
 
 .. attribute:: Element.tagName
-               Element.tagName
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L343>`__)
 
@@ -873,7 +886,7 @@ Attr Objects
 
 
 .. attribute:: Attr.name
-               Attr.name
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L229>`__)
 
@@ -882,7 +895,7 @@ Attr Objects
 
 
 .. attribute:: Attr.localName
-               Attr.localName
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L225>`__)
 
@@ -892,7 +905,7 @@ Attr Objects
 
 
 .. attribute:: Attr.prefix
-               Attr.prefix
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L223>`__)
 
@@ -901,7 +914,7 @@ Attr Objects
 
 
 .. attribute:: Attr.value
-               Attr.value
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L230>`__)
 
@@ -918,7 +931,7 @@ NamedNodeMap Objects
 
 
 .. attribute:: NamedNodeMap.length
-               NamedNodeMap.length
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L260>`__)
 
@@ -949,7 +962,7 @@ Comment Objects
 
 
 .. attribute:: Comment.data
-               Comment.data
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L443>`__)
 
@@ -974,7 +987,7 @@ nodes.
 
 
 .. attribute:: Text.data
-               Text.data
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L480>`__)
 
@@ -999,7 +1012,7 @@ Represents a processing instruction in the XML document; this inherits from the
 
 
 .. attribute:: ProcessingInstruction.target
-               ProcessingInstruction.target
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L422>`__)
 
@@ -1008,7 +1021,7 @@ Represents a processing instruction in the XML document; this inherits from the
 
 
 .. attribute:: ProcessingInstruction.data
-               ProcessingInstruction.data
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/minidom.pyi#L423>`__)
 

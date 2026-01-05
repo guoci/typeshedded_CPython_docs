@@ -360,11 +360,17 @@ An example for :class:`Sniffer` use::
 The :mod:`csv` module defines the following constants:
 
 .. data:: QUOTE_ALL
+   :type: Literal[1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L74>`__)
 
    Instructs :class:`writer` objects to quote all fields.
 
 
 .. data:: QUOTE_MINIMAL
+   :type: Literal[0]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L75>`__)
 
    Instructs :class:`writer` objects to only quote those fields which contain
    special characters such as *delimiter*, *quotechar*, ``'\r'``, ``'\n'``
@@ -372,6 +378,9 @@ The :mod:`csv` module defines the following constants:
 
 
 .. data:: QUOTE_NONNUMERIC
+   :type: Literal[2]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L77>`__)
 
    Instructs :class:`writer` objects to quote all non-numeric fields.
 
@@ -385,6 +394,9 @@ The :mod:`csv` module defines the following constants:
       :data:`QUOTE_STRINGS` modes.
 
 .. data:: QUOTE_NONE
+   :type: Literal[3]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L76>`__)
 
    Instructs :class:`writer` objects to never quote fields.
    When the current *delimiter*, *quotechar*, *escapechar*, ``'\r'``, ``'\n'``
@@ -397,6 +409,9 @@ The :mod:`csv` module defines the following constants:
    Instructs :class:`reader` objects to perform no special processing of quote characters.
 
 .. data:: QUOTE_NOTNULL
+   :type: Literal[5]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L80>`__)
 
    Instructs :class:`writer` objects to quote all fields which are not
    ``None``.  This is similar to :data:`QUOTE_ALL`, except that if a
@@ -408,6 +423,9 @@ The :mod:`csv` module defines the following constants:
    .. versionadded:: 3.12
 
 .. data:: QUOTE_STRINGS
+   :type: Literal[4]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L79>`__)
 
    Instructs :class:`writer` objects to always place quotes around fields
    which are strings.  This is similar to :data:`QUOTE_NONNUMERIC`, except that if a
@@ -447,7 +465,7 @@ Dialects support the following attributes:
 
 
 .. attribute:: Dialect.delimiter
-               Dialect.delimiter
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L62>`__)
 
@@ -455,7 +473,7 @@ Dialects support the following attributes:
 
 
 .. attribute:: Dialect.doublequote
-               Dialect.doublequote
+   :type: bool
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L65>`__)
 
@@ -469,7 +487,7 @@ Dialects support the following attributes:
 
 
 .. attribute:: Dialect.escapechar
-               Dialect.escapechar
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L64>`__)
 
@@ -489,7 +507,7 @@ Dialects support the following attributes:
       An empty *escapechar* is not allowed.
 
 .. attribute:: Dialect.lineterminator
-               Dialect.lineterminator
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L67>`__)
 
@@ -504,7 +522,7 @@ Dialects support the following attributes:
 
 
 .. attribute:: Dialect.quotechar
-               Dialect.quotechar
+   :type: str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L63>`__)
 
@@ -519,6 +537,7 @@ Dialects support the following attributes:
       An empty *quotechar* is not allowed.
 
 .. attribute:: Dialect.quoting
+   :type: Literal[0, 1, 2, 3, 4, 5]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L68>`__)
 
@@ -529,7 +548,7 @@ Dialects support the following attributes:
 
 
 .. attribute:: Dialect.skipinitialspace
-               Dialect.skipinitialspace
+   :type: bool
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L66>`__)
 
@@ -539,7 +558,7 @@ Dialects support the following attributes:
 
 
 .. attribute:: Dialect.strict
-               Dialect.strict
+   :type: bool
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L69>`__)
 
@@ -568,7 +587,7 @@ Reader objects (:class:`DictReader` instances and objects returned by the
 Reader objects have the following public attributes:
 
 .. attribute:: csvreader.dialect
-               csvreader.dialect
+   :type: Dialect
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L130>`__)
 
@@ -576,7 +595,7 @@ Reader objects have the following public attributes:
 
 
 .. attribute:: csvreader.line_num
-               csvreader.line_num
+   :type: int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L131>`__)
 
@@ -587,7 +606,7 @@ Reader objects have the following public attributes:
 DictReader objects have the following public attribute:
 
 .. attribute:: DictReader.fieldnames
-               DictReader.fieldnames
+   :type: Unknown
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/csv.pyi#L77>`__)
 
@@ -634,7 +653,7 @@ Writer objects have the following public attribute:
 
 
 .. attribute:: csvwriter.dialect
-               csvwriter.dialect
+   :type: Dialect
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_csv.pyi#L149>`__)
 

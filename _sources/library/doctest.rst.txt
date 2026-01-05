@@ -589,6 +589,9 @@ doctest decides whether actual output matches an example's expected output:
 
 
 .. data:: DONT_ACCEPT_TRUE_FOR_1
+   :type: Literal[1]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L64>`__)
 
    By default, if an expected output block contains just ``1``, an actual output
    block containing just ``1`` or just ``True`` is considered to be a match, and
@@ -601,6 +604,9 @@ doctest decides whether actual output matches an example's expected output:
 
 .. index:: single: <BLANKLINE>
 .. data:: DONT_ACCEPT_BLANKLINE
+   :type: Literal[2]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L65>`__)
 
    By default, if an expected output block contains a line containing only the
    string ``<BLANKLINE>``, then that line will match a blank line in the actual
@@ -610,6 +616,9 @@ doctest decides whether actual output matches an example's expected output:
 
 
 .. data:: NORMALIZE_WHITESPACE
+   :type: Literal[4]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L66>`__)
 
    When specified, all sequences of whitespace (blanks and newlines) are treated as
    equal.  Any sequence of whitespace within the expected output will match any
@@ -621,6 +630,9 @@ doctest decides whether actual output matches an example's expected output:
 
 .. index:: single: ...; in doctests
 .. data:: ELLIPSIS
+   :type: Literal[8]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L67>`__)
 
    When specified, an ellipsis marker (``...``) in the expected output can match
    any substring in the actual output.  This includes substrings that span line
@@ -630,6 +642,9 @@ doctest decides whether actual output matches an example's expected output:
 
 
 .. data:: IGNORE_EXCEPTION_DETAIL
+   :type: Literal[32]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L69>`__)
 
    When specified, doctests expecting exceptions pass so long as an exception
    of the expected type is raised, even if the details
@@ -667,6 +682,9 @@ doctest decides whether actual output matches an example's expected output:
 
 
 .. data:: SKIP
+   :type: Literal[16]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L68>`__)
 
    When specified, do not run the example at all.  This can be useful in contexts
    where doctest examples serve as both documentation and test cases, and an
@@ -678,6 +696,9 @@ doctest decides whether actual output matches an example's expected output:
 
 
 .. data:: COMPARISON_FLAGS
+   :type: Literal[63]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L71>`__)
 
    A bitmask or'ing together all the comparison flags above.
 
@@ -685,18 +706,27 @@ The second group of options controls how test failures are reported:
 
 
 .. data:: REPORT_UDIFF
+   :type: Literal[64]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L73>`__)
 
    When specified, failures that involve multi-line expected and actual outputs are
    displayed using a unified diff.
 
 
 .. data:: REPORT_CDIFF
+   :type: Literal[128]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L74>`__)
 
    When specified, failures that involve multi-line expected and actual outputs
    will be displayed using a context diff.
 
 
 .. data:: REPORT_NDIFF
+   :type: Literal[256]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L75>`__)
 
    When specified, differences are computed by ``difflib.Differ``, using the same
    algorithm as the popular :file:`ndiff.py` utility. This is the only method that
@@ -706,6 +736,9 @@ The second group of options controls how test failures are reported:
 
 
 .. data:: REPORT_ONLY_FIRST_FAILURE
+   :type: Literal[512]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L76>`__)
 
    When specified, display the first failing example in each doctest, but suppress
    output for all remaining examples.  This will prevent doctest from reporting
@@ -717,6 +750,9 @@ The second group of options controls how test failures are reported:
 
 
 .. data:: FAIL_FAST
+   :type: Literal[1024]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L77>`__)
 
    When specified, exit after the first failing example and don't attempt to run
    the remaining examples. Thus, the number of failures reported will be at most
@@ -725,6 +761,9 @@ The second group of options controls how test failures are reported:
 
 
 .. data:: REPORTING_FLAGS
+   :type: Literal[1984]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L79>`__)
 
    A bitmask or'ing together all the reporting flags above.
 
@@ -1939,7 +1978,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: DocTestFailure.test
-               DocTestFailure.test
+   :type: DocTest
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L168>`__)
 
@@ -1947,7 +1986,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: DocTestFailure.example
-               DocTestFailure.example
+   :type: Example
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L169>`__)
 
@@ -1955,7 +1994,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: DocTestFailure.got
-               DocTestFailure.got
+   :type: str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L170>`__)
 
@@ -1975,7 +2014,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: UnexpectedException.test
-               UnexpectedException.test
+   :type: DocTest
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L174>`__)
 
@@ -1983,7 +2022,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: UnexpectedException.example
-               UnexpectedException.example
+   :type: Example
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L175>`__)
 
@@ -1991,7 +2030,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: UnexpectedException.exc_info
-               UnexpectedException.exc_info[type[BaseException], BaseException, TracebackType]
+   :type: tuple[type[BaseException], BaseException, TracebackType]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/doctest.pyi#L176>`__)
 

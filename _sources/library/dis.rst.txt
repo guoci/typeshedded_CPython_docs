@@ -346,8 +346,6 @@ operation is being performed, so the intermediate analysis object isn't useful:
               disco(code, lasti=-1, *, file=None, show_caches=False, adaptive=False,\
                     show_offsets=False, show_positions=False)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L206>`__)
-
    Disassemble a code object, indicating the last instruction if *lasti* was
    provided.  The output is divided in the following columns:
 
@@ -2040,21 +2038,33 @@ instructions:
    and ``>= MIN_INSTRUMENTED_OPCODE``.
 
 .. data:: opname
+   :type: list[str]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L41>`__)
 
    Sequence of operation names, indexable using the bytecode.
 
 
 .. data:: opmap
+   :type: dict[str, int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L43>`__)
 
    Dictionary mapping operation names to bytecodes.
 
 
 .. data:: cmp_op
+   :type: tuple[Literal['<'], Literal['<='], Literal['=='], Literal['!='], Literal['>'], Literal['>=']]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L26>`__)
 
    Sequence of all compare operation names.
 
 
 .. data:: hasarg
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L35>`__)
 
    Sequence of bytecodes that use their argument.
 
@@ -2062,11 +2072,17 @@ instructions:
 
 
 .. data:: hasconst
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L27>`__)
 
    Sequence of bytecodes that access a constant.
 
 
 .. data:: hasfree
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L33>`__)
 
    Sequence of bytecodes that access a :term:`free (closure) variable <closure variable>`.
    'free' in this context refers to names in the current scope that are
@@ -2075,11 +2091,17 @@ instructions:
 
 
 .. data:: hasname
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L28>`__)
 
    Sequence of bytecodes that access an attribute by name.
 
 
 .. data:: hasjump
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L40>`__)
 
    Sequence of bytecodes that have a jump target. All jumps
    are relative.
@@ -2087,15 +2109,24 @@ instructions:
    .. versionadded:: 3.13
 
 .. data:: haslocal
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L31>`__)
 
    Sequence of bytecodes that access a local variable.
 
 
 .. data:: hascompare
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L32>`__)
 
    Sequence of bytecodes of Boolean operations.
 
 .. data:: hasexc
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L36>`__)
 
    Sequence of bytecodes that set an exception handler.
 
@@ -2103,6 +2134,9 @@ instructions:
 
 
 .. data:: hasjrel
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L29>`__)
 
    Sequence of bytecodes that have a relative jump target.
 
@@ -2111,6 +2145,9 @@ instructions:
 
 
 .. data:: hasjabs
+   :type: list[int]
+
+   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/opcode.pyi#L30>`__)
 
    Sequence of bytecodes that have an absolute jump target.
 
