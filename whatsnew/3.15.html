@@ -1606,7 +1606,7 @@ if the numeric literal is immediately followed by one of keywords
 will be changed to a syntax error. (<a class="reference external" href="https://github.com/python/cpython/issues/87999">gh-87999</a>)</p></li>
 <li><p>Support for <code class="docutils literal notranslate"><span class="pre">__index__()</span></code> and <code class="docutils literal notranslate"><span class="pre">__int__()</span></code> method returning non-int type:
 these methods will be required to return an instance of a strict subclass of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.</p></li>
 <li><p>Support for <code class="docutils literal notranslate"><span class="pre">__float__()</span></code> method returning a strict subclass of
 <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>: these methods will be required to return an instance of
 <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>.</p></li>
@@ -1803,12 +1803,12 @@ functions on Python 3.14 and older.</p>
 Use <a class="reference internal" href="../c-api/codec.html#c.PyCodec_Decode" title="PyCodec_Decode"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCodec_Decode()</span></code></a> instead.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsDecodedUnicode()</span></code>:
 Use <a class="reference internal" href="../c-api/codec.html#c.PyCodec_Decode" title="PyCodec_Decode"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCodec_Decode()</span></code></a> instead; Note that some codecs (for example, “base64”)
-may return a type other than <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, such as <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p></li>
+may return a type other than <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, such as <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsEncodedObject()</span></code>:
 Use <a class="reference internal" href="../c-api/codec.html#c.PyCodec_Encode" title="PyCodec_Encode"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCodec_Encode()</span></code></a> instead.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsEncodedUnicode()</span></code>:
 Use <a class="reference internal" href="../c-api/codec.html#c.PyCodec_Encode" title="PyCodec_Encode"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCodec_Encode()</span></code></a> instead; Note that some codecs (for example, “base64”)
-may return a type other than <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, such as <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+may return a type other than <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, such as <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p></li>
 </ul>
 <p>(Contributed by Stan Ulbrych in <a class="reference external" href="https://github.com/python/cpython/issues/133612">gh-133612</a>.)</p>
 </li>
@@ -1939,7 +1939,7 @@ Passing a negative integer value that corresponded to its old value
 (such as <code class="docutils literal notranslate"><span class="pre">-1</span></code> or <code class="docutils literal notranslate"><span class="pre">-3</span></code>, depending on platform) to
 <a class="reference internal" href="../library/resource.html#resource.setrlimit" title="resource.setrlimit"><code class="xref py py-func docutils literal notranslate"><span class="pre">resource.setrlimit()</span></code></a> and <a class="reference internal" href="../library/resource.html#resource.prlimit" title="resource.prlimit"><code class="xref py py-func docutils literal notranslate"><span class="pre">resource.prlimit()</span></code></a> is now deprecated.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/137044">gh-137044</a>.)</p></li>
-<li><p><a class="reference internal" href="../library/mmap.html#mmap.mmap.resize" title="mmap.mmap.resize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">resize()</span></code></a> has been removed on platforms that don’t support the
+<li><p><a class="reference internal" href="../library/mmap.html#mmap.mmap.resize" title="mmap.mmap.resize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mmap.mmap.resize()</span></code></a> has been removed on platforms that don’t support the
 underlying syscall, instead of raising a <a class="reference internal" href="../library/exceptions.html#SystemError" title="SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a>.</p></li>
 <li><p>A resource warning is now emitted for an unclosed
 <a class="reference internal" href="../library/xml.etree.elementtree.html#xml.etree.ElementTree.iterparse" title="xml.etree.ElementTree.iterparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">xml.etree.ElementTree.iterparse()</span></code></a> iterator if it opened a file.
@@ -2163,7 +2163,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br>
     <br>
-      Last updated on Jan 02, 2026 (18:30 UTC).
+      Last updated on (timestamp removed to reduce diffs).
     
       <a href="/bugs.html">Found a bug</a>?
     
