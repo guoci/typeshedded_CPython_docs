@@ -94,7 +94,7 @@ are always available.  They are listed here in alphabetical order.
 
 .. awaitablefunction:: anext(async_iterator, /)
                        anext(async_iterator, default, /)
-                       anext(i: _SupportsSynchronousAnext[_collections.abc.AwaitableT], /) -> _collections.abc.AwaitableT
+                       anext(i: _SupportsSynchronousAnext[_AwaitableT], /) -> _AwaitableT
                        anext(i: SupportsAnext[_T], default: _VT, /) -> collections.abc.Coroutine[Unknown, Unknown, _T | _VT]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L4126>`__)
@@ -1745,7 +1745,7 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. function:: print(*objects, sep=' ', end='\n', file=None, flush=False)
-              print(*values: object, *, sep: str | None = ' ', end: str | None = '\n', file: SupportsWrite[str] | None = None, flush: Literal[False] = False) -> None
+              print(*values: object, *, sep: str | None = ' ', end: str | None = '\n', file: SupportsWrite[str] | None = None, flush: typing.Literal[False] = False) -> None
               print(*values: object, *, sep: str | None = ' ', end: str | None = '\n', file: _SupportsWriteAndFlush[str] | None = None, flush: bool) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L5795>`__)
@@ -1908,8 +1908,8 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. function:: reversed(object, /)
-              reversed(cls: type[reversed[_T]], sequence: collections.abc.Reversible[_T], /) -> collections.abc.Iterable[_T]
-              reversed(cls: type[reversed[_T]], sequence: SupportsLenAndGetItem[_T], /) -> collections.abc.Iterable[_T]
+              reversed(cls: type[reversed[_T]], sequence: collections.abc.Reversible[_T], /) -> collections.abc.Iterator[_T]
+              reversed(cls: type[reversed[_T]], sequence: SupportsLenAndGetItem[_T], /) -> collections.abc.Iterator[_T]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6000>`__)
 
@@ -2290,7 +2290,7 @@ are always available.  They are listed here in alphabetical order.
 
 .. function:: vars()
               vars(object, /)
-              vars(object: type, /) -> collections.abc.MappingProxyType[str, typing.Any]
+              vars(object: type, /) -> MappingProxyType[str, typing.Any]
               vars(object: typing.Any = ..., /) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6131>`__)

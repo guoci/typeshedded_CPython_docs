@@ -138,7 +138,7 @@ The module defines the following items:
 
 
 .. data:: ZIP_STORED
-   :type: Literal[0]
+   :type: typing.Literal[0]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L404>`__)
 
@@ -146,7 +146,7 @@ The module defines the following items:
 
 
 .. data:: ZIP_DEFLATED
-   :type: Literal[8]
+   :type: typing.Literal[8]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L405>`__)
 
@@ -155,7 +155,7 @@ The module defines the following items:
 
 
 .. data:: ZIP_BZIP2
-   :type: Literal[12]
+   :type: typing.Literal[12]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L406>`__)
 
@@ -165,7 +165,7 @@ The module defines the following items:
    .. versionadded:: 3.3
 
 .. data:: ZIP_LZMA
-   :type: Literal[14]
+   :type: typing.Literal[14]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L407>`__)
 
@@ -175,7 +175,7 @@ The module defines the following items:
    .. versionadded:: 3.3
 
 .. data:: ZIP_ZSTANDARD
-   :type: Literal[93]
+   :type: typing.Literal[93]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L409>`__)
 
@@ -583,7 +583,7 @@ ZipFile objects
 
 .. method:: ZipFile.writestr(zinfo_or_arcname, data, compress_type=None, \
                              compresslevel=None)
-            ZipFile.writestr(zinfo_or_arcname: ZipInfo | str, data: collections.abc.SizedBuffer | str, compress_type: int | None = None, compresslevel: int | None = None) -> None
+            ZipFile.writestr(zinfo_or_arcname: ZipInfo | str, data: SizedBuffer | str, compress_type: int | None = None, compresslevel: int | None = None) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/__init__.pyi#L256>`__)
 
@@ -699,8 +699,8 @@ Path objects are traversable using the ``/`` operator or ``joinpath``.
    The final path component.
 
 .. method:: Path.open(mode='r', *, pwd, **)
-            Path.open(mode: Literal['r', 'w'] = 'r', encoding: str | None = None, errors: str | None = None, newline: str | None = None, line_buffering: bool = ..., write_through: bool = ..., *, pwd: bytes | None = None) -> TextIOWrapper[_WrappedBuffer]
-            Path.open(mode: Literal['rb', 'wb'], *, pwd: bytes | None = None) -> IO[bytes]
+            Path.open(mode: typing.Literal['r', 'w'] = 'r', encoding: str | None = None, errors: str | None = None, newline: str | None = None, line_buffering: bool = ..., write_through: bool = ..., *, pwd: bytes | None = None) -> TextIOWrapper[_WrappedBuffer]
+            Path.open(mode: typing.Literal['rb', 'wb'], *, pwd: bytes | None = None) -> IO[bytes]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/_path/__init__.pyi#L49>`__)
 
@@ -724,7 +724,7 @@ Path objects are traversable using the ``/`` operator or ``joinpath``.
       :class:`io.TextIOWrapper` arguments, ``encoding`` included, as keywords.
 
 .. method:: Path.iterdir()
-            Path.iterdir() -> collections.abc.Iterable[Path]
+            Path.iterdir() -> collections.abc.Iterator[Path]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/_path/__init__.pyi#L62>`__)
 
@@ -745,7 +745,7 @@ Path objects are traversable using the ``/`` operator or ``joinpath``.
    Return ``True`` if the current context references a file.
 
 .. method:: Path.is_symlink()
-            Path.is_symlink() -> Literal[False]
+            Path.is_symlink() -> typing.Literal[False]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipfile/_path/__init__.pyi#L78>`__)
 

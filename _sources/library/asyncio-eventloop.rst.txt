@@ -258,7 +258,7 @@ Scheduling callbacks
 ^^^^^^^^^^^^^^^^^^^^
 
 .. method:: loop.call_soon(callback, *args, context=None)
-            loop.call_soon[_Ts](callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: Context | None = None) -> Handle
+            loop.call_soon[_Ts](callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> Handle
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L147>`__)
 
@@ -278,7 +278,7 @@ Scheduling callbacks
    Unlike :meth:`call_soon_threadsafe`, this method is not thread-safe.
 
 .. method:: loop.call_soon_threadsafe(callback, *args, context=None)
-            loop.call_soon_threadsafe[_Ts](callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: Context | None = None) -> Handle
+            loop.call_soon_threadsafe[_Ts](callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> Handle
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L180>`__)
 
@@ -327,7 +327,7 @@ clocks to track time.
 
 
 .. method:: loop.call_later(delay, callback, *args, context=None)
-            loop.call_later[_Ts](delay: float, callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: Context | None = None) -> TimerHandle
+            loop.call_later[_Ts](delay: float, callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> TimerHandle
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L151>`__)
 
@@ -365,7 +365,7 @@ clocks to track time.
       This has been fixed in Python 3.8.
 
 .. method:: loop.call_at(when, callback, *args, context=None)
-            loop.call_at[_Ts](when: float, callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: Context | None = None) -> TimerHandle
+            loop.call_at[_Ts](when: float, callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> TimerHandle
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L155>`__)
 
@@ -428,7 +428,7 @@ Creating Futures and Tasks
    .. versionadded:: 3.5.2
 
 .. method:: loop.create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
-            loop.create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: Context | None = None) -> Task[_T]
+            loop.create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None) -> Task[_T]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L166>`__)
 
@@ -1724,7 +1724,7 @@ async/await code consider using the high-level
 .. method:: loop.subprocess_exec(protocol_factory, *args, \
              stdin=subprocess.PIPE, stdout=subprocess.PIPE, \
              stderr=subprocess.PIPE, **kwargs)
-            loop.subprocess_exec[_ProtocolT](protocol_factory: () -> _ProtocolT, program: typing.Any, *args: typing.Any, *, stdin: IO[typing.Any] | int | None = -1, stdout: IO[typing.Any] | int | None = -1, stderr: IO[typing.Any] | int | None = -1, universal_newlines: Literal[False] = False, shell: Literal[False] = False, bufsize: Literal[0] = 0, encoding: None = None, errors: None = None, **kwargs: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[SubprocessTransport, _ProtocolT]]
+            loop.subprocess_exec[_ProtocolT](protocol_factory: () -> _ProtocolT, program: typing.Any, *args: typing.Any, *, stdin: IO[typing.Any] | int | None = -1, stdout: IO[typing.Any] | int | None = -1, stderr: IO[typing.Any] | int | None = -1, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[False] = False, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, **kwargs: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[SubprocessTransport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L543>`__)
@@ -1813,7 +1813,7 @@ async/await code consider using the high-level
 .. method:: loop.subprocess_shell(protocol_factory, cmd, *, \
                stdin=subprocess.PIPE, stdout=subprocess.PIPE, \
                stderr=subprocess.PIPE, **kwargs)
-            loop.subprocess_shell[_ProtocolT](protocol_factory: () -> _ProtocolT, cmd: bytes | str, *, stdin: IO[typing.Any] | int | None = -1, stdout: IO[typing.Any] | int | None = -1, stderr: IO[typing.Any] | int | None = -1, universal_newlines: Literal[False] = False, shell: Literal[True] = True, bufsize: Literal[0] = 0, encoding: None = None, errors: None = None, text: Literal[False] | None = None, **kwargs: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[SubprocessTransport, _ProtocolT]]
+            loop.subprocess_shell[_ProtocolT](protocol_factory: () -> _ProtocolT, cmd: bytes | str, *, stdin: IO[typing.Any] | int | None = -1, stdout: IO[typing.Any] | int | None = -1, stderr: IO[typing.Any] | int | None = -1, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[True] = True, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, **kwargs: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[SubprocessTransport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L526>`__)
@@ -1852,7 +1852,7 @@ Callback Handles
 ================
 
 .. class:: Handle
-           Handle(callback: (...) -> object, args: collections.abc.Sequence[typing.Any], loop: AbstractEventLoop, context: Context | None = None) -> None
+           Handle(callback: (...) -> object, args: collections.abc.Sequence[typing.Any], loop: AbstractEventLoop, context: contextvars.Context | None = None) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L75>`__)
 
@@ -1878,7 +1878,7 @@ Callback Handles
       .. versionadded:: 3.7
 
 .. class:: TimerHandle
-           TimerHandle(when: float, callback: (...) -> object, args: collections.abc.Sequence[typing.Any], loop: AbstractEventLoop, context: Context | None = None) -> None
+           TimerHandle(when: float, callback: (...) -> object, args: collections.abc.Sequence[typing.Any], loop: AbstractEventLoop, context: contextvars.Context | None = None) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L88>`__)
 

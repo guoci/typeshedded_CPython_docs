@@ -20,7 +20,7 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=8cd84f99" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
     <script src="../_static/documentation_options.js?v=3375014b"></script>
@@ -664,6 +664,16 @@ package is not installed in the current Python environment.</p>
 <p>Note: different <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code> instances do not currently compare
 equal, even if they relate to the same installed distribution and
 accordingly have the same attributes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="importlib.metadata.Distribution.discover">
+<span class="sig-name descname"><span class="pre">discover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.Distribution.discover" title="Link to this definition">¶</a></dt>
+<dd><p>Returns an iterable of <a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a> instances for all packages.</p>
+<p>The optional argument <em>context</em> is a <a class="reference internal" href="#importlib.metadata.DistributionFinder.Context" title="importlib.metadata.DistributionFinder.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code></a>
+instance, used to modify the search for distributions. Alternatively,
+<em>kwargs</em> may contain keyword arguments for constructing a new
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code>.</p>
+</dd></dl>
+
 </dd></dl>
 
 <p>While the module level API described above is the most common and convenient usage,
@@ -713,9 +723,92 @@ This metadata finder search defaults to <code class="docutils literal notranslat
 <li><p><code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> does not honor <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> objects on <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> will incidentally honor <a class="reference internal" href="pathlib.html#pathlib.Path" title="pathlib.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a> objects on <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> even though such values will be ignored for imports.</p></li>
 </ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="importlib.metadata.DistributionFinder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">DistributionFinder</span></span><a class="headerlink" href="#importlib.metadata.DistributionFinder" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">DistributionFinder</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/metadata/__init__.pyi#L290">typeshed</a>)</p>
+<p>A <a class="reference internal" href="importlib.html#importlib.abc.MetaPathFinder" title="importlib.abc.MetaPathFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetaPathFinder</span></code></a> subclass capable of discovering
+installed distributions.</p>
+<p>Custom providers should implement this interface in order to
+supply metadata.</p>
+<blockquote>
+<div><dl class="py class">
+<dt class="sig sig-object py" id="importlib.metadata.DistributionFinder.Context">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.DistributionFinder.Context" title="Link to this definition">¶</a></dt>
+<dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code> gives a custom provider a means to
+solicit additional details from the callers of distribution discovery
+functions like <a class="reference internal" href="#importlib.metadata.distributions" title="importlib.metadata.distributions"><code class="xref py py-func docutils literal notranslate"><span class="pre">distributions()</span></code></a> or <a class="reference internal" href="#importlib.metadata.Distribution.discover" title="importlib.metadata.Distribution.discover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Distribution.discover()</span></code></a>
+beyond <code class="xref py py-attr docutils literal notranslate"><span class="pre">.name</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">.path</span></code> when searching
+for distributions.</p>
+<p>For example, a provider could expose suites of packages in either a
+“public” or “private” <code class="docutils literal notranslate"><span class="pre">realm</span></code>. A caller of distribution discovery
+functions may wish to query only for distributions in a particular realm
+and could call <code class="docutils literal notranslate"><span class="pre">distributions(realm=&quot;private&quot;)</span></code> to signal to the
+custom provider to only include distributions from that
+realm.</p>
+<p>Each <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder</span></code> must expect any parameters and should
+attempt to honor the canonical parameters defined below when
+appropriate.</p>
+<p>See the section on <a class="reference internal" href="#implementing-custom-providers"><span class="std std-ref">Implementing Custom Providers</span></a> for more details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="importlib.metadata.DistributionFinder.Context.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#importlib.metadata.DistributionFinder.Context.name" title="Link to this definition">¶</a></dt>
+<dd><p>Specific name for which a distribution finder should match.</p>
+<p>A <code class="xref py py-attr docutils literal notranslate"><span class="pre">.name</span></code> of <code class="docutils literal notranslate"><span class="pre">None</span></code> matches all distributions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="importlib.metadata.DistributionFinder.Context.path">
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#importlib.metadata.DistributionFinder.Context.path" title="Link to this definition">¶</a></dt>
+<dd><p>A property providing the sequence of directory paths that a
+distribution finder should search.</p>
+<p>Typically refers to Python installed package paths such as
+“site-packages” directories and defaults to <a class="reference internal" href="sys.html#sys.path" title="sys.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="importlib.metadata.distributions">
+<span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">distributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.distributions" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">distributions</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#importlib.metadata.DistributionFinder.Context" title="importlib.metadata.DistributionFinder.Context"><span class="pre">DistributionFinder.Context</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Iterable" title="collections.abc.Iterable"><span class="pre">collections.abc.Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><span class="pre">Distribution</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">distributions</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Iterable" title="collections.abc.Iterable"><span class="pre">collections.abc.Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><span class="pre">Distribution</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/metadata/__init__.pyi#L326">typeshed</a>)</p>
+<p>Returns an iterable of <a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a> instances for all packages.</p>
+<p>The <em>kwargs</em> argument may contain either a keyword argument <code class="docutils literal notranslate"><span class="pre">context</span></code>, a
+<a class="reference internal" href="#importlib.metadata.DistributionFinder.Context" title="importlib.metadata.DistributionFinder.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code></a> instance, or pass keyword arguments for
+constructing a new <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code>. The
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code> is used to modify the search for
+distributions.</p>
+</dd></dl>
+
 </section>
 <section id="implementing-custom-providers">
-<h2>Implementing Custom Providers<a class="headerlink" href="#implementing-custom-providers" title="Link to this heading">¶</a></h2>
+<span id="id13"></span><h2>Implementing Custom Providers<a class="headerlink" href="#implementing-custom-providers" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> address two API surfaces, one for <em>consumers</em>
 and another for <em>providers</em>. Most users are consumers, consuming
 metadata provided by the packages. There are other use-cases, however,
@@ -736,7 +829,7 @@ interface expected of finders by Python’s import system.
 <code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> extends this protocol by looking for an optional
 <code class="docutils literal notranslate"><span class="pre">find_distributions</span></code> callable on the finders from
 <a class="reference internal" href="sys.html#sys.meta_path" title="sys.meta_path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.meta_path</span></code></a> and presents this extended interface as the
-<code class="docutils literal notranslate"><span class="pre">DistributionFinder</span></code> abstract base class, which defines this abstract
+<a class="reference internal" href="#importlib.metadata.DistributionFinder" title="importlib.metadata.DistributionFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder</span></code></a> abstract base class, which defines this abstract
 method:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">find_distributions</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">DistributionFinder</span><span class="o">.</span><span class="n">Context</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Distribution</span><span class="p">]:</span>
@@ -745,9 +838,11 @@ method:</p>
 <span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code> object provides <code class="docutils literal notranslate"><span class="pre">.path</span></code> and <code class="docutils literal notranslate"><span class="pre">.name</span></code>
-properties indicating the path to search and name to match and may
-supply other relevant context sought by the consumer.</p>
+<p>The <a class="reference internal" href="#importlib.metadata.DistributionFinder.Context" title="importlib.metadata.DistributionFinder.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code></a> object provides
+<a class="reference internal" href="#importlib.metadata.DistributionFinder.Context.path" title="importlib.metadata.DistributionFinder.Context.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> and
+<a class="reference internal" href="#importlib.metadata.DistributionFinder.Context.name" title="importlib.metadata.DistributionFinder.Context.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></a> properties indicating the path to
+search and name to match and may supply other relevant context sought by the
+consumer.</p>
 <p>In practice, to support finding distribution package
 metadata in locations other than the file system, subclass
 <code class="docutils literal notranslate"><span class="pre">Distribution</span></code> and implement the abstract methods. Then from
@@ -769,7 +864,7 @@ a custom finder, return instances of this derived <code class="docutils literal 
 <p>That importer now presumably provides importable modules from a
 database, but it provides no metadata or entry points. For this
 custom importer to provide metadata, it would also need to implement
-<code class="docutils literal notranslate"><span class="pre">DistributionFinder</span></code>:</p>
+<a class="reference internal" href="#importlib.metadata.DistributionFinder" title="importlib.metadata.DistributionFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder</span></code></a>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">importlib.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributionFinder</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">DatabaseImporter</span><span class="p">(</span><span class="n">DistributionFinder</span><span class="p">):</span>

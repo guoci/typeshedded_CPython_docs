@@ -61,8 +61,8 @@ for example, a package and its resources can be imported from a zip file using
     ``Union[str, ModuleType]``.
 
 .. function:: files(anchor: Optional[Anchor] = None)
-              files(anchor: ModuleType | str | None = None) -> Traversable
-              files(package: ModuleType | str | None = None) -> Traversable
+              files(anchor: ModuleType | str | None = None) -> importlib.resources.abc.Traversable
+              files(package: ModuleType | str | None = None) -> importlib.resources.abc.Traversable
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/_common.pyi#L22>`__)
 
@@ -91,7 +91,7 @@ for example, a package and its resources can be imported from a zip file using
        compatible interface on older Pythons.
 
 .. function:: as_file(traversable)
-              as_file(path: Traversable) -> AbstractContextManager[Path, Literal[False]]
+              as_file(path: importlib.resources.abc.Traversable) -> AbstractContextManager[pathlib.Path, typing.Literal[False]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/_common.pyi#L42>`__)
 
@@ -243,7 +243,7 @@ For all the following functions:
 
 
 .. function:: path(anchor, *path_names)
-              path(anchor: Anchor, *path_names: StrPath) -> AbstractContextManager[Path, Literal[False]]
+              path(anchor: Anchor, *path_names: StrPath) -> AbstractContextManager[pathlib.Path, typing.Literal[False]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/_functional.pyi#L28>`__)
 
@@ -292,7 +292,7 @@ For all the following functions:
 
 
 .. function:: contents(anchor, *path_names)
-              contents(anchor: Anchor, *path_names: StrPath) -> collections.abc.Iterable[str]
+              contents(anchor: Anchor, *path_names: StrPath) -> collections.abc.Iterator[str]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/_functional.pyi#L31>`__)
 

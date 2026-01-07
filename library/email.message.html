@@ -20,7 +20,7 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=8cd84f99" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
     <script src="../_static/documentation_options.js?v=3375014b"></script>
@@ -190,7 +190,7 @@
 <p><strong>Source code:</strong> <a class="extlink-source reference external" href="https://github.com/python/cpython/tree/main/Lib/email/message.py">Lib/email/message.py</a></p>
 <hr class="docutils" />
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.6: </span><a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p><span class="versionmodified added">Added in version 3.6: </span><a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 </div>
 <p>The central class in the <a class="reference internal" href="email.html#module-email" title="email: Package supporting the parsing, manipulating, and generating email messages."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> package is the <a class="reference internal" href="#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a>
 class, imported from the <a class="reference internal" href="#module-email.message" title="email.message: The base class representing email messages."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message</span></code></a> module.  It is the base class for
@@ -234,7 +234,7 @@ the representation of the message.  If <em>policy</em> is not set, use the
 <a class="reference internal" href="email.policy.html#email.policy.default" title="email.policy.default"><code class="xref py py-class docutils literal notranslate"><span class="pre">default</span></code></a> policy, which follows the rules of the email
 RFCs except for line endings (instead of the RFC mandated <code class="docutils literal notranslate"><span class="pre">\r\n</span></code>, it uses
 the Python standard <code class="docutils literal notranslate"><span class="pre">\n</span></code> line endings).  For more information see the
-<a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> documentation.</p>
+<a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> documentation. <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="email.message.EmailMessage.as_string">
 <span class="sig-name descname"><span class="pre">as_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unixfrom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxheaderlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.message.EmailMessage.as_string" title="Link to this definition">¶</a></dt>
@@ -949,10 +949,18 @@ not need their own <em class="mailheader">MIME-Version</em> headers.</p>
 
 <p class="rubric">Footnotes</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Originally added in 3.4 as a <a class="reference internal" href="../glossary.html#term-provisional-package"><span class="xref std std-term">provisional module</span></a>.  Docs for legacy message class moved to
 <a class="reference internal" href="email.compat32-message.html#compat32-message"><span class="std std-ref">email.message.Message: Representing an email message using the compat32 API</span></a>.</p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>The <a class="reference internal" href="#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> class requires a policy that provides a
+<code class="docutils literal notranslate"><span class="pre">content_manager</span></code> attribute for content management methods like
+<code class="docutils literal notranslate"><span class="pre">set_content()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_content()</span></code> to work. The legacy
+<a class="reference internal" href="email.policy.html#email.policy.compat32" title="email.policy.compat32"><code class="xref py py-const docutils literal notranslate"><span class="pre">compat32</span></code></a> policy does not support these methods
+and should not be used with <a class="reference internal" href="#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a>.</p>
 </aside>
 </aside>
 </section>

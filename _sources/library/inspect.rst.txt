@@ -505,7 +505,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: iscoroutine(object)
-              iscoroutine(object: object) -> TypeIs[collections.abc.CoroutineType[typing.Any, typing.Any, typing.Any]]
+              iscoroutine(object: object) -> TypeIs[CoroutineType[typing.Any, typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L235>`__)
 
@@ -1187,7 +1187,7 @@ function.
       This is no longer permitted.
 
 .. class:: BoundArguments
-           BoundArguments(signature: Signature, arguments: OrderedDict[str, typing.Any]) -> None
+           BoundArguments(signature: Signature, arguments: collections.abc.OrderedDict[str, typing.Any]) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L451>`__)
 
@@ -1769,7 +1769,7 @@ terminated. :func:`getgeneratorstate` allows the current state of a
 generator to be determined easily.
 
 .. function:: getgeneratorstate(generator)
-              getgeneratorstate(generator: Generator[typing.Any, typing.Any, typing.Any]) -> Literal['GEN_CLOSED', 'GEN_CREATED', 'GEN_RUNNING', 'GEN_SUSPENDED']
+              getgeneratorstate(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> typing.Literal['GEN_CLOSED', 'GEN_CREATED', 'GEN_RUNNING', 'GEN_SUSPENDED']
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L678>`__)
 
@@ -1785,7 +1785,7 @@ generator to be determined easily.
    .. versionadded:: 3.2
 
 .. function:: getcoroutinestate(coroutine)
-              getcoroutinestate(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> Literal['CORO_CLOSED', 'CORO_CREATED', 'CORO_RUNNING', 'CORO_SUSPENDED']
+              getcoroutinestate(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> typing.Literal['CORO_CLOSED', 'CORO_CREATED', 'CORO_RUNNING', 'CORO_SUSPENDED']
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L687>`__)
 
@@ -1804,7 +1804,7 @@ generator to be determined easily.
    .. versionadded:: 3.5
 
 .. function:: getasyncgenstate(agen)
-              getasyncgenstate(agen: AsyncGenerator[typing.Any, typing.Any]) -> Literal['AGEN_CLOSED', 'AGEN_CREATED', 'AGEN_RUNNING', 'AGEN_SUSPENDED']
+              getasyncgenstate(agen: collections.abc.AsyncGenerator[typing.Any, typing.Any]) -> typing.Literal['AGEN_CLOSED', 'AGEN_CREATED', 'AGEN_RUNNING', 'AGEN_SUSPENDED']
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L414>`__)
 
@@ -1828,7 +1828,7 @@ mostly useful for testing purposes, to ensure that internal state is being
 updated as expected:
 
 .. function:: getgeneratorlocals(generator)
-              getgeneratorlocals(generator: Generator[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
+              getgeneratorlocals(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L690>`__)
 
@@ -1881,14 +1881,14 @@ Python code objects have a :attr:`~codeobject.co_flags` attribute,
 which is a bitmap of the following flags:
 
 .. data:: CO_OPTIMIZED
-   :type: Literal[1]
+   :type: typing.Literal[1]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L169>`__)
 
    The code object is optimized, using fast locals.
 
 .. data:: CO_NEWLOCALS
-   :type: Literal[2]
+   :type: typing.Literal[2]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L170>`__)
 
@@ -1896,28 +1896,28 @@ which is a bitmap of the following flags:
    when the code object is executed.
 
 .. data:: CO_VARARGS
-   :type: Literal[4]
+   :type: typing.Literal[4]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L171>`__)
 
    The code object has a variable positional parameter (``*args``-like).
 
 .. data:: CO_VARKEYWORDS
-   :type: Literal[8]
+   :type: typing.Literal[8]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L172>`__)
 
    The code object has a variable keyword parameter (``**kwargs``-like).
 
 .. data:: CO_NESTED
-   :type: Literal[16]
+   :type: typing.Literal[16]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L173>`__)
 
    The flag is set when the code object is a nested function.
 
 .. data:: CO_GENERATOR
-   :type: Literal[32]
+   :type: typing.Literal[32]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L174>`__)
 
@@ -1925,7 +1925,7 @@ which is a bitmap of the following flags:
    a generator object is returned when the code object is executed.
 
 .. data:: CO_COROUTINE
-   :type: Literal[128]
+   :type: typing.Literal[128]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L176>`__)
 
@@ -1936,7 +1936,7 @@ which is a bitmap of the following flags:
    .. versionadded:: 3.5
 
 .. data:: CO_ITERABLE_COROUTINE
-   :type: Literal[256]
+   :type: typing.Literal[256]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L177>`__)
 
@@ -1948,7 +1948,7 @@ which is a bitmap of the following flags:
    .. versionadded:: 3.5
 
 .. data:: CO_ASYNC_GENERATOR
-   :type: Literal[512]
+   :type: typing.Literal[512]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L178>`__)
 
@@ -1959,7 +1959,7 @@ which is a bitmap of the following flags:
    .. versionadded:: 3.6
 
 .. data:: CO_HAS_DOCSTRING
-   :type: Literal[67108864]
+   :type: typing.Literal[67108864]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L181>`__)
 
@@ -1970,7 +1970,7 @@ which is a bitmap of the following flags:
    .. versionadded:: 3.14
 
 .. data:: CO_METHOD
-   :type: Literal[134217728]
+   :type: typing.Literal[134217728]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L182>`__)
 

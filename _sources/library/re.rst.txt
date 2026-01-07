@@ -767,7 +767,7 @@ Flags
 
 
 .. data:: DEBUG
-   :type: Literal[RegexFlag.DEBUG]
+   :type: typing.Literal[RegexFlag.DEBUG]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L387>`__)
 
@@ -844,7 +844,7 @@ Flags
    Corresponds to the inline flag ``(?m)``.
 
 .. data:: NOFLAG
-   :type: Literal[RegexFlag.NOFLAG]
+   :type: typing.Literal[RegexFlag.NOFLAG]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L404>`__)
 
@@ -913,8 +913,8 @@ Functions
 ^^^^^^^^^
 
 .. function:: compile(pattern, flags=0)
-              compile(pattern: typing.AnyStr, flags: _FlagsType = 0) -> Pattern[typing.AnyStr]
-              compile(pattern: Pattern[typing.AnyStr], flags: _FlagsType = 0) -> Pattern[typing.AnyStr]
+              compile(pattern: AnyStr, flags: _FlagsType = 0) -> Pattern[AnyStr]
+              compile(pattern: Pattern[AnyStr], flags: _FlagsType = 0) -> Pattern[AnyStr]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L415>`__)
 
@@ -1093,8 +1093,8 @@ Functions
 
 
 .. function:: finditer(pattern, string, flags=0)
-              finditer(pattern: Pattern[str] | str, string: str, flags: _FlagsType = 0) -> collections.abc.Iterable[Match[str]]
-              finditer(pattern: Pattern[bytes] | bytes, string: Buffer, flags: _FlagsType = 0) -> collections.abc.Iterable[Match[bytes]]
+              finditer(pattern: Pattern[str] | str, string: str, flags: _FlagsType = 0) -> collections.abc.Iterator[Match[str]]
+              finditer(pattern: Pattern[bytes] | bytes, string: Buffer, flags: _FlagsType = 0) -> collections.abc.Iterator[Match[bytes]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L441>`__)
 
@@ -1214,7 +1214,7 @@ Functions
 
 
 .. function:: escape(pattern)
-              escape[typing.AnyStr](pattern: typing.AnyStr) -> typing.AnyStr
+              escape[AnyStr](pattern: AnyStr) -> AnyStr
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L468>`__)
 
@@ -1425,7 +1425,7 @@ Regular Expression Objects
 
 
 .. attribute:: Pattern.flags
-   :type: flags[typing.AnyStr](self: Pattern[typing.AnyStr]) -> int
+   :type: flags[AnyStr](self: Pattern[AnyStr]) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L199>`__)
 
@@ -1435,7 +1435,7 @@ Regular Expression Objects
 
 
 .. attribute:: Pattern.groups
-   :type: groups[typing.AnyStr](self: Pattern[typing.AnyStr]) -> int
+   :type: groups[AnyStr](self: Pattern[AnyStr]) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L207>`__)
 
@@ -1443,7 +1443,7 @@ Regular Expression Objects
 
 
 .. attribute:: Pattern.groupindex
-   :type: groupindex[typing.AnyStr](self: Pattern[typing.AnyStr]) -> collections.abc.Mapping[str, int]
+   :type: groupindex[AnyStr](self: Pattern[AnyStr]) -> collections.abc.Mapping[str, int]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L203>`__)
 
@@ -1453,7 +1453,7 @@ Regular Expression Objects
 
 
 .. attribute:: Pattern.pattern
-   :type: pattern[typing.AnyStr](self: Pattern[typing.AnyStr]) -> typing.AnyStr
+   :type: pattern[AnyStr](self: Pattern[AnyStr]) -> AnyStr
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L211>`__)
 
@@ -1559,8 +1559,8 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. method:: Match.__getitem__(g)
-            Match.__getitem__(key: Literal[0], /) -> typing.AnyStr
-            Match.__getitem__(key: int | str, /) -> typing.AnyStr | typing.Any
+            Match.__getitem__(key: typing.Literal[0], /) -> AnyStr
+            Match.__getitem__(key: int | str, /) -> AnyStr | typing.Any
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L183>`__)
 
@@ -1587,8 +1587,8 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. method:: Match.groups(default=None)
-            Match.groups() -> tuple[typing.AnyStr | typing.Any, ...]
-            Match.groups(default: _T) -> tuple[typing.AnyStr | _T, ...]
+            Match.groups() -> tuple[AnyStr | typing.Any, ...]
+            Match.groups(default: _T) -> tuple[AnyStr | _T, ...]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L133>`__)
 
@@ -1614,8 +1614,8 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. method:: Match.groupdict(default=None)
-            Match.groupdict() -> dict[str, typing.AnyStr | typing.Any]
-            Match.groupdict(default: _T) -> dict[str, typing.AnyStr | _T]
+            Match.groupdict() -> dict[str, AnyStr | typing.Any]
+            Match.groupdict(default: _T) -> dict[str, AnyStr | _T]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L153>`__)
 
@@ -1655,7 +1655,7 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. method:: Match.span([group])
-            Match.span[typing.AnyStr](group: int | str = 0, /) -> tuple[int, int]
+            Match.span[AnyStr](group: int | str = 0, /) -> tuple[int, int]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L176>`__)
 
@@ -1665,7 +1665,7 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.pos
-   :type: pos[typing.AnyStr](self: Match[typing.AnyStr]) -> int
+   :type: pos[AnyStr](self: Match[AnyStr]) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L67>`__)
 
@@ -1675,7 +1675,7 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.endpos
-   :type: endpos[typing.AnyStr](self: Match[typing.AnyStr]) -> int
+   :type: endpos[AnyStr](self: Match[AnyStr]) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L71>`__)
 
@@ -1685,7 +1685,7 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.lastindex
-   :type: lastindex[typing.AnyStr](self: Match[typing.AnyStr]) -> int | None
+   :type: lastindex[AnyStr](self: Match[AnyStr]) -> int | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L75>`__)
 
@@ -1697,7 +1697,7 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.lastgroup
-   :type: lastgroup[typing.AnyStr](self: Match[typing.AnyStr]) -> str | None
+   :type: lastgroup[AnyStr](self: Match[AnyStr]) -> str | None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L79>`__)
 
@@ -1706,7 +1706,7 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.re
-   :type: re[typing.AnyStr](self: Match[typing.AnyStr]) -> Pattern[typing.AnyStr]
+   :type: re[AnyStr](self: Match[AnyStr]) -> Pattern[AnyStr]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L90>`__)
 
@@ -1715,7 +1715,7 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.string
-   :type: string[typing.AnyStr](self: Match[typing.AnyStr]) -> typing.AnyStr
+   :type: string[AnyStr](self: Match[AnyStr]) -> AnyStr
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/re.pyi#L83>`__)
 

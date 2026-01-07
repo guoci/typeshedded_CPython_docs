@@ -517,7 +517,7 @@ class`. In addition, it provides a few more methods:
     .. versionadded:: 3.10
 
 .. method:: int.to_bytes(length=1, byteorder='big', *, signed=False)
-            int.to_bytes(length: SupportsIndex = 1, byteorder: Literal['big', 'little'] = 'big', *, signed: bool = False) -> bytes
+            int.to_bytes(length: SupportsIndex = 1, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> bytes
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L499>`__)
 
@@ -574,7 +574,7 @@ class`. In addition, it provides a few more methods:
        Added default argument values for ``length`` and ``byteorder``.
 
 .. classmethod:: int.from_bytes(bytes, byteorder='big', *, signed=False)
-                 int.from_bytes(cls: type[int], bytes: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes, byteorder: Literal['big', 'little'] = 'big', *, signed: bool = False) -> int
+                 int.from_bytes(cls: type[int], bytes: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> int
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L522>`__)
 
@@ -625,7 +625,7 @@ class`. In addition, it provides a few more methods:
        Added default argument value for ``byteorder``.
 
 .. method:: int.as_integer_ratio()
-            int.as_integer_ratio() -> tuple[int, Literal[1]]
+            int.as_integer_ratio() -> tuple[int, typing.Literal[1]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L441>`__)
 
@@ -637,7 +637,7 @@ class`. In addition, it provides a few more methods:
    .. versionadded:: 3.8
 
 .. method:: int.is_integer()
-            int.is_integer() -> Literal[True]
+            int.is_integer() -> typing.Literal[True]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L559>`__)
 
@@ -941,7 +941,7 @@ support:
 .. XXX duplicated in reference/datamodel!
 
 .. method:: container.__iter__()
-            container.__iter__[_T_co]() -> collections.abc.Iterable[_T_co]
+            container.__iter__[_T_co]() -> collections.abc.Iterator[_T_co]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L552>`__)
 
@@ -959,7 +959,7 @@ methods, which together form the :dfn:`iterator protocol`:
 
 
 .. method:: iterator.__iter__()
-            iterator.__iter__[_T_co]() -> collections.abc.Iterable[_T_co]
+            iterator.__iter__[_T_co]() -> collections.abc.Iterator[_T_co]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L559>`__)
 
@@ -1969,6 +1969,14 @@ expression support in the :mod:`re` module).
    lowercase letter ``'ß'`` is equivalent to ``"ss"``. Since it is already
    lowercase, :meth:`lower` would do nothing to ``'ß'``; :meth:`casefold`
    converts it to ``"ss"``.
+   For example:
+
+   .. doctest::
+
+      >>> 'straße'.lower()
+      'straße'
+      >>> 'straße'.casefold()
+      'strasse'
 
    The casefolding algorithm is `described in section 3.13.3 'Default Case
    Folding' of the Unicode Standard
@@ -2176,7 +2184,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.format_map(mapping, /)
-            str.format_map(mapping: _FormatMapcollections.abc.Mapping, /) -> str
+            str.format_map(mapping: _FormatMapMapping, /) -> str
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L1165>`__)
 
@@ -2200,7 +2208,18 @@ expression support in the :mod:`re` module).
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L1173>`__)
 
    Like :meth:`~str.find`, but raise :exc:`ValueError` when the substring is
-   not found.
+   not found. For example:
+
+   .. doctest::
+
+      >>> 'spam, spam, spam'.index('eggs')
+      Traceback (most recent call last):
+        File "<python-input-0>", line 1, in <module>
+          'spam, spam, spam'.index('eggs')
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+      ValueError: substring not found
+
+   See also :meth:`rindex`.
 
 
 .. method:: str.isalnum()
@@ -2372,6 +2391,15 @@ expression support in the :mod:`re` module).
    Nonprintable characters are those in group Separator or Other (Z or C),
    except the ASCII space.
 
+   For example:
+
+   .. doctest::
+
+      >>> ''.isprintable(), ' '.isprintable()
+      (True, True)
+      >>> '\t'.isprintable(), '\n'.isprintable()
+      (False, False)
+
 
 .. method:: str.isspace()
             str.isspace() -> bool
@@ -2483,7 +2511,12 @@ expression support in the :mod:`re` module).
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L1318>`__)
 
    Return a copy of the string with all the cased characters [4]_ converted to
-   lowercase.
+   lowercase. For example:
+
+   .. doctest::
+
+      >>> 'Lower Method Example'.lower()
+      'lower method example'
 
    The lowercasing algorithm used is `described in section 3.13.2 'Default Case
    Conversion' of the Unicode Standard
@@ -6619,7 +6652,7 @@ types, where they are relevant.  Some of these are not reported by the
 
 
 .. attribute:: definition.__type_params__
-   :type: tuple[ParamSpec | TypeVar | TypeVarTuple, ...]
+   :type: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/types.pyi#L105>`__)
 

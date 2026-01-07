@@ -921,7 +921,7 @@ For an example of the usage of queues for interprocess communication see
 
 
 .. function:: Pipe(duplex=True)
-              Pipe(duplex: bool = True) -> tuple[Connection[typing.Any, typing.Any], Connection[typing.Any, typing.Any]]
+              Pipe(duplex: bool = True) -> tuple[multiprocessing.connection.Connection[typing.Any, typing.Any], multiprocessing.connection.Connection[typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/__init__.pyi#L78>`__)
 
@@ -2448,7 +2448,7 @@ demonstrates a level of control over the synchronization.
    One should just use a copy of the referent instead when making comparisons.
 
 .. class:: BaseProxy
-           BaseProxy(token: typing.Any, serializer: str, manager: typing.Any = None, authkey: typing.AnyStr | None = None, exposed: typing.Any = None, incref: bool = True, manager_owned: bool = False) -> None
+           BaseProxy(token: typing.Any, serializer: str, manager: typing.Any = None, authkey: AnyStr | None = None, exposed: typing.Any = None, incref: bool = True, manager_owned: bool = False) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L51>`__)
 
@@ -2781,7 +2781,7 @@ multiple connections at the same time.
 
 
 .. function:: deliver_challenge(connection, authkey)
-              deliver_challenge(connection: Connection[typing.Any, typing.Any], authkey: bytes, digest_name: str = 'sha256') -> None
+              deliver_challenge(connection: multiprocessing.connection.Connection[typing.Any, typing.Any], authkey: bytes, digest_name: str = 'sha256') -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L68>`__)
 
@@ -2793,7 +2793,7 @@ multiple connections at the same time.
    :exc:`~multiprocessing.AuthenticationError` is raised.
 
 .. function:: answer_challenge(connection, authkey)
-              answer_challenge(connection: Connection[typing.Any, typing.Any], authkey: bytes) -> None
+              answer_challenge(connection: multiprocessing.connection.Connection[typing.Any, typing.Any], authkey: bytes) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L73>`__)
 
@@ -2804,7 +2804,7 @@ multiple connections at the same time.
    :exc:`~multiprocessing.AuthenticationError` is raised.
 
 .. function:: Client(address[, family[, authkey]])
-              Client(address: _Address, family: str | None = None, authkey: bytes | None = None) -> Connection[typing.Any, typing.Any]
+              Client(address: _Address, family: str | None = None, authkey: bytes | None = None) -> multiprocessing.connection.Connection[typing.Any, typing.Any]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L77>`__)
 
@@ -2889,7 +2889,7 @@ multiple connections at the same time.
       listener object, and :meth:`~contextmanager.__exit__` calls :meth:`close`.
 
 .. function:: wait(object_list, timeout=None)
-              wait[_SendT_contra, _RecvT_co](object_list: collections.abc.Iterable[Connection[_SendT_contra, _RecvT_co] | int | socket], timeout: float | None = None) -> list[Connection[_SendT_contra, _RecvT_co] | int | socket]
+              wait[_SendT_contra, _RecvT_co](object_list: collections.abc.Iterable[multiprocessing.connection.Connection[_SendT_contra, _RecvT_co] | int | socket], timeout: float | None = None) -> list[multiprocessing.connection.Connection[_SendT_contra, _RecvT_co] | int | socket]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L74>`__)
 

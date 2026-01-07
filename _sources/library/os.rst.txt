@@ -1822,6 +1822,15 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    .. versionadded:: 3.15
 
 
+.. data:: RWF_ATOMIC
+
+   Write data atomically. Requires alignment to the device's atomic write unit.
+
+   .. availability:: Linux >= 6.11
+
+   .. versionadded:: next
+
+
 .. function:: ptsname(fd, /)
               ptsname(fd: FileDescriptorLike, /) -> str
 
@@ -1873,6 +1882,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    - :data:`RWF_SYNC`
    - :data:`RWF_APPEND`
    - :data:`RWF_DONTCACHE`
+   - :data:`RWF_ATOMIC`
 
    Return the total number of bytes actually written.
 
@@ -2297,7 +2307,8 @@ can be inherited by child processes.  Since Python 3.4, file descriptors
 created by Python are non-inheritable by default.
 
 On UNIX, non-inheritable file descriptors are closed in child processes at the
-execution of a new program, other file descriptors are inherited.
+execution of a new program, other file descriptors are inherited. Note that
+non-inheritable file descriptors are still *inherited* by child processes on :func:`os.fork`.
 
 On Windows, non-inheritable handles and file descriptors are closed in child
 processes, except for standard streams (file descriptors 0, 1 and 2: stdin, stdout
@@ -3080,7 +3091,7 @@ features:
 
 
 .. function:: readlink(path, *, dir_fd=None)
-              readlink[typing.AnyStr](path: GenericPath, *, dir_fd: int | None = None) -> typing.AnyStr
+              readlink[AnyStr](path: GenericPath, *, dir_fd: int | None = None) -> AnyStr
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1922>`__)
 
@@ -4467,7 +4478,7 @@ features:
 
 
 .. function:: walk(top, topdown=True, onerror=None, followlinks=False)
-              walk[typing.AnyStr](top: GenericPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, followlinks: bool = False) -> collections.abc.Iterable[tuple[typing.AnyStr, list[typing.AnyStr], list[typing.AnyStr]]]
+              walk[AnyStr](top: GenericPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, followlinks: bool = False) -> collections.abc.Iterator[tuple[AnyStr, list[AnyStr], list[AnyStr]]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2139>`__)
 
@@ -4570,8 +4581,8 @@ features:
 
 
 .. function:: fwalk(top='.', topdown=True, onerror=None, *, follow_symlinks=False, dir_fd=None)
-              fwalk(top: StrPath = '.', topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterable[tuple[str, list[str], list[str], int]]
-              fwalk(top: BytesPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterable[tuple[bytes, list[bytes], list[bytes], int]]
+              fwalk(top: StrPath = '.', topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterator[tuple[str, list[str], list[str], int]]
+              fwalk(top: BytesPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterator[tuple[bytes, list[bytes], list[bytes], int]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2145>`__)
 
@@ -5015,7 +5026,7 @@ Naturally, they are all only available on Linux.
    .. versionadded:: 3.13
 
 .. data:: TFD_TIMER_ABSTIME
-   :type: Literal[1]
+   :type: typing.Literal[1]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2815>`__)
 
@@ -5028,7 +5039,7 @@ Naturally, they are all only available on Linux.
    .. versionadded:: 3.13
 
 .. data:: TFD_TIMER_CANCEL_ON_SET
-   :type: Literal[2]
+   :type: typing.Literal[2]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2816>`__)
 
@@ -6909,7 +6920,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 
 .. data:: linesep
-   :type: Literal['\n', '\r\n']
+   :type: typing.Literal['\n', '\r\n']
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L689>`__)
 

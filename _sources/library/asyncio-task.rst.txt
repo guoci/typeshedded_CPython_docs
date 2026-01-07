@@ -239,7 +239,7 @@ Creating Tasks
 -----------------------------------------------
 
 .. function:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
-              create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: Context | None = None) -> Task[_T]
+              create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None) -> Task[_T]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L417>`__)
 
@@ -637,7 +637,7 @@ Eager Task Factory
 ==================
 
 .. function:: eager_task_factory(loop, coro, *, name=None, context=None)
-              eager_task_factory[_T_co](loop: AbstractEventLoop | None, coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, name: str | None = None, context: Context | None = None, eager_start: bool = True) -> Task[_T_co]
+              eager_task_factory[_T_co](loop: AbstractEventLoop | None, coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = True) -> Task[_T_co]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L428>`__)
 
@@ -984,7 +984,7 @@ Waiting Primitives
 
 
 .. function:: as_completed(aws, *, timeout=None)
-              as_completed[_T](fs: collections.abc.Iterable[_FutureLike], *, timeout: float | None = None) -> _SyncAndAsynccollections.abc.Iterable[Future[_T]]
+              as_completed[_T](fs: collections.abc.Iterable[_FutureLike], *, timeout: float | None = None) -> _SyncAndAsyncIterator[Future[_T]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L93>`__)
 
@@ -1251,7 +1251,7 @@ Task Object
 ===========
 
 .. class:: Task(coro, *, loop=None, name=None, context=None, eager_start=False)
-           Task(coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, loop: AbstractEventLoop | None = None, name: str | None = None, context: Context | None = None, eager_start: bool = False) -> None
+           Task(coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, loop: AbstractEventLoop | None = None, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = False) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L140>`__)
 
