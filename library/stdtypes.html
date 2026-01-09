@@ -2813,7 +2813,7 @@ the string itself, followed by two empty strings.</p>
 <p>If the string starts with the <em>prefix</em> string, return
 <code class="docutils literal notranslate"><span class="pre">string[len(prefix):]</span></code>. Otherwise, return a copy of the original
 string:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;TestHook&#39;</span><span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;TestHook&#39;</span><span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
 <span class="go">&#39;Hook&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;BaseTestCase&#39;</span><span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
 <span class="go">&#39;BaseTestCase&#39;</span>
@@ -2822,6 +2822,7 @@ string:</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.9.</span></p>
 </div>
+<p>See also <a class="reference internal" href="#str.removesuffix" title="str.removesuffix"><code class="xref py py-meth docutils literal notranslate"><span class="pre">removesuffix()</span></code></a> and <a class="reference internal" href="#str.startswith" title="str.startswith"><code class="xref py py-meth docutils literal notranslate"><span class="pre">startswith()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2835,7 +2836,7 @@ string:</p>
 <p>If the string ends with the <em>suffix</em> string and that <em>suffix</em> is not empty,
 return <code class="docutils literal notranslate"><span class="pre">string[:-len(suffix)]</span></code>. Otherwise, return a copy of the
 original string:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;MiscTests&#39;</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s1">&#39;Tests&#39;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;MiscTests&#39;</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s1">&#39;Tests&#39;</span><span class="p">)</span>
 <span class="go">&#39;Misc&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;TmpDirMixin&#39;</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s1">&#39;Tests&#39;</span><span class="p">)</span>
 <span class="go">&#39;TmpDirMixin&#39;</span>
@@ -2844,6 +2845,7 @@ original string:</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.9.</span></p>
 </div>
+<p>See also <a class="reference internal" href="#str.removeprefix" title="str.removeprefix"><code class="xref py py-meth docutils literal notranslate"><span class="pre">removeprefix()</span></code></a> and <a class="reference internal" href="#str.endswith" title="str.endswith"><code class="xref py py-meth docutils literal notranslate"><span class="pre">endswith()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2865,7 +2867,14 @@ original string:</p>
 <dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L1369">typeshed</a>)</p>
 <p>Return a copy of the string with all occurrences of substring <em>old</em> replaced by
 <em>new</em>.  If <em>count</em> is given, only the first <em>count</em> occurrences are replaced.
-If <em>count</em> is not specified or <code class="docutils literal notranslate"><span class="pre">-1</span></code>, then all occurrences are replaced.</p>
+If <em>count</em> is not specified or <code class="docutils literal notranslate"><span class="pre">-1</span></code>, then all occurrences are replaced.
+For example:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;spam, spam, spam&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
+<span class="go">&#39;eggs, eggs, eggs&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;spam, spam, spam&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;eggs, spam, spam&#39;</span>
+</pre></div>
+</div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.13: </span><em>count</em> is now supported as a keyword argument.</p>
 </div>
@@ -2888,7 +2897,15 @@ If <em>count</em> is not specified or <code class="docutils literal notranslate"
 <dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L1442">typeshed</a>)</p>
 <p>Return the highest index in the string where substring <em>sub</em> is found, such
 that <em>sub</em> is contained within <code class="docutils literal notranslate"><span class="pre">s[start:end]</span></code>.  Optional arguments <em>start</em>
-and <em>end</em> are interpreted as in slice notation.  Return <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure.</p>
+and <em>end</em> are interpreted as in slice notation.  Return <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure.
+For example:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;spam, spam, spam&#39;</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;sp&#39;</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;spam, spam, spam&#39;</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;sp&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#str.find" title="str.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> and <a class="reference internal" href="#str.rindex" title="str.rindex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rindex()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
