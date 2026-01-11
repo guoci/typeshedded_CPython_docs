@@ -762,6 +762,9 @@ Test cases
    Methods in the first group (running the test) are:
 
    .. method:: setUp()
+               setUp() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L73>`__)
 
       Method called to prepare the test fixture.  This is called immediately
       before calling the test method; other than :exc:`AssertionError` or :exc:`SkipTest`,
@@ -770,6 +773,9 @@ Test cases
 
 
    .. method:: tearDown()
+               tearDown() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L74>`__)
 
       Method called immediately after the test method has been called and the
       result recorded.  This is called even if the test method raised an
@@ -783,6 +789,9 @@ Test cases
 
 
    .. method:: setUpClass()
+               setUpClass(cls: type[TestCase]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L76>`__)
 
       A class method called before tests in an individual class are run.
       ``setUpClass`` is called with the class as the only argument
@@ -798,6 +807,9 @@ Test cases
 
 
    .. method:: tearDownClass()
+               tearDownClass(cls: type[TestCase]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L78>`__)
 
       A class method called after tests in an individual class have run.
       ``tearDownClass`` is called with the class as the only argument
@@ -813,6 +825,9 @@ Test cases
 
 
    .. method:: run(result=None)
+               run(result: TestResult | None = None) -> TestResult | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L79>`__)
 
       Run the test, collecting the result into the :class:`TestResult` object
       passed as *result*.  If *result* is omitted or ``None``, a temporary
@@ -828,6 +843,9 @@ Test cases
          calling an instance.
 
    .. method:: skipTest(reason)
+               skipTest(reason: typing.Any) -> NoReturn
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L81>`__)
 
       Calling this during a test method or :meth:`setUp` skips the current
       test.  See :ref:`unittest-skipping` for more information.
@@ -836,6 +854,9 @@ Test cases
 
 
    .. method:: subTest(msg=None, **params)
+               subTest(msg: typing.Any = ..., **params: typing.Any) -> AbstractContextManager[None, bool | None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L82>`__)
 
       Return a context manager which executes the enclosed code block as a
       subtest.  *msg* and *params* are optional, arbitrary values which are
@@ -851,6 +872,9 @@ Test cases
 
 
    .. method:: debug()
+               debug() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L83>`__)
 
       Run the test without collecting the result.  This allows exceptions raised
       by the test to be propagated to the caller, and can be used to support
@@ -915,6 +939,9 @@ Test cases
    only when they are used as a context manager.
 
    .. method:: assertEqual(first, second, msg=None)
+               assertEqual(first: typing.Any, second: typing.Any, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L87>`__)
 
       Test that *first* and *second* are equal.  If the values do not
       compare equal, the test will fail.
@@ -935,12 +962,17 @@ Test cases
 
 
    .. method:: assertNotEqual(first, second, msg=None)
+               assertNotEqual(first: typing.Any, second: typing.Any, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L88>`__)
 
       Test that *first* and *second* are not equal.  If the values do
       compare equal, the test will fail.
 
    .. method:: assertTrue(expr, msg=None)
                assertFalse(expr, msg=None)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L89>`__)
 
       Test that *expr* is true (or false).
 
@@ -954,6 +986,8 @@ Test cases
    .. method:: assertIs(first, second, msg=None)
                assertIsNot(first, second, msg=None)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L91>`__)
+
       Test that *first* and *second* are (or are not) the same object.
 
       .. versionadded:: 3.1
@@ -961,6 +995,8 @@ Test cases
 
    .. method:: assertIsNone(expr, msg=None)
                assertIsNotNone(expr, msg=None)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L93>`__)
 
       Test that *expr* is (or is not) ``None``.
 
@@ -970,6 +1006,8 @@ Test cases
    .. method:: assertIn(member, container, msg=None)
                assertNotIn(member, container, msg=None)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L95>`__)
+
       Test that *member* is (or is not) in *container*.
 
       .. versionadded:: 3.1
@@ -977,6 +1015,8 @@ Test cases
 
    .. method:: assertIsInstance(obj, cls, msg=None)
                assertNotIsInstance(obj, cls, msg=None)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L97>`__)
 
       Test that *obj* is (or is not) an instance of *cls* (which can be a
       class or a tuple of classes, as supported by :func:`isinstance`).
@@ -987,6 +1027,8 @@ Test cases
 
    .. method:: assertIsSubclass(cls, superclass, msg=None)
                assertNotIsSubclass(cls, superclass, msg=None)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L285>`__)
 
       Test that *cls* is (or is not) a subclass of *superclass* (which can be a
       class or a tuple of classes, as supported by :func:`issubclass`).
@@ -1022,6 +1064,10 @@ Test cases
 
    .. method:: assertRaises(exception, callable, *args, **kwds)
                assertRaises(exception, *, msg=None)
+               assertRaises(expected_exception: tuple[type[BaseException], ...] | type[BaseException], callable: (...) -> object, *args: typing.Any, **kwargs: typing.Any) -> None
+               assertRaises(expected_exception: tuple[type[_E], ...] | type[_E], *, msg: typing.Any = ...) -> _AssertRaisesContext[_E]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L119>`__)
 
       Test that an exception is raised when *callable* is called with any
       positional or keyword arguments that are also passed to
@@ -1062,6 +1108,10 @@ Test cases
 
    .. method:: assertRaisesRegex(exception, regex, callable, *args, **kwds)
                assertRaisesRegex(exception, regex, *, msg=None)
+               assertRaisesRegex(expected_exception: tuple[type[BaseException], ...] | type[BaseException], expected_regex: re.Pattern[str] | str, callable: (...) -> object, *args: typing.Any, **kwargs: typing.Any) -> None
+               assertRaisesRegex(expected_exception: tuple[type[_E], ...] | type[_E], expected_regex: re.Pattern[str] | str, *, msg: typing.Any = ...) -> _AssertRaisesContext[_E]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L131>`__)
 
       Like :meth:`assertRaises` but also tests that *regex* matches
       on the string representation of the raised exception.  *regex* may be
@@ -1088,6 +1138,10 @@ Test cases
 
    .. method:: assertWarns(warning, callable, *args, **kwds)
                assertWarns(warning, *, msg=None)
+               assertWarns(TestCase, tuple[type[Warning], ...] | type[Warning], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               assertWarns(expected_warning: tuple[type[Warning], ...] | type[Warning], *, msg: typing.Any = ...) -> _AssertWarnsContext
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L144>`__)
 
       Test that a warning is triggered when *callable* is called with any
       positional or keyword arguments that are also passed to
@@ -1129,6 +1183,10 @@ Test cases
 
    .. method:: assertWarnsRegex(warning, regex, callable, *args, **kwds)
                assertWarnsRegex(warning, regex, *, msg=None)
+               assertWarnsRegex(TestCase, tuple[type[Warning], ...] | type[Warning], re.Pattern[str] | str, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               assertWarnsRegex(expected_warning: tuple[type[Warning], ...] | type[Warning], expected_regex: re.Pattern[str] | str, *, msg: typing.Any = ...) -> _AssertWarnsContext
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L156>`__)
 
       Like :meth:`assertWarns` but also tests that *regex* matches on the
       message of the triggered warning.  *regex* may be a regular expression
@@ -1150,6 +1208,9 @@ Test cases
          Added the *msg* keyword argument when used as a context manager.
 
    .. method:: assertLogs(logger=None, level=None, formatter=None)
+               assertLogs(logger: Logger | str | None = None, level: int | str | None = None) -> _AssertLogsContext[_LoggingWatcher]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L168>`__)
 
       A context manager to test that at least one message is logged on
       the *logger* or one of its children, with at least the given
@@ -1199,6 +1260,9 @@ Test cases
          Now accepts a *formatter* to control how messages are formatted.
 
    .. method:: assertNoLogs(logger=None, level=None)
+               assertNoLogs(logger: Logger | str | None = None, level: int | str | None = None) -> _AssertLogsContext[None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L172>`__)
 
       A context manager to test that no messages are logged on
       the *logger* or one of its children, with at least the given
@@ -1273,6 +1337,8 @@ Test cases
    .. method:: assertAlmostEqual(first, second, places=7, msg=None, delta=None)
                assertNotAlmostEqual(first, second, places=7, msg=None, delta=None)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L177>`__)
+
       Test that *first* and *second* are approximately (or not approximately)
       equal by computing the difference, rounding to the given number of
       decimal *places* (default 7), and comparing to zero.  Note that these
@@ -1295,6 +1361,8 @@ Test cases
                assertLess(first, second, msg=None)
                assertLessEqual(first, second, msg=None)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L100>`__)
+
       Test that *first* is respectively >, >=, < or <= than *second* depending
       on the method name.  If not, the test will fail::
 
@@ -1306,6 +1374,8 @@ Test cases
 
    .. method:: assertRegex(text, regex, msg=None)
                assertNotRegex(text, regex, msg=None)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L224>`__)
 
       Test that a *regex* search matches (or does not match) *text*.  In case
       of failure, the error message will include the pattern and the *text* (or
@@ -1323,6 +1393,9 @@ Test cases
 
 
    .. method:: assertCountEqual(first, second, msg=None)
+               assertCountEqual(first: collections.abc.Iterable[typing.Any], second: collections.abc.Iterable[typing.Any], msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L226>`__)
 
       Test that sequence *first* contains the same elements as *second*,
       regardless of their order. When they don't, an error message listing the
@@ -1338,7 +1411,14 @@ Test cases
 
 
    .. method:: assertStartsWith(s, prefix, msg=None)
+               assertStartsWith[_SB](s: _SB, prefix: tuple[_SB, ...] | _SB, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L289>`__)
+
    .. method:: assertNotStartsWith(s, prefix, msg=None)
+               assertNotStartsWith[_SB](s: _SB, prefix: tuple[_SB, ...] | _SB, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L290>`__)
 
       Test that the Unicode or byte string *s* starts (or does not start)
       with a *prefix*.
@@ -1348,7 +1428,14 @@ Test cases
 
 
    .. method:: assertEndsWith(s, suffix, msg=None)
+               assertEndsWith[_SB](s: _SB, suffix: tuple[_SB, ...] | _SB, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L291>`__)
+
    .. method:: assertNotEndsWith(s, suffix, msg=None)
+               assertNotEndsWith[_SB](s: _SB, suffix: tuple[_SB, ...] | _SB, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L292>`__)
 
       Test that the Unicode or byte string *s* ends (or does not end)
       with a *suffix*.
@@ -1358,7 +1445,14 @@ Test cases
 
 
    .. method:: assertHasAttr(obj, name, msg=None)
+               assertHasAttr(obj: object, name: str, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L287>`__)
+
    .. method:: assertNotHasAttr(obj, name, msg=None)
+               assertNotHasAttr(obj: object, name: str, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L288>`__)
 
       Test that the object *obj* has (or has not) an attribute *name*.
 
@@ -1373,6 +1467,9 @@ Test cases
    register new methods using :meth:`addTypeEqualityFunc`:
 
    .. method:: addTypeEqualityFunc(typeobj, function)
+               addTypeEqualityFunc(typeobj: type[typing.Any], function: (...) -> None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L227>`__)
 
       Registers a type-specific method called by :meth:`assertEqual` to check
       if two objects of exactly the same *typeobj* (not subclasses) compare
@@ -1414,6 +1511,9 @@ Test cases
 
 
    .. method:: assertMultiLineEqual(first, second, msg=None)
+               assertMultiLineEqual(first: str, second: str, msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L228>`__)
 
       Test that the multiline string *first* is equal to the string *second*.
       When not equal a diff of the two strings highlighting the differences
@@ -1424,6 +1524,9 @@ Test cases
 
 
    .. method:: assertSequenceEqual(first, second, msg=None, seq_type=None)
+               assertSequenceEqual(seq1: collections.abc.Sequence[typing.Any], seq2: collections.abc.Sequence[typing.Any], msg: typing.Any = None, seq_type: type[collections.abc.Sequence[typing.Any]] | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L229>`__)
 
       Tests that two sequences are equal.  If a *seq_type* is supplied, both
       *first* and *second* must be instances of *seq_type* or a failure will
@@ -1440,6 +1543,8 @@ Test cases
    .. method:: assertListEqual(first, second, msg=None)
                assertTupleEqual(first, second, msg=None)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L232>`__)
+
       Tests that two lists or tuples are equal.  If not, an error message is
       constructed that shows only the differences between the two.  An error
       is also raised if either of the parameters are of the wrong type.
@@ -1450,6 +1555,9 @@ Test cases
 
 
    .. method:: assertSetEqual(first, second, msg=None)
+               assertSetEqual(set1: AbstractSet[object], set2: AbstractSet[object], msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L234>`__)
 
       Tests that two sets are equal.  If not, an error message is constructed
       that lists the differences between the sets.  This method is used by
@@ -1462,6 +1570,9 @@ Test cases
 
 
    .. method:: assertDictEqual(first, second, msg=None)
+               assertDictEqual(d1: collections.abc.Mapping[typing.Any, object], d2: collections.abc.Mapping[typing.Any, object], msg: typing.Any = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L237>`__)
 
       Test that two dictionaries are equal.  If not, an error message is
       constructed that shows the differences in the dictionaries. This
@@ -1478,12 +1589,18 @@ Test cases
 
 
    .. method:: fail(msg=None)
+               fail(msg: typing.Any = None) -> NoReturn
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L238>`__)
 
       Signals a test failure unconditionally, with *msg* or ``None`` for
       the error message.
 
 
    .. attribute:: failureException
+      :type: (self: BaseException, *args: object) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L63>`__)
 
       This class attribute gives the exception raised by the test method.  If a
       test framework needs to use a specialized exception, possibly to carry
@@ -1493,6 +1610,9 @@ Test cases
 
 
    .. attribute:: longMessage
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L64>`__)
 
       This class attribute determines what happens when a custom failure message
       is passed as the msg argument to an assertXYY call that fails.
@@ -1510,6 +1630,9 @@ Test cases
 
 
    .. attribute:: maxDiff
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L65>`__)
 
       This attribute controls the maximum length of diffs output by assert
       methods that report diffs on failure. It defaults to 80*8 characters.
@@ -1529,12 +1652,18 @@ Test cases
 
 
    .. method:: countTestCases()
+               countTestCases() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L239>`__)
 
       Return the number of tests represented by this test object.  For
       :class:`TestCase` instances, this will always be ``1``.
 
 
    .. method:: defaultTestResult()
+               defaultTestResult() -> TestResult
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L240>`__)
 
       Return an instance of the test result class that should be used for this
       test case class (if no other result instance is provided to the
@@ -1546,12 +1675,18 @@ Test cases
 
 
    .. method:: id()
+               id() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L241>`__)
 
       Return a string identifying the specific test case.  This is usually the
       full name of the test method, including the module and class name.
 
 
    .. method:: shortDescription()
+               shortDescription() -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L242>`__)
 
       Returns a description of the test, or ``None`` if no description
       has been provided.  The default implementation of this method
@@ -1566,6 +1701,9 @@ Test cases
 
 
    .. method:: addCleanup(function, /, *args, **kwargs)
+               addCleanup[_P](TestCase, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L243>`__)
 
       Add a function to be called after :meth:`tearDown` to cleanup resources
       used during the test. Functions will be called in reverse order to the
@@ -1580,6 +1718,9 @@ Test cases
 
 
    .. method:: enterContext(cm)
+               enterContext[_T](cm: AbstractContextManager[_T, bool | None]) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L246>`__)
 
       Enter the supplied :term:`context manager`.  If successful, also
       add its :meth:`~object.__exit__` method as a cleanup function by
@@ -1590,6 +1731,9 @@ Test cases
 
 
    .. method:: doCleanups()
+               doCleanups() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L248>`__)
 
       This method is called unconditionally after :meth:`tearDown`, or
       after :meth:`setUp` if :meth:`setUp` raises an exception.
@@ -1606,6 +1750,9 @@ Test cases
 
 
    .. classmethod:: addClassCleanup(function, /, *args, **kwargs)
+                    addClassCleanup[_P](type[TestCase], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L250>`__)
 
       Add a function to be called after :meth:`tearDownClass` to cleanup
       resources used during the test class. Functions will be called in reverse
@@ -1620,6 +1767,9 @@ Test cases
 
 
    .. classmethod:: enterClassContext(cm)
+                    enterClassContext[_T](cls: type[TestCase], cm: AbstractContextManager[_T, bool | None]) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L256>`__)
 
       Enter the supplied :term:`context manager`.  If successful, also
       add its :meth:`~object.__exit__` method as a cleanup function by
@@ -1630,6 +1780,9 @@ Test cases
 
 
    .. classmethod:: doClassCleanups()
+                    doClassCleanups(cls: type[TestCase]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L252>`__)
 
       This method is called unconditionally after :meth:`tearDownClass`, or
       after :meth:`setUpClass` if :meth:`setUpClass` raises an exception.
@@ -1656,6 +1809,9 @@ Test cases
    .. versionadded:: 3.8
 
    .. attribute:: loop_factory
+      :type: (() -> AbstractEventLoop) | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/async_case.pyi#L17>`__)
 
       The *loop_factory* passed to :class:`asyncio.Runner`. Override
       in subclasses with :class:`asyncio.EventLoop` to avoid using the
@@ -1664,7 +1820,10 @@ Test cases
       .. versionadded:: 3.13
 
    .. method:: asyncSetUp()
+               asyncSetUp() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/async_case.pyi#L19>`__)
 
       Method called to prepare the test fixture. This is called after :meth:`TestCase.setUp`.
       This is called immediately before calling the test method; other than
@@ -1673,7 +1832,10 @@ Test cases
       does nothing.
 
    .. method:: asyncTearDown()
+               asyncTearDown() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/async_case.pyi#L20>`__)
 
       Method called immediately after the test method has been called and the
       result recorded.  This is called before :meth:`~TestCase.tearDown`. This is called even if
@@ -1686,11 +1848,17 @@ Test cases
       The default implementation does nothing.
 
    .. method:: addAsyncCleanup(function, /, *args, **kwargs)
+               addAsyncCleanup[_P](IsolatedAsyncioTestCase, (ParamSpec(_P)) -> collections.abc.Awaitable[object], ParamSpec(_P)) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/async_case.pyi#L21>`__)
 
       This method accepts a coroutine that can be used as a cleanup function.
 
    .. method:: enterAsyncContext(cm)
+               enterAsyncContext[_T](cm: AbstractAsyncContextManager[_T, bool | None]) -> collections.abc.Coroutine[Unknown, Unknown, _T]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/async_case.pyi#L23>`__)
 
       Enter the supplied :term:`asynchronous context manager`.  If successful,
       also add its :meth:`~object.__aexit__` method as a cleanup function by
@@ -1701,6 +1869,9 @@ Test cases
 
 
    .. method:: run(result=None)
+               run(result: TestResult | None = None) -> TestResult | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/case.pyi#L79>`__)
 
       Sets up a new event loop to run the test, collecting the result into
       the :class:`TestResult` object passed as *result*.  If *result* is
@@ -1787,11 +1958,17 @@ Grouping tests
 
 
    .. method:: TestSuite.addTest(test)
+               TestSuite.addTest(test: _TestType) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/suite.pyi#L14>`__)
 
       Add a :class:`TestCase` or :class:`TestSuite` to the suite.
 
 
    .. method:: TestSuite.addTests(tests)
+               TestSuite.addTests(tests: collections.abc.Iterable[_TestType]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/suite.pyi#L15>`__)
 
       Add all the tests from an iterable of :class:`TestCase` and :class:`TestSuite`
       instances to this test suite.
@@ -1803,6 +1980,9 @@ Grouping tests
 
 
    .. method:: run(result)
+               run(result: TestResult, debug: bool = False) -> TestResult
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/suite.pyi#L24>`__)
 
       Run the tests associated with this suite, collecting the result into the
       test result object passed as *result*.  Note that unlike
@@ -1811,6 +1991,9 @@ Grouping tests
 
 
    .. method:: debug()
+               debug() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/suite.pyi#L17>`__)
 
       Run the tests associated with this suite without collecting the
       result. This allows exceptions raised by the test to be propagated to the
@@ -1818,12 +2001,18 @@ Grouping tests
 
 
    .. method:: countTestCases()
+               countTestCases() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/suite.pyi#L18>`__)
 
       Return the number of tests represented by this test object, including all
       individual tests and sub-suites.
 
 
    .. method:: __iter__()
+               __iter__() -> collections.abc.Iterator[_TestType]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/suite.pyi#L19>`__)
 
       Tests grouped by a :class:`TestSuite` are always accessed by iteration.
       Subclasses can lazily provide tests by overriding :meth:`!__iter__`. Note
@@ -1867,6 +2056,9 @@ Loading and running tests
 
 
    .. attribute:: errors
+      :type: list[type[BaseException]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L16>`__)
 
       A list of the non-fatal errors encountered while loading tests. Not reset
       by the loader at any point. Fatal errors are signalled by the relevant
@@ -1881,6 +2073,9 @@ Loading and running tests
 
 
    .. method:: loadTestsFromTestCase(testCaseClass)
+               loadTestsFromTestCase(testCaseClass: type[TestCase]) -> TestSuite
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L21>`__)
 
       Return a suite of all test cases contained in the :class:`TestCase`\ -derived
       :class:`!testCaseClass`.
@@ -1893,6 +2088,9 @@ Loading and running tests
 
 
    .. method:: loadTestsFromModule(module, *, pattern=None)
+               loadTestsFromModule(module: ModuleType, *, pattern: str | None = None) -> TestSuite
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L23>`__)
 
       Return a suite of all test cases contained in the given module. This
       method searches *module* for classes derived from :class:`TestCase` and
@@ -1924,6 +2122,9 @@ Loading and running tests
 
 
    .. method:: loadTestsFromName(name, module=None)
+               loadTestsFromName(name: str, module: ModuleType | None = None) -> TestSuite
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L27>`__)
 
       Return a suite of all test cases given a string specifier.
 
@@ -1955,6 +2156,9 @@ Loading and running tests
 
 
    .. method:: loadTestsFromNames(names, module=None)
+               loadTestsFromNames(names: collections.abc.Sequence[str], module: ModuleType | None = None) -> TestSuite
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L28>`__)
 
       Similar to :meth:`loadTestsFromName`, but takes a sequence of names rather
       than a single name.  The return value is a test suite which supports all
@@ -1962,12 +2166,18 @@ Loading and running tests
 
 
    .. method:: getTestCaseNames(testCaseClass)
+               getTestCaseNames(testCaseClass: type[TestCase]) -> collections.abc.Sequence[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L29>`__)
 
       Return a sorted sequence of method names found within *testCaseClass*;
       this should be a subclass of :class:`TestCase`.
 
 
    .. method:: discover(start_dir, pattern='test*.py', top_level_dir=None)
+               discover(start_dir: str, pattern: str = 'test*.py', top_level_dir: str | None = None) -> TestSuite
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L30>`__)
 
       Find all the test modules by recursing into subdirectories from the
       specified start directory, and return a TestSuite object containing them.
@@ -2037,6 +2247,9 @@ Loading and running tests
 
 
    .. attribute:: testMethodPrefix
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L17>`__)
 
       String giving the prefix of method names which will be interpreted as test
       methods.  The default value is ``'test'``.
@@ -2046,12 +2259,18 @@ Loading and running tests
 
 
    .. attribute:: sortTestMethodsUsing
+      :type: (str, str) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L18>`__)
 
       Function to be used to compare method names when sorting them in
       :meth:`getTestCaseNames` and all the ``loadTestsFrom*`` methods.
 
 
    .. attribute:: suiteClass
+      :type: (list[TestCase]) -> TestSuite
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L20>`__)
 
       Callable object that constructs a test suite from a list of tests. No
       methods on the resulting object are needed.  The default value is the
@@ -2060,6 +2279,9 @@ Loading and running tests
       This affects all the ``loadTestsFrom*`` methods.
 
    .. attribute:: testNamePatterns
+      :type: list[str] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/loader.pyi#L19>`__)
 
       List of Unix shell-style wildcard test name patterns that test methods
       have to match to be included in test suites (see ``-k`` option).
@@ -2098,18 +2320,27 @@ Loading and running tests
 
 
    .. attribute:: errors
+      :type: list[tuple[TestCase, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L18>`__)
 
       A list containing 2-tuples of :class:`TestCase` instances and strings
       holding formatted tracebacks. Each tuple represents a test which raised an
       unexpected exception.
 
    .. attribute:: failures
+      :type: list[tuple[TestCase, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L19>`__)
 
       A list containing 2-tuples of :class:`TestCase` instances and strings
       holding formatted tracebacks. Each tuple represents a test where a failure
       was explicitly signalled using the :ref:`assert\* methods <assert-methods>`.
 
    .. attribute:: skipped
+      :type: list[tuple[TestCase, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L20>`__)
 
       A list containing 2-tuples of :class:`TestCase` instances and strings
       holding the reason for skipping the test.
@@ -2117,17 +2348,26 @@ Loading and running tests
       .. versionadded:: 3.1
 
    .. attribute:: expectedFailures
+      :type: list[tuple[TestCase, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L21>`__)
 
       A list containing 2-tuples of :class:`TestCase` instances and strings
       holding formatted tracebacks.  Each tuple represents an expected failure
       or error of the test case.
 
    .. attribute:: unexpectedSuccesses
+      :type: list[TestCase]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L22>`__)
 
       A list containing :class:`TestCase` instances that were marked as expected
       failures, but succeeded.
 
    .. attribute:: collectedDurations
+      :type: list[tuple[str, float]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L29>`__)
 
       A list containing 2-tuples of test case names and floats
       representing the elapsed time of each test which was run.
@@ -2135,14 +2375,23 @@ Loading and running tests
       .. versionadded:: 3.12
 
    .. attribute:: shouldStop
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L23>`__)
 
       Set to ``True`` when the execution of tests should stop by :meth:`stop`.
 
    .. attribute:: testsRun
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L24>`__)
 
       The total number of tests run so far.
 
    .. attribute:: buffer
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L25>`__)
 
       If set to true, ``sys.stdout`` and ``sys.stderr`` will be buffered in between
       :meth:`startTest` and :meth:`stopTest` being called. Collected output will
@@ -2152,6 +2401,9 @@ Loading and running tests
       .. versionadded:: 3.2
 
    .. attribute:: failfast
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L26>`__)
 
       If set to true :meth:`stop` will be called on the first failure or error,
       halting the test run.
@@ -2159,12 +2411,18 @@ Loading and running tests
       .. versionadded:: 3.2
 
    .. attribute:: tb_locals
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L27>`__)
 
       If set to true then local variables will be shown in tracebacks.
 
       .. versionadded:: 3.5
 
    .. method:: wasSuccessful()
+               wasSuccessful() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L33>`__)
 
       Return ``True`` if all tests run so far have passed, otherwise returns
       ``False``.
@@ -2174,6 +2432,9 @@ Loading and running tests
          from tests marked with the :func:`expectedFailure` decorator.
 
    .. method:: stop()
+               stop() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L34>`__)
 
       This method can be called to signal that the set of tests being run should
       be aborted by setting the :attr:`shouldStop` attribute to ``True``.
@@ -2192,15 +2453,24 @@ Loading and running tests
 
 
    .. method:: startTest(test)
+               startTest(test: TestCase) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L35>`__)
 
       Called when the test case *test* is about to be run.
 
    .. method:: stopTest(test)
+               stopTest(test: TestCase) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L36>`__)
 
       Called after the test case *test* has been executed, regardless of the
       outcome.
 
    .. method:: startTestRun()
+               startTestRun() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L37>`__)
 
       Called once before any tests are executed.
 
@@ -2208,6 +2478,9 @@ Loading and running tests
 
 
    .. method:: stopTestRun()
+               stopTestRun() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L38>`__)
 
       Called once after all tests are executed.
 
@@ -2215,6 +2488,9 @@ Loading and running tests
 
 
    .. method:: addError(test, err)
+               addError(test: TestCase, err: OptExcInfo) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L39>`__)
 
       Called when the test case *test* raises an unexpected exception. *err* is a
       tuple of the form returned by :func:`sys.exc_info`: ``(type, value,
@@ -2226,6 +2502,9 @@ Loading and running tests
 
 
    .. method:: addFailure(test, err)
+               addFailure(test: TestCase, err: OptExcInfo) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L40>`__)
 
       Called when the test case *test* signals a failure. *err* is a tuple of
       the form returned by :func:`sys.exc_info`: ``(type, value, traceback)``.
@@ -2236,6 +2515,9 @@ Loading and running tests
 
 
    .. method:: addSuccess(test)
+               addSuccess(test: TestCase) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L41>`__)
 
       Called when the test case *test* succeeds.
 
@@ -2243,6 +2525,9 @@ Loading and running tests
 
 
    .. method:: addSkip(test, reason)
+               addSkip(test: TestCase, reason: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L42>`__)
 
       Called when the test case *test* is skipped.  *reason* is the reason the
       test gave for skipping.
@@ -2252,6 +2537,9 @@ Loading and running tests
 
 
    .. method:: addExpectedFailure(test, err)
+               addExpectedFailure(test: TestCase, err: OptExcInfo) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L43>`__)
 
       Called when the test case *test* fails or errors, but was marked with
       the :func:`expectedFailure` decorator.
@@ -2262,6 +2550,9 @@ Loading and running tests
 
 
    .. method:: addUnexpectedSuccess(test)
+               addUnexpectedSuccess(test: TestCase) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L44>`__)
 
       Called when the test case *test* was marked with the
       :func:`expectedFailure` decorator, but succeeded.
@@ -2271,6 +2562,9 @@ Loading and running tests
 
 
    .. method:: addSubTest(test, subtest, outcome)
+               addSubTest(test: TestCase, subtest: TestCase, err: tuple[type[BaseException], BaseException, TracebackType] | tuple[None, None, None] | None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L45>`__)
 
       Called when a subtest finishes.  *test* is the test case
       corresponding to the test method.  *subtest* is a custom
@@ -2286,6 +2580,9 @@ Loading and running tests
       .. versionadded:: 3.4
 
    .. method:: addDuration(test, elapsed)
+               addDuration(test: TestCase, elapsed: float) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/result.pyi#L47>`__)
 
       Called when the test case finishes.  *elapsed* is the time represented in
       seconds, and it includes the execution of cleanup functions.
@@ -2352,6 +2649,9 @@ Loading and running tests
       Added the *durations* parameter.
 
    .. method:: _makeResult()
+               _makeResult() -> TextTestResult[_WritelnDecorator]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/runner.pyi#L92>`__)
 
       This method returns the instance of ``TestResult`` used by :meth:`run`.
       It is not intended to be called directly, but can be overridden in
@@ -2365,6 +2665,9 @@ Loading and running tests
         stream, descriptions, verbosity
 
    .. method:: run(test)
+               run(test: TestCase | TestSuite) -> TextTestResult[_WritelnDecorator]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/runner.pyi#L93>`__)
 
       This method is the main public interface to the ``TextTestRunner``. This
       method takes a :class:`TestSuite` or :class:`TestCase` instance. A

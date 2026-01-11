@@ -549,7 +549,19 @@ All tasks are awaited when the context manager exits.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.TaskGroup.create_task">
 <span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coro</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eager_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.TaskGroup.create_task" title="Link to this definition">¶</a></dt>
-<dd><p>Create a task in this task group.
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">coro</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Coroutine" title="collections.abc.Coroutine"><span class="pre">collections.abc.Coroutine</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></em>,</dd>
+<dd><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="contextvars.html#contextvars.Context" title="contextvars.Context"><span class="pre">contextvars.Context</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><span class="pre">Task</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/taskgroups.pyi#L25">typeshed</a>)</p>
+<p>Create a task in this task group.
 The signature matches that of <a class="reference internal" href="#asyncio.create_task" title="asyncio.create_task"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code></a>.
 If the task group is inactive (e.g. not yet entered,
 already finished, or in the process of shutting down),
@@ -1595,7 +1607,10 @@ and there is no running event loop.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.done">
 <span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.done" title="Link to this definition">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the Task is <em>done</em>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L68">typeshed</a>)</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the Task is <em>done</em>.</p>
 <p>A Task is <em>done</em> when the wrapped coroutine either returned
 a value, raised an exception, or the Task was cancelled.</p>
 </dd></dl>
@@ -1603,7 +1618,10 @@ a value, raised an exception, or the Task was cancelled.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.result">
 <span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.result" title="Link to this definition">¶</a></dt>
-<dd><p>Return the result of the Task.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T_co</span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L76">typeshed</a>)</p>
+<p>Return the result of the Task.</p>
 <p>If the Task is <em>done</em>, the result of the wrapped coroutine
 is returned (or if the coroutine raised an exception, that
 exception is re-raised.)</p>
@@ -1616,7 +1634,10 @@ an <a class="reference internal" href="asyncio-exceptions.html#asyncio.InvalidSt
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.exception">
 <span class="sig-name descname"><span class="pre">exception</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.exception" title="Link to this definition">¶</a></dt>
-<dd><p>Return the exception of the Task.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">exception</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="exceptions.html#BaseException" title="BaseException"><span class="pre">BaseException</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L85">typeshed</a>)</p>
+<p>Return the exception of the Task.</p>
 <p>If the wrapped coroutine raised an exception that exception
 is returned.  If the wrapped coroutine returned normally
 this method returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
@@ -1629,7 +1650,19 @@ this method returns <code class="docutils literal notranslate"><span class="pre"
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.add_done_callback">
 <span class="sig-name descname"><span class="pre">add_done_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.add_done_callback" title="Link to this definition">¶</a></dt>
-<dd><p>Add a callback to be run when the Task is <em>done</em>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">add_done_callback</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fn:</span> <span class="pre">(Task[_T_co])</span> <span class="pre">-&gt;</span> <span class="pre">object</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">context:</span> <span class="pre">contextvars.Context</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L47">typeshed</a>)</p>
+<p>Add a callback to be run when the Task is <em>done</em>.</p>
 <p>This method should only be used in low-level callback-based code.</p>
 <p>See the documentation of <a class="reference internal" href="asyncio-future.html#asyncio.Future.add_done_callback" title="asyncio.Future.add_done_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Future.add_done_callback()</span></code></a>
 for more details.</p>
@@ -1638,7 +1671,10 @@ for more details.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.remove_done_callback">
 <span class="sig-name descname"><span class="pre">remove_done_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.remove_done_callback" title="Link to this definition">¶</a></dt>
-<dd><p>Remove <em>callback</em> from the callbacks list.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">remove_done_callback</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn:</span> <span class="pre">(Task[_T_co])</span> <span class="pre">-&gt;</span> <span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L95">typeshed</a>)</p>
+<p>Remove <em>callback</em> from the callbacks list.</p>
 <p>This method should only be used in low-level callback-based code.</p>
 <p>See the documentation of <a class="reference internal" href="asyncio-future.html#asyncio.Future.remove_done_callback" title="asyncio.Future.remove_done_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Future.remove_done_callback()</span></code></a>
 for more details.</p>
@@ -1647,7 +1683,10 @@ for more details.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.get_stack">
 <span class="sig-name descname"><span class="pre">get_stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.get_stack" title="Link to this definition">¶</a></dt>
-<dd><p>Return the list of stack frames for this Task.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_stack</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">FrameType</span><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L176">typeshed</a>)</p>
+<p>Return the list of stack frames for this Task.</p>
 <p>If the wrapped coroutine is not done, this returns the stack
 where it is suspended.  If the coroutine has completed
 successfully or was cancelled, this returns an empty list.
@@ -1666,7 +1705,10 @@ returned.  (This matches the behavior of the traceback module.)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.print_stack">
 <span class="sig-name descname"><span class="pre">print_stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.print_stack" title="Link to this definition">¶</a></dt>
-<dd><p>Print the stack or traceback for this Task.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">print_stack</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.TextIO" title="typing.TextIO"><span class="pre">TextIO</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L199">typeshed</a>)</p>
+<p>Print the stack or traceback for this Task.</p>
 <p>This produces output similar to that of the traceback module
 for the frames retrieved by <a class="reference internal" href="#asyncio.Task.get_stack" title="asyncio.Task.get_stack"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_stack()</span></code></a>.</p>
 <p>The <em>limit</em> argument is passed to <a class="reference internal" href="#asyncio.Task.get_stack" title="asyncio.Task.get_stack"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_stack()</span></code></a> directly.</p>
@@ -1677,7 +1719,16 @@ is written; by default output is written to <a class="reference internal" href="
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.get_coro">
 <span class="sig-name descname"><span class="pre">get_coro</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.get_coro" title="Link to this definition">¶</a></dt>
-<dd><p>Return the coroutine object wrapped by the <a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_coro</span></span><span class="sig-paren">[</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Coroutine" title="collections.abc.Coroutine"><span class="pre">collections.abc.Coroutine</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_T_co</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L167">typeshed</a>)</p>
+<p>Return the coroutine object wrapped by the <a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This will return <code class="docutils literal notranslate"><span class="pre">None</span></code> for Tasks which have already
@@ -1694,7 +1745,10 @@ completed eagerly. See the <a class="reference internal" href="#eager-task-facto
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.get_context">
 <span class="sig-name descname"><span class="pre">get_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.get_context" title="Link to this definition">¶</a></dt>
-<dd><p>Return the <a class="reference internal" href="contextvars.html#contextvars.Context" title="contextvars.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">contextvars.Context</span></code></a> object
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_context</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="contextvars.html#contextvars.Context" title="contextvars.Context"><span class="pre">contextvars.Context</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L174">typeshed</a>)</p>
+<p>Return the <a class="reference internal" href="contextvars.html#contextvars.Context" title="contextvars.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">contextvars.Context</span></code></a> object
 associated with the task.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.12.</span></p>
@@ -1704,7 +1758,10 @@ associated with the task.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.get_name">
 <span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.get_name" title="Link to this definition">¶</a></dt>
-<dd><p>Return the name of the Task.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L171">typeshed</a>)</p>
+<p>Return the name of the Task.</p>
 <p>If no name has been explicitly assigned to the Task, the default
 asyncio Task implementation generates a default name during
 instantiation.</p>
@@ -1716,7 +1773,10 @@ instantiation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.set_name">
 <span class="sig-name descname"><span class="pre">set_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.set_name" title="Link to this definition">¶</a></dt>
-<dd><p>Set the name of the Task.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_name</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#object" title="object"><span class="pre">object</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L172">typeshed</a>)</p>
+<p>Set the name of the Task.</p>
 <p>The <em>value</em> argument can be any object, which is then
 converted to a string.</p>
 <p>In the default Task implementation, the name will be visible
@@ -1729,7 +1789,10 @@ in the <a class="reference internal" href="functions.html#repr" title="repr"><co
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.cancel">
 <span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.cancel" title="Link to this definition">¶</a></dt>
-<dd><p>Request the Task to be cancelled.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L56">typeshed</a>)</p>
+<p>Request the Task to be cancelled.</p>
 <p>If the Task is already <em>done</em> or <em>cancelled</em>, return <code class="docutils literal notranslate"><span class="pre">False</span></code>,
 otherwise, return <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <p>The method arranges for a <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CancelledError</span></code></a> exception to be thrown
@@ -1794,7 +1857,10 @@ the cancellation request:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.cancelled">
 <span class="sig-name descname"><span class="pre">cancelled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.cancelled" title="Link to this definition">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the Task is <em>cancelled</em>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">cancelled</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L65">typeshed</a>)</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the Task is <em>cancelled</em>.</p>
 <p>The Task is <em>cancelled</em> when the cancellation was requested with
 <a class="reference internal" href="#asyncio.Task.cancel" title="asyncio.Task.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a> and the wrapped coroutine propagated the
 <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CancelledError</span></code></a> exception thrown into it.</p>
@@ -1803,7 +1869,10 @@ the cancellation request:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.uncancel">
 <span class="sig-name descname"><span class="pre">uncancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.uncancel" title="Link to this definition">¶</a></dt>
-<dd><p>Decrement the count of cancellation requests to this Task.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">uncancel</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L219">typeshed</a>)</p>
+<p>Decrement the count of cancellation requests to this Task.</p>
 <p>Returns the remaining number of cancellation requests.</p>
 <p>Note that once execution of a cancelled task completed, further
 calls to <a class="reference internal" href="#asyncio.Task.uncancel" title="asyncio.Task.uncancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uncancel()</span></code></a> are ineffective.</p>
@@ -1849,7 +1918,10 @@ rescinded (by resetting the internal <code class="docutils literal notranslate">
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Task.cancelling">
 <span class="sig-name descname"><span class="pre">cancelling</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Task.cancelling" title="Link to this definition">¶</a></dt>
-<dd><p>Return the number of pending cancellation requests to this Task, i.e.,
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">cancelling</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T_co</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L211">typeshed</a>)</p>
+<p>Return the number of pending cancellation requests to this Task, i.e.,
 the number of calls to <a class="reference internal" href="#asyncio.Task.cancel" title="asyncio.Task.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a> less the number of
 <a class="reference internal" href="#asyncio.Task.uncancel" title="asyncio.Task.uncancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uncancel()</span></code></a> calls.</p>
 <p>Note that if this number is greater than zero but the Task is

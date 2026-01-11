@@ -296,8 +296,9 @@ the references are equal only if the reference objects are the same object.</p>
 <p>This is a subclassable type rather than a factory function.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="weakref.ref.__callback__">
-<span class="sig-name descname"><span class="pre">__callback__</span></span><a class="headerlink" href="#weakref.ref.__callback__" title="Link to this definition">¶</a></dt>
-<dd><p>This read-only attribute returns the callback currently associated to the
+<span class="sig-name descname"><span class="pre">__callback__</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Unknown</span></em><a class="headerlink" href="#weakref.ref.__callback__" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L61">typeshed</a>)</p>
+<p>This read-only attribute returns the callback currently associated to the
 weakref.  If there is no callback or if the referent of the weakref is
 no longer alive then this attribute will have value <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
@@ -518,7 +519,10 @@ been replaced by <a class="reference internal" href="constants.html#None" title=
 <dl class="py method">
 <dt class="sig sig-object py" id="weakref.finalize.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#weakref.finalize.__call__" title="Link to this definition">¶</a></dt>
-<dd><p>If <em>self</em> is alive then mark it as dead and return the result of
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L207">typeshed</a>)</p>
+<p>If <em>self</em> is alive then mark it as dead and return the result of
 calling <code class="docutils literal notranslate"><span class="pre">func(*args,</span> <span class="pre">**kwargs)</span></code>.  If <em>self</em> is dead then return
 <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
@@ -526,7 +530,24 @@ calling <code class="docutils literal notranslate"><span class="pre">func(*args,
 <dl class="py method">
 <dt class="sig sig-object py" id="weakref.finalize.detach">
 <span class="sig-name descname"><span class="pre">detach</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#weakref.finalize.detach" title="Link to this definition">¶</a></dt>
-<dd><p>If <em>self</em> is alive then mark it as dead and return the tuple
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">detach</span></span><span class="sig-paren">[</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">_P</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">]</span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">)</span> <span class="pre">-&gt;</span> <span class="pre">tuple[_T</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">(ParamSpec(_P)</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any,</span> <span class="pre">tuple[typing.Any,</span> <span class="pre">...],</span> <span class="pre">dict[str,</span> <span class="pre">typing.Any]]</span> <span class="pre">|</span> <span class="pre">None</span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L208">typeshed</a>)</p>
+<p>If <em>self</em> is alive then mark it as dead and return the tuple
 <code class="docutils literal notranslate"><span class="pre">(obj,</span> <span class="pre">func,</span> <span class="pre">args,</span> <span class="pre">kwargs)</span></code>.  If <em>self</em> is dead then return
 <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
@@ -534,20 +555,39 @@ calling <code class="docutils literal notranslate"><span class="pre">func(*args,
 <dl class="py method">
 <dt class="sig sig-object py" id="weakref.finalize.peek">
 <span class="sig-name descname"><span class="pre">peek</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#weakref.finalize.peek" title="Link to this definition">¶</a></dt>
-<dd><p>If <em>self</em> is alive then return the tuple <code class="docutils literal notranslate"><span class="pre">(obj,</span> <span class="pre">func,</span> <span class="pre">args,</span>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">peek</span></span><span class="sig-paren">[</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">_P</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">]</span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">)</span> <span class="pre">-&gt;</span> <span class="pre">tuple[_T</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">(ParamSpec(_P)</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any,</span> <span class="pre">tuple[typing.Any,</span> <span class="pre">...],</span> <span class="pre">dict[str,</span> <span class="pre">typing.Any]]</span> <span class="pre">|</span> <span class="pre">None</span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L209">typeshed</a>)</p>
+<p>If <em>self</em> is alive then return the tuple <code class="docutils literal notranslate"><span class="pre">(obj,</span> <span class="pre">func,</span> <span class="pre">args,</span>
 <span class="pre">kwargs)</span></code>.  If <em>self</em> is dead then return <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="weakref.finalize.alive">
-<span class="sig-name descname"><span class="pre">alive</span></span><a class="headerlink" href="#weakref.finalize.alive" title="Link to this definition">¶</a></dt>
-<dd><p>Property which is true if the finalizer is alive, false otherwise.</p>
+<span class="sig-name descname"><span class="pre">alive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">alive[_P,</span> <span class="pre">_T](self:</span> <span class="pre">finalize[_P,</span> <span class="pre">_T])</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></em><a class="headerlink" href="#weakref.finalize.alive" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L211">typeshed</a>)</p>
+<p>Property which is true if the finalizer is alive, false otherwise.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="weakref.finalize.atexit">
-<span class="sig-name descname"><span class="pre">atexit</span></span><a class="headerlink" href="#weakref.finalize.atexit" title="Link to this definition">¶</a></dt>
-<dd><p>A writable boolean property which by default is true.  When the
+<span class="sig-name descname"><span class="pre">atexit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></em><a class="headerlink" href="#weakref.finalize.atexit" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L214">typeshed</a>)</p>
+<p>A writable boolean property which by default is true.  When the
 program exits, it calls all remaining live finalizers for which
 <a class="reference internal" href="#weakref.finalize.atexit" title="weakref.finalize.atexit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">atexit</span></code></a> is true.  They are called in reverse order of
 creation.</p>

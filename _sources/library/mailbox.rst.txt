@@ -86,6 +86,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: add(message)
+               add[_MessageT](message: _MessageData) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L57>`__)
 
       Add *message* to the mailbox and return the key that has been assigned to
       it.
@@ -107,6 +110,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
                __delitem__(key)
                discard(key)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L59>`__)
+
       Delete the message corresponding to *key* from the mailbox.
 
       If no such message exists, a :exc:`KeyError` exception is raised if the
@@ -117,6 +122,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: __setitem__(key, message)
+               __setitem__[_MessageT](key: str, message: _MessageData) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L63>`__)
 
       Replace the message corresponding to *key* with *message*. Raise a
       :exc:`KeyError` exception if no message already corresponds to *key*.
@@ -133,11 +141,17 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: iterkeys()
+               iterkeys[_MessageT]() -> collections.abc.Iterator[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L78>`__)
 
       Return an :term:`iterator` over all keys
 
 
    .. method:: keys()
+               keys[_MessageT]() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L79>`__)
 
       The same as :meth:`iterkeys`, except that a :class:`list` is returned
       rather than an :term:`iterator`
@@ -145,6 +159,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
    .. method:: itervalues()
                __iter__()
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L80>`__)
 
       Return an :term:`iterator` over representations of all messages.
       The messages are represented
@@ -159,12 +175,18 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: values()
+               values[_MessageT]() -> list[_MessageT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L82>`__)
 
       The same as :meth:`itervalues`, except that a :class:`list` is returned
       rather than an :term:`iterator`
 
 
    .. method:: iteritems()
+               iteritems[_MessageT]() -> collections.abc.Iterator[tuple[str, _MessageT]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L83>`__)
 
       Return an :term:`iterator` over (*key*, *message*) pairs, where *key* is
       a key and *message* is a message representation. The messages are
@@ -174,6 +196,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: items()
+               items[_MessageT]() -> list[tuple[str, _MessageT]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L84>`__)
 
       The same as :meth:`iteritems`, except that a :class:`list` of pairs is
       returned rather than an :term:`iterator` of pairs.
@@ -181,6 +206,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
    .. method:: get(key, default=None)
                __getitem__(key)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L65>`__)
 
       Return a representation of the message corresponding to *key*. If no such
       message exists, *default* is returned if the method was called as
@@ -192,6 +219,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_message(key)
+               get_message[_MessageT](key: str) -> _MessageT
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L70>`__)
 
       Return a representation of the message corresponding to *key* as an
       instance of the appropriate format-specific :class:`Message` subclass, or
@@ -199,6 +229,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_bytes(key)
+               get_bytes[_MessageT](key: str) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L73>`__)
 
       Return a byte representation of the message corresponding to *key*, or
       raise a :exc:`KeyError` exception if no such message exists.
@@ -207,6 +240,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_string(key)
+               get_string[_MessageT](key: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L71>`__)
 
       Return a string representation of the message corresponding to *key*, or
       raise a :exc:`KeyError` exception if no such message exists.  The
@@ -215,6 +251,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_file(key)
+               get_file[_MessageT](key: str) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L76>`__)
 
       Return a :term:`file-like <file-like object>` representation of the
       message corresponding to *key*,
@@ -238,21 +277,34 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: __contains__(key)
+               __contains__[_MessageT](key: str) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L86>`__)
 
       Return ``True`` if *key* corresponds to a message, ``False`` otherwise.
 
 
    .. method:: __len__()
+               __len__[_MessageT]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L88>`__)
 
       Return a count of messages in the mailbox.
 
 
    .. method:: clear()
+               clear[_MessageT]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L89>`__)
 
       Delete all messages from the mailbox.
 
 
    .. method:: pop(key, default=None)
+               pop(key: str, default: None = None) -> _MessageT | None
+               pop(key: str, default: _T) -> _MessageT | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L91>`__)
 
       Return a representation of the message corresponding to *key* and delete
       the message. If no such message exists, return *default*. The message is
@@ -262,6 +314,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: popitem()
+               popitem[_MessageT]() -> tuple[str, _MessageT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L94>`__)
 
       Return an arbitrary (*key*, *message*) pair, where *key* is a key and
       *message* is a message representation, and delete the corresponding
@@ -272,6 +327,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: update(arg)
+               update[_MessageT](arg: collections.abc.Iterable[tuple[str, _MessageData]] | _HasItems | _HasIteritems | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L95>`__)
 
       Parameter *arg* should be a *key*-to-*message* mapping or an iterable of
       (*key*, *message*) pairs. Updates the mailbox so that, for each given
@@ -287,6 +345,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: flush()
+               flush[_MessageT]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L97>`__)
 
       Write any pending changes to the filesystem. For some :class:`Mailbox`
       subclasses, changes are always written immediately and :meth:`!flush` does
@@ -294,6 +355,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: lock()
+               lock[_MessageT]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L99>`__)
 
       Acquire an exclusive advisory lock on the mailbox so that other processes
       know not to modify it. An :exc:`ExternalClashError` is raised if the lock
@@ -303,11 +367,17 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: unlock()
+               unlock[_MessageT]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L101>`__)
 
       Release the lock on the mailbox, if any.
 
 
    .. method:: close()
+               close[_MessageT]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L103>`__)
 
       Flush the mailbox, unlock it if necessary, and close any open files. For
       some :class:`!Mailbox` subclasses, this method does nothing.
@@ -358,6 +428,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
    indicated using ``'.'`` to delimit levels, e.g., "Archived.2005.07".
 
    .. attribute:: Maildir.colon
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L113>`__)
 
       The Maildir specification requires the use of a colon (``':'``) in certain
       message file names. However, some operating systems do not permit this
@@ -379,11 +452,17 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: list_folders()
+               list_folders() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L138>`__)
 
       Return a list of the names of all folders.
 
 
    .. method:: get_folder(folder)
+               get_folder(folder: str) -> Maildir
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L139>`__)
 
       Return a :class:`!Maildir` instance representing the folder whose name is
       *folder*. A :exc:`NoSuchMailboxError` exception is raised if the folder
@@ -391,12 +470,18 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: add_folder(folder)
+               add_folder(folder: str) -> Maildir
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L140>`__)
 
       Create a folder whose name is *folder* and return a :class:`!Maildir`
       instance representing it.
 
 
    .. method:: remove_folder(folder)
+               remove_folder(folder: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L141>`__)
 
       Delete the folder whose name is *folder*. If the folder contains any
       messages, a :exc:`NotEmptyError` exception will be raised and the folder
@@ -404,6 +489,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: clean()
+               clean() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L142>`__)
 
       Delete temporary files from the mailbox that have not been accessed in the
       last 36 hours. The Maildir specification says that mail-reading programs
@@ -411,6 +499,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_flags(key)
+               get_flags(key: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L126>`__)
 
       Return as a string the flags that are set on the message
       corresponding to *key*.
@@ -430,6 +521,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: set_flags(key, flags)
+               set_flags(key: str, flags: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L127>`__)
 
       On the message corresponding to *key*, set the flags specified
       by *flags* and unset all others.
@@ -450,6 +544,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: add_flag(key, flag)
+               add_flag(key: str, flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L128>`__)
 
       On the message corresponding to *key*, set the flags specified
       by *flag* without changing other flags. To add more than one
@@ -463,6 +560,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: remove_flag(key, flag)
+               remove_flag(key: str, flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L129>`__)
 
       On the message corresponding to *key*, unset the flags specified
       by *flag* without changing other flags. To remove more than one
@@ -476,6 +576,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_info(key)
+               get_info(key: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L124>`__)
 
       Return a string containing the info for the message
       corresponding to *key*.
@@ -494,6 +597,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: set_info(key, info)
+               set_info(key: str, info: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L125>`__)
 
       Set the info of the message corresponding to *key* to *info*.
       Calling ``some_mailbox.set_info(key, flags)`` is similar to ::
@@ -519,6 +625,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
                __setitem__(key, message)
                update(arg)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L117>`__)
+
       .. warning::
 
          These methods generate unique file names based upon the current process
@@ -528,6 +636,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: flush()
+               flush() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L134>`__)
 
       All changes to Maildir mailboxes are immediately applied, so this method
       does nothing.
@@ -536,17 +647,25 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
    .. method:: lock()
                unlock()
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L135>`__)
+
       Maildir mailboxes do not support (or require) locking, so these methods do
       nothing.
 
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L137>`__)
 
       :class:`!Maildir` instances do not keep any open files and the underlying
       mailboxes do not support locking, so this method does nothing.
 
 
    .. method:: get_file(key)
+               get_file(key: str) -> _ProxyFile[bytes]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L122>`__)
 
       Depending upon the host platform, it may not be possible to modify or
       remove the underlying message while the returned file remains open.
@@ -598,12 +717,18 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_bytes(key, from_=False)
+               get_bytes(key: str, from_: bool = False) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L160>`__)
 
       Note: This method has an extra parameter (*from_*) compared with other classes.
       The first line of an mbox file entry is the Unix "From " line.
       If *from_* is False, the first line of the file is dropped.
 
    .. method:: get_file(key, from_=False)
+               get_file(key: str, from_: bool = False) -> _PartialFile[bytes]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L159>`__)
 
       Using the file after calling :meth:`~Mailbox.flush` or
       :meth:`~Mailbox.close` on the :class:`!mbox` instance may yield
@@ -614,6 +739,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
       If *from_* is False, the first line of the file is dropped.
 
    .. method:: get_string(key, from_=False)
+               get_string(key: str, from_: bool = False) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L161>`__)
 
       Note: This method has an extra parameter (*from_*) compared with other classes.
       The first line of an mbox file entry is the Unix "From " line.
@@ -621,6 +749,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
    .. method:: lock()
                unlock()
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L152>`__)
 
       Three locking mechanisms are used---dot locking and, if available, the
       :c:func:`!flock` and :c:func:`!lockf` system calls.
@@ -678,11 +808,17 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: list_folders()
+               list_folders() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L184>`__)
 
       Return a list of the names of all folders.
 
 
    .. method:: get_folder(folder)
+               get_folder(folder: StrPath) -> MH
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L185>`__)
 
       Return an :class:`!MH` instance representing the folder whose name is
       *folder*. A :exc:`NoSuchMailboxError` exception is raised if the folder
@@ -690,12 +826,18 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: add_folder(folder)
+               add_folder(folder: StrPath) -> MH
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L186>`__)
 
       Create a folder whose name is *folder* and return an :class:`!MH` instance
       representing it.
 
 
    .. method:: remove_folder(folder)
+               remove_folder(folder: StrPath) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L187>`__)
 
       Delete the folder whose name is *folder*. If the folder contains any
       messages, a :exc:`NotEmptyError` exception will be raised and the folder
@@ -703,12 +845,18 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_sequences()
+               get_sequences() -> dict[str, list[int]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L188>`__)
 
       Return a dictionary of sequence names mapped to key lists. If there are no
       sequences, the empty dictionary is returned.
 
 
    .. method:: set_sequences(sequences)
+               set_sequences(sequences: collections.abc.Mapping[str, collections.abc.Sequence[int]]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L189>`__)
 
       Re-define the sequences that exist in the mailbox based upon *sequences*,
       a dictionary of names mapped to key lists, like returned by
@@ -716,6 +864,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: pack()
+               pack() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L190>`__)
 
       Rename messages in the mailbox as necessary to eliminate gaps in
       numbering.  Entries in the sequences list are updated correspondingly.
@@ -733,12 +884,16 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
                __delitem__(key)
                discard(key)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L172>`__)
+
       These methods immediately delete the message. The MH convention of marking
       a message for deletion by prepending a comma to its name is not used.
 
 
    .. method:: lock()
                unlock()
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L181>`__)
 
       Three locking mechanisms are used---dot locking and, if available, the
       :c:func:`!flock` and :c:func:`!lockf` system calls. For MH mailboxes, locking
@@ -748,18 +903,27 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_file(key)
+               get_file(key: str) -> _ProxyFile[bytes]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L176>`__)
 
       Depending upon the host platform, it may not be possible to remove the
       underlying message while the returned file remains open.
 
 
    .. method:: flush()
+               flush() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L180>`__)
 
       All changes to MH mailboxes are immediately applied, so this method does
       nothing.
 
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L183>`__)
 
       :class:`!MH` instances do not keep any open files, so this method is
       equivalent to :meth:`unlock`.
@@ -813,6 +977,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_labels()
+               get_labels() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L197>`__)
 
       Return a list of the names of all user-defined labels used in the mailbox.
 
@@ -828,6 +995,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_file(key)
+               get_file(key: str) -> IO[bytes]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L196>`__)
 
       In Babyl mailboxes, the headers of a message are not stored contiguously
       with the body of the message. To generate a file-like representation, the
@@ -840,6 +1010,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
    .. method:: lock()
                unlock()
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L152>`__)
 
       Three locking mechanisms are used---dot locking and, if available, the
       :c:func:`!flock` and :c:func:`!lockf` system calls.
@@ -886,12 +1058,18 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_bytes(key, from_=False)
+               get_bytes(key: str, from_: bool = False) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L160>`__)
 
       Note: This method has an extra parameter (*from_*) compared with other classes.
       The first line of an mbox file entry is the Unix "From " line.
       If *from_* is False, the first line of the file is dropped.
 
    .. method:: get_file(key, from_=False)
+               get_file(key: str, from_: bool = False) -> _PartialFile[bytes]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L159>`__)
 
       Using the file after calling :meth:`~Mailbox.flush` or
       :meth:`~Mailbox.close` on the :class:`!MMDF` instance may yield
@@ -904,6 +1082,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
    .. method:: lock()
                unlock()
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L152>`__)
 
       Three locking mechanisms are used---dot locking and, if available, the
       :c:func:`!flock` and :c:func:`!lockf` system calls.
@@ -1005,6 +1185,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_subdir()
+               get_subdir() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L203>`__)
 
       Return either "new" (if the message should be stored in the :file:`new`
       subdirectory) or "cur" (if the message should be stored in the :file:`cur`
@@ -1019,12 +1202,18 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: set_subdir(subdir)
+               set_subdir(subdir: typing.Literal['cur', 'new']) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L204>`__)
 
       Set the subdirectory the message should be stored in. Parameter *subdir*
       must be either "new" or "cur".
 
 
    .. method:: get_flags()
+               get_flags() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L205>`__)
 
       Return a string specifying the flags that are currently set. If the
       message complies with the standard Maildir format, the result is the
@@ -1035,11 +1224,17 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: set_flags(flags)
+               set_flags(flags: collections.abc.Iterable[str]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L206>`__)
 
       Set the flags specified by *flags* and unset all others.
 
 
    .. method:: add_flag(flag)
+               add_flag(flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L207>`__)
 
       Set the flag(s) specified by *flag* without changing other flags. To add
       more than one flag at a time, *flag* may be a string of more than one
@@ -1048,6 +1243,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: remove_flag(flag)
+               remove_flag(flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L208>`__)
 
       Unset the flag(s) specified by *flag* without changing other flags. To
       remove more than one flag at a time, *flag* maybe a string of more than
@@ -1056,18 +1254,27 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_date()
+               get_date() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L209>`__)
 
       Return the delivery date of the message as a floating-point number
       representing seconds since the epoch.
 
 
    .. method:: set_date(date)
+               set_date(date: float) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L210>`__)
 
       Set the delivery date of the message to *date*, a floating-point number
       representing seconds since the epoch.
 
 
    .. method:: get_info()
+               get_info() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L211>`__)
 
       Return a string containing the "info" for a message. This is useful for
       accessing and modifying "info" that is experimental (i.e., not a list of
@@ -1075,6 +1282,9 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: set_info(info)
+               set_info(info: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L212>`__)
 
       Set "info" to *info*, which should be a string.
 
@@ -1177,6 +1387,9 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
    .. method:: get_from()
+               get_from() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L215>`__)
 
       Return a string representing the "From " line that marks the start of the
       message in an mbox mailbox. The leading "From " and the trailing newline
@@ -1184,6 +1397,9 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
    .. method:: set_from(from_, time_=None)
+               set_from(from_: str, time_: bool | tuple[int, int, int, int, int, int, int, int, int] | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L216>`__)
 
       Set the "From " line to *from_*, which should be specified without a
       leading "From " or trailing newline. For convenience, *time_* may be
@@ -1194,6 +1410,9 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
    .. method:: get_flags()
+               get_flags() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L217>`__)
 
       Return a string specifying the flags that are currently set. If the
       message complies with the conventional format, the result is the
@@ -1202,6 +1421,9 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
    .. method:: set_flags(flags)
+               set_flags(flags: collections.abc.Iterable[str]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L218>`__)
 
       Set the flags specified by *flags* and unset all others. Parameter *flags*
       should be the concatenation in any order of zero or more occurrences of
@@ -1209,6 +1431,9 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
    .. method:: add_flag(flag)
+               add_flag(flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L219>`__)
 
       Set the flag(s) specified by *flag* without changing other flags. To add
       more than one flag at a time, *flag* may be a string of more than one
@@ -1216,6 +1441,9 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
    .. method:: remove_flag(flag)
+               remove_flag(flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L220>`__)
 
       Unset the flag(s) specified by *flag* without changing other flags. To
       remove more than one flag at a time, *flag* maybe a string of more than
@@ -1323,21 +1551,33 @@ instance, the "From " line is copied and all flags directly correspond:
 
 
    .. method:: get_sequences()
+               get_sequences() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L225>`__)
 
       Return a list of the names of sequences that include this message.
 
 
    .. method:: set_sequences(sequences)
+               set_sequences(sequences: collections.abc.Iterable[str]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L226>`__)
 
       Set the list of sequences that include this message.
 
 
    .. method:: add_sequence(sequence)
+               add_sequence(sequence: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L227>`__)
 
       Add *sequence* to the list of sequences that include this message.
 
 
    .. method:: remove_sequence(sequence)
+               remove_sequence(sequence: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L228>`__)
 
       Remove *sequence* from the list of sequences that include this message.
 
@@ -1425,32 +1665,50 @@ When an :class:`!MHMessage` instance is created based upon a
 
 
    .. method:: get_labels()
+               get_labels() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L231>`__)
 
       Return a list of labels on the message.
 
 
    .. method:: set_labels(labels)
+               set_labels(labels: collections.abc.Iterable[str]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L232>`__)
 
       Set the list of labels on the message to *labels*.
 
 
    .. method:: add_label(label)
+               add_label(label: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L233>`__)
 
       Add *label* to the list of labels on the message.
 
 
    .. method:: remove_label(label)
+               remove_label(label: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L234>`__)
 
       Remove *label* from the list of labels on the message.
 
 
    .. method:: get_visible()
+               get_visible() -> Message
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L235>`__)
 
       Return a :class:`Message` instance whose headers are the message's
       visible headers and whose body is empty.
 
 
    .. method:: set_visible(visible)
+               set_visible(visible: _MessageData) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L236>`__)
 
       Set the message's visible headers to be the same as the headers in
       *message*.  Parameter *visible* should be a :class:`Message` instance, an
@@ -1459,6 +1717,9 @@ When an :class:`!MHMessage` instance is created based upon a
 
 
    .. method:: update_visible()
+               update_visible() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L237>`__)
 
       When a :class:`!BabylMessage` instance's original headers are modified, the
       visible headers are not automatically modified to correspond. This method
@@ -1558,6 +1819,9 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
    .. method:: get_from()
+               get_from() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L215>`__)
 
       Return a string representing the "From " line that marks the start of the
       message in an mbox mailbox. The leading "From " and the trailing newline
@@ -1565,6 +1829,9 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
    .. method:: set_from(from_, time_=None)
+               set_from(from_: str, time_: bool | tuple[int, int, int, int, int, int, int, int, int] | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L216>`__)
 
       Set the "From " line to *from_*, which should be specified without a
       leading "From " or trailing newline. For convenience, *time_* may be
@@ -1575,6 +1842,9 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
    .. method:: get_flags()
+               get_flags() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L217>`__)
 
       Return a string specifying the flags that are currently set. If the
       message complies with the conventional format, the result is the
@@ -1583,6 +1853,9 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
    .. method:: set_flags(flags)
+               set_flags(flags: collections.abc.Iterable[str]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L218>`__)
 
       Set the flags specified by *flags* and unset all others. Parameter *flags*
       should be the concatenation in any order of zero or more occurrences of
@@ -1590,6 +1863,9 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
    .. method:: add_flag(flag)
+               add_flag(flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L219>`__)
 
       Set the flag(s) specified by *flag* without changing other flags. To add
       more than one flag at a time, *flag* may be a string of more than one
@@ -1597,6 +1873,9 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
    .. method:: remove_flag(flag)
+               remove_flag(flag: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mailbox.pyi#L220>`__)
 
       Unset the flag(s) specified by *flag* without changing other flags. To
       remove more than one flag at a time, *flag* maybe a string of more than

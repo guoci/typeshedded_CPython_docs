@@ -368,7 +368,10 @@ little larger in this case because of the extra function calls.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="timeit.Timer.timeit">
 <span class="sig-name descname"><span class="pre">timeit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer.timeit" title="Link to this definition">¶</a></dt>
-<dd><p>Time <em>number</em> executions of the main statement.  This executes the setup
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">timeit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/timeit.pyi#L17">typeshed</a>)</p>
+<p>Time <em>number</em> executions of the main statement.  This executes the setup
 statement once, and then returns the time it takes to execute the main
 statement a number of times.  The default timer returns seconds as a float.
 The argument is the number of times through the loop, defaulting to one
@@ -391,7 +394,17 @@ statement in the <em>setup</em> string.  For example:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="timeit.Timer.autorange">
 <span class="sig-name descname"><span class="pre">autorange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer.autorange" title="Link to this definition">¶</a></dt>
-<dd><p>Automatically determine how many times to call <a class="reference internal" href="#timeit.Timer.timeit" title="timeit.Timer.timeit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">autorange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">callback:</span> <span class="pre">((int</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">float)</span> <span class="pre">-&gt;</span> <span class="pre">object)</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/timeit.pyi#L19">typeshed</a>)</p>
+<p>Automatically determine how many times to call <a class="reference internal" href="#timeit.Timer.timeit" title="timeit.Timer.timeit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a>.</p>
 <p>This is a convenience function that calls <a class="reference internal" href="#timeit.Timer.timeit" title="timeit.Timer.timeit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> repeatedly
 so that the total time &gt;= 0.2 second, returning the eventual
 (number of loops, time taken for that number of loops). It calls
@@ -407,7 +420,10 @@ each trial with two arguments: <code class="docutils literal notranslate"><span 
 <dl class="py method">
 <dt class="sig sig-object py" id="timeit.Timer.repeat">
 <span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer.repeat" title="Link to this definition">¶</a></dt>
-<dd><p>Call <a class="reference internal" href="#timeit.Timer.timeit" title="timeit.Timer.timeit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> a few times.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/timeit.pyi#L18">typeshed</a>)</p>
+<p>Call <a class="reference internal" href="#timeit.Timer.timeit" title="timeit.Timer.timeit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> a few times.</p>
 <p>This is a convenience function that calls the <a class="reference internal" href="#timeit.Timer.timeit" title="timeit.Timer.timeit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> repeatedly,
 returning a list of results.  The first argument specifies how many times
 to call <a class="reference internal" href="#timeit.Timer.timeit" title="timeit.Timer.timeit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a>.  The second argument specifies the <em>number</em>
@@ -432,7 +448,10 @@ vector and apply common sense rather than statistics.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="timeit.Timer.print_exc">
 <span class="sig-name descname"><span class="pre">print_exc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer.print_exc" title="Link to this definition">¶</a></dt>
-<dd><p>Helper to print a traceback from the timed code.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">print_exc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.IO" title="typing.IO"><span class="pre">IO</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/timeit.pyi#L16">typeshed</a>)</p>
+<p>Helper to print a traceback from the timed code.</p>
 <p>Typical use:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>       <span class="c1"># outside the try/except</span>
 <span class="k">try</span><span class="p">:</span>

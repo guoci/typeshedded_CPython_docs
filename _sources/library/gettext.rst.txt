@@ -255,6 +255,9 @@ are the methods of :class:`!NullTranslations`:
    ``None``.
 
    .. method:: _parse(fp)
+               _parse(fp: _TranslationsReader) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L38>`__)
 
       No-op in the base class, this method takes file object *fp*, and reads
       the data from the file, initializing its message catalog.  If you have an
@@ -263,6 +266,9 @@ are the methods of :class:`!NullTranslations`:
 
 
    .. method:: add_fallback(fallback)
+               add_fallback(fallback: NullTranslations) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L39>`__)
 
       Add *fallback* as the fallback object for the current translation object.
       A translation object should consult the fallback if it cannot provide a
@@ -270,12 +276,18 @@ are the methods of :class:`!NullTranslations`:
 
 
    .. method:: gettext(message)
+               gettext(message: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L40>`__)
 
       If a fallback has been set, forward :meth:`!gettext` to the fallback.
       Otherwise, return *message*.  Overridden in derived classes.
 
 
    .. method:: ngettext(singular, plural, n)
+               ngettext(msgid1: str, msgid2: str, n: int) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L41>`__)
 
       If a fallback has been set, forward :meth:`!ngettext` to the fallback.
       Otherwise, return *singular* if *n* is 1; return *plural* otherwise.
@@ -283,6 +295,9 @@ are the methods of :class:`!NullTranslations`:
 
 
    .. method:: pgettext(context, message)
+               pgettext(context: str, message: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L42>`__)
 
       If a fallback has been set, forward :meth:`pgettext` to the fallback.
       Otherwise, return the translated message.  Overridden in derived classes.
@@ -291,6 +306,9 @@ are the methods of :class:`!NullTranslations`:
 
 
    .. method:: npgettext(context, singular, plural, n)
+               npgettext(context: str, msgid1: str, msgid2: str, n: int) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L43>`__)
 
       If a fallback has been set, forward :meth:`npgettext` to the fallback.
       Otherwise, return the translated message.  Overridden in derived classes.
@@ -299,17 +317,26 @@ are the methods of :class:`!NullTranslations`:
 
 
    .. method:: info()
+               info() -> dict[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L44>`__)
 
       Return a dictionary containing
       the metadata found in the message catalog file.
 
 
    .. method:: charset()
+               charset() -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L45>`__)
 
       Return the encoding of the message catalog file.
 
 
    .. method:: install(names=None)
+               install(names: collections.abc.Container[str] | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L56>`__)
 
       This method installs :meth:`.gettext` into the built-in namespace,
       binding it to ``_``.
@@ -372,6 +399,9 @@ unexpected, or if other problems occur while reading the file, instantiating a
    The following methods are overridden from the base class implementation:
 
    .. method:: gettext(message)
+               gettext(message: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L40>`__)
 
       Look up the *message* id in the catalog and return the corresponding message
       string, as a Unicode string.  If there is no entry in the catalog for the
@@ -381,6 +411,9 @@ unexpected, or if other problems occur while reading the file, instantiating a
 
 
    .. method:: ngettext(singular, plural, n)
+               ngettext(msgid1: str, msgid2: str, n: int) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L41>`__)
 
       Do a plural-forms lookup of a message id.  *singular* is used as the message id
       for purposes of lookup in the catalog, while *n* is used to determine which
@@ -402,6 +435,9 @@ unexpected, or if other problems occur while reading the file, instantiating a
 
 
    .. method:: pgettext(context, message)
+               pgettext(context: str, message: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L42>`__)
 
       Look up the *context* and *message* id in the catalog and return the
       corresponding message string, as a Unicode string.  If there is no
@@ -413,6 +449,9 @@ unexpected, or if other problems occur while reading the file, instantiating a
 
 
    .. method:: npgettext(context, singular, plural, n)
+               npgettext(context: str, msgid1: str, msgid2: str, n: int) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/gettext.pyi#L43>`__)
 
       Do a plural-forms lookup of a message id.  *singular* is used as the
       message id for purposes of lookup in the catalog, while *n* is used to

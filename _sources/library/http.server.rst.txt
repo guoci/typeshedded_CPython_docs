@@ -128,21 +128,33 @@ instantiation, of which this module provides three different variants:
    :class:`BaseHTTPRequestHandler` has the following instance variables:
 
    .. attribute:: client_address
+      :type: tuple[str, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L66>`__)
 
       Contains a tuple of the form ``(host, port)`` referring to the client's
       address.
 
    .. attribute:: server
+      :type: BaseServer
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L151>`__)
 
       Contains the server instance.
 
    .. attribute:: close_connection
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L67>`__)
 
       Boolean that should be set before :meth:`handle_one_request` returns,
       indicating if another request may be expected, or if the connection should
       be shut down.
 
    .. attribute:: requestline
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L68>`__)
 
       Contains the string representation of the HTTP request line. The
       terminating CRLF is stripped. This attribute should be set by
@@ -150,20 +162,32 @@ instantiation, of which this module provides three different variants:
       should be set to the empty string.
 
    .. attribute:: command
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L69>`__)
 
       Contains the command (request type). For example, ``'GET'``.
 
    .. attribute:: path
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L70>`__)
 
       Contains the request path. If query component of the URL is present,
       then ``path`` includes the query. Using the terminology of :rfc:`3986`,
       ``path`` here includes ``hier-part`` and the ``query``.
 
    .. attribute:: request_version
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L71>`__)
 
       Contains the version string from the request. For example, ``'HTTP/1.0'``.
 
    .. attribute:: headers
+      :type: email.message.Message[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L72>`__)
 
       Holds an instance of the class specified by the :attr:`MessageClass` class
       variable. This instance parses and manages the headers in the HTTP
@@ -172,11 +196,17 @@ instantiation, of which this module provides three different variants:
       HTTP request provide a valid :rfc:`5322` style header.
 
    .. attribute:: rfile
+      :type: BufferedIOBase
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L163>`__)
 
       An :class:`io.BufferedIOBase` input stream, ready to read from
       the start of the optional input data.
 
    .. attribute:: wfile
+      :type: BufferedIOBase
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L164>`__)
 
       Contains the output stream for writing a response back to the
       client. Proper adherence to the HTTP protocol must be used when writing to
@@ -189,18 +219,27 @@ instantiation, of which this module provides three different variants:
    :class:`BaseHTTPRequestHandler` has the following attributes:
 
    .. attribute:: server_version
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L73>`__)
 
       Specifies the server software version.  You may want to override this. The
       format is multiple whitespace-separated strings, where each string is of
       the form name[/version]. For example, ``'BaseHTTP/0.2'``.
 
    .. attribute:: sys_version
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L74>`__)
 
       Contains the Python system version, in a form usable by the
       :attr:`version_string` method and the :attr:`server_version` class
       variable. For example, ``'Python/1.4'``.
 
    .. attribute:: error_message_format
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L75>`__)
 
       Specifies a format string that should be used by :meth:`send_error` method
       for building an error response to the client. The string is filled by
@@ -208,11 +247,17 @@ instantiation, of which this module provides three different variants:
       that passed to :meth:`send_error`.
 
    .. attribute:: error_content_type
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L76>`__)
 
       Specifies the Content-Type HTTP header of error responses sent to the
       client.  The default value is ``'text/html'``.
 
    .. attribute:: protocol_version
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L77>`__)
 
       Specifies the HTTP version to which the server is conformant. It is sent
       in responses to let the client know the server's communication
@@ -223,12 +268,18 @@ instantiation, of which this module provides three different variants:
       For backwards compatibility, the setting defaults to ``'HTTP/1.0'``.
 
    .. attribute:: MessageClass
+      :type: __call__(self: type, *args: typing.Any, **kwds: typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L78>`__)
 
       Specifies an :class:`email.message.Message`\ -like class to parse HTTP
       headers.  Typically, this is not overridden, and it defaults to
       :class:`http.client.HTTPMessage`.
 
    .. attribute:: responses
+      :type: collections.abc.Mapping[int, tuple[str, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L79>`__)
 
       This attribute contains a mapping of error code integers to two-element tuples
       containing a short and long message. For example, ``{code: (shortmessage,
@@ -239,6 +290,9 @@ instantiation, of which this module provides three different variants:
    A :class:`BaseHTTPRequestHandler` instance has the following methods:
 
    .. method:: handle()
+               handle() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L154>`__)
 
       Calls :meth:`handle_one_request` once (or, if persistent connections are
       enabled, multiple times) to handle incoming HTTP requests. You should
@@ -246,11 +300,17 @@ instantiation, of which this module provides three different variants:
       methods.
 
    .. method:: handle_one_request()
+               handle_one_request() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L83>`__)
 
       This method will parse and dispatch the request to the appropriate
       :meth:`!do_\*` method.  You should never need to override it.
 
    .. method:: handle_expect_100()
+               handle_expect_100() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L84>`__)
 
       When an HTTP/1.1 conformant server receives an ``Expect: 100-continue``
       request header it responds back with a ``100 Continue`` followed by ``200
@@ -262,6 +322,9 @@ instantiation, of which this module provides three different variants:
       .. versionadded:: 3.2
 
    .. method:: send_error(code, message=None, explain=None)
+               send_error(code: int, message: str | None = None, explain: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L85>`__)
 
       Sends and logs a complete error reply to the client. The numeric *code*
       specifies the HTTP error code, with *message* as an optional, short, human
@@ -280,6 +343,9 @@ instantiation, of which this module provides three different variants:
          Added the *explain* argument.
 
    .. method:: send_response(code, message=None)
+               send_response(code: int, message: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L86>`__)
 
       Adds a response header to the headers buffer and logs the accepted
       request. The HTTP response line is written to the internal buffer,
@@ -295,6 +361,9 @@ instantiation, of which this module provides three different variants:
          needs to be called explicitly.
 
    .. method:: send_header(keyword, value)
+               send_header(keyword: str, value: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L87>`__)
 
       Adds the HTTP header to an internal buffer which will be written to the
       output stream when either :meth:`end_headers` or :meth:`flush_headers` is
@@ -306,6 +375,9 @@ instantiation, of which this module provides three different variants:
          Headers are stored in an internal buffer.
 
    .. method:: send_response_only(code, message=None)
+               send_response_only(code: int, message: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L88>`__)
 
       Sends the response header only, used for the purposes when ``100
       Continue`` response is sent by the server to the client. The headers not
@@ -315,6 +387,9 @@ instantiation, of which this module provides three different variants:
       .. versionadded:: 3.2
 
    .. method:: end_headers()
+               end_headers() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L89>`__)
 
       Adds a blank line
       (indicating the end of the HTTP headers in the response)
@@ -324,6 +399,9 @@ instantiation, of which this module provides three different variants:
          The buffered headers are written to the output stream.
 
    .. method:: flush_headers()
+               flush_headers() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L90>`__)
 
       Finally send the headers to the output stream and flush the internal
       headers buffer.
@@ -331,12 +409,18 @@ instantiation, of which this module provides three different variants:
       .. versionadded:: 3.3
 
    .. method:: log_request(code='-', size='-')
+               log_request(code: int | str = '-', size: int | str = '-') -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L91>`__)
 
       Logs an accepted (successful) request. *code* should specify the numeric
       HTTP code associated with the response. If a size of the response is
       available, then it should be passed as the *size* parameter.
 
    .. method:: log_error(...)
+               log_error(format: str, *args: typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L92>`__)
 
       Logs an error when a request cannot be fulfilled. By default, it passes
       the message to :meth:`log_message`, so it takes the same arguments
@@ -344,6 +428,9 @@ instantiation, of which this module provides three different variants:
 
 
    .. method:: log_message(format, ...)
+               log_message(format: str, *args: typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L93>`__)
 
       Logs an arbitrary message to ``sys.stderr``. This is typically overridden
       to create custom error logging mechanisms. The *format* argument is a
@@ -352,11 +439,17 @@ instantiation, of which this module provides three different variants:
       ip address and current date and time are prefixed to every message logged.
 
    .. method:: version_string()
+               version_string() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L94>`__)
 
       Returns the server software's version string. This is a combination of the
       :attr:`server_version` and :attr:`sys_version` attributes.
 
    .. method:: date_time_string(timestamp=None)
+               date_time_string(timestamp: float | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L95>`__)
 
       Returns the date and time given by *timestamp* (which must be ``None`` or in
       the format returned by :func:`time.time`), formatted for a message
@@ -365,10 +458,16 @@ instantiation, of which this module provides three different variants:
       The result looks like ``'Sun, 06 Nov 1994 08:49:37 GMT'``.
 
    .. method:: log_date_time_string()
+               log_date_time_string() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L96>`__)
 
       Returns the current date and time, formatted for logging.
 
    .. method:: address_string()
+               address_string() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L97>`__)
 
       Returns the client address.
 
@@ -400,11 +499,17 @@ instantiation, of which this module provides three different variants:
    :class:`SimpleHTTPRequestHandler`:
 
    .. attribute:: server_version
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L73>`__)
 
       This will be ``"SimpleHTTP/" + __version__``, where ``__version__`` is
       defined at the module level.
 
    .. attribute:: extensions_map
+      :type: dict[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L101>`__)
 
       A dictionary mapping suffixes into MIME types, contains custom overrides
       for the default system mappings. The mapping is used case-insensitively,
@@ -417,12 +522,18 @@ instantiation, of which this module provides three different variants:
    The :class:`SimpleHTTPRequestHandler` class defines the following methods:
 
    .. method:: do_HEAD()
+               do_HEAD() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L114>`__)
 
       This method serves the ``'HEAD'`` request type: it sends the headers it
       would send for the equivalent ``GET`` request. See the :meth:`do_GET`
       method for a more complete explanation of the possible headers.
 
    .. method:: do_GET()
+               do_GET() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/http/server.pyi#L113>`__)
 
       The request is mapped to a local file by interpreting the request as a
       path relative to the current working directory.

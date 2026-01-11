@@ -49,12 +49,17 @@ Context Variables
    from being properly garbage collected.
 
    .. attribute:: ContextVar.name
+      :type: name[_T](self: ContextVar[_T]) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L23>`__)
 
       The name of the variable.  This is a read-only property.
 
       .. versionadded:: 3.7.1
 
    .. method:: get([default])
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L25>`__)
 
       Return a value for the context variable for the current context.
 
@@ -70,6 +75,9 @@ Context Variables
       * raise a :exc:`LookupError`.
 
    .. method:: set(value)
+               set[_T](value: _T, /) -> Token[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L60>`__)
 
       Call to set a new value for the context variable in the current
       context.
@@ -82,6 +90,9 @@ Context Variables
       :meth:`ContextVar.reset` method.
 
    .. method:: reset(token)
+               reset[_T](token: Token[_T], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L70>`__)
 
       Reset the context variable to the value it had before the
       :meth:`ContextVar.set` that created the *token* was used.
@@ -124,11 +135,17 @@ Context Variables
       Added support for usage as a context manager.
 
    .. attribute:: Token.var
+      :type: var[_T](self: Token[_T]) -> ContextVar[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L85>`__)
 
       A read-only property.  Points to the :class:`ContextVar` object
       that created the token.
 
    .. attribute:: Token.old_value
+      :type: old_value[_T](self: Token[_T]) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L87>`__)
 
       A read-only property.  Set to the value the variable had before
       the :meth:`ContextVar.set` method call that created the token.
@@ -136,6 +153,9 @@ Context Variables
       before the call.
 
    .. attribute:: Token.MISSING
+      :type: object
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L88>`__)
 
       A marker object used by :attr:`Token.old_value`.
 
@@ -205,6 +225,9 @@ Manual Context Management
    Context implements the :class:`collections.abc.Mapping` interface.
 
    .. method:: run(callable, *args, **kwargs)
+               run[_P, _T](Context, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L133>`__)
 
       Enters the Context, executes ``callable(*args, **kwargs)``, then exits the
       Context.  Returns *callable*'s return value, or propagates an exception if
@@ -257,6 +280,9 @@ Manual Context Management
          spam
 
    .. method:: copy()
+               copy() -> Context
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L134>`__)
 
       Return a shallow copy of the context object.
 
@@ -273,6 +299,8 @@ Manual Context Management
 
    .. method:: get(var, [default])
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_contextvars.pyi#L107>`__)
+
       Return the value for *var* if *var* has the value in the context
       object.  Return *default* otherwise.  If *default* is not given,
       return ``None``.
@@ -287,15 +315,24 @@ Manual Context Management
       Return the number of variables set in the context object.
 
    .. method:: keys()
+               keys() -> collections.abc.KeysView[ContextVar[typing.Any]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L834>`__)
 
       Return a list of all variables in the context object.
 
    .. method:: values()
+               values() -> collections.abc.ValuesView[typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L835>`__)
 
       Return a list of all variables' values in the context object.
 
 
    .. method:: items()
+               items() -> collections.abc.ItemsView[ContextVar[typing.Any], typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L833>`__)
 
       Return a list of 2-tuples containing all variables and their
       values in the context object.

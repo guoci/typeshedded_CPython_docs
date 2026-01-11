@@ -350,7 +350,10 @@ process and user.
    .. versionadded:: 3.6
 
    .. method:: __fspath__()
+               __fspath__[AnyStr_co]() -> AnyStr_co
       :abstractmethod:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L903>`__)
 
       Return the file system path representation of the object.
 
@@ -2287,10 +2290,16 @@ Querying the size of a terminal
    A subclass of tuple, holding ``(columns, lines)`` of the terminal window size.
 
    .. attribute:: columns
+      :type: columns(self: terminal_size) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1636>`__)
 
       Width of the terminal window in characters.
 
    .. attribute:: lines
+      :type: lines(self: terminal_size) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1640>`__)
 
       Height of the terminal window in characters.
 
@@ -3315,6 +3324,9 @@ features:
    and has the following method:
 
    .. method:: scandir.close()
+               scandir.close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L1987>`__)
 
       Close the iterator and free acquired resources.
 
@@ -3389,6 +3401,9 @@ features:
    Attributes and methods on a ``os.DirEntry`` instance are as follows:
 
    .. attribute:: name
+      :type: name[AnyStr](self: DirEntry[AnyStr]) -> AnyStr
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L962>`__)
 
       The entry's base filename, relative to the :func:`scandir` *path*
       argument.
@@ -3398,6 +3413,9 @@ features:
       :func:`~os.fsdecode` to decode byte filenames.
 
    .. attribute:: path
+      :type: path[AnyStr](self: DirEntry[AnyStr]) -> AnyStr
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L966>`__)
 
       The entry's full path name: equivalent to ``os.path.join(scandir_path,
       entry.name)`` where *scandir_path* is the :func:`scandir` *path*
@@ -3411,6 +3429,9 @@ features:
       :func:`~os.fsdecode` to decode byte filenames.
 
    .. method:: inode()
+               inode[AnyStr]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L969>`__)
 
       Return the inode number of the entry.
 
@@ -3422,6 +3443,9 @@ features:
       not on Unix.
 
    .. method:: is_dir(*, follow_symlinks=True)
+               is_dir[AnyStr](*, follow_symlinks: bool = True) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L972>`__)
 
       Return ``True`` if this entry is a directory or a symbolic link pointing
       to a directory; return ``False`` if the entry is or points to any other
@@ -3446,6 +3470,9 @@ features:
       but :exc:`FileNotFoundError` is caught and not raised.
 
    .. method:: is_file(*, follow_symlinks=True)
+               is_file[AnyStr](*, follow_symlinks: bool = True) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L975>`__)
 
       Return ``True`` if this entry is a file or a symbolic link pointing to a
       file; return ``False`` if the entry is or points to a directory or other
@@ -3459,6 +3486,9 @@ features:
       made, and exceptions raised are as per :func:`~os.DirEntry.is_dir`.
 
    .. method:: is_symlink()
+               is_symlink[AnyStr]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L978>`__)
 
       Return ``True`` if this entry is a symbolic link (even if broken);
       return ``False`` if the entry points to a directory or any kind of file,
@@ -3476,6 +3506,9 @@ features:
       but :exc:`FileNotFoundError` is caught and not raised.
 
    .. method:: is_junction()
+               is_junction[AnyStr]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L991>`__)
 
       Return ``True`` if this entry is a junction (even if broken);
       return ``False`` if the entry points to a regular directory, any kind
@@ -3487,6 +3520,9 @@ features:
       .. versionadded:: 3.12
 
    .. method:: stat(*, follow_symlinks=True)
+               stat[AnyStr](*, follow_symlinks: bool = True) -> stat_result
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L981>`__)
 
       Return a :class:`stat_result` object for this entry. This method
       follows symbolic links by default; to stat a symbolic link add the
@@ -3597,10 +3633,16 @@ features:
    Attributes:
 
    .. attribute:: st_mode
+      :type: st_mode(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L796>`__)
 
       File mode: file type and file mode bits (permissions).
 
    .. attribute:: st_ino
+      :type: st_ino(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L800>`__)
 
       Platform dependent, but if non-zero, uniquely identifies the
       file for a given value of ``st_dev``. Typically:
@@ -3611,22 +3653,37 @@ features:
         Windows
 
    .. attribute:: st_dev
+      :type: st_dev(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L804>`__)
 
       Identifier of the device on which this file resides.
 
    .. attribute:: st_nlink
+      :type: st_nlink(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L808>`__)
 
       Number of hard links.
 
    .. attribute:: st_uid
+      :type: st_uid(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L812>`__)
 
       User identifier of the file owner.
 
    .. attribute:: st_gid
+      :type: st_gid(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L816>`__)
 
       Group identifier of the file owner.
 
    .. attribute:: st_size
+      :type: st_size(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L820>`__)
 
       Size of the file in bytes, if it is a regular file or a symbolic link.
       The size of a symbolic link is the length of the pathname it contains,
@@ -3635,14 +3692,23 @@ features:
    Timestamps:
 
    .. attribute:: st_atime
+      :type: st_atime(self: stat_result) -> float
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L824>`__)
 
       Time of most recent access expressed in seconds.
 
    .. attribute:: st_mtime
+      :type: st_mtime(self: stat_result) -> float
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L828>`__)
 
       Time of most recent content modification expressed in seconds.
 
    .. attribute:: st_ctime
+      :type: st_ctime(self: stat_result) -> float
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L842>`__)
 
       Time of most recent metadata change expressed in seconds.
 
@@ -3652,12 +3718,18 @@ features:
          the time of the most recent metadata change, as for other platforms.
 
    .. attribute:: st_atime_ns
+      :type: st_atime_ns(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L847>`__)
 
       Time of most recent access expressed in nanoseconds as an integer.
 
       .. versionadded:: 3.3
 
    .. attribute:: st_mtime_ns
+      :type: st_mtime_ns(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L851>`__)
 
       Time of most recent content modification expressed in nanoseconds as an
       integer.
@@ -3665,6 +3737,9 @@ features:
       .. versionadded:: 3.3
 
    .. attribute:: st_ctime_ns
+      :type: st_ctime_ns(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L856>`__)
 
       Time of most recent metadata change expressed in nanoseconds as an
       integer.
@@ -3715,16 +3790,25 @@ features:
    available:
 
    .. attribute:: st_blocks
+      :type: st_blocks(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L871>`__)
 
       Number of 512-byte blocks allocated for file.
       This may be smaller than :attr:`st_size`/512 when the file has holes.
 
    .. attribute:: st_blksize
+      :type: st_blksize(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L875>`__)
 
       "Preferred" blocksize for efficient file system I/O. Writing to a file in
       smaller chunks may cause an inefficient read-modify-rewrite.
 
    .. attribute:: st_rdev
+      :type: st_rdev(self: stat_result) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L879>`__)
 
       Type of device if an inode device.
 
@@ -5653,6 +5737,9 @@ written in Python, such as a mail server's external command delivery program.
    .. versionadded:: 3.9
 
    .. data:: PIDFD_NONBLOCK
+      :type: typing.Literal[2048]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2764>`__)
 
       This flag indicates that the file descriptor will be non-blocking.
       If the process referred to by the file descriptor has not yet terminated,
@@ -5744,24 +5831,36 @@ written in Python, such as a mail server's external command delivery program.
    listed below describing the remaining tuple elements:
 
    .. data:: POSIX_SPAWN_OPEN
+      :type: typing.Literal[0]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2561>`__)
 
       (``os.POSIX_SPAWN_OPEN``, *fd*, *path*, *flags*, *mode*)
 
       Performs ``os.dup2(os.open(path, flags, mode), fd)``.
 
    .. data:: POSIX_SPAWN_CLOSE
+      :type: typing.Literal[1]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2562>`__)
 
       (``os.POSIX_SPAWN_CLOSE``, *fd*)
 
       Performs ``os.close(fd)``.
 
    .. data:: POSIX_SPAWN_DUP2
+      :type: typing.Literal[2]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2563>`__)
 
       (``os.POSIX_SPAWN_DUP2``, *fd*, *new_fd*)
 
       Performs ``os.dup2(fd, new_fd)``.
 
    .. data:: POSIX_SPAWN_CLOSEFROM
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2819>`__)
 
       (``os.POSIX_SPAWN_CLOSEFROM``, *fd*)
 
@@ -6614,6 +6713,9 @@ operating system.
    At the moment, there is only one possible parameter:
 
    .. attribute:: sched_priority
+      :type: sched_priority(self: sched_param) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/os/__init__.pyi#L2579>`__)
 
       The scheduling priority for a scheduling policy.
 

@@ -477,6 +477,9 @@ Decimal objects
 
 
    .. method:: adjusted()
+               adjusted() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L326>`__)
 
       Return the adjusted exponent after shifting out the coefficient's
       rightmost digits until only the lead digit remains:
@@ -484,6 +487,9 @@ Decimal objects
       position of the most significant digit with respect to the decimal point.
 
    .. method:: as_integer_ratio()
+               as_integer_ratio() -> tuple[int, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L114>`__)
 
       Return a pair ``(n, d)`` of integers that represent the given
       :class:`Decimal` instance as a fraction, in lowest terms and
@@ -498,18 +504,27 @@ Decimal objects
    .. versionadded:: 3.6
 
    .. method:: as_tuple()
+               as_tuple() -> DecimalTuple
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L111>`__)
 
       Return a :term:`named tuple` representation of the number:
       ``DecimalTuple(sign, digits, exponent)``.
 
 
    .. method:: canonical()
+               canonical() -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L329>`__)
 
       Return the canonical encoding of the argument.  Currently, the encoding of
       a :class:`Decimal` instance is always canonical, so this operation returns
       its argument unchanged.
 
    .. method:: compare(other, context=None)
+               compare(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L98>`__)
 
       Compare the values of two Decimal instances.  :meth:`compare` returns a
       Decimal instance, and if either operand is a NaN then the result is a
@@ -521,12 +536,18 @@ Decimal objects
          a > b            ==> Decimal('1')
 
    .. method:: compare_signal(other, context=None)
+               compare_signal(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L336>`__)
 
       This operation is identical to the :meth:`compare` method, except that all
       NaNs signal.  That is, if neither operand is a signaling NaN then any
       quiet NaN operand is treated as though it were a signaling NaN.
 
    .. method:: compare_total(other, context=None)
+               compare_total(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L339>`__)
 
       Compare two operands using their abstract representation rather than their
       numerical value.  Similar to the :meth:`compare` method, but the result
@@ -549,6 +570,9 @@ Decimal objects
       InvalidOperation if the second operand cannot be converted exactly.
 
    .. method:: compare_total_mag(other, context=None)
+               compare_total_mag(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L361>`__)
 
       Compare two operands using their abstract representation rather than their
       value as in :meth:`compare_total`, but ignoring the sign of each operand.
@@ -560,22 +584,34 @@ Decimal objects
       InvalidOperation if the second operand cannot be converted exactly.
 
    .. method:: conjugate()
+               conjugate() -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L224>`__)
 
       Just returns self, this method is only to comply with the Decimal
       Specification.
 
    .. method:: copy_abs()
+               copy_abs() -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L373>`__)
 
       Return the absolute value of the argument.  This operation is unaffected
       by the context and is quiet: no flags are changed and no rounding is
       performed.
 
    .. method:: copy_negate()
+               copy_negate() -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L379>`__)
 
       Return the negation of the argument.  This operation is unaffected by the
       context and is quiet: no flags are changed and no rounding is performed.
 
    .. method:: copy_sign(other, context=None)
+               copy_sign(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L385>`__)
 
       Return a copy of the first operand with the sign set to be the same as the
       sign of the second operand.  For example:
@@ -588,6 +624,9 @@ Decimal objects
       InvalidOperation if the second operand cannot be converted exactly.
 
    .. method:: exp(context=None)
+               exp(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L398>`__)
 
       Return the value of the (natural) exponential function ``e**x`` at the
       given number.  The result is correctly rounded using the
@@ -599,6 +638,9 @@ Decimal objects
       Decimal('2.561702493119680037517373933E+139')
 
    .. classmethod:: from_float(f, /)
+                    from_float(cls: type[Decimal], f: float, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L79>`__)
 
       Alternative constructor that only accepts instances of :class:`float` or
       :class:`int`.
@@ -626,6 +668,9 @@ Decimal objects
       .. versionadded:: 3.1
 
    .. classmethod:: from_number(number, /)
+                    from_number(cls: type[Decimal], number: Decimal | float, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L76>`__)
 
       Alternative constructor that only accepts instances of
       :class:`float`, :class:`int` or :class:`Decimal`, but not strings
@@ -643,6 +688,9 @@ Decimal objects
       .. versionadded:: 3.14
 
    .. method:: fma(other, third, context=None)
+               fma(other: _Decimal, third: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L234>`__)
 
       Fused multiply-add.  Return self*other+third with no rounding of the
       intermediate product self*other.
@@ -651,67 +699,106 @@ Decimal objects
       Decimal('11')
 
    .. method:: is_canonical()
+               is_canonical() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L405>`__)
 
       Return :const:`True` if the argument is canonical and :const:`False`
       otherwise.  Currently, a :class:`Decimal` instance is always canonical, so
       this operation always returns :const:`True`.
 
    .. method:: is_finite()
+               is_finite() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L412>`__)
 
       Return :const:`True` if the argument is a finite number, and
       :const:`False` if the argument is an infinity or a NaN.
 
    .. method:: is_infinite()
+               is_infinite() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L418>`__)
 
       Return :const:`True` if the argument is either positive or negative
       infinity and :const:`False` otherwise.
 
    .. method:: is_nan()
+               is_nan() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L424>`__)
 
       Return :const:`True` if the argument is a (quiet or signaling) NaN and
       :const:`False` otherwise.
 
    .. method:: is_normal(context=None)
+               is_normal(context: Context | None = None) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L430>`__)
 
       Return :const:`True` if the argument is a *normal* finite number.  Return
       :const:`False` if the argument is zero, subnormal, infinite or a NaN.
 
    .. method:: is_qnan()
+               is_qnan() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L437>`__)
 
       Return :const:`True` if the argument is a quiet NaN, and
       :const:`False` otherwise.
 
    .. method:: is_signed()
+               is_signed() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L440>`__)
 
       Return :const:`True` if the argument has a negative sign and
       :const:`False` otherwise.  Note that zeros and NaNs can both carry signs.
 
    .. method:: is_snan()
+               is_snan() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L446>`__)
 
       Return :const:`True` if the argument is a signaling NaN and :const:`False`
       otherwise.
 
    .. method:: is_subnormal(context=None)
+               is_subnormal(context: Context | None = None) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L449>`__)
 
       Return :const:`True` if the argument is subnormal, and :const:`False`
       otherwise.
 
    .. method:: is_zero()
+               is_zero() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L456>`__)
 
       Return :const:`True` if the argument is a (positive or negative) zero and
       :const:`False` otherwise.
 
    .. method:: ln(context=None)
+               ln(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L462>`__)
 
       Return the natural (base e) logarithm of the operand.  The result is
       correctly rounded using the :const:`ROUND_HALF_EVEN` rounding mode.
 
    .. method:: log10(context=None)
+               log10(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L468>`__)
 
       Return the base ten logarithm of the operand.  The result is correctly
       rounded using the :const:`ROUND_HALF_EVEN` rounding mode.
 
    .. method:: logb(context=None)
+               logb(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L474>`__)
 
       For a nonzero number, return the adjusted exponent of its operand as a
       :class:`Decimal` instance.  If the operand is a zero then
@@ -720,29 +807,44 @@ Decimal objects
       returned.
 
    .. method:: logical_and(other, context=None)
+               logical_and(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L482>`__)
 
       :meth:`logical_and` is a logical operation which takes two *logical
       operands* (see :ref:`logical_operands_label`).  The result is the
       digit-wise ``and`` of the two operands.
 
    .. method:: logical_invert(context=None)
+               logical_invert(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L485>`__)
 
       :meth:`logical_invert` is a logical operation.  The
       result is the digit-wise inversion of the operand.
 
    .. method:: logical_or(other, context=None)
+               logical_or(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L488>`__)
 
       :meth:`logical_or` is a logical operation which takes two *logical
       operands* (see :ref:`logical_operands_label`).  The result is the
       digit-wise ``or`` of the two operands.
 
    .. method:: logical_xor(other, context=None)
+               logical_xor(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L491>`__)
 
       :meth:`logical_xor` is a logical operation which takes two *logical
       operands* (see :ref:`logical_operands_label`).  The result is the
       digit-wise exclusive or of the two operands.
 
    .. method:: max(other, context=None)
+               max(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L314>`__)
 
       Like ``max(self, other)`` except that the context rounding rule is applied
       before returning and that ``NaN`` values are either signaled or
@@ -750,11 +852,17 @@ Decimal objects
       quiet).
 
    .. method:: max_mag(other, context=None)
+               max_mag(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L494>`__)
 
       Similar to the :meth:`.max` method, but the comparison is done using the
       absolute values of the operands.
 
    .. method:: min(other, context=None)
+               min(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L320>`__)
 
       Like ``min(self, other)`` except that the context rounding rule is applied
       before returning and that ``NaN`` values are either signaled or
@@ -762,23 +870,35 @@ Decimal objects
       quiet).
 
    .. method:: min_mag(other, context=None)
+               min_mag(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L500>`__)
 
       Similar to the :meth:`.min` method, but the comparison is done using the
       absolute values of the operands.
 
    .. method:: next_minus(context=None)
+               next_minus(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L506>`__)
 
       Return the largest number representable in the given context (or in the
       current thread's context if no context is given) that is smaller than the
       given operand.
 
    .. method:: next_plus(context=None)
+               next_plus(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L513>`__)
 
       Return the smallest number representable in the given context (or in the
       current thread's context if no context is given) that is larger than the
       given operand.
 
    .. method:: next_toward(other, context=None)
+               next_toward(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L520>`__)
 
       If the two operands are unequal, return the number closest to the first
       operand in the direction of the second operand.  If both operands are
@@ -786,6 +906,9 @@ Decimal objects
       be the same as the sign of the second operand.
 
    .. method:: normalize(context=None)
+               normalize(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L246>`__)
 
       Used for producing canonical values of an equivalence
       class within either the current context or the specified context.
@@ -806,6 +929,9 @@ Decimal objects
       as ``reduce``.
 
    .. method:: number_class(context=None)
+               number_class(context: Context | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L528>`__)
 
       Return a string describing the *class* of the operand.  The returned value
       is one of the following ten strings.
@@ -822,6 +948,9 @@ Decimal objects
       * ``"sNaN"``, indicating that the operand is a signaling NaN.
 
    .. method:: quantize(exp, rounding=None, context=None)
+               quantize(exp: _Decimal, rounding: str | None = None, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L255>`__)
 
       Return a value equal to the first operand after rounding and having the
       exponent of the second operand.
@@ -848,12 +977,18 @@ Decimal objects
       :attr:`~Context.Emax` or less than :meth:`~Context.Etiny`.
 
    .. method:: radix()
+               radix() -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L545>`__)
 
       Return ``Decimal(10)``, the radix (base) in which the :class:`Decimal`
       class does all its arithmetic.  Included for compatibility with the
       specification.
 
    .. method:: remainder_near(other, context=None)
+               remainder_near(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L202>`__)
 
       Return the remainder from dividing *self* by *other*.  This differs from
       ``self % other`` in that the sign of the remainder is chosen so as to
@@ -872,6 +1007,9 @@ Decimal objects
       Decimal('-5')
 
    .. method:: rotate(other, context=None)
+               rotate(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L551>`__)
 
       Return the result of rotating the digits of the first operand by an amount
       specified by the second operand.  The second operand must be an integer in
@@ -883,6 +1021,9 @@ Decimal objects
       are unchanged.
 
    .. method:: same_quantum(other, context=None)
+               same_quantum(other: _Decimal, context: Context | None = None) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L277>`__)
 
       Test whether self and other have the same exponent or whether both are
       ``NaN``.
@@ -892,12 +1033,18 @@ Decimal objects
       InvalidOperation if the second operand cannot be converted exactly.
 
    .. method:: scaleb(other, context=None)
+               scaleb(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L563>`__)
 
       Return the first operand with exponent adjusted by the second.
       Equivalently, return the first operand multiplied by ``10**other``.  The
       second operand must be an integer.
 
    .. method:: shift(other, context=None)
+               shift(other: _Decimal, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L570>`__)
 
       Return the result of shifting the digits of the first operand by an amount
       specified by the second operand.  The second operand must be an integer in
@@ -908,11 +1055,17 @@ Decimal objects
       exponent of the first operand are unchanged.
 
    .. method:: sqrt(context=None)
+               sqrt(context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L308>`__)
 
       Return the square root of the argument to full precision.
 
 
    .. method:: to_eng_string(context=None)
+               to_eng_string(context: Context | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L123>`__)
 
       Convert to a string, using engineering notation if an exponent is needed.
 
@@ -923,11 +1076,17 @@ Decimal objects
       For example, this converts ``Decimal('123E+1')`` to ``Decimal('1.23E+3')``.
 
    .. method:: to_integral(rounding=None, context=None)
+               to_integral(rounding: str | None = None, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L302>`__)
 
       Identical to the :meth:`to_integral_value` method.  The ``to_integral``
       name has been kept for compatibility with older versions.
 
    .. method:: to_integral_exact(rounding=None, context=None)
+               to_integral_exact(rounding: str | None = None, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L286>`__)
 
       Round to the nearest integer, signaling :const:`Inexact` or
       :const:`Rounded` as appropriate if rounding occurs.  The rounding mode is
@@ -936,6 +1095,9 @@ Decimal objects
       current context is used.
 
    .. method:: to_integral_value(rounding=None, context=None)
+               to_integral_value(rounding: str | None = None, context: Context | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L294>`__)
 
       Round to the nearest integer without signaling :const:`Inexact` or
       :const:`Rounded`.  If given, applies *rounding*; otherwise, uses the
@@ -1146,16 +1308,24 @@ In addition to the three supplied contexts, new contexts can be created with the
    field is not specified or is :const:`None`, all flags are cleared.
 
    .. attribute:: prec
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L593>`__)
 
       An integer in the range [``1``, :const:`MAX_PREC`] that sets
       the precision for arithmetic operations in the context.
 
    .. attribute:: rounding
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L594>`__)
 
       One of the constants listed in the section `Rounding Modes`_.
 
    .. attribute:: traps
                   flags
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L599>`__)
 
       Lists of any signals to be set. Generally, new contexts should only set
       traps and leave the flags clear.
@@ -1163,17 +1333,25 @@ In addition to the three supplied contexts, new contexts can be created with the
    .. attribute:: Emin
                   Emax
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L595>`__)
+
       Integers specifying the outer limits allowable for exponents. *Emin* must
       be in the range [:const:`MIN_EMIN`, ``0``], *Emax* in the range
       [``0``, :const:`MAX_EMAX`].
 
    .. attribute:: capitals
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L597>`__)
 
       Either ``0`` or ``1`` (the default). If set to
       ``1``, exponents are printed with a capital ``E``; otherwise, a
       lowercase ``e`` is used: ``Decimal('6.02e+23')``.
 
    .. attribute:: clamp
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L598>`__)
 
       Either ``0`` (the default) or ``1``.  If set to ``1``, the exponent ``e``
       of a :class:`Decimal` instance representable in this context is strictly
@@ -1204,24 +1382,39 @@ In addition to the three supplied contexts, new contexts can be created with the
 
 
    .. method:: clear_flags()
+               clear_flags() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L613>`__)
 
       Resets all of the flags to ``0``.
 
    .. method:: clear_traps()
+               clear_traps() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L616>`__)
 
       Resets all of the traps to ``0``.
 
       .. versionadded:: 3.3
 
    .. method:: copy()
+               copy() -> Context
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L619>`__)
 
       Return a duplicate of the context.
 
    .. method:: copy_decimal(num, /)
+               copy_decimal(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L674>`__)
 
       Return a copy of the Decimal instance num.
 
    .. method:: create_decimal(num='0', /)
+               create_decimal(num: _DecimalNew = '0', /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L638>`__)
 
       Creates a new Decimal instance from *num* but using *self* as
       context. Unlike the :class:`Decimal` constructor, the context precision,
@@ -1246,6 +1439,9 @@ In addition to the three supplied contexts, new contexts can be created with the
       underscores are permitted.
 
    .. method:: create_decimal_from_float(f, /)
+               create_decimal_from_float(f: float, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L644>`__)
 
       Creates a new Decimal instance from a float *f* but rounding using *self*
       as the context.  Unlike the :meth:`Decimal.from_float` class method,
@@ -1266,12 +1462,18 @@ In addition to the three supplied contexts, new contexts can be created with the
       .. versionadded:: 3.1
 
    .. method:: Etiny()
+               Etiny() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L625>`__)
 
       Returns a value equal to ``Emin - prec + 1`` which is the minimum exponent
       value for subnormal results.  When underflow occurs, the exponent is set
       to :const:`Etiny`.
 
    .. method:: Etop()
+               Etop() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L631>`__)
 
       Returns a value equal to ``Emax - prec + 1``.
 
@@ -1284,221 +1486,353 @@ In addition to the three supplied contexts, new contexts can be created with the
 
 
    .. method:: abs(x, /)
+               abs(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L650>`__)
 
       Returns the absolute value of *x*.
 
 
    .. method:: add(x, y, /)
+               add(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L653>`__)
 
       Return the sum of *x* and *y*.
 
 
    .. method:: canonical(x, /)
+               canonical(x: Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L656>`__)
 
       Returns the same Decimal object *x*.
 
 
    .. method:: compare(x, y, /)
+               compare(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L659>`__)
 
       Compares *x* and *y* numerically.
 
 
    .. method:: compare_signal(x, y, /)
+               compare_signal(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L662>`__)
 
       Compares the values of the two operands numerically.
 
 
    .. method:: compare_total(x, y, /)
+               compare_total(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L665>`__)
 
       Compares two operands using their abstract representation.
 
 
    .. method:: compare_total_mag(x, y, /)
+               compare_total_mag(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L668>`__)
 
       Compares two operands using their abstract representation, ignoring sign.
 
 
    .. method:: copy_abs(x, /)
+               copy_abs(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L671>`__)
 
       Returns a copy of *x* with the sign set to 0.
 
 
    .. method:: copy_negate(x, /)
+               copy_negate(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L677>`__)
 
       Returns a copy of *x* with the sign inverted.
 
 
    .. method:: copy_sign(x, y, /)
+               copy_sign(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L680>`__)
 
       Copies the sign from *y* to *x*.
 
 
    .. method:: divide(x, y, /)
+               divide(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L683>`__)
 
       Return *x* divided by *y*.
 
 
    .. method:: divide_int(x, y, /)
+               divide_int(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L686>`__)
 
       Return *x* divided by *y*, truncated to an integer.
 
 
    .. method:: divmod(x, y, /)
+               divmod(x: _Decimal, y: _Decimal, /) -> tuple[Decimal, Decimal]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L689>`__)
 
       Divides two numbers and returns the integer part of the result.
 
 
    .. method:: exp(x, /)
+               exp(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L692>`__)
 
       Returns ``e ** x``.
 
 
    .. method:: fma(x, y, z, /)
+               fma(x: _Decimal, y: _Decimal, z: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L695>`__)
 
       Returns *x* multiplied by *y*, plus *z*.
 
 
    .. method:: is_canonical(x, /)
+               is_canonical(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L698>`__)
 
       Returns ``True`` if *x* is canonical; otherwise returns ``False``.
 
 
    .. method:: is_finite(x, /)
+               is_finite(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L701>`__)
 
       Returns ``True`` if *x* is finite; otherwise returns ``False``.
 
 
    .. method:: is_infinite(x, /)
+               is_infinite(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L704>`__)
 
       Returns ``True`` if *x* is infinite; otherwise returns ``False``.
 
 
    .. method:: is_nan(x, /)
+               is_nan(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L707>`__)
 
       Returns ``True`` if *x* is a qNaN or sNaN; otherwise returns ``False``.
 
 
    .. method:: is_normal(x, /)
+               is_normal(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L710>`__)
 
       Returns ``True`` if *x* is a normal number; otherwise returns ``False``.
 
 
    .. method:: is_qnan(x, /)
+               is_qnan(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L713>`__)
 
       Returns ``True`` if *x* is a quiet NaN; otherwise returns ``False``.
 
 
    .. method:: is_signed(x, /)
+               is_signed(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L716>`__)
 
       Returns ``True`` if *x* is negative; otherwise returns ``False``.
 
 
    .. method:: is_snan(x, /)
+               is_snan(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L719>`__)
 
       Returns ``True`` if *x* is a signaling NaN; otherwise returns ``False``.
 
 
    .. method:: is_subnormal(x, /)
+               is_subnormal(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L722>`__)
 
       Returns ``True`` if *x* is subnormal; otherwise returns ``False``.
 
 
    .. method:: is_zero(x, /)
+               is_zero(x: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L725>`__)
 
       Returns ``True`` if *x* is a zero; otherwise returns ``False``.
 
 
    .. method:: ln(x, /)
+               ln(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L728>`__)
 
       Returns the natural (base e) logarithm of *x*.
 
 
    .. method:: log10(x, /)
+               log10(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L731>`__)
 
       Returns the base 10 logarithm of *x*.
 
 
    .. method:: logb(x, /)
+               logb(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L734>`__)
 
        Returns the exponent of the magnitude of the operand's MSD.
 
 
    .. method:: logical_and(x, y, /)
+               logical_and(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L737>`__)
 
       Applies the logical operation *and* between each operand's digits.
 
 
    .. method:: logical_invert(x, /)
+               logical_invert(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L740>`__)
 
       Invert all the digits in *x*.
 
 
    .. method:: logical_or(x, y, /)
+               logical_or(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L743>`__)
 
       Applies the logical operation *or* between each operand's digits.
 
 
    .. method:: logical_xor(x, y, /)
+               logical_xor(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L746>`__)
 
       Applies the logical operation *xor* between each operand's digits.
 
 
    .. method:: max(x, y, /)
+               max(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L749>`__)
 
       Compares two values numerically and returns the maximum.
 
 
    .. method:: max_mag(x, y, /)
+               max_mag(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L752>`__)
 
       Compares the values numerically with their sign ignored.
 
 
    .. method:: min(x, y, /)
+               min(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L755>`__)
 
       Compares two values numerically and returns the minimum.
 
 
    .. method:: min_mag(x, y, /)
+               min_mag(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L758>`__)
 
       Compares the values numerically with their sign ignored.
 
 
    .. method:: minus(x, /)
+               minus(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L761>`__)
 
       Minus corresponds to the unary prefix minus operator in Python.
 
 
    .. method:: multiply(x, y, /)
+               multiply(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L767>`__)
 
       Return the product of *x* and *y*.
 
 
    .. method:: next_minus(x, /)
+               next_minus(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L770>`__)
 
       Returns the largest representable number smaller than *x*.
 
 
    .. method:: next_plus(x, /)
+               next_plus(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L773>`__)
 
       Returns the smallest representable number larger than *x*.
 
 
    .. method:: next_toward(x, y, /)
+               next_toward(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L776>`__)
 
       Returns the number closest to *x*, in direction towards *y*.
 
 
    .. method:: normalize(x, /)
+               normalize(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L779>`__)
 
       Reduces *x* to its simplest form.
 
 
    .. method:: number_class(x, /)
+               number_class(x: _Decimal, /) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L782>`__)
 
       Returns an indication of the class of *x*.
 
 
    .. method:: plus(x, /)
+               plus(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L785>`__)
 
       Plus corresponds to the unary prefix plus operator in Python.  This
       operation applies the context precision and rounding, so it is *not* an
@@ -1506,6 +1840,9 @@ In addition to the three supplied contexts, new contexts can be created with the
 
 
    .. method:: power(x, y, modulo=None)
+               power(a: _Decimal, b: _Decimal, modulo: Decimal | int | None = None) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L791>`__)
 
       Return ``x`` to the power of ``y``, reduced modulo ``modulo`` if given.
 
@@ -1540,16 +1877,25 @@ In addition to the three supplied contexts, new contexts can be created with the
 
 
    .. method:: quantize(x, y, /)
+               quantize(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L808>`__)
 
       Returns a value equal to *x* (rounded), having the exponent of *y*.
 
 
    .. method:: radix()
+               radix() -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L811>`__)
 
       Just returns 10, as this is Decimal, :)
 
 
    .. method:: remainder(x, y, /)
+               remainder(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L814>`__)
 
       Returns the remainder from integer division.
 
@@ -1558,42 +1904,66 @@ In addition to the three supplied contexts, new contexts can be created with the
 
 
    .. method:: remainder_near(x, y, /)
+               remainder_near(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L820>`__)
 
       Returns ``x - y * n``, where *n* is the integer nearest the exact value
       of ``x / y`` (if the result is 0 then its sign will be the sign of *x*).
 
 
    .. method:: rotate(x, y, /)
+               rotate(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L826>`__)
 
       Returns a rotated copy of *x*, *y* times.
 
 
    .. method:: same_quantum(x, y, /)
+               same_quantum(x: _Decimal, y: _Decimal, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L829>`__)
 
       Returns ``True`` if the two operands have the same exponent.
 
 
    .. method:: scaleb (x, y, /)
+               scaleb (x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L832>`__)
 
       Returns the first operand after adding the second value its exp.
 
 
    .. method:: shift(x, y, /)
+               shift(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L835>`__)
 
       Returns a shifted copy of *x*, *y* times.
 
 
    .. method:: sqrt(x, /)
+               sqrt(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L838>`__)
 
       Square root of a non-negative number to context precision.
 
 
    .. method:: subtract(x, y, /)
+               subtract(x: _Decimal, y: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L841>`__)
 
       Return the difference between *x* and *y*.
 
 
    .. method:: to_eng_string(x, /)
+               to_eng_string(x: _Decimal, /) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L844>`__)
 
       Convert to a string, using engineering notation if an exponent is needed.
 
@@ -1603,11 +1973,17 @@ In addition to the three supplied contexts, new contexts can be created with the
 
 
    .. method:: to_integral_exact(x, /)
+               to_integral_exact(x: _Decimal, /) -> Decimal
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L850>`__)
 
       Rounds to an integer.
 
 
    .. method:: to_sci_string(x, /)
+               to_sci_string(x: _Decimal, /) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/decimal.pyi#L847>`__)
 
       Converts a number to a string using scientific notation.
 

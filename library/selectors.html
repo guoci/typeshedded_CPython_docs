@@ -298,26 +298,30 @@ mask and attached data. It is returned by several <a class="reference internal" 
 methods.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="selectors.SelectorKey.fileobj">
-<span class="sig-name descname"><span class="pre">fileobj</span></span><a class="headerlink" href="#selectors.SelectorKey.fileobj" title="Link to this definition">¶</a></dt>
-<dd><p>File object registered.</p>
+<span class="sig-name descname"><span class="pre">fileobj</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HasFileno</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#selectors.SelectorKey.fileobj" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L14">typeshed</a>)</p>
+<p>File object registered.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="selectors.SelectorKey.fd">
-<span class="sig-name descname"><span class="pre">fd</span></span><a class="headerlink" href="#selectors.SelectorKey.fd" title="Link to this definition">¶</a></dt>
-<dd><p>Underlying file descriptor.</p>
+<span class="sig-name descname"><span class="pre">fd</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#selectors.SelectorKey.fd" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L15">typeshed</a>)</p>
+<p>Underlying file descriptor.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="selectors.SelectorKey.events">
-<span class="sig-name descname"><span class="pre">events</span></span><a class="headerlink" href="#selectors.SelectorKey.events" title="Link to this definition">¶</a></dt>
-<dd><p>Events that must be waited for on this file object.</p>
+<span class="sig-name descname"><span class="pre">events</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#selectors.SelectorKey.events" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L16">typeshed</a>)</p>
+<p>Events that must be waited for on this file object.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="selectors.SelectorKey.data">
-<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#selectors.SelectorKey.data" title="Link to this definition">¶</a></dt>
-<dd><p>Optional opaque data associated to this file object: for example, this
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></em><a class="headerlink" href="#selectors.SelectorKey.data" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L17">typeshed</a>)</p>
+<p>Optional opaque data associated to this file object: for example, this
 could be used to store a per-client session ID.</p>
 </dd></dl>
 
@@ -341,7 +345,18 @@ implementation, and your platform supports it.
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.BaseSelector.register">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selectors.BaseSelector.register" title="Link to this definition">¶</a></dt>
-<dd><p>Register a file object for selection, monitoring it for I/O events.</p>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FileDescriptorLike</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><span class="pre">SelectorKey</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L21">typeshed</a>)</p>
+<p>Register a file object for selection, monitoring it for I/O events.</p>
 <p><em>fileobj</em> is the file object to monitor.  It may either be an integer
 file descriptor or an object with a <code class="docutils literal notranslate"><span class="pre">fileno()</span></code> method.
 <em>events</em> is a bitwise mask of events to monitor.
@@ -354,7 +369,10 @@ file descriptor or an object with a <code class="docutils literal notranslate"><
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.BaseSelector.unregister">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unregister</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selectors.BaseSelector.unregister" title="Link to this definition">¶</a></dt>
-<dd><p>Unregister a file object from selection, removing it from monitoring. A
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unregister</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FileDescriptorLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><span class="pre">SelectorKey</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L23">typeshed</a>)</p>
+<p>Unregister a file object from selection, removing it from monitoring. A
 file object shall be unregistered prior to being closed.</p>
 <p><em>fileobj</em> must be a file object previously registered.</p>
 <p>This returns the associated <a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorKey</span></code></a> instance, or raises a
@@ -366,7 +384,18 @@ method or its <code class="docutils literal notranslate"><span class="pre">filen
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.BaseSelector.modify">
 <span class="sig-name descname"><span class="pre">modify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selectors.BaseSelector.modify" title="Link to this definition">¶</a></dt>
-<dd><p>Change a registered file object’s monitored events or attached data.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">modify</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FileDescriptorLike</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><span class="pre">SelectorKey</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L24">typeshed</a>)</p>
+<p>Change a registered file object’s monitored events or attached data.</p>
 <p>This is equivalent to <code class="docutils literal notranslate"><span class="pre">BaseSelector.unregister(fileobj)</span></code> followed
 by <code class="docutils literal notranslate"><span class="pre">BaseSelector.register(fileobj,</span> <span class="pre">events,</span> <span class="pre">data)</span></code>, except that it
 can be implemented more efficiently.</p>
@@ -378,7 +407,10 @@ can be implemented more efficiently.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.BaseSelector.select">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selectors.BaseSelector.select" title="Link to this definition">¶</a></dt>
-<dd><p>Wait until some registered file objects become ready, or the timeout
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><span class="pre">SelectorKey</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L26">typeshed</a>)</p>
+<p>Wait until some registered file objects become ready, or the timeout
 expires.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">timeout</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, this specifies the maximum wait time, in seconds.
 If <code class="docutils literal notranslate"><span class="pre">timeout</span> <span class="pre">&lt;=</span> <span class="pre">0</span></code>, the call won’t block, and will report the currently
@@ -407,7 +439,10 @@ of events before the timeout.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.BaseSelector.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#selectors.BaseSelector.close" title="Link to this definition">¶</a></dt>
-<dd><p>Close the selector.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L27">typeshed</a>)</p>
+<p>Close the selector.</p>
 <p>This must be called to make sure that any underlying resource is freed.
 The selector shall not be used once it has been closed.</p>
 </dd></dl>
@@ -415,7 +450,10 @@ The selector shall not be used once it has been closed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.BaseSelector.get_key">
 <span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selectors.BaseSelector.get_key" title="Link to this definition">¶</a></dt>
-<dd><p>Return the key associated with a registered file object.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileobj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FileDescriptorLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><span class="pre">SelectorKey</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L28">typeshed</a>)</p>
+<p>Return the key associated with a registered file object.</p>
 <p>This returns the <a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorKey</span></code></a> instance associated to this file
 object, or raises <a class="reference internal" href="exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> if the file object is not registered.</p>
 </dd></dl>
@@ -423,7 +461,10 @@ object, or raises <a class="reference internal" href="exceptions.html#KeyError" 
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.BaseSelector.get_map">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#selectors.BaseSelector.get_map" title="Link to this definition">¶</a></dt>
-<dd><p>Return a mapping of file objects to selector keys.</p>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><span class="pre">collections.abc.Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">FileDescriptorLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><span class="pre">SelectorKey</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L30">typeshed</a>)</p>
+<p>Return a mapping of file objects to selector keys.</p>
 <p>This returns a <a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code></a> instance mapping
 registered file objects to their associated <a class="reference internal" href="#selectors.SelectorKey" title="selectors.SelectorKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorKey</span></code></a>
 instance.</p>
@@ -470,7 +511,10 @@ most users.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="selectors.EpollSelector.fileno">
 <span class="sig-name descname"><span class="pre">fileno</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#selectors.EpollSelector.fileno" title="Link to this definition">¶</a></dt>
-<dd><p>This returns the file descriptor used by the underlying
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">fileno</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L51">typeshed</a>)</p>
+<p>This returns the file descriptor used by the underlying
 <a class="reference internal" href="select.html#select.epoll" title="select.epoll"><code class="xref py py-func docutils literal notranslate"><span class="pre">select.epoll()</span></code></a> object.</p>
 </dd></dl>
 

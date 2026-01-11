@@ -953,36 +953,54 @@ of applications in statistics.
     If *sigma* is negative, raises :exc:`StatisticsError`.
 
     .. attribute:: mean
+       :type: mean(self: NormalDist) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L85>`__)
 
        A read-only property for the `arithmetic mean
        <https://en.wikipedia.org/wiki/Arithmetic_mean>`_ of a normal
        distribution.
 
     .. attribute:: median
+       :type: median(self: NormalDist) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L89>`__)
 
        A read-only property for the `median
        <https://en.wikipedia.org/wiki/Median>`_ of a normal
        distribution.
 
     .. attribute:: mode
+       :type: mode(self: NormalDist) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L93>`__)
 
        A read-only property for the `mode
        <https://en.wikipedia.org/wiki/Mode_(statistics)>`_ of a normal
        distribution.
 
     .. attribute:: stdev
+       :type: stdev(self: NormalDist) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L102>`__)
 
        A read-only property for the `standard deviation
        <https://en.wikipedia.org/wiki/Standard_deviation>`_ of a normal
        distribution.
 
     .. attribute:: variance
+       :type: variance(self: NormalDist) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L106>`__)
 
        A read-only property for the `variance
        <https://en.wikipedia.org/wiki/Variance>`_ of a normal
        distribution. Equal to the square of the standard deviation.
 
     .. classmethod:: NormalDist.from_samples(data)
+                     NormalDist.from_samples(cls: type[NormalDist], data: collections.abc.Iterable[SupportsFloat]) -> NormalDist
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L110>`__)
 
        Makes a normal distribution instance with *mu* and *sigma* parameters
        estimated from the *data* using :func:`fmean` and :func:`stdev`.
@@ -994,6 +1012,9 @@ of applications in statistics.
        points to estimate dispersion.
 
     .. method:: NormalDist.samples(n, *, seed=None)
+                NormalDist.samples(n: SupportsIndex, *, seed: bytearray | bytes | float | int | str | None = None) -> list[float]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L111>`__)
 
        Generates *n* random samples for a given mean and standard deviation.
        Returns a :class:`list` of :class:`float` values.
@@ -1008,6 +1029,9 @@ of applications in statistics.
        versions, use :func:`random.seed` and :func:`random.gauss`.
 
     .. method:: NormalDist.pdf(x)
+                NormalDist.pdf(x: float) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L112>`__)
 
        Using a `probability density function (pdf)
        <https://en.wikipedia.org/wiki/Probability_density_function>`_, compute
@@ -1021,6 +1045,9 @@ of applications in statistics.
        its value can be greater than ``1.0``.
 
     .. method:: NormalDist.cdf(x)
+                NormalDist.cdf(x: float) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L113>`__)
 
        Using a `cumulative distribution function (cdf)
        <https://en.wikipedia.org/wiki/Cumulative_distribution_function>`_,
@@ -1028,6 +1055,9 @@ of applications in statistics.
        equal to *x*.  Mathematically, it is written ``P(X <= x)``.
 
     .. method:: NormalDist.inv_cdf(p)
+                NormalDist.inv_cdf(p: float) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L114>`__)
 
        Compute the inverse cumulative distribution function, also known as the
        `quantile function <https://en.wikipedia.org/wiki/Quantile_function>`_
@@ -1040,6 +1070,9 @@ of applications in statistics.
        equals the given probability *p*.
 
     .. method:: NormalDist.overlap(other)
+                NormalDist.overlap(other: NormalDist) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L115>`__)
 
        Measures the agreement between two normal probability distributions.
        Returns a value between 0.0 and 1.0 giving `the overlapping area for
@@ -1047,6 +1080,9 @@ of applications in statistics.
        <https://www.rasch.org/rmt/rmt101r.htm>`_.
 
     .. method:: NormalDist.quantiles(n=4)
+                NormalDist.quantiles(n: int = 4) -> list[float]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L116>`__)
 
         Divide the normal distribution into *n* continuous intervals with
         equal probability.  Returns a list of (n - 1) cut points separating
@@ -1057,6 +1093,9 @@ of applications in statistics.
         separate the normal distribution into 100 equal sized groups.
 
     .. method:: NormalDist.zscore(x)
+                NormalDist.zscore(x: float) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/statistics.pyi#L117>`__)
 
         Compute the
         `Standard Score <https://www.statisticshowto.com/probability-and-statistics/z-score/>`_

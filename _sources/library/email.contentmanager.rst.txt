@@ -25,6 +25,9 @@
 
 
    .. method:: get_content(msg, *args, **kw)
+               get_content(msg: email.message.Message[str, str], *args: typing.Any, **kw: typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/contentmanager.pyi#L6>`__)
 
       Look up a handler function based on the ``mimetype`` of *msg* (see next
       paragraph), call it, passing through all arguments, and return the result
@@ -44,6 +47,9 @@
 
 
    .. method:: set_content(msg, obj, *args, **kw)
+               set_content(msg: email.message.Message[str, str], obj: typing.Any, *args: typing.Any, **kw: typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/contentmanager.pyi#L7>`__)
 
       If the ``maintype`` is ``multipart``, raise a :exc:`TypeError`; otherwise
       look up a handler function based on the type of *obj* (see next
@@ -76,12 +82,18 @@
 
 
    .. method:: add_get_handler(key, handler)
+               add_get_handler(key: str, handler: (...) -> typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/contentmanager.pyi#L8>`__)
 
       Record the function *handler* as the handler for *key*.  For the possible
       values of *key*, see :meth:`get_content`.
 
 
    .. method:: add_set_handler(typekey, handler)
+               add_set_handler(typekey: type, handler: (...) -> typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/contentmanager.pyi#L9>`__)
 
       Record *handler* as the function to call when an object of a type
       matching *typekey* is passed to :meth:`set_content`.  For the possible
@@ -114,6 +126,9 @@ Currently the email package provides only one concrete content manager,
    simplifying the creation of multipart messages.
 
    .. method:: get_content(msg, errors='replace')
+               get_content(msg: email.message.Message[str, str], *args: typing.Any, **kw: typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/contentmanager.pyi#L6>`__)
 
       Return the payload of the part as either a string (for ``text`` parts), an
       :class:`~email.message.EmailMessage` object (for ``message/rfc822``
@@ -133,6 +148,9 @@ Currently the email package provides only one concrete content manager,
                set_content(msg, <'EmailMessage'>, cte=None, \
                            disposition=None, filename=None, cid=None, \
                            params=None, headers=None)
+               set_content(msg: email.message.Message[str, str], obj: typing.Any, *args: typing.Any, **kw: typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/contentmanager.pyi#L7>`__)
 
        Add headers and payload to *msg*:
 

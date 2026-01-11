@@ -157,12 +157,18 @@ Programmatic Interface
    started to be displayed.
 
    .. method:: run(cmd)
+               run(cmd: CodeType | str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L74>`__)
 
       Execute the command and gather statistics from the execution with
       the current tracing parameters.  *cmd* must be a string or code object,
       suitable for passing into :func:`exec`.
 
    .. method:: runctx(cmd, globals=None, locals=None)
+               runctx(cmd: CodeType | str, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L75>`__)
 
       Execute the command and gather statistics from the execution with the
       current tracing parameters, in the defined global and local
@@ -170,11 +176,17 @@ Programmatic Interface
       dictionaries.
 
    .. method:: runfunc(func, /, *args, **kwds)
+               runfunc[_P, _T](Trace, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L78>`__)
 
       Call *func* with the given arguments under control of the :class:`Trace`
       object with the current tracing parameters.
 
    .. method:: results()
+               results() -> CoverageResults
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L86>`__)
 
       Return a :class:`CoverageResults` object that contains the cumulative
       results of all previous calls to ``run``, ``runctx`` and ``runfunc``
@@ -190,11 +202,17 @@ Programmatic Interface
    not be created directly by the user.
 
    .. method:: update(other)
+               update(other: CoverageResults) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L29>`__)
 
       Merge in data from another :class:`CoverageResults` object.
 
    .. method:: write_results(show_missing=True, summary=False, coverdir=None,\
                              *, ignore_missing_files=False)
+               write_results(show_missing: bool = True, summary: bool = False, coverdir: PathLike[str] | str | None = None, *, ignore_missing_files: bool = False) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L31>`__)
 
       Write coverage results.  Set *show_missing* to show lines that had no
       hits.  Set *summary* to include in the output the coverage summary per

@@ -40,6 +40,9 @@ Executor Objects
    should not be used directly, but through its concrete subclasses.
 
    .. method:: submit(fn, /, *args, **kwargs)
+               submit[_P, _T](Executor, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> Future[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L61>`__)
 
       Schedules the callable, *fn*, to be executed as ``fn(*args, **kwargs)``
       and returns a :class:`Future` object representing the execution of the
@@ -50,6 +53,9 @@ Executor Objects
              print(future.result())
 
    .. method:: map(fn, *iterables, timeout=None, chunksize=1, buffersize=None)
+               map[_T](fn: (...) -> _T, *iterables: collections.abc.Iterable[typing.Any], *, timeout: float | None = None, chunksize: int = 1, buffersize: int | None = None) -> collections.abc.Iterator[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L63>`__)
 
       Similar to :func:`map(fn, *iterables) <map>` except:
 
@@ -86,6 +92,9 @@ Executor Objects
          Added the *buffersize* parameter.
 
    .. method:: shutdown(wait=True, *, cancel_futures=False)
+               shutdown(wait: bool = True, *, cancel_futures: bool = False) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L76>`__)
 
       Signal the executor that it should free any resources that it is using
       when the currently pending futures are done executing.  Calls to
@@ -434,6 +443,9 @@ in a REPL or a lambda should not be expected to work.
       explicitly pass ``mp_context=multiprocessing.get_context("fork")``.
 
    .. method:: terminate_workers()
+               terminate_workers() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/process.pyi#L242>`__)
 
       Attempt to terminate all living worker processes immediately by calling
       :meth:`Process.terminate <multiprocessing.Process.terminate>` on each of them.
@@ -446,6 +458,9 @@ in a REPL or a lambda should not be expected to work.
       .. versionadded:: 3.14
 
    .. method:: kill_workers()
+               kill_workers() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/process.pyi#L241>`__)
 
       Attempt to kill all living worker processes immediately by calling
       :meth:`Process.kill <multiprocessing.Process.kill>` on each of them.
@@ -513,6 +528,9 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    directly except for testing.
 
    .. method:: cancel()
+               cancel[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L42>`__)
 
       Attempt to cancel the call.  If the call is currently being executed or
       finished running and cannot be cancelled then the method will return
@@ -520,20 +538,32 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
       return ``True``.
 
    .. method:: cancelled()
+               cancelled[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L43>`__)
 
       Return ``True`` if the call was successfully cancelled.
 
    .. method:: running()
+               running[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L44>`__)
 
       Return ``True`` if the call is currently being executed and cannot be
       cancelled.
 
    .. method:: done()
+               done[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L45>`__)
 
       Return ``True`` if the call was successfully cancelled or finished
       running.
 
    .. method:: result(timeout=None)
+               result[_T](timeout: float | None = None) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L47>`__)
 
       Return the value returned by the call. If the call hasn't yet completed
       then this method will wait up to *timeout* seconds.  If the call hasn't
@@ -548,6 +578,9 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
       If the call raised an exception, this method will raise the same exception.
 
    .. method:: exception(timeout=None)
+               exception[_T](timeout: float | None = None) -> BaseException | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L50>`__)
 
       Return the exception raised by the call.  If the call hasn't yet
       completed then this method will wait up to *timeout* seconds.  If the
@@ -562,6 +595,9 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
       If the call completed without raising, ``None`` is returned.
 
    .. method:: add_done_callback(fn)
+               add_done_callback[_T](fn: (Future[_T]) -> object) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L46>`__)
 
       Attaches the callable *fn* to the future.  *fn* will be called, with the
       future as its only argument, when the future is cancelled or finishes
@@ -580,6 +616,9 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    :class:`Executor` implementations.
 
    .. method:: set_running_or_notify_cancel()
+               set_running_or_notify_cancel[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L48>`__)
 
       This method should only be called by :class:`Executor` implementations
       before executing the work associated with the :class:`Future` and by unit
@@ -599,6 +638,9 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
       called.
 
    .. method:: set_result(result)
+               set_result[_T](result: _T) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L49>`__)
 
       Sets the result of the work associated with the :class:`Future` to
       *result*.
@@ -612,6 +654,9 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
          already done.
 
    .. method:: set_exception(exception)
+               set_exception[_T](exception: BaseException | None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L51>`__)
 
       Sets the result of the work associated with the :class:`Future` to the
       :class:`Exception` *exception*.

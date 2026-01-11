@@ -1848,7 +1848,10 @@ so repeated attribute accesses return the same library each time.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ctypes.LibraryLoader.LoadLibrary">
 <span class="sig-name descname"><span class="pre">LoadLibrary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctypes.LibraryLoader.LoadLibrary" title="Link to this definition">¶</a></dt>
-<dd><p>Load a shared library into the process and return it.  This method always
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">LoadLibrary</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_DLLT</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_DLLT</span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L107">typeshed</a>)</p>
+<p>Load a shared library into the process and return it.  This method always
 returns a new instance of the library.</p>
 </dd></dl>
 
@@ -1939,8 +1942,9 @@ represent C function pointers.</p>
 foreign function object.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._CFuncPtr.restype">
-<span class="sig-name descname"><span class="pre">restype</span></span><a class="headerlink" href="#ctypes._CFuncPtr.restype" title="Link to this definition">¶</a></dt>
-<dd><p>Assign a ctypes type to specify the result type of the foreign function.
+<span class="sig-name descname"><span class="pre">restype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">(self:</span> <span class="pre">_SimpleCData[typing.Any],</span> <span class="pre">value:</span> <span class="pre">typing.Any</span> <span class="pre">=</span> <span class="pre">...)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></em><a class="headerlink" href="#ctypes._CFuncPtr.restype" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L197">typeshed</a>)</p>
+<p>Assign a ctypes type to specify the result type of the foreign function.
 Use <code class="docutils literal notranslate"><span class="pre">None</span></code> for <span class="c-expr sig sig-inline c"><span class="kt">void</span></span>, a function not returning anything.</p>
 <p>It is possible to assign a callable Python object that is not a ctypes
 type, in this case the function is assumed to return a C <span class="c-expr sig sig-inline c"><span class="kt">int</span></span>, and
@@ -1952,8 +1956,9 @@ post processing or error checking use a ctypes data type as
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._CFuncPtr.argtypes">
-<span class="sig-name descname"><span class="pre">argtypes</span></span><a class="headerlink" href="#ctypes._CFuncPtr.argtypes" title="Link to this definition">¶</a></dt>
-<dd><p>Assign a tuple of ctypes types to specify the argument types that the
+<span class="sig-name descname"><span class="pre">argtypes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="collections.abc.html#collections.abc.Sequence" title="collections.abc.Sequence"><span class="pre">collections.abc.Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_CDataType</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ctypes._CFuncPtr.argtypes" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L198">typeshed</a>)</p>
+<p>Assign a tuple of ctypes types to specify the argument types that the
 function accepts.  Functions using the <code class="docutils literal notranslate"><span class="pre">stdcall</span></code> calling convention can
 only be called with the same number of arguments as the length of this
 tuple; functions using the C calling convention accept additional,
@@ -1972,8 +1977,9 @@ defining adapters that can adapt custom objects as function parameters.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._CFuncPtr.errcheck">
-<span class="sig-name descname"><span class="pre">errcheck</span></span><a class="headerlink" href="#ctypes._CFuncPtr.errcheck" title="Link to this definition">¶</a></dt>
-<dd><p>Assign a Python function or another callable to this attribute. The
+<span class="sig-name descname"><span class="pre">errcheck</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">(Array[typing.Any]</span> <span class="pre">|</span> <span class="pre">CFuncPtr</span> <span class="pre">|</span> <span class="pre">Structure</span> <span class="pre">|</span> <span class="pre">Union</span> <span class="pre">|</span> <span class="pre">_CData</span> <span class="pre">|</span> <span class="pre">_Pointer[typing.Any]</span> <span class="pre">|</span> <span class="pre">_SimpleCData[typing.Any]</span> <span class="pre">|</span> <span class="pre">None,</span> <span class="pre">CFuncPtr,</span> <span class="pre">tuple[Array[typing.Any]</span> <span class="pre">|</span> <span class="pre">CFuncPtr</span> <span class="pre">|</span> <span class="pre">Structure</span> <span class="pre">|</span> <span class="pre">Union</span> <span class="pre">|</span> <span class="pre">_CData</span> <span class="pre">|</span> <span class="pre">_Pointer[typing.Any]</span> <span class="pre">|</span> <span class="pre">_SimpleCData[typing.Any],</span> <span class="pre">...])</span> <span class="pre">-&gt;</span> <span class="pre">_CDataType</span></em><a class="headerlink" href="#ctypes._CFuncPtr.errcheck" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L199">typeshed</a>)</p>
+<p>Assign a Python function or another callable to this attribute. The
 callable will be called with three or more arguments:</p>
 <dl class="py function">
 <dt class="sig sig-object py">
@@ -2737,8 +2743,9 @@ is the loaded shared library.</p>
 <p>Common class variables of ctypes data types:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._CData.__pointer_type__">
-<span class="sig-name descname"><span class="pre">__pointer_type__</span></span><a class="headerlink" href="#ctypes._CData.__pointer_type__" title="Link to this definition">¶</a></dt>
-<dd><p>The pointer type that was created by calling
+<span class="sig-name descname"><span class="pre">__pointer_type__</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">__call__(self:</span> <span class="pre">type,</span> <span class="pre">*args:</span> <span class="pre">typing.Any,</span> <span class="pre">**kwds:</span> <span class="pre">typing.Any)</span> <span class="pre">-&gt;</span> <span class="pre">typing.Any</span></em><a class="headerlink" href="#ctypes._CData.__pointer_type__" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L87">typeshed</a>)</p>
+<p>The pointer type that was created by calling
 <a class="reference internal" href="#ctypes.POINTER" title="ctypes.POINTER"><code class="xref py py-func docutils literal notranslate"><span class="pre">POINTER()</span></code></a> for corresponding ctypes data type. If a pointer type
 was not yet created, the attribute is missing.</p>
 <div class="versionadded">
@@ -2749,8 +2756,9 @@ was not yet created, the attribute is missing.</p>
 <p>Common instance variables of ctypes data types:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._CData._b_base_">
-<span class="sig-name descname"><span class="pre">_b_base_</span></span><a class="headerlink" href="#ctypes._CData._b_base_" title="Link to this definition">¶</a></dt>
-<dd><p>Sometimes ctypes data instances do not own the memory block they contain,
+<span class="sig-name descname"><span class="pre">_b_base_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#ctypes._CData._b_base_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L81">typeshed</a>)</p>
+<p>Sometimes ctypes data instances do not own the memory block they contain,
 instead they share part of the memory block of a base object.  The
 <a class="reference internal" href="#ctypes._CData._b_base_" title="ctypes._CData._b_base_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_b_base_</span></code></a> read-only member is the root ctypes object that owns the
 memory block.</p>
@@ -2758,15 +2766,17 @@ memory block.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._CData._b_needsfree_">
-<span class="sig-name descname"><span class="pre">_b_needsfree_</span></span><a class="headerlink" href="#ctypes._CData._b_needsfree_" title="Link to this definition">¶</a></dt>
-<dd><p>This read-only variable is true when the ctypes data instance has
+<span class="sig-name descname"><span class="pre">_b_needsfree_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctypes._CData._b_needsfree_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L82">typeshed</a>)</p>
+<p>This read-only variable is true when the ctypes data instance has
 allocated the memory block itself, false otherwise.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._CData._objects">
-<span class="sig-name descname"><span class="pre">_objects</span></span><a class="headerlink" href="#ctypes._CData._objects" title="Link to this definition">¶</a></dt>
-<dd><p>This member is either <code class="docutils literal notranslate"><span class="pre">None</span></code> or a dictionary containing Python objects
+<span class="sig-name descname"><span class="pre">_objects</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><span class="pre">collections.abc.Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#ctypes._CData._objects" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L83">typeshed</a>)</p>
+<p>This member is either <code class="docutils literal notranslate"><span class="pre">None</span></code> or a dictionary containing Python objects
 that need to be kept alive so that the memory block contents is kept
 valid.  This object is only exposed for debugging; never modify the
 contents of this dictionary.</p>
@@ -2791,8 +2801,9 @@ types that are not and do not contain pointers can now be pickled.</p>
 <p>Instances have a single attribute:</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._SimpleCData.value">
-<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#ctypes._SimpleCData.value" title="Link to this definition">¶</a></dt>
-<dd><p>This attribute contains the actual value of the instance. For integer and
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Unknown</span></em><a class="headerlink" href="#ctypes._SimpleCData.value" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L109">typeshed</a>)</p>
+<p>This attribute contains the actual value of the instance. For integer and
 pointer types, it is an integer, for character types, it is a single
 character bytes object or string, for character pointer types it is a
 Python bytes object or string.</p>
@@ -3264,8 +3275,9 @@ create <a class="reference internal" href="../glossary.html#term-descriptor"><sp
 attribute accesses.  These are the</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes.Structure._fields_">
-<span class="sig-name descname"><span class="pre">_fields_</span></span><a class="headerlink" href="#ctypes.Structure._fields_" title="Link to this definition">¶</a></dt>
-<dd><p>A sequence defining the structure fields.  The items must be 2-tuples or
+<span class="sig-name descname"><span class="pre">_fields_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="collections.abc.html#collections.abc.Sequence" title="collections.abc.Sequence"><span class="pre">collections.abc.Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_CDataType</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_CDataType</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ctypes.Structure._fields_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L292">typeshed</a>)</p>
+<p>A sequence defining the structure fields.  The items must be 2-tuples or
 3-tuples.  The first item is the name of the field, the second item
 specifies the type of the field; it can be any ctypes data type.</p>
 <p>For integer type fields like <a class="reference internal" href="#ctypes.c_int" title="ctypes.c_int"><code class="xref py py-class docutils literal notranslate"><span class="pre">c_int</span></code></a>, a third optional item can be
@@ -3298,8 +3310,9 @@ plus the <a class="reference internal" href="#ctypes.Structure._fields_" title="
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes.Structure._pack_">
-<span class="sig-name descname"><span class="pre">_pack_</span></span><a class="headerlink" href="#ctypes.Structure._pack_" title="Link to this definition">¶</a></dt>
-<dd><p>An optional small integer that allows overriding the alignment of
+<span class="sig-name descname"><span class="pre">_pack_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#ctypes.Structure._pack_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L293">typeshed</a>)</p>
+<p>An optional small integer that allows overriding the alignment of
 structure fields in the instance.</p>
 <p>This is only implemented for the MSVC-compatible memory layout
 (see <a class="reference internal" href="#ctypes.Structure._layout_" title="ctypes.Structure._layout_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_layout_</span></code></a>).</p>
@@ -3321,8 +3334,9 @@ explicitly.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes.Structure._align_">
-<span class="sig-name descname"><span class="pre">_align_</span></span><a class="headerlink" href="#ctypes.Structure._align_" title="Link to this definition">¶</a></dt>
-<dd><p>An optional small integer that allows increasing the alignment of
+<span class="sig-name descname"><span class="pre">_align_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#ctypes.Structure._align_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L296">typeshed</a>)</p>
+<p>An optional small integer that allows increasing the alignment of
 the structure when being packed or unpacked to/from memory.</p>
 <p>The value must not be negative.
 The effect is equivalent to <code class="docutils literal notranslate"><span class="pre">__attribute__((aligned(N)))</span></code> on GCC
@@ -3341,8 +3355,9 @@ when <a class="reference internal" href="#ctypes.Structure._fields_" title="ctyp
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes.Structure._layout_">
-<span class="sig-name descname"><span class="pre">_layout_</span></span><a class="headerlink" href="#ctypes.Structure._layout_" title="Link to this definition">¶</a></dt>
-<dd><p>An optional string naming the struct/union layout. It can currently
+<span class="sig-name descname"><span class="pre">_layout_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Literal" title="typing.Literal"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'gcc-sysv'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'ms'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ctypes.Structure._layout_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L300">typeshed</a>)</p>
+<p>An optional string naming the struct/union layout. It can currently
 be set to:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;ms&quot;</span></code>: the layout used by the Microsoft compiler (MSVC).
@@ -3372,8 +3387,9 @@ Currently the default will be:</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes.Structure._anonymous_">
-<span class="sig-name descname"><span class="pre">_anonymous_</span></span><a class="headerlink" href="#ctypes.Structure._anonymous_" title="Link to this definition">¶</a></dt>
-<dd><p>An optional sequence that lists the names of unnamed (anonymous) fields.
+<span class="sig-name descname"><span class="pre">_anonymous_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="collections.abc.html#collections.abc.Sequence" title="collections.abc.Sequence"><span class="pre">collections.abc.Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ctypes.Structure._anonymous_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L294">typeshed</a>)</p>
+<p>An optional sequence that lists the names of unnamed (anonymous) fields.
 <a class="reference internal" href="#ctypes.Structure._anonymous_" title="ctypes.Structure._anonymous_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_anonymous_</span></code></a> must be already defined when <a class="reference internal" href="#ctypes.Structure._fields_" title="ctypes.Structure._fields_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_fields_</span></code></a> is
 assigned, otherwise it will have no effect.</p>
 <p>The fields listed in this variable must be structure or union type fields.
@@ -3540,16 +3556,22 @@ subscript and slice accesses; for slice reads, the resulting object is
 <em>not</em> itself an <a class="reference internal" href="#ctypes.Array" title="ctypes.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes.Array._length_">
-<span class="sig-name descname"><span class="pre">_length_</span></span><a class="headerlink" href="#ctypes.Array._length_" title="Link to this definition">¶</a></dt>
-<dd><p>A positive integer specifying the number of elements in the array.
+<span class="sig-name descname"><span class="pre">_length_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_length_[_CT](self:</span> <span class="pre">Array[_CT],</span> <span class="pre">value:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></em><a class="headerlink" href="#ctypes.Array._length_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L325">typeshed</a>)</p>
+<blockquote>
+<div><p>A positive integer specifying the number of elements in the array.
 Out-of-range subscripts result in an <a class="reference internal" href="exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a>. Will be
 returned by <a class="reference internal" href="functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a>.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes.Array._type_">
-<span class="sig-name descname"><span class="pre">_type_</span></span><a class="headerlink" href="#ctypes.Array._type_" title="Link to this definition">¶</a></dt>
-<dd><p>Specifies the type of each element in the array.</p>
+<span class="sig-name descname"><span class="pre">_type_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_type_[_CT](self:</span> <span class="pre">Array[_CT],</span> <span class="pre">value:</span> <span class="pre">type[_CT])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></em><a class="headerlink" href="#ctypes.Array._type_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L330">typeshed</a>)</p>
+<blockquote>
+<div><p>Specifies the type of each element in the array.</p>
+</div></blockquote>
 </dd></dl>
 
 <p>Array subclass constructors accept positional arguments, used to
@@ -3589,15 +3611,21 @@ out-of-range subscripts will probably crash with an access violation (if
 you’re lucky).</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._Pointer._type_">
-<span class="sig-name descname"><span class="pre">_type_</span></span><a class="headerlink" href="#ctypes._Pointer._type_" title="Link to this definition">¶</a></dt>
-<dd><p>Specifies the type pointed to.</p>
+<span class="sig-name descname"><span class="pre">_type_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Unknown</span></em><a class="headerlink" href="#ctypes._Pointer._type_" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L137">typeshed</a>)</p>
+<blockquote>
+<div><p>Specifies the type pointed to.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctypes._Pointer.contents">
-<span class="sig-name descname"><span class="pre">contents</span></span><a class="headerlink" href="#ctypes._Pointer.contents" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the object to which to pointer points.  Assigning to this
+<span class="sig-name descname"><span class="pre">contents</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Unknown</span></em><a class="headerlink" href="#ctypes._Pointer.contents" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L138">typeshed</a>)</p>
+<blockquote>
+<div><p>Returns the object to which to pointer points.  Assigning to this
 attribute changes the pointer to point to the assigned object.</p>
+</div></blockquote>
 </dd></dl>
 
 </dd></dl>

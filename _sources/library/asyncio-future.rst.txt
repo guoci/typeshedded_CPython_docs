@@ -122,6 +122,9 @@ Future Object
       and there is no running event loop.
 
    .. method:: result()
+               result[_T]() -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L76>`__)
 
       Return the result of the Future.
 
@@ -138,6 +141,9 @@ Future Object
       an :exc:`InvalidStateError` exception.
 
    .. method:: set_result(result)
+               set_result[_T](result: _T, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L102>`__)
 
       Mark the Future as *done* and set its result.
 
@@ -145,6 +151,9 @@ Future Object
       already *done*.
 
    .. method:: set_exception(exception)
+               set_exception[_T](exception: BaseException | type, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L110>`__)
 
       Mark the Future as *done* and set an exception.
 
@@ -152,6 +161,9 @@ Future Object
       already *done*.
 
    .. method:: done()
+               done[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L68>`__)
 
       Return ``True`` if the Future is *done*.
 
@@ -160,6 +172,9 @@ Future Object
       :meth:`set_exception` calls.
 
    .. method:: cancelled()
+               cancelled[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L65>`__)
 
       Return ``True`` if the Future was *cancelled*.
 
@@ -170,6 +185,9 @@ Future Object
               fut.set_result(42)
 
    .. method:: add_done_callback(callback, *, context=None)
+               add_done_callback[_T](fn: (Future[_T]) -> object, /, *, context: Context | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L47>`__)
 
       Add a callback to be run when the Future is *done*.
 
@@ -195,6 +213,9 @@ Future Object
          See :pep:`567` for more details.
 
    .. method:: remove_done_callback(callback)
+               remove_done_callback[_T](fn: (Future[_T]) -> object, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L95>`__)
 
       Remove *callback* from the callbacks list.
 
@@ -202,6 +223,9 @@ Future Object
       unless a callback was added more than once.
 
    .. method:: cancel(msg=None)
+               cancel[_T](msg: typing.Any | None = None) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L56>`__)
 
       Cancel the Future and schedule callbacks.
 
@@ -213,6 +237,9 @@ Future Object
          Added the *msg* parameter.
 
    .. method:: exception()
+               exception[_T]() -> BaseException | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L85>`__)
 
       Return the exception that was set on this Future.
 
@@ -226,6 +253,9 @@ Future Object
       :exc:`InvalidStateError` exception.
 
    .. method:: get_loop()
+               get_loop[_T]() -> AbstractEventLoop
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L42>`__)
 
       Return the event loop the Future object is bound to.
 

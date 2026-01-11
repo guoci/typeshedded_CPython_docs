@@ -462,6 +462,9 @@ DomainFilter
    .. versionadded:: 3.6
 
    .. attribute:: inclusive
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L11>`__)
 
       If *inclusive* is ``True`` (include), match memory blocks allocated
       in the address space :attr:`domain`.
@@ -470,6 +473,9 @@ DomainFilter
       in the address space :attr:`domain`.
 
    .. attribute:: domain
+      :type: domain(self: DomainFilter) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L16>`__)
 
       Address space of a memory block (``int``). Read-only property.
 
@@ -505,6 +511,9 @@ Filter
 
 
    .. attribute:: domain
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L20>`__)
 
       Address space of a memory block (``int`` or ``None``).
 
@@ -512,6 +521,9 @@ Filter
       Python. C extensions can use other domains to trace other resources.
 
    .. attribute:: inclusive
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L11>`__)
 
       If *inclusive* is ``True`` (include), only match memory blocks allocated
       in a file with a name matching :attr:`filename_pattern` at line number
@@ -522,15 +534,24 @@ Filter
       :attr:`lineno`.
 
    .. attribute:: lineno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L21>`__)
 
       Line number (``int``) of the filter. If *lineno* is ``None``, the filter
       matches any line number.
 
    .. attribute:: filename_pattern
+      :type: filename_pattern(self: Filter) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L23>`__)
 
       Filename pattern of the filter (``str``). Read-only property.
 
    .. attribute:: all_frames
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L24>`__)
 
       If *all_frames* is ``True``, all frames of the traceback are checked. If
       *all_frames* is ``False``, only the most recent frame is checked.
@@ -553,10 +574,16 @@ Frame
    The :class:`Traceback` class is a sequence of :class:`Frame` instances.
 
    .. attribute:: filename
+      :type: filename(self: Frame) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L59>`__)
 
       Filename (``str``).
 
    .. attribute:: lineno
+      :type: lineno(self: Frame) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L61>`__)
 
       Line number (``int``).
 
@@ -574,6 +601,9 @@ Snapshot
    The :func:`take_snapshot` function creates a snapshot instance.
 
    .. method:: compare_to(old_snapshot: Snapshot, key_type: str, cumulative: bool=False)
+               compare_to(old_snapshot: Snapshot, key_type: str, cumulative: bool = False) -> list[StatisticDiff]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L115>`__)
 
       Compute the differences with an old snapshot. Get statistics as a sorted
       list of :class:`StatisticDiff` instances grouped by *key_type*.
@@ -588,6 +618,9 @@ Snapshot
 
 
    .. method:: dump(filename)
+               dump(filename: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L116>`__)
 
       Write the snapshot into a file.
 
@@ -595,6 +628,9 @@ Snapshot
 
 
    .. method:: filter_traces(filters)
+               filter_traces(filters: collections.abc.Sequence[DomainFilter | Filter]) -> Snapshot
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L117>`__)
 
       Create a new :class:`Snapshot` instance with a filtered :attr:`traces`
       sequence, *filters* is a list of :class:`DomainFilter` and
@@ -610,6 +646,9 @@ Snapshot
 
 
    .. classmethod:: load(filename)
+                    load(filename: str) -> Snapshot
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L119>`__)
 
       Load a snapshot from a file.
 
@@ -617,6 +656,9 @@ Snapshot
 
 
    .. method:: statistics(key_type: str, cumulative: bool=False)
+               statistics(key_type: str, cumulative: bool = False) -> list[Statistic]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L120>`__)
 
       Get statistics as a sorted list of :class:`Statistic` instances grouped
       by *key_type*:
@@ -640,11 +682,17 @@ Snapshot
 
 
    .. attribute:: traceback_limit
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L121>`__)
 
       Maximum number of frames stored in the traceback of :attr:`traces`:
       result of the :func:`get_traceback_limit` when the snapshot was taken.
 
    .. attribute:: traces
+      :type: collections.abc.Sequence[Trace]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L122>`__)
 
       Traces of all memory blocks allocated by Python: sequence of
       :class:`Trace` instances.
@@ -668,14 +716,23 @@ Statistic
    See also the :class:`StatisticDiff` class.
 
    .. attribute:: count
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L36>`__)
 
       Number of memory blocks (``int``).
 
    .. attribute:: size
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L37>`__)
 
       Total size of memory blocks in bytes (``int``).
 
    .. attribute:: traceback
+      :type: Traceback
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L38>`__)
 
       Traceback where the memory block was allocated, :class:`Traceback`
       instance.
@@ -696,28 +753,43 @@ StatisticDiff
    instances. See also the :class:`Statistic` class.
 
    .. attribute:: count
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L45>`__)
 
       Number of memory blocks in the new snapshot (``int``): ``0`` if
       the memory blocks have been released in the new snapshot.
 
    .. attribute:: count_diff
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L46>`__)
 
       Difference of number of memory blocks between the old and the new
       snapshots (``int``): ``0`` if the memory blocks have been allocated in
       the new snapshot.
 
    .. attribute:: size
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L47>`__)
 
       Total size of memory blocks in bytes in the new snapshot (``int``):
       ``0`` if the memory blocks have been released in the new snapshot.
 
    .. attribute:: size_diff
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L48>`__)
 
       Difference of total size of memory blocks in bytes between the old and
       the new snapshots (``int``): ``0`` if the memory blocks have been
       allocated in the new snapshot.
 
    .. attribute:: traceback
+      :type: Traceback
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L49>`__)
 
       Traceback where the memory blocks were allocated, :class:`Traceback`
       instance.
@@ -740,6 +812,9 @@ Trace
       Added the :attr:`domain` attribute.
 
    .. attribute:: domain
+      :type: domain(self: Trace) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L80>`__)
 
       Address space of a memory block (``int``). Read-only property.
 
@@ -747,10 +822,16 @@ Trace
       Python. C extensions can use other domains to trace other resources.
 
    .. attribute:: size
+      :type: size(self: Trace) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L82>`__)
 
       Size of the memory block in bytes (``int``).
 
    .. attribute:: traceback
+      :type: traceback(self: Trace) -> Traceback
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L84>`__)
 
       Traceback where the memory block was allocated, :class:`Traceback`
       instance.
@@ -784,6 +865,9 @@ Traceback
       Frames are now sorted from the oldest to the most recent, instead of most recent to oldest.
 
    .. attribute:: total_nframe
+      :type: total_nframe(self: Traceback) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L92>`__)
 
       Total number of frames that composed the traceback before truncation.
       This attribute can be set to ``None`` if the information is not
@@ -793,6 +877,9 @@ Traceback
       The :attr:`Traceback.total_nframe` attribute was added.
 
    .. method:: format(limit=None, most_recent_first=False)
+               format(limit: int | None = None, most_recent_first: bool = False) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tracemalloc.pyi#L94>`__)
 
       Format the traceback as a list of lines. Use the :mod:`linecache` module to
       retrieve lines from the source code. If *limit* is set, format the *limit*

@@ -3937,7 +3937,10 @@ The instance’s <a class="reference internal" href="#curses.textpad.Textbox.str
 <dl class="py method">
 <dt class="sig sig-object py" id="curses.textpad.Textbox.edit">
 <span class="sig-name descname"><span class="pre">edit</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">validator</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.textpad.Textbox.edit" title="Link to this definition">¶</a></dt>
-<dd><p>This is the entry point you will normally use.  It accepts editing
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validate:</span> <span class="pre">((int)</span> <span class="pre">-&gt;</span> <span class="pre">int)</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/curses/textpad.pyi#L9">typeshed</a>)</p>
+<p>This is the entry point you will normally use.  It accepts editing
 keystrokes until one of the termination keystrokes is entered.  If
 <em>validator</em> is supplied, it must be a function.  It will be called for
 each keystroke entered with the keystroke as a parameter; command dispatch
@@ -3949,7 +3952,10 @@ string; whether blanks in the window are included is affected by the
 <dl class="py method">
 <dt class="sig sig-object py" id="curses.textpad.Textbox.do_command">
 <span class="sig-name descname"><span class="pre">do_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#curses.textpad.Textbox.do_command" title="Link to this definition">¶</a></dt>
-<dd><p>Process a single command keystroke.  Here are the supported special
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">do_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/curses/textpad.pyi#L10">typeshed</a>)</p>
+<p>Process a single command keystroke.  Here are the supported special
 keystrokes:</p>
 <table class="docutils align-default">
 <thead>
@@ -4037,14 +4043,18 @@ character and move right (with line wrapping).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="curses.textpad.Textbox.gather">
 <span class="sig-name descname"><span class="pre">gather</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.textpad.Textbox.gather" title="Link to this definition">¶</a></dt>
-<dd><p>Return the window contents as a string; whether blanks in the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">gather</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/curses/textpad.pyi#L11">typeshed</a>)</p>
+<p>Return the window contents as a string; whether blanks in the
 window are included is affected by the <a class="reference internal" href="#curses.textpad.Textbox.stripspaces" title="curses.textpad.Textbox.stripspaces"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stripspaces</span></code></a> member.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="curses.textpad.Textbox.stripspaces">
-<span class="sig-name descname"><span class="pre">stripspaces</span></span><a class="headerlink" href="#curses.textpad.Textbox.stripspaces" title="Link to this definition">¶</a></dt>
-<dd><p>This attribute is a flag which controls the interpretation of blanks in
+<span class="sig-name descname"><span class="pre">stripspaces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></em><a class="headerlink" href="#curses.textpad.Textbox.stripspaces" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/curses/textpad.pyi#L7">typeshed</a>)</p>
+<p>This attribute is a flag which controls the interpretation of blanks in
 the window.  When it is on, trailing blanks on each line are ignored; any
 cursor motion that would land the cursor on a trailing blank goes to the
 end of that line instead, and trailing blanks are stripped when the window

@@ -149,6 +149,9 @@ The :class:`!Stats` class
    different profilers.
 
    .. method:: strip_dirs()
+               strip_dirs() -> Stats
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L80>`__)
 
       Remove leading path information from all filenames.
 
@@ -161,6 +164,9 @@ The :class:`!Stats` class
       combined into a single entry.
 
    .. method:: add(*filenames)
+               add(*arg_list: profile.Profile | cProfile.Profile | Stats | str | None) -> Stats
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L72>`__)
 
       Add profiling data from additional files.
 
@@ -168,6 +174,9 @@ The :class:`!Stats` class
       for identical functions are accumulated.
 
    .. method:: dump_stats(filename)
+               dump_stats(filename: StrOrBytesPath) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L73>`__)
 
       Save the current statistics to a file.
 
@@ -175,6 +184,10 @@ The :class:`!Stats` class
       The saved data can be loaded by creating a new :class:`Stats` object.
 
    .. method:: sort_stats(*keys)
+               sort_stats(field: typing.Literal[-1, 0, 1, 2]) -> Stats
+               sort_stats(*field: str) -> Stats
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L76>`__)
 
       Sort the statistics according to the specified criteria.
 
@@ -238,6 +251,9 @@ The :class:`!Stats` class
          The :class:`SortKey` enum.
 
    .. method:: reverse_order()
+               reverse_order() -> Stats
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L79>`__)
 
       Reverse the current sort order.
 
@@ -246,6 +262,9 @@ The :class:`!Stats` class
       method inverts that choice.
 
    .. method:: print_stats(*restrictions)
+               print_stats(*amount: _Selector) -> Stats
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L85>`__)
 
       Print a report of the profiling statistics.
 
@@ -266,6 +285,9 @@ The :class:`!Stats` class
       First limits to the top 10%, then filters to functions matching 'foo:'.
 
    .. method:: print_callers(*restrictions)
+               print_callers(*amount: _Selector) -> Stats
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L87>`__)
 
       Print the callers of each function in the statistics.
 
@@ -279,6 +301,9 @@ The :class:`!Stats` class
       Accepts the same restriction arguments as :meth:`print_stats`.
 
    .. method:: print_callees(*restrictions)
+               print_callees(*amount: _Selector) -> Stats
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L86>`__)
 
       Print the functions called by each function in the statistics.
 
@@ -288,6 +313,9 @@ The :class:`!Stats` class
       Accepts the same restriction arguments as :meth:`print_stats`.
 
    .. method:: get_stats_profile()
+               get_stats_profile() -> StatsProfile
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L83>`__)
 
       Return a ``StatsProfile`` object containing the statistics.
 
@@ -306,38 +334,65 @@ The :class:`!Stats` class
    An enumeration of valid sort keys for :meth:`Stats.sort_stats`.
 
    .. attribute:: CALLS
+      :type: typing.Literal[SortKey.CALLS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L21>`__)
 
       Sort by call count.
 
    .. attribute:: CUMULATIVE
+      :type: typing.Literal[SortKey.CUMULATIVE]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L22>`__)
 
       Sort by cumulative time.
 
    .. attribute:: FILENAME
+      :type: typing.Literal[SortKey.FILENAME]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L23>`__)
 
       Sort by file name.
 
    .. attribute:: LINE
+      :type: typing.Literal[SortKey.LINE]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L24>`__)
 
       Sort by line number.
 
    .. attribute:: NAME
+      :type: typing.Literal[SortKey.NAME]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L25>`__)
 
       Sort by function name.
 
    .. attribute:: NFL
+      :type: typing.Literal[SortKey.NFL]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L26>`__)
 
       Sort by name, then file, then line number (numeric line sort).
 
    .. attribute:: PCALLS
+      :type: typing.Literal[SortKey.PCALLS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L27>`__)
 
       Sort by primitive (non-recursive) call count.
 
    .. attribute:: STDNAME
+      :type: typing.Literal[SortKey.STDNAME]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L28>`__)
 
       Sort by standard name (string-based line sort).
 
    .. attribute:: TIME
+      :type: typing.Literal[SortKey.TIME]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pstats.pyi#L29>`__)
 
       Sort by internal time (time in function excluding subcalls).
 

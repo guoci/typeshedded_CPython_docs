@@ -262,27 +262,42 @@ Interpreter objects
    Instead, use :func:`create` or one of the other module functions.
 
    .. attribute:: id
+      :type: id(self: Interpreter) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L56>`__)
 
       (read-only)
 
       The underlying interpreter's ID.
 
    .. attribute:: whence
+      :type: whence(self: Interpreter) -> typing.Literal['C-API', '_interpreters module', 'cross-interpreter C-API', 'legacy C-API', 'runtime init', 'unknown']
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L58>`__)
 
       (read-only)
 
       A string describing where the interpreter came from.
 
    .. method:: is_running()
+               is_running() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L61>`__)
 
       Return ``True`` if the interpreter is currently executing code
       in its :mod:`!__main__` module and ``False`` otherwise.
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L62>`__)
 
       Finalize and destroy the interpreter.
 
    .. method:: prepare_main(ns=None, **kwargs)
+               prepare_main(ns: dict[str, typing.Any] | None = None, /, **kwargs: typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L63>`__)
 
       Bind objects in the interpreter's :mod:`!__main__` module.
 
@@ -290,10 +305,16 @@ Interpreter objects
       but most are copied via :mod:`pickle`.  See :ref:`interp-object-sharing`.
 
    .. method:: exec(code, /, dedent=True)
+               exec(code: (() -> object) | CodeType | str, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L66>`__)
 
       Run the given source code in the interpreter (in the current thread).
 
    .. method:: call(callable, /, *args, **kwargs)
+               call[_P, _R](Interpreter, (ParamSpec(_P)) -> _R, ParamSpec(_P)) -> _R
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L67>`__)
 
       Return the result of calling running the given function in the
       interpreter (in the current thread).
@@ -301,6 +322,9 @@ Interpreter objects
    .. _interp-call-in-thread:
 
    .. method:: call_in_thread(callable, /, *args, **kwargs)
+               call_in_thread[_P](Interpreter, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> Thread
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L68>`__)
 
       Run the given function in the interpreter (in a new thread).
 
@@ -332,6 +356,9 @@ Exceptions
    the running code raised an uncaught exception.
 
    .. attribute:: excinfo
+      :type: SimpleNamespace
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/__init__.pyi#L41>`__)
 
       A basic snapshot of the exception raised in the other interpreter.
 
@@ -362,6 +389,9 @@ Communicating Between Interpreters
    but most are copied via :mod:`pickle`.  See :ref:`interp-object-sharing`.
 
    .. attribute:: id
+      :type: id(self: Queue) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/interpreters/_queues.pyi#L40>`__)
 
       (read-only)
 

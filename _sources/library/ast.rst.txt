@@ -63,6 +63,9 @@ Node classes
    .. index:: single: * (asterisk); in AST grammar
 
    .. attribute:: _fields
+      :type: tuple[str, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L38>`__)
 
       Each concrete class has an attribute :attr:`!_fields` which gives the names
       of all child nodes.
@@ -78,6 +81,9 @@ Node classes
       values when compiling an AST with :func:`compile`.
 
    .. attribute:: _field_types
+      :type: dict[str, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L40>`__)
 
       The :attr:`!_field_types` attribute on each concrete class is a dictionary
       mapping field names (as also listed in :attr:`_fields`) to their types.
@@ -93,6 +99,8 @@ Node classes
                   col_offset
                   end_lineno
                   end_col_offset
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L105>`__)
 
       Instances of :class:`ast.expr` and :class:`ast.stmt` subclasses have
       :attr:`lineno`, :attr:`col_offset`, :attr:`end_lineno`, and
@@ -1016,6 +1024,9 @@ Statements
    within ``targets``.
 
    .. attribute:: type_comment
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L352>`__)
 
        ``type_comment`` is an optional string with the type annotation as a comment.
 
@@ -1350,6 +1361,9 @@ Control flow
    via a ``break`` statement.
 
    .. attribute:: type_comment
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L467>`__)
 
        ``type_comment`` is an optional string with the type annotation as a comment.
 
@@ -1561,6 +1575,9 @@ Control flow
    the context managers, and ``body`` is the indented block inside the context.
 
    .. attribute:: type_comment
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L583>`__)
 
        ``type_comment`` is an optional string with the type annotation as a comment.
 
@@ -2166,6 +2183,9 @@ Function and class definitions
    * ``type_params`` is a list of :ref:`type parameters <ast-type-params>`.
 
    .. attribute:: type_comment
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L124>`__)
 
        ``type_comment`` is an optional string with the type annotation as a comment.
 
@@ -2221,6 +2241,9 @@ Function and class definitions
    name; ``annotation`` is its annotation, such as a :class:`Name` node.
 
    .. attribute:: type_comment
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1417>`__)
 
        ``type_comment`` is an optional string with the type annotation as a comment
 
@@ -2667,12 +2690,18 @@ and classes for traversing abstract syntax trees:
    methods.
 
    .. method:: visit(node)
+               visit(node: AST) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1955>`__)
 
       Visit a node.  The default implementation calls the method called
       :samp:`self.visit_{classname}` where *classname* is the name of the node
       class, or :meth:`generic_visit` if that method doesn't exist.
 
    .. method:: generic_visit(node)
+               generic_visit(node: AST) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L1956>`__)
 
       This visitor calls :meth:`visit` on all children of the node.
 
@@ -2681,6 +2710,9 @@ and classes for traversing abstract syntax trees:
       itself.
 
    .. method:: visit_Constant(node)
+               visit_Constant(node: Constant) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ast.pyi#L2006>`__)
 
       Handles all constant nodes.
 

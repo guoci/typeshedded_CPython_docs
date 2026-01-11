@@ -150,6 +150,9 @@ FTP objects
    :class:`FTP` instances have the following methods:
 
    .. method:: FTP.set_debuglevel(level)
+               FTP.set_debuglevel(level: int) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L59>`__)
 
       Set the instance's debugging level as an :class:`int`.
       This controls the amount of debugging output printed.
@@ -162,6 +165,9 @@ FTP objects
         logging each line sent and received on the control connection.
 
    .. method:: FTP.connect(host='', port=0, timeout=None, source_address=None)
+               FTP.connect(host: str = '', port: int = 0, timeout: float = -999, source_address: tuple[str, int] | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L55>`__)
 
       Connect to the given host and port.
       This function should be called only once for each instance;
@@ -194,6 +200,9 @@ FTP objects
 
 
    .. method:: FTP.getwelcome()
+               FTP.getwelcome() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L58>`__)
 
       Return the welcome message sent by the server in reply to the initial
       connection.  (This message sometimes contains disclaimers or help information
@@ -201,6 +210,9 @@ FTP objects
 
 
    .. method:: FTP.login(user='anonymous', passwd='', acct='')
+               FTP.login(user: str = '', passwd: str = '', acct: str = '') -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L76>`__)
 
       Log on to the connected FTP server.
       This function should be called only once for each instance,
@@ -220,12 +232,18 @@ FTP objects
 
 
    .. method:: FTP.abort()
+               FTP.abort() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L69>`__)
 
       Abort a file transfer that is in progress.  Using this does not always work, but
       it's worth a try.
 
 
    .. method:: FTP.sendcmd(cmd)
+               FTP.sendcmd(cmd: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L70>`__)
 
       Send a simple command string to the server and return the response string.
 
@@ -233,6 +251,9 @@ FTP objects
 
 
    .. method:: FTP.voidcmd(cmd)
+               FTP.voidcmd(cmd: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L71>`__)
 
       Send a simple command string to the server and handle the response.  Return
       the response string if the response code corresponds to success (codes in
@@ -242,6 +263,9 @@ FTP objects
 
 
    .. method:: FTP.retrbinary(cmd, callback, blocksize=8192, rest=None)
+               FTP.retrbinary(cmd: str, callback: (bytes) -> object, blocksize: int = 8192, rest: int | str | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L80>`__)
 
       Retrieve a file in binary transfer mode.
 
@@ -267,6 +291,9 @@ FTP objects
 
 
    .. method:: FTP.retrlines(cmd, callback=None)
+               FTP.retrlines(cmd: str, callback: ((str) -> object) | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L91>`__)
 
       Retrieve a file or directory listing in the encoding specified by the
       *encoding* parameter at initialization.
@@ -280,12 +307,18 @@ FTP objects
 
 
    .. method:: FTP.set_pasv(val)
+               FTP.set_pasv(val: typing.Literal[0, 1] | bool) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L61>`__)
 
       Enable "passive" mode if *val* is true, otherwise disable passive mode.
       Passive mode is on by default.
 
 
    .. method:: FTP.storbinary(cmd, fp, blocksize=8192, callback=None, rest=None)
+               FTP.storbinary(cmd: str, fp: SupportsRead[bytes], blocksize: int = 8192, callback: ((bytes) -> object) | None = None, rest: int | str | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L83>`__)
 
       Store a file in binary transfer mode.
 
@@ -317,6 +350,9 @@ FTP objects
 
 
    .. method:: FTP.storlines(cmd, fp, callback=None)
+               FTP.storlines(cmd: str, fp: SupportsReadline[bytes], callback: ((bytes) -> object) | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L92>`__)
 
       Store a file in line mode.  *cmd* should be an appropriate
       ``STOR`` command (see :meth:`storbinary`).  Lines are read until EOF from the
@@ -326,6 +362,9 @@ FTP objects
 
 
    .. method:: FTP.transfercmd(cmd, rest=None)
+               FTP.transfercmd(cmd: str, rest: int | str | None = None) -> socket
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L79>`__)
 
       Initiate a transfer over the data connection.  If the transfer is active, send an
       ``EPRT`` or  ``PORT`` command and the transfer command specified by *cmd*, and
@@ -345,6 +384,9 @@ FTP objects
 
 
    .. method:: FTP.ntransfercmd(cmd, rest=None)
+               FTP.ntransfercmd(cmd: str, rest: int | str | None = None) -> tuple[socket, int | None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L78>`__)
 
       Like :meth:`transfercmd`, but returns a tuple of the data connection and the
       expected size of the data.  If the expected size could not be computed, ``None``
@@ -353,6 +395,9 @@ FTP objects
 
 
    .. method:: FTP.mlsd(path="", facts=[])
+               FTP.mlsd(path: str = '', facts: collections.abc.Iterable[str] = ...) -> collections.abc.Iterator[tuple[str, dict[str, str]]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L97>`__)
 
       List a directory in a standardized format by using ``MLSD`` command
       (:rfc:`3659`).  If *path* is omitted the current directory is assumed.
@@ -367,6 +412,9 @@ FTP objects
 
 
    .. method:: FTP.nlst(argument[, ...])
+               FTP.nlst(*args: str) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L94>`__)
 
       Return a list of file names as returned by the ``NLST`` command.  The
       optional *argument* is a directory to list (default is the current server
@@ -377,6 +425,9 @@ FTP objects
 
 
    .. method:: FTP.dir(argument[, ...])
+               FTP.dir(*args: ((str) -> object) | str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L96>`__)
 
       Produce a directory listing as returned by the ``LIST`` command, printing it to
       standard output.  The optional *argument* is a directory to list (default is the
@@ -389,11 +440,17 @@ FTP objects
 
 
    .. method:: FTP.rename(fromname, toname)
+               FTP.rename(fromname: str, toname: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L98>`__)
 
       Rename file *fromname* on the server to *toname*.
 
 
    .. method:: FTP.delete(filename)
+               FTP.delete(filename: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L99>`__)
 
       Remove the file named *filename* from the server.  If successful, returns the
       text of the response, otherwise raises :exc:`error_perm` on permission errors or
@@ -401,26 +458,41 @@ FTP objects
 
 
    .. method:: FTP.cwd(pathname)
+               FTP.cwd(dirname: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L100>`__)
 
       Set the current directory on the server.
 
 
    .. method:: FTP.mkd(pathname)
+               FTP.mkd(dirname: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L102>`__)
 
       Create a new directory on the server.
 
 
    .. method:: FTP.pwd()
+               FTP.pwd() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L104>`__)
 
       Return the pathname of the current directory on the server.
 
 
    .. method:: FTP.rmd(dirname)
+               FTP.rmd(dirname: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L103>`__)
 
       Remove the directory named *dirname* on the server.
 
 
    .. method:: FTP.size(filename)
+               FTP.size(filename: str) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L101>`__)
 
       Request the size of the file named *filename* on the server.  On success, the
       size of the file is returned as an integer, otherwise ``None`` is returned.
@@ -429,6 +501,9 @@ FTP objects
 
 
    .. method:: FTP.quit()
+               FTP.quit() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L105>`__)
 
       Send a ``QUIT`` command to the server and close the connection. This is the
       "polite" way to close a connection, but it may raise an exception if the server
@@ -438,6 +513,9 @@ FTP objects
 
 
    .. method:: FTP.close()
+               FTP.close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L106>`__)
 
       Close the connection unilaterally.  This should not be applied to an already
       closed connection such as after a successful call to :meth:`~FTP.quit`.
@@ -531,6 +609,9 @@ FTP_TLS objects
    defining these additional methods and attributes:
 
    .. method:: FTP_TLS.auth()
+               FTP_TLS.auth() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L142>`__)
 
       Set up a secure control connection by using TLS.
 
@@ -540,6 +621,9 @@ FTP_TLS objects
          :const:`ssl.HAS_SNI`).
 
    .. method:: FTP_TLS.ccc()
+               FTP_TLS.ccc() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L145>`__)
 
       Revert control channel back to plaintext.  This can be useful to take
       advantage of firewalls that know how to handle NAT with non-secure FTP
@@ -548,10 +632,16 @@ FTP_TLS objects
       .. versionadded:: 3.3
 
    .. method:: FTP_TLS.prot_p()
+               FTP_TLS.prot_p() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L143>`__)
 
       Set up secure data connection by using TLS.
 
    .. method:: FTP_TLS.prot_c()
+               FTP_TLS.prot_c() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ftplib.pyi#L144>`__)
 
       Set up clear text data connection.
 

@@ -52,6 +52,9 @@ headers.
 
 
    .. attribute:: name
+      :type: name(self: BaseHeader) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L23>`__)
 
       The name of the header (the portion of the field before the ':').  This
       is exactly the value passed in the
@@ -60,6 +63,9 @@ headers.
 
 
    .. attribute:: defects
+      :type: defects(self: BaseHeader) -> tuple[MessageDefect, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L25>`__)
 
       A tuple of :exc:`~email.errors.HeaderDefect` instances reporting any
       RFC compliance problems found during parsing.  The email package tries to
@@ -68,6 +74,9 @@ headers.
 
 
    .. attribute:: max_count
+      :type: typing.Literal[1] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L21>`__)
 
       The maximum number of headers of this type that can have the same
       ``name``.  A value of ``None`` means unlimited.  The ``BaseHeader`` value
@@ -79,6 +88,9 @@ headers.
    programs:
 
    .. method:: fold(*, policy)
+               fold(*, policy: Policy[email.message.Message[str, str]]) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L28>`__)
 
       Return a string containing :attr:`~email.policy.Policy.linesep`
       characters as required to correctly fold the header according to
@@ -155,6 +167,9 @@ headers.
    This header type provides the following additional attributes:
 
    .. attribute:: datetime
+      :type: datetime(self: DateHeader) -> datetime | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L44>`__)
 
       If the header value can be recognized as a valid date of one form or
       another, this attribute will contain a :class:`~datetime.datetime`
@@ -201,6 +216,9 @@ headers.
 
 
    .. attribute:: groups
+      :type: groups(self: AddressHeader) -> tuple[Group, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L57>`__)
 
       A tuple of :class:`.Group` objects encoding the
       addresses and groups found in the header value.  Addresses that are
@@ -209,6 +227,9 @@ headers.
 
 
    .. attribute:: addresses
+      :type: addresses(self: AddressHeader) -> tuple[Address, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L59>`__)
 
       A tuple of :class:`.Address` objects encoding all
       of the individual addresses from the header value.  If the header value
@@ -239,6 +260,9 @@ headers.
 
 
    .. attribute:: address
+      :type: address(self: SingleAddressHeader) -> Address
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L70>`__)
 
       The single address encoded by the header value.  If the header value
       actually contains more than one address (which would be a violation of
@@ -263,15 +287,24 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
    the following attributes:
 
    .. attribute:: version
+      :type: version(self: MIMEVersionHeader) -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L88>`__)
 
       The version number as a string, with any whitespace and/or comments
       removed.
 
    .. attribute:: major
+      :type: major(self: MIMEVersionHeader) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L90>`__)
 
       The major version number as an integer
 
    .. attribute:: minor
+      :type: minor(self: MIMEVersionHeader) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L92>`__)
 
       The minor version number as an integer
 
@@ -287,6 +320,9 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
     This class serves as a base for all the MIME headers that take parameters.
 
     .. attribute:: params
+       :type: params(self: ParameterizedMIMEHeader) -> MappingProxyType[str, typing.Any]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L102>`__)
 
        A dictionary mapping parameter names to parameter values.
 
@@ -300,12 +336,22 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
     :mailheader:`Content-Type` header.
 
     .. attribute:: content_type
+       :type: content_type(self: ContentTypeHeader) -> str
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L108>`__)
 
        The content type string, in the form ``maintype/subtype``.
 
     .. attribute:: maintype
+       :type: maintype(self: ContentTypeHeader) -> str
+
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L110>`__)
 
     .. attribute:: subtype
+       :type: subtype(self: ContentTypeHeader) -> str
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L112>`__)
 
 
 .. class:: ContentDispositionHeader
@@ -317,6 +363,9 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
     :mailheader:`Content-Disposition` header.
 
     .. attribute:: content_disposition
+       :type: content_disposition(self: ContentDispositionHeader) -> str | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L119>`__)
 
        ``inline`` and ``attachment`` are the only valid values in common use.
 
@@ -329,6 +378,9 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
    Handles the :mailheader:`Content-Transfer-Encoding` header.
 
    .. attribute:: cte
+      :type: cte(self: ContentTransferEncodingHeader) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L127>`__)
 
       Valid values are ``7bit``, ``8bit``, ``base64``, and
       ``quoted-printable``.  See :rfc:`2045` for more information.
@@ -379,6 +431,9 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
     .. method:: map_to_type(self, name, cls)
+                map_to_type(name: str, cls: type[BaseHeader]) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L155>`__)
 
        *name* is the name of the header to be mapped.  It will be converted to
        lower case in the registry.  *cls* is the specialized class to be used,
@@ -387,11 +442,17 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
     .. method:: __getitem__(name)
+                __getitem__(name: str) -> type[BaseHeader]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L156>`__)
 
        Construct and return a class to handle creating a *name* header.
 
 
     .. method:: __call__(name, value)
+                __call__(name: str, value: typing.Any) -> BaseHeader
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L157>`__)
 
        Retrieves the specialized header associated with *name* from the
        registry (using *default_class* if *name* does not appear in the
@@ -430,20 +491,32 @@ construct structured values to assign to specific headers.
    *not* allowed in the username portion of the address.
 
    .. attribute:: display_name
+      :type: display_name(self: Address) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L161>`__)
 
       The display name portion of the address, if any, with all quoting
       removed.  If the address does not have a display name, this attribute
       will be an empty string.
 
    .. attribute:: username
+      :type: username(self: Address) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L163>`__)
 
       The ``username`` portion of the address, with all quoting removed.
 
    .. attribute:: domain
+      :type: domain(self: Address) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L165>`__)
 
       The ``domain`` portion of the address.
 
    .. attribute:: addr_spec
+      :type: addr_spec(self: Address) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L167>`__)
 
       The ``username@domain`` portion of the address, correctly quoted
       for use as a bare address (the second form shown above).  This
@@ -476,12 +549,18 @@ construct structured values to assign to specific headers.
    ``None`` and providing a list of the single address as *addresses*.
 
    .. attribute:: display_name
+      :type: display_name(self: Group) -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L181>`__)
 
       The ``display_name`` of the group.  If it is ``None`` and there is
       exactly one ``Address`` in ``addresses``, then the ``Group`` represents a
       single address that is not in a group.
 
    .. attribute:: addresses
+      :type: addresses(self: Group) -> tuple[Address, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/headerregistry.pyi#L183>`__)
 
       A possibly empty tuple of :class:`.Address` objects representing the
       addresses in the group.

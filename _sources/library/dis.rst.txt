@@ -174,24 +174,39 @@ code.
    source code positions in the output.
 
    .. classmethod:: from_traceback(tb, *, show_caches=False)
+                    from_traceback(cls: type[Bytecode], tb: TracebackType, *, show_caches: bool = False, adaptive: bool = False) -> Bytecode
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L178>`__)
 
       Construct a :class:`Bytecode` instance from the given traceback, setting
       *current_offset* to the instruction responsible for the exception.
 
    .. data:: codeobj
+      :type: CodeType
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L132>`__)
 
       The compiled code object.
 
    .. data:: first_line
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L133>`__)
 
       The first source line of the code object (if available)
 
    .. method:: dis()
+               dis() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L185>`__)
 
       Return a formatted view of the bytecode operations (the same as printed by
       :func:`dis.dis`, but returned as a multi-line string).
 
    .. method:: info()
+               info() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L184>`__)
 
       Return a formatted multi-line string with detailed information about the
       code object, like :func:`code_info`.
@@ -479,95 +494,149 @@ details of bytecode instructions as :class:`Instruction` instances:
    Details for a bytecode operation
 
    .. data:: opcode
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L56>`__)
 
       numeric code for operation, corresponding to the opcode values listed
       below and the bytecode values in the :ref:`opcode_collections`.
 
 
    .. data:: opname
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L55>`__)
 
       human readable name for operation
 
 
    .. data:: baseopcode
+      :type: baseopcode(self: Instruction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L99>`__)
 
       numeric code for the base operation if operation is specialized;
       otherwise equal to :data:`opcode`
 
 
    .. data:: baseopname
+      :type: baseopname(self: Instruction) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L101>`__)
 
       human readable name for the base operation if operation is specialized;
       otherwise equal to :data:`opname`
 
 
    .. data:: arg
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L57>`__)
 
       numeric argument to operation (if any), otherwise ``None``
 
    .. data:: oparg
+      :type: oparg(self: Instruction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L97>`__)
 
       alias for :data:`arg`
 
    .. data:: argval
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L58>`__)
 
       resolved arg value (if any), otherwise ``None``
 
 
    .. data:: argrepr
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L59>`__)
 
       human readable description of operation argument (if any),
       otherwise an empty string.
 
 
    .. data:: offset
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L60>`__)
 
       start index of operation within bytecode sequence
 
 
    .. data:: start_offset
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L61>`__)
 
       start index of operation within bytecode sequence, including prefixed
       ``EXTENDED_ARG`` operations if present; otherwise equal to :data:`offset`
 
 
    .. data:: cache_offset
+      :type: cache_offset(self: Instruction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L103>`__)
 
       start index of the cache entries following the operation
 
 
    .. data:: end_offset
+      :type: end_offset(self: Instruction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L105>`__)
 
       end index of the cache entries following the operation
 
 
    .. data:: starts_line
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L62>`__)
 
       ``True`` if this opcode starts a source line, otherwise ``False``
 
 
    .. data:: line_number
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L63>`__)
 
       source line number associated with this opcode (if any), otherwise ``None``
 
 
    .. data:: is_jump_target
+      :type: is_jump_target(self: Instruction) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L109>`__)
 
       ``True`` if other code jumps to here, otherwise ``False``
 
 
    .. data:: jump_target
+      :type: jump_target(self: Instruction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L107>`__)
 
       bytecode index of the jump target if this is a jump operation,
       otherwise ``None``
 
 
    .. data:: positions
+      :type: Positions | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L65>`__)
 
       :class:`dis.Positions` object holding the
       start and end locations that are covered by this instruction.
 
    .. data:: cache_info
+      :type: list[tuple[str, int, typing.Any]] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L66>`__)
 
       Information about the cache entries of this instruction, as
       triplets of the form ``(name, size, data)``, where the ``name``
@@ -598,9 +667,25 @@ details of bytecode instructions as :class:`Instruction` instances:
    In case the information is not available, some fields might be ``None``.
 
    .. data:: lineno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L48>`__)
+
    .. data:: end_lineno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L49>`__)
+
    .. data:: col_offset
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L50>`__)
+
    .. data:: end_col_offset
+      :type: int | None
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dis.pyi#L51>`__)
 
    .. versionadded:: 3.11
 

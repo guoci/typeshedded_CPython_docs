@@ -462,7 +462,19 @@ are also provided to help in implementing the core ABCs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.MetaPathFinder.find_spec">
 <span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.MetaPathFinder.find_spec" title="Link to this definition">¶</a></dt>
-<dd><p>An abstract method for finding a <a class="reference internal" href="../glossary.html#term-module-spec"><span class="xref std std-term">spec</span></a> for
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Sequence" title="collections.abc.Sequence"><span class="pre">collections.abc.Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><span class="pre">ModuleSpec</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L80">typeshed</a>)</p>
+<p>An abstract method for finding a <a class="reference internal" href="../glossary.html#term-module-spec"><span class="xref std std-term">spec</span></a> for
 the specified module.  If this is a top-level import, <em>path</em> will
 be <code class="docutils literal notranslate"><span class="pre">None</span></code>.  Otherwise, this is a search for a subpackage or
 module and <em>path</em> will be the value of <a class="reference internal" href="../reference/datamodel.html#module.__path__" title="module.__path__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__path__</span></code></a> from the
@@ -479,7 +491,10 @@ concrete <code class="docutils literal notranslate"><span class="pre">MetaPathFi
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.MetaPathFinder.invalidate_caches">
 <span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.MetaPathFinder.invalidate_caches" title="Link to this definition">¶</a></dt>
-<dd><p>An optional method which, when called, should invalidate any internal
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L78">typeshed</a>)</p>
+<p>An optional method which, when called, should invalidate any internal
 cache used by the finder. Used by <a class="reference internal" href="#importlib.invalidate_caches" title="importlib.invalidate_caches"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.invalidate_caches()</span></code></a>
 when invalidating the caches of all finders on <a class="reference internal" href="sys.html#sys.meta_path" title="sys.meta_path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.meta_path</span></code></a>.</p>
 <div class="versionchanged">
@@ -508,7 +523,10 @@ by <a class="reference internal" href="#importlib.machinery.PathFinder" title="i
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.PathEntryFinder.find_spec">
 <span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PathEntryFinder.find_spec" title="Link to this definition">¶</a></dt>
-<dd><p>An abstract method for finding a <a class="reference internal" href="../glossary.html#term-module-spec"><span class="xref std std-term">spec</span></a> for
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><span class="pre">ModuleSpec</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L93">typeshed</a>)</p>
+<p>An abstract method for finding a <a class="reference internal" href="../glossary.html#term-module-spec"><span class="xref std std-term">spec</span></a> for
 the specified module.  The finder will search for the module only
 within the <a class="reference internal" href="../glossary.html#term-path-entry"><span class="xref std std-term">path entry</span></a> to which it is assigned.  If a spec
 cannot be found, <code class="docutils literal notranslate"><span class="pre">None</span></code> is returned.  When passed in, <code class="docutils literal notranslate"><span class="pre">target</span></code>
@@ -523,7 +541,10 @@ may be useful for implementing concrete <code class="docutils literal notranslat
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.PathEntryFinder.invalidate_caches">
 <span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PathEntryFinder.invalidate_caches" title="Link to this definition">¶</a></dt>
-<dd><p>An optional method which, when called, should invalidate any internal
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L91">typeshed</a>)</p>
+<p>An optional method which, when called, should invalidate any internal
 cache used by the finder. Used by
 <a class="reference internal" href="#importlib.machinery.PathFinder.invalidate_caches" title="importlib.machinery.PathFinder.invalidate_caches"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.machinery.PathFinder.invalidate_caches()</span></code></a>
 when invalidating the caches of all cached finders.</p>
@@ -552,7 +573,10 @@ See <span class="target" id="index-12"></span><a class="pep reference external" 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.Loader.create_module">
 <span class="sig-name descname"><span class="pre">create_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.Loader.create_module" title="Link to this definition">¶</a></dt>
-<dd><p>A method that returns the module object to use when
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><span class="pre">ModuleSpec</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/_abc.pyi#L17">typeshed</a>)</p>
+<p>A method that returns the module object to use when
 importing a module.  This method may return <code class="docutils literal notranslate"><span class="pre">None</span></code>,
 indicating that default module creation semantics should take place.</p>
 <div class="versionadded">
@@ -567,7 +591,10 @@ indicating that default module creation semantics should take place.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.Loader.exec_module">
 <span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.Loader.exec_module" title="Link to this definition">¶</a></dt>
-<dd><p>An abstract method that executes the module in its own namespace
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/_abc.pyi#L20">typeshed</a>)</p>
+<p>An abstract method that executes the module in its own namespace
 when a module is imported or reloaded.  The module should already
 be initialized when <a class="reference internal" href="#importlib.abc.Loader.exec_module" title="importlib.abc.Loader.exec_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">exec_module()</span></code></a> is called.  When this method exists,
 <a class="reference internal" href="#importlib.abc.Loader.create_module" title="importlib.abc.Loader.create_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_module()</span></code></a> must be defined.</p>
@@ -602,7 +629,10 @@ this module.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.ResourceLoader.get_data">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.ResourceLoader.get_data" title="Link to this definition">¶</a></dt>
-<dd><blockquote>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L46">typeshed</a>)</p>
+<blockquote>
 <div><p>An abstract method to return the bytes for the data located at <em>path</em>.
 Loaders that have a file-like storage back-end
 that allows storing arbitrary data
@@ -632,7 +662,11 @@ be found. The <em>path</em> is expected to be constructed using a module’s
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.InspectLoader.get_code">
 <span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.get_code" title="Link to this definition">¶</a></dt>
-<dd><p>Return the code object for a module, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the module does not
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="types.html#types.CodeType" title="types.CodeType"><span class="pre">CodeType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L50">typeshed</a>)</p>
+<blockquote>
+<div><p>Return the code object for a module, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the module does not
 have a code object (as would be the case, for example, for a built-in
 module).  Raise an <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> if loader cannot find the
 requested module.</p>
@@ -644,12 +678,16 @@ it be overridden if possible for performance.</p>
 <div class="versionchanged" id="index-15">
 <p><span class="versionmodified changed">Changed in version 3.4: </span>No longer abstract and a concrete implementation is provided.</p>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.InspectLoader.get_source">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.get_source" title="Link to this definition">¶</a></dt>
-<dd><blockquote>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L52">typeshed</a>)</p>
+<blockquote>
 <div><p>An abstract method to return the source of a module. It is returned as
 a text string using <a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a>, translating all
 recognized line separators into <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> characters.  Returns <code class="docutils literal notranslate"><span class="pre">None</span></code>
@@ -664,18 +702,34 @@ if no source is available (e.g. a built-in module). Raises
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.InspectLoader.is_package">
 <span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.is_package" title="Link to this definition">¶</a></dt>
-<dd><p>An optional method to return a true value if the module is a package, a
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L49">typeshed</a>)</p>
+<blockquote>
+<div><p>An optional method to return a true value if the module is a package, a
 false value otherwise. <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised if the
 <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> cannot find the module.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4: </span>Raises <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> instead of <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>.</p>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.InspectLoader.source_to_code">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_to_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&lt;string&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.source_to_code" title="Link to this definition">¶</a></dt>
-<dd><p>Create a code object from Python source.</p>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_to_code</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Buffer" title="collections.abc.Buffer"><span class="pre">Buffer</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ast.html#ast.Expression" title="ast.Expression"><span class="pre">Expression</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ast.html#ast.Interactive" title="ast.Interactive"><span class="pre">Interactive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ast.html#ast.Module" title="ast.Module"><span class="pre">Module</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><span class="pre">PathLike</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;string&gt;'</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="types.html#types.CodeType" title="types.CodeType"><span class="pre">CodeType</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L55">typeshed</a>)</p>
+<blockquote>
+<div><p>Create a code object from Python source.</p>
 <p>The <em>data</em> argument can be whatever the <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> function
 supports (i.e. string or bytes). The <em>path</em> argument should be
 the “path” to where the source code originated from, which can be an
@@ -694,12 +748,16 @@ warnings by module name.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.15: </span>Added the <em>fullname</em> parameter.</p>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.InspectLoader.exec_module">
 <span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.exec_module" title="Link to this definition">¶</a></dt>
-<dd><p>Implementation of <a class="reference internal" href="#importlib.abc.Loader.exec_module" title="importlib.abc.Loader.exec_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loader.exec_module()</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L53">typeshed</a>)</p>
+<p>Implementation of <a class="reference internal" href="#importlib.abc.Loader.exec_module" title="importlib.abc.Loader.exec_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loader.exec_module()</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
@@ -721,7 +779,10 @@ represents an optional <span class="target" id="index-16"></span><a class="pep r
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.ExecutionLoader.get_filename">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.ExecutionLoader.get_filename" title="Link to this definition">¶</a></dt>
-<dd><blockquote>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L61">typeshed</a>)</p>
+<blockquote>
 <div><p>An abstract method that is to return the value of
 <a class="reference internal" href="../reference/datamodel.html#module.__file__" title="module.__file__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__file__</span></code></a> for the specified module. If no path is
 available, <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised.</p>
@@ -756,26 +817,34 @@ to handle. The <em>path</em> argument is the path to the file for the module.</p
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.abc.FileLoader.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#importlib.abc.FileLoader.name" title="Link to this definition">¶</a></dt>
-<dd><p>The name of the module the loader can handle.</p>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.abc.FileLoader.name" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L113">typeshed</a>)</p>
+<p>The name of the module the loader can handle.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.abc.FileLoader.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#importlib.abc.FileLoader.path" title="Link to this definition">¶</a></dt>
-<dd><p>Path to the file of the module.</p>
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.abc.FileLoader.path" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L114">typeshed</a>)</p>
+<p>Path to the file of the module.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.FileLoader.get_filename">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.FileLoader.get_filename" title="Link to this definition">¶</a></dt>
-<dd><p>Returns <a class="reference internal" href="#importlib.abc.FileLoader.path" title="importlib.abc.FileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L117">typeshed</a>)</p>
+<p>Returns <a class="reference internal" href="#importlib.abc.FileLoader.path" title="importlib.abc.FileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.FileLoader.get_data">
 <em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.FileLoader.get_data" title="Link to this definition">¶</a></dt>
-<dd><p>Reads <em>path</em> as a binary file and returns the bytes from it.</p>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L116">typeshed</a>)</p>
+<p>Reads <em>path</em> as a binary file and returns the bytes from it.</p>
 </dd></dl>
 
 </dd></dl>
@@ -813,7 +882,11 @@ compiler, and so no bytecode-specific API is exposed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.SourceLoader.path_stats">
 <span class="sig-name descname"><span class="pre">path_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.path_stats" title="Link to this definition">¶</a></dt>
-<dd><p>Optional abstract method which returns a <a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> containing
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">path_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><span class="pre">collections.abc.Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L68">typeshed</a>)</p>
+<blockquote>
+<div><p>Optional abstract method which returns a <a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> containing
 metadata about the specified path.  Supported dictionary keys are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">'mtime'</span></code> (mandatory): an integer or floating-point number
@@ -828,12 +901,17 @@ extensions. If the path cannot be handled, <a class="reference internal" href="e
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4: </span>Raise <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> instead of <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>.</p>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.SourceLoader.path_mtime">
 <span class="sig-name descname"><span class="pre">path_mtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.path_mtime" title="Link to this definition">¶</a></dt>
-<dd><p>Optional abstract method which returns the modification time for the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">path_mtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L65">typeshed</a>)</p>
+<blockquote>
+<div><p>Optional abstract method which returns the modification time for the
 specified path.</p>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.3: </span>This method is deprecated in favour of <a class="reference internal" href="#importlib.abc.SourceLoader.path_stats" title="importlib.abc.SourceLoader.path_stats"><code class="xref py py-meth docutils literal notranslate"><span class="pre">path_stats()</span></code></a>.  You don’t
@@ -843,12 +921,17 @@ purposes. Raise <a class="reference internal" href="exceptions.html#OSError" tit
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4: </span>Raise <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> instead of <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>.</p>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.SourceLoader.set_data">
 <span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.set_data" title="Link to this definition">¶</a></dt>
-<dd><p>Optional abstract method which writes the specified bytes to a file
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L66">typeshed</a>)</p>
+<blockquote>
+<div><p>Optional abstract method which writes the specified bytes to a file
 path. Any intermediate directories which do not exist are to be created
 automatically.</p>
 <p>When writing to the path fails because the path is read-only
@@ -857,18 +940,27 @@ exception.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4: </span>No longer raises <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a> when called.</p>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.SourceLoader.get_code">
 <span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.get_code" title="Link to this definition">¶</a></dt>
-<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.get_code" title="importlib.abc.InspectLoader.get_code"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.get_code()</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="types.html#types.CodeType" title="types.CodeType"><span class="pre">CodeType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L105">typeshed</a>)</p>
+<blockquote>
+<div><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.get_code" title="importlib.abc.InspectLoader.get_code"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.get_code()</span></code></a>.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.SourceLoader.exec_module">
 <span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.exec_module" title="Link to this definition">¶</a></dt>
-<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.Loader.exec_module" title="importlib.abc.Loader.exec_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loader.exec_module()</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L94">typeshed</a>)</p>
+<p>Concrete implementation of <a class="reference internal" href="#importlib.abc.Loader.exec_module" title="importlib.abc.Loader.exec_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loader.exec_module()</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
@@ -877,17 +969,27 @@ exception.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.SourceLoader.get_source">
 <span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.get_source" title="Link to this definition">¶</a></dt>
-<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.get_source" title="importlib.abc.InspectLoader.get_source"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.get_source()</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L67">typeshed</a>)</p>
+<blockquote>
+<div><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.get_source" title="importlib.abc.InspectLoader.get_source"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.get_source()</span></code></a>.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.abc.SourceLoader.is_package">
 <span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.is_package" title="Link to this definition">¶</a></dt>
-<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.is_package" title="importlib.abc.InspectLoader.is_package"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.is_package()</span></code></a>. A module
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L92">typeshed</a>)</p>
+<blockquote>
+<div><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.is_package" title="importlib.abc.InspectLoader.is_package"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.is_package()</span></code></a>. A module
 is determined to be a package if its file path (as provided by
 <a class="reference internal" href="#importlib.abc.ExecutionLoader.get_filename" title="importlib.abc.ExecutionLoader.get_filename"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExecutionLoader.get_filename()</span></code></a>) is a file named
 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> when the file extension is removed <strong>and</strong> the module name
 itself does not end in <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p>
+</div></blockquote>
 </dd></dl>
 
 </div></blockquote>
@@ -1236,7 +1338,19 @@ instantiation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.PathFinder.find_spec">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.PathFinder.find_spec" title="Link to this definition">¶</a></dt>
-<dd><p>Class method that attempts to find a <a class="reference internal" href="../glossary.html#term-module-spec"><span class="xref std std-term">spec</span></a>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.machinery.PathFinder" title="importlib.machinery.PathFinder"><span class="pre">PathFinder</span></a><span class="p"><span class="pre">]</span></span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Sequence" title="collections.abc.Sequence"><span class="pre">collections.abc.Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><span class="pre">ModuleSpec</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L69">typeshed</a>)</p>
+<p>Class method that attempts to find a <a class="reference internal" href="../glossary.html#term-module-spec"><span class="xref std std-term">spec</span></a>
 for the module specified by <em>fullname</em> on <a class="reference internal" href="sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> or, if
 defined, on <em>path</em>. For each path entry that is searched,
 <a class="reference internal" href="sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> is checked. If a non-false object
@@ -1260,7 +1374,10 @@ in <a class="reference internal" href="sys.html#sys.path_importer_cache" title="
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.PathFinder.invalidate_caches">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.PathFinder.invalidate_caches" title="Link to this definition">¶</a></dt>
-<dd><p>Calls <a class="reference internal" href="#importlib.abc.PathEntryFinder.invalidate_caches" title="importlib.abc.PathEntryFinder.invalidate_caches"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.PathEntryFinder.invalidate_caches()</span></code></a> on all
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L57">typeshed</a>)</p>
+<p>Calls <a class="reference internal" href="#importlib.abc.PathEntryFinder.invalidate_caches" title="importlib.abc.PathEntryFinder.invalidate_caches"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.PathEntryFinder.invalidate_caches()</span></code></a> on all
 finders stored in <a class="reference internal" href="sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> that define the method.
 Otherwise entries in <a class="reference internal" href="sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> set to <code class="docutils literal notranslate"><span class="pre">None</span></code> are
 deleted.</p>
@@ -1303,14 +1420,18 @@ to call <a class="reference internal" href="#importlib.invalidate_caches" title=
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.FileFinder.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#importlib.machinery.FileFinder.path" title="Link to this definition">¶</a></dt>
-<dd><p>The path the finder will search in.</p>
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.FileFinder.path" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L84">typeshed</a>)</p>
+<p>The path the finder will search in.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.FileFinder.find_spec">
 <span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.FileFinder.find_spec" title="Link to this definition">¶</a></dt>
-<dd><p>Attempt to find the spec to handle <em>fullname</em> within <a class="reference internal" href="#importlib.machinery.FileFinder.path" title="importlib.machinery.FileFinder.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">find_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><span class="pre">ModuleSpec</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L93">typeshed</a>)</p>
+<p>Attempt to find the spec to handle <em>fullname</em> within <a class="reference internal" href="#importlib.machinery.FileFinder.path" title="importlib.machinery.FileFinder.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
@@ -1319,13 +1440,26 @@ to call <a class="reference internal" href="#importlib.invalidate_caches" title=
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.FileFinder.invalidate_caches">
 <span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.FileFinder.invalidate_caches" title="Link to this definition">¶</a></dt>
-<dd><p>Clear out the internal cache.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">invalidate_caches</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L91">typeshed</a>)</p>
+<p>Clear out the internal cache.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.FileFinder.path_hook">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path_hook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">loader_details</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.FileFinder.path_hook" title="Link to this definition">¶</a></dt>
-<dd><p>A class method which returns a closure for use on <a class="reference internal" href="sys.html#sys.path_hooks" title="sys.path_hooks"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code></a>.
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path_hook</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.machinery.FileFinder" title="importlib.machinery.FileFinder"><span class="pre">FileFinder</span></a><span class="p"><span class="pre">]</span></span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">loader_details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.abc.Loader" title="importlib.abc.Loader"><span class="pre">Loader</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.abc.PathEntryFinder" title="importlib.abc.PathEntryFinder"><span class="pre">PathEntryFinder</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L87">typeshed</a>)</p>
+<p>A class method which returns a closure for use on <a class="reference internal" href="sys.html#sys.path_hooks" title="sys.path_hooks"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code></a>.
 An instance of <a class="reference internal" href="#importlib.machinery.FileFinder" title="importlib.machinery.FileFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileFinder</span></code></a> is returned by the closure using the
 path argument given to the closure directly and <em>loader_details</em>
 indirectly.</p>
@@ -1377,32 +1511,43 @@ implementations of other methods.</p>
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.SourceFileLoader.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#importlib.machinery.SourceFileLoader.name" title="Link to this definition">¶</a></dt>
-<dd><p>The name of the module that this loader will handle.</p>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.SourceFileLoader.name" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L113">typeshed</a>)</p>
+<p>The name of the module that this loader will handle.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.SourceFileLoader.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#importlib.machinery.SourceFileLoader.path" title="Link to this definition">¶</a></dt>
-<dd><p>The path to the source file.</p>
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.SourceFileLoader.path" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L114">typeshed</a>)</p>
+<p>The path to the source file.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.SourceFileLoader.is_package">
 <span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.SourceFileLoader.is_package" title="Link to this definition">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <a class="reference internal" href="#importlib.machinery.SourceFileLoader.path" title="importlib.machinery.SourceFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> appears to be for a package.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L92">typeshed</a>)</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <a class="reference internal" href="#importlib.machinery.SourceFileLoader.path" title="importlib.machinery.SourceFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> appears to be for a package.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.SourceFileLoader.path_stats">
 <span class="sig-name descname"><span class="pre">path_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.SourceFileLoader.path_stats" title="Link to this definition">¶</a></dt>
-<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.SourceLoader.path_stats" title="importlib.abc.SourceLoader.path_stats"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.SourceLoader.path_stats()</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">path_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><span class="pre">collections.abc.Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L125">typeshed</a>)</p>
+<p>Concrete implementation of <a class="reference internal" href="#importlib.abc.SourceLoader.path_stats" title="importlib.abc.SourceLoader.path_stats"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.SourceLoader.path_stats()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.SourceFileLoader.set_data">
 <span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.SourceFileLoader.set_data" title="Link to this definition">¶</a></dt>
-<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.SourceLoader.set_data" title="importlib.abc.SourceLoader.set_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.SourceLoader.set_data()</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Buffer" title="collections.abc.Buffer"><span class="pre">Buffer</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">438</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L124">typeshed</a>)</p>
+<p>Concrete implementation of <a class="reference internal" href="#importlib.abc.SourceLoader.set_data" title="importlib.abc.SourceLoader.set_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.SourceLoader.set_data()</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1427,32 +1572,43 @@ format.</p>
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.SourcelessFileLoader.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#importlib.machinery.SourcelessFileLoader.name" title="Link to this definition">¶</a></dt>
-<dd><p>The name of the module the loader will handle.</p>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.SourcelessFileLoader.name" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L113">typeshed</a>)</p>
+<p>The name of the module the loader will handle.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.SourcelessFileLoader.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#importlib.machinery.SourcelessFileLoader.path" title="Link to this definition">¶</a></dt>
-<dd><p>The path to the bytecode file.</p>
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.SourcelessFileLoader.path" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L114">typeshed</a>)</p>
+<p>The path to the bytecode file.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.SourcelessFileLoader.is_package">
 <span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.SourcelessFileLoader.is_package" title="Link to this definition">¶</a></dt>
-<dd><p>Determines if the module is a package based on <a class="reference internal" href="#importlib.machinery.SourcelessFileLoader.path" title="importlib.machinery.SourcelessFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L49">typeshed</a>)</p>
+<p>Determines if the module is a package based on <a class="reference internal" href="#importlib.machinery.SourcelessFileLoader.path" title="importlib.machinery.SourcelessFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.SourcelessFileLoader.get_code">
 <span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.SourcelessFileLoader.get_code" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the code object for <a class="reference internal" href="#importlib.machinery.SourcelessFileLoader.name" title="importlib.machinery.SourcelessFileLoader.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></a> created from <a class="reference internal" href="#importlib.machinery.SourcelessFileLoader.path" title="importlib.machinery.SourcelessFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="types.html#types.CodeType" title="types.CodeType"><span class="pre">CodeType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L135">typeshed</a>)</p>
+<p>Returns the code object for <a class="reference internal" href="#importlib.machinery.SourcelessFileLoader.name" title="importlib.machinery.SourcelessFileLoader.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></a> created from <a class="reference internal" href="#importlib.machinery.SourcelessFileLoader.path" title="importlib.machinery.SourcelessFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.SourcelessFileLoader.get_source">
 <span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.SourcelessFileLoader.get_source" title="Link to this definition">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> as bytecode files have no source when this loader is
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L136">typeshed</a>)</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> as bytecode files have no source when this loader is
 used.</p>
 </dd></dl>
 
@@ -1479,20 +1635,25 @@ in subinterpreters if it doesn’t implement multi-phase init
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.name" title="Link to this definition">¶</a></dt>
-<dd><p>Name of the module the loader supports.</p>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.name" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L108">typeshed</a>)</p>
+<p>Name of the module the loader supports.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.path" title="Link to this definition">¶</a></dt>
-<dd><p>Path to the extension module.</p>
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.path" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L109">typeshed</a>)</p>
+<p>Path to the extension module.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.create_module">
 <span class="sig-name descname"><span class="pre">create_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.create_module" title="Link to this definition">¶</a></dt>
-<dd><p>Creates the module object from the given specification in accordance
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><span class="pre">ModuleSpec</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L142">typeshed</a>)</p>
+<p>Creates the module object from the given specification in accordance
 with <span class="target" id="index-19"></span><a class="pep reference external" href="https://peps.python.org/pep-0489/"><strong>PEP 489</strong></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.5.</span></p>
@@ -1502,7 +1663,10 @@ with <span class="target" id="index-19"></span><a class="pep reference external"
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.exec_module">
 <span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.exec_module" title="Link to this definition">¶</a></dt>
-<dd><p>Initializes the given module object in accordance with <span class="target" id="index-20"></span><a class="pep reference external" href="https://peps.python.org/pep-0489/"><strong>PEP 489</strong></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">exec_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.ModuleType" title="types.ModuleType"><span class="pre">ModuleType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L143">typeshed</a>)</p>
+<p>Initializes the given module object in accordance with <span class="target" id="index-20"></span><a class="pep reference external" href="https://peps.python.org/pep-0489/"><strong>PEP 489</strong></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.5.</span></p>
 </div>
@@ -1511,26 +1675,38 @@ with <span class="target" id="index-19"></span><a class="pep reference external"
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.is_package">
 <span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.is_package" title="Link to this definition">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the file path points to a package’s <code class="docutils literal notranslate"><span class="pre">__init__</span></code>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">is_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L92">typeshed</a>)</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the file path points to a package’s <code class="docutils literal notranslate"><span class="pre">__init__</span></code>
 module based on <a class="reference internal" href="#importlib.machinery.EXTENSION_SUFFIXES" title="importlib.machinery.EXTENSION_SUFFIXES"><code class="xref py py-const docutils literal notranslate"><span class="pre">EXTENSION_SUFFIXES</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.get_code">
 <span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.get_code" title="Link to this definition">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> as extension modules lack a code object.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L144">typeshed</a>)</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> as extension modules lack a code object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.get_source">
 <span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.get_source" title="Link to this definition">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> as extension modules do not have source code.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L141">typeshed</a>)</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> as extension modules do not have source code.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.machinery.ExtensionFileLoader.get_filename">
 <span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.ExtensionFileLoader.get_filename" title="Link to this definition">¶</a></dt>
-<dd><p>Returns <a class="reference internal" href="#importlib.machinery.ExtensionFileLoader.path" title="importlib.machinery.ExtensionFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fullname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L140">typeshed</a>)</p>
+<p>Returns <a class="reference internal" href="#importlib.machinery.ExtensionFileLoader.path" title="importlib.machinery.ExtensionFileLoader.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
@@ -1593,22 +1769,25 @@ automatically reflected in the module’s
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.name" title="Link to this definition">¶</a></dt>
-<dd><p>The module’s fully qualified name (see <a class="reference internal" href="../reference/datamodel.html#module.__name__" title="module.__name__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">module.__name__</span></code></a>).
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.name" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L37">typeshed</a>)</p>
+<p>The module’s fully qualified name (see <a class="reference internal" href="../reference/datamodel.html#module.__name__" title="module.__name__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">module.__name__</span></code></a>).
 The <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> should always set this attribute to a non-empty string.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.loader">
-<span class="sig-name descname"><span class="pre">loader</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.loader" title="Link to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> used to load the module (see <a class="reference internal" href="../reference/datamodel.html#module.__loader__" title="module.__loader__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">module.__loader__</span></code></a>).
+<span class="sig-name descname"><span class="pre">loader</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#importlib.abc.Loader" title="importlib.abc.Loader"><span class="pre">Loader</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.loader" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L38">typeshed</a>)</p>
+<p>The <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> used to load the module (see <a class="reference internal" href="../reference/datamodel.html#module.__loader__" title="module.__loader__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">module.__loader__</span></code></a>).
 The <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> should always set this attribute.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.origin">
-<span class="sig-name descname"><span class="pre">origin</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.origin" title="Link to this definition">¶</a></dt>
-<dd><p>The location the <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> should use to load the module
+<span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.origin" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L39">typeshed</a>)</p>
+<p>The location the <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> should use to load the module
 (see <a class="reference internal" href="../reference/datamodel.html#module.__file__" title="module.__file__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">module.__file__</span></code></a>).
 For example, for modules loaded from a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file this is the filename.
 The <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> should always set this attribute to a meaningful value
@@ -1618,8 +1797,9 @@ for the <a class="reference internal" href="../glossary.html#term-loader"><span 
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.submodule_search_locations">
-<span class="sig-name descname"><span class="pre">submodule_search_locations</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.submodule_search_locations" title="Link to this definition">¶</a></dt>
-<dd><p>A (possibly empty) <a class="reference internal" href="../glossary.html#term-sequence"><span class="xref std std-term">sequence</span></a> of strings enumerating the locations
+<span class="sig-name descname"><span class="pre">submodule_search_locations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.submodule_search_locations" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L40">typeshed</a>)</p>
+<p>A (possibly empty) <a class="reference internal" href="../glossary.html#term-sequence"><span class="xref std std-term">sequence</span></a> of strings enumerating the locations
 in which a package’s submodules will be found
 (see <a class="reference internal" href="../reference/datamodel.html#module.__path__" title="module.__path__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">module.__path__</span></code></a>). Most of the time there will only be a
 single directory in this list.</p>
@@ -1632,24 +1812,27 @@ namespace packages.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.loader_state">
-<span class="sig-name descname"><span class="pre">loader_state</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.loader_state" title="Link to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> may set this attribute to an object containing additional,
+<span class="sig-name descname"><span class="pre">loader_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.loader_state" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L41">typeshed</a>)</p>
+<p>The <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> may set this attribute to an object containing additional,
 module-specific data to use when loading the module.  Otherwise it should be
 set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.cached">
-<span class="sig-name descname"><span class="pre">cached</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.cached" title="Link to this definition">¶</a></dt>
-<dd><p>The filename of a compiled version of the module’s code.
+<span class="sig-name descname"><span class="pre">cached</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.cached" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L42">typeshed</a>)</p>
+<p>The filename of a compiled version of the module’s code.
 The <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> should always set this attribute but it may be <code class="docutils literal notranslate"><span class="pre">None</span></code>
 for modules that do not need compiled code stored.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.parent">
-<span class="sig-name descname"><span class="pre">parent</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.parent" title="Link to this definition">¶</a></dt>
-<dd><p>(Read-only) The fully qualified name of the package the module is in (or the
+<span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">parent(self:</span> <span class="pre">ModuleSpec)</span> <span class="pre">-&gt;</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.parent" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L44">typeshed</a>)</p>
+<p>(Read-only) The fully qualified name of the package the module is in (or the
 empty string for a top-level module).
 See <a class="reference internal" href="../reference/datamodel.html#module.__package__" title="module.__package__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">module.__package__</span></code></a>.
 If the module is a package then this is the same as <a class="reference internal" href="#importlib.machinery.ModuleSpec.name" title="importlib.machinery.ModuleSpec.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></a>.</p>
@@ -1657,8 +1840,9 @@ If the module is a package then this is the same as <a class="reference internal
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.ModuleSpec.has_location">
-<span class="sig-name descname"><span class="pre">has_location</span></span><a class="headerlink" href="#importlib.machinery.ModuleSpec.has_location" title="Link to this definition">¶</a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the spec’s <a class="reference internal" href="#importlib.machinery.ModuleSpec.origin" title="importlib.machinery.ModuleSpec.origin"><code class="xref py py-attr docutils literal notranslate"><span class="pre">origin</span></code></a> refers to a loadable location,
+<span class="sig-name descname"><span class="pre">has_location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></em><a class="headerlink" href="#importlib.machinery.ModuleSpec.has_location" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L47">typeshed</a>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the spec’s <a class="reference internal" href="#importlib.machinery.ModuleSpec.origin" title="importlib.machinery.ModuleSpec.origin"><code class="xref py py-attr docutils literal notranslate"><span class="pre">origin</span></code></a> refers to a loadable location,
 <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.  This value impacts how <code class="xref py py-attr docutils literal notranslate"><span class="pre">origin</span></code> is interpreted
 and how the module’s <a class="reference internal" href="../reference/datamodel.html#module.__file__" title="module.__file__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__file__</span></code></a> is populated.</p>
 </dd></dl>
@@ -1721,14 +1905,16 @@ details on how to construct this build step.</p>
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.AppleFrameworkLoader.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#importlib.machinery.AppleFrameworkLoader.name" title="Link to this definition">¶</a></dt>
-<dd><p>Name of the module the loader supports.</p>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.AppleFrameworkLoader.name" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L108">typeshed</a>)</p>
+<p>Name of the module the loader supports.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.machinery.AppleFrameworkLoader.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#importlib.machinery.AppleFrameworkLoader.path" title="Link to this definition">¶</a></dt>
-<dd><p>Path to the <code class="docutils literal notranslate"><span class="pre">.fwork</span></code> file for the extension module.</p>
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.machinery.AppleFrameworkLoader.path" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L109">typeshed</a>)</p>
+<p>Path to the <code class="docutils literal notranslate"><span class="pre">.fwork</span></code> file for the extension module.</p>
 </dd></dl>
 
 </dd></dl>
@@ -2045,7 +2231,10 @@ compatibility warning for <a class="reference internal" href="#importlib.machine
 <dl class="py method">
 <dt class="sig sig-object py" id="importlib.util.LazyLoader.factory">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.util.LazyLoader.factory" title="Link to this definition">¶</a></dt>
-<dd><p>A class method which returns a callable that creates a lazy loader. This
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.util.LazyLoader" title="importlib.util.LazyLoader"><span class="pre">LazyLoader</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#importlib.abc.Loader" title="importlib.abc.Loader"><span class="pre">Loader</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.util.LazyLoader" title="importlib.util.LazyLoader"><span class="pre">LazyLoader</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/util.pyi#L44">typeshed</a>)</p>
+<p>A class method which returns a callable that creates a lazy loader. This
 is meant to be used in situations where the loader is passed by class
 instead of by instance.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">suffixes</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">machinery</span><span class="o">.</span><span class="n">SOURCE_SUFFIXES</span>

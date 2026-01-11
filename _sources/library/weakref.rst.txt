@@ -129,6 +129,9 @@ See :ref:`__slots__ documentation <slots>` for details.
    This is a subclassable type rather than a factory function.
 
    .. attribute:: __callback__
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L61>`__)
 
       This read-only attribute returns the callback currently associated to the
       weakref.  If there is no callback or if the referent of the weakref is
@@ -327,27 +330,42 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
    been replaced by :const:`None`.
 
    .. method:: __call__()
+               __call__[_P, _T](_: typing.Any = None) -> typing.Any | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L207>`__)
 
       If *self* is alive then mark it as dead and return the result of
       calling ``func(*args, **kwargs)``.  If *self* is dead then return
       :const:`None`.
 
    .. method:: detach()
+               detach[_P, _T]() -> tuple[_T, (ParamSpec(_P)) -> typing.Any, tuple[typing.Any, ...], dict[str, typing.Any]] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L208>`__)
 
       If *self* is alive then mark it as dead and return the tuple
       ``(obj, func, args, kwargs)``.  If *self* is dead then return
       :const:`None`.
 
    .. method:: peek()
+               peek[_P, _T]() -> tuple[_T, (ParamSpec(_P)) -> typing.Any, tuple[typing.Any, ...], dict[str, typing.Any]] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L209>`__)
 
       If *self* is alive then return the tuple ``(obj, func, args,
       kwargs)``.  If *self* is dead then return :const:`None`.
 
    .. attribute:: alive
+      :type: alive[_P, _T](self: finalize[_P, _T]) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L211>`__)
 
       Property which is true if the finalizer is alive, false otherwise.
 
    .. attribute:: atexit
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/weakref.pyi#L214>`__)
 
       A writable boolean property which by default is true.  When the
       program exits, it calls all remaining live finalizers for which

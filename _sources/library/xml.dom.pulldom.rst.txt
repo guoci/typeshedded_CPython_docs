@@ -135,6 +135,9 @@ DOMEventStream Objects
       Support for :meth:`~object.__getitem__` method has been removed.
 
    .. method:: getEvent()
+               getEvent() -> tuple[typing.Literal['CHARACTERS'], Text] | tuple[typing.Literal['COMMENT'], Comment] | tuple[typing.Literal['END_DOCUMENT'], Document] | tuple[typing.Literal['END_ELEMENT'], Element] | tuple[typing.Literal['IGNORABLE_WHITESPACE'], Text] | tuple[typing.Literal['PROCESSING_INSTRUCTION'], ProcessingInstruction] | tuple[typing.Literal['START_DOCUMENT'], Document] | tuple[typing.Literal['START_ELEMENT'], Element] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/pulldom.pyi#L90>`__)
 
       Return a tuple containing *event* and the current *node* as
       :class:`xml.dom.minidom.Document` if event equals :data:`START_DOCUMENT`,
@@ -145,6 +148,9 @@ DOMEventStream Objects
       :func:`expandNode` is called.
 
    .. method:: expandNode(node)
+               expandNode(node: Document) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/pulldom.pyi#L91>`__)
 
       Expands all children of *node* into *node*. Example::
 
@@ -161,3 +167,7 @@ DOMEventStream Objects
                   print(node.toxml())
 
    .. method:: DOMEventStream.reset()
+               DOMEventStream.reset() -> None
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/dom/pulldom.pyi#L92>`__)

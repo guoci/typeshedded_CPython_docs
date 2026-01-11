@@ -101,6 +101,9 @@ diffs. For comparing directories and files, see also, the :mod:`filecmp` module.
 
 
    .. method:: __init__(tabsize=8, wrapcolumn=None, linejunk=None, charjunk=IS_CHARACTER_JUNK)
+               __init__(tabsize: int = 8, wrapcolumn: int | None = None, linejunk: ((str) -> bool) | None = None, charjunk: ((str) -> bool) | None = ...) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L106>`__)
 
       Initializes instance of :class:`HtmlDiff`.
 
@@ -118,6 +121,9 @@ diffs. For comparing directories and files, see also, the :mod:`filecmp` module.
 
    .. method:: make_file(fromlines, tolines, fromdesc='', todesc='', context=False, \
                          numlines=5, *, charset='utf-8')
+               make_file(fromlines: collections.abc.Sequence[str], tolines: collections.abc.Sequence[str], fromdesc: str = '', todesc: str = '', context: bool = False, numlines: int = 5, *, charset: str = 'utf-8') -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L113>`__)
 
       Compares *fromlines* and *tolines* (lists of strings) and returns a string which
       is a complete HTML file containing a table showing line by line differences with
@@ -145,6 +151,9 @@ diffs. For comparing directories and files, see also, the :mod:`filecmp` module.
          HTML document changed from ``'ISO-8859-1'`` to ``'utf-8'``.
 
    .. method:: make_table(fromlines, tolines, fromdesc='', todesc='', context=False, numlines=5)
+               make_table(fromlines: collections.abc.Sequence[str], tolines: collections.abc.Sequence[str], fromdesc: str = '', todesc: str = '', context: bool = False, numlines: int = 5) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L124>`__)
 
       Compares *fromlines* and *tolines* (lists of strings) and returns a string which
       is a complete HTML table showing line by line differences with inter-line and
@@ -372,7 +381,7 @@ diffs. For comparing directories and files, see also, the :mod:`filecmp` module.
    .. versionadded:: 3.5
 
 .. function:: IS_LINE_JUNK(line)
-              IS_LINE_JUNK(line: str, pat: ((str) -> Match[str] | None) | None = None) -> bool
+              IS_LINE_JUNK(line: str, pat: ((str) -> difflib.Match[str] | None) | None = None) -> bool
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L72>`__)
 
@@ -443,6 +452,9 @@ The :class:`SequenceMatcher` class has this constructor:
    :class:`SequenceMatcher` objects have the following methods:
 
    .. method:: set_seqs(a, b)
+               set_seqs[_T](a: collections.abc.Sequence[_T], b: collections.abc.Sequence[_T]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L42>`__)
 
       Set the two sequences to be compared.
 
@@ -453,18 +465,27 @@ The :class:`SequenceMatcher` class has this constructor:
 
 
    .. method:: set_seq1(a)
+               set_seq1[_T](a: collections.abc.Sequence[_T]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L43>`__)
 
       Set the first sequence to be compared.  The second sequence to be compared
       is not changed.
 
 
    .. method:: set_seq2(b)
+               set_seq2[_T](b: collections.abc.Sequence[_T]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L44>`__)
 
       Set the second sequence to be compared.  The first sequence to be compared
       is not changed.
 
 
    .. method:: find_longest_match(alo=0, ahi=None, blo=0, bhi=None)
+               find_longest_match[_T](alo: int = 0, ahi: int | None = None, blo: int = 0, bhi: int | None = None) -> difflib.Match
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L45>`__)
 
       Find longest matching block in ``a[alo:ahi]`` and ``b[blo:bhi]``.
 
@@ -506,6 +527,9 @@ The :class:`SequenceMatcher` class has this constructor:
 
 
    .. method:: get_matching_blocks()
+               get_matching_blocks[_T]() -> list[difflib.Match]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L46>`__)
 
       Return list of triples describing non-overlapping matching subsequences.
       Each triple is of the form ``(i, j, n)``,
@@ -528,6 +552,9 @@ The :class:`SequenceMatcher` class has this constructor:
 
 
    .. method:: get_opcodes()
+               get_opcodes[_T]() -> list[tuple[typing.Literal['delete', 'equal', 'insert', 'replace'], int, int, int, int]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L47>`__)
 
       Return list of 5-tuples describing how to turn *a* into *b*. Each tuple is
       of the form ``(tag, i1, i2, j1, j2)``.  The first tuple has ``i1 == j1 ==
@@ -569,6 +596,9 @@ The :class:`SequenceMatcher` class has this constructor:
 
 
    .. method:: get_grouped_opcodes(n=3)
+               get_grouped_opcodes[_T](n: int = 3) -> collections.abc.Iterable[list[tuple[str, int, int, int, int]]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L48>`__)
 
       Return a :term:`generator` of groups with up to *n* lines of context.
 
@@ -580,6 +610,9 @@ The :class:`SequenceMatcher` class has this constructor:
 
 
    .. method:: ratio()
+               ratio[_T]() -> float
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L49>`__)
 
       Return a measure of the sequences' similarity as a float in the range [0,
       1].
@@ -605,11 +638,17 @@ The :class:`SequenceMatcher` class has this constructor:
 
 
    .. method:: quick_ratio()
+               quick_ratio[_T]() -> float
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L50>`__)
 
       Return an upper bound on :meth:`ratio` relatively quickly.
 
 
    .. method:: real_quick_ratio()
+               real_quick_ratio[_T]() -> float
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L51>`__)
 
       Return an upper bound on :meth:`ratio` very quickly.
 
@@ -720,6 +759,9 @@ The :class:`Differ` class has this constructor:
 
 
    .. method:: Differ.compare(a, b)
+               Differ.compare(a: collections.abc.Sequence[str], b: collections.abc.Sequence[str]) -> collections.abc.Iterator[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/difflib.pyi#L69>`__)
 
       Compare two sequences of lines, and generate the delta (a sequence of lines).
 

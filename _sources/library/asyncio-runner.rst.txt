@@ -121,6 +121,9 @@ Runner context manager
    .. versionadded:: 3.11
 
    .. method:: run(coro, *, context=None)
+               run[_T](coro: collections.abc.Awaitable[_T], *, context: contextvars.Context | None = None) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/runners.pyi#L26>`__)
 
       Execute *coro* in the embedded event loop.
 
@@ -142,6 +145,9 @@ Runner context manager
          *coro* can be any awaitable object.
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/runners.pyi#L23>`__)
 
       Close the runner.
 
@@ -149,6 +155,9 @@ Runner context manager
       and release embedded :class:`contextvars.Context`.
 
    .. method:: get_loop()
+               get_loop() -> AbstractEventLoop
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/runners.pyi#L24>`__)
 
       Return the event loop associated with the runner instance.
 

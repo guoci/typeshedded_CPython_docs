@@ -100,6 +100,9 @@ The :mod:`bz2` module contains:
    :class:`BZ2File` also provides the following methods and attributes:
 
    .. method:: peek([n])
+               peek(n: int = 0) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/bz2.pyi#L116>`__)
 
       Return buffered data without advancing the file position. At least one
       byte of data will be returned (unless at EOF). The exact number of bytes
@@ -113,30 +116,45 @@ The :mod:`bz2` module contains:
       .. versionadded:: 3.3
 
    .. method:: fileno()
+               fileno() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L119>`__)
 
       Return the file descriptor for the underlying file.
 
       .. versionadded:: 3.3
 
    .. method:: readable()
+               readable() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L140>`__)
 
       Return whether the file was opened for reading.
 
       .. versionadded:: 3.3
 
    .. method:: seekable()
+               seekable() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L176>`__)
 
       Return whether the file supports seeking.
 
       .. versionadded:: 3.3
 
    .. method:: writable()
+               writable() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L195>`__)
 
       Return whether the file was opened for writing.
 
       .. versionadded:: 3.3
 
    .. method:: read1(size=-1)
+               read1(size: int = -1) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/bz2.pyi#L112>`__)
 
       Read up to *size* uncompressed bytes, while trying to avoid
       making multiple reads from the underlying stream. Reads up to a
@@ -147,6 +165,9 @@ The :mod:`bz2` module contains:
       .. versionadded:: 3.3
 
    .. method:: readinto(b)
+               readinto(b: Buffer) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/bz2.pyi#L114>`__)
 
       Read bytes into *b*.
 
@@ -155,12 +176,18 @@ The :mod:`bz2` module contains:
       .. versionadded:: 3.3
 
    .. attribute:: mode
+      :type: mode(self: BZ2File) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L909>`__)
 
       ``'rb'`` for reading and ``'wb'`` for writing.
 
       .. versionadded:: 3.13
 
    .. attribute:: name
+      :type: name(self: BZ2File) -> str | typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L913>`__)
 
       The bzip2 file name.  Equivalent to the :attr:`~io.FileIO.name`
       attribute of the underlying :term:`file object`.
@@ -217,6 +244,9 @@ Incremental (de)compression
    default is ``9``.
 
    .. method:: compress(data)
+               compress(data: Buffer, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_bz2.pyi#L21>`__)
 
       Provide data to the compressor object. Returns a chunk of compressed data
       if possible, or an empty byte string otherwise.
@@ -226,6 +256,9 @@ Incremental (de)compression
 
 
    .. method:: flush()
+               flush() -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_bz2.pyi#L31>`__)
 
       Finish the compression process. Returns the compressed data left in
       internal buffers.
@@ -249,6 +282,9 @@ Incremental (de)compression
       you must use a new decompressor for each stream.
 
    .. method:: decompress(data, max_length=-1)
+               decompress(data: Buffer, max_length: int = -1) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_bz2.pyi#L48>`__)
 
       Decompress *data* (a :term:`bytes-like object`), returning
       uncompressed data as bytes. Some of *data* may be buffered
@@ -276,6 +312,9 @@ Incremental (de)compression
          Added the *max_length* parameter.
 
    .. attribute:: eof
+      :type: eof(self: BZ2Decompressor) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_bz2.pyi#L67>`__)
 
       ``True`` if the end-of-stream marker has been reached.
 
@@ -283,6 +322,9 @@ Incremental (de)compression
 
 
    .. attribute:: unused_data
+      :type: unused_data(self: BZ2Decompressor) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_bz2.pyi#L75>`__)
 
       Data found after the end of the compressed stream.
 
@@ -290,6 +332,9 @@ Incremental (de)compression
       reached, its value will be ``b''``.
 
    .. attribute:: needs_input
+      :type: needs_input(self: BZ2Decompressor) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_bz2.pyi#L71>`__)
 
       ``False`` if the :meth:`.decompress` method can provide more
       decompressed data before requiring new uncompressed input.

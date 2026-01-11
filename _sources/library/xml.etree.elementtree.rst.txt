@@ -948,6 +948,9 @@ Element Objects
 
 
    .. attribute:: tag
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L89>`__)
 
       A string identifying what kind of data this element represents (the
       element type, in other words).
@@ -955,6 +958,8 @@ Element Objects
 
    .. attribute:: text
                   tail
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L91>`__)
 
       These attributes can be used to hold additional data associated with
       the element.  Their values are usually strings but may be any
@@ -980,6 +985,9 @@ Element Objects
 
 
    .. attribute:: attrib
+      :type: dict[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L90>`__)
 
       A dictionary containing the element's attributes.  Note that while the
       *attrib* value is always a real mutable Python dictionary, an ElementTree
@@ -991,12 +999,19 @@ Element Objects
 
 
    .. method:: clear()
+               clear[_Tag]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L95>`__)
 
       Resets an element.  This function removes all subelements, clears all
       attributes, and sets the text and tail attributes to ``None``.
 
 
    .. method:: get(key, default=None)
+               get(key: str, default: None = None) -> str | None
+               get(key: str, default: _T) -> str | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L104>`__)
 
       Gets the element attribute named *key*.
 
@@ -1004,18 +1019,27 @@ Element Objects
 
 
    .. method:: items()
+               items[_Tag]() -> collections.abc.ItemsView[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L108>`__)
 
       Returns the element attributes as a sequence of (name, value) pairs.  The
       attributes are returned in an arbitrary order.
 
 
    .. method:: keys()
+               keys[_Tag]() -> dict_keys[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L115>`__)
 
       Returns the elements attribute names as a list.  The names are returned
       in an arbitrary order.
 
 
    .. method:: set(key, value)
+               set[_Tag](key: str, value: str, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L119>`__)
 
       Set the attribute *key* on the element to *value*.
 
@@ -1023,6 +1047,9 @@ Element Objects
 
 
    .. method:: append(subelement)
+               append[_Tag](subelement: Element[typing.Any], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L94>`__)
 
       Adds the element *subelement* to the end of this element's internal list
       of subelements.  Raises :exc:`TypeError` if *subelement* is not an
@@ -1030,6 +1057,9 @@ Element Objects
 
 
    .. method:: extend(subelements)
+               extend[_Tag](elements: collections.abc.Iterable[Element[typing.Any]], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L96>`__)
 
       Appends *subelements* from an iterable of elements.
       Raises :exc:`TypeError` if a subelement is not an :class:`Element`.
@@ -1038,6 +1068,9 @@ Element Objects
 
 
    .. method:: find(match, namespaces=None)
+               find[_Tag](path: str, namespaces: dict[str, str] | None = None) -> Element[str] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L97>`__)
 
       Finds the first subelement matching *match*.  *match* may be a tag name
       or a :ref:`path <elementtree-xpath>`.  Returns an element instance
@@ -1047,6 +1080,9 @@ Element Objects
 
 
    .. method:: findall(match, namespaces=None)
+               findall[_Tag](path: str, namespaces: dict[str, str] | None = None) -> list[Element[str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L98>`__)
 
       Finds all matching subelements, by tag name or
       :ref:`path <elementtree-xpath>`.  Returns a list containing all matching
@@ -1056,6 +1092,10 @@ Element Objects
 
 
    .. method:: findtext(match, default=None, namespaces=None)
+               findtext(path: str, default: None = None, namespaces: dict[str, str] | None = None) -> str | None
+               findtext(path: str, default: _T, namespaces: dict[str, str] | None = None) -> str | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L100>`__)
 
       Finds text for the first subelement matching *match*.  *match* may be
       a tag name or a :ref:`path <elementtree-xpath>`.  Returns the text content
@@ -1067,12 +1107,18 @@ Element Objects
 
 
    .. method:: insert(index, subelement)
+               insert[_Tag](index: int, subelement: Element[typing.Any], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L107>`__)
 
       Inserts *subelement* at the given position in this element.  Raises
       :exc:`TypeError` if *subelement* is not an :class:`Element`.
 
 
    .. method:: iter(tag=None)
+               iter[_Tag](tag: str | None = None) -> collections.abc.Generator[Element[str], None, None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L109>`__)
 
       Creates a tree :term:`iterator` with the current element as the root.
       The iterator iterates over this element and all elements below it, in
@@ -1084,6 +1130,10 @@ Element Objects
 
 
    .. method:: iterfind(match, namespaces=None)
+               iterfind(path: typing.Literal[''], namespaces: dict[str, str] | None = None) -> None
+               iterfind(path: str, namespaces: dict[str, str] | None = None) -> collections.abc.Generator[Element[str], None, None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L111>`__)
 
       Finds all matching subelements, by tag name or
       :ref:`path <elementtree-xpath>`.  Returns an iterable yielding all
@@ -1095,6 +1145,9 @@ Element Objects
 
 
    .. method:: itertext()
+               itertext[_Tag]() -> collections.abc.Generator[str, None, None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L114>`__)
 
       Creates a text iterator.  The iterator loops over this element and all
       subelements, in document order, and returns all inner text.
@@ -1103,12 +1156,18 @@ Element Objects
 
 
    .. method:: makeelement(tag, attrib)
+               makeelement[_Tag, _OtherTag](tag: _OtherTag, attrib: dict[str, str], /) -> Element[_OtherTag]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L117>`__)
 
       Creates a new element object of the same type as this element.  Do not
       call this method, use the :func:`SubElement` factory function instead.
 
 
    .. method:: remove(subelement)
+               remove[_Tag](subelement: Element[typing.Any], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L118>`__)
 
       Removes *subelement* from the element.  Unlike the find\* methods this
       method compares elements based on the instance identity, not on tag value
@@ -1186,6 +1245,9 @@ ElementTree Objects
 
 
    .. method:: _setroot(element)
+               _setroot[_Root](element: Element[typing.Any]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L174>`__)
 
       Replaces the root element for this tree.  This discards the current
       contents of the tree, and replaces it with the given element.  Use with
@@ -1193,26 +1255,42 @@ ElementTree Objects
 
 
    .. method:: find(match, namespaces=None)
+               find[_Root](path: str, namespaces: dict[str, str] | None = None) -> Element[str] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L177>`__)
 
       Same as :meth:`Element.find`, starting at the root of the tree.
 
 
    .. method:: findall(match, namespaces=None)
+               findall[_Root](path: str, namespaces: dict[str, str] | None = None) -> list[Element[str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L182>`__)
 
       Same as :meth:`Element.findall`, starting at the root of the tree.
 
 
    .. method:: findtext(match, default=None, namespaces=None)
+               findtext(path: str, default: None = None, namespaces: dict[str, str] | None = None) -> str | None
+               findtext(path: str, default: _T, namespaces: dict[str, str] | None = None) -> str | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L179>`__)
 
       Same as :meth:`Element.findtext`, starting at the root of the tree.
 
 
    .. method:: getroot()
+               getroot[_Root]() -> _Root
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L173>`__)
 
       Returns the root element for this tree.
 
 
    .. method:: iter(tag=None)
+               iter[_Root](tag: str | None = None) -> collections.abc.Generator[Element[str], None, None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L176>`__)
 
       Creates and returns a tree iterator for the root element.  The iterator
       loops over all elements in this tree, in section order.  *tag* is the tag
@@ -1220,6 +1298,10 @@ ElementTree Objects
 
 
    .. method:: iterfind(match, namespaces=None)
+               iterfind(path: typing.Literal[''], namespaces: dict[str, str] | None = None) -> None
+               iterfind(path: str, namespaces: dict[str, str] | None = None) -> collections.abc.Generator[Element[str], None, None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L184>`__)
 
       Same as :meth:`Element.iterfind`, starting at the root of the tree.
 
@@ -1227,6 +1309,9 @@ ElementTree Objects
 
 
    .. method:: parse(source, parser=None)
+               parse[_Root](source: _FileRead, parser: XMLParser[Element[str]] | None = None) -> Element[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L175>`__)
 
       Loads an external XML section into this element tree.  *source* is a file
       name or :term:`file object`.  *parser* is an optional parser instance.
@@ -1237,6 +1322,9 @@ ElementTree Objects
    .. method:: write(file, encoding="us-ascii", xml_declaration=None, \
                      default_namespace=None, method="xml", *, \
                      short_empty_elements=True)
+               write[_Root](file_or_filename: _FileWrite, encoding: str | None = None, xml_declaration: bool | None = None, default_namespace: str | None = None, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, short_empty_elements: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L187>`__)
 
       Writes the element tree to a file, as XML.  *file* is a file name, or a
       :term:`file object` opened for writing.  *encoding* [1]_ is the output
@@ -1345,30 +1433,45 @@ TreeBuilder Objects
    element (but not outside of it).
 
    .. method:: close()
+               close() -> Element[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L320>`__)
 
       Flushes the builder buffers, and returns the toplevel document
       element.  Returns an :class:`Element` instance.
 
 
    .. method:: data(data)
+               data(data: str, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L321>`__)
 
       Adds text to the current element.  *data* is a string.  This should be
       either a bytestring, or a Unicode string.
 
 
    .. method:: end(tag)
+               end(tag: str, /) -> Element[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L325>`__)
 
       Closes the current element.  *tag* is the element name.  Returns the
       closed element.
 
 
    .. method:: start(tag, attrs)
+               start(tag: typing.Any, attrs: dict[typing.Any, typing.Any], /) -> Element[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L324>`__)
 
       Opens a new element.  *tag* is the element name.  *attrs* is a dictionary
       containing element attributes.  Returns the opened element.
 
 
    .. method:: comment(text)
+               comment(text: str | None, /) -> Element[typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L327>`__)
 
       Creates a comment with the given *text*.  If ``insert_comments`` is true,
       this will also add it to the tree.
@@ -1377,6 +1480,9 @@ TreeBuilder Objects
 
 
    .. method:: pi(target, text)
+               pi(target: str, text: str | None = None, /) -> Element[typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L328>`__)
 
       Creates a process instruction with the given *target* name and *text*.
       If ``insert_pis`` is true, this will also add it to the tree.
@@ -1454,6 +1560,9 @@ XMLParser Objects
 
 
    .. method:: close()
+               close[_E]() -> _E
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L379>`__)
 
       Finishes feeding data to the parser.  Returns the result of calling the
       ``close()`` method of the *target* passed during construction; by default,
@@ -1461,11 +1570,17 @@ XMLParser Objects
 
 
    .. method:: feed(data)
+               feed[_E](data: Buffer | str, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L380>`__)
 
       Feeds data to the parser.  *data* is encoded data.
 
 
    .. method:: flush()
+               flush[_E]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L381>`__)
 
       Triggers parsing of any previously fed unparsed data, which can be
       used to ensure more immediate feedback, in particular with Expat >=2.6.0.
@@ -1543,10 +1658,16 @@ XMLPullParser Objects
    only ``"end"`` events are reported.
 
    .. method:: feed(data)
+               feed[_E](data: Buffer | str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L281>`__)
 
       Feed the given bytes data to the parser.
 
    .. method:: flush()
+               flush[_E]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L284>`__)
 
       Triggers parsing of any previously fed unparsed data, which can be
       used to ensure more immediate feedback, in particular with Expat >=2.6.0.
@@ -1563,6 +1684,9 @@ XMLPullParser Objects
       .. versionadded:: 3.13
 
    .. method:: close()
+               close[_E]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L282>`__)
 
       Signal the parser that the data stream is terminated. Unlike
       :meth:`XMLParser.close`, this method always returns :const:`None`.
@@ -1570,6 +1694,9 @@ XMLPullParser Objects
       read with :meth:`read_events`.
 
    .. method:: read_events()
+               read_events[_E]() -> collections.abc.Iterator[tuple[str] | tuple[str, tuple[str, str]] | tuple[str, _E] | tuple[str, None]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L283>`__)
 
       Return an iterator over the events which have been encountered in the
       data fed to the
@@ -1618,11 +1745,17 @@ Exceptions
    the following attributes available:
 
    .. attribute:: code
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L46>`__)
 
       A numeric error code from the expat parser. See the documentation of
       :mod:`xml.parsers.expat` for the list of error codes and their meanings.
 
    .. attribute:: position
+      :type: tuple[int, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/xml/etree/ElementTree.pyi#L47>`__)
 
       A tuple of *line*, *column* numbers, specifying where the error occurred.
 

@@ -346,6 +346,9 @@ and reliable way to wait for all tasks in the group to finish.
    .. versionadded:: 3.11
 
    .. method:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
+               create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None) -> Task[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/taskgroups.pyi#L25>`__)
 
       Create a task in this task group.
       The signature matches that of :func:`asyncio.create_task`.
@@ -1317,6 +1320,9 @@ Task Object
       Added the *eager_start* parameter.
 
    .. method:: done()
+               done[_T_co]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L68>`__)
 
       Return ``True`` if the Task is *done*.
 
@@ -1324,6 +1330,9 @@ Task Object
       a value, raised an exception, or the Task was cancelled.
 
    .. method:: result()
+               result[_T_co]() -> _T_co
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L76>`__)
 
       Return the result of the Task.
 
@@ -1338,6 +1347,9 @@ Task Object
       an :exc:`InvalidStateError` exception.
 
    .. method:: exception()
+               exception[_T_co]() -> BaseException | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L85>`__)
 
       Return the exception of the Task.
 
@@ -1352,6 +1364,9 @@ Task Object
       :exc:`InvalidStateError` exception.
 
    .. method:: add_done_callback(callback, *, context=None)
+               add_done_callback[_T_co](fn: (Task[_T_co]) -> object, /, *, context: contextvars.Context | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L47>`__)
 
       Add a callback to be run when the Task is *done*.
 
@@ -1361,6 +1376,9 @@ Task Object
       for more details.
 
    .. method:: remove_done_callback(callback)
+               remove_done_callback[_T_co](fn: (Task[_T_co]) -> object, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L95>`__)
 
       Remove *callback* from the callbacks list.
 
@@ -1370,6 +1388,9 @@ Task Object
       for more details.
 
    .. method:: get_stack(*, limit=None)
+               get_stack[_T_co](*, limit: int | None = None) -> list[FrameType]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L176>`__)
 
       Return the list of stack frames for this Task.
 
@@ -1391,6 +1412,9 @@ Task Object
       returned.  (This matches the behavior of the traceback module.)
 
    .. method:: print_stack(*, limit=None, file=None)
+               print_stack[_T_co](*, limit: int | None = None, file: TextIO | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L199>`__)
 
       Print the stack or traceback for this Task.
 
@@ -1403,6 +1427,9 @@ Task Object
       is written; by default output is written to :data:`sys.stdout`.
 
    .. method:: get_coro()
+               get_coro[_T_co]() -> collections.abc.Coroutine[typing.Any, typing.Any, _T_co] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L167>`__)
 
       Return the coroutine object wrapped by the :class:`Task`.
 
@@ -1418,6 +1445,9 @@ Task Object
          Newly added eager task execution means result may be ``None``.
 
    .. method:: get_context()
+               get_context[_T_co]() -> contextvars.Context
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L174>`__)
 
       Return the :class:`contextvars.Context` object
       associated with the task.
@@ -1425,6 +1455,9 @@ Task Object
       .. versionadded:: 3.12
 
    .. method:: get_name()
+               get_name[_T_co]() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L171>`__)
 
       Return the name of the Task.
 
@@ -1435,6 +1468,9 @@ Task Object
       .. versionadded:: 3.8
 
    .. method:: set_name(value)
+               set_name[_T_co](value: object, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L172>`__)
 
       Set the name of the Task.
 
@@ -1447,6 +1483,9 @@ Task Object
       .. versionadded:: 3.8
 
    .. method:: cancel(msg=None)
+               cancel[_T_co](msg: typing.Any | None = None) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L56>`__)
 
       Request the Task to be cancelled.
 
@@ -1516,6 +1555,9 @@ Task Object
           #     main(): cancel_me is cancelled now
 
    .. method:: cancelled()
+               cancelled[_T_co]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L65>`__)
 
       Return ``True`` if the Task is *cancelled*.
 
@@ -1524,6 +1566,9 @@ Task Object
       :exc:`CancelledError` exception thrown into it.
 
    .. method:: uncancel()
+               uncancel[_T_co]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L219>`__)
 
       Decrement the count of cancellation requests to this Task.
 
@@ -1572,6 +1617,9 @@ Task Object
       Changed to rescind pending cancellation requests upon reaching zero.
 
    .. method:: cancelling()
+               cancelling[_T_co]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L211>`__)
 
       Return the number of pending cancellation requests to this Task, i.e.,
       the number of calls to :meth:`cancel` less the number of

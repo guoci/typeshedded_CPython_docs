@@ -117,6 +117,9 @@ Reading and writing compressed files
    The following method and attributes are also provided:
 
    .. method:: peek(size=-1)
+               peek(size: int = -1) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/lzma.pyi#L103>`__)
 
       Return buffered data without advancing the file position. At least one
       byte of data will be returned, unless EOF has been reached. The exact
@@ -128,12 +131,18 @@ Reading and writing compressed files
          file object for *filename*).
 
    .. attribute:: mode
+      :type: mode(self: LZMAFile) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L909>`__)
 
       ``'rb'`` for reading and ``'wb'`` for writing.
 
       .. versionadded:: 3.13
 
    .. attribute:: name
+      :type: name(self: LZMAFile) -> str | typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L913>`__)
 
       The lzma file name.  Equivalent to the :attr:`~io.FileIO.name`
       attribute of the underlying :term:`file object`.
@@ -221,6 +230,9 @@ Compressing and decompressing data in memory
    See :ref:`filter-chain-specs` for details.
 
    .. method:: compress(data)
+               compress(data: Buffer, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lzma.pyi#L139>`__)
 
       Compress *data* (a :class:`bytes` object), returning a :class:`bytes`
       object containing compressed data for at least part of the input. Some of
@@ -229,6 +241,9 @@ Compressing and decompressing data in memory
       concatenated with the output of any previous calls to :meth:`compress`.
 
    .. method:: flush()
+               flush() -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lzma.pyi#L149>`__)
 
       Finish the compression process, returning a :class:`bytes` object
       containing any data stored in the compressor's internal buffers.
@@ -269,6 +284,9 @@ Compressing and decompressing data in memory
       create a new decompressor for each stream.
 
    .. method:: decompress(data, max_length=-1)
+               decompress(data: Buffer, max_length: int = -1) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lzma.pyi#L65>`__)
 
       Decompress *data* (a :term:`bytes-like object`), returning
       uncompressed data as bytes. Some of *data* may be buffered
@@ -296,22 +314,34 @@ Compressing and decompressing data in memory
          Added the *max_length* parameter.
 
    .. attribute:: check
+      :type: check(self: LZMADecompressor) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lzma.pyi#L84>`__)
 
       The ID of the integrity check used by the input stream. This may be
       :const:`CHECK_UNKNOWN` until enough of the input has been decoded to
       determine what integrity check it uses.
 
    .. attribute:: eof
+      :type: eof(self: LZMADecompressor) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lzma.pyi#L88>`__)
 
       ``True`` if the end-of-stream marker has been reached.
 
    .. attribute:: unused_data
+      :type: unused_data(self: LZMADecompressor) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lzma.pyi#L92>`__)
 
       Data found after the end of the compressed stream.
 
       Before the end of the stream is reached, this will be ``b""``.
 
    .. attribute:: needs_input
+      :type: needs_input(self: LZMADecompressor) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lzma.pyi#L96>`__)
 
       ``False`` if the :meth:`.decompress` method can provide more
       decompressed data before requiring new uncompressed input.

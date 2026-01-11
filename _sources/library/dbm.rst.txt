@@ -216,6 +216,9 @@ or any other SQLite browser, including the SQLite CLI.
    The following methods are also provided:
 
    .. method:: sqlite3.close()
+               sqlite3.close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dbm/sqlite3.pyi#L24>`__)
 
       Close the SQLite database.
 
@@ -325,10 +328,16 @@ functionality like crash tolerance.
    The following methods are also provided:
 
    .. method:: gdbm.close()
+               gdbm.close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_gdbm.pyi#L35>`__)
 
       Close the GDBM database.
 
    .. method:: gdbm.firstkey()
+               gdbm.firstkey() -> bytes | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_gdbm.pyi#L31>`__)
 
       It's possible to loop over every key in the database using this method  and the
       :meth:`nextkey` method.  The traversal is ordered by GDBM's internal
@@ -336,6 +345,9 @@ functionality like crash tolerance.
       the starting key.
 
    .. method:: gdbm.nextkey(key)
+               gdbm.nextkey(key: _KeyType) -> bytes | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_gdbm.pyi#L32>`__)
 
       Returns the key that follows *key* in the traversal.  The following code prints
       every key in the database ``db``, without having to create a list in memory that
@@ -347,6 +359,9 @@ functionality like crash tolerance.
              k = db.nextkey(k)
 
    .. method:: gdbm.reorganize()
+               gdbm.reorganize() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_gdbm.pyi#L33>`__)
 
       If you have carried out a lot of deletions and would like to shrink the space
       used by the GDBM file, this routine will reorganize the database.  :class:`!gdbm`
@@ -359,6 +374,9 @@ functionality like crash tolerance.
          in free disk space. However, be aware that this factor changes for each :mod:`dbm` submodule.
 
    .. method:: gdbm.sync()
+               gdbm.sync() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_gdbm.pyi#L34>`__)
 
       When the database has been opened in fast mode, this method forces any
       unwritten data to be written to the disk.
@@ -451,6 +469,9 @@ This module can be used with the "classic" NDBM interface or the
    The following method is also provided:
 
    .. method:: ndbm.close()
+               ndbm.close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_dbm.pyi#L19>`__)
 
       Close the NDBM database.
 
@@ -542,6 +563,9 @@ The :mod:`!dbm.dumb` module defines the following:
    The following methods are also provided:
 
    .. method:: dumbdbm.close()
+               dumbdbm.close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dbm/dumb.pyi#L21>`__)
 
       Close the database.
 
@@ -558,6 +582,9 @@ The :mod:`!dbm.dumb` module defines the following:
       .. versionadded:: 3.15
 
    .. method:: dumbdbm.sync()
+               dumbdbm.sync() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/dbm/dumb.pyi#L19>`__)
 
       Synchronize the on-disk directory and data files.  This method is called
       by the :meth:`shelve.Shelf.sync` method.

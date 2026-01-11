@@ -259,6 +259,9 @@ manipulation of WSGI response headers using a mapping-like interface.
 
 
    .. method:: Headers.get_all(name)
+               Headers.get_all(name: str) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/headers.pyi#L16>`__)
 
       Return a list of all the values for the named header.
 
@@ -269,6 +272,9 @@ manipulation of WSGI response headers using a mapping-like interface.
 
 
    .. method:: Headers.add_header(name, value, **_params)
+               Headers.add_header(_name: str, _value: str | None, **_params: str | None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/headers.pyi#L26>`__)
 
       Add a (possibly multi-valued) header, with optional MIME parameters specified
       via keyword arguments.
@@ -366,12 +372,18 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
    .. method:: WSGIServer.set_app(application)
+               WSGIServer.set_app(application: ((dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]) | None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/simple_server.pyi#L21>`__)
 
       Sets the callable *application* as the WSGI application that will receive
       requests.
 
 
    .. method:: WSGIServer.get_app()
+               WSGIServer.get_app() -> ((dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]) | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/simple_server.pyi#L20>`__)
 
       Returns the currently set application callable.
 
@@ -396,6 +408,9 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
    .. method:: WSGIRequestHandler.get_environ()
+               WSGIRequestHandler.get_environ() -> dict[str, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/simple_server.pyi#L25>`__)
 
       Return a :data:`~wsgiref.types.WSGIEnvironment` dictionary for a
       request.  The default
@@ -407,12 +422,18 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
    .. method:: WSGIRequestHandler.get_stderr()
+               WSGIRequestHandler.get_stderr() -> ErrorStream
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/simple_server.pyi#L26>`__)
 
       Return the object that should be used as the ``wsgi.errors`` stream. The default
       implementation just returns ``sys.stderr``.
 
 
    .. method:: WSGIRequestHandler.handle()
+               WSGIRequestHandler.handle() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L154>`__)
 
       Process the HTTP request.  The default implementation creates a handler instance
       using a :mod:`wsgiref.handlers` class to implement the actual WSGI application
@@ -601,6 +622,9 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.run(app)
+               BaseHandler.run(application: (dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L34>`__)
 
       Run the specified WSGI application, *app*.
 
@@ -612,6 +636,9 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler._write(data)
+               BaseHandler._write(data: bytes) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L55>`__)
 
       Buffer the bytes *data* for transmission to the client.  It's okay if this
       method actually transmits the data; :class:`BaseHandler` just separates write
@@ -620,12 +647,18 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler._flush()
+               BaseHandler._flush() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L57>`__)
 
       Force buffered data to be transmitted to the client.  It's okay if this method
       is a no-op (i.e., if :meth:`_write` actually sends the data).
 
 
    .. method:: BaseHandler.get_stdin()
+               BaseHandler.get_stdin() -> InputStream
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L59>`__)
 
       Return an object compatible with :class:`~wsgiref.types.InputStream`
       suitable for use as the ``wsgi.input`` of the
@@ -633,6 +666,9 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.get_stderr()
+               BaseHandler.get_stderr() -> ErrorStream
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L61>`__)
 
       Return an object compatible with :class:`~wsgiref.types.ErrorStream`
       suitable for use as the ``wsgi.errors`` of the
@@ -640,6 +676,9 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.add_cgi_vars()
+               BaseHandler.add_cgi_vars() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L63>`__)
 
       Insert CGI variables for the current request into the :attr:`environ` attribute.
 
@@ -653,6 +692,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.wsgi_multithread
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L17>`__)
 
       The value to be used for the ``wsgi.multithread`` environment variable.  It
       defaults to true in :class:`BaseHandler`, but may have a different default (or
@@ -660,6 +702,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.wsgi_multiprocess
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L18>`__)
 
       The value to be used for the ``wsgi.multiprocess`` environment variable.  It
       defaults to true in :class:`BaseHandler`, but may have a different default (or
@@ -667,6 +712,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.wsgi_run_once
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L19>`__)
 
       The value to be used for the ``wsgi.run_once`` environment variable.  It
       defaults to false in :class:`BaseHandler`, but :class:`CGIHandler` sets it to
@@ -674,6 +722,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.os_environ
+      :type: collections.abc.MutableMapping[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L25>`__)
 
       The default environment variables to be included in every request's WSGI
       environment.  By default, this is a copy of ``os.environ`` at the time that
@@ -684,6 +735,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.server_software
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L23>`__)
 
       If the :attr:`origin_server` attribute is set, this attribute's value is used to
       set the default ``SERVER_SOFTWARE`` WSGI environment variable, and also to set a
@@ -696,6 +750,9 @@ input, output, and error streams.
          "CPython", "Jython" etc.
 
    .. method:: BaseHandler.get_scheme()
+               BaseHandler.get_scheme() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L37>`__)
 
       Return the URL scheme being used for the current request.  The default
       implementation uses the :func:`guess_scheme` function from :mod:`wsgiref.util`
@@ -704,6 +761,9 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.setup_environ()
+               BaseHandler.setup_environ() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L35>`__)
 
       Set the :attr:`environ` attribute to a fully populated WSGI environment.  The
       default implementation uses all of the above methods and attributes, plus the
@@ -716,6 +776,9 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.log_exception(exc_info)
+               BaseHandler.log_exception(exc_info: OptExcInfo) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L51>`__)
 
       Log the *exc_info* tuple in the server log.  *exc_info* is a ``(type, value,
       traceback)`` tuple.  The default implementation simply writes the traceback to
@@ -725,12 +788,18 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.traceback_limit
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L30>`__)
 
       The maximum number of frames to include in tracebacks output by the default
       :meth:`log_exception` method.  If ``None``, all frames are included.
 
 
    .. method:: BaseHandler.error_output(environ, start_response)
+               BaseHandler.error_output(environ: dict[str, typing.Any], start_response: StartResponse) -> list[bytes]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L53>`__)
 
       This method is a WSGI application to generate an error page for the user.  It is
       only invoked if an error occurs before headers are sent to the client.
@@ -752,12 +821,18 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.error_status
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L31>`__)
 
       The HTTP status used for error responses.  This should be a status string as
       defined in :pep:`3333`; it defaults to a 500 code and message.
 
 
    .. attribute:: BaseHandler.error_headers
+      :type: list[tuple[str, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L32>`__)
 
       The HTTP headers used for error responses.  This should be a list of WSGI
       response headers (``(name, value)`` tuples), as described in :pep:`3333`.  The
@@ -765,6 +840,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.error_body
+      :type: bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L33>`__)
 
       The error response body.  This should be an HTTP response body bytestring. It
       defaults to the plain text, "A server error occurred.  Please contact the
@@ -775,6 +853,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.wsgi_file_wrapper
+      :type: (self: FileWrapper, filelike: IO[bytes], blksize: int = 8192) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L27>`__)
 
       A ``wsgi.file_wrapper`` factory, compatible with
       :class:`wsgiref.types.FileWrapper`, or ``None``.  The default value
@@ -782,6 +863,9 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.sendfile()
+               BaseHandler.sendfile() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L45>`__)
 
       Override to implement platform-specific file transmission.  This method is
       called only if the application's return value is an instance of the class
@@ -794,6 +878,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.origin_server
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L21>`__)
 
       This attribute should be set to a true value if the handler's :meth:`_write` and
       :meth:`_flush` are being used to communicate directly to the client, rather than
@@ -805,6 +892,9 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.http_version
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/wsgiref/handlers.pyi#L22>`__)
 
       If :attr:`origin_server` is true, this string attribute is used to set the HTTP
       version of the response set to the client.  It defaults to ``"1.0"``.

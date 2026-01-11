@@ -127,6 +127,10 @@ implementation as the built-in :meth:`~str.format` method.
    The :class:`Formatter` class has the following public methods:
 
    .. method:: format(format_string, /, *args, **kwargs)
+               format(format_string: LiteralString, /, *args: LiteralString, **kwargs: LiteralString) -> LiteralString
+               format(format_string: str, /, *args: typing.Any, **kwargs: typing.Any) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L54>`__)
 
       The primary API method.  It takes a format string and
       an arbitrary set of positional and keyword arguments.
@@ -137,6 +141,10 @@ implementation as the built-in :meth:`~str.format` method.
          <positional-only_parameter>`.
 
    .. method:: vformat(format_string, args, kwargs)
+               vformat(format_string: LiteralString, args: collections.abc.Sequence[LiteralString], kwargs: collections.abc.Mapping[LiteralString, LiteralString]) -> LiteralString
+               vformat(format_string: str, args: collections.abc.Sequence[typing.Any], kwargs: collections.abc.Mapping[str, typing.Any]) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L58>`__)
 
       This function does the actual work of formatting.  It is exposed as a
       separate function for cases where you want to pass in a predefined
@@ -150,6 +158,9 @@ implementation as the built-in :meth:`~str.format` method.
    intended to be replaced by subclasses:
 
    .. method:: parse(format_string)
+               parse[StrOrLiteralStr](format_string: StrOrLiteralStr) -> collections.abc.Iterable[tuple[StrOrLiteralStr, StrOrLiteralStr | None, StrOrLiteralStr | None, StrOrLiteralStr | None]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L72>`__)
 
       Loop over the format_string and return an iterable of tuples
       (*literal_text*, *field_name*, *format_spec*, *conversion*).  This is used
@@ -165,6 +176,9 @@ implementation as the built-in :meth:`~str.format` method.
       auto-numbering of non-numbered positional fields is done by :meth:`vformat`.
 
    .. method:: get_field(field_name, args, kwargs)
+               get_field(field_name: str, args: collections.abc.Sequence[typing.Any], kwargs: collections.abc.Mapping[str, typing.Any]) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L75>`__)
 
       Given *field_name*, convert it to an object to be formatted.
       Auto-numbering of *field_name* returned from :meth:`parse` is done by
@@ -175,6 +189,9 @@ implementation as the built-in :meth:`~str.format` method.
       as the *key* parameter to :meth:`get_value`.
 
    .. method:: get_value(key, args, kwargs)
+               get_value(key: int | str, args: collections.abc.Sequence[typing.Any], kwargs: collections.abc.Mapping[str, typing.Any]) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L76>`__)
 
       Retrieve a given field value.  The *key* argument will be either an
       integer or a string.  If it is an integer, it represents the index of the
@@ -198,6 +215,9 @@ implementation as the built-in :meth:`~str.format` method.
       :exc:`IndexError` or :exc:`KeyError` should be raised.
 
    .. method:: check_unused_args(used_args, args, kwargs)
+               check_unused_args(used_args: set[int | str], args: collections.abc.Sequence[typing.Any], kwargs: collections.abc.Mapping[str, typing.Any]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L77>`__)
 
       Implement checking for unused arguments if desired.  The arguments to this
       function is the set of all argument keys that were actually referred to in
@@ -208,11 +228,17 @@ implementation as the built-in :meth:`~str.format` method.
       the check fails.
 
    .. method:: format_field(value, format_spec)
+               format_field(value: typing.Any, format_spec: str) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L78>`__)
 
       :meth:`format_field` simply calls the global :func:`format` built-in.  The
       method is provided so that subclasses can override it.
 
    .. method:: convert_field(value, conversion)
+               convert_field(value: typing.Any, conversion: str | None) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L79>`__)
 
       Converts the value (returned by :meth:`get_field`) given a conversion type
       (as in the tuple returned by the :meth:`parse` method).  The default
@@ -883,6 +909,9 @@ these rules.  The methods of :class:`Template` are:
 
 
    .. method:: substitute(mapping={}, /, **kwds)
+               substitute(mapping: collections.abc.Mapping[str, object] = ..., /, **kwds: object) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L46>`__)
 
       Performs the template substitution, returning a new string.  *mapping* is
       any dictionary-like object with keys that match the placeholders in the
@@ -892,6 +921,9 @@ these rules.  The methods of :class:`Template` are:
 
 
    .. method:: safe_substitute(mapping={}, /, **kwds)
+               safe_substitute(mapping: collections.abc.Mapping[str, object] = ..., /, **kwds: object) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L47>`__)
 
       Like :meth:`substitute`, except that if placeholders are missing from
       *mapping* and *kwds*, instead of raising a :exc:`KeyError` exception, the
@@ -908,6 +940,9 @@ these rules.  The methods of :class:`Template` are:
 
 
    .. method:: is_valid()
+               is_valid() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L50>`__)
 
       Returns ``False`` if the template has invalid placeholders that will cause
       :meth:`substitute` to raise :exc:`ValueError`.
@@ -916,6 +951,9 @@ these rules.  The methods of :class:`Template` are:
 
 
    .. method:: get_identifiers()
+               get_identifiers() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L49>`__)
 
       Returns a list of the valid identifiers in the template, in the order
       they first appear, ignoring any invalid identifiers.
@@ -925,6 +963,9 @@ these rules.  The methods of :class:`Template` are:
    :class:`Template` instances also provide one public data attribute:
 
    .. attribute:: template
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/string/__init__.pyi#L36>`__)
 
       This is the object passed to the constructor's *template* argument.  In
       general, you shouldn't change it, but read-only access is not enforced.

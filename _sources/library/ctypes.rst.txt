@@ -1666,6 +1666,9 @@ attribute of the loader instance.
    so repeated attribute accesses return the same library each time.
 
    .. method:: LoadLibrary(name)
+               LoadLibrary[_DLLT](name: str) -> _DLLT
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ctypes/__init__.pyi#L107>`__)
 
       Load a shared library into the process and return it.  This method always
       returns a new instance of the library.
@@ -1774,6 +1777,9 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
    foreign function object.
 
    .. attribute:: restype
+      :type: (self: _SimpleCData[typing.Any], value: typing.Any = ...) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L197>`__)
 
       Assign a ctypes type to specify the result type of the foreign function.
       Use ``None`` for :c:expr:`void`, a function not returning anything.
@@ -1786,6 +1792,9 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
       :attr:`!restype` and assign a callable to the :attr:`errcheck` attribute.
 
    .. attribute:: argtypes
+      :type: collections.abc.Sequence[type[_CDataType]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L198>`__)
 
       Assign a tuple of ctypes types to specify the argument types that the
       function accepts.  Functions using the ``stdcall`` calling convention can
@@ -1806,6 +1815,9 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
       defining adapters that can adapt custom objects as function parameters.
 
    .. attribute:: errcheck
+      :type: (Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any] | None, CFuncPtr, tuple[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any], ...]) -> _CDataType
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L199>`__)
 
       Assign a Python function or another callable to this attribute. The
       callable will be called with three or more arguments:
@@ -2501,6 +2513,9 @@ Data types
    Common class variables of ctypes data types:
 
    .. attribute:: __pointer_type__
+      :type: __call__(self: type, *args: typing.Any, **kwds: typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L87>`__)
 
       The pointer type that was created by calling
       :func:`POINTER` for corresponding ctypes data type. If a pointer type
@@ -2511,6 +2526,9 @@ Data types
    Common instance variables of ctypes data types:
 
    .. attribute:: _b_base_
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L81>`__)
 
       Sometimes ctypes data instances do not own the memory block they contain,
       instead they share part of the memory block of a base object.  The
@@ -2518,11 +2536,17 @@ Data types
       memory block.
 
    .. attribute:: _b_needsfree_
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L82>`__)
 
       This read-only variable is true when the ctypes data instance has
       allocated the memory block itself, false otherwise.
 
    .. attribute:: _objects
+      :type: collections.abc.Mapping[typing.Any, int] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L83>`__)
 
       This member is either ``None`` or a dictionary containing Python objects
       that need to be kept alive so that the memory block contents is kept
@@ -2549,6 +2573,9 @@ Fundamental data types
    Instances have a single attribute:
 
    .. attribute:: value
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L109>`__)
 
       This attribute contains the actual value of the instance. For integer and
       pointer types, it is an integer, for character types, it is a single
@@ -2981,6 +3008,9 @@ fields, or any other data types containing pointer type fields.
 
 
    .. attribute:: _fields_
+      :type: collections.abc.Sequence[tuple[str, type[_CDataType]] | tuple[str, type[_CDataType], int]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L292>`__)
 
       A sequence defining the structure fields.  The items must be 2-tuples or
       3-tuples.  The first item is the name of the field, the second item
@@ -3019,6 +3049,9 @@ fields, or any other data types containing pointer type fields.
 
 
    .. attribute:: _pack_
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L293>`__)
 
       An optional small integer that allows overriding the alignment of
       structure fields in the instance.
@@ -3044,6 +3077,9 @@ fields, or any other data types containing pointer type fields.
          explicitly.
 
    .. attribute:: _align_
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L296>`__)
 
       An optional small integer that allows increasing the alignment of
       the structure when being packed or unpacked to/from memory.
@@ -3065,6 +3101,9 @@ fields, or any other data types containing pointer type fields.
       .. versionadded:: 3.13
 
    .. attribute:: _layout_
+      :type: typing.Literal['gcc-sysv', 'ms']
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L300>`__)
 
       An optional string naming the struct/union layout. It can currently
       be set to:
@@ -3093,6 +3132,9 @@ fields, or any other data types containing pointer type fields.
       .. versionadded:: 3.14
 
    .. attribute:: _anonymous_
+      :type: collections.abc.Sequence[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L294>`__)
 
       An optional sequence that lists the names of unnamed (anonymous) fields.
       :attr:`_anonymous_` must be already defined when :attr:`_fields_` is
@@ -3254,6 +3296,9 @@ Arrays and pointers
 
 
    .. attribute:: _length_
+      :type: _length_[_CT](self: Array[_CT], value: int) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L325>`__)
 
         A positive integer specifying the number of elements in the array.
         Out-of-range subscripts result in an :exc:`IndexError`. Will be
@@ -3261,6 +3306,9 @@ Arrays and pointers
 
 
    .. attribute:: _type_
+      :type: _type_[_CT](self: Array[_CT], value: type[_CT]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L330>`__)
 
         Specifies the type of each element in the array.
 
@@ -3302,10 +3350,16 @@ Arrays and pointers
 
 
    .. attribute:: _type_
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L137>`__)
 
         Specifies the type pointed to.
 
    .. attribute:: contents
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ctypes.pyi#L138>`__)
 
         Returns the object to which to pointer points.  Assigning to this
         attribute changes the pointer to point to the assigned object.

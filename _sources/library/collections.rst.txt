@@ -69,6 +69,9 @@ The class can be used to simulate nested scopes and is useful in templating.
     accessing all but the first mapping:
 
     .. attribute:: maps
+       :type: Unknown
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L594>`__)
 
         A user updateable list of mappings.  The list is ordered from
         first-searched to last-searched.  It is the only stored state and can
@@ -76,6 +79,9 @@ The class can be used to simulate nested scopes and is useful in templating.
         always contain at least one mapping.
 
     .. method:: new_child(m=None, **kwargs)
+                new_child[_KT, _VT](m: collections.abc.MutableMapping[_KT, _VT] | None = None) -> ChainMap[_KT, _VT]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L596>`__)
 
         Returns a new :class:`ChainMap` containing a new map followed by
         all of the maps in the current instance.  If ``m`` is specified,
@@ -93,6 +99,9 @@ The class can be used to simulate nested scopes and is useful in templating.
            Keyword arguments support was added.
 
     .. attribute:: parents
+       :type: parents[_KT, _VT](self: ChainMap[_KT, _VT]) -> ChainMap[_KT, _VT]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L598>`__)
 
         Property returning a new :class:`ChainMap` containing all of the maps in
         the current instance except the first one.  This is useful for skipping
@@ -286,6 +295,9 @@ For example::
     dictionaries:
 
     .. method:: elements()
+                elements[_T]() -> collections.abc.Iterator[_T]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L347>`__)
 
         Return an iterator over elements repeating each as many times as its
         count.  Elements are returned in the order first encountered. If an
@@ -296,6 +308,9 @@ For example::
             ['a', 'a', 'a', 'a', 'b', 'b']
 
     .. method:: most_common([n])
+                most_common[_T](n: int | None = None) -> list[tuple[_T, int]]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L348>`__)
 
         Return a list of the *n* most common elements and their counts from the
         most common to the least.  If *n* is omitted or ``None``,
@@ -306,6 +321,8 @@ For example::
             [('a', 5), ('b', 2), ('r', 2)]
 
     .. method:: subtract([iterable-or-mapping])
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L352>`__)
 
         Elements are subtracted from an *iterable* or from another *mapping*
         (or counter).  Like :meth:`dict.update` but subtracts counts instead
@@ -320,6 +337,9 @@ For example::
         .. versionadded:: 3.2
 
     .. method:: total()
+                total[_T]() -> int
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L387>`__)
 
         Compute the sum of the counts.
 
@@ -333,10 +353,15 @@ For example::
     except for two which work differently for counters.
 
     .. method:: fromkeys(iterable)
+                fromkeys[_T](cls: type[Counter[_T]], iterable: typing.Any, v: int | None = None) -> NoReturn
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L350>`__)
 
         This class method is not implemented for :class:`Counter` objects.
 
     .. method:: update([iterable-or-mapping])
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L364>`__)
 
         Elements are counted from an *iterable* or added-in from another
         *mapping* (or counter).  Like :meth:`dict.update` but adds counts
@@ -494,21 +519,33 @@ or subtracting from an empty counter.
     Deque objects support the following methods:
 
     .. method:: append(x)
+                append[_T](x: _T, /) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L244>`__)
 
         Add *x* to the right side of the deque.
 
 
     .. method:: appendleft(x)
+                appendleft[_T](x: _T, /) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L247>`__)
 
         Add *x* to the left side of the deque.
 
 
     .. method:: clear()
+                clear[_T]() -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L731>`__)
 
         Remove all elements from the deque leaving it with length 0.
 
 
     .. method:: copy()
+                copy[_T]() -> deque[_T]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L250>`__)
 
         Create a shallow copy of the deque.
 
@@ -516,6 +553,9 @@ or subtracting from an empty counter.
 
 
     .. method:: count(x)
+                count[_T](x: _T, /) -> int
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L253>`__)
 
         Count the number of deque elements equal to *x*.
 
@@ -523,12 +563,18 @@ or subtracting from an empty counter.
 
 
     .. method:: extend(iterable)
+                extend[_T](iterable: collections.abc.Iterable[_T], /) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L256>`__)
 
         Extend the right side of the deque by appending elements from the iterable
         argument.
 
 
     .. method:: extendleft(iterable)
+                extendleft[_T](iterable: collections.abc.Iterable[_T], /) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L259>`__)
 
         Extend the left side of the deque by appending elements from *iterable*.
         Note, the series of left appends results in reversing the order of
@@ -536,6 +582,9 @@ or subtracting from an empty counter.
 
 
     .. method:: index(x[, start[, stop]])
+                index[_T](x: _T, start: int = 0, stop: int = ..., /) -> int
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L265>`__)
 
         Return the position of *x* in the deque (at or after index *start*
         and before index *stop*).  Returns the first match or raises
@@ -545,6 +594,9 @@ or subtracting from an empty counter.
 
 
     .. method:: insert(i, x)
+                insert[_T](i: int, x: _T, /) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L262>`__)
 
         Insert *x* into the deque at position *i*.
 
@@ -555,24 +607,36 @@ or subtracting from an empty counter.
 
 
     .. method:: pop()
+                pop[_T]() -> _T
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L271>`__)
 
         Remove and return an element from the right side of the deque. If no
         elements are present, raises an :exc:`IndexError`.
 
 
     .. method:: popleft()
+                popleft[_T]() -> _T
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L274>`__)
 
         Remove and return an element from the left side of the deque. If no
         elements are present, raises an :exc:`IndexError`.
 
 
     .. method:: remove(value)
+                remove[_T](value: _T, /) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L277>`__)
 
         Remove the first occurrence of *value*.  If not found, raises a
         :exc:`ValueError`.
 
 
     .. method:: reverse()
+                reverse[_T]() -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L733>`__)
 
         Reverse the elements of the deque in-place and then return ``None``.
 
@@ -580,6 +644,9 @@ or subtracting from an empty counter.
 
 
     .. method:: rotate(n=1)
+                rotate[_T](n: int = 1, /) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L280>`__)
 
         Rotate the deque *n* steps to the right.  If *n* is negative, rotate
         to the left.
@@ -592,6 +659,9 @@ or subtracting from an empty counter.
     Deque objects also provide one read-only attribute:
 
     .. attribute:: maxlen
+       :type: maxlen[_T](self: deque[_T]) -> int | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L237>`__)
 
         Maximum size of a deque or ``None`` if unbounded.
 
@@ -750,6 +820,9 @@ stack manipulations such as ``dup``, ``drop``, ``swap``, ``over``, ``pick``,
     standard :class:`dict` operations:
 
     .. method:: __missing__(key)
+                __missing__[_KT, _VT](key: _KT, /) -> _VT
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L562>`__)
 
         If the :attr:`default_factory` attribute is ``None``, this raises a
         :exc:`KeyError` exception with the *key* as argument.
@@ -775,6 +848,9 @@ stack manipulations such as ``dup``, ``drop``, ``swap``, ``over``, ``pick``,
 
 
     .. attribute:: default_factory
+       :type: Unknown
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L528>`__)
 
         This attribute is used by the :meth:`~defaultdict.__missing__` method;
         it is initialized from the first argument to the constructor, if present,
@@ -1180,6 +1256,9 @@ Some differences from :class:`dict` still remain:
     .. versionadded:: 3.1
 
     .. method:: popitem(last=True)
+                popitem[_KT, _VT](last: bool = True) -> tuple[_KT, _VT]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L425>`__)
 
         The :meth:`popitem` method for ordered dictionaries returns and removes a
         (key, value) pair.  The pairs are returned in
@@ -1187,6 +1266,9 @@ Some differences from :class:`dict` still remain:
         or :abbr:`FIFO (first-in, first-out)` order if false.
 
     .. method:: move_to_end(key, last=True)
+                move_to_end[_KT, _VT](key: _KT, last: bool = True) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L432>`__)
 
         Move an existing *key* to either end of an ordered dictionary.  The item
         is moved to the right end if *last* is true (the default) or to the
@@ -1367,6 +1449,9 @@ attribute.
     :class:`UserDict` instances provide the following attribute:
 
     .. attribute:: data
+       :type: Unknown
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L46>`__)
 
         A real dictionary used to store the contents of the :class:`UserDict`
         class.
@@ -1401,6 +1486,9 @@ to work with because the underlying list is accessible as an attribute.
     :class:`UserList` instances provide the following attribute:
 
     .. attribute:: data
+       :type: Unknown
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L116>`__)
 
         A real :class:`list` object used to store the contents of the
         :class:`UserList` class.
@@ -1442,6 +1530,9 @@ attribute.
     :class:`UserString` instances provide the following attribute:
 
     .. attribute:: data
+       :type: str
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/collections/__init__.pyi#L163>`__)
 
         A real :class:`str` object used to store the contents of the
         :class:`UserString` class.

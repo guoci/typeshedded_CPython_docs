@@ -77,18 +77,30 @@ constants below:
    methods.
 
    .. attribute:: fileobj
+      :type: HasFileno | int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L14>`__)
 
       File object registered.
 
    .. attribute:: fd
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L15>`__)
 
       Underlying file descriptor.
 
    .. attribute:: events
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L16>`__)
 
       Events that must be waited for on this file object.
 
    .. attribute:: data
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L17>`__)
 
       Optional opaque data associated to this file object: for example, this
       could be used to store a per-client session ID.
@@ -110,7 +122,10 @@ constants below:
    :term:`context manager` protocol.
 
    .. method:: register(fileobj, events, data=None)
+               register(fileobj: FileDescriptorLike, events: int, data: typing.Any = None) -> SelectorKey
       :abstractmethod:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L21>`__)
 
       Register a file object for selection, monitoring it for I/O events.
 
@@ -124,7 +139,10 @@ constants below:
       :exc:`KeyError` if the file object is already registered.
 
    .. method:: unregister(fileobj)
+               unregister(fileobj: FileDescriptorLike) -> SelectorKey
       :abstractmethod:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L23>`__)
 
       Unregister a file object from selection, removing it from monitoring. A
       file object shall be unregistered prior to being closed.
@@ -137,6 +155,9 @@ constants below:
       method or its ``fileno()`` method has an invalid return value).
 
    .. method:: modify(fileobj, events, data=None)
+               modify(fileobj: FileDescriptorLike, events: int, data: typing.Any = None) -> SelectorKey
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L24>`__)
 
       Change a registered file object's monitored events or attached data.
 
@@ -149,7 +170,10 @@ constants below:
       :exc:`KeyError` if the file object is not registered.
 
    .. method:: select(timeout=None)
+               select(timeout: float | None = None) -> list[tuple[SelectorKey, int]]
       :abstractmethod:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L26>`__)
 
       Wait until some registered file objects become ready, or the timeout
       expires.
@@ -179,6 +203,9 @@ constants below:
          of events before the timeout.
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L27>`__)
 
       Close the selector.
 
@@ -186,6 +213,9 @@ constants below:
       The selector shall not be used once it has been closed.
 
    .. method:: get_key(fileobj)
+               get_key(fileobj: FileDescriptorLike) -> SelectorKey
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L28>`__)
 
       Return the key associated with a registered file object.
 
@@ -193,7 +223,10 @@ constants below:
       object, or raises :exc:`KeyError` if the file object is not registered.
 
    .. method:: get_map()
+               get_map() -> collections.abc.Mapping[FileDescriptorLike, SelectorKey]
       :abstractmethod:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L30>`__)
 
       Return a mapping of file objects to selector keys.
 
@@ -236,6 +269,9 @@ constants below:
    :func:`select.epoll`-based selector.
 
    .. method:: fileno()
+               fileno() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/selectors.pyi#L51>`__)
 
       This returns the file descriptor used by the underlying
       :func:`select.epoll` object.

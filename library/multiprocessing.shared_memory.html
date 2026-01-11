@@ -276,7 +276,10 @@ automatically deletes shared memory when all handles to it have been closed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.SharedMemory.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.close" title="Link to this definition">¶</a></dt>
-<dd><p>Close the file descriptor/handle to the shared memory from this
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L29">typeshed</a>)</p>
+<p>Close the file descriptor/handle to the shared memory from this
 instance.  <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.close" title="multiprocessing.shared_memory.SharedMemory.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> should be called once access to the shared
 memory block from this instance is no longer needed.  Depending
 on operating system, the underlying memory may or may not be freed
@@ -287,7 +290,10 @@ use the <a class="reference internal" href="#multiprocessing.shared_memory.Share
 <dl class="py method">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.SharedMemory.unlink">
 <span class="sig-name descname"><span class="pre">unlink</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.unlink" title="Link to this definition">¶</a></dt>
-<dd><p>Delete the underlying shared memory block.  This should be called only
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">unlink</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L30">typeshed</a>)</p>
+<p>Delete the underlying shared memory block.  This should be called only
 once per shared memory block regardless of the number of handles to it,
 even in other processes.
 <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.unlink" title="multiprocessing.shared_memory.SharedMemory.unlink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unlink()</span></code></a> and <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.close" title="multiprocessing.shared_memory.SharedMemory.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> can be called in any order, but
@@ -299,20 +305,23 @@ shared memory block is to close all handles.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.SharedMemory.buf">
-<span class="sig-name descname"><span class="pre">buf</span></span><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.buf" title="Link to this definition">¶</a></dt>
-<dd><p>A memoryview of contents of the shared memory block.</p>
+<span class="sig-name descname"><span class="pre">buf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">buf(self:</span> <span class="pre">SharedMemory)</span> <span class="pre">-&gt;</span> <span class="pre">memoryview[int]</span> <span class="pre">|</span> <span class="pre">None</span></em><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.buf" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L18">typeshed</a>)</p>
+<p>A memoryview of contents of the shared memory block.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.SharedMemory.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.name" title="Link to this definition">¶</a></dt>
-<dd><p>Read-only access to the unique name of the shared memory block.</p>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">name(self:</span> <span class="pre">SharedMemory)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></em><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.name" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L22">typeshed</a>)</p>
+<p>Read-only access to the unique name of the shared memory block.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.SharedMemory.size">
-<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.size" title="Link to this definition">¶</a></dt>
-<dd><p>Read-only access to size in bytes of the shared memory block.</p>
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">size(self:</span> <span class="pre">SharedMemory)</span> <span class="pre">-&gt;</span> <span class="pre">int</span></em><a class="headerlink" href="#multiprocessing.shared_memory.SharedMemory.size" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L26">typeshed</a>)</p>
+<p>Read-only access to size in bytes of the shared memory block.</p>
 </dd></dl>
 
 </dd></dl>
@@ -428,14 +437,26 @@ from other processes.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="multiprocessing.managers.SharedMemoryManager.SharedMemory">
 <span class="sig-name descname"><span class="pre">SharedMemory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.managers.SharedMemoryManager.SharedMemory" title="Link to this definition">¶</a></dt>
-<dd><p>Create and return a new <a class="reference internal" href="#multiprocessing.managers.SharedMemoryManager.SharedMemory" title="multiprocessing.managers.SharedMemoryManager.SharedMemory"><code class="xref py py-class docutils literal notranslate"><span class="pre">SharedMemory</span></code></a> object with the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">SharedMemory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory" title="multiprocessing.shared_memory.SharedMemory"><span class="pre">SharedMemory</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L359">typeshed</a>)</p>
+<p>Create and return a new <a class="reference internal" href="#multiprocessing.managers.SharedMemoryManager.SharedMemory" title="multiprocessing.managers.SharedMemoryManager.SharedMemory"><code class="xref py py-class docutils literal notranslate"><span class="pre">SharedMemory</span></code></a> object with the
 specified <em>size</em> in bytes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="multiprocessing.managers.SharedMemoryManager.ShareableList">
 <span class="sig-name descname"><span class="pre">ShareableList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.managers.SharedMemoryManager.ShareableList" title="Link to this definition">¶</a></dt>
-<dd><p>Create and return a new <a class="reference internal" href="#multiprocessing.managers.SharedMemoryManager.ShareableList" title="multiprocessing.managers.SharedMemoryManager.ShareableList"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShareableList</span></code></a> object, initialized
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">ShareableList</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_SLT</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Iterable" title="collections.abc.Iterable"><span class="pre">collections.abc.Iterable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_SLT</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#multiprocessing.shared_memory.ShareableList" title="multiprocessing.shared_memory.ShareableList"><span class="pre">ShareableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_SLT</span><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L360">typeshed</a>)</p>
+<p>Create and return a new <a class="reference internal" href="#multiprocessing.managers.SharedMemoryManager.ShareableList" title="multiprocessing.managers.SharedMemoryManager.ShareableList"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShareableList</span></code></a> object, initialized
 by the values from the input <em>sequence</em>.</p>
 </dd></dl>
 
@@ -545,27 +566,35 @@ removing it when fetching:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.ShareableList.count">
 <span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.shared_memory.ShareableList.count" title="Link to this definition">¶</a></dt>
-<dd><p>Return the number of occurrences of <em>value</em>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_SLT</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_SLT</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L47">typeshed</a>)</p>
+<p>Return the number of occurrences of <em>value</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.ShareableList.index">
 <span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.shared_memory.ShareableList.index" title="Link to this definition">¶</a></dt>
-<dd><p>Return first index position of <em>value</em>.
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_SLT</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_SLT</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L48">typeshed</a>)</p>
+<p>Return first index position of <em>value</em>.
 Raise <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if <em>value</em> is not present.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.ShareableList.format">
-<span class="sig-name descname"><span class="pre">format</span></span><a class="headerlink" href="#multiprocessing.shared_memory.ShareableList.format" title="Link to this definition">¶</a></dt>
-<dd><p>Read-only attribute containing the <a class="reference internal" href="struct.html#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> packing format used by
+<span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">format[_SLT](self:</span> <span class="pre">ShareableList[_SLT])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></em><a class="headerlink" href="#multiprocessing.shared_memory.ShareableList.format" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L44">typeshed</a>)</p>
+<p>Read-only attribute containing the <a class="reference internal" href="struct.html#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> packing format used by
 all currently stored values.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="multiprocessing.shared_memory.ShareableList.shm">
-<span class="sig-name descname"><span class="pre">shm</span></span><a class="headerlink" href="#multiprocessing.shared_memory.ShareableList.shm" title="Link to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory" title="multiprocessing.shared_memory.SharedMemory"><code class="xref py py-class docutils literal notranslate"><span class="pre">SharedMemory</span></code></a> instance where the values are stored.</p>
+<span class="sig-name descname"><span class="pre">shm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory" title="multiprocessing.shared_memory.SharedMemory"><span class="pre">SharedMemory</span></a></em><a class="headerlink" href="#multiprocessing.shared_memory.ShareableList.shm" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L34">typeshed</a>)</p>
+<p>The <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory" title="multiprocessing.shared_memory.SharedMemory"><code class="xref py py-class docutils literal notranslate"><span class="pre">SharedMemory</span></code></a> instance where the values are stored.</p>
 </dd></dl>
 
 </dd></dl>

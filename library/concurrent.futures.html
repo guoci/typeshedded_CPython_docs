@@ -244,7 +244,10 @@ should not be used directly, but through its concrete subclasses.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Executor.submit">
 <span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.submit" title="Link to this definition">¶</a></dt>
-<dd><p>Schedules the callable, <em>fn</em>, to be executed as <code class="docutils literal notranslate"><span class="pre">fn(*args,</span> <span class="pre">**kwargs)</span></code>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Executor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(ParamSpec(_P))</span> <span class="pre">-&gt;</span> <span class="pre">_T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ParamSpec(_P)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><span class="pre">Future</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L61">typeshed</a>)</p>
+<p>Schedules the callable, <em>fn</em>, to be executed as <code class="docutils literal notranslate"><span class="pre">fn(*args,</span> <span class="pre">**kwargs)</span></code>
 and returns a <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> object representing the execution of the
 callable.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
@@ -257,7 +260,10 @@ callable.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Executor.map">
 <span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">iterables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffersize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.map" title="Link to this definition">¶</a></dt>
-<dd><p>Similar to <a class="reference internal" href="functions.html#map" title="map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map(fn,</span> <span class="pre">*iterables)</span></code></a> except:</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fn:</span> <span class="pre">(...)</span> <span class="pre">-&gt;</span> <span class="pre">_T,</span> <span class="pre">*iterables:</span> <span class="pre">collections.abc.Iterable[typing.Any],</span> <span class="pre">*,</span> <span class="pre">timeout:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">chunksize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">buffersize:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Iterator" title="collections.abc.Iterator"><span class="pre">collections.abc.Iterator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L63">typeshed</a>)</p>
+<p>Similar to <a class="reference internal" href="functions.html#map" title="map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map(fn,</span> <span class="pre">*iterables)</span></code></a> except:</p>
 <ul class="simple">
 <li><p>The <em>iterables</em> are collected immediately rather than lazily, unless a
 <em>buffersize</em> is specified to limit the number of submitted tasks whose
@@ -292,7 +298,10 @@ performance compared to the default size of 1.  With
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Executor.shutdown">
 <span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancel_futures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.shutdown" title="Link to this definition">¶</a></dt>
-<dd><p>Signal the executor that it should free any resources that it is using
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancel_futures</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L76">typeshed</a>)</p>
+<p>Signal the executor that it should free any resources that it is using
 when the currently pending futures are done executing.  Calls to
 <a class="reference internal" href="#concurrent.futures.Executor.submit" title="concurrent.futures.Executor.submit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.submit()</span></code></a> and <a class="reference internal" href="#concurrent.futures.Executor.map" title="concurrent.futures.Executor.map"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.map()</span></code></a> made after shutdown will
 raise <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>.</p>
@@ -644,7 +653,10 @@ explicitly pass <code class="docutils literal notranslate"><span class="pre">mp_
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.ProcessPoolExecutor.terminate_workers">
 <span class="sig-name descname"><span class="pre">terminate_workers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.ProcessPoolExecutor.terminate_workers" title="Link to this definition">¶</a></dt>
-<dd><p>Attempt to terminate all living worker processes immediately by calling
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">terminate_workers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/process.pyi#L242">typeshed</a>)</p>
+<p>Attempt to terminate all living worker processes immediately by calling
 <a class="reference internal" href="multiprocessing.html#multiprocessing.Process.terminate" title="multiprocessing.Process.terminate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Process.terminate</span></code></a> on each of them.
 Internally, it will also call <a class="reference internal" href="#concurrent.futures.Executor.shutdown" title="concurrent.futures.Executor.shutdown"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.shutdown()</span></code></a> to ensure that all
 other resources associated with the executor are freed.</p>
@@ -658,7 +670,10 @@ executor.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.ProcessPoolExecutor.kill_workers">
 <span class="sig-name descname"><span class="pre">kill_workers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.ProcessPoolExecutor.kill_workers" title="Link to this definition">¶</a></dt>
-<dd><p>Attempt to kill all living worker processes immediately by calling
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">kill_workers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/process.pyi#L241">typeshed</a>)</p>
+<p>Attempt to kill all living worker processes immediately by calling
 <a class="reference internal" href="multiprocessing.html#multiprocessing.Process.kill" title="multiprocessing.Process.kill"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Process.kill</span></code></a> on each of them.
 Internally, it will also call <a class="reference internal" href="#concurrent.futures.Executor.shutdown" title="concurrent.futures.Executor.shutdown"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Executor.shutdown()</span></code></a> to ensure that all
 other resources associated with the executor are freed.</p>
@@ -725,7 +740,10 @@ directly except for testing.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.cancel">
 <span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.cancel" title="Link to this definition">¶</a></dt>
-<dd><p>Attempt to cancel the call.  If the call is currently being executed or
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L42">typeshed</a>)</p>
+<p>Attempt to cancel the call.  If the call is currently being executed or
 finished running and cannot be cancelled then the method will return
 <code class="docutils literal notranslate"><span class="pre">False</span></code>, otherwise the call will be cancelled and the method will
 return <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
@@ -734,27 +752,39 @@ return <code class="docutils literal notranslate"><span class="pre">True</span><
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.cancelled">
 <span class="sig-name descname"><span class="pre">cancelled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.cancelled" title="Link to this definition">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call was successfully cancelled.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">cancelled</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L43">typeshed</a>)</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call was successfully cancelled.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.running">
 <span class="sig-name descname"><span class="pre">running</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.running" title="Link to this definition">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call is currently being executed and cannot be
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">running</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L44">typeshed</a>)</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call is currently being executed and cannot be
 cancelled.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.done">
 <span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.done" title="Link to this definition">¶</a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call was successfully cancelled or finished
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L45">typeshed</a>)</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the call was successfully cancelled or finished
 running.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.result">
 <span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.result" title="Link to this definition">¶</a></dt>
-<dd><p>Return the value returned by the call. If the call hasn’t yet completed
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T</span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L47">typeshed</a>)</p>
+<p>Return the value returned by the call. If the call hasn’t yet completed
 then this method will wait up to <em>timeout</em> seconds.  If the call hasn’t
 completed in <em>timeout</em> seconds, then a
 <a class="reference internal" href="exceptions.html#TimeoutError" title="TimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code></a> will be raised. <em>timeout</em> can be
@@ -768,7 +798,10 @@ will be raised.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.exception">
 <span class="sig-name descname"><span class="pre">exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.exception" title="Link to this definition">¶</a></dt>
-<dd><p>Return the exception raised by the call.  If the call hasn’t yet
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">exception</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="exceptions.html#BaseException" title="BaseException"><span class="pre">BaseException</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L50">typeshed</a>)</p>
+<p>Return the exception raised by the call.  If the call hasn’t yet
 completed then this method will wait up to <em>timeout</em> seconds.  If the
 call hasn’t completed in <em>timeout</em> seconds, then a
 <a class="reference internal" href="exceptions.html#TimeoutError" title="TimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code></a> will be raised.  <em>timeout</em> can be
@@ -782,7 +815,10 @@ will be raised.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.add_done_callback">
 <span class="sig-name descname"><span class="pre">add_done_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.add_done_callback" title="Link to this definition">¶</a></dt>
-<dd><p>Attaches the callable <em>fn</em> to the future.  <em>fn</em> will be called, with the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">add_done_callback</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn:</span> <span class="pre">(Future[_T])</span> <span class="pre">-&gt;</span> <span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L46">typeshed</a>)</p>
+<p>Attaches the callable <em>fn</em> to the future.  <em>fn</em> will be called, with the
 future as its only argument, when the future is cancelled or finishes
 running.</p>
 <p>Added callables are called in the order that they were added and are
@@ -799,7 +835,10 @@ called immediately.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.set_running_or_notify_cancel">
 <span class="sig-name descname"><span class="pre">set_running_or_notify_cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_running_or_notify_cancel" title="Link to this definition">¶</a></dt>
-<dd><p>This method should only be called by <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> implementations
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_running_or_notify_cancel</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L48">typeshed</a>)</p>
+<p>This method should only be called by <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> implementations
 before executing the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> and by unit
 tests.</p>
 <p>If the method returns <code class="docutils literal notranslate"><span class="pre">False</span></code> then the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> was cancelled,
@@ -817,7 +856,10 @@ called.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.set_result">
 <span class="sig-name descname"><span class="pre">set_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_result" title="Link to this definition">¶</a></dt>
-<dd><p>Sets the result of the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> to
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_result</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L49">typeshed</a>)</p>
+<p>Sets the result of the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> to
 <em>result</em>.</p>
 <p>This method should only be used by <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> implementations and
 unit tests.</p>
@@ -831,7 +873,10 @@ already done.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="concurrent.futures.Future.set_exception">
 <span class="sig-name descname"><span class="pre">set_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Future.set_exception" title="Link to this definition">¶</a></dt>
-<dd><p>Sets the result of the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> to the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_exception</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="exceptions.html#BaseException" title="BaseException"><span class="pre">BaseException</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/concurrent/futures/_base.pyi#L51">typeshed</a>)</p>
+<p>Sets the result of the work associated with the <a class="reference internal" href="#concurrent.futures.Future" title="concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> to the
 <a class="reference internal" href="exceptions.html#Exception" title="Exception"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a> <em>exception</em>.</p>
 <p>This method should only be used by <a class="reference internal" href="#concurrent.futures.Executor" title="concurrent.futures.Executor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></a> implementations and
 unit tests.</p>

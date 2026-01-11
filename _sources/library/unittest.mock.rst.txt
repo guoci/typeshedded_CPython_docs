@@ -293,6 +293,9 @@ the *new_callable* argument to :func:`patch`.
     :meth:`configure_mock` method for details.
 
     .. method:: assert_called()
+                assert_called() -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L187>`__)
 
         Assert that the mock was called at least once.
 
@@ -304,6 +307,9 @@ the *new_callable* argument to :func:`patch`.
         .. versionadded:: 3.6
 
     .. method:: assert_called_once()
+                assert_called_once() -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L188>`__)
 
         Assert that the mock was called exactly once.
 
@@ -323,6 +329,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: assert_called_with(*args, **kwargs)
+                assert_called_with(*args: typing.Any, **kwargs: typing.Any) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L183>`__)
 
         This method is a convenient way of asserting that the last call has been
         made in a particular way:
@@ -333,6 +342,9 @@ the *new_callable* argument to :func:`patch`.
             >>> mock.method.assert_called_with(1, 2, 3, test='wow')
 
     .. method:: assert_called_once_with(*args, **kwargs)
+                assert_called_once_with(*args: typing.Any, **kwargs: typing.Any) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L185>`__)
 
        Assert that the mock was called exactly once and that call was with the
        specified arguments.
@@ -348,6 +360,9 @@ the *new_callable* argument to :func:`patch`.
             Calls: [call('foo', bar='baz'), call('other', bar='values')].
 
     .. method:: assert_any_call(*args, **kwargs)
+                assert_any_call(*args: typing.Any, **kwargs: typing.Any) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L192>`__)
 
         assert the mock has been called with the specified arguments.
 
@@ -363,6 +378,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: assert_has_calls(calls, any_order=False)
+                assert_has_calls(calls: collections.abc.Sequence[_Call], any_order: bool = False) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L193>`__)
 
         assert the mock has been called with the specified calls.
         The :attr:`mock_calls` list is checked for the calls.
@@ -385,6 +403,9 @@ the *new_callable* argument to :func:`patch`.
             >>> mock.assert_has_calls(calls, any_order=True)
 
     .. method:: assert_not_called()
+                assert_not_called() -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L184>`__)
 
         Assert the mock was never called.
 
@@ -401,6 +422,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: reset_mock(*, return_value=False, side_effect=False)
+                reset_mock(visited: typing.Any = None, *, return_value: bool = False, side_effect: bool = False) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L189>`__)
 
         The reset_mock method resets all the call attributes on a mock object:
 
@@ -451,6 +475,9 @@ the *new_callable* argument to :func:`patch`.
            Added two keyword-only arguments to the reset_mock function.
 
     .. method:: mock_add_spec(spec, spec_set=False)
+                mock_add_spec(spec: typing.Any, spec_set: bool = False) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L194>`__)
 
         Add a spec to a mock. *spec* can either be an object or a
         list of strings. Only attributes on the *spec* can be fetched as
@@ -460,6 +487,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: attach_mock(mock, attribute)
+                attach_mock(mock: NonCallableMock, attribute: str) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L196>`__)
 
         Attach a mock as an attribute of this one, replacing its name and
         parent. Calls to the attached mock will be recorded in the
@@ -467,6 +497,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: configure_mock(**kwargs)
+                configure_mock(**kwargs: typing.Any) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L197>`__)
 
         Set attributes on the mock through keyword arguments.
 
@@ -502,6 +535,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: __dir__()
+                __dir__() -> list[str]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L182>`__)
 
         :class:`Mock` objects limit the results of ``dir(some_mock)`` to useful results.
         For mocks with a *spec* this includes all the permitted attributes
@@ -512,6 +548,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: _get_child_mock(**kw)
+                _get_child_mock(**kw: typing.Any) -> NonCallableMock
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L208>`__)
 
         Create the child mocks for attributes and return value.
         By default child mocks will be the same type as the parent.
@@ -523,6 +562,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: called
+       :type: bool
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L200>`__)
 
         A boolean representing whether or not the mock object has been called:
 
@@ -534,6 +576,9 @@ the *new_callable* argument to :func:`patch`.
             True
 
     .. attribute:: call_count
+       :type: int
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L201>`__)
 
         An integer telling you how many times the mock object has been called:
 
@@ -546,6 +591,9 @@ the *new_callable* argument to :func:`patch`.
             2
 
     .. attribute:: return_value
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L198>`__)
 
         Set this to configure the value returned by calling the mock:
 
@@ -573,6 +621,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: side_effect
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L215>`__)
 
         This can either be a function to be called when the mock is called,
         an iterable or an exception (class or instance) to be raised.
@@ -638,6 +689,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: call_args
+       :type: _Call | typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L202>`__)
 
         This is either ``None`` (if the mock hasn't been called), or the
         arguments that the mock was last called with. This will be in the
@@ -683,6 +737,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: call_args_list
+       :type: _CallList
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L203>`__)
 
         This is a list of all the calls made to the mock object in sequence
         (so the length of the list is the number of times it has been
@@ -706,6 +763,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: method_calls
+       :type: _CallList
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L204>`__)
 
         As well as tracking calls to themselves, mocks also track calls to
         methods and attributes, and *their* methods and attributes:
@@ -724,6 +784,9 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: mock_calls
+       :type: _CallList
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L205>`__)
 
         :attr:`mock_calls` records *all* calls to the mock object, its methods,
         magic methods *and* return value mocks.
@@ -976,6 +1039,9 @@ object::
   .. versionadded:: 3.8
 
   .. method:: assert_awaited()
+              assert_awaited() -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L486>`__)
 
       Assert that the mock was awaited at least once. Note that this is separate
       from the object having been called, the ``await`` keyword must be used:
@@ -995,6 +1061,9 @@ object::
           >>> mock.assert_awaited()
 
   .. method:: assert_awaited_once()
+              assert_awaited_once() -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L487>`__)
 
       Assert that the mock was awaited exactly once.
 
@@ -1011,6 +1080,9 @@ object::
         AssertionError: Expected mock to have been awaited once. Awaited 2 times.
 
   .. method:: assert_awaited_with(*args, **kwargs)
+              assert_awaited_with(*args: typing.Any, **kwargs: typing.Any) -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L488>`__)
 
       Assert that the last await was with the specified arguments.
 
@@ -1028,6 +1100,9 @@ object::
         Actual: mock('foo', bar='bar')
 
   .. method:: assert_awaited_once_with(*args, **kwargs)
+              assert_awaited_once_with(*args: typing.Any, **kwargs: typing.Any) -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L489>`__)
 
       Assert that the mock was awaited exactly once and with the specified
       arguments.
@@ -1045,6 +1120,9 @@ object::
         AssertionError: Expected mock to have been awaited once. Awaited 2 times.
 
   .. method:: assert_any_await(*args, **kwargs)
+              assert_any_await(*args: typing.Any, **kwargs: typing.Any) -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L490>`__)
 
       Assert the mock has ever been awaited with the specified arguments.
 
@@ -1061,6 +1139,9 @@ object::
         AssertionError: mock('other') await not found
 
   .. method:: assert_has_awaits(calls, any_order=False)
+              assert_has_awaits(calls: collections.abc.Iterable[_Call], any_order: bool = False) -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L491>`__)
 
       Assert the mock has been awaited with the specified calls.
       The :attr:`await_args_list` list is checked for the awaits.
@@ -1088,6 +1169,9 @@ object::
         >>> mock.assert_has_awaits(calls)
 
   .. method:: assert_not_awaited()
+              assert_not_awaited() -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L492>`__)
 
     Assert that the mock was never awaited.
 
@@ -1095,11 +1179,17 @@ object::
         >>> mock.assert_not_awaited()
 
   .. method:: reset_mock(*args, **kwargs)
+              reset_mock(visited: typing.Any = None, *, return_value: bool = False, side_effect: bool = False) -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L505>`__)
 
     See :func:`Mock.reset_mock`. Also sets :attr:`await_count` to 0,
     :attr:`await_args` to None, and clears the :attr:`await_args_list`.
 
   .. attribute:: await_count
+     :type: int
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L494>`__)
 
     An integer keeping track of how many times the mock object has been awaited.
 
@@ -1115,6 +1205,9 @@ object::
       2
 
   .. attribute:: await_args
+     :type: _Call | None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L495>`__)
 
     This is either ``None`` (if the mock hasn’t been awaited), or the arguments that
     the mock was last awaited with. Functions the same as :attr:`Mock.call_args`.
@@ -1133,6 +1226,9 @@ object::
 
 
   .. attribute:: await_args_list
+     :type: _CallList
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L496>`__)
 
     This is a list of all the awaits made to the mock object in sequence (so the
     length of the list is the number of times it has been awaited). Before any
@@ -1167,6 +1263,9 @@ object::
   You can configure the global default timeout by setting :attr:`ThreadingMock.DEFAULT_TIMEOUT`.
 
   .. method:: wait_until_called(*, timeout=UNSET)
+              wait_until_called(*, timeout: _SentinelObject | float | None = ...) -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L574>`__)
 
       Waits until the mock is called.
 
@@ -1181,6 +1280,9 @@ object::
         >>> thread.join()
 
   .. method:: wait_until_any_call_with(*args, **kwargs)
+              wait_until_any_call_with(*args: typing.Any, **kwargs: typing.Any) -> None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L575>`__)
 
       Waits until the mock is called with the specified arguments.
 
@@ -1194,6 +1296,9 @@ object::
         >>> thread.join()
 
   .. attribute:: DEFAULT_TIMEOUT
+     :type: float | None
+
+     (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/unittest/mock.pyi#L569>`__)
 
     Global default timeout in seconds to create instances of :class:`ThreadingMock`.
 

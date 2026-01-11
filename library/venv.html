@@ -561,7 +561,11 @@ default is <code class="docutils literal notranslate"><span class="pre">&quot;gi
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.create">
 <span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.create" title="Link to this definition">¶</a></dt>
-<dd><p>Create a virtual environment by specifying the target directory
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StrOrBytesPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L45">typeshed</a>)</p>
+<blockquote>
+<div><p>Create a virtual environment by specifying the target directory
 (absolute or relative to the current directory) which is to contain the
 virtual environment.  The <code class="docutils literal notranslate"><span class="pre">create</span></code> method will either create the
 environment in the specified directory, or raise an appropriate
@@ -584,12 +588,17 @@ hooks available for subclass customization:</p>
 <p>Each of the methods <a class="reference internal" href="#venv.EnvBuilder.ensure_directories" title="venv.EnvBuilder.ensure_directories"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ensure_directories()</span></code></a>,
 <a class="reference internal" href="#venv.EnvBuilder.create_configuration" title="venv.EnvBuilder.create_configuration"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_configuration()</span></code></a>, <a class="reference internal" href="#venv.EnvBuilder.setup_python" title="venv.EnvBuilder.setup_python"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setup_python()</span></code></a>,
 <a class="reference internal" href="#venv.EnvBuilder.setup_scripts" title="venv.EnvBuilder.setup_scripts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setup_scripts()</span></code></a> and <a class="reference internal" href="#venv.EnvBuilder.post_setup" title="venv.EnvBuilder.post_setup"><code class="xref py py-meth docutils literal notranslate"><span class="pre">post_setup()</span></code></a> can be overridden.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.ensure_directories">
 <span class="sig-name descname"><span class="pre">ensure_directories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.ensure_directories" title="Link to this definition">¶</a></dt>
-<dd><p>Creates the environment directory and all necessary subdirectories that
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">ensure_directories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StrOrBytesPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L47">typeshed</a>)</p>
+<blockquote>
+<div><p>Creates the environment directory and all necessary subdirectories that
 don’t already exist, and returns a context object.  This context object
 is just a holder for attributes (such as paths) for use by the other
 methods.  If the <a class="reference internal" href="#venv.EnvBuilder" title="venv.EnvBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvBuilder</span></code></a> is created with the arg
@@ -633,34 +642,53 @@ object was documented.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.15: </span>The attribute <code class="docutils literal notranslate"><span class="pre">platlib_path</span></code> was added to the context.</p>
 </div>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.create_configuration">
 <span class="sig-name descname"><span class="pre">create_configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.create_configuration" title="Link to this definition">¶</a></dt>
-<dd><p>Creates the <code class="docutils literal notranslate"><span class="pre">pyvenv.cfg</span></code> configuration file in the environment.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L48">typeshed</a>)</p>
+<blockquote>
+<div><p>Creates the <code class="docutils literal notranslate"><span class="pre">pyvenv.cfg</span></code> configuration file in the environment.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.setup_python">
 <span class="sig-name descname"><span class="pre">setup_python</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.setup_python" title="Link to this definition">¶</a></dt>
-<dd><p>Creates a copy or symlink to the Python executable in the environment.
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">setup_python</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L52">typeshed</a>)</p>
+<blockquote>
+<div><p>Creates a copy or symlink to the Python executable in the environment.
 On POSIX systems, if a specific executable <code class="docutils literal notranslate"><span class="pre">python3.x</span></code> was used,
 symlinks to <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">python3</span></code> will be created pointing to that
 executable, unless files with those names already exist.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.setup_scripts">
 <span class="sig-name descname"><span class="pre">setup_scripts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.setup_scripts" title="Link to this definition">¶</a></dt>
-<dd><p>Installs activation scripts appropriate to the platform into the virtual
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">setup_scripts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L54">typeshed</a>)</p>
+<blockquote>
+<div><p>Installs activation scripts appropriate to the platform into the virtual
 environment.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.upgrade_dependencies">
 <span class="sig-name descname"><span class="pre">upgrade_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.upgrade_dependencies" title="Link to this definition">¶</a></dt>
-<dd><p>Upgrades the core venv dependency packages (currently <a class="extlink-pypi reference external" href="https://pypi.org/project/pip/">pip</a>)
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">upgrade_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L58">typeshed</a>)</p>
+<p>Upgrades the core venv dependency packages (currently <a class="extlink-pypi reference external" href="https://pypi.org/project/pip/">pip</a>)
 in the environment. This is done by shelling out to the
 <code class="docutils literal notranslate"><span class="pre">pip</span></code> executable in the environment.</p>
 <div class="versionadded">
@@ -674,15 +702,24 @@ in the environment. This is done by shelling out to the
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.post_setup">
 <span class="sig-name descname"><span class="pre">post_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.post_setup" title="Link to this definition">¶</a></dt>
-<dd><p>A placeholder method which can be overridden in third party
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">post_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L55">typeshed</a>)</p>
+<blockquote>
+<div><p>A placeholder method which can be overridden in third party
 implementations to pre-install packages in the virtual environment or
 perform other post-creation steps.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.install_scripts">
 <span class="sig-name descname"><span class="pre">install_scripts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.install_scripts" title="Link to this definition">¶</a></dt>
-<dd><p>This method can be
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">install_scripts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L57">typeshed</a>)</p>
+<blockquote>
+<div><p>This method can be
 called from <a class="reference internal" href="#venv.EnvBuilder.setup_scripts" title="venv.EnvBuilder.setup_scripts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setup_scripts()</span></code></a> or <a class="reference internal" href="#venv.EnvBuilder.post_setup" title="venv.EnvBuilder.post_setup"><code class="xref py py-meth docutils literal notranslate"><span class="pre">post_setup()</span></code></a> in subclasses to
 assist in installing custom scripts into the virtual environment.</p>
 <p><em>path</em> is the path to a directory that should contain subdirectories
@@ -704,12 +741,16 @@ environment’s executable.</p></li>
 </ul>
 <p>The directories are allowed to exist (for when an existing environment
 is being upgraded).</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="venv.EnvBuilder.create_git_ignore_file">
 <span class="sig-name descname"><span class="pre">create_git_ignore_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#venv.EnvBuilder.create_git_ignore_file" title="Link to this definition">¶</a></dt>
-<dd><p>Creates a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file within the virtual environment that causes
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_git_ignore_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.SimpleNamespace" title="types.SimpleNamespace"><span class="pre">SimpleNamespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L60">typeshed</a>)</p>
+<p>Creates a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file within the virtual environment that causes
 the entire directory to be ignored by the Git source control manager.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.13.</span></p>

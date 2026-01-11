@@ -427,15 +427,19 @@ data between the parent and child processes:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.close" title="Link to this definition">¶</a></dt>
-<dd><p>Closes the mmap. Subsequent calls to other methods of the object will
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L79">typeshed</a>)</p>
+<p>Closes the mmap. Subsequent calls to other methods of the object will
 result in a ValueError exception being raised. This will not close
 the open file.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmap.mmap.closed">
-<span class="sig-name descname"><span class="pre">closed</span></span><a class="headerlink" href="#mmap.mmap.closed" title="Link to this definition">¶</a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the file is closed.</p>
+<span class="sig-name descname"><span class="pre">closed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></em><a class="headerlink" href="#mmap.mmap.closed" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L96">typeshed</a>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the file is closed.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.2.</span></p>
 </div>
@@ -444,7 +448,10 @@ the open file.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.find" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the lowest index in the object where the subsequence <em>sub</em> is
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Buffer" title="collections.abc.Buffer"><span class="pre">Buffer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L100">typeshed</a>)</p>
+<p>Returns the lowest index in the object where the subsequence <em>sub</em> is
 found, such that <em>sub</em> is contained in the range [<em>start</em>, <em>end</em>].
 Optional arguments <em>start</em> and <em>end</em> are interpreted as in slice notation.
 Returns <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure.</p>
@@ -456,7 +463,10 @@ Returns <code class="docutils literal notranslate"><span class="pre">-1</span></
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.flush">
 <span class="sig-name descname"><span class="pre">flush</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">offset</span></span></em>, <span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <span class="optional">]</span><span class="optional">]</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags=MS_SYNC</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.flush" title="Link to this definition">¶</a></dt>
-<dd><p>Flushes changes made to the in-memory copy of a file back to disk. Without
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">flush</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L80">typeshed</a>)</p>
+<p>Flushes changes made to the in-memory copy of a file back to disk. Without
 use of this call there is no guarantee that changes are written back before
 the object is destroyed.  If <em>offset</em> and <em>size</em> are specified, only
 changes to the given range of bytes will be flushed to disk; otherwise, the
@@ -487,7 +497,10 @@ to the end of the mmap.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.madvise">
 <span class="sig-name descname"><span class="pre">madvise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.madvise" title="Link to this definition">¶</a></dt>
-<dd><p>Send advice <em>option</em> to the kernel about the memory region beginning at
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">madvise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L98">typeshed</a>)</p>
+<p>Send advice <em>option</em> to the kernel about the memory region beginning at
 <em>start</em> and extending <em>length</em> bytes.  <em>option</em> must be one of the
 <a class="reference internal" href="#madvise-constants"><span class="std std-ref">MADV_* constants</span></a> available on the system.  If
 <em>start</em> and <em>length</em> are omitted, the entire mapping is spanned.  On
@@ -502,7 +515,10 @@ some systems (including Linux), <em>start</em> must be a multiple of the
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.move">
 <span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.move" title="Link to this definition">¶</a></dt>
-<dd><p>Copy the <em>count</em> bytes starting at offset <em>src</em> to the destination index
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L81">typeshed</a>)</p>
+<p>Copy the <em>count</em> bytes starting at offset <em>src</em> to the destination index
 <em>dest</em>.  If the mmap was created with <code class="xref py py-const docutils literal notranslate"><span class="pre">ACCESS_READ</span></code>, then calls to
 move will raise a <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> exception.</p>
 </dd></dl>
@@ -510,7 +526,10 @@ move will raise a <a class="reference internal" href="exceptions.html#TypeError"
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.read" title="Link to this definition">¶</a></dt>
-<dd><p>Return a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> containing up to <em>n</em> bytes starting from the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L102">typeshed</a>)</p>
+<p>Return a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> containing up to <em>n</em> bytes starting from the
 current file position. If the argument is omitted, <code class="docutils literal notranslate"><span class="pre">None</span></code> or negative,
 return all bytes from the current file position to the end of the
 mapping. The file position is updated to point after the bytes that were
@@ -523,14 +542,20 @@ returned.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.read_byte">
 <span class="sig-name descname"><span class="pre">read_byte</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.read_byte" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a byte at the current file position as an integer, and advances
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">read_byte</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L82">typeshed</a>)</p>
+<p>Returns a byte at the current file position as an integer, and advances
 the file position by 1.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.readline">
 <span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.readline" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a single line, starting at the current file position and up to the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L83">typeshed</a>)</p>
+<p>Returns a single line, starting at the current file position and up to the
 next newline. The file position is updated to point after the bytes that were
 returned.</p>
 </dd></dl>
@@ -538,7 +563,10 @@ returned.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.resize">
 <span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.resize" title="Link to this definition">¶</a></dt>
-<dd><p>Resizes the map and the underlying file, if any.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L84">typeshed</a>)</p>
+<p>Resizes the map and the underlying file, if any.</p>
 <p>Resizing a map created with <em>access</em> of <code class="xref py py-const docutils literal notranslate"><span class="pre">ACCESS_READ</span></code> or
 <code class="xref py py-const docutils literal notranslate"><span class="pre">ACCESS_COPY</span></code>, will raise a <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> exception.
 Resizing a map created with <em>trackfd</em> set to <code class="docutils literal notranslate"><span class="pre">False</span></code>,
@@ -557,7 +585,10 @@ Allows resize against an anonymous map on Windows</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.rfind">
 <span class="sig-name descname"><span class="pre">rfind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.rfind" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the highest index in the object where the subsequence <em>sub</em> is
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">rfind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Buffer" title="collections.abc.Buffer"><span class="pre">Buffer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">...</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L101">typeshed</a>)</p>
+<p>Returns the highest index in the object where the subsequence <em>sub</em> is
 found, such that <em>sub</em> is contained in the range [<em>start</em>, <em>end</em>].
 Optional arguments <em>start</em> and <em>end</em> are interpreted as in slice notation.
 Returns <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure.</p>
@@ -569,7 +600,10 @@ Returns <code class="docutils literal notranslate"><span class="pre">-1</span></
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.seek">
 <span class="sig-name descname"><span class="pre">seek</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">whence</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.seek" title="Link to this definition">¶</a></dt>
-<dd><p>Set the file’s current position.  <em>whence</em> argument is optional and
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">seek</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">whence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Literal" title="typing.Literal"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L86">typeshed</a>)</p>
+<p>Set the file’s current position.  <em>whence</em> argument is optional and
 defaults to <code class="docutils literal notranslate"><span class="pre">os.SEEK_SET</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code> (absolute file positioning); other
 values are <code class="docutils literal notranslate"><span class="pre">os.SEEK_CUR</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code> (seek relative to the current
 position) and <code class="docutils literal notranslate"><span class="pre">os.SEEK_END</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code> (seek relative to the file’s end).</p>
@@ -581,7 +615,10 @@ position) and <code class="docutils literal notranslate"><span class="pre">os.SE
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.seekable">
 <span class="sig-name descname"><span class="pre">seekable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.seekable" title="Link to this definition">¶</a></dt>
-<dd><p>Return whether the file supports seeking, and the return value is always <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">seekable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="typing.html#typing.Literal" title="typing.Literal"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L138">typeshed</a>)</p>
+<p>Return whether the file supports seeking, and the return value is always <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.13.</span></p>
 </div>
@@ -605,7 +642,10 @@ The length of <em>name</em> must not exceed 67 bytes including the <code class="
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.size" title="Link to this definition">¶</a></dt>
-<dd><p>Return the length of the file, which can be larger than the size of the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L90">typeshed</a>)</p>
+<p>Return the length of the file, which can be larger than the size of the
 memory-mapped area.
 For an anonymous mapping, return its size.</p>
 <div class="versionchanged">
@@ -616,13 +656,19 @@ For an anonymous mapping, return its size.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.tell">
 <span class="sig-name descname"><span class="pre">tell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.tell" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the current position of the file pointer.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L91">typeshed</a>)</p>
+<p>Returns the current position of the file pointer.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.write">
 <span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.write" title="Link to this definition">¶</a></dt>
-<dd><p>Write the bytes in <em>bytes</em> into memory at the current position of the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Buffer" title="collections.abc.Buffer"><span class="pre">Buffer</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L103">typeshed</a>)</p>
+<p>Write the bytes in <em>bytes</em> into memory at the current position of the
 file pointer and return the number of bytes written (never less than
 <code class="docutils literal notranslate"><span class="pre">len(bytes)</span></code>, since if the write fails, a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> will be
 raised).  The file position is updated to point after the bytes that
@@ -639,7 +685,10 @@ writing to it will raise a <a class="reference internal" href="exceptions.html#T
 <dl class="py method">
 <dt class="sig sig-object py" id="mmap.mmap.write_byte">
 <span class="sig-name descname"><span class="pre">write_byte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.write_byte" title="Link to this definition">¶</a></dt>
-<dd><p>Write the integer <em>byte</em> into memory at the current
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">write_byte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mmap.pyi#L92">typeshed</a>)</p>
+<p>Write the integer <em>byte</em> into memory at the current
 position of the file pointer; the file position is advanced by <code class="docutils literal notranslate"><span class="pre">1</span></code>. If
 the mmap was created with <code class="xref py py-const docutils literal notranslate"><span class="pre">ACCESS_READ</span></code>, then writing to it will
 raise a <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> exception.</p>

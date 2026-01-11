@@ -185,6 +185,8 @@ Data Types
 
    .. method:: EnumType.__call__(cls, value, names=None, *, module=None, qualname=None, type=None, start=1, boundary=None)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L138>`__)
+
       This method is called in two different ways:
 
       * to look up an existing member:
@@ -205,6 +207,9 @@ Data Types
          :boundary:  How to handle out-of-range values from bit operations (:class:`Flag` only).
 
    .. method:: EnumType.__contains__(cls, member)
+               EnumType.__contains__(value: object) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L114>`__)
 
       Returns ``True`` if member belongs to the ``cls``::
 
@@ -220,6 +225,9 @@ Data Types
          non-Enum-member is used in a containment check.
 
    .. method:: EnumType.__dir__(cls)
+               EnumType.__dir__() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L134>`__)
 
       Returns ``['__class__', '__doc__', '__members__', '__module__']`` and the
       names of the members in *cls*::
@@ -228,6 +236,9 @@ Data Types
         ['BLUE', 'GREEN', 'RED', '__class__', '__contains__', '__doc__', '__getitem__', '__init_subclass__', '__iter__', '__len__', '__members__', '__module__', '__name__', '__qualname__']
 
    .. method:: EnumType.__getitem__(cls, name)
+               EnumType.__getitem__[_EnumMemberT](name: str) -> _EnumMemberT
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L122>`__)
 
       Returns the Enum member in *cls* matching *name*, or raises a :exc:`KeyError`::
 
@@ -235,6 +246,9 @@ Data Types
         <Color.BLUE: 3>
 
    .. method:: EnumType.__iter__(cls)
+               EnumType.__iter__[_EnumMemberT]() -> collections.abc.Iterator[_EnumMemberT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L111>`__)
 
       Returns each member in *cls* in definition order::
 
@@ -242,6 +256,9 @@ Data Types
         [<Color.RED: 1>, <Color.GREEN: 2>, <Color.BLUE: 3>]
 
    .. method:: EnumType.__len__(cls)
+               EnumType.__len__() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L132>`__)
 
       Returns the number of member in *cls*::
 
@@ -249,10 +266,16 @@ Data Types
         3
 
    .. attribute:: EnumType.__members__
+      :type: __members__[_EnumMemberT](self: type[_EnumMemberT]) -> MappingProxyType[str, _EnumMemberT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L124>`__)
 
       Returns a mapping of every enum name to its member, including aliases
 
    .. method:: EnumType.__reversed__(cls)
+               EnumType.__reversed__[_EnumMemberT]() -> collections.abc.Iterator[_EnumMemberT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L112>`__)
 
       Returns each member in *cls* in reverse definition order::
 
@@ -268,6 +291,9 @@ Data Types
    *Enum* is the base class for all *enum* enumerations.
 
    .. attribute:: Enum.name
+      :type: name(self: Enum) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L201>`__)
 
       The name used to define the ``Enum`` member::
 
@@ -275,6 +301,9 @@ Data Types
         'BLUE'
 
    .. attribute:: Enum.value
+      :type: value(self: Enum) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L203>`__)
 
       The value given to the ``Enum`` member::
 
@@ -296,19 +325,31 @@ Data Types
          total number of mutable/unhashable values in the enum.
 
    .. attribute:: Enum._name_
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L204>`__)
 
       Name of the member.
 
    .. attribute:: Enum._value_
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L205>`__)
 
       Value of the member, can be set in :meth:`~Enum.__new__`.
 
    .. attribute:: Enum._order_
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L207>`__)
 
       No longer used, kept for backward compatibility.
       (class attribute, removed during class creation).
 
    .. attribute:: Enum._ignore_
+      :type: list[str] | str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L206>`__)
 
       ``_ignore_`` is only used during creation and is removed from the
       enumeration once creation is complete.
@@ -318,6 +359,9 @@ Data Types
       :ref:`TimePeriod <enum-time-period>` for an example.
 
    .. method:: Enum.__dir__(self)
+               Enum.__dir__() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L219>`__)
 
       Returns ``['__class__', '__doc__', '__module__', 'name', 'value']`` and
       any public methods defined on *self.__class__*::
@@ -340,6 +384,9 @@ Data Types
          ['__class__', '__doc__', '__eq__', '__hash__', '__module__', 'name', 'today', 'value']
 
    .. method:: Enum._generate_next_value_(name, start, count, last_values)
+               Enum._generate_next_value_(name: str, start: int, count: int, last_values: list[typing.Any]) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L212>`__)
 
          :name: The name of the member being defined (e.g. 'RED').
          :start: The start value for the Enum; the default is 1.
@@ -377,6 +424,9 @@ Data Types
       By default, does nothing.
 
    .. method:: Enum._missing_(cls, value)
+               Enum._missing_(cls: type[Enum], value: object) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L210>`__)
 
       A *classmethod* for looking up values not found in *cls*.  By default it
       does nothing, but can be overridden to implement custom search behavior::
@@ -399,6 +449,9 @@ Data Types
          <Build.DEBUG: 'debug'>
 
    .. method:: Enum.__new__(cls, *args, **kwds)
+               Enum.__new__[Self@Enum](cls: type[Self@Enum], value: object) -> Self@Enum
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L218>`__)
 
       By default, doesn't exist.  If specified, either in the enum class
       definition or in a mixin class (such as ``int``), all values given
@@ -449,6 +502,9 @@ Data Types
          (<OtherStyle.ALTERNATE: 1>, 'ALTERNATE', 'ALTERNATE')
 
    .. method:: Enum.__format__(self)
+               Enum.__format__(format_spec: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L221>`__)
 
       Returns the string used for *format()* and *f-string* calls.  By default,
       returns :meth:`__str__` return value, but can be overridden::
@@ -472,6 +528,9 @@ Data Types
    .. versionchanged:: 3.12 Added :ref:`enum-dataclass-support`
 
    .. method:: Enum._add_alias_
+               Enum._add_alias_(name: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L233>`__)
 
       Adds a new name as an alias to an existing member::
 
@@ -484,6 +543,9 @@ Data Types
       .. versionadded:: 3.13
 
    .. method:: Enum._add_value_alias_
+               Enum._add_value_alias_(value: typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L232>`__)
 
       Adds a new value as an alias to an existing member::
 
@@ -584,6 +646,9 @@ Data Types
    the results of those operations are (aliases of) members of the enumeration.
 
    .. method:: __contains__(self, value)
+               __contains__(other: Flag) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L269>`__)
 
       Returns *True* if value is in self::
 
@@ -605,6 +670,9 @@ Data Types
          False
 
    .. method:: __iter__(self):
+               __iter__() -> collections.abc.Iterator[Flag]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L276>`__)
 
       Returns all contained non-alias members::
 
@@ -616,6 +684,9 @@ Data Types
       .. versionadded:: 3.11
 
    .. method:: __len__(self):
+               __len__() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L277>`__)
 
       Returns number of members in flag::
 
@@ -627,6 +698,9 @@ Data Types
       .. versionadded:: 3.11
 
    .. method:: __bool__(self):
+               __bool__() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L270>`__)
 
       Returns *True* if any members in flag, *False* otherwise::
 
@@ -639,6 +713,9 @@ Data Types
          False
 
    .. method:: __or__(self, other)
+               __or__(other: Flag) -> Flag
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L271>`__)
 
       Returns current flag binary or'ed with other::
 
@@ -646,6 +723,9 @@ Data Types
          <Color.RED|GREEN: 3>
 
    .. method:: __and__(self, other)
+               __and__(other: Flag) -> Flag
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L272>`__)
 
       Returns current flag binary and'ed with other::
 
@@ -655,6 +735,9 @@ Data Types
          <Color: 0>
 
    .. method:: __xor__(self, other)
+               __xor__(other: Flag) -> Flag
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L273>`__)
 
       Returns current flag binary xor'ed with other::
 
@@ -664,6 +747,9 @@ Data Types
          <Color.RED|GREEN|BLUE: 7>
 
    .. method:: __invert__(self):
+               __invert__() -> Flag
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L274>`__)
 
       Returns all the flags in *type(self)* that are not in *self*::
 
@@ -767,6 +853,9 @@ Data Types
    various constraints; failed constraints result in a :exc:`ValueError`.
 
    .. attribute:: UNIQUE
+      :type: typing.Literal[EnumCheck.UNIQUE]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L294>`__)
 
       Ensure that each value has only one name::
 
@@ -783,6 +872,9 @@ Data Types
 
 
    .. attribute:: CONTINUOUS
+      :type: typing.Literal[EnumCheck.CONTINUOUS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L292>`__)
 
       Ensure that there are no missing values between the lowest-valued member
       and the highest-valued member::
@@ -798,6 +890,9 @@ Data Types
          ValueError: invalid enum 'Color': missing values 3, 4
 
    .. attribute:: NAMED_FLAGS
+      :type: typing.Literal[EnumCheck.NAMED_FLAGS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L293>`__)
 
       Ensure that any flag groups/masks contain only named flags -- useful when
       values are specified instead of being generated by :func:`auto`::
@@ -829,6 +924,9 @@ Data Types
    subclasses.
 
    .. attribute:: STRICT
+      :type: typing.Literal[FlagBoundary.STRICT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L305>`__)
 
       Out-of-range values cause a :exc:`ValueError` to be raised. This is the
       default for :class:`Flag`::
@@ -847,6 +945,9 @@ Data Types
            allowed 0b0 00111
 
    .. attribute:: CONFORM
+      :type: typing.Literal[FlagBoundary.CONFORM]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L306>`__)
 
       Out-of-range values have invalid values removed, leaving a valid :class:`Flag`
       value::
@@ -861,6 +962,9 @@ Data Types
          <ConformFlag.BLUE: 4>
 
    .. attribute:: EJECT
+      :type: typing.Literal[FlagBoundary.EJECT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L307>`__)
 
       Out-of-range values lose their :class:`Flag` membership and revert to :class:`int`.
 
@@ -874,6 +978,9 @@ Data Types
          20
 
    .. attribute:: KEEP
+      :type: typing.Literal[FlagBoundary.KEEP]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L308>`__)
 
       Out-of-range values are kept, and the :class:`Flag` membership is kept.
       This is the default for :class:`IntFlag`::
@@ -907,6 +1014,9 @@ Data Types
    operations like :meth:`|= <object.__ior__>`.
 
    .. attribute:: EnumDict.member_names
+      :type: member_names(self: _EnumDict) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/enum.pyi#L86>`__)
 
       A list of member names.
 

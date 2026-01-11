@@ -120,6 +120,9 @@ The following exceptions are used mostly as base classes for other exceptions.
    there were no arguments.
 
    .. attribute:: args
+      :type: tuple[typing.Any, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6310>`__)
 
       The tuple of arguments given to the exception constructor.  Some built-in
       exceptions (like :exc:`OSError`) expect a certain number of arguments and
@@ -127,6 +130,9 @@ The following exceptions are used mostly as base classes for other exceptions.
       usually called only with a single string giving an error message.
 
    .. method:: with_traceback(tb)
+               with_traceback(tb: TracebackType | None, /) -> BaseException
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6318>`__)
 
       This method sets *tb* as the new traceback for the exception and returns
       the exception object.  It was more commonly used before the exception
@@ -144,12 +150,18 @@ The following exceptions are used mostly as base classes for other exceptions.
              raise OtherException(...).with_traceback(tb)
 
    .. attribute:: __traceback__
+      :type: TracebackType | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6314>`__)
 
       A writable field that holds the
       :ref:`traceback object <traceback-objects>` associated with this
       exception. See also: :ref:`raise`.
 
    .. method:: add_note(note)
+               add_note(note: str, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6335>`__)
 
       Add the string ``note`` to the exception's notes which appear in the standard
       traceback after the exception string. A :exc:`TypeError` is raised if ``note``
@@ -158,6 +170,9 @@ The following exceptions are used mostly as base classes for other exceptions.
       .. versionadded:: 3.11
 
    .. attribute:: __notes__
+      :type: list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6334>`__)
 
       A list of the notes of this exception, which were added with :meth:`add_note`.
       This attribute is created when :meth:`add_note` is called.
@@ -231,10 +246,16 @@ The following exceptions are the exceptions that are usually raised.
    set the corresponding attributes:
 
    .. attribute:: name
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6391>`__)
 
       The name of the attribute that was attempted to be accessed.
 
    .. attribute:: obj
+      :type: object
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6392>`__)
 
       The object that was accessed for the named attribute.
 
@@ -283,10 +304,16 @@ The following exceptions are the exceptions that are usually raised.
    set the corresponding attributes:
 
    .. attribute:: name
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6408>`__)
 
       The name of the module that was attempted to be imported.
 
    .. attribute:: path
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6409>`__)
 
       The path to any file which triggered the exception.
 
@@ -374,6 +401,9 @@ The following exceptions are the exceptions that are usually raised.
    The optional *name* keyword-only argument sets the attribute:
 
    .. attribute:: name
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6426>`__)
 
       The name of the variable that was attempted to be accessed.
 
@@ -430,6 +460,9 @@ The following exceptions are the exceptions that are usually raised.
    inherited when subclassing.
 
    .. attribute:: errno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6366>`__)
 
       A numeric error code from the C variable :c:data:`errno`.
 
@@ -446,6 +479,9 @@ The following exceptions are the exceptions that are usually raised.
       does not exist.
 
    .. attribute:: strerror
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6367>`__)
 
       The corresponding error message, as provided by
       the operating system.  It is formatted by the C
@@ -454,6 +490,8 @@ The following exceptions are the exceptions that are usually raised.
 
    .. attribute:: filename
                   filename2
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6369>`__)
 
       For exceptions that involve a file system path (such as :func:`open` or
       :func:`os.unlink`), :attr:`filename` is the file name passed to the function.
@@ -564,6 +602,9 @@ The following exceptions are the exceptions that are usually raised.
    items produced by the iterator.
 
    .. attribute:: StopIteration.value
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6361>`__)
 
       The exception object has a single attribute :attr:`!value`, which is
       given as an argument when constructing the exception, and defaults
@@ -614,29 +655,47 @@ The following exceptions are the exceptions that are usually raised.
    Details is a tuple whose members are also available as separate attributes.
 
    .. attribute:: filename
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6445>`__)
 
       The name of the file the syntax error occurred in.
 
    .. attribute:: lineno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6446>`__)
 
       Which line number in the file the error occurred in. This is
       1-indexed: the first line in the file has a ``lineno`` of 1.
 
    .. attribute:: offset
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6447>`__)
 
       The column in the line where the error occurred. This is
       1-indexed: the first character in the line has an ``offset`` of 1.
 
    .. attribute:: text
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6448>`__)
 
       The source code text involved in the error.
 
    .. attribute:: end_lineno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6453>`__)
 
       Which line number in the file the error occurred ends in. This is
       1-indexed: the first line in the file has a ``lineno`` of 1.
 
    .. attribute:: end_offset
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6454>`__)
 
       The column in the end line where the error occurred finishes. This is
       1-indexed: the first character in the line has an ``offset`` of 1.
@@ -709,6 +768,9 @@ The following exceptions are the exceptions that are usually raised.
    process after a call to :func:`os.fork`).
 
    .. attribute:: code
+      :type: int | str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6352>`__)
 
       The exit status or error message that is passed to the constructor.
       (Defaults to ``None``.)
@@ -868,6 +930,9 @@ depending on the system error code.
    one more attribute:
 
    .. attribute:: characters_written
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6510>`__)
 
       An integer containing the number of **bytes** written to the stream
       before it blocked. This attribute is available when using the
@@ -1197,15 +1262,23 @@ their subgroups based on the types of the contained exceptions.
       pass a tuple as ``excs``.
 
    .. attribute:: message
+      :type: message[_BaseExceptionT_co](self: BaseExceptionGroup[_BaseExceptionT_co]) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6664>`__)
 
        The ``msg`` argument to the constructor. This is a read-only attribute.
 
    .. attribute:: exceptions
+      :type: exceptions[_BaseExceptionT_co](self: BaseExceptionGroup[_BaseExceptionT_co]) -> tuple[BaseExceptionGroup[_BaseExceptionT_co] | _BaseExceptionT_co, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6668>`__)
 
        A tuple of the exceptions in the ``excs`` sequence given to the
        constructor. This is a read-only attribute.
 
    .. method:: subgroup(condition)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6672>`__)
 
       Returns an exception group that contains only the exceptions from the
       current group that match *condition*, or ``None`` if the result is empty.
@@ -1232,11 +1305,17 @@ their subgroups based on the types of the contained exceptions.
 
    .. method:: split(condition)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6684>`__)
+
       Like :meth:`subgroup`, but returns the pair ``(match, rest)`` where ``match``
       is ``subgroup(condition)`` and ``rest`` is the remaining non-matching
       part.
 
    .. method:: derive(excs)
+               derive(excs: collections.abc.Sequence[_ExceptionT], /) -> ExceptionGroup[_ExceptionT]
+               derive(excs: collections.abc.Sequence[_BaseExceptionT], /) -> BaseExceptionGroup[_BaseExceptionT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L6697>`__)
 
       Returns an exception group with the same :attr:`message`, but which
       wraps the exceptions in ``excs``.

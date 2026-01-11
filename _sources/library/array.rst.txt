@@ -108,21 +108,33 @@ The module defines the following type:
 
 
    .. attribute:: typecode
+      :type: typecode[_T](self: array[_T]) -> _TypeCode
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L88>`__)
 
       The typecode character used to create the array.
 
 
    .. attribute:: itemsize
+      :type: itemsize[_T](self: array[_T]) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L92>`__)
 
       The length in bytes of one array item in the internal representation.
 
 
    .. method:: append(x)
+               append[_T](v: _T, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L124>`__)
 
       Append a new item with value *x* to the end of the array.
 
 
    .. method:: buffer_info()
+               buffer_info[_T]() -> tuple[int, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L127>`__)
 
       Return a tuple ``(address, length)`` giving the current memory address and the
       length in elements of the buffer used to hold array's contents.  The size of the
@@ -142,6 +154,9 @@ The module defines the following type:
 
 
    .. method:: byteswap()
+               byteswap[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L135>`__)
 
       "Byteswap" all items of the array.  This is only supported for values which are
       1, 2, 4, or 8 bytes in size; for other types of values, :exc:`RuntimeError` is
@@ -150,11 +165,17 @@ The module defines the following type:
 
 
    .. method:: count(x)
+               count[_T](v: _T, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L143>`__)
 
       Return the number of occurrences of *x* in the array.
 
 
    .. method:: extend(iterable)
+               extend[_T](bb: collections.abc.Iterable[_T], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L146>`__)
 
       Append items from *iterable* to the end of the array.  If *iterable* is another
       array, it must have *exactly* the same type code; if not, :exc:`TypeError` will
@@ -163,6 +184,9 @@ The module defines the following type:
 
 
    .. method:: frombytes(buffer)
+               frombytes[_T](buffer: Buffer, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L149>`__)
 
       Appends items from the :term:`bytes-like object`, interpreting
       its content as an array of machine values (as if it had been read
@@ -173,6 +197,9 @@ The module defines the following type:
 
 
    .. method:: fromfile(f, n)
+               fromfile[_T](f: SupportsRead[bytes], n: int, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L152>`__)
 
       Read *n* items (as machine values) from the :term:`file object` *f* and append
       them to the end of the array.  If less than *n* items are available,
@@ -181,12 +208,18 @@ The module defines the following type:
 
 
    .. method:: fromlist(list)
+               fromlist[_T](list: list[_T], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L155>`__)
 
       Append items from the list.  This is equivalent to ``for x in list:
       a.append(x)`` except that if there is a type error, the array is unchanged.
 
 
    .. method:: fromunicode(s)
+               fromunicode[_T](ustr: str, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L158>`__)
 
       Extends this array with data from the given Unicode string.
       The array must have type code ``'u'`` or ``'w'``; otherwise a :exc:`ValueError` is raised.
@@ -195,6 +228,9 @@ The module defines the following type:
 
 
    .. method:: index(x[, start[, stop]])
+               index[_T](v: _T, start: int = 0, stop: int = ..., /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L168>`__)
 
       Return the smallest *i* such that *i* is the index of the first occurrence of
       *x* in the array.  The optional arguments *start* and *stop* can be
@@ -206,12 +242,18 @@ The module defines the following type:
 
 
    .. method:: insert(i, x)
+               insert[_T](i: int, v: _T, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L178>`__)
 
       Insert a new item with value *x* in the array before position *i*. Negative
       values are treated as being relative to the end of the array.
 
 
    .. method:: pop([i])
+               pop[_T](i: int = -1, /) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L181>`__)
 
       Removes the item with the index *i* from the array and returns it. The optional
       argument defaults to ``-1``, so that by default the last item is removed and
@@ -219,11 +261,17 @@ The module defines the following type:
 
 
    .. method:: remove(x)
+               remove[_T](v: _T, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L188>`__)
 
       Remove the first occurrence of *x* from the array.
 
 
    .. method:: clear()
+               clear[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L731>`__)
 
       Remove all elements from the array.
 
@@ -231,11 +279,17 @@ The module defines the following type:
 
 
    .. method:: reverse()
+               reverse[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L733>`__)
 
       Reverse the order of the items in the array.
 
 
    .. method:: tobytes()
+               tobytes[_T]() -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L191>`__)
 
       Convert the array to an array of machine values and return the bytes
       representation (the same sequence of bytes that would be written to a file by
@@ -246,16 +300,25 @@ The module defines the following type:
 
 
    .. method:: tofile(f)
+               tofile[_T](f: SupportsWrite[bytes], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L194>`__)
 
       Write all items (as machine values) to the :term:`file object` *f*.
 
 
    .. method:: tolist()
+               tolist[_T]() -> list[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L197>`__)
 
       Convert the array to an ordinary list with the same items.
 
 
    .. method:: tounicode()
+               tounicode[_T]() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/array.pyi#L200>`__)
 
       Convert the array to a Unicode string.  The array must have a type ``'u'`` or ``'w'``;
       otherwise a :exc:`ValueError` is raised. Use ``array.tobytes().decode(enc)`` to

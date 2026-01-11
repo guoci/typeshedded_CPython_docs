@@ -235,11 +235,17 @@ StreamReader
    instead.
 
    .. method:: feed_eof()
+               feed_eof() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L147>`__)
 
       Acknowledge the EOF.
 
    .. method:: read(n=-1)
+               read(n: int = -1) -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L156>`__)
 
       Read up to *n* bytes from the stream.
 
@@ -256,7 +262,10 @@ StreamReader
       ``bytes`` object.
 
    .. method:: readline()
+               readline() -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L150>`__)
 
       Read one line, where "line" is a sequence of bytes
       ending with ``\n``.
@@ -268,7 +277,10 @@ StreamReader
       return an empty ``bytes`` object.
 
    .. method:: readexactly(n)
+               readexactly(n: int) -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L157>`__)
 
       Read exactly *n* bytes.
 
@@ -277,7 +289,11 @@ StreamReader
       attribute to get the partially read data.
 
    .. method:: readuntil(separator=b'\n')
+               readuntil(separator: _ReaduntilBuffer | tuple[_ReaduntilBuffer, ...] = b'
+               ') -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L152>`__)
 
       Read data from the stream until *separator* is found.
 
@@ -308,6 +324,9 @@ StreamReader
          separators.
 
    .. method:: at_eof()
+               at_eof() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L148>`__)
 
       Return ``True`` if the buffer is empty and :meth:`feed_eof`
       was called.
@@ -329,6 +348,9 @@ StreamWriter
    instead.
 
    .. method:: write(data)
+               write(data: bytearray | bytes | memoryview[int]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L114>`__)
 
       The method attempts to write the *data* to the underlying socket immediately.
       If that fails, the data is queued in an internal write buffer until it can be
@@ -344,6 +366,9 @@ StreamWriter
 
 
    .. method:: writelines(data)
+               writelines(data: collections.abc.Iterable[bytearray | bytes | memoryview[int]]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L115>`__)
 
       The method writes a list (or any iterable) of bytes to the underlying socket
       immediately.
@@ -356,6 +381,9 @@ StreamWriter
          await stream.drain()
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L118>`__)
 
       The method closes the stream and the underlying socket.
 
@@ -366,26 +394,41 @@ StreamWriter
          await stream.wait_closed()
 
    .. method:: can_write_eof()
+               can_write_eof() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L117>`__)
 
       Return ``True`` if the underlying transport supports
       the :meth:`write_eof` method, ``False`` otherwise.
 
    .. method:: write_eof()
+               write_eof() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L116>`__)
 
       Close the write end of the stream after the buffered write
       data is flushed.
 
    .. attribute:: transport
+      :type: transport(self: StreamWriter) -> WriteTransport
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L113>`__)
 
       Return the underlying asyncio transport.
 
    .. method:: get_extra_info(name, default=None)
+               get_extra_info(name: str, default: typing.Any = None) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L121>`__)
 
       Access optional transport information; see
       :meth:`BaseTransport.get_extra_info` for details.
 
    .. method:: drain()
+               drain() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L122>`__)
 
       Wait until it is appropriate to resume writing to the stream.
       Example::
@@ -402,7 +445,10 @@ StreamWriter
 
    .. method:: start_tls(sslcontext, *, server_hostname=None, \
                          ssl_handshake_timeout=None, ssl_shutdown_timeout=None)
+               start_tls(sslcontext: SSLContext, *, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L124>`__)
 
       Upgrade an existing stream-based connection to TLS.
 
@@ -428,6 +474,9 @@ StreamWriter
 
 
    .. method:: is_closing()
+               is_closing() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L119>`__)
 
       Return ``True`` if the stream is closed or in the process of
       being closed.
@@ -435,7 +484,10 @@ StreamWriter
       .. versionadded:: 3.7
 
    .. method:: wait_closed()
+               wait_closed() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/streams.pyi#L120>`__)
 
       Wait until the stream is closed.
 

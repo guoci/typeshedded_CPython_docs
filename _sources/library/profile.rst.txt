@@ -137,19 +137,31 @@ following functions:
       Added context manager support.
 
    .. method:: enable()
+               enable(subcalls: bool = True, builtins: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lsprof.pyi#L51>`__)
 
       Start collecting profiling data. Only in :mod:`profiling.tracing`.
 
    .. method:: disable()
+               disable() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_lsprof.pyi#L62>`__)
 
       Stop collecting profiling data. Only in :mod:`profiling.tracing`.
 
    .. method:: create_stats()
+               create_stats() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/profile.pyi#L26>`__)
 
       Stop collecting profiling data and record the results internally
       as the current profile.
 
    .. method:: print_stats(sort=-1)
+               print_stats(sort: int | str = -1) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/profile.pyi#L24>`__)
 
       Create a :class:`~pstats.Stats` object based on the current
       profile and print the results to stdout.
@@ -162,19 +174,31 @@ following functions:
          :meth:`~Profile.print_stats` now accepts a tuple of keys.
 
    .. method:: dump_stats(filename)
+               dump_stats(file: StrOrBytesPath) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/profile.pyi#L25>`__)
 
       Write the results of the current profile to *filename*.
 
    .. method:: run(cmd)
+               run(cmd: str) -> Profile
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/profile.pyi#L28>`__)
 
       Profile the cmd via :func:`exec`.
 
    .. method:: runctx(cmd, globals, locals)
+               runctx(cmd: str, globals: dict[str, typing.Any], locals: collections.abc.Mapping[str, typing.Any]) -> Profile
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/profile.pyi#L29>`__)
 
       Profile the cmd via :func:`exec` with the specified global and
       local environment.
 
    .. method:: runcall(func, /, *args, **kwargs)
+               runcall[_P, _T](Profile, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/profile.pyi#L30>`__)
 
       Profile ``func(*args, **kwargs)``
 

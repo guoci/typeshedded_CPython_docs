@@ -1438,6 +1438,9 @@ this API may be passed as the ``action`` parameter to
    are defined is to call :meth:`!Action.__init__`.
 
    .. method:: __call__(parser, namespace, values, option_string=None)
+               __call__(parser: ArgumentParser, namespace: Namespace, values: collections.abc.Sequence[typing.Any] | str | None, option_string: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/argparse.pyi#L368>`__)
 
       :class:`!Action` instances should be callable, so subclasses must override the
       :meth:`!__call__` method, which should accept four parameters:
@@ -1460,6 +1463,9 @@ this API may be passed as the ``action`` parameter to
       attributes on the ``namespace`` based on ``dest`` and ``values``.
 
    .. method:: format_usage()
+               format_usage() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/argparse.pyi#L371>`__)
 
       :class:`!Action` subclasses can define a :meth:`!format_usage` method that takes no argument
       and return a string which will be used when printing the usage of the program.

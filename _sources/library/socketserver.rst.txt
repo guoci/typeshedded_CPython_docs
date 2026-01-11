@@ -129,6 +129,9 @@ server is the address family.
    only available on POSIX platforms that support :func:`~os.fork`.
 
    .. attribute:: block_on_close
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L123>`__)
 
       :meth:`ForkingMixIn.server_close <BaseServer.server_close>`
       waits until all child processes complete, except if
@@ -139,12 +142,18 @@ server is the address family.
       :attr:`block_on_close` attribute is ``False``.
 
    .. attribute:: max_children
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L113>`__)
 
       Specify how many child processes will exist to handle requests at a time
       for :class:`ForkingMixIn`.  If the limit is reached,
       new requests will wait until one child process has finished.
 
    .. attribute:: daemon_threads
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L122>`__)
 
       For :class:`ThreadingMixIn` use daemonic threads by setting
       :data:`ThreadingMixIn.daemon_threads <daemon_threads>`
@@ -229,6 +238,9 @@ Server Objects
 
 
    .. method:: fileno()
+               fileno() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L82>`__)
 
       Return an integer file descriptor for the socket on which the server is
       listening.  This function is most commonly passed to :mod:`selectors`, to
@@ -236,6 +248,9 @@ Server Objects
 
 
    .. method:: handle_request()
+               handle_request() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L48>`__)
 
       Process a single request.  This function calls the following methods in
       order: :meth:`get_request`, :meth:`verify_request`, and
@@ -248,6 +263,9 @@ Server Objects
 
 
    .. method:: serve_forever(poll_interval=0.5)
+               serve_forever(poll_interval: float = ...) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L49>`__)
 
       Handle requests until an explicit :meth:`shutdown` request.  Poll for
       shutdown every *poll_interval* seconds.
@@ -262,6 +280,9 @@ Server Objects
 
 
    .. method:: service_actions()
+               service_actions() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L63>`__)
 
       This is called in the :meth:`serve_forever` loop. This method can be
       overridden by subclasses or mixin classes to perform actions specific to
@@ -270,6 +291,9 @@ Server Objects
       .. versionadded:: 3.3
 
    .. method:: shutdown()
+               shutdown() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L50>`__)
 
       Tell the :meth:`serve_forever` loop to stop and wait until it does.
       :meth:`shutdown` must be called while :meth:`serve_forever` is running in a
@@ -277,11 +301,17 @@ Server Objects
 
 
    .. method:: server_close()
+               server_close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L51>`__)
 
       Clean up the server. May be overridden.
 
 
    .. attribute:: address_family
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L68>`__)
 
       The family of protocols to which the server's socket belongs.  Common
       examples are :const:`socket.AF_INET`, :const:`socket.AF_INET6`, and
@@ -291,12 +321,18 @@ Server Objects
 
 
    .. attribute:: RequestHandlerClass
+      :type: (typing.Any, typing.Any, BaseServer) -> BaseRequestHandler
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L44>`__)
 
       The user-provided request handler class; an instance of this class is created
       for each request.
 
 
    .. attribute:: server_address
+      :type: Buffer | str | tuple[typing.Any, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L42>`__)
 
       The address on which the server is listening.  The format of addresses varies
       depending on the protocol family;
@@ -306,6 +342,9 @@ Server Objects
 
 
    .. attribute:: socket
+      :type: socket
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L69>`__)
 
       The socket object on which the server will listen for incoming requests.
 
@@ -315,12 +354,18 @@ Server Objects
    .. XXX should class variables be covered before instance variables, or vice versa?
 
    .. attribute:: allow_reuse_address
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L70>`__)
 
       Whether the server will allow the reuse of an address.  This defaults to
       :const:`False`, and can be set in subclasses to change the policy.
 
 
    .. attribute:: request_queue_size
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L71>`__)
 
       The size of the request queue.  If it takes a long time to process a single
       request, any requests that arrive while the server is busy are placed into a
@@ -330,12 +375,18 @@ Server Objects
 
 
    .. attribute:: socket_type
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L72>`__)
 
       The type of socket used by the server; :const:`socket.SOCK_STREAM` and
       :const:`socket.SOCK_DGRAM` are two common values.
 
 
    .. attribute:: timeout
+      :type: float | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L43>`__)
 
       Timeout duration, measured in seconds, or :const:`None` if no timeout is
       desired.  If :meth:`handle_request` receives no incoming requests within the
@@ -350,12 +401,18 @@ Server Objects
       it be assumed that the user will look at socketserver.py?
 
    .. method:: finish_request(request, client_address)
+               finish_request(request: _RequestType, client_address: typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L52>`__)
 
       Actually processes the request by instantiating :attr:`RequestHandlerClass` and
       calling its :meth:`~BaseRequestHandler.handle` method.
 
 
    .. method:: get_request()
+               get_request() -> tuple[typing.Any, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L53>`__)
 
       Must accept a request from the socket, and return a 2-tuple containing the *new*
       socket object to be used to communicate with the client, and the client's
@@ -363,6 +420,9 @@ Server Objects
 
 
    .. method:: handle_error(request, client_address)
+               handle_error(request: _RequestType, client_address: typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L54>`__)
 
       This function is called if the :meth:`~BaseRequestHandler.handle`
       method of a :attr:`RequestHandlerClass` instance raises
@@ -375,6 +435,9 @@ Server Objects
 
 
    .. method:: handle_timeout()
+               handle_timeout() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L55>`__)
 
       This function is called when the :attr:`timeout` attribute has been set to a
       value other than :const:`None` and the timeout period has passed with no
@@ -384,6 +447,9 @@ Server Objects
 
 
    .. method:: process_request(request, client_address)
+               process_request(request: _RequestType, client_address: typing.Any) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L56>`__)
 
       Calls :meth:`finish_request` to create an instance of the
       :attr:`RequestHandlerClass`.  If desired, this function can create a new process
@@ -396,6 +462,9 @@ Server Objects
       instance variables, adding new network families?
 
    .. method:: server_activate()
+               server_activate() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L57>`__)
 
       Called by the server's constructor to activate the server.  The default behavior
       for a TCP server just invokes :meth:`~socket.socket.listen`
@@ -403,12 +472,18 @@ Server Objects
 
 
    .. method:: server_bind()
+               server_bind() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L84>`__)
 
       Called by the server's constructor to bind the socket to the desired address.
       May be overridden.
 
 
    .. method:: verify_request(request, client_address)
+               verify_request(request: _RequestType, client_address: typing.Any) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L58>`__)
 
       Must return a Boolean value; if the value is :const:`True`, the request will
       be processed, and if it's :const:`False`, the request will be denied.  This
@@ -437,12 +512,18 @@ Request Handler Objects
 
 
    .. method:: setup()
+               setup() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L153>`__)
 
       Called before the :meth:`handle` method to perform any initialization actions
       required.  The default implementation does nothing.
 
 
    .. method:: handle()
+               handle() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L154>`__)
 
       This function must do all the work required to service a request.  The
       default implementation does nothing.  Several instance attributes are
@@ -456,6 +537,9 @@ Request Handler Objects
 
 
    .. method:: finish()
+               finish() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L155>`__)
 
       Called after the :meth:`handle` method to perform any clean-up actions
       required.  The default implementation does nothing.  If :meth:`setup`
@@ -463,17 +547,26 @@ Request Handler Objects
 
 
    .. attribute:: request
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L149>`__)
 
       The *new* :class:`socket.socket` object
       to be used to communicate with the client.
 
 
    .. attribute:: client_address
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L150>`__)
 
       Client address returned by :meth:`BaseServer.get_request`.
 
 
    .. attribute:: server
+      :type: BaseServer
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L151>`__)
 
       :class:`BaseServer` object used for handling the request.
 
@@ -488,11 +581,17 @@ Request Handler Objects
    methods, and provide :attr:`rfile` and :attr:`wfile` attributes.
 
    .. attribute:: rfile
+      :type: BufferedIOBase
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L169>`__)
 
       A file object from which receives the request is read.
       Support the :class:`io.BufferedIOBase` readable interface.
 
    .. attribute:: wfile
+      :type: BufferedIOBase
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/socketserver.pyi#L170>`__)
 
       A file object to which the reply is written.
       Support the :class:`io.BufferedIOBase` writable interface

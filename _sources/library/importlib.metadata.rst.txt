@@ -458,6 +458,10 @@ Distributions
    accordingly have the same attributes.
 
    .. method:: discover(cls, *, context=None, **kwargs)
+               discover(cls: type[Distribution], *, context: DistributionFinder.Context) -> collections.abc.Iterable[Distribution]
+               discover(cls: type[Distribution], *, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> collections.abc.Iterable[Distribution]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/metadata/__init__.pyi#L233>`__)
 
       Returns an iterable of :class:`Distribution` instances for all packages.
 
@@ -527,6 +531,9 @@ This metadata finder search defaults to ``sys.path``, but varies slightly in how
    supply metadata.
 
     .. class:: Context(**kwargs)
+               Context(*, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/metadata/__init__.pyi#L291>`__)
 
        A :class:`!Context` gives a custom provider a means to
        solicit additional details from the callers of distribution discovery

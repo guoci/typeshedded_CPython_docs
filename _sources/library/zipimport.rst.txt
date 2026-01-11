@@ -92,6 +92,9 @@ zipimporter Objects
       now removed.  Use :meth:`find_spec` instead.
 
    .. method:: create_module(spec)
+               create_module(spec: ModuleSpec) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L55>`__)
 
       Implementation of :meth:`importlib.abc.Loader.create_module` that returns
       :const:`None` to explicitly request the default semantics.
@@ -100,6 +103,9 @@ zipimporter Objects
 
 
    .. method:: exec_module(module)
+               exec_module(module: ModuleType) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L54>`__)
 
       Implementation of :meth:`importlib.abc.Loader.exec_module`.
 
@@ -107,6 +113,9 @@ zipimporter Objects
 
 
    .. method:: find_spec(fullname, target=None)
+               find_spec(fullname: str, target: ModuleType | None = None) -> ModuleSpec | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L56>`__)
 
       An implementation of :meth:`importlib.abc.PathEntryFinder.find_spec`.
 
@@ -114,12 +123,18 @@ zipimporter Objects
 
 
    .. method:: get_code(fullname)
+               get_code(fullname: str) -> CodeType
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L39>`__)
 
       Return the code object for the specified module. Raise
       :exc:`ZipImportError` if the module couldn't be imported.
 
 
    .. method:: get_data(pathname)
+               get_data(pathname: str) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L40>`__)
 
       Return the data associated with *pathname*. Raise :exc:`OSError` if the
       file wasn't found.
@@ -129,6 +144,9 @@ zipimporter Objects
 
 
    .. method:: get_filename(fullname)
+               get_filename(fullname: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L41>`__)
 
       Return the value ``__file__`` would be set to if the specified module
       was imported. Raise :exc:`ZipImportError` if the module couldn't be
@@ -138,6 +156,9 @@ zipimporter Objects
 
 
    .. method:: get_source(fullname)
+               get_source(fullname: str) -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L49>`__)
 
       Return the source code for the specified module. Raise
       :exc:`ZipImportError` if the module couldn't be found, return
@@ -146,12 +167,18 @@ zipimporter Objects
 
 
    .. method:: is_package(fullname)
+               is_package(fullname: str) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L50>`__)
 
       Return ``True`` if the module specified by *fullname* is a package. Raise
       :exc:`ZipImportError` if the module couldn't be found.
 
 
    .. method:: invalidate_caches()
+               invalidate_caches() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L57>`__)
 
       Clear out the internal cache of information about files found within
       the ZIP archive.
@@ -160,12 +187,18 @@ zipimporter Objects
 
 
    .. attribute:: archive
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L22>`__)
 
       The file name of the importer's associated ZIP file, without a possible
       subpath.
 
 
    .. attribute:: prefix
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/zipimport.pyi#L23>`__)
 
       The subpath within the ZIP file where modules are searched.  This is the
       empty string for zipimporter objects which point to the root of the ZIP

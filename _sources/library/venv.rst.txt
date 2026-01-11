@@ -355,6 +355,9 @@ creation according to their needs, the :class:`EnvBuilder` class.
     :class:`EnvBuilder` may be used as a base class.
 
     .. method:: create(env_dir)
+                create(env_dir: StrOrBytesPath) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L45>`__)
 
         Create a virtual environment by specifying the target directory
         (absolute or relative to the current directory) which is to contain the
@@ -382,6 +385,9 @@ creation according to their needs, the :class:`EnvBuilder` class.
         :meth:`setup_scripts` and :meth:`post_setup` can be overridden.
 
     .. method:: ensure_directories(env_dir)
+                ensure_directories(env_dir: StrOrBytesPath) -> SimpleNamespace
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L47>`__)
 
         Creates the environment directory and all necessary subdirectories that
         don't already exist, and returns a context object.  This context object
@@ -440,10 +446,16 @@ creation according to their needs, the :class:`EnvBuilder` class.
            The attribute ``platlib_path`` was added to the context.
 
     .. method:: create_configuration(context)
+                create_configuration(context: SimpleNamespace) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L48>`__)
 
         Creates the ``pyvenv.cfg`` configuration file in the environment.
 
     .. method:: setup_python(context)
+                setup_python(context: SimpleNamespace) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L52>`__)
 
         Creates a copy or symlink to the Python executable in the environment.
         On POSIX systems, if a specific executable ``python3.x`` was used,
@@ -451,11 +463,17 @@ creation according to their needs, the :class:`EnvBuilder` class.
         executable, unless files with those names already exist.
 
     .. method:: setup_scripts(context)
+                setup_scripts(context: SimpleNamespace) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L54>`__)
 
         Installs activation scripts appropriate to the platform into the virtual
         environment.
 
     .. method:: upgrade_dependencies(context)
+                upgrade_dependencies(context: SimpleNamespace) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L58>`__)
 
        Upgrades the core venv dependency packages (currently :pypi:`pip`)
        in the environment. This is done by shelling out to the
@@ -467,12 +485,18 @@ creation according to their needs, the :class:`EnvBuilder` class.
           :pypi:`setuptools` is no longer a core venv dependency.
 
     .. method:: post_setup(context)
+                post_setup(context: SimpleNamespace) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L55>`__)
 
         A placeholder method which can be overridden in third party
         implementations to pre-install packages in the virtual environment or
         perform other post-creation steps.
 
     .. method:: install_scripts(context, path)
+                install_scripts(context: SimpleNamespace, path: str) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L57>`__)
 
         This method can be
         called from :meth:`setup_scripts` or :meth:`post_setup` in subclasses to
@@ -503,6 +527,9 @@ creation according to their needs, the :class:`EnvBuilder` class.
         is being upgraded).
 
     .. method:: create_git_ignore_file(context)
+                create_git_ignore_file(context: SimpleNamespace) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/venv/__init__.pyi#L60>`__)
 
        Creates a ``.gitignore`` file within the virtual environment that causes
        the entire directory to be ignored by the Git source control manager.

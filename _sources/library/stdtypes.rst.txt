@@ -1506,6 +1506,10 @@ application).
    following additional method:
 
    .. method:: list.sort(*, key=None, reverse=False)
+               list.sort(*, key: None = None, reverse: bool = False) -> None
+               list.sort(*, key: (_T) -> SupportsRichComparison, reverse: bool = False) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3406>`__)
 
       This method sorts the list in place, using only ``<`` comparisons
       between items. Exceptions are not suppressed - if any comparison operations
@@ -1659,15 +1663,24 @@ loops.
    concatenation will usually violate that pattern).
 
    .. attribute:: start
+      :type: start(self: range) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3938>`__)
 
       The value of the *start* parameter (or ``0`` if the parameter was
       not supplied)
 
    .. attribute:: stop
+      :type: stop(self: range) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3940>`__)
 
       The value of the *stop* parameter
 
    .. attribute:: step
+      :type: step(self: range) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3942>`__)
 
       The value of the *step* parameter (or ``1`` if the parameter was
       not supplied)
@@ -3461,6 +3474,9 @@ data and are closely related to string objects in a variety of other ways.
    the bytes type has an additional class method to read data in that format:
 
    .. classmethod:: fromhex(string, /)
+                    fromhex(cls: type[bytes], string: str, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2261>`__)
 
       This :class:`bytes` class method returns a bytes object, decoding the
       given string object.  The string must contain two hexadecimal digits per
@@ -3482,6 +3498,9 @@ data and are closely related to string objects in a variety of other ways.
 
    .. method:: hex(*, bytes_per_sep=1)
                hex(sep, bytes_per_sep=1)
+               hex(sep: bytes | str = ..., bytes_per_sep: SupportsIndex = 1) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L1934>`__)
 
       Return a string object containing two hexadecimal digits for each
       byte in the instance.
@@ -3554,6 +3573,9 @@ objects.
    the bytearray type has an additional class method to read data in that format:
 
    .. classmethod:: fromhex(string, /)
+                    fromhex(cls: type[bytearray], string: str, /) -> bytearray
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2814>`__)
 
       This :class:`bytearray` class method returns bytearray object, decoding
       the given string object.  The string must contain two hexadecimal digits
@@ -3575,6 +3597,9 @@ objects.
 
    .. method:: hex(*, bytes_per_sep=1)
                hex(sep, bytes_per_sep=1)
+               hex(sep: bytes | str = ..., bytes_per_sep: SupportsIndex = 1) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2458>`__)
 
       Return a string object containing two hexadecimal digits for each
       byte in the instance.
@@ -3590,6 +3615,9 @@ objects.
          between bytes in the hex output.
 
    .. method:: resize(size, /)
+               resize(size: int, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2914>`__)
 
       Resize the :class:`bytearray` to contain *size* bytes. *size* must be
       greater than or equal to 0.
@@ -4879,6 +4907,9 @@ copying.
    :class:`memoryview` has several methods:
 
    .. method:: __eq__(exporter)
+               __eq__[_I](value: object, /) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3026>`__)
 
       A memoryview and a :pep:`3118` exporter are equal if their shapes are
       equivalent and if all corresponding values are equal when the operands'
@@ -4927,6 +4958,9 @@ copying.
          and the logical array structure.
 
    .. method:: tobytes(order='C')
+               tobytes[_I](order: typing.Literal['A', 'C', 'F'] | None = 'C') -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3041>`__)
 
       Return the data in the buffer as a bytestring.  This is equivalent to
       calling the :class:`bytes` constructor on the memoryview. ::
@@ -4951,6 +4985,9 @@ copying.
 
    .. method:: hex(*, bytes_per_sep=1)
                hex(sep, bytes_per_sep=1)
+               hex[_I](sep: bytes | str = ..., bytes_per_sep: SupportsIndex = 1) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3064>`__)
 
       Return a string object containing two hexadecimal digits for each
       byte in the buffer. ::
@@ -4967,6 +5004,9 @@ copying.
          between bytes in the hex output.
 
    .. method:: tolist()
+               tolist[_I]() -> list[int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3055>`__)
 
       Return the data in the buffer as a list of elements. ::
 
@@ -4984,6 +5024,9 @@ copying.
          representations.
 
    .. method:: toreadonly()
+               toreadonly[_I]() -> memoryview[int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3058>`__)
 
       Return a readonly version of the memoryview object.  The original
       memoryview object is unchanged. ::
@@ -5003,6 +5046,9 @@ copying.
       .. versionadded:: 3.8
 
    .. method:: release()
+               release[_I]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3061>`__)
 
       Release the underlying buffer exposed by the memoryview object.  Many
       objects take special actions when a view is held on them (for example,
@@ -5037,6 +5083,8 @@ copying.
 
    .. method:: cast(format, /)
                cast(format, shape, /)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2996>`__)
 
       Cast a memoryview to a new format or shape. *shape* defaults to
       ``[byte_length//new_itemsize]``, which means that the result view
@@ -5130,12 +5178,18 @@ copying.
          The source format is no longer restricted when casting to a byte view.
 
    .. method:: count(value, /)
+               count
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3096>`__)
 
       Count the number of occurrences of *value*.
 
       .. versionadded:: 3.14
 
    .. method:: index(value, start=0, stop=sys.maxsize, /)
+               index
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3095>`__)
 
       Return the index of the first occurrence of *value* (at or after
       index *start* and before index *stop*).
@@ -5147,6 +5201,9 @@ copying.
    There are also several readonly attributes available:
 
    .. attribute:: obj
+      :type: obj[_I](self: memoryview[_I]) -> Buffer
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2964>`__)
 
       The underlying object of the memoryview::
 
@@ -5158,6 +5215,9 @@ copying.
       .. versionadded:: 3.3
 
    .. attribute:: nbytes
+      :type: nbytes[_I](self: memoryview[_I]) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2980>`__)
 
       ``nbytes == product(shape) * itemsize == len(m.tobytes())``. This is
       the amount of space in bytes that the array would use in a contiguous
@@ -5194,10 +5254,16 @@ copying.
       .. versionadded:: 3.3
 
    .. attribute:: readonly
+      :type: readonly[_I](self: memoryview[_I]) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2953>`__)
 
       A bool indicating whether the memory is read only.
 
    .. attribute:: format
+      :type: format[_I](self: memoryview[_I]) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2924>`__)
 
       A string containing the format (in :mod:`struct` module style) for each
       element in the view. A memoryview can be created from exporters with
@@ -5209,6 +5275,9 @@ copying.
          This means that ``memoryview(b'abc')[0] == b'abc'[0] == 97``.
 
    .. attribute:: itemsize
+      :type: itemsize[_I](self: memoryview[_I]) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2931>`__)
 
       The size in bytes of each element of the memoryview::
 
@@ -5222,11 +5291,17 @@ copying.
          True
 
    .. attribute:: ndim
+      :type: ndim[_I](self: memoryview[_I]) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2957>`__)
 
       An integer indicating how many dimensions of a multi-dimensional array the
       memory represents.
 
    .. attribute:: shape
+      :type: shape[_I](self: memoryview[_I]) -> tuple[int, ...] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2935>`__)
 
       A tuple of integers the length of :attr:`ndim` giving the shape of the
       memory as an N-dimensional array.
@@ -5235,6 +5310,9 @@ copying.
          An empty tuple instead of ``None`` when ndim = 0.
 
    .. attribute:: strides
+      :type: strides[_I](self: memoryview[_I]) -> tuple[int, ...] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2942>`__)
 
       A tuple of integers the length of :attr:`ndim` giving the size in bytes to
       access each element for each dimension of the array.
@@ -5243,22 +5321,34 @@ copying.
          An empty tuple instead of ``None`` when ndim = 0.
 
    .. attribute:: suboffsets
+      :type: suboffsets[_I](self: memoryview[_I]) -> tuple[int, ...] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2949>`__)
 
       Used internally for PIL-style arrays. The value is informational only.
 
    .. attribute:: c_contiguous
+      :type: c_contiguous[_I](self: memoryview[_I]) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2968>`__)
 
       A bool indicating whether the memory is C-:term:`contiguous`.
 
       .. versionadded:: 3.3
 
    .. attribute:: f_contiguous
+      :type: f_contiguous[_I](self: memoryview[_I]) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2972>`__)
 
       A bool indicating whether the memory is Fortran :term:`contiguous`.
 
       .. versionadded:: 3.3
 
    .. attribute:: contiguous
+      :type: contiguous[_I](self: memoryview[_I]) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L2976>`__)
 
       A bool indicating whether the memory is :term:`contiguous`.
 
@@ -5694,14 +5784,24 @@ can be used interchangeably to index the same dictionary entry.
       for ``iter(d.keys())``.
 
    .. method:: clear()
+               clear[_KT, _VT]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L847>`__)
 
       Remove all items from the dictionary.
 
    .. method:: copy()
+               copy[_KT, _VT]() -> dict[_KT, _VT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3549>`__)
 
       Return a shallow copy of the dictionary.
 
    .. classmethod:: fromkeys(iterable, value=None, /)
+                    fromkeys(cls: type[dict[_KT, _VT]], iterable: collections.abc.Iterable[_T], value: None = None, /) -> dict[_T, typing.Any | None]
+                    fromkeys(cls: type[dict[_KT, _VT]], iterable: collections.abc.Iterable[_T], value: _S, /) -> dict[_T, _S]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3567>`__)
 
       Create a new dictionary with keys from *iterable* and values set to *value*.
 
@@ -5713,16 +5813,24 @@ can be used interchangeably to index the same dictionary entry.
 
    .. method:: get(key, default=None, /)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3577>`__)
+
       Return the value for *key* if *key* is in the dictionary, else *default*.
       If *default* is not given, it defaults to ``None``, so that this method
       never raises a :exc:`KeyError`.
 
    .. method:: items()
+               items[_KT, _VT]() -> dict_items[_KT, _VT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3558>`__)
 
       Return a new view of the dictionary's items (``(key, value)`` pairs).
       See the :ref:`documentation of view objects <dict-views>`.
 
    .. method:: keys()
+               keys[_KT, _VT]() -> dict_keys[_KT, _VT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3552>`__)
 
       Return a new view of the dictionary's keys.  See the :ref:`documentation
       of view objects <dict-views>`.
@@ -5730,11 +5838,16 @@ can be used interchangeably to index the same dictionary entry.
    .. method:: pop(key, /)
                pop(key, default, /)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3589>`__)
+
       If *key* is in the dictionary, remove it and return its value, else return
       *default*.  If *default* is not given and *key* is not in the dictionary,
       a :exc:`KeyError` is raised.
 
    .. method:: popitem()
+               popitem[_KT, _VT]() -> tuple[_KT, _VT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L854>`__)
 
       Remove and return a ``(key, value)`` pair from the dictionary.
       Pairs are returned in :abbr:`LIFO (last-in, first-out)` order.
@@ -5755,6 +5868,10 @@ can be used interchangeably to index the same dictionary entry.
       .. versionadded:: 3.8
 
    .. method:: setdefault(key, default=None, /)
+               setdefault(key: _KT, default: None = None, /) -> _T | None
+               setdefault(key: _KT, default: _VT, /) -> _VT
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L862>`__)
 
       If *key* is in the dictionary, return its value.  If not, insert *key*
       with a value of *default* and return *default*.  *default* defaults to
@@ -5763,6 +5880,8 @@ can be used interchangeably to index the same dictionary entry.
    .. method:: update(**kwargs)
                update(mapping, /, **kwargs)
                update(iterable, /, **kwargs)
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L886>`__)
 
       Update the dictionary with the key/value pairs from *mapping* or *iterable* and *kwargs*, overwriting
       existing keys.  Return ``None``.
@@ -5774,6 +5893,9 @@ can be used interchangeably to index the same dictionary entry.
       updated with those key/value pairs: ``d.update(red=1, blue=2)``.
 
    .. method:: values()
+               values[_KT, _VT]() -> dict_values[_KT, _VT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/builtins.pyi#L3555>`__)
 
       Return a new view of the dictionary's values.  See the
       :ref:`documentation of view objects <dict-views>`.

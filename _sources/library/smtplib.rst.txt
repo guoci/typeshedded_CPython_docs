@@ -69,6 +69,9 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
       where ``data`` is the bytes about to be sent to the remote host.
 
    .. attribute:: SMTP.default_port
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/smtplib.pyi#L84>`__)
 
       The default port used for SMTP connections (25).
 
@@ -107,6 +110,9 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
    best practices.
 
    .. attribute:: SMTP_SSL.default_port
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/smtplib.pyi#L84>`__)
 
       The default port used for SMTP-over-SSL connections (465).
 
@@ -183,10 +189,16 @@ A nice selection of exceptions is defined as well:
    are generated in some instances when the SMTP server returns an error code.
 
    .. attribute:: smtp_code
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/smtplib.pyi#L45>`__)
 
       The error code.
 
    .. attribute:: smtp_error
+      :type: bytes | str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/smtplib.pyi#L46>`__)
 
       The error message.
 
@@ -209,6 +221,9 @@ A nice selection of exceptions is defined as well:
    All recipient addresses refused.
 
    .. attribute:: recipients
+      :type: dict[str, tuple[int, bytes]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/smtplib.pyi#L57>`__)
 
       A dictionary of exactly the same sort as returned
       by :meth:`SMTP.sendmail` containing the errors for
@@ -600,7 +615,7 @@ An :class:`SMTP` instance has the following methods:
 
 .. method:: SMTP.send_message(msg, from_addr=None, to_addrs=None, \
                               mail_options=(), rcpt_options=())
-            SMTP.send_message(msg: email.generator.Message[str, str], from_addr: str | None = None, to_addrs: collections.abc.Sequence[str] | str | None = None, mail_options: collections.abc.Sequence[str] = ..., rcpt_options: collections.abc.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
+            SMTP.send_message(msg: email.message.Message[str, str], from_addr: str | None = None, to_addrs: collections.abc.Sequence[str] | str | None = None, mail_options: collections.abc.Sequence[str] = ..., rcpt_options: collections.abc.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/smtplib.pyi#L146>`__)
 

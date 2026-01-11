@@ -122,16 +122,25 @@ a single number, or from a string.
       :meth:`!as_integer_ratio` method.
 
    .. attribute:: numerator
+      :type: numerator(a: Fraction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L37>`__)
 
       Numerator of the Fraction in lowest term.
 
    .. attribute:: denominator
+      :type: denominator(a: Fraction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L39>`__)
 
       Denominator of the Fraction in lowest terms.
       Guaranteed to be positive.
 
 
    .. method:: as_integer_ratio()
+               as_integer_ratio() -> tuple[int, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L32>`__)
 
       Return a tuple of two integers, whose ratio is equal
       to the original Fraction.  The ratio is in lowest terms
@@ -140,12 +149,18 @@ a single number, or from a string.
       .. versionadded:: 3.8
 
    .. method:: is_integer()
+               is_integer() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L34>`__)
 
       Return ``True`` if the Fraction is an integer.
 
       .. versionadded:: 3.12
 
    .. classmethod:: from_float(f)
+                    from_float(cls: type[Fraction], f: float) -> Fraction
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L28>`__)
 
       Alternative constructor which only accepts instances of
       :class:`float` or :class:`numbers.Integral`. Beware that
@@ -158,6 +173,9 @@ a single number, or from a string.
 
 
    .. classmethod:: from_decimal(dec)
+                    from_decimal(cls: type[Fraction], dec: Decimal) -> Fraction
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L30>`__)
 
       Alternative constructor which only accepts instances of
       :class:`decimal.Decimal` or :class:`numbers.Integral`.
@@ -170,6 +188,9 @@ a single number, or from a string.
 
 
    .. classmethod:: from_number(number)
+                    from_number(cls: type[Fraction], number: Rational | _ConvertibleToIntegerRatio | float) -> Fraction
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L171>`__)
 
       Alternative constructor which only accepts instances of
       :class:`numbers.Integral`, :class:`numbers.Rational`,
@@ -180,6 +201,9 @@ a single number, or from a string.
 
 
    .. method:: limit_denominator(max_denominator=1000000)
+               limit_denominator(max_denominator: int = 1000000) -> Fraction
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L31>`__)
 
       Finds and returns the closest :class:`Fraction` to ``self`` that has
       denominator at most max_denominator.  This method is useful for finding
@@ -201,6 +225,9 @@ a single number, or from a string.
 
 
    .. method:: __floor__()
+               __floor__(a: Fraction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L141>`__)
 
       Returns the greatest :class:`int` ``<= self``.  This method can
       also be accessed through the :func:`math.floor` function:
@@ -211,6 +238,9 @@ a single number, or from a string.
 
 
    .. method:: __ceil__()
+               __ceil__(a: Fraction) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L142>`__)
 
       Returns the least :class:`int` ``>= self``.  This method can
       also be accessed through the :func:`math.ceil` function.
@@ -218,6 +248,10 @@ a single number, or from a string.
 
    .. method:: __round__()
                __round__(ndigits)
+               __round__(ndigits: None = None) -> int
+               __round__(ndigits: int) -> Fraction
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/fractions.pyi#L144>`__)
 
       The first version returns the nearest :class:`int` to ``self``,
       rounding half to even. The second version rounds ``self`` to the

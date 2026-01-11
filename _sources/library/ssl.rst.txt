@@ -258,6 +258,9 @@ Exceptions
       :exc:`SSLError` used to be a subtype of :exc:`socket.error`.
 
    .. attribute:: library
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ssl.pyi#L71>`__)
 
       A string mnemonic designating the OpenSSL submodule in which the error
       occurred, such as ``SSL``, ``PEM`` or ``X509``.  The range of possible
@@ -266,6 +269,9 @@ Exceptions
       .. versionadded:: 3.3
 
    .. attribute:: reason
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ssl.pyi#L72>`__)
 
       A string mnemonic designating the reason this error occurred, for
       example ``CERTIFICATE_VERIFY_FAILED``.  The range of possible
@@ -341,10 +347,16 @@ Exceptions
    .. versionadded:: 3.7
 
    .. attribute:: verify_code
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ssl.pyi#L81>`__)
 
       A numeric error number that denotes the verification error.
 
    .. attribute:: verify_message
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/ssl.pyi#L82>`__)
 
       A human readable string of the verification error.
 
@@ -3199,20 +3211,32 @@ purpose.  It wraps an OpenSSL memory BIO (Basic IO) object:
    protocol instance.
 
    .. attribute:: MemoryBIO.pending
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L193>`__)
 
       Return the number of bytes currently in the memory buffer.
 
    .. attribute:: MemoryBIO.eof
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L192>`__)
 
       A boolean indicating whether the memory BIO is current at the end-of-file
       position.
 
    .. method:: MemoryBIO.read(n=-1, /)
+               MemoryBIO.read(size: int = -1, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L195>`__)
 
       Read up to *n* bytes from the memory buffer. If *n* is not specified or
       negative, all bytes are returned.
 
    .. method:: MemoryBIO.write(buf, /)
+               MemoryBIO.write(b: Buffer, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L205>`__)
 
       Write the bytes from *buf* to the memory BIO. The *buf* argument must be an
       object supporting the buffer protocol.
@@ -3221,6 +3245,9 @@ purpose.  It wraps an OpenSSL memory BIO (Basic IO) object:
       the length of *buf*.
 
    .. method:: MemoryBIO.write_eof()
+               MemoryBIO.write_eof() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L212>`__)
 
       Write an EOF marker to the memory BIO. After this method has been called, it
       is illegal to call :meth:`~MemoryBIO.write`. The attribute :attr:`eof` will
@@ -3240,10 +3267,29 @@ SSL session
    Session object used by :attr:`~SSLSocket.session`.
 
    .. attribute:: id
+      :type: id(self: SSLSession) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L228>`__)
+
    .. attribute:: time
+      :type: time(self: SSLSession) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L236>`__)
+
    .. attribute:: timeout
+      :type: timeout(self: SSLSession) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L240>`__)
+
    .. attribute:: ticket_lifetime_hint
+      :type: ticket_lifetime_hint(self: SSLSession) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L232>`__)
+
    .. attribute:: has_ticket
+      :type: has_ticket(self: SSLSession) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_ssl.pyi#L224>`__)
 
 
 .. _ssl-security:

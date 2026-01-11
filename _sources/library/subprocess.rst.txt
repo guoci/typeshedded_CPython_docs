@@ -135,10 +135,16 @@ underlying :class:`Popen` interface can be used directly.
    The return value from :func:`run`, representing a process that has finished.
 
    .. attribute:: args
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L79>`__)
 
       The arguments used to launch the process. This may be a list or a string.
 
    .. attribute:: returncode
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L80>`__)
 
       Exit status of the child process. Typically, an exit status of 0 indicates
       that it ran successfully.
@@ -147,6 +153,9 @@ underlying :class:`Popen` interface can be used directly.
       ``N`` (POSIX only).
 
    .. attribute:: stdout
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L83>`__)
 
       Captured stdout from the child process. A bytes sequence, or a string if
       :func:`run` was called with an encoding, errors, or text=True.
@@ -157,12 +166,18 @@ underlying :class:`Popen` interface can be used directly.
       ``None``.
 
    .. attribute:: stderr
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L84>`__)
 
       Captured stderr from the child process. A bytes sequence, or a string if
       :func:`run` was called with an encoding, errors, or text=True.
       ``None`` if stderr was not captured.
 
    .. method:: check_returncode()
+               check_returncode[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L86>`__)
 
       If :attr:`returncode` is non-zero, raise a :exc:`CalledProcessError`.
 
@@ -219,14 +234,23 @@ underlying :class:`Popen` interface can be used directly.
     while waiting for a child process.
 
     .. attribute:: cmd
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1448>`__)
 
         Command that was used to spawn the child process.
 
     .. attribute:: timeout
+       :type: float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1449>`__)
 
         Timeout in seconds.
 
     .. attribute:: output
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1451>`__)
 
         Output of the child process if it was captured by :func:`run` or
         :func:`check_output`.  Otherwise, ``None``.  This is always
@@ -235,10 +259,16 @@ underlying :class:`Popen` interface can be used directly.
         when no output was observed.
 
     .. attribute:: stdout
+       :type: bytes | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1452>`__)
 
         Alias for output, for symmetry with :attr:`stderr`.
 
     .. attribute:: stderr
+       :type: bytes | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1453>`__)
 
         Stderr output of the child process if it was captured by :func:`run`.
         Otherwise, ``None``.  This is always :class:`bytes` when stderr output
@@ -261,24 +291,39 @@ underlying :class:`Popen` interface can be used directly.
 
 
     .. attribute:: returncode
+       :type: int
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1456>`__)
 
         Exit status of the child process.  If the process exited due to a
         signal, this will be the negative signal number.
 
     .. attribute:: cmd
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1458>`__)
 
         Command that was used to spawn the child process.
 
     .. attribute:: output
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1460>`__)
 
         Output of the child process if it was captured by :func:`run` or
         :func:`check_output`.  Otherwise, ``None``.
 
     .. attribute:: stdout
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1463>`__)
 
         Alias for output, for symmetry with :attr:`stderr`.
 
     .. attribute:: stderr
+       :type: typing.Any
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/subprocess.pyi#L1464>`__)
 
         Stderr output of the child process if it was captured by :func:`run`.
         Otherwise, ``None``.

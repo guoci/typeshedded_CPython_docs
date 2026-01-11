@@ -1900,24 +1900,39 @@ without the dedicated syntax, as documented below.
    At runtime, ``isinstance(x, T)`` will raise :exc:`TypeError`.
 
    .. attribute:: __name__
+      :type: __name__(self: TypeVar) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L155>`__)
 
       The name of the type variable.
 
    .. attribute:: __covariant__
+      :type: __covariant__(self: TypeVar) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L161>`__)
 
       Whether the type var has been explicitly marked as covariant.
 
    .. attribute:: __contravariant__
+      :type: __contravariant__(self: TypeVar) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L163>`__)
 
       Whether the type var has been explicitly marked as contravariant.
 
    .. attribute:: __infer_variance__
+      :type: __infer_variance__(self: TypeVar) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L166>`__)
 
       Whether the type variable's variance should be inferred by type checkers.
 
       .. versionadded:: 3.12
 
    .. attribute:: __bound__
+      :type: __bound__(self: TypeVar) -> typing.Any | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L157>`__)
 
       The upper bound of the type variable, if any.
 
@@ -1928,6 +1943,9 @@ without the dedicated syntax, as documented below.
          the type variable is created (see :ref:`lazy-evaluation`).
 
    .. method:: evaluate_bound
+               evaluate_bound() -> ((Format) -> typing.Any) | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L223>`__)
 
       An :term:`evaluate function` corresponding to the :attr:`~TypeVar.__bound__` attribute.
       When called directly, this method supports only the :attr:`~annotationlib.Format.VALUE`
@@ -1938,6 +1956,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.14
 
    .. attribute:: __constraints__
+      :type: __constraints__(self: TypeVar) -> tuple[typing.Any, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L159>`__)
 
       A tuple containing the constraints of the type variable, if any.
 
@@ -1948,6 +1969,9 @@ without the dedicated syntax, as documented below.
          the type variable is created (see :ref:`lazy-evaluation`).
 
    .. method:: evaluate_constraints
+               evaluate_constraints() -> ((Format) -> typing.Any) | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L225>`__)
 
       An :term:`evaluate function` corresponding to the :attr:`~TypeVar.__constraints__` attribute.
       When called directly, this method supports only the :attr:`~annotationlib.Format.VALUE`
@@ -1958,6 +1982,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.14
 
    .. attribute:: __default__
+      :type: __default__(self: TypeVar) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L169>`__)
 
       The default value of the type variable, or :data:`typing.NoDefault` if it
       has no default.
@@ -1965,6 +1992,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.13
 
    .. method:: evaluate_default
+               evaluate_default() -> ((Format) -> typing.Any) | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L227>`__)
 
       An :term:`evaluate function` corresponding to the :attr:`~TypeVar.__default__` attribute.
       When called directly, this method supports only the :attr:`~annotationlib.Format.VALUE`
@@ -1975,6 +2005,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.14
 
    .. method:: has_default()
+               has_default() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L220>`__)
 
       Return whether or not the type variable has a default value. This is equivalent
       to checking whether :attr:`__default__` is not the :data:`typing.NoDefault`
@@ -2105,10 +2138,16 @@ without the dedicated syntax, as documented below.
    See :pep:`646` for more details on type variable tuples.
 
    .. attribute:: __name__
+      :type: __name__(self: TypeVarTuple) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L263>`__)
 
       The name of the type variable tuple.
 
    .. attribute:: __default__
+      :type: __default__(self: TypeVarTuple) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L266>`__)
 
       The default value of the type variable tuple, or :data:`typing.NoDefault` if it
       has no default.
@@ -2116,6 +2155,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.13
 
    .. method:: evaluate_default
+               evaluate_default() -> ((Format) -> typing.Any) | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L282>`__)
 
       An :term:`evaluate function` corresponding to the :attr:`~TypeVarTuple.__default__` attribute.
       When called directly, this method supports only the :attr:`~annotationlib.Format.VALUE`
@@ -2126,6 +2168,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.14
 
    .. method:: has_default()
+               has_default() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L267>`__)
 
       Return whether or not the type variable tuple has a default value. This is equivalent
       to checking whether :attr:`__default__` is not the :data:`typing.NoDefault`
@@ -2201,7 +2246,14 @@ without the dedicated syntax, as documented below.
       checker must be told to ignore the ``return inner``.
 
    .. attribute:: args
+      :type: args(self: ParamSpec) -> ParamSpecArgs
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L370>`__)
+
    .. attribute:: kwargs
+      :type: kwargs(self: ParamSpec) -> ParamSpecKwargs
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L374>`__)
 
       Since ``ParamSpec`` captures both positional and keyword parameters,
       ``P.args`` and ``P.kwargs`` can be used to split a ``ParamSpec`` into its
@@ -2214,10 +2266,16 @@ without the dedicated syntax, as documented below.
       :class:`ParamSpecArgs` and :class:`ParamSpecKwargs`.
 
    .. attribute:: __name__
+      :type: __name__(self: ParamSpec) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L316>`__)
 
       The name of the parameter specification.
 
    .. attribute:: __default__
+      :type: __default__(self: ParamSpec) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L328>`__)
 
       The default value of the parameter specification, or :data:`typing.NoDefault` if it
       has no default.
@@ -2225,6 +2283,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.13
 
    .. method:: evaluate_default
+               evaluate_default() -> ((Format) -> typing.Any) | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L391>`__)
 
       An :term:`evaluate function` corresponding to the :attr:`~ParamSpec.__default__` attribute.
       When called directly, this method supports only the :attr:`~annotationlib.Format.VALUE`
@@ -2235,6 +2296,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.14
 
    .. method:: has_default()
+               has_default() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L388>`__)
 
       Return whether or not the parameter specification has a default value. This is equivalent
       to checking whether :attr:`__default__` is not the :data:`typing.NoDefault`
@@ -2313,6 +2377,9 @@ without the dedicated syntax, as documented below.
    .. versionadded:: 3.12
 
    .. attribute:: __name__
+      :type: __name__(self: TypeAliasType) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L1228>`__)
 
       The name of the type alias:
 
@@ -2337,6 +2404,9 @@ without the dedicated syntax, as documented below.
       .. versionadded:: 3.15
 
    .. attribute:: __module__
+      :type: __module__(self: TypeAliasType) -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L1231>`__)
 
       The name of the module in which the type alias was defined::
 
@@ -2345,6 +2415,9 @@ without the dedicated syntax, as documented below.
          '__main__'
 
    .. attribute:: __type_params__
+      :type: __type_params__(self: TypeAliasType) -> tuple[_TypeParameter, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L1224>`__)
 
       The type parameters of the type alias, or an empty tuple if the alias is
       not generic:
@@ -2359,6 +2432,9 @@ without the dedicated syntax, as documented below.
          ()
 
    .. attribute:: __value__
+      :type: __value__(self: TypeAliasType) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L1222>`__)
 
       The type alias's value. This is :ref:`lazily evaluated <lazy-evaluation>`,
       so names used in the definition of the alias are not resolved until the
@@ -2378,6 +2454,9 @@ without the dedicated syntax, as documented below.
          Mutually
 
    .. method:: evaluate_value
+               evaluate_value() -> (Format) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L1243>`__)
 
       An :term:`evaluate function` corresponding to the :attr:`__value__` attribute.
       When called directly, this method supports only the :attr:`~annotationlib.Format.VALUE`
@@ -2532,10 +2611,16 @@ types.
       The name of the module in which the new type is defined.
 
    .. attribute:: __name__
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L408>`__)
 
       The name of the new type.
 
    .. attribute:: __supertype__
+      :type: (self: type, *args: typing.Any, **kwds: typing.Any) -> typing.Any | [_T](x: _T, /) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/typing.pyi#L407>`__)
 
       The type that the new type is based on.
 
@@ -2797,6 +2882,9 @@ types.
    :attr:`__total__`, :attr:`__required_keys__`, and :attr:`__optional_keys__`.
 
    .. attribute:: __total__
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_typeshed/_type_checker_internals.pyi#L21>`__)
 
       ``Point2D.__total__`` gives the value of the ``total`` argument.
       Example:
@@ -2822,10 +2910,16 @@ types.
       :attr:`__required_keys__` and :attr:`__optional_keys__` for introspection.
 
    .. attribute:: __required_keys__
+      :type: frozenset[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_typeshed/_type_checker_internals.pyi#L22>`__)
 
       .. versionadded:: 3.9
 
    .. attribute:: __optional_keys__
+      :type: frozenset[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_typeshed/_type_checker_internals.pyi#L23>`__)
 
       ``Point2D.__required_keys__`` and ``Point2D.__optional_keys__`` return
       :class:`frozenset` objects containing required and non-required keys, respectively.
@@ -2867,6 +2961,9 @@ types.
    Support for :data:`ReadOnly` is reflected in the following attributes:
 
    .. attribute:: __readonly_keys__
+      :type: frozenset[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_typeshed/_type_checker_internals.pyi#L29>`__)
 
       A :class:`frozenset` containing the names of all read-only keys. Keys
       are read-only if they carry the :data:`ReadOnly` qualifier.
@@ -2874,6 +2971,9 @@ types.
       .. versionadded:: 3.13
 
    .. attribute:: __mutable_keys__
+      :type: frozenset[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_typeshed/_type_checker_internals.pyi#L30>`__)
 
       A :class:`frozenset` containing the names of all mutable keys. Keys
       are mutable if they do not carry the :data:`ReadOnly` qualifier.

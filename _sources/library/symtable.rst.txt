@@ -48,17 +48,26 @@ Examining Symbol Tables
    An enumeration indicating the type of a :class:`SymbolTable` object.
 
    .. attribute:: MODULE
+      :type: typing.Literal[SymbolTableType.MODULE]
       :value: "module"
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L18>`__)
 
       Used for the symbol table of a module.
 
    .. attribute:: FUNCTION
+      :type: typing.Literal[SymbolTableType.FUNCTION]
       :value: "function"
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L19>`__)
 
       Used for the symbol table of a function.
 
    .. attribute:: CLASS
+      :type: typing.Literal[SymbolTableType.CLASS]
       :value: "class"
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L20>`__)
 
       Used for the symbol table of a class.
 
@@ -66,23 +75,35 @@ Examining Symbol Tables
    :ref:`annotation scopes <annotation-scopes>`.
 
    .. attribute:: ANNOTATION
+      :type: typing.Literal[SymbolTableType.ANNOTATION]
       :value: "annotation"
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L21>`__)
 
       Used for annotations if ``from __future__ import annotations`` is active.
 
    .. attribute:: TYPE_ALIAS
+      :type: typing.Literal[SymbolTableType.TYPE_ALIAS]
       :value: "type alias"
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L22>`__)
 
       Used for the symbol table of :keyword:`type` constructions.
 
    .. attribute:: TYPE_PARAMETERS
+      :type: typing.Literal[SymbolTableType.TYPE_PARAMETERS]
       :value: "type parameters"
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L23>`__)
 
       Used for the symbol table of :ref:`generic functions <generic-functions>`
       or :ref:`generic classes <generic-classes>`.
 
    .. attribute:: TYPE_VARIABLE
+      :type: typing.Literal[SymbolTableType.TYPE_VARIABLE]
       :value: "type variable"
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L24>`__)
 
       Used for the symbol table of the bound, the constraint tuple or the
       default value of a single type variable in the formal sense, i.e.,
@@ -99,6 +120,9 @@ Examining Symbol Tables
    A namespace table for a block.  The constructor is not public.
 
    .. method:: get_type()
+               get_type() -> SymbolTableType
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L29>`__)
 
       Return the type of the symbol table.  Possible values are members
       of the :class:`SymbolTableType` enumeration.
@@ -115,10 +139,16 @@ Examining Symbol Tables
          instead of hard-coded strings.
 
    .. method:: get_id()
+               get_id() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L33>`__)
 
       Return the table's identifier.
 
    .. method:: get_name()
+               get_name() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L34>`__)
 
       Return the table's name.  This is the name of the class if the table is
       for a class, the name of the function if the table is for a function, or
@@ -129,36 +159,60 @@ Examining Symbol Tables
       For :class:`~typing.TypeVar` bound scopes, it is the name of the ``TypeVar``.
 
    .. method:: get_lineno()
+               get_lineno() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L35>`__)
 
       Return the number of the first line in the block this table represents.
 
    .. method:: is_optimized()
+               is_optimized() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L36>`__)
 
       Return ``True`` if the locals in this table can be optimized.
 
    .. method:: is_nested()
+               is_nested() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L37>`__)
 
       Return ``True`` if the block is a nested class or function.
 
    .. method:: has_children()
+               has_children() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L38>`__)
 
       Return ``True`` if the block has nested namespaces within it.  These can
       be obtained with :meth:`get_children`.
 
    .. method:: get_identifiers()
+               get_identifiers() -> dict_keys[str, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L39>`__)
 
       Return a view object containing the names of symbols in the table.
       See the :ref:`documentation of view objects <dict-views>`.
 
    .. method:: lookup(name)
+               lookup(name: str) -> Symbol
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L40>`__)
 
       Lookup *name* in the table and return a :class:`Symbol` instance.
 
    .. method:: get_symbols()
+               get_symbols() -> list[Symbol]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L41>`__)
 
       Return a list of :class:`Symbol` instances for names in the table.
 
    .. method:: get_children()
+               get_children() -> list[SymbolTable]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L42>`__)
 
       Return a list of the nested symbol tables.
 
@@ -172,22 +226,37 @@ Examining Symbol Tables
    :class:`SymbolTable`.
 
    .. method:: get_parameters()
+               get_parameters() -> tuple[str, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L45>`__)
 
       Return a tuple containing names of parameters to this function.
 
    .. method:: get_locals()
+               get_locals() -> tuple[str, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L46>`__)
 
       Return a tuple containing names of locals in this function.
 
    .. method:: get_globals()
+               get_globals() -> tuple[str, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L47>`__)
 
       Return a tuple containing names of globals in this function.
 
    .. method:: get_nonlocals()
+               get_nonlocals() -> tuple[str, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L49>`__)
 
       Return a tuple containing names of explicitly declared nonlocals in this function.
 
    .. method:: get_frees()
+               get_frees() -> tuple[str, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L48>`__)
 
       Return a tuple containing names of :term:`free (closure) variables <closure variable>`
       in this function.
@@ -201,6 +270,9 @@ Examining Symbol Tables
    A namespace of a class.  This class inherits from :class:`SymbolTable`.
 
    .. method:: get_methods()
+               get_methods() -> tuple[str, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L54>`__)
 
       Return a tuple containing the names of method-like functions declared
       in the class.
@@ -261,55 +333,91 @@ Examining Symbol Tables
    source.  The constructor is not public.
 
    .. method:: get_name()
+               get_name() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L63>`__)
 
       Return the symbol's name.
 
    .. method:: is_referenced()
+               is_referenced() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L64>`__)
 
       Return ``True`` if the symbol is used in its block.
 
    .. method:: is_imported()
+               is_imported() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L77>`__)
 
       Return ``True`` if the symbol is created from an import statement.
 
    .. method:: is_parameter()
+               is_parameter() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L65>`__)
 
       Return ``True`` if the symbol is a parameter.
 
    .. method:: is_type_parameter()
+               is_type_parameter() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L67>`__)
 
       Return ``True`` if the symbol is a type parameter.
 
       .. versionadded:: 3.14
 
    .. method:: is_global()
+               is_global() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L69>`__)
 
       Return ``True`` if the symbol is global.
 
    .. method:: is_nonlocal()
+               is_nonlocal() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L62>`__)
 
       Return ``True`` if the symbol is nonlocal.
 
    .. method:: is_declared_global()
+               is_declared_global() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L70>`__)
 
       Return ``True`` if the symbol is declared global with a global statement.
 
    .. method:: is_local()
+               is_local() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L71>`__)
 
       Return ``True`` if the symbol is local to its block.
 
    .. method:: is_annotated()
+               is_annotated() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L72>`__)
 
       Return ``True`` if the symbol is annotated.
 
       .. versionadded:: 3.6
 
    .. method:: is_free()
+               is_free() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L73>`__)
 
       Return ``True`` if the symbol is referenced in its block, but not assigned
       to.
 
    .. method:: is_free_class()
+               is_free_class() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L75>`__)
 
       Return *True* if a class-scoped symbol is free from
       the perspective of a method.
@@ -330,22 +438,34 @@ Examining Symbol Tables
       .. versionadded:: 3.14
 
    .. method:: is_assigned()
+               is_assigned() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L78>`__)
 
       Return ``True`` if the symbol is assigned to in its block.
 
    .. method:: is_comp_iter()
+               is_comp_iter() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L80>`__)
 
       Return ``True`` if the symbol is a comprehension iteration variable.
 
       .. versionadded:: 3.14
 
    .. method:: is_comp_cell()
+               is_comp_cell() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L81>`__)
 
       Return ``True`` if the symbol is a cell in an inlined comprehension.
 
       .. versionadded:: 3.14
 
    .. method:: is_namespace()
+               is_namespace() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L83>`__)
 
       Return ``True`` if name binding introduces new namespace.
 
@@ -363,10 +483,16 @@ Examining Symbol Tables
       list, that does not introduce a new namespace.
 
    .. method:: get_namespaces()
+               get_namespaces() -> collections.abc.Sequence[SymbolTable]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L84>`__)
 
       Return a list of namespaces bound to this name.
 
    .. method:: get_namespace()
+               get_namespace() -> SymbolTable
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/symtable.pyi#L85>`__)
 
       Return the namespace bound to this name. If more than one or no namespace
       is bound to this name, a :exc:`ValueError` is raised.

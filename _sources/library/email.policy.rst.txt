@@ -169,6 +169,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: max_line_length
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L21>`__)
 
       The maximum length of any line in the serialized output, not counting the
       end of line character(s).  Default is 78, per :rfc:`5322`.  A value of
@@ -177,6 +180,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: linesep
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L22>`__)
 
       The string to be used to terminate lines in serialized output.  The
       default is ``\n`` because that's the internal end-of-line discipline used
@@ -184,6 +190,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: cte_type
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L23>`__)
 
       Controls the type of Content Transfer Encodings that may be or are
       required to be used.  The possible values are:
@@ -208,6 +217,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: raise_on_defect
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L24>`__)
 
       If :const:`True`, any defects encountered will be raised as errors.  If
       :const:`False` (the default), defects will be passed to the
@@ -215,6 +227,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: mangle_from_
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L25>`__)
 
       If :const:`True`, lines starting with *"From "* in the body are
       escaped by putting a ``>`` in front of them. This parameter is used when
@@ -225,6 +240,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: message_factory
+      :type: Unknown
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L26>`__)
 
       A factory function for constructing a new empty message object.  Used
       by the parser when building messages.  Defaults to ``None``, in
@@ -234,6 +252,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: verify_generated_headers
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L28>`__)
 
       If ``True`` (the default), the generator will raise
       :exc:`~email.errors.HeaderWriteError` instead of writing a header
@@ -255,6 +276,9 @@ added matters.  To illustrate::
 
 
    .. method:: clone(**kw)
+               clone[_MessageT_co](*, max_line_length: int | None = ..., linesep: str = ..., cte_type: str = ..., raise_on_defect: bool = ..., mangle_from_: bool = ..., message_factory: _MessageFactory[_MessageT_co] | None = ..., verify_generated_headers: bool = ...) -> Policy[_MessageT_co]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L42>`__)
 
       Return a new :class:`Policy` instance whose attributes have the same
       values as the current instance, except where those attributes are
@@ -267,6 +291,9 @@ added matters.  To illustrate::
 
 
    .. method:: handle_defect(obj, defect)
+               handle_defect[_MessageT_co](obj: email.message.Message[typing.Any, typing.Any], defect: MessageDefect) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L59>`__)
 
       Handle a *defect* found on *obj*.  When the email package calls this
       method, *defect* will always be a subclass of
@@ -278,6 +305,9 @@ added matters.  To illustrate::
 
 
    .. method:: register_defect(obj, defect)
+               register_defect[_MessageT_co](obj: email.message.Message[typing.Any, typing.Any], defect: MessageDefect) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L60>`__)
 
       Register a *defect* on *obj*.  In the email package, *defect* will always
       be a subclass of :class:`~email.errors.MessageDefect`.
@@ -291,6 +321,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_max_count(name)
+               header_max_count[_MessageT_co](name: str) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L61>`__)
 
       Return the maximum allowed number of headers named *name*.
 
@@ -312,6 +345,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_source_parse(sourcelines)
+               header_source_parse[_MessageT_co](sourcelines: list[str]) -> tuple[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L63>`__)
 
       The email package calls this method with a list of strings, each string
       ending with the line separation characters found in the source being
@@ -332,6 +368,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_store_parse(name, value)
+               header_store_parse[_MessageT_co](name: str, value: str) -> tuple[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L65>`__)
 
       The email package calls this method with the name and value provided by
       the application program when the application program is modifying a
@@ -348,6 +387,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_fetch_parse(name, value)
+               header_fetch_parse[_MessageT_co](name: str, value: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L67>`__)
 
       The email package calls this method with the *name* and *value* currently
       stored in the ``Message`` when that header is requested by the
@@ -364,6 +406,9 @@ added matters.  To illustrate::
 
 
    .. method:: fold(name, value)
+               fold[_MessageT_co](name: str, value: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L69>`__)
 
       The email package calls this method with the *name* and *value* currently
       stored in the ``Message`` for a given header.  The method should return a
@@ -377,6 +422,9 @@ added matters.  To illustrate::
 
 
    .. method:: fold_binary(name, value)
+               fold_binary[_MessageT_co](name: str, value: str) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L71>`__)
 
       The same as :meth:`fold`, except that the returned value should be a
       bytes object rather than a string.
@@ -411,6 +459,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: utf8
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L11>`__)
 
       If ``False``, follow :rfc:`5322`, supporting non-ASCII characters in
       headers by encoding them as "encoded words".  If ``True``, follow
@@ -420,6 +471,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: refold_source
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L12>`__)
 
       If the value for a header in the ``Message`` object originated from a
       :mod:`~email.parser` (as opposed to being set by a program), this
@@ -440,6 +494,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: header_factory
+      :type: (str, typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L13>`__)
 
       A callable that takes two arguments, ``name`` and ``value``, where
       ``name`` is a header field name and ``value`` is an unfolded header field
@@ -451,6 +508,9 @@ added matters.  To illustrate::
 
 
    .. attribute:: content_manager
+      :type: ContentManager
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L14>`__)
 
       An object with at least two methods: get_content and set_content.  When
       the :meth:`~email.message.EmailMessage.get_content` or
@@ -469,6 +529,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_max_count(name)
+               header_max_count[_MessageT](name: str) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L61>`__)
 
       Returns the value of the
       :attr:`~email.headerregistry.BaseHeader.max_count` attribute of the
@@ -476,6 +539,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_source_parse(sourcelines)
+               header_source_parse[_MessageT](sourcelines: list[str]) -> tuple[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L49>`__)
 
 
       The name is parsed as everything up to the '``:``' and returned
@@ -485,6 +551,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_store_parse(name, value)
+               header_store_parse[_MessageT](name: str, value: typing.Any) -> tuple[str, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L50>`__)
 
       The name is returned unchanged.  If the input value has a ``name``
       attribute and it matches *name* ignoring case, the value is returned
@@ -495,6 +564,9 @@ added matters.  To illustrate::
 
 
    .. method:: header_fetch_parse(name, value)
+               header_fetch_parse[_MessageT](name: str, value: str) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L51>`__)
 
       If the value has a ``name`` attribute, it is returned to unmodified.
       Otherwise the *name*, and the *value* with any CR or LF characters
@@ -504,6 +576,9 @@ added matters.  To illustrate::
 
 
    .. method:: fold(name, value)
+               fold[_MessageT](name: str, value: str) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L52>`__)
 
       Header folding is controlled by the :attr:`refold_source` policy setting.
       A value is considered to be a 'source value' if and only if it does not
@@ -523,6 +598,9 @@ added matters.  To illustrate::
 
 
    .. method:: fold_binary(name, value)
+               fold_binary[_MessageT](name: str, value: str) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/policy.pyi#L53>`__)
 
       The same as :meth:`fold` if :attr:`~Policy.cte_type` is ``7bit``, except
       that the returned value is bytes.
@@ -636,6 +714,9 @@ The header objects and their attributes are described in
 
 
    .. attribute:: mangle_from_
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L25>`__)
 
       The default is ``True``.
 
@@ -645,6 +726,9 @@ The header objects and their attributes are described in
 
 
    .. method:: header_source_parse(sourcelines)
+               header_source_parse[_MessageT_co](sourcelines: list[str]) -> tuple[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L74>`__)
 
       The name is parsed as everything up to the '``:``' and returned
       unmodified.  The value is determined by stripping leading whitespace off
@@ -653,11 +737,17 @@ The header objects and their attributes are described in
 
 
    .. method:: header_store_parse(name, value)
+               header_store_parse[_MessageT_co](name: str, value: str) -> tuple[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L75>`__)
 
       The name and value are returned unmodified.
 
 
    .. method:: header_fetch_parse(name, value)
+               header_fetch_parse[_MessageT_co](name: str, value: str) -> Header | str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L76>`__)
 
       If the value contains binary data, it is converted into a
       :class:`~email.header.Header` object using the ``unknown-8bit`` charset.
@@ -665,6 +755,9 @@ The header objects and their attributes are described in
 
 
    .. method:: fold(name, value)
+               fold[_MessageT_co](name: str, value: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L77>`__)
 
       Headers are folded using the :class:`~email.header.Header` folding
       algorithm, which preserves existing line breaks in the value, and wraps
@@ -673,6 +766,9 @@ The header objects and their attributes are described in
 
 
    .. method:: fold_binary(name, value)
+               fold_binary[_MessageT_co](name: str, value: str) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L78>`__)
 
       Headers are folded using the :class:`~email.header.Header` folding
       algorithm, which preserves existing line breaks in the value, and wraps
@@ -683,7 +779,7 @@ The header objects and their attributes are described in
 
 
 .. data:: compat32
-   :type: Compat32[email.generator.Message[str, str]]
+   :type: Compat32[email.message.Message[str, str]]
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/_policybase.pyi#L80>`__)
 

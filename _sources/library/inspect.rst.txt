@@ -947,10 +947,16 @@ function.
       :class:`!Signature` objects are now picklable and :term:`hashable`.
 
    .. attribute:: Signature.empty
+      :type: (self: _empty) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L343>`__)
 
       A special class-level marker to specify absence of a return annotation.
 
    .. attribute:: Signature.parameters
+      :type: parameters(self: Signature) -> MappingProxyType[str, Parameter]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L345>`__)
 
       An ordered mapping of parameters' names to the corresponding
       :class:`Parameter` objects.  Parameters appear in strict definition
@@ -962,17 +968,26 @@ function.
          this order had always been preserved in Python 3.
 
    .. attribute:: Signature.return_annotation
+      :type: return_annotation(self: Signature) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L347>`__)
 
       The "return" annotation for the callable.  If the callable has no "return"
       annotation, this attribute is set to :attr:`Signature.empty`.
 
    .. method:: Signature.bind(*args, **kwargs)
+               Signature.bind(*args: typing.Any, **kwargs: typing.Any) -> BoundArguments
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L348>`__)
 
       Create a mapping from positional and keyword arguments to parameters.
       Returns :class:`BoundArguments` if ``*args`` and ``**kwargs`` match the
       signature, or raises a :exc:`TypeError`.
 
    .. method:: Signature.bind_partial(*args, **kwargs)
+               Signature.bind_partial(*args: typing.Any, **kwargs: typing.Any) -> BoundArguments
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L349>`__)
 
       Works the same way as :meth:`Signature.bind`, but allows the omission of
       some required arguments (mimics :func:`functools.partial` behavior.)
@@ -980,6 +995,9 @@ function.
       passed arguments do not match the signature.
 
    .. method:: Signature.replace(*[, parameters][, return_annotation])
+               Signature.replace(*, parameters: collections.abc.Sequence[Parameter] | type[_void] | None = ..., return_annotation: typing.Any = ...) -> Signature
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L350>`__)
 
       Create a new :class:`Signature` instance based on the instance
       :meth:`replace` was invoked on.
@@ -1003,6 +1021,9 @@ function.
       :func:`copy.replace`.
 
    .. method:: format(*, max_width=None, quote_annotation_strings=True)
+               format(*, max_width: int | None = None, quote_annotation_strings: bool = True) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L379>`__)
 
       Create a string representation of the :class:`Signature` object.
 
@@ -1023,6 +1044,9 @@ function.
          The *unquote_annotations* parameter was added.
 
    .. classmethod:: Signature.from_callable(obj, *, follow_wrapped=True, globals=None, locals=None, eval_str=False)
+                    Signature.from_callable(cls: type[Signature], obj: (...) -> typing.Any, *, follow_wrapped: bool = True, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: Format = Format.VALUE) -> Signature
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L354>`__)
 
        Return a :class:`Signature` (or its subclass) object for a given callable
        *obj*.
@@ -1057,11 +1081,17 @@ function.
       Parameter objects are now picklable and :term:`hashable`.
 
    .. attribute:: Parameter.empty
+      :type: (self: _empty) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L422>`__)
 
       A special class-level marker to specify absence of default values and
       annotations.
 
    .. attribute:: Parameter.name
+      :type: name(self: Parameter) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L430>`__)
 
       The name of the parameter as a string.  The name must be a valid
       Python identifier.
@@ -1077,16 +1107,25 @@ function.
             ``implicit0``.
 
    .. attribute:: Parameter.default
+      :type: default(self: Parameter) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L432>`__)
 
       The default value for the parameter.  If the parameter has no default
       value, this attribute is set to :attr:`Parameter.empty`.
 
    .. attribute:: Parameter.annotation
+      :type: annotation(self: Parameter) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L436>`__)
 
       The annotation for the parameter.  If the parameter has no annotation,
       this attribute is set to :attr:`Parameter.empty`.
 
    .. attribute:: Parameter.kind
+      :type: kind(self: Parameter) -> _ParameterKind
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L434>`__)
 
       Describes how argument values are bound to the parameter.  The possible
       values are accessible via :class:`Parameter` (like ``Parameter.KEYWORD_ONLY``),
@@ -1138,6 +1177,9 @@ function.
          Parameter: c
 
    .. attribute:: Parameter.kind.description
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L406>`__)
 
       Describes an enum value of :attr:`Parameter.kind`.
 
@@ -1159,6 +1201,9 @@ function.
          keyword-only
 
    .. method:: Parameter.replace(*[, name][, kind][, default][, annotation])
+               Parameter.replace(*, name: str | type[_void] = ..., kind: _ParameterKind | type[_void] = ..., default: typing.Any = ..., annotation: typing.Any = ...) -> Parameter
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L437>`__)
 
       Create a new :class:`Parameter` instance based on the instance replaced was invoked
       on.  To override a :class:`!Parameter` attribute, pass the corresponding
@@ -1195,6 +1240,9 @@ function.
    Holds the mapping of arguments to the function's parameters.
 
    .. attribute:: BoundArguments.arguments
+      :type: collections.abc.OrderedDict[str, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L453>`__)
 
       A mutable mapping of parameters' names to arguments' values.
       Contains only explicitly bound arguments.  Changes in :attr:`arguments`
@@ -1215,21 +1263,33 @@ function.
          type :class:`collections.OrderedDict`.
 
    .. attribute:: BoundArguments.args
+      :type: args(self: BoundArguments) -> tuple[typing.Any, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L455>`__)
 
       A tuple of positional arguments values.  Dynamically computed from the
       :attr:`arguments` attribute.
 
    .. attribute:: BoundArguments.kwargs
+      :type: kwargs(self: BoundArguments) -> dict[str, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L457>`__)
 
       A dict of keyword arguments values.  Dynamically computed from the
       :attr:`arguments` attribute.  Arguments that can be passed positionally
       are included in :attr:`args` instead.
 
    .. attribute:: BoundArguments.signature
+      :type: signature(self: BoundArguments) -> Signature
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L459>`__)
 
       A reference to the parent :class:`Signature` object.
 
    .. method:: BoundArguments.apply_defaults()
+               BoundArguments.apply_defaults() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L461>`__)
 
       Set default values for missing arguments.
 
@@ -1488,33 +1548,54 @@ is considered deprecated and may be removed in the future.
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L595>`__)
 
    .. attribute:: frame
+      :type: FrameType
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L574>`__)
 
       The :ref:`frame object <frame-objects>` that the record corresponds to.
 
    .. attribute:: filename
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L575>`__)
 
       The file name associated with the code being executed by the frame this record
       corresponds to.
 
    .. attribute:: lineno
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L576>`__)
 
       The line number of the current line associated with the code being
       executed by the frame this record corresponds to.
 
    .. attribute:: function
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L577>`__)
 
       The function name that is being executed by the frame this record corresponds to.
 
    .. attribute:: code_context
+      :type: list[str] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L578>`__)
 
       A list of lines of context from the source code that's being executed by the frame
       this record corresponds to.
 
    .. attribute:: index
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L579>`__)
 
       The index of the current line being executed in the :attr:`code_context` list.
 
    .. attribute:: positions
+      :type: Positions | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L596>`__)
 
       A :class:`dis.Positions` object containing the start line number, end line
       number, start column offset, and end column offset associated with the
@@ -1534,29 +1615,47 @@ is considered deprecated and may be removed in the future.
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L582>`__)
 
    .. attribute:: filename
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L567>`__)
 
       The file name associated with the code being executed by the frame this traceback
       corresponds to.
 
    .. attribute:: lineno
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L568>`__)
 
       The line number of the current line associated with the code being
       executed by the frame this traceback corresponds to.
 
    .. attribute:: function
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L569>`__)
 
       The function name that is being executed by the frame this traceback corresponds to.
 
    .. attribute:: code_context
+      :type: list[str] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L570>`__)
 
       A list of lines of context from the source code that's being executed by the frame
       this traceback corresponds to.
 
    .. attribute:: index
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L571>`__)
 
       The index of the current line being executed in the :attr:`code_context` list.
 
    .. attribute:: positions
+      :type: Positions | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L583>`__)
 
       A :class:`dis.Positions` object containing the start line number, end
       line number, start column offset, and end column offset associated with
@@ -2002,24 +2101,100 @@ Buffer flags
    The meaning of the flags is explained at :ref:`buffer-request-types`.
 
    .. attribute:: BufferFlags.SIMPLE
+      :type: typing.Literal[BufferFlags.SIMPLE]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L709>`__)
+
    .. attribute:: BufferFlags.WRITABLE
+      :type: typing.Literal[BufferFlags.WRITABLE]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L710>`__)
+
    .. attribute:: BufferFlags.FORMAT
+      :type: typing.Literal[BufferFlags.FORMAT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L711>`__)
+
    .. attribute:: BufferFlags.ND
+      :type: typing.Literal[BufferFlags.ND]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L712>`__)
+
    .. attribute:: BufferFlags.STRIDES
+      :type: typing.Literal[BufferFlags.STRIDES]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L713>`__)
+
    .. attribute:: BufferFlags.C_CONTIGUOUS
+      :type: typing.Literal[BufferFlags.C_CONTIGUOUS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L714>`__)
+
    .. attribute:: BufferFlags.F_CONTIGUOUS
+      :type: typing.Literal[BufferFlags.F_CONTIGUOUS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L715>`__)
+
    .. attribute:: BufferFlags.ANY_CONTIGUOUS
+      :type: typing.Literal[BufferFlags.ANY_CONTIGUOUS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L716>`__)
+
    .. attribute:: BufferFlags.INDIRECT
+      :type: typing.Literal[BufferFlags.INDIRECT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L717>`__)
+
    .. attribute:: BufferFlags.CONTIG
+      :type: typing.Literal[BufferFlags.CONTIG]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L718>`__)
+
    .. attribute:: BufferFlags.CONTIG_RO
+      :type: typing.Literal[BufferFlags.CONTIG_RO]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L719>`__)
+
    .. attribute:: BufferFlags.STRIDED
+      :type: typing.Literal[BufferFlags.STRIDED]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L720>`__)
+
    .. attribute:: BufferFlags.STRIDED_RO
+      :type: typing.Literal[BufferFlags.STRIDED_RO]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L721>`__)
+
    .. attribute:: BufferFlags.RECORDS
+      :type: typing.Literal[BufferFlags.RECORDS]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L722>`__)
+
    .. attribute:: BufferFlags.RECORDS_RO
+      :type: typing.Literal[BufferFlags.RECORDS_RO]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L723>`__)
+
    .. attribute:: BufferFlags.FULL
+      :type: typing.Literal[BufferFlags.FULL]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L724>`__)
+
    .. attribute:: BufferFlags.FULL_RO
+      :type: typing.Literal[BufferFlags.FULL_RO]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L725>`__)
+
    .. attribute:: BufferFlags.READ
+      :type: typing.Literal[BufferFlags.READ]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L726>`__)
+
    .. attribute:: BufferFlags.WRITE
+      :type: typing.Literal[BufferFlags.WRITE]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/inspect.pyi#L727>`__)
 
    .. versionadded:: 3.12
 

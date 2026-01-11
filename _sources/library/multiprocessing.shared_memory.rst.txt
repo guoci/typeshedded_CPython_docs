@@ -95,6 +95,9 @@ copying of data.
       Added the *track* parameter.
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L29>`__)
 
       Close the file descriptor/handle to the shared memory from this
       instance.  :meth:`close` should be called once access to the shared
@@ -104,6 +107,9 @@ copying of data.
       use the :meth:`unlink` method.
 
    .. method:: unlink()
+               unlink() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L30>`__)
 
       Delete the underlying shared memory block.  This should be called only
       once per shared memory block regardless of the number of handles to it,
@@ -116,14 +122,23 @@ copying of data.
       shared memory block is to close all handles.
 
    .. attribute:: buf
+      :type: buf(self: SharedMemory) -> memoryview[int] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L18>`__)
 
       A memoryview of contents of the shared memory block.
 
    .. attribute:: name
+      :type: name(self: SharedMemory) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L22>`__)
 
       Read-only access to the unique name of the shared memory block.
 
    .. attribute:: size
+      :type: size(self: SharedMemory) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L26>`__)
 
       Read-only access to size in bytes of the shared memory block.
 
@@ -236,11 +251,17 @@ same :class:`!numpy.ndarray` from two distinct Python shells:
    from other processes.
 
    .. method:: SharedMemory(size)
+               SharedMemory(size: int) -> SharedMemory
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L359>`__)
 
       Create and return a new :class:`SharedMemory` object with the
       specified *size* in bytes.
 
    .. method:: ShareableList(sequence)
+               ShareableList[_SLT](sequence: collections.abc.Iterable[_SLT] | None) -> ShareableList[_SLT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L360>`__)
 
       Create and return a new :class:`ShareableList` object, initialized
       by the values from the input *sequence*.
@@ -351,20 +372,32 @@ finishes execution.
        >>> padded.shm.unlink()
 
    .. method:: count(value)
+               count[_SLT](value: _SLT) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L47>`__)
 
       Return the number of occurrences of *value*.
 
    .. method:: index(value)
+               index[_SLT](value: _SLT) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L48>`__)
 
       Return first index position of *value*.
       Raise :exc:`ValueError` if *value* is not present.
 
    .. attribute:: format
+      :type: format[_SLT](self: ShareableList[_SLT]) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L44>`__)
 
       Read-only attribute containing the :mod:`struct` packing format used by
       all currently stored values.
 
    .. attribute:: shm
+      :type: SharedMemory
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/shared_memory.pyi#L34>`__)
 
       The :class:`SharedMemory` instance where the values are stored.
 

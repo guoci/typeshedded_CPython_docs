@@ -456,6 +456,9 @@ Encoders and Decoders
       All parameters are now :ref:`keyword-only <keyword-only_parameter>`.
 
    .. method:: decode(s)
+               decode(s: str, _w: (...) -> typing.Any = ...) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/decoder.pyi#L31>`__)
 
       Return the Python representation of *s* (a :class:`str` instance
       containing a JSON document).
@@ -464,6 +467,9 @@ Encoders and Decoders
       valid.
 
    .. method:: raw_decode(s)
+               raw_decode(s: str, idx: int = 0) -> tuple[typing.Any, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/decoder.pyi#L32>`__)
 
       Decode a JSON document from *s* (a :class:`str` beginning with a
       JSON document) and return a 2-tuple of the Python representation
@@ -563,6 +569,9 @@ Encoders and Decoders
 
 
    .. method:: default(o)
+               default(o: typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/encoder.pyi#L50>`__)
 
       Implement this method in a subclass such that it returns a serializable
       object for *o*, or calls the base implementation (to raise a
@@ -583,6 +592,9 @@ Encoders and Decoders
 
 
    .. method:: encode(o)
+               encode(o: typing.Any) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/encoder.pyi#L51>`__)
 
       Return a JSON string representation of a Python data structure, *o*.  For
       example::
@@ -592,6 +604,9 @@ Encoders and Decoders
 
 
    .. method:: iterencode(o)
+               iterencode(o: typing.Any, _one_shot: bool = False) -> collections.abc.Iterator[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/encoder.pyi#L52>`__)
 
       Encode the given object, *o*, and yield each string representation as
       available.  For example::
@@ -611,22 +626,37 @@ Exceptions
    Subclass of :exc:`ValueError` with the following additional attributes:
 
    .. attribute:: msg
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/decoder.pyi#L7>`__)
 
       The unformatted error message.
 
    .. attribute:: doc
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/decoder.pyi#L8>`__)
 
       The JSON document being parsed.
 
    .. attribute:: pos
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/decoder.pyi#L9>`__)
 
       The start index of *doc* where parsing failed.
 
    .. attribute:: lineno
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/decoder.pyi#L10>`__)
 
       The line corresponding to *pos*.
 
    .. attribute:: colno
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/json/decoder.pyi#L11>`__)
 
       The column corresponding to *pos*.
 

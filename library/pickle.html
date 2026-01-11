@@ -596,14 +596,20 @@ otherwise the buffer is serialized in-band, i.e. inside the pickle stream.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.Pickler.dump">
 <span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pickle.Pickler.dump" title="Link to this definition">¶</a></dt>
-<dd><p>Write the pickled representation of <em>obj</em> to the open file object given in
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L204">typeshed</a>)</p>
+<p>Write the pickled representation of <em>obj</em> to the open file object given in
 the constructor.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.Pickler.persistent_id">
 <span class="sig-name descname"><span class="pre">persistent_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pickle.Pickler.persistent_id" title="Link to this definition">¶</a></dt>
-<dd><p>Do nothing by default.  This exists so a subclass can override it.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">persistent_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L219">typeshed</a>)</p>
+<p>Do nothing by default.  This exists so a subclass can override it.</p>
 <p>If <a class="reference internal" href="#pickle.Pickler.persistent_id" title="pickle.Pickler.persistent_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">persistent_id()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, <em>obj</em> is pickled as usual.  Any
 other value causes <a class="reference internal" href="#pickle.Pickler" title="pickle.Pickler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pickler</span></code></a> to emit the returned value as a
 persistent ID for <em>obj</em>.  The meaning of this persistent ID should be
@@ -618,8 +624,9 @@ of <code class="xref py py-class docutils literal notranslate"><span class="pre"
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pickle.Pickler.dispatch_table">
-<span class="sig-name descname"><span class="pre">dispatch_table</span></span><a class="headerlink" href="#pickle.Pickler.dispatch_table" title="Link to this definition">¶</a></dt>
-<dd><p>A pickler object’s dispatch table is a registry of <em>reduction
+<span class="sig-name descname"><span class="pre">dispatch_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">collections.abc.Mapping[type,</span> <span class="pre">(typing.Any)</span> <span class="pre">-&gt;</span> <span class="pre">_ReducedType]</span></em><a class="headerlink" href="#pickle.Pickler.dispatch_table" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L190">typeshed</a>)</p>
+<p>A pickler object’s dispatch table is a registry of <em>reduction
 functions</em> of the kind which can be declared using
 <a class="reference internal" href="copyreg.html#copyreg.pickle" title="copyreg.pickle"><code class="xref py py-func docutils literal notranslate"><span class="pre">copyreg.pickle()</span></code></a>.  It is a mapping whose keys are classes
 and whose values are reduction functions.  A reduction function
@@ -643,7 +650,10 @@ default dispatch table for instances of that class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.Pickler.reducer_override">
 <span class="sig-name descname"><span class="pre">reducer_override</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pickle.Pickler.reducer_override" title="Link to this definition">¶</a></dt>
-<dd><p>Special reducer that can be defined in <a class="reference internal" href="#pickle.Pickler" title="pickle.Pickler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pickler</span></code></a> subclasses. This
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">reducer_override</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typing.Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L191">typeshed</a>)</p>
+<p>Special reducer that can be defined in <a class="reference internal" href="#pickle.Pickler" title="pickle.Pickler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pickler</span></code></a> subclasses. This
 method has priority over any reducer in the <a class="reference internal" href="#pickle.Pickler.dispatch_table" title="pickle.Pickler.dispatch_table"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dispatch_table</span></code></a>.  It
 should conform to the same interface as a <a class="reference internal" href="#object.__reduce__" title="object.__reduce__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__reduce__()</span></code></a> method, and
 can optionally return <a class="reference internal" href="constants.html#NotImplemented" title="NotImplemented"><code class="xref py py-data docutils literal notranslate"><span class="pre">NotImplemented</span></code></a> to fallback on
@@ -656,8 +666,9 @@ can optionally return <a class="reference internal" href="constants.html#NotImpl
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pickle.Pickler.fast">
-<span class="sig-name descname"><span class="pre">fast</span></span><a class="headerlink" href="#pickle.Pickler.fast" title="Link to this definition">¶</a></dt>
-<dd><p>Deprecated. Enable fast mode if set to a true value.  The fast mode
+<span class="sig-name descname"><span class="pre">fast</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></em><a class="headerlink" href="#pickle.Pickler.fast" title="Link to this definition">¶</a></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L189">typeshed</a>)</p>
+<p>Deprecated. Enable fast mode if set to a true value.  The fast mode
 disables the usage of memo, therefore speeding the pickling process by not
 generating superfluous PUT opcodes.  It should not be used with
 self-referential objects, doing otherwise will cause <a class="reference internal" href="#pickle.Pickler" title="pickle.Pickler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pickler</span></code></a> to
@@ -668,7 +679,10 @@ recurse infinitely.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.Pickler.clear_memo">
 <span class="sig-name descname"><span class="pre">clear_memo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pickle.Pickler.clear_memo" title="Link to this definition">¶</a></dt>
-<dd><p>Clears the pickler’s “memo”.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">clear_memo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L207">typeshed</a>)</p>
+<p>Clears the pickler’s “memo”.</p>
 <p>The memo is the data structure that remembers which objects the
 pickler has already seen, so that shared or recursive objects
 are pickled by reference and not by value.  This method is
@@ -738,7 +752,10 @@ given in order to the <em>buffer_callback</em> of a Pickler object.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.Unpickler.load">
 <span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pickle.Unpickler.load" title="Link to this definition">¶</a></dt>
-<dd><p>Read the pickled representation of an object from the open file object
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L263">typeshed</a>)</p>
+<p>Read the pickled representation of an object from the open file object
 given in the constructor, and return the reconstituted object hierarchy
 specified therein.  Bytes past the pickled representation of the object
 are ignored.</p>
@@ -747,7 +764,10 @@ are ignored.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.Unpickler.persistent_load">
 <span class="sig-name descname"><span class="pre">persistent_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pickle.Unpickler.persistent_load" title="Link to this definition">¶</a></dt>
-<dd><p>Raise an <a class="reference internal" href="#pickle.UnpicklingError" title="pickle.UnpicklingError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnpicklingError</span></code></a> by default.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">persistent_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L286">typeshed</a>)</p>
+<p>Raise an <a class="reference internal" href="#pickle.UnpicklingError" title="pickle.UnpicklingError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnpicklingError</span></code></a> by default.</p>
 <p>If defined, <a class="reference internal" href="#pickle.Unpickler.persistent_load" title="pickle.Unpickler.persistent_load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">persistent_load()</span></code></a> should return the object specified by
 the persistent ID <em>pid</em>.  If an invalid persistent ID is encountered, an
 <a class="reference internal" href="#pickle.UnpicklingError" title="pickle.UnpicklingError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnpicklingError</span></code></a> should be raised.</p>
@@ -761,7 +781,10 @@ of <code class="xref py py-class docutils literal notranslate"><span class="pre"
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.Unpickler.find_class">
 <span class="sig-name descname"><span class="pre">find_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pickle.Unpickler.find_class" title="Link to this definition">¶</a></dt>
-<dd><p>Import <em>module</em> if necessary and return the object called <em>name</em> from it,
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">find_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L272">typeshed</a>)</p>
+<p>Import <em>module</em> if necessary and return the object called <em>name</em> from it,
 where the <em>module</em> and <em>name</em> arguments are <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> objects.  Note,
 unlike its name suggests, <a class="reference internal" href="#pickle.Unpickler.find_class" title="pickle.Unpickler.find_class"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find_class()</span></code></a> is also used for finding
 functions.</p>
@@ -794,7 +817,10 @@ protocol 5 or higher.  They are eligible for
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.PickleBuffer.raw">
 <span class="sig-name descname"><span class="pre">raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pickle.PickleBuffer.raw" title="Link to this definition">¶</a></dt>
-<dd><p>Return a <a class="reference internal" href="stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a> of the memory area underlying this buffer.
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#memoryview" title="memoryview"><span class="pre">memoryview</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pickle.pyi#L113">typeshed</a>)</p>
+<p>Return a <a class="reference internal" href="stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a> of the memory area underlying this buffer.
 The returned object is a one-dimensional, C-contiguous memoryview
 with format <code class="docutils literal notranslate"><span class="pre">B</span></code> (unsigned bytes).  <a class="reference internal" href="exceptions.html#BufferError" title="BufferError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BufferError</span></code></a> is raised if
 the buffer is neither C- nor Fortran-contiguous.</p>
@@ -803,7 +829,10 @@ the buffer is neither C- nor Fortran-contiguous.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pickle.PickleBuffer.release">
 <span class="sig-name descname"><span class="pre">release</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pickle.PickleBuffer.release" title="Link to this definition">¶</a></dt>
-<dd><p>Release the underlying buffer exposed by the PickleBuffer object.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">release</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pickle.pyi#L119">typeshed</a>)</p>
+<p>Release the underlying buffer exposed by the PickleBuffer object.</p>
 </dd></dl>
 
 </dd></dl>

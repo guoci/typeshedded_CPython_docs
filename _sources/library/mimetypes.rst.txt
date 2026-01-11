@@ -255,6 +255,9 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. attribute:: MimeTypes.suffix_map
+      :type: dict[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L43>`__)
 
       Dictionary mapping suffixes to suffixes.  This is used to allow recognition of
       encoded files for which the encoding and the type are indicated by the same
@@ -264,12 +267,18 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. attribute:: MimeTypes.encodings_map
+      :type: dict[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L44>`__)
 
       Dictionary mapping filename extensions to encoding types.  This is initially a
       copy of the global :data:`encodings_map` defined in the module.
 
 
    .. attribute:: MimeTypes.types_map
+      :type: tuple[dict[str, str], dict[str, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L45>`__)
 
       Tuple containing two dictionaries, mapping filename extensions to MIME types:
       the first dictionary is for the non-standards types and the second one is for
@@ -278,6 +287,9 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. attribute:: MimeTypes.types_map_inv
+      :type: tuple[dict[str, str], dict[str, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L46>`__)
 
       Tuple containing two dictionaries, mapping MIME types to a list of filename
       extensions: the first dictionary is for the non-standards types and the
@@ -286,18 +298,27 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. method:: MimeTypes.guess_extension(type, strict=True)
+               MimeTypes.guess_extension(type: str, strict: bool = True) -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L49>`__)
 
       Similar to the :func:`guess_extension` function, using the tables stored as part
       of the object.
 
 
    .. method:: MimeTypes.guess_type(url, strict=True)
+               MimeTypes.guess_type(url: StrPath, strict: bool = True) -> tuple[str | None, str | None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L50>`__)
 
       Similar to the :func:`guess_type` function, using the tables stored as part of
       the object.
 
 
    .. method:: MimeTypes.guess_file_type(path, *, strict=True)
+               MimeTypes.guess_file_type(path: StrPath, *, strict: bool = True) -> tuple[str | None, str | None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L56>`__)
 
       Similar to the :func:`guess_file_type` function, using the tables stored
       as part of the object.
@@ -306,12 +327,18 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. method:: MimeTypes.guess_all_extensions(type, strict=True)
+               MimeTypes.guess_all_extensions(type: str, strict: bool = True) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L51>`__)
 
       Similar to the :func:`guess_all_extensions` function, using the tables stored
       as part of the object.
 
 
    .. method:: MimeTypes.read(filename, strict=True)
+               MimeTypes.read(filename: StrPath, strict: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L52>`__)
 
       Load MIME information from a file named *filename*.  This uses :meth:`readfp` to
       parse the file.
@@ -321,6 +348,9 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. method:: MimeTypes.readfp(fp, strict=True)
+               MimeTypes.readfp(fp: IO[str], strict: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L53>`__)
 
       Load MIME type information from an open file *fp*.  The file must have the format of
       the standard :file:`mime.types` files.
@@ -330,6 +360,9 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. method:: MimeTypes.read_windows_registry(strict=True)
+               MimeTypes.read_windows_registry(strict: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L54>`__)
 
       Load MIME type information from the Windows registry.
 
@@ -342,6 +375,9 @@ than one MIME-type database; it provides an interface similar to the one of the
 
 
    .. method:: MimeTypes.add_type(type, ext, strict=True)
+               MimeTypes.add_type(type: str, ext: str, strict: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/mimetypes.pyi#L48>`__)
 
       Add a mapping from the MIME type *type* to the extension *ext*.
       Valid extensions start with a '.' or are empty. When the

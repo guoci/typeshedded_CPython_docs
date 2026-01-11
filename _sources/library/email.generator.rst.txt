@@ -83,6 +83,9 @@ To accommodate reproducible processing of SMIME-signed messages
 
 
    .. method:: flatten(msg, unixfrom=False, linesep=None)
+               flatten[_MessageT](msg: _MessageT, unixfrom: bool = False, linesep: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/generator.pyi#L34>`__)
 
       Print the textual representation of the message object structure rooted
       at *msg* to the output file specified when the :class:`BytesGenerator`
@@ -119,12 +122,18 @@ To accommodate reproducible processing of SMIME-signed messages
 
 
    .. method:: clone(fp)
+               clone[_MessageT](fp: SupportsWrite[str]) -> BytesGenerator[_MessageT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/generator.pyi#L35>`__)
 
       Return an independent clone of this :class:`BytesGenerator` instance with
       the exact same option settings, and *fp* as the new *outfp*.
 
 
    .. method:: write(s)
+               write[_MessageT](s: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/generator.pyi#L33>`__)
 
       Encode *s* using the ``ASCII`` codec and the ``surrogateescape`` error
       handler, and pass it to the *write* method of the *outfp* passed to the
@@ -186,6 +195,9 @@ to be using :class:`BytesGenerator`, and not :class:`Generator`.
 
 
    .. method:: flatten(msg, unixfrom=False, linesep=None)
+               flatten[_MessageT](msg: _MessageT, unixfrom: bool = False, linesep: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/generator.pyi#L34>`__)
 
       Print the textual representation of the message object structure rooted
       at *msg* to the output file specified when the :class:`Generator`
@@ -220,12 +232,18 @@ to be using :class:`BytesGenerator`, and not :class:`Generator`.
 
 
    .. method:: clone(fp)
+               clone[_MessageT](fp: SupportsWrite[str]) -> Generator[_MessageT]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/generator.pyi#L35>`__)
 
       Return an independent clone of this :class:`Generator` instance with the
       exact same options, and *fp* as the new *outfp*.
 
 
    .. method:: write(s)
+               write[_MessageT](s: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/generator.pyi#L33>`__)
 
       Write *s* to the *write* method of the *outfp* passed to the
       :class:`Generator`'s constructor.  This provides just enough file-like

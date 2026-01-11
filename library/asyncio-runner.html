@@ -312,7 +312,18 @@ current event loop with <a class="reference internal" href="asyncio-eventloop.ht
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Runner.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coro</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Runner.run" title="Link to this definition">¶</a></dt>
-<dd><p>Execute <em>coro</em> in the embedded event loop.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">coro</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Awaitable" title="collections.abc.Awaitable"><span class="pre">collections.abc.Awaitable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></em>,</dd>
+<dd><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="contextvars.html#contextvars.Context" title="contextvars.Context"><span class="pre">contextvars.Context</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T</span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/runners.pyi#L26">typeshed</a>)</p>
+<p>Execute <em>coro</em> in the embedded event loop.</p>
 <p>The argument can be any awaitable object.</p>
 <p>If the argument is a coroutine, it is wrapped in a Task.</p>
 <p>An optional keyword-only <em>context</em> argument allows specifying a
@@ -329,7 +340,10 @@ running in the same thread.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Runner.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Runner.close" title="Link to this definition">¶</a></dt>
-<dd><p>Close the runner.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/runners.pyi#L23">typeshed</a>)</p>
+<p>Close the runner.</p>
 <p>Finalize asynchronous generators, shutdown default executor, close the event loop
 and release embedded <a class="reference internal" href="contextvars.html#contextvars.Context" title="contextvars.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">contextvars.Context</span></code></a>.</p>
 </dd></dl>
@@ -337,7 +351,10 @@ and release embedded <a class="reference internal" href="contextvars.html#contex
 <dl class="py method">
 <dt class="sig sig-object py" id="asyncio.Runner.get_loop">
 <span class="sig-name descname"><span class="pre">get_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.Runner.get_loop" title="Link to this definition">¶</a></dt>
-<dd><p>Return the event loop associated with the runner instance.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="asyncio-eventloop.html#asyncio.AbstractEventLoop" title="asyncio.AbstractEventLoop"><span class="pre">AbstractEventLoop</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/runners.pyi#L24">typeshed</a>)</p>
+<p>Return the event loop associated with the runner instance.</p>
 </dd></dl>
 
 <div class="admonition note">

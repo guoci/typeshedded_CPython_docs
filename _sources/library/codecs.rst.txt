@@ -103,12 +103,17 @@ The full details for each codec can also be looked up directly:
 
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L141>`__)
 
       The name of the encoding.
 
 
    .. attribute:: encode
                   decode
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L130>`__)
 
       The stateless encoding and decoding functions. These must be
       functions or methods which have the same interface as
@@ -120,6 +125,8 @@ The full details for each codec can also be looked up directly:
    .. attribute:: incrementalencoder
                   incrementaldecoder
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L138>`__)
+
       Incremental encoder and decoder classes or factory functions.
       These have to provide the interface defined by the base classes
       :class:`IncrementalEncoder` and :class:`IncrementalDecoder`,
@@ -128,6 +135,8 @@ The full details for each codec can also be looked up directly:
 
    .. attribute:: streamwriter
                   streamreader
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L136>`__)
 
       Stream writer and reader classes or factory functions. These have to
       provide the interface defined by the base classes
@@ -638,6 +647,9 @@ function interfaces of the stateless encoder and decoder:
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L231>`__)
 
    .. method:: encode(input, errors='strict')
+               encode(input: str, errors: str = 'strict') -> tuple[bytes, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L234>`__)
 
       Encodes the object *input* and returns a tuple (output object, length consumed).
       For instance, :term:`text encoding` converts
@@ -656,6 +668,9 @@ function interfaces of the stateless encoder and decoder:
 
 
    .. method:: decode(input, errors='strict')
+               decode(input: bytes, errors: str = 'strict') -> tuple[str, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L235>`__)
 
       Decodes the object *input* and returns a tuple (output object, length
       consumed). For instance, for a :term:`text encoding`, decoding converts
@@ -726,6 +741,9 @@ define in order to be compatible with the Python codec registry.
 
 
    .. method:: encode(object, final=False)
+               encode(input: str, final: bool = False) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L241>`__)
 
       Encodes *object* (taking the current state of the encoder into account)
       and returns the resulting encoded object. If this is the last call to
@@ -733,6 +751,9 @@ define in order to be compatible with the Python codec registry.
 
 
    .. method:: reset()
+               reset() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L242>`__)
 
       Reset the encoder to the initial state. The output is discarded: call
       ``.encode(object, final=True)``, passing an empty byte or text string
@@ -740,6 +761,9 @@ define in order to be compatible with the Python codec registry.
 
 
    .. method:: getstate()
+               getstate() -> int | str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L244>`__)
 
       Return the current state of the encoder which must be an integer. The
       implementation should make sure that ``0`` is the most common
@@ -749,6 +773,9 @@ define in order to be compatible with the Python codec registry.
 
 
    .. method:: setstate(state)
+               setstate(state: int | str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L245>`__)
 
       Set the state of the encoder to *state*. *state* must be an encoder state
       returned by :meth:`getstate`.
@@ -786,6 +813,9 @@ define in order to be compatible with the Python codec registry.
 
 
    .. method:: decode(object, final=False)
+               decode(input: Buffer, final: bool = False) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L251>`__)
 
       Decodes *object* (taking the current state of the decoder into account)
       and returns the resulting decoded object. If this is the last call to
@@ -797,11 +827,17 @@ define in order to be compatible with the Python codec registry.
 
 
    .. method:: reset()
+               reset() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L252>`__)
 
       Reset the decoder to the initial state.
 
 
    .. method:: getstate()
+               getstate() -> tuple[bytes, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L253>`__)
 
       Return the current state of the decoder. This must be a tuple with two
       items, the first must be the buffer containing the still undecoded
@@ -817,6 +853,9 @@ define in order to be compatible with the Python codec registry.
 
 
    .. method:: setstate(state)
+               setstate(state: tuple[bytes, int]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L254>`__)
 
       Set the state of the decoder to *state*. *state* must be a decoder state
       returned by :meth:`getstate`.
@@ -864,11 +903,17 @@ compatible with the Python codec registry.
    handling strategies during the lifetime of the :class:`StreamWriter` object.
 
    .. method:: write(object)
+               write(object: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L277>`__)
 
       Writes the object's contents encoded to the stream.
 
 
    .. method:: writelines(list)
+               writelines(list: collections.abc.Iterable[str]) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L278>`__)
 
       Writes the concatenated iterable of strings to the stream (possibly by reusing
       the :meth:`write` method). Infinite or
@@ -877,6 +922,9 @@ compatible with the Python codec registry.
 
 
    .. method:: reset()
+               reset() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L279>`__)
 
       Resets the codec buffers used for keeping internal state.
 
@@ -926,6 +974,9 @@ compatible with the Python codec registry.
 
 
    .. method:: read(size=-1, chars=-1, firstline=False)
+               read(size: int = -1, chars: int = -1, firstline: bool = False) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L291>`__)
 
       Decodes data from the stream and returns the resulting object.
 
@@ -952,6 +1003,9 @@ compatible with the Python codec registry.
 
 
    .. method:: readline(size=None, keepends=True)
+               readline(size: int | None = None, keepends: bool = True) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L292>`__)
 
       Read one line from the input stream and return the decoded data.
 
@@ -963,6 +1017,9 @@ compatible with the Python codec registry.
 
 
    .. method:: readlines(sizehint=None, keepends=True)
+               readlines(sizehint: int | None = None, keepends: bool = True) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L293>`__)
 
       Read all lines available on the input stream and return them as a list of
       lines.
@@ -975,6 +1032,9 @@ compatible with the Python codec registry.
 
 
    .. method:: reset()
+               reset() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/codecs.pyi#L294>`__)
 
       Resets the codec buffers used for keeping internal state.
 

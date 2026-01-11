@@ -215,7 +215,10 @@ their completion.
    section.
 
    .. method:: wait()
+               wait() -> collections.abc.Coroutine[Unknown, Unknown, int]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L32>`__)
 
       Wait for the child process to terminate.
 
@@ -230,7 +233,10 @@ their completion.
          to avoid this condition.
 
    .. method:: communicate(input=None)
+               communicate(input: bytearray | bytes | memoryview[int] | None = None) -> collections.abc.Coroutine[Unknown, Unknown, tuple[bytes, bytes]]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L36>`__)
 
       Interact with process:
 
@@ -263,6 +269,9 @@ their completion.
          *stdin* gets closed when ``input=None`` too.
 
    .. method:: send_signal(signal)
+               send_signal(signal: int) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L33>`__)
 
       Sends the signal *signal* to the child process.
 
@@ -274,6 +283,9 @@ their completion.
          ``CREATE_NEW_PROCESS_GROUP``.
 
    .. method:: terminate()
+               terminate() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L34>`__)
 
       Stop the child process.
 
@@ -284,6 +296,9 @@ their completion.
       called to stop the child process.
 
    .. method:: kill()
+               kill() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L35>`__)
 
       Kill the child process.
 
@@ -293,16 +308,25 @@ their completion.
       On Windows this method is an alias for :meth:`terminate`.
 
    .. attribute:: stdin
+      :type: asyncio.StreamWriter | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L23>`__)
 
       Standard input stream (:class:`~asyncio.StreamWriter`) or ``None``
       if the process was created with ``stdin=None``.
 
    .. attribute:: stdout
+      :type: asyncio.StreamReader | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L24>`__)
 
       Standard output stream (:class:`~asyncio.StreamReader`) or ``None``
       if the process was created with ``stdout=None``.
 
    .. attribute:: stderr
+      :type: asyncio.StreamReader | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L25>`__)
 
       Standard error stream (:class:`~asyncio.StreamReader`) or ``None``
       if the process was created with ``stderr=None``.
@@ -317,6 +341,9 @@ their completion.
       and blocking the child process.
 
    .. attribute:: pid
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L26>`__)
 
       Process identification number (PID).
 
@@ -324,6 +351,9 @@ their completion.
       function, this attribute is the PID of the spawned shell.
 
    .. attribute:: returncode
+      :type: returncode(self: Process) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/subprocess.pyi#L31>`__)
 
       Return code of the process when it exits.
 

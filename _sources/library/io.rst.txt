@@ -376,6 +376,9 @@ I/O Base Classes
    :class:`IOBase` provides these data attributes and methods:
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L112>`__)
 
       Flush and close this stream. This method has no effect if the file is
       already closed. Once the file is closed, any operation on the file
@@ -385,31 +388,49 @@ I/O Base Classes
       only the first call, however, will have an effect.
 
    .. attribute:: closed
+      :type: closed(self: IOBase) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L224>`__)
 
       ``True`` if the stream is closed.
 
    .. method:: fileno()
+               fileno() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L119>`__)
 
       Return the underlying file descriptor (an integer) of the stream if it
       exists.  An :exc:`OSError` is raised if the IO object does not use a file
       descriptor.
 
    .. method:: flush()
+               flush() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L126>`__)
 
       Flush the write buffers of the stream if applicable.  This does nothing
       for read-only and non-blocking streams.
 
    .. method:: isatty()
+               isatty() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L133>`__)
 
       Return ``True`` if the stream is interactive (i.e., connected to
       a terminal/tty device).
 
    .. method:: readable()
+               readable() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L140>`__)
 
       Return ``True`` if the stream can be read from.
       If ``False``, :meth:`!read` will raise :exc:`OSError`.
 
    .. method:: readline(size=-1, /)
+               readline(size: int | None = -1, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L211>`__)
 
       Read and return one line from the stream.  If *size* is specified, at
       most *size* bytes will be read.
@@ -419,6 +440,9 @@ I/O Base Classes
       terminator(s) recognized.
 
    .. method:: readlines(hint=-1, /)
+               readlines(hint: int = -1, /) -> list[bytes]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L148>`__)
 
       Read and return a list of lines from the stream.  *hint* can be specified
       to control the number of lines read: no more lines will be read if the
@@ -431,6 +455,9 @@ I/O Base Classes
       line in file: ...`` without calling :meth:`!file.readlines`.
 
    .. method:: seek(offset, whence=os.SEEK_SET, /)
+               seek(offset: int, whence: int = 0, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L157>`__)
 
       Change the stream position to the given byte *offset*,
       interpreted relative to the position indicated by *whence*,
@@ -453,15 +480,24 @@ I/O Base Classes
          for a file could depend on it being open in text or binary mode.
 
    .. method:: seekable()
+               seekable() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L176>`__)
 
       Return ``True`` if the stream supports random access.  If ``False``,
       :meth:`seek`, :meth:`tell` and :meth:`truncate` will raise :exc:`OSError`.
 
    .. method:: tell()
+               tell() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L184>`__)
 
       Return the current stream position.
 
    .. method:: truncate(size=None, /)
+               truncate(size: int | None = None, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L187>`__)
 
       Resize the stream to the given *size* in bytes (or the current position
       if *size* is not specified).  The current stream position isn't changed.
@@ -474,17 +510,26 @@ I/O Base Classes
          Windows will now zero-fill files when extending.
 
    .. method:: writable()
+               writable() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L195>`__)
 
       Return ``True`` if the stream supports writing.  If ``False``,
       :meth:`!write` and :meth:`truncate` will raise :exc:`OSError`.
 
    .. method:: writelines(lines, /)
+               writelines(lines: collections.abc.Iterable[Buffer], /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L203>`__)
 
       Write a list of lines to the stream.  Line separators are not added, so it
       is usual for each of the lines provided to have a line separator at the
       end.
 
    .. method:: __del__()
+               __del__() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L222>`__)
 
       Prepare for object destruction. :class:`IOBase` provides a default
       implementation of this method that calls the instance's
@@ -507,6 +552,9 @@ I/O Base Classes
    :class:`IOBase`:
 
    .. method:: read(size=-1, /)
+               read(size: int = -1, /) -> bytes | typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L264>`__)
 
       Read up to *size* bytes from the object and return them.  As a convenience,
       if *size* is unspecified or -1, all bytes until EOF are returned.
@@ -521,11 +569,17 @@ I/O Base Classes
       :meth:`readinto`.
 
    .. method:: readall()
+               readall() -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L257>`__)
 
       Read and return all the bytes from the stream until EOF, using multiple
       calls to the stream if necessary.
 
    .. method:: readinto(b, /)
+               readinto(buffer: Buffer, /) -> int | typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L262>`__)
 
       Read bytes into a pre-allocated, writable
       :term:`bytes-like object` *b*, and return the
@@ -534,6 +588,9 @@ I/O Base Classes
       are available, ``None`` is returned.
 
    .. method:: write(b, /)
+               write(b: Buffer, /) -> int | typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L263>`__)
 
       Write the given :term:`bytes-like object`, *b*, to the
       underlying raw stream, and return the number of
@@ -580,6 +637,9 @@ I/O Base Classes
       :class:`BufferedIOBase` API and may not exist on some implementations.
 
    .. method:: detach()
+               detach() -> RawIOBase
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L282>`__)
 
       Separate the underlying raw stream from the buffer and return it.
 
@@ -593,6 +653,9 @@ I/O Base Classes
       .. versionadded:: 3.1
 
    .. method:: read(size=-1, /)
+               read(size: int | None = -1, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L303>`__)
 
       Read and return up to *size* bytes. If the argument is omitted, ``None``,
       or negative read as much as possible.
@@ -617,6 +680,9 @@ I/O Base Classes
          available. :mod:`io` implementations return ``None``.
 
    .. method:: read1(size=-1, /)
+               read1(size: int = -1, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L323>`__)
 
       Read and return up to *size* bytes, calling :meth:`~RawIOBase.readinto`
       which may retry if :py:const:`~errno.EINTR` is encountered per
@@ -630,6 +696,9 @@ I/O Base Classes
          available. :mod:`io` implementations return ``None``.
 
    .. method:: readinto(b, /)
+               readinto(buffer: Buffer, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L290>`__)
 
       Read bytes into a pre-allocated, writable
       :term:`bytes-like object` *b* and return the number of bytes read.
@@ -642,6 +711,9 @@ I/O Base Classes
       blocking-mode, and has no data available at the moment.
 
    .. method:: readinto1(b, /)
+               readinto1(buffer: Buffer, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L302>`__)
 
       Read bytes into a pre-allocated, writable
       :term:`bytes-like object` *b*, using at most one call to
@@ -654,6 +726,9 @@ I/O Base Classes
       .. versionadded:: 3.5
 
    .. method:: write(b, /)
+               write(buffer: Buffer, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L291>`__)
 
       Write the given :term:`bytes-like object`, *b*, and return the number
       of bytes written (always equal to the length of *b* in bytes, since if
@@ -725,10 +800,16 @@ Raw File I/O
    :class:`RawIOBase` and :class:`IOBase`:
 
    .. attribute:: mode
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L349>`__)
 
       The mode as given in the constructor.
 
    .. attribute:: name
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L353>`__)
 
       The file name.  This is the file descriptor of the file when no name is
       given in the constructor.
@@ -759,6 +840,9 @@ than raw I/O does.
    from :class:`BufferedIOBase` and :class:`IOBase`:
 
    .. method:: getbuffer()
+               getbuffer() -> memoryview[int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L395>`__)
 
       Return a readable and writable view over the contents of the buffer
       without copying them.  Also, mutating the view will transparently
@@ -777,11 +861,17 @@ than raw I/O does.
       .. versionadded:: 3.2
 
    .. method:: getvalue()
+               getvalue() -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L392>`__)
 
       Return :class:`bytes` containing the entire contents of the buffer.
 
 
    .. method:: read1(size=-1, /)
+               read1(size: int | None = -1, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L398>`__)
 
       In :class:`BytesIO`, this is the same as :meth:`~BufferedIOBase.read`.
 
@@ -789,6 +879,9 @@ than raw I/O does.
          The *size* argument is now optional.
 
    .. method:: readinto1(b, /)
+               readinto1(buffer: Buffer, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L302>`__)
 
       In :class:`BytesIO`, this is the same as :meth:`~BufferedIOBase.readinto`.
 
@@ -815,16 +908,25 @@ than raw I/O does.
    those from :class:`BufferedIOBase` and :class:`IOBase`:
 
    .. method:: peek(size=0, /)
+               peek[_BufferedReaderStreamT](size: int = 0, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L464>`__)
 
       Return bytes from the stream without advancing the position. The number of
       bytes returned may be less or more than requested. If the underlying raw
       stream is non-blocking and the operation would block, returns empty bytes.
 
    .. method:: read(size=-1, /)
+               read[_BufferedReaderStreamT](size: int | None = -1, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L303>`__)
 
       In :class:`BufferedReader` this is the same as :meth:`io.BufferedIOBase.read`
 
    .. method:: read1(size=-1, /)
+               read1[_BufferedReaderStreamT](size: int = -1, /) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L323>`__)
 
       In :class:`BufferedReader` this is the same as :meth:`io.BufferedIOBase.read1`
 
@@ -857,11 +959,17 @@ than raw I/O does.
    those from :class:`BufferedIOBase` and :class:`IOBase`:
 
    .. method:: flush()
+               flush() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L126>`__)
 
       Force bytes held in the buffer into the raw stream.  A
       :exc:`BlockingIOError` should be raised if the raw stream blocks.
 
    .. method:: write(b, /)
+               write(buffer: Buffer, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L483>`__)
 
       Write the :term:`bytes-like object`, *b*, and return the
       number of bytes written.  When in non-blocking mode, a
@@ -926,15 +1034,24 @@ Text I/O
    methods in addition to those from :class:`IOBase`:
 
    .. attribute:: encoding
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L536>`__)
 
       The name of the encoding used to decode the stream's bytes into
       strings, and to encode strings into bytes.
 
    .. attribute:: errors
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L537>`__)
 
       The error setting of the decoder or encoder.
 
    .. attribute:: newlines
+      :type: str | tuple[str, ...] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L538>`__)
 
       A string, a tuple of strings, or ``None``, indicating the newlines
       translated so far.  Depending on the implementation and the initial
@@ -948,6 +1065,9 @@ Text I/O
       in some implementations.
 
    .. method:: detach()
+               detach() -> BinaryIO
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L545>`__)
 
       Separate the underlying binary buffer from the :class:`TextIOBase` and
       return it.
@@ -962,11 +1082,17 @@ Text I/O
       .. versionadded:: 3.1
 
    .. method:: read(size=-1, /)
+               read(size: int | None = -1, /) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L585>`__)
 
       Read and return at most *size* characters from the stream as a single
       :class:`str`.  If *size* is negative or ``None``, reads until EOF.
 
    .. method:: readline(size=-1, /)
+               readline(size: int = -1, /) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L568>`__)
 
       Read until newline or EOF and return a single :class:`str`.  If the stream is
       already at EOF, an empty string is returned.
@@ -974,6 +1100,9 @@ Text I/O
       If *size* is specified, at most *size* characters will be read.
 
    .. method:: seek(offset, whence=SEEK_SET, /)
+               seek(offset: int, whence: int = 0, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L157>`__)
 
       Change the stream position to the given *offset*.  Behaviour depends on
       the *whence* parameter.  The default value for *whence* is
@@ -995,12 +1124,18 @@ Text I/O
          The :data:`!SEEK_*` constants.
 
    .. method:: tell()
+               tell() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L184>`__)
 
       Return the current stream position as an opaque number.  The number
       does not usually represent a number of bytes in the underlying
       binary storage.
 
    .. method:: write(s, /)
+               write(s: str, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L552>`__)
 
       Write the string *s* to the stream and return the number of characters
       written.
@@ -1084,10 +1219,16 @@ Text I/O
    addition to those from :class:`TextIOBase` and :class:`IOBase`:
 
    .. attribute:: line_buffering
+      :type: line_buffering[_BufferT_co](self: TextIOWrapper[_BufferT_co]) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L664>`__)
 
       Whether line buffering is enabled.
 
    .. attribute:: write_through
+      :type: write_through[_BufferT_co](self: TextIOWrapper[_BufferT_co]) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L666>`__)
 
       Whether writes are passed immediately to the underlying binary
       buffer.
@@ -1096,6 +1237,9 @@ Text I/O
 
    .. method:: reconfigure(*, encoding=None, errors=None, newline=None, \
                            line_buffering=None, write_through=None)
+               reconfigure[_BufferT_co](*, encoding: str | None = None, errors: str | None = None, newline: str | None = None, line_buffering: bool | None = None, write_through: bool | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L667>`__)
 
       Reconfigure this text stream using new settings for *encoding*,
       *errors*, *newline*, *line_buffering* and *write_through*.
@@ -1117,6 +1261,9 @@ Text I/O
          The method supports ``encoding="locale"`` option.
 
    .. method:: seek(cookie, whence=os.SEEK_SET, /)
+               seek[_BufferT_co](cookie: int, whence: int = 0, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L687>`__)
 
       Set the stream position.
       Return the new stream position as an :class:`int`.
@@ -1138,6 +1285,9 @@ Text I/O
          :data:`os.SEEK_SET`, :data:`os.SEEK_CUR`, and :data:`os.SEEK_END`.
 
    .. method:: tell()
+               tell[_BufferT_co]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L184>`__)
 
       Return the stream position as an opaque number.
       The return value of :meth:`!tell` can be given as input to :meth:`seek`,
@@ -1172,6 +1322,9 @@ Text I/O
    :class:`TextIOBase` and :class:`IOBase`:
 
    .. method:: getvalue()
+               getvalue() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_io.pyi#L724>`__)
 
       Return a :class:`str` containing the entire contents of the buffer.
       Newlines are decoded as if by :meth:`~TextIOBase.read`, although
@@ -1226,6 +1379,9 @@ with :deco:`typing.runtime_checkable`.
 
    .. method:: read()
                read(size, /)
+               read[_T_co](size: int = ..., /) -> _T_co
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/io.pyi#L71>`__)
 
       Read data from the input stream and return it. If *size* is
       specified, it should be an integer, and at most *size* items
@@ -1249,6 +1405,9 @@ with :deco:`typing.runtime_checkable`.
    .. versionadded:: 3.14
 
    .. method:: write(data, /)
+               write[_T_contra](data: _T_contra, /) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/io.pyi#L75>`__)
 
       Write *data* to the output stream and return the number of items
       (bytes/characters) written.

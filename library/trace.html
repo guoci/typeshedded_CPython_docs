@@ -397,7 +397,10 @@ started to be displayed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="trace.Trace.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trace.Trace.run" title="Link to this definition">¶</a></dt>
-<dd><p>Execute the command and gather statistics from the execution with
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.CodeType" title="types.CodeType"><span class="pre">CodeType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L74">typeshed</a>)</p>
+<p>Execute the command and gather statistics from the execution with
 the current tracing parameters.  <em>cmd</em> must be a string or code object,
 suitable for passing into <a class="reference internal" href="functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>.</p>
 </dd></dl>
@@ -405,7 +408,18 @@ suitable for passing into <a class="reference internal" href="functions.html#exe
 <dl class="py method">
 <dt class="sig sig-object py" id="trace.Trace.runctx">
 <span class="sig-name descname"><span class="pre">runctx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">globals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trace.Trace.runctx" title="Link to this definition">¶</a></dt>
-<dd><p>Execute the command and gather statistics from the execution with the
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">runctx</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#types.CodeType" title="types.CodeType"><span class="pre">CodeType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">globals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><span class="pre">collections.abc.Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">locals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><span class="pre">collections.abc.Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L75">typeshed</a>)</p>
+<p>Execute the command and gather statistics from the execution with the
 current tracing parameters, in the defined global and local
 environments.  If not defined, <em>globals</em> and <em>locals</em> default to empty
 dictionaries.</p>
@@ -414,14 +428,20 @@ dictionaries.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="trace.Trace.runfunc">
 <span class="sig-name descname"><span class="pre">runfunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trace.Trace.runfunc" title="Link to this definition">¶</a></dt>
-<dd><p>Call <em>func</em> with the given arguments under control of the <a class="reference internal" href="#trace.Trace" title="trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">runfunc</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(ParamSpec(_P))</span> <span class="pre">-&gt;</span> <span class="pre">_T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ParamSpec(_P)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T</span></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L78">typeshed</a>)</p>
+<p>Call <em>func</em> with the given arguments under control of the <a class="reference internal" href="#trace.Trace" title="trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a>
 object with the current tracing parameters.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="trace.Trace.results">
 <span class="sig-name descname"><span class="pre">results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trace.Trace.results" title="Link to this definition">¶</a></dt>
-<dd><p>Return a <a class="reference internal" href="#trace.CoverageResults" title="trace.CoverageResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoverageResults</span></code></a> object that contains the cumulative
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#trace.CoverageResults" title="trace.CoverageResults"><span class="pre">CoverageResults</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L86">typeshed</a>)</p>
+<p>Return a <a class="reference internal" href="#trace.CoverageResults" title="trace.CoverageResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoverageResults</span></code></a> object that contains the cumulative
 results of all previous calls to <code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">runctx</span></code> and <code class="docutils literal notranslate"><span class="pre">runfunc</span></code>
 for the given <a class="reference internal" href="#trace.Trace" title="trace.Trace"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trace</span></code></a> instance.  Does not reset the accumulated
 trace results.</p>
@@ -450,7 +470,10 @@ not be created directly by the user.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="trace.CoverageResults.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trace.CoverageResults.update" title="Link to this definition">¶</a></dt>
-<dd><p>Merge in data from another <a class="reference internal" href="#trace.CoverageResults" title="trace.CoverageResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoverageResults</span></code></a> object.</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#trace.CoverageResults" title="trace.CoverageResults"><span class="pre">CoverageResults</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L29">typeshed</a>)</p>
+<p>Merge in data from another <a class="reference internal" href="#trace.CoverageResults" title="trace.CoverageResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoverageResults</span></code></a> object.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -466,7 +489,20 @@ not be created directly by the user.</p>
 </dl>
 
 <span class="sig-paren">)</span><a class="headerlink" href="#trace.CoverageResults.write_results" title="Link to this definition">¶</a></dt>
-<dd><p>Write coverage results.  Set <em>show_missing</em> to show lines that had no
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">write_results</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">show_missing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">summary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">coverdir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><span class="pre">PathLike</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">ignore_missing_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
+<dd><p>(<a class="reference external" href="https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/trace.pyi#L31">typeshed</a>)</p>
+<p>Write coverage results.  Set <em>show_missing</em> to show lines that had no
 hits.  Set <em>summary</em> to include in the output the coverage summary per
 module.  <em>coverdir</em> specifies the directory into which the coverage
 result files will be output.  If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the results for each source

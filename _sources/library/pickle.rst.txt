@@ -366,11 +366,17 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       The *buffer_callback* argument was added.
 
    .. method:: dump(obj)
+               dump(obj: typing.Any, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L204>`__)
 
       Write the pickled representation of *obj* to the open file object given in
       the constructor.
 
    .. method:: persistent_id(obj)
+               persistent_id(obj: typing.Any, /) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L219>`__)
 
       Do nothing by default.  This exists so a subclass can override it.
 
@@ -387,6 +393,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
          of :class:`!Pickler`.
 
    .. attribute:: dispatch_table
+      :type: collections.abc.Mapping[type, (typing.Any) -> _ReducedType]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L190>`__)
 
       A pickler object's dispatch table is a registry of *reduction
       functions* of the kind which can be declared using
@@ -410,6 +419,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       .. versionadded:: 3.3
 
    .. method:: reducer_override(obj)
+               reducer_override(typing.Any) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L191>`__)
 
       Special reducer that can be defined in :class:`Pickler` subclasses. This
       method has priority over any reducer in the :attr:`dispatch_table`.  It
@@ -422,6 +434,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       .. versionadded:: 3.8
 
    .. attribute:: fast
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L189>`__)
 
       Deprecated. Enable fast mode if set to a true value.  The fast mode
       disables the usage of memo, therefore speeding the pickling process by not
@@ -432,6 +447,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       Use :func:`pickletools.optimize` if you need more compact pickles.
 
    .. method:: clear_memo()
+               clear_memo() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L207>`__)
 
       Clears the pickler's "memo".
 
@@ -483,6 +501,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       The *buffers* argument was added.
 
    .. method:: load()
+               load() -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L263>`__)
 
       Read the pickled representation of an object from the open file object
       given in the constructor, and return the reconstituted object hierarchy
@@ -490,6 +511,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       are ignored.
 
    .. method:: persistent_load(pid)
+               persistent_load(pid: typing.Any, /) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L286>`__)
 
       Raise an :exc:`UnpicklingError` by default.
 
@@ -504,6 +528,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
          of :class:`!Unpickler`.
 
    .. method:: find_class(module, name)
+               find_class(module_name: str, global_name: str, /) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_pickle.pyi#L272>`__)
 
       Import *module* if necessary and return the object called *name* from it,
       where the *module* and *name* arguments are :class:`str` objects.  Note,
@@ -536,6 +563,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
    .. versionadded:: 3.8
 
    .. method:: raw()
+               raw() -> memoryview[int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pickle.pyi#L113>`__)
 
       Return a :class:`memoryview` of the memory area underlying this buffer.
       The returned object is a one-dimensional, C-contiguous memoryview
@@ -543,6 +573,9 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       the buffer is neither C- nor Fortran-contiguous.
 
    .. method:: release()
+               release() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/pickle.pyi#L119>`__)
 
       Release the underlying buffer exposed by the PickleBuffer object.
 

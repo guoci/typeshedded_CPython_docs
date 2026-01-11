@@ -1860,6 +1860,9 @@ Callback Handles
    :meth:`loop.call_soon_threadsafe`.
 
    .. method:: get_context()
+               get_context() -> contextvars.Context
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L86>`__)
 
       Return the :class:`contextvars.Context` object
       associated with the handle.
@@ -1867,11 +1870,17 @@ Callback Handles
       .. versionadded:: 3.12
 
    .. method:: cancel()
+               cancel() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L82>`__)
 
       Cancel the callback.  If the callback has already been canceled
       or executed, this method has no effect.
 
    .. method:: cancelled()
+               cancelled() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L84>`__)
 
       Return ``True`` if the callback was cancelled.
 
@@ -1888,6 +1897,9 @@ Callback Handles
    This class is a subclass of :class:`Handle`.
 
    .. method:: when()
+               when() -> float
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/events.pyi#L99>`__)
 
       Return a scheduled callback time as :class:`float` seconds.
 
@@ -1931,6 +1943,9 @@ Do not instantiate the :class:`Server` class directly.
       This class was exposed publicly as ``asyncio.Server`` in Python 3.9.11, 3.10.3 and 3.11.
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L61>`__)
 
       Stop serving: close listening sockets and set the :attr:`sockets`
       attribute to ``None``.
@@ -1943,6 +1958,9 @@ Do not instantiate the :class:`Server` class directly.
       connections are active).
 
    .. method:: close_clients()
+               close_clients() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L52>`__)
 
       Close all existing incoming client connections.
 
@@ -1955,6 +1973,9 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.13
 
    .. method:: abort_clients()
+               abort_clients() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L53>`__)
 
       Close all existing incoming client connections immediately,
       without waiting for pending operations to complete.
@@ -1968,13 +1989,19 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.13
 
    .. method:: get_loop()
+               get_loop() -> AbstractEventLoop
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L55>`__)
 
       Return the event loop associated with the server object.
 
       .. versionadded:: 3.7
 
    .. method:: start_serving()
+               start_serving() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L57>`__)
 
       Start accepting connections.
 
@@ -1991,7 +2018,10 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.7
 
    .. method:: serve_forever()
+               serve_forever() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L58>`__)
 
       Start accepting connections until the coroutine is cancelled.
       Cancellation of ``serve_forever`` task causes the server
@@ -2018,18 +2048,27 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.7
 
    .. method:: is_serving()
+               is_serving() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L56>`__)
 
       Return ``True`` if the server is accepting new connections.
 
       .. versionadded:: 3.7
 
    .. method:: wait_closed()
+               wait_closed() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L62>`__)
 
       Wait until the :meth:`close` method completes and all active
       connections have finished.
 
    .. attribute:: sockets
+      :type: sockets(self: Server) -> tuple[socket, ...]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/base_events.pyi#L60>`__)
 
       List of socket-like objects, ``asyncio.trsock.TransportSocket``, which
       the server is listening on.

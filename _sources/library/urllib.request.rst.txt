@@ -1804,40 +1804,61 @@ Functions defined by this module are used internally by the :mod:`urllib.request
 The typical response object is a :class:`urllib.response.addinfourl` instance:
 
 .. class:: addinfourl
-           addinfourl(fp: IO[bytes], headers: email.generator.Message[str, str], url: str, code: int | None = None) -> None
+           addinfourl(fp: IO[bytes], headers: email.message.Message[str, str], url: str, code: int | None = None) -> None
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L33>`__)
 
    .. attribute:: url
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L34>`__)
 
       URL of the resource retrieved, commonly used to determine if a redirect was followed.
 
    .. attribute:: headers
+      :type: email.message.Message[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L29>`__)
 
       Returns the headers of the response in the form of an :class:`~email.message.EmailMessage` instance.
 
    .. attribute:: status
+      :type: status(self: addinfourl) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L37>`__)
 
       .. versionadded:: 3.9
 
       Status code returned by server.
 
    .. method:: geturl()
+               geturl() -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L39>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.url`.
 
    .. method:: info()
+               info() -> email.message.Message[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L31>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.headers`.
 
    .. attribute:: code
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L35>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.status`.
 
    .. method:: getcode()
+               getcode() -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/urllib/response.pyi#L40>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.status`.

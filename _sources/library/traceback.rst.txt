@@ -367,16 +367,25 @@ the module-level functions described above.
       Added the *max_group_width* and *max_group_depth* parameters.
 
    .. attribute:: __cause__
+      :type: TracebackException | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L117>`__)
 
       A :class:`!TracebackException` of the original
       :attr:`~BaseException.__cause__`.
 
    .. attribute:: __context__
+      :type: TracebackException | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L118>`__)
 
       A :class:`!TracebackException` of the original
       :attr:`~BaseException.__context__`.
 
    .. attribute:: exceptions
+      :type: list[TracebackException] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L120>`__)
 
       If ``self`` represents an :exc:`ExceptionGroup`, this field holds a list of
       :class:`!TracebackException` instances representing the nested exceptions.
@@ -385,11 +394,17 @@ the module-level functions described above.
       .. versionadded:: 3.11
 
    .. attribute:: __suppress_context__
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L121>`__)
 
       The :attr:`~BaseException.__suppress_context__` value from the original
       exception.
 
    .. attribute:: __notes__
+      :type: list[str] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L123>`__)
 
       The :attr:`~BaseException.__notes__` value from the original exception,
       or ``None``
@@ -399,30 +414,48 @@ the module-level functions described above.
       .. versionadded:: 3.11
 
    .. attribute:: stack
+      :type: StackSummary
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L124>`__)
 
       A :class:`StackSummary` representing the traceback.
 
    .. attribute:: exc_type
+      :type: exc_type(self: TracebackException) -> type[BaseException] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L142>`__)
 
       The class of the original traceback.
 
       .. deprecated:: 3.13
 
    .. attribute:: exc_type_str
+      :type: exc_type_str(self: TracebackException) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L139>`__)
 
       String display of the class of the original exception.
 
       .. versionadded:: 3.13
 
    .. attribute:: filename
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L127>`__)
 
       For syntax errors - the file name where the error occurred.
 
    .. attribute:: lineno
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L128>`__)
 
       For syntax errors - the line number where the error occurred.
 
    .. attribute:: end_lineno
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L130>`__)
 
       For syntax errors - the end line number where the error occurred.
       Can be ``None`` if not present.
@@ -430,14 +463,23 @@ the module-level functions described above.
       .. versionadded:: 3.10
 
    .. attribute:: text
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L131>`__)
 
       For syntax errors - the text where the error occurred.
 
    .. attribute:: offset
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L132>`__)
 
       For syntax errors - the offset into the text where the error occurred.
 
    .. attribute:: end_offset
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L134>`__)
 
       For syntax errors - the end offset into the text where the error occurred.
       Can be ``None`` if not present.
@@ -445,10 +487,16 @@ the module-level functions described above.
       .. versionadded:: 3.10
 
    .. attribute:: msg
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L135>`__)
 
       For syntax errors - the compiler error message.
 
    .. classmethod:: from_exception(exc, *, limit=None, lookup_lines=True, capture_locals=False)
+                    from_exception(cls: type[TracebackException], exc: BaseException, *, limit: int | None = None, lookup_lines: bool = True, capture_locals: bool = False, compact: bool = False, max_group_width: int = 15, max_group_depth: int = 10) -> TracebackException
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L204>`__)
 
       Capture an exception for later rendering. *limit*, *lookup_lines* and
       *capture_locals* are as for the :class:`StackSummary` class.
@@ -456,6 +504,9 @@ the module-level functions described above.
       Note that when locals are captured, they are also shown in the traceback.
 
    .. method::  print(*, file=None, chain=True)
+                print(*, file: SupportsWrite[str] | None = None, chain: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L245>`__)
 
       Print to *file* (default ``sys.stderr``) the exception information returned by
       :meth:`format`.
@@ -463,6 +514,9 @@ the module-level functions described above.
       .. versionadded:: 3.11
 
    .. method:: format(*, chain=True)
+               format(*, chain: bool = True, _ctx: _ExceptionPrintContext | None = None) -> collections.abc.Generator[str, None, None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L235>`__)
 
       Format the exception.
 
@@ -474,6 +528,9 @@ the module-level functions described above.
       is a wrapper around this method which just prints the lines to a file.
 
    .. method::  format_exception_only(*, show_group=False)
+                format_exception_only(*, show_group: bool = False, _depth: int = 0) -> collections.abc.Generator[str, None, None]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L240>`__)
 
       Format the exception part of the traceback.
 
@@ -511,6 +568,9 @@ the module-level functions described above.
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L316>`__)
 
    .. classmethod:: extract(frame_gen, *, limit=None, lookup_lines=True, capture_locals=False)
+                    extract(cls: type[StackSummary], frame_gen: collections.abc.Iterable[tuple[FrameType, int]], *, limit: int | None = None, lookup_lines: bool = True, capture_locals: bool = False) -> StackSummary
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L318>`__)
 
       Construct a :class:`!StackSummary` object from a frame generator (such as
       is returned by :func:`~traceback.walk_stack` or
@@ -529,6 +589,9 @@ the module-level functions described above.
          *capture_locals* is ``True``) are no longer propagated to the caller.
 
    .. classmethod:: from_list(a_list)
+                    from_list(cls: type[StackSummary], a_list: collections.abc.Iterable[FrameSummary | tuple[str, int, str, str | None]]) -> StackSummary
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L327>`__)
 
       Construct a :class:`!StackSummary` object from a supplied list of
       :class:`FrameSummary` objects or old-style list of tuples.  Each tuple
@@ -536,6 +599,9 @@ the module-level functions described above.
       elements.
 
    .. method:: format()
+               format() -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L331>`__)
 
       Returns a list of strings ready for printing.  Each string in the
       resulting list corresponds to a single :ref:`frame <frame-objects>` from
@@ -551,6 +617,9 @@ the module-level functions described above.
          Long sequences of repeated frames are now abbreviated.
 
    .. method:: format_frame_summary(frame_summary)
+               format_frame_summary(frame_summary: FrameSummary) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L329>`__)
 
       Returns a string for printing one of the :ref:`frames <frame-objects>`
       involved in the stack.
@@ -590,27 +659,42 @@ in a :ref:`traceback <traceback-objects>`.
    :class:`!FrameSummary` instances have the following attributes:
 
    .. attribute:: FrameSummary.filename
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L293>`__)
 
       The filename of the source code for this frame. Equivalent to accessing
       :attr:`f.f_code.co_filename <codeobject.co_filename>` on a
       :ref:`frame object <frame-objects>` *f*.
 
    .. attribute:: FrameSummary.lineno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L294>`__)
 
       The line number of the source code for this frame.
 
    .. attribute:: FrameSummary.name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L295>`__)
 
       Equivalent to accessing :attr:`f.f_code.co_name <codeobject.co_name>` on
       a :ref:`frame object <frame-objects>` *f*.
 
    .. attribute:: FrameSummary.line
+      :type: line(self: FrameSummary) -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L298>`__)
 
       A string representing the source code for this frame, with leading and
       trailing whitespace stripped.
       If the source is not available, it is ``None``.
 
    .. attribute:: FrameSummary.end_lineno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L279>`__)
 
       The last line number of the source code for this frame.
       By default, it is set to ``lineno`` and indexation starts from 1.
@@ -619,11 +703,17 @@ in a :ref:`traceback <traceback-objects>`.
          The default value changed from ``None`` to ``lineno``.
 
    .. attribute:: FrameSummary.colno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L280>`__)
 
       The column number of the source code for this frame.
       By default, it is ``None`` and indexation starts from 0.
 
    .. attribute:: FrameSummary.end_colno
+      :type: int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/traceback.pyi#L281>`__)
 
       The last column number of the source code for this frame.
       By default, it is ``None`` and indexation starts from 0.

@@ -268,6 +268,9 @@ ABC hierarchy::
       No longer a subclass of :class:`!Finder`.
 
    .. method:: find_spec(fullname, path, target=None)
+               find_spec(fullname: str, path: collections.abc.Sequence[str] | None, target: ModuleType | None = ..., /) -> ModuleSpec | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L80>`__)
 
       An abstract method for finding a :term:`spec <module spec>` for
       the specified module.  If this is a top-level import, *path* will
@@ -282,6 +285,9 @@ ABC hierarchy::
       .. versionadded:: 3.4
 
    .. method:: invalidate_caches()
+               invalidate_caches() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L78>`__)
 
       An optional method which, when called, should invalidate any internal
       cache used by the finder. Used by :func:`importlib.invalidate_caches`
@@ -307,6 +313,9 @@ ABC hierarchy::
       No longer a subclass of :class:`!Finder`.
 
    .. method:: find_spec(fullname, target=None)
+               find_spec(fullname: str, target: ModuleType | None = ...) -> ModuleSpec | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L93>`__)
 
       An abstract method for finding a :term:`spec <module spec>` for
       the specified module.  The finder will search for the module only
@@ -319,6 +328,9 @@ ABC hierarchy::
       .. versionadded:: 3.4
 
    .. method:: invalidate_caches()
+               invalidate_caches() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L91>`__)
 
       An optional method which, when called, should invalidate any internal
       cache used by the finder. Used by
@@ -345,6 +357,9 @@ ABC hierarchy::
       Removed the ``load_module()`` method.
 
     .. method:: create_module(spec)
+                create_module(spec: ModuleSpec) -> ModuleType | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/_abc.pyi#L17>`__)
 
        A method that returns the module object to use when
        importing a module.  This method may return ``None``,
@@ -357,6 +372,9 @@ ABC hierarchy::
           :meth:`exec_module` is defined.
 
     .. method:: exec_module(module)
+                exec_module(module: ModuleType) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/_abc.pyi#L20>`__)
 
        An abstract method that executes the module in its own namespace
        when a module is imported or reloaded.  The module should already
@@ -387,7 +405,10 @@ ABC hierarchy::
        this module.
 
     .. method:: get_data(path)
+                get_data(path: str) -> bytes
        :abstractmethod:
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L46>`__)
 
         An abstract method to return the bytes for the data located at *path*.
         Loaders that have a file-like storage back-end
@@ -411,6 +432,9 @@ ABC hierarchy::
     :pep:`302` protocol for loaders that inspect modules.
 
     .. method:: get_code(fullname)
+                get_code(fullname: str) -> CodeType | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L50>`__)
 
         Return the code object for a module, or ``None`` if the module does not
         have a code object (as would be the case, for example, for a built-in
@@ -428,7 +452,10 @@ ABC hierarchy::
            No longer abstract and a concrete implementation is provided.
 
     .. method:: get_source(fullname)
+                get_source(fullname: str) -> str | None
        :abstractmethod:
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L52>`__)
 
         An abstract method to return the source of a module. It is returned as
         a text string using :term:`universal newlines`, translating all
@@ -440,6 +467,9 @@ ABC hierarchy::
            Raises :exc:`ImportError` instead of :exc:`NotImplementedError`.
 
     .. method:: is_package(fullname)
+                is_package(fullname: str) -> bool
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L49>`__)
 
         An optional method to return a true value if the module is a package, a
         false value otherwise. :exc:`ImportError` is raised if the
@@ -449,6 +479,9 @@ ABC hierarchy::
            Raises :exc:`ImportError` instead of :exc:`NotImplementedError`.
 
     .. staticmethod:: source_to_code(data, path='<string>', fullname=None)
+                      source_to_code(data: Buffer | Expression | Interactive | Module | str, path: PathLike[str] | bytes | str = '<string>') -> CodeType
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L55>`__)
 
         Create a code object from Python source.
 
@@ -474,6 +507,9 @@ ABC hierarchy::
 
 
     .. method:: exec_module(module)
+                exec_module(module: ModuleType) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L53>`__)
 
        Implementation of :meth:`Loader.exec_module`.
 
@@ -490,7 +526,10 @@ ABC hierarchy::
     represents an optional :pep:`302` protocol.
 
     .. method:: get_filename(fullname)
+                get_filename(fullname: str) -> str
        :abstractmethod:
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L61>`__)
 
         An abstract method that is to return the value of
         :attr:`~module.__file__` for the specified module. If no path is
@@ -522,20 +561,32 @@ ABC hierarchy::
       Removed the ``load_module()`` method.
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L113>`__)
 
       The name of the module the loader can handle.
 
    .. attribute:: path
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L114>`__)
 
       Path to the file of the module.
 
    .. method:: get_filename(fullname)
+               get_filename(fullname: str | None = None) -> str
       :abstractmethod:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L117>`__)
 
       Returns :attr:`path`.
 
    .. method:: get_data(path)
+               get_data(path: str) -> bytes
       :abstractmethod:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L116>`__)
 
       Reads *path* as a binary file and returns the bytes from it.
 
@@ -567,6 +618,9 @@ ABC hierarchy::
        Removed the ``load_module()`` method.
 
     .. method:: path_stats(path)
+                path_stats(path: str) -> collections.abc.Mapping[str, typing.Any]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L68>`__)
 
         Optional abstract method which returns a :class:`dict` containing
         metadata about the specified path.  Supported dictionary keys are:
@@ -584,6 +638,9 @@ ABC hierarchy::
            Raise :exc:`OSError` instead of :exc:`NotImplementedError`.
 
     .. method:: path_mtime(path)
+                path_mtime(path: str) -> float
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L65>`__)
 
         Optional abstract method which returns the modification time for the
         specified path.
@@ -597,6 +654,9 @@ ABC hierarchy::
            Raise :exc:`OSError` instead of :exc:`NotImplementedError`.
 
     .. method:: set_data(path, data)
+                set_data(path: str, data: bytes) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L66>`__)
 
         Optional abstract method which writes the specified bytes to a file
         path. Any intermediate directories which do not exist are to be created
@@ -610,20 +670,32 @@ ABC hierarchy::
            No longer raises :exc:`NotImplementedError` when called.
 
     .. method:: get_code(fullname)
+                get_code(fullname: str) -> CodeType | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L105>`__)
 
         Concrete implementation of :meth:`InspectLoader.get_code`.
 
     .. method:: exec_module(module)
+                exec_module(module: ModuleType) -> None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L94>`__)
 
        Concrete implementation of :meth:`Loader.exec_module`.
 
        .. versionadded:: 3.4
 
     .. method:: get_source(fullname)
+                get_source(fullname: str) -> str | None
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L67>`__)
 
         Concrete implementation of :meth:`InspectLoader.get_source`.
 
     .. method:: is_package(fullname)
+                is_package(fullname: str) -> bool
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L92>`__)
 
         Concrete implementation of :meth:`InspectLoader.is_package`. A module
         is determined to be a package if its file path (as provided by
@@ -949,6 +1021,9 @@ find and load modules.
    instantiation.
 
    .. classmethod:: find_spec(fullname, path=None, target=None)
+                    find_spec(cls: type[PathFinder], fullname: str, path: collections.abc.Sequence[str] | None = None, target: ModuleType | None = None) -> ModuleSpec | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L69>`__)
 
       Class method that attempts to find a :term:`spec <module spec>`
       for the module specified by *fullname* on :data:`sys.path` or, if
@@ -970,6 +1045,9 @@ find and load modules.
          in :data:`sys.path_importer_cache`.
 
    .. classmethod:: invalidate_caches()
+                    invalidate_caches() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L57>`__)
 
       Calls :meth:`importlib.abc.PathEntryFinder.invalidate_caches` on all
       finders stored in :data:`sys.path_importer_cache` that define the method.
@@ -1013,20 +1091,32 @@ find and load modules.
    .. versionadded:: 3.3
 
    .. attribute:: path
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L84>`__)
 
       The path the finder will search in.
 
    .. method:: find_spec(fullname, target=None)
+               find_spec(fullname: str, target: ModuleType | None = ...) -> ModuleSpec | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L93>`__)
 
       Attempt to find the spec to handle *fullname* within :attr:`path`.
 
       .. versionadded:: 3.4
 
    .. method:: invalidate_caches()
+               invalidate_caches() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L91>`__)
 
       Clear out the internal cache.
 
    .. classmethod:: path_hook(*loader_details)
+                    path_hook(cls: type[FileFinder], *loader_details: tuple[type[Loader], list[str]]) -> (str) -> PathEntryFinder
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L87>`__)
 
       A class method which returns a closure for use on :data:`sys.path_hooks`.
       An instance of :class:`FileFinder` is returned by the closure using the
@@ -1082,22 +1172,37 @@ find and load modules.
       Removed the ``load_module()`` method.
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L113>`__)
 
       The name of the module that this loader will handle.
 
    .. attribute:: path
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L114>`__)
 
       The path to the source file.
 
    .. method:: is_package(fullname)
+               is_package(fullname: str) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L92>`__)
 
       Return ``True`` if :attr:`path` appears to be for a package.
 
    .. method:: path_stats(path)
+               path_stats(path: str) -> collections.abc.Mapping[str, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L125>`__)
 
       Concrete implementation of :meth:`importlib.abc.SourceLoader.path_stats`.
 
    .. method:: set_data(path, data)
+               set_data(path: str, data: Buffer, *, _mode: int = 438) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L124>`__)
 
       Concrete implementation of :meth:`importlib.abc.SourceLoader.set_data`.
 
@@ -1121,22 +1226,37 @@ find and load modules.
       Removed the ``load_module()`` method.
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L113>`__)
 
       The name of the module the loader will handle.
 
    .. attribute:: path
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L114>`__)
 
       The path to the bytecode file.
 
    .. method:: is_package(fullname)
+               is_package(fullname: str) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/abc.pyi#L49>`__)
 
       Determines if the module is a package based on :attr:`path`.
 
    .. method:: get_code(fullname)
+               get_code(fullname: str) -> CodeType | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L135>`__)
 
       Returns the code object for :attr:`name` created from :attr:`path`.
 
    .. method:: get_source(fullname)
+               get_source(fullname: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L136>`__)
 
       Returns ``None`` as bytecode files have no source when this loader is
       used.
@@ -1163,14 +1283,23 @@ find and load modules.
       Multi-phase init is now required for use in subinterpreters.
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L108>`__)
 
       Name of the module the loader supports.
 
    .. attribute:: path
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L109>`__)
 
       Path to the extension module.
 
    .. method:: create_module(spec)
+               create_module(spec: ModuleSpec) -> ModuleType
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L142>`__)
 
       Creates the module object from the given specification in accordance
       with :pep:`489`.
@@ -1178,25 +1307,40 @@ find and load modules.
       .. versionadded:: 3.5
 
    .. method:: exec_module(module)
+               exec_module(module: ModuleType) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L143>`__)
 
       Initializes the given module object in accordance with :pep:`489`.
 
       .. versionadded:: 3.5
 
    .. method:: is_package(fullname)
+               is_package(fullname: str) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L92>`__)
 
       Returns ``True`` if the file path points to a package's ``__init__``
       module based on :const:`EXTENSION_SUFFIXES`.
 
    .. method:: get_code(fullname)
+               get_code(fullname: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L144>`__)
 
       Returns ``None`` as extension modules lack a code object.
 
    .. method:: get_source(fullname)
+               get_source(fullname: str) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L141>`__)
 
       Returns ``None`` as extension modules do not have source code.
 
    .. method:: get_filename(fullname)
+               get_filename(fullname: str | None = None) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L140>`__)
 
       Returns :attr:`path`.
 
@@ -1242,16 +1386,25 @@ find and load modules.
    .. versionadded:: 3.4
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L37>`__)
 
       The module's fully qualified name (see :attr:`module.__name__`).
       The :term:`finder` should always set this attribute to a non-empty string.
 
    .. attribute:: loader
+      :type: Loader | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L38>`__)
 
       The :term:`loader` used to load the module (see :attr:`module.__loader__`).
       The :term:`finder` should always set this attribute.
 
    .. attribute:: origin
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L39>`__)
 
       The location the :term:`loader` should use to load the module
       (see :attr:`module.__file__`).
@@ -1261,6 +1414,9 @@ find and load modules.
       (like for namespace packages), it should be set to ``None``.
 
    .. attribute:: submodule_search_locations
+      :type: list[str] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L40>`__)
 
       A (possibly empty) :term:`sequence` of strings enumerating the locations
       in which a package's submodules will be found
@@ -1274,18 +1430,27 @@ find and load modules.
       namespace packages.
 
    .. attribute:: loader_state
+      :type: typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L41>`__)
 
       The :term:`finder` may set this attribute to an object containing additional,
       module-specific data to use when loading the module.  Otherwise it should be
       set to ``None``.
 
    .. attribute:: cached
+      :type: str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L42>`__)
 
       The filename of a compiled version of the module's code.
       The :term:`finder` should always set this attribute but it may be ``None``
       for modules that do not need compiled code stored.
 
    .. attribute:: parent
+      :type: parent(self: ModuleSpec) -> str | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L44>`__)
 
       (Read-only) The fully qualified name of the package the module is in (or the
       empty string for a top-level module).
@@ -1293,6 +1458,9 @@ find and load modules.
       If the module is a package then this is the same as :attr:`name`.
 
    .. attribute:: has_location
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib.pyi#L47>`__)
 
       ``True`` if the spec's :attr:`origin` refers to a loadable location,
       ``False`` otherwise.  This value impacts how :attr:`!origin` is interpreted
@@ -1357,10 +1525,16 @@ find and load modules.
    .. availability:: iOS.
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L108>`__)
 
       Name of the module the loader supports.
 
    .. attribute:: path
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_frozen_importlib_external.pyi#L109>`__)
 
       Path to the ``.fwork`` file for the extension module.
 
@@ -1620,6 +1794,9 @@ an :term:`importer`.
       :class:`importlib.machinery.ExtensionFileLoader`.
 
    .. classmethod:: factory(loader)
+                    factory(cls: type[LazyLoader], loader: Loader) -> (...) -> LazyLoader
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/util.pyi#L44>`__)
 
       A class method which returns a callable that creates a lazy loader. This
       is meant to be used in situations where the loader is passed by class

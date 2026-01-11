@@ -1070,17 +1070,26 @@ ConfigParser Objects
       The *allow_unnamed_section* argument was added.
 
    .. method:: defaults()
+               defaults() -> collections.abc.Mapping[str, str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L266>`__)
 
       Return a dictionary containing the instance-wide defaults.
 
 
    .. method:: sections()
+               sections() -> list[typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L267>`__)
 
       Return a list of the sections available; the *default section* is not
       included in the list.
 
 
    .. method:: add_section(section)
+               add_section(section: _SectionName) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L268>`__)
 
       Add a section named *section* to the instance.  If a section by the given
       name already exists, :exc:`DuplicateSectionError` is raised.  If the
@@ -1092,17 +1101,26 @@ ConfigParser Objects
 
 
    .. method:: has_section(section)
+               has_section(section: _SectionName) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L269>`__)
 
       Indicates whether the named *section* is present in the configuration.
       The *default section* is not acknowledged.
 
 
    .. method:: options(section)
+               options(section: _SectionName) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L270>`__)
 
       Return a list of options available in the specified *section*.
 
 
    .. method:: has_option(section, option)
+               has_option(section: _SectionName, option: str) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L271>`__)
 
       If the given *section* exists, and contains the given *option*, return
       :const:`True`; otherwise return :const:`False`.  If the specified
@@ -1110,6 +1128,9 @@ ConfigParser Objects
 
 
    .. method:: read(filenames, encoding=None)
+               read(filenames: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str, encoding: str | None = None) -> list[str]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L272>`__)
 
       Attempt to read and parse an iterable of filenames, returning a list of
       filenames which were successfully parsed.
@@ -1148,6 +1169,9 @@ ConfigParser Objects
 
 
    .. method:: read_file(f, source=None)
+               read_file(f: collections.abc.Iterable[str], source: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L273>`__)
 
       Read and parse configuration data from *f* which must be an iterable
       yielding Unicode strings (for example files opened in text mode).
@@ -1160,6 +1184,9 @@ ConfigParser Objects
          Replaces :meth:`!readfp`.
 
    .. method:: read_string(string, source='<string>')
+               read_string(string: str, source: str = '<string>') -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L274>`__)
 
       Parse configuration data from a string.
 
@@ -1171,6 +1198,9 @@ ConfigParser Objects
 
 
    .. method:: read_dict(dictionary, source='<dict>')
+               read_dict(dictionary: collections.abc.Mapping[str, collections.abc.Mapping[str, typing.Any]], source: str = '<dict>') -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L275>`__)
 
       Load configuration from any object that provides a dict-like ``items()``
       method.  Keys are section names, values are dictionaries with keys and
@@ -1187,6 +1217,10 @@ ConfigParser Objects
 
 
    .. method:: get(section, option, *, raw=False, vars=None[, fallback])
+               get(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> str
+               get(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T) -> str | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L331>`__)
 
       Get an *option* value for the named *section*.  If *vars* is provided, it
       must be a dictionary.  The *option* is looked up in *vars* (if provided),
@@ -1205,6 +1239,10 @@ ConfigParser Objects
 
 
    .. method:: getint(section, option, *, raw=False, vars=None[, fallback])
+               getint(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> int
+               getint(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T = ...) -> int | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L282>`__)
 
       A convenience method which coerces the *option* in the specified *section*
       to an integer.  See :meth:`get` for explanation of *raw*, *vars* and
@@ -1212,6 +1250,10 @@ ConfigParser Objects
 
 
    .. method:: getfloat(section, option, *, raw=False, vars=None[, fallback])
+               getfloat(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> float
+               getfloat(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T = ...) -> float | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L288>`__)
 
       A convenience method which coerces the *option* in the specified *section*
       to a floating-point number.  See :meth:`get` for explanation of *raw*,
@@ -1219,6 +1261,10 @@ ConfigParser Objects
 
 
    .. method:: getboolean(section, option, *, raw=False, vars=None[, fallback])
+               getboolean(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> bool
+               getboolean(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T = ...) -> bool | _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L294>`__)
 
       A convenience method which coerces the *option* in the specified *section*
       to a Boolean value.  Note that the accepted values for the option are
@@ -1232,6 +1278,10 @@ ConfigParser Objects
 
    .. method:: items(raw=False, vars=None)
                items(section, raw=False, vars=None)
+               items(*, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> collections.abc.ItemsView[str, SectionProxy]
+               items(section: _SectionName, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> list[tuple[str, str]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L317>`__)
 
       When *section* is not given, return a list of *section_name*,
       *section_proxy* pairs, including DEFAULTSECT.
@@ -1247,6 +1297,9 @@ ConfigParser Objects
 
 
    .. method:: set(section, option, value)
+               set(section: _SectionName, option: str, value: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L320>`__)
 
       If the given section exists, set the given option to the specified value;
       otherwise raise :exc:`NoSectionError`.  *option* and *value* must be
@@ -1254,6 +1307,9 @@ ConfigParser Objects
 
 
    .. method:: write(fileobject, space_around_delimiters=True)
+               write(fp: SupportsWrite[str], space_around_delimiters: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L321>`__)
 
       Write a representation of the configuration to the specified :term:`file
       object`, which must be opened in text mode (accepting strings).  This
@@ -1274,6 +1330,9 @@ ConfigParser Objects
 
 
    .. method:: remove_option(section, option)
+               remove_option(section: _SectionName, option: str) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L322>`__)
 
       Remove the specified *option* from the specified *section*.  If the
       section does not exist, raise :exc:`NoSectionError`.  If the option
@@ -1282,12 +1341,18 @@ ConfigParser Objects
 
 
    .. method:: remove_section(section)
+               remove_section(section: _SectionName) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L323>`__)
 
       Remove the specified *section* from the configuration.  If the section in
       fact existed, return ``True``.  Otherwise return ``False``.
 
 
    .. method:: optionxform(option)
+               optionxform(optionstr: str) -> str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L324>`__)
 
       Transforms the option name *option* as found in an input file or as passed
       in by client code to the form that should be used in the internal
@@ -1368,6 +1433,9 @@ RawConfigParser Objects
 
 
    .. method:: add_section(section)
+               add_section(section: _SectionName) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L268>`__)
 
       Add a section named *section* or :const:`UNNAMED_SECTION` to the instance.
 
@@ -1384,6 +1452,9 @@ RawConfigParser Objects
 
 
    .. method:: set(section, option, value)
+               set(section: _SectionName, option: str, value: str | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/configparser.pyi#L320>`__)
 
       If the given section exists, set the given option to the specified value;
       otherwise raise :exc:`NoSectionError`.  While it is possible to use

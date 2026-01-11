@@ -46,14 +46,23 @@ Queue
    This class is :ref:`not thread safe <asyncio-multithreading>`.
 
    .. attribute:: maxsize
+      :type: maxsize[_T](self: Queue[_T]) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L41>`__)
 
       Number of items allowed in the queue.
 
    .. method:: empty()
+               empty[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L44>`__)
 
       Return ``True`` if the queue is empty, ``False`` otherwise.
 
    .. method:: full()
+               full[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L45>`__)
 
       Return ``True`` if there are :attr:`maxsize` items in the queue.
 
@@ -61,7 +70,10 @@ Queue
       then :meth:`full` never returns ``True``.
 
    .. method:: get()
+               get[_T]() -> collections.abc.Coroutine[Unknown, Unknown, _T]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L48>`__)
 
       Remove and return an item from the queue. If queue is empty,
       wait until an item is available.
@@ -70,12 +82,18 @@ Queue
       is empty, or if the queue has been shut down immediately.
 
    .. method:: get_nowait()
+               get_nowait[_T]() -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L49>`__)
 
       Return an item if one is immediately available, else raise
       :exc:`QueueEmpty`.
 
    .. method:: join()
+               join[_T]() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L50>`__)
 
       Block until all items in the queue have been received and processed.
 
@@ -86,7 +104,10 @@ Queue
       to zero, :meth:`join` unblocks.
 
    .. method:: put(item)
+               put[_T](item: _T) -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L46>`__)
 
       Put an item into the queue. If the queue is full, wait until a
       free slot is available before adding the item.
@@ -94,16 +115,25 @@ Queue
       Raises :exc:`QueueShutDown` if the queue has been shut down.
 
    .. method:: put_nowait(item)
+               put_nowait[_T](item: _T) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L47>`__)
 
       Put an item into the queue without blocking.
 
       If no free slot is immediately available, raise :exc:`QueueFull`.
 
    .. method:: qsize()
+               qsize[_T]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L39>`__)
 
       Return the number of items in the queue.
 
    .. method:: shutdown(immediate=False)
+               shutdown[_T](immediate: bool = False) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L60>`__)
 
       Put a :class:`Queue` instance into a shutdown mode.
 
@@ -137,6 +167,9 @@ Queue
       .. versionadded:: 3.13
 
    .. method:: task_done()
+               task_done[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/queues.pyi#L51>`__)
 
       Indicate that a formerly enqueued work item is complete.
 

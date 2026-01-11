@@ -606,6 +606,9 @@ or creating these objects.
       Added the *daemon* parameter.
 
    .. method:: run()
+               run() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L22>`__)
 
       Method representing the process's activity.
 
@@ -628,6 +631,9 @@ or creating these objects.
          1
 
    .. method:: start()
+               start() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L23>`__)
 
       Start the process's activity.
 
@@ -635,6 +641,9 @@ or creating these objects.
       object's :meth:`run` method to be invoked in a separate process.
 
    .. method:: join([timeout])
+               join(timeout: float | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L30>`__)
 
       If the optional argument *timeout* is ``None`` (the default), the method
       blocks until the process whose :meth:`join` method is called terminates.
@@ -649,6 +658,9 @@ or creating these objects.
       an error to attempt to join a process before it has been started.
 
    .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L8>`__)
 
       The process's name.  The name is a string used for identification purposes
       only.  It has no semantics.  Multiple processes may be given the same
@@ -660,6 +672,9 @@ or creating these objects.
       each N\ :sub:`k` is the N-th child of its parent.
 
    .. method:: is_alive
+               is_alive() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L31>`__)
 
       Return whether the process is alive.
 
@@ -667,6 +682,9 @@ or creating these objects.
       method returns until the child process terminates.
 
    .. attribute:: daemon
+      :type: bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L9>`__)
 
       The process's daemon flag, a Boolean value.  This must be set before
       :meth:`start` is called.
@@ -686,11 +704,17 @@ or creating these objects.
    also support the following attributes and methods:
 
    .. attribute:: pid
+      :type: pid(self: Process) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L41>`__)
 
       Return the process ID.  Before the process is spawned, this will be
       ``None``.
 
    .. attribute:: exitcode
+      :type: exitcode(self: Process) -> int | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L33>`__)
 
       The child's exit code.  This will be ``None`` if the process has not yet
       terminated.
@@ -704,6 +728,9 @@ or creating these objects.
       signal *N*, the exit code will be the negative value *-N*.
 
    .. attribute:: authkey
+      :type: bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L10>`__)
 
       The process's authentication key (a byte string).
 
@@ -717,6 +744,9 @@ or creating these objects.
       See :ref:`multiprocessing-auth-keys`.
 
    .. attribute:: sentinel
+      :type: sentinel(self: Process) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L45>`__)
 
       A numeric handle of a system object which will become "ready" when
       the process ends.
@@ -732,6 +762,9 @@ or creating these objects.
       .. versionadded:: 3.3
 
    .. method:: interrupt()
+               interrupt() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L25>`__)
 
       Terminate the process. Works on POSIX using the :py:const:`~signal.SIGINT` signal.
       Behavior on Windows is undefined.
@@ -751,6 +784,9 @@ or creating these objects.
       .. versionadded:: 3.14
 
    .. method:: terminate()
+               terminate() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L27>`__)
 
       Terminate the process.  On POSIX this is done using the :py:const:`~signal.SIGTERM` signal;
       on Windows :c:func:`!TerminateProcess` is used.  Note that exit handlers and
@@ -768,12 +804,18 @@ or creating these objects.
          cause other processes to deadlock.
 
    .. method:: kill()
+               kill() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L28>`__)
 
       Same as :meth:`terminate` but using the ``SIGKILL`` signal on POSIX.
 
       .. versionadded:: 3.7
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/process.pyi#L29>`__)
 
       Close the :class:`Process` object, releasing all resources associated
       with it.  :exc:`ValueError` is raised if the underlying process
@@ -956,6 +998,9 @@ For an example of the usage of queues for interprocess communication see
    :meth:`~queue.Queue.task_done` and :meth:`~queue.Queue.join`.
 
    .. method:: qsize()
+               qsize[_T]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L15>`__)
 
       Return the approximate size of the queue.  Because of
       multithreading/multiprocessing semantics, this number is not reliable.
@@ -964,6 +1009,9 @@ For an example of the usage of queues for interprocess communication see
       macOS where ``sem_getvalue()`` is not implemented.
 
    .. method:: empty()
+               empty[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L16>`__)
 
       Return ``True`` if the queue is empty, ``False`` otherwise.  Because of
       multithreading/multiprocessing semantics, this is not reliable.
@@ -971,11 +1019,17 @@ For an example of the usage of queues for interprocess communication see
       May raise an :exc:`OSError` on closed queues. (not guaranteed)
 
    .. method:: full()
+               full[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L17>`__)
 
       Return ``True`` if the queue is full, ``False`` otherwise.  Because of
       multithreading/multiprocessing semantics, this is not reliable.
 
    .. method:: put(obj[, block[, timeout]])
+               put[_T](obj: _T, block: bool = True, timeout: float | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L13>`__)
 
       Put obj into the queue.  If the optional argument *block* is ``True``
       (the default) and *timeout* is ``None`` (the default), block if necessary until
@@ -991,10 +1045,16 @@ For an example of the usage of queues for interprocess communication see
          :exc:`AssertionError`.
 
    .. method:: put_nowait(obj)
+               put_nowait[_T](obj: _T) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L19>`__)
 
       Equivalent to ``put(obj, False)``.
 
    .. method:: get([block[, timeout]])
+               get[_T](block: bool = True, timeout: float | None = None) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L14>`__)
 
       Remove and return an item from the queue.  If optional args *block* is
       ``True`` (the default) and *timeout* is ``None`` (the default), block if
@@ -1009,6 +1069,9 @@ For an example of the usage of queues for interprocess communication see
          :exc:`OSError`.
 
    .. method:: get_nowait()
+               get_nowait[_T]() -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L18>`__)
 
       Equivalent to ``get(False)``.
 
@@ -1017,6 +1080,9 @@ For an example of the usage of queues for interprocess communication see
    code:
 
    .. method:: close()
+               close[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L20>`__)
 
       Close the queue: release internal resources.
 
@@ -1029,6 +1095,9 @@ For an example of the usage of queues for interprocess communication see
       collected.
 
    .. method:: join_thread()
+               join_thread[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L21>`__)
 
       Join the background thread.  This can only be used after :meth:`close` has
       been called.  It blocks until the background thread exits, ensuring that
@@ -1039,6 +1108,9 @@ For an example of the usage of queues for interprocess communication see
       :meth:`cancel_join_thread` to make :meth:`join_thread` do nothing.
 
    .. method:: cancel_join_thread()
+               cancel_join_thread[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L22>`__)
 
       Prevent :meth:`join_thread` from blocking.  In particular, this prevents
       the background thread from being joined automatically when the process
@@ -1071,6 +1143,9 @@ For an example of the usage of queues for interprocess communication see
    :ref:`global-start-method` for more details.
 
    .. method:: close()
+               close[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L38>`__)
 
       Close the queue: release internal resources.
 
@@ -1081,16 +1156,25 @@ For an example of the usage of queues for interprocess communication see
       .. versionadded:: 3.9
 
    .. method:: empty()
+               empty[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L39>`__)
 
       Return ``True`` if the queue is empty, ``False`` otherwise.
 
       Always raises an :exc:`OSError` if the SimpleQueue is closed.
 
    .. method:: get()
+               get[_T]() -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L40>`__)
 
       Remove and return an item from the queue.
 
    .. method:: put(item)
+               put[_T](obj: _T) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L41>`__)
 
       Put *item* into the queue.
 
@@ -1107,6 +1191,9 @@ For an example of the usage of queues for interprocess communication see
    :ref:`global-start-method` for more details.
 
    .. method:: task_done()
+               task_done[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L33>`__)
 
       Indicate that a formerly enqueued task is complete. Used by queue
       consumers.  For each :meth:`~Queue.get` used to fetch a task, a subsequent
@@ -1122,6 +1209,9 @@ For an example of the usage of queues for interprocess communication see
 
 
    .. method:: join()
+               join[_T]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/queues.pyi#L34>`__)
 
       Block until all items in the queue have been gotten and processed.
 
@@ -1352,6 +1442,9 @@ Connection objects are usually created using
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L46>`__)
 
    .. method:: send(obj)
+               send[_SendT_contra, _RecvT_co](obj: _SendT_contra) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L35>`__)
 
       Send an object to the other end of the connection which should be read
       using :meth:`recv`.
@@ -1360,6 +1453,9 @@ Connection objects are usually created using
       though it depends on the OS) may raise a :exc:`ValueError` exception.
 
    .. method:: recv()
+               recv[_SendT_contra, _RecvT_co]() -> _RecvT_co
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L38>`__)
 
       Return an object sent from the other end of the connection using
       :meth:`send`.  Blocks until there is something to receive.  Raises
@@ -1367,16 +1463,25 @@ Connection objects are usually created using
       and the other end was closed.
 
    .. method:: fileno()
+               fileno[_SendT_contra, _RecvT_co]() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L32>`__)
 
       Return the file descriptor or handle used by the connection.
 
    .. method:: close()
+               close[_SendT_contra, _RecvT_co]() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L33>`__)
 
       Close the connection.
 
       This is called automatically when the connection is garbage collected.
 
    .. method:: poll([timeout])
+               poll[_SendT_contra, _RecvT_co](timeout: float | None = ...) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L39>`__)
 
       Return whether there is any data available to be read.
 
@@ -1388,6 +1493,9 @@ Connection objects are usually created using
       using :func:`multiprocessing.connection.wait`.
 
    .. method:: send_bytes(buffer[, offset[, size]])
+               send_bytes[_SendT_contra, _RecvT_co](buf: Buffer, offset: int = 0, size: int | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L34>`__)
 
       Send byte data from a :term:`bytes-like object` as a complete message.
 
@@ -1397,6 +1505,9 @@ Connection objects are usually created using
       :exc:`ValueError` exception
 
    .. method:: recv_bytes([maxlength])
+               recv_bytes[_SendT_contra, _RecvT_co](maxlength: int | None = None) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L36>`__)
 
       Return a complete message of byte data sent from the other end of the
       connection as a string.  Blocks until there is something to receive.
@@ -1413,6 +1524,9 @@ Connection objects are usually created using
 
 
    .. method:: recv_bytes_into(buffer[, offset])
+               recv_bytes_into[_SendT_contra, _RecvT_co](buf: typing.Any, offset: int = 0) -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L37>`__)
 
       Read into *buffer* a complete message of byte data sent from the other end
       of the connection and return the number of bytes in the message.  Blocks
@@ -1491,7 +1605,7 @@ Note that one can also create synchronization primitives by using a manager
 object -- see :ref:`multiprocessing-managers`.
 
 .. class:: Barrier(parties[, action[, timeout]])
-           Barrier(parties: int, action: ((...) -> object) | None = None, timeout: float | None = None) -> Barrier
+           Barrier(parties: int, action: ((...) -> object) | None = None, timeout: float | None = None) -> threading.Barrier
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/__init__.pyi#L71>`__)
 
@@ -1503,7 +1617,7 @@ object -- see :ref:`multiprocessing-managers`.
    .. versionadded:: 3.3
 
 .. class:: BoundedSemaphore([value])
-           BoundedSemaphore(value: int = 1) -> BoundedSemaphore
+           BoundedSemaphore(value: int = 1) -> threading.BoundedSemaphore
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/__init__.pyi#L72>`__)
 
@@ -1517,6 +1631,9 @@ object -- see :ref:`multiprocessing-managers`.
    first argument is named *block*, as is consistent with :meth:`Lock.acquire`.
 
    .. method:: locked()
+               locked() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L50>`__)
 
       Return a boolean indicating whether this object is locked right now.
 
@@ -1527,7 +1644,7 @@ object -- see :ref:`multiprocessing-managers`.
       ``sem_getvalue()`` is not implemented on that platform.
 
 .. class:: Condition([lock])
-           Condition(lock: Lock | RLock | None = None) -> Condition
+           Condition(lock: Lock | threading.RLock | None = None) -> threading.Condition
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/__init__.pyi#L73>`__)
 
@@ -1543,7 +1660,7 @@ object -- see :ref:`multiprocessing-managers`.
       The :meth:`~threading.Condition.wait_for` method was added.
 
 .. class:: Event()
-           Event() -> Event
+           Event() -> threading.Event
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/__init__.pyi#L74>`__)
 
@@ -1576,6 +1693,9 @@ object -- see :ref:`multiprocessing-managers`.
    used in :keyword:`with` statements.
 
    .. method:: acquire(block=True, timeout=None)
+               acquire(block: bool = True, timeout: float | None = None) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L47>`__)
 
       Acquire a lock, blocking or non-blocking.
 
@@ -1602,6 +1722,9 @@ object -- see :ref:`multiprocessing-managers`.
 
 
    .. method:: release()
+               release() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L48>`__)
 
       Release a lock.  This can be called from any process or thread, not only
       the process or thread which originally acquired the lock.
@@ -1611,6 +1734,9 @@ object -- see :ref:`multiprocessing-managers`.
 
 
    .. method:: locked()
+               locked() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L50>`__)
 
       Return a boolean indicating whether this object is locked right now.
 
@@ -1618,7 +1744,7 @@ object -- see :ref:`multiprocessing-managers`.
 
 
 .. class:: RLock()
-           RLock() -> RLock
+           RLock() -> threading.RLock
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/__init__.pyi#L76>`__)
 
@@ -1640,6 +1766,9 @@ object -- see :ref:`multiprocessing-managers`.
 
 
    .. method:: acquire(block=True, timeout=None)
+               acquire(block: bool = True, timeout: float | None = None) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L47>`__)
 
       Acquire a lock, blocking or non-blocking.
 
@@ -1667,6 +1796,9 @@ object -- see :ref:`multiprocessing-managers`.
 
 
    .. method:: release()
+               release() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L48>`__)
 
       Release a lock, decrementing the recursion level.  If after the
       decrement the recursion level is zero, reset the lock to unlocked (not
@@ -1684,6 +1816,9 @@ object -- see :ref:`multiprocessing-managers`.
 
 
    .. method:: locked()
+               locked() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L50>`__)
 
       Return a boolean indicating whether this object is locked right now.
 
@@ -1691,7 +1826,7 @@ object -- see :ref:`multiprocessing-managers`.
 
 
 .. class:: Semaphore([value])
-           Semaphore(value: int = 1) -> Semaphore
+           Semaphore(value: int = 1) -> threading.Semaphore
 
    (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/__init__.pyi#L77>`__)
 
@@ -1705,6 +1840,9 @@ object -- see :ref:`multiprocessing-managers`.
 
 
    .. method:: get_value()
+               get_value() -> int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L60>`__)
 
       Return the current value of semaphore.
 
@@ -1713,6 +1851,9 @@ object -- see :ref:`multiprocessing-managers`.
 
 
    .. method:: locked()
+               locked() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/synchronize.pyi#L50>`__)
 
       Return a boolean indicating whether this object is locked right now.
 
@@ -2058,11 +2199,17 @@ their parent process exits.  The manager classes are defined in the
       Added the *shutdown_timeout* parameter.
 
    .. method:: start([initializer[, initargs]])
+               start(initializer: ((...) -> object) | None = None, initargs: collections.abc.Iterable[typing.Any] = ...) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L279>`__)
 
       Start a subprocess to start the manager.  If *initializer* is not ``None``
       then the subprocess will call ``initializer(*initargs)`` when it starts.
 
    .. method:: get_server()
+               get_server() -> Server
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L277>`__)
 
       Returns a :class:`Server` object which represents the actual server under
       the control of the Manager. The :class:`Server` object supports the
@@ -2076,6 +2223,9 @@ their parent process exits.  The manager classes are defined in the
       :class:`Server` additionally has an :attr:`address` attribute.
 
    .. method:: connect()
+               connect() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L278>`__)
 
       Connect a local manager object to a remote manager process::
 
@@ -2084,6 +2234,9 @@ their parent process exits.  The manager classes are defined in the
       >>> m.connect()
 
    .. method:: shutdown()
+               shutdown(wr: object = None, _finalizer_registry: collections.abc.MutableMapping[typing.Any, typing.Any] = ..., sub_debug: (...) -> object = ..., getpid: () -> int = ...) -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L280>`__)
 
       Stop the process used by the manager.  This is only available if
       :meth:`start` has been used to start the server process.
@@ -2091,6 +2244,9 @@ their parent process exits.  The manager classes are defined in the
       This can be called multiple times.
 
    .. method:: register(typeid[, callable[, proxytype[, exposed[, method_to_typeid[, create_method]]]]])
+               register(cls: type[BaseManager], typeid: str, callable: ((...) -> object) | None = None, proxytype: typing.Any = None, exposed: collections.abc.Sequence[str] | None = None, method_to_typeid: collections.abc.Mapping[str, str] | None = None, create_method: bool = True) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L285>`__)
 
       A classmethod which can be used for registering a type or callable with
       the manager class.
@@ -2131,6 +2287,9 @@ their parent process exits.  The manager classes are defined in the
    :class:`BaseManager` instances also have one read-only property:
 
    .. attribute:: address
+      :type: address(self: BaseManager) -> str | tuple[str, int] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L283>`__)
 
       The address used by the manager.
 
@@ -2157,6 +2316,9 @@ their parent process exits.  The manager classes are defined in the
    This notably includes shared lists and dictionaries.
 
    .. method:: Barrier(parties[, action[, timeout]])
+               Barrier(parties: int, action: (() -> None) | None = None, timeout: float | None = None) -> threading.Barrier
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L300>`__)
 
       Create a shared :class:`threading.Barrier` object and return a
       proxy for it.
@@ -2164,11 +2326,17 @@ their parent process exits.  The manager classes are defined in the
       .. versionadded:: 3.3
 
    .. method:: BoundedSemaphore([value])
+               BoundedSemaphore(value: int = 1) -> threading.BoundedSemaphore
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L303>`__)
 
       Create a shared :class:`threading.BoundedSemaphore` object and return a
       proxy for it.
 
    .. method:: Condition([lock])
+               Condition(lock: _RLock | lock | None = None) -> threading.Condition
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L304>`__)
 
       Create a shared :class:`threading.Condition` object and return a proxy for
       it.
@@ -2180,35 +2348,59 @@ their parent process exits.  The manager classes are defined in the
          The :meth:`~threading.Condition.wait_for` method was added.
 
    .. method:: Event()
+               Event() -> threading.Event
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L305>`__)
 
       Create a shared :class:`threading.Event` object and return a proxy for it.
 
    .. method:: Lock()
+               Lock() -> threading.Lock
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L306>`__)
 
       Create a shared :class:`threading.Lock` object and return a proxy for it.
 
    .. method:: Namespace()
+               Namespace() -> Namespace
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L307>`__)
 
       Create a shared :class:`Namespace` object and return a proxy for it.
 
    .. method:: Queue([maxsize])
+               Queue(maxsize: int = ...) -> threading.Queue[typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L316>`__)
 
       Create a shared :class:`queue.Queue` object and return a proxy for it.
 
    .. method:: RLock()
+               RLock() -> threading.RLock
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L318>`__)
 
       Create a shared :class:`threading.RLock` object and return a proxy for it.
 
    .. method:: Semaphore([value])
+               Semaphore(value: int = 1) -> threading.Semaphore
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L319>`__)
 
       Create a shared :class:`threading.Semaphore` object and return a proxy for
       it.
 
    .. method:: Array(typecode, sequence)
+               Array[_T](typecode: typing.Any, sequence: collections.abc.Sequence[_T]) -> collections.abc.Sequence[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L320>`__)
 
       Create an array and return a proxy for it.
 
    .. method:: Value(typecode, value)
+               Value[_T](typecode: typing.Any, value: _T) -> ValueProxy[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L321>`__)
 
       Create an object with a writable ``value`` attribute and return a proxy
       for it.
@@ -2217,16 +2409,26 @@ their parent process exits.  The manager classes are defined in the
                dict(mapping)
                dict(sequence)
 
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L324>`__)
+
       Create a shared :class:`dict` object and return a proxy for it.
 
    .. method:: list()
                list(sequence)
+               list(iterable: collections.abc.Iterable[_T], /) -> ListProxy[_T]
+               list() -> ListProxy[typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L341>`__)
 
       Create a shared :class:`list` object and return a proxy for it.
 
    .. method:: set()
                set(sequence)
                set(mapping)
+               set(iterable: collections.abc.Iterable[_T], /) -> SetProxy[_T]
+               set() -> SetProxy[typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L346>`__)
 
       Create a shared :class:`set` object and return a proxy for it.
 
@@ -2455,6 +2657,9 @@ demonstrates a level of control over the synchronization.
    Proxy objects are instances of subclasses of :class:`BaseProxy`.
 
    .. method:: _callmethod(methodname[, args[, kwds]])
+               _callmethod(methodname: str, args: tuple[typing.Any, ...] = ..., kwds: dict[typing.Any, typing.Any] = ...) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L65>`__)
 
       Call and return the result of a method of the proxy's referent.
 
@@ -2495,6 +2700,9 @@ demonstrates a level of control over the synchronization.
          IndexError: list index out of range
 
    .. method:: _getvalue()
+               _getvalue() -> typing.Any
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/managers.pyi#L66>`__)
 
       Return a copy of the referent.
 
@@ -2590,6 +2798,9 @@ with the :class:`Pool` class.
       argument to the :class:`Pool` exposes this ability to the end user.
 
    .. method:: apply(func[, args[, kwds]])
+               apply[_T](func: (...) -> _T, args: collections.abc.Iterable[typing.Any] = ..., kwds: collections.abc.Mapping[str, typing.Any] = ...) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L60>`__)
 
       Call *func* with arguments *args* and keyword arguments *kwds*.  It blocks
       until the result is ready. Given this blocks, :meth:`apply_async` is
@@ -2597,6 +2808,9 @@ with the :class:`Pool` class.
       is only executed in one of the workers of the pool.
 
    .. method:: apply_async(func[, args[, kwds[, callback[, error_callback]]]])
+               apply_async[_T](func: (...) -> _T, args: collections.abc.Iterable[typing.Any] = ..., kwds: collections.abc.Mapping[str, typing.Any] = ..., callback: ((_T) -> object) | None = None, error_callback: ((BaseException) -> object) | None = None) -> ApplyResult[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L61>`__)
 
       A variant of the :meth:`apply` method which returns a
       :class:`~multiprocessing.pool.AsyncResult` object.
@@ -2614,6 +2828,9 @@ with the :class:`Pool` class.
       handles the results will get blocked.
 
    .. method:: map(func, iterable[, chunksize])
+               map[_S, _T](func: (_S) -> _T, iterable: collections.abc.Iterable[_S], chunksize: int | None = None) -> list[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L69>`__)
 
       A parallel equivalent of the :func:`map` built-in function (it supports only
       one *iterable* argument though, for multiple iterables see :meth:`starmap`).
@@ -2628,6 +2845,9 @@ with the :class:`Pool` class.
       option for better efficiency.
 
    .. method:: map_async(func, iterable[, chunksize[, callback[, error_callback]]])
+               map_async[_S, _T](func: (_S) -> _T, iterable: collections.abc.Iterable[_S], chunksize: int | None = None, callback: ((list[_T]) -> object) | None = None, error_callback: ((BaseException) -> object) | None = None) -> MapResult[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L70>`__)
 
       A variant of the :meth:`.map` method which returns a
       :class:`~multiprocessing.pool.AsyncResult` object.
@@ -2645,6 +2865,9 @@ with the :class:`Pool` class.
       handles the results will get blocked.
 
    .. method:: imap(func, iterable[, chunksize])
+               imap[_S, _T](func: (_S) -> _T, iterable: collections.abc.Iterable[_S], chunksize: int | None = 1) -> IMapIterator[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L78>`__)
 
       A lazier version of :meth:`.map`.
 
@@ -2659,12 +2882,18 @@ with the :class:`Pool` class.
       result cannot be returned within *timeout* seconds.
 
    .. method:: imap_unordered(func, iterable[, chunksize])
+               imap_unordered[_S, _T](func: (_S) -> _T, iterable: collections.abc.Iterable[_S], chunksize: int | None = 1) -> IMapIterator[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L79>`__)
 
       The same as :meth:`imap` except that the ordering of the results from the
       returned iterator should be considered arbitrary.  (Only when there is
       only one worker process is the order guaranteed to be "correct".)
 
    .. method:: starmap(func, iterable[, chunksize])
+               starmap[_T](func: (...) -> _T, iterable: collections.abc.Iterable[collections.abc.Iterable[typing.Any]], chunksize: int | None = None) -> list[_T]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L80>`__)
 
       Like :meth:`~multiprocessing.pool.Pool.map` except that the
       elements of the *iterable* are expected to be iterables that are
@@ -2676,6 +2905,9 @@ with the :class:`Pool` class.
       .. versionadded:: 3.3
 
    .. method:: starmap_async(func, iterable[, chunksize[, callback[, error_callback]]])
+               starmap_async[_T](func: (...) -> _T, iterable: collections.abc.Iterable[collections.abc.Iterable[typing.Any]], chunksize: int | None = None, callback: ((list[_T]) -> object) | None = None, error_callback: ((BaseException) -> object) | None = None) -> ApplyResult[list[_T]]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L81>`__)
 
       A combination of :meth:`starmap` and :meth:`map_async` that iterates over
       *iterable* of iterables and calls *func* with the iterables unpacked.
@@ -2684,17 +2916,26 @@ with the :class:`Pool` class.
       .. versionadded:: 3.3
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L89>`__)
 
       Prevents any more tasks from being submitted to the pool.  Once all the
       tasks have been completed the worker processes will exit.
 
    .. method:: terminate()
+               terminate() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L90>`__)
 
       Stops the worker processes immediately without completing outstanding
       work.  When the pool object is garbage collected :meth:`terminate` will be
       called immediately.
 
    .. method:: join()
+               join() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L91>`__)
 
       Wait for the worker processes to exit.  One must call :meth:`close` or
       :meth:`terminate` before using :meth:`join`.
@@ -2714,6 +2955,9 @@ with the :class:`Pool` class.
    :meth:`Pool.map_async`.
 
    .. method:: get([timeout])
+               get[_T](timeout: float | None = None) -> _T
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L16>`__)
 
       Return the result when it arrives.  If *timeout* is not ``None`` and the
       result does not arrive within *timeout* seconds then
@@ -2721,14 +2965,23 @@ with the :class:`Pool` class.
       an exception then that exception will be reraised by :meth:`get`.
 
    .. method:: wait([timeout])
+               wait[_T](timeout: float | None = None) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L17>`__)
 
       Wait until the result is available or until *timeout* seconds pass.
 
    .. method:: ready()
+               ready[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L18>`__)
 
       Return whether the call has completed.
 
    .. method:: successful()
+               successful[_T]() -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/pool.pyi#L19>`__)
 
       Return whether the call completed without raising an exception.  Will
       raise :exc:`ValueError` if the result is not ready.
@@ -2860,6 +3113,9 @@ multiple connections at the same time.
    See :ref:`multiprocessing-auth-keys`.
 
    .. method:: accept()
+               accept() -> multiprocessing.connection.Connection[typing.Any, typing.Any]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L55>`__)
 
       Accept a connection on the bound socket or named pipe of the listener
       object and return a :class:`~Connection` object.
@@ -2867,6 +3123,9 @@ multiple connections at the same time.
       :exc:`~multiprocessing.AuthenticationError` is raised.
 
    .. method:: close()
+               close() -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L56>`__)
 
       Close the bound socket or named pipe of the listener object.  This is
       called automatically when the listener is garbage collected.  However it
@@ -2875,10 +3134,16 @@ multiple connections at the same time.
    Listener objects have the following read-only properties:
 
    .. attribute:: address
+      :type: address(self: Listener) -> _Address
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L58>`__)
 
       The address which is being used by the Listener object.
 
    .. attribute:: last_accepted
+      :type: last_accepted(self: Listener) -> str | tuple[str, int] | None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/multiprocessing/connection.pyi#L60>`__)
 
       The address from which the last accepted connection came.  If this is
       unavailable then it is ``None``.

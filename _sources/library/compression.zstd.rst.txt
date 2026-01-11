@@ -141,6 +141,9 @@ Reading and writing compressed files
    The following method and attributes are also provided:
 
    .. method:: peek(size=-1)
+               peek(size: int = -1) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/_zstdfile.pyi#L60>`__)
 
       Return buffered data without advancing the file position. At least one
       byte of data will be returned, unless EOF has been reached. The exact
@@ -152,10 +155,16 @@ Reading and writing compressed files
          passing a file object for *file*).
 
    .. attribute:: mode
+      :type: mode(self: ZstdFile) -> typing.Literal['rb', 'wb']
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/_zstdfile.pyi#L64>`__)
 
       ``'rb'`` for reading and ``'wb'`` for writing.
 
    .. attribute:: name
+      :type: name(self: ZstdFile) -> bytes | str
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/_zstdfile.pyi#L62>`__)
 
       The name of the Zstandard file. Equivalent to the :attr:`~io.FileIO.name`
       attribute of the underlying :term:`file object`.
@@ -241,6 +250,9 @@ Compressing and decompressing data in memory
 
 
    .. method:: compress(data, mode=ZstdCompressor.CONTINUE)
+               compress(/, data: Buffer, mode: typing.Literal[0, 1, 2] = 0) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L51>`__)
 
       Compress *data* (a :term:`bytes-like object`), returning a :class:`bytes`
       object with compressed data if possible, or otherwise an empty
@@ -260,6 +272,9 @@ Compressing and decompressing data in memory
       frame.
 
    .. method:: flush(mode=ZstdCompressor.FLUSH_FRAME)
+               flush(/, mode: typing.Literal[1, 2] = 2) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L54>`__)
 
       Finish the compression process, returning a :class:`bytes` object
       containing any data stored in the compressor's internal buffers.
@@ -268,6 +283,9 @@ Compressing and decompressing data in memory
       :attr:`~.FLUSH_BLOCK`, or :attr:`~.FLUSH_FRAME`.
 
    .. method:: set_pledged_input_size(size)
+               set_pledged_input_size(size: int | None, /) -> None
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L55>`__)
 
       Specify the amount of uncompressed data *size* that will be provided for
       the next frame. *size* will be written into the frame header of the next
@@ -289,12 +307,18 @@ Compressing and decompressing data in memory
       the header unless :meth:`!set_pledged_input_size` is called again.
 
    .. attribute:: CONTINUE
+      :type: typing.Literal[0]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L45>`__)
 
       Collect more data for compression, which may or may not generate output
       immediately. This mode optimizes the compression ratio by maximizing the
       amount of data per block and frame.
 
    .. attribute:: FLUSH_BLOCK
+      :type: typing.Literal[1]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L46>`__)
 
       Complete and write a block to the data stream. The data returned so far
       can be immediately decompressed. Past data can still be referenced in
@@ -302,12 +326,18 @@ Compressing and decompressing data in memory
       improving compression.
 
    .. attribute:: FLUSH_FRAME
+      :type: typing.Literal[2]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L47>`__)
 
       Complete and write out a frame. Future data provided to
       :meth:`~.compress` will be written into a new frame and
       *cannot* reference past data.
 
    .. attribute:: last_mode
+      :type: last_mode(self: ZstdCompressor) -> typing.Literal[0, 1, 2]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L57>`__)
 
       The last mode passed to either :meth:`~.compress` or :meth:`~.flush`.
       The value can be one of :attr:`~.CONTINUE`, :attr:`~.FLUSH_BLOCK`, or
@@ -343,6 +373,9 @@ Compressing and decompressing data in memory
       :term:`file object`, or multiple :class:`!ZstdDecompressor` instances.
 
    .. method:: decompress(data, max_length=-1)
+               decompress(/, data: Buffer, max_length: int = -1) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L62>`__)
 
       Decompress *data* (a :term:`bytes-like object`), returning
       uncompressed data as bytes. Some of *data* may be buffered
@@ -367,16 +400,25 @@ Compressing and decompressing data in memory
       and saved in the :attr:`~.unused_data` attribute.
 
    .. attribute:: eof
+      :type: eof(self: ZstdDecompressor) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L64>`__)
 
       ``True`` if the end-of-stream marker has been reached.
 
    .. attribute:: unused_data
+      :type: unused_data(self: ZstdDecompressor) -> bytes
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L68>`__)
 
       Data found after the end of the compressed stream.
 
       Before the end of the stream is reached, this will be ``b''``.
 
    .. attribute:: needs_input
+      :type: needs_input(self: ZstdDecompressor) -> bool
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L66>`__)
 
       ``False`` if the :meth:`.decompress` method can provide more
       decompressed data before requiring new compressed input.
@@ -488,12 +530,18 @@ Zstandard dictionaries
    is generated if necessary and passed by default when decompressing.
 
     .. attribute:: dict_content
+       :type: dict_content(self: ZstdDict) -> bytes
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L81>`__)
 
         The content of the Zstandard dictionary, a ``bytes`` object. It's the
         same as the *dict_content* argument in the ``__init__`` method. It can
         be used with other programs, such as the ``zstd`` CLI program.
 
     .. attribute:: dict_id
+       :type: dict_id(self: ZstdDict) -> int
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L83>`__)
 
         Identifier of the Zstandard dictionary, a non-negative int value.
 
@@ -510,10 +558,16 @@ Zstandard dictionaries
             function.
 
     .. attribute:: as_digested_dict
+       :type: as_digested_dict(self: ZstdDict) -> tuple[ZstdDict, int]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L75>`__)
 
         Load as a digested dictionary.
 
     .. attribute:: as_undigested_dict
+       :type: as_undigested_dict(self: ZstdDict) -> tuple[ZstdDict, int]
+
+       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_zstd.pyi#L79>`__)
 
         Load as an undigested dictionary.
 
@@ -546,6 +600,9 @@ Advanced parameter control
       compress(b'venezuelan beaver cheese', options=options)
 
    .. method:: bounds()
+               bounds() -> tuple[int, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L71>`__)
 
       Return the tuple of int bounds, ``(lower, upper)``, of a compression
       parameter. This method should be called on the attribute you wish to
@@ -556,6 +613,9 @@ Advanced parameter control
       Both the lower and upper bounds are inclusive.
 
    .. attribute:: compression_level
+      :type: typing.Literal[CompressionParameter.compression_level]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L52>`__)
 
       A high-level means of setting other compression parameters that affect
       the speed and ratio of compressing data.
@@ -568,6 +628,9 @@ Advanced parameter control
       Setting the level to zero uses :attr:`COMPRESSION_LEVEL_DEFAULT`.
 
    .. attribute:: window_log
+      :type: typing.Literal[CompressionParameter.window_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L53>`__)
 
       Maximum allowed back-reference distance the compressor can use when
       compressing data, expressed as power of two, ``1 << window_log`` bytes.
@@ -577,6 +640,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: hash_log
+      :type: typing.Literal[CompressionParameter.hash_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L54>`__)
 
       Size of the initial probe table, as a power of two. The resulting memory
       usage is ``1 << (hash_log+2)`` bytes. Larger tables improve compression
@@ -586,6 +652,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: chain_log
+      :type: typing.Literal[CompressionParameter.chain_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L55>`__)
 
       Size of the multi-probe search table, as a power of two. The resulting
       memory usage is ``1 << (chain_log+2)`` bytes. Larger tables result in
@@ -597,6 +666,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: search_log
+      :type: typing.Literal[CompressionParameter.search_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L56>`__)
 
       Number of search attempts, as a power of two. More attempts result in
       better and slower compression. This parameter is useless for
@@ -605,6 +677,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: min_match
+      :type: typing.Literal[CompressionParameter.min_match]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L57>`__)
 
       Minimum size of searched matches. Larger values increase compression and
       decompression speed, but decrease ratio. Note that Zstandard can still
@@ -616,6 +691,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: target_length
+      :type: typing.Literal[CompressionParameter.target_length]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L58>`__)
 
       The impact of this field depends on the selected :class:`Strategy`.
 
@@ -631,6 +709,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: strategy
+      :type: typing.Literal[CompressionParameter.strategy]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L59>`__)
 
       The higher the value of selected strategy, the more complex the
       compression technique used by zstd, resulting in higher compression
@@ -639,6 +720,9 @@ Advanced parameter control
       .. seealso:: :class:`Strategy`
 
    .. attribute:: enable_long_distance_matching
+      :type: typing.Literal[CompressionParameter.enable_long_distance_matching]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L60>`__)
 
       Long distance matching can be used to improve compression for large
       inputs by finding large matches at greater distances. It increases memory
@@ -654,6 +738,9 @@ Advanced parameter control
       strategy >= :attr:`~Strategy.btopt` (compression level 16+).
 
    .. attribute:: ldm_hash_log
+      :type: typing.Literal[CompressionParameter.ldm_hash_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L61>`__)
 
       Size of the table for long distance matching, as a power of two. Larger
       values increase memory usage and compression ratio, but decrease
@@ -662,6 +749,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: ldm_min_match
+      :type: typing.Literal[CompressionParameter.ldm_min_match]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L62>`__)
 
       Minimum match size for long distance matcher. Larger or too small values
       can often decrease the compression ratio.
@@ -669,6 +759,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: ldm_bucket_size_log
+      :type: typing.Literal[CompressionParameter.ldm_bucket_size_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L63>`__)
 
       Log size of each bucket in the long distance matcher hash table for
       collision resolution. Larger values improve collision resolution but
@@ -677,6 +770,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: ldm_hash_rate_log
+      :type: typing.Literal[CompressionParameter.ldm_hash_rate_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L64>`__)
 
       Frequency of inserting/looking up entries into the long distance matcher
       hash table. Larger values improve compression speed. Deviating far from
@@ -685,6 +781,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: content_size_flag
+      :type: typing.Literal[CompressionParameter.content_size_flag]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L65>`__)
 
       Write the size of the data to be compressed into the Zstandard frame
       header when known prior to compressing.
@@ -708,6 +807,9 @@ Advanced parameter control
       disable it.
 
    .. attribute:: checksum_flag
+      :type: typing.Literal[CompressionParameter.checksum_flag]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L66>`__)
 
       A four-byte checksum using XXHash64 of the uncompressed content is
       written at the end of each frame. Zstandard's decompression code verifies
@@ -718,6 +820,9 @@ Advanced parameter control
       disable it.
 
    .. attribute:: dict_id_flag
+      :type: typing.Literal[CompressionParameter.dict_id_flag]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L67>`__)
 
       When compressing with a :class:`ZstdDict`, the dictionary's ID is written
       into the frame header.
@@ -726,6 +831,9 @@ Advanced parameter control
       ``0`` disable it.
 
    .. attribute:: nb_workers
+      :type: typing.Literal[CompressionParameter.nb_workers]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L68>`__)
 
       Select how many threads will be spawned to compress in parallel. When
       :attr:`!nb_workers` > 0, enables multi-threaded compression, a value of
@@ -735,6 +843,9 @@ Advanced parameter control
       A value of zero disables multi-threading.
 
    .. attribute:: job_size
+      :type: typing.Literal[CompressionParameter.job_size]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L69>`__)
 
       Size of a compression job, in bytes. This value is enforced only when
       :attr:`~CompressionParameter.nb_workers` >= 1. Each compression job is
@@ -744,6 +855,9 @@ Advanced parameter control
       A value of zero causes the value to be selected automatically.
 
    .. attribute:: overlap_log
+      :type: typing.Literal[CompressionParameter.overlap_log]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L70>`__)
 
       Sets how much data is reloaded from previous jobs (threads) for new jobs
       to be used by the look behind window during compression. This value is
@@ -779,6 +893,9 @@ Advanced parameter control
       decompress(data, options=options)
 
    .. method:: bounds()
+               bounds() -> tuple[int, int]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L76>`__)
 
       Return the tuple of int bounds, ``(lower, upper)``, of a decompression
       parameter. This method should be called on the attribute you wish to
@@ -787,6 +904,9 @@ Advanced parameter control
       Both the lower and upper bounds are inclusive.
 
    .. attribute:: window_log_max
+      :type: typing.Literal[DecompressionParameter.window_log_max]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L75>`__)
 
       The base-two logarithm of the maximum size of the window used during
       decompression. This can be useful to limit the amount of memory used when
@@ -814,22 +934,57 @@ Advanced parameter control
    The following strategies are available:
 
    .. attribute:: fast
+      :type: typing.Literal[Strategy.fast]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L80>`__)
 
    .. attribute:: dfast
+      :type: typing.Literal[Strategy.dfast]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L81>`__)
 
    .. attribute:: greedy
+      :type: typing.Literal[Strategy.greedy]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L82>`__)
 
    .. attribute:: lazy
+      :type: typing.Literal[Strategy.lazy]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L83>`__)
 
    .. attribute:: lazy2
+      :type: typing.Literal[Strategy.lazy2]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L84>`__)
 
    .. attribute:: btlazy2
+      :type: typing.Literal[Strategy.btlazy2]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L85>`__)
 
    .. attribute:: btopt
+      :type: typing.Literal[Strategy.btopt]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L86>`__)
 
    .. attribute:: btultra
+      :type: typing.Literal[Strategy.btultra]
+
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L87>`__)
 
    .. attribute:: btultra2
+      :type: typing.Literal[Strategy.btultra2]
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L88>`__)
 
 
 Miscellaneous
@@ -852,10 +1007,16 @@ Miscellaneous
    Metadata related to a Zstandard frame.
 
    .. attribute:: decompressed_size
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L39>`__)
 
       The size of the decompressed contents of the frame.
 
    .. attribute:: dictionary_id
+      :type: int
+
+      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/compression/zstd/__init__.pyi#L40>`__)
 
       An integer representing the Zstandard dictionary ID needed for
       decompressing the frame. ``0`` means the dictionary ID was not
