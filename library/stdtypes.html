@@ -1343,11 +1343,16 @@ You can create a list of different lists this way:</p>
 <li><p>If <em>i</em> or <em>j</em> is negative, the index is relative to the end of sequence <em>s</em>:
 <code class="docutils literal notranslate"><span class="pre">len(s)</span> <span class="pre">+</span> <span class="pre">i</span></code> or <code class="docutils literal notranslate"><span class="pre">len(s)</span> <span class="pre">+</span> <span class="pre">j</span></code> is substituted.  But note that <code class="docutils literal notranslate"><span class="pre">-0</span></code> is
 still <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
-<li><p>The slice of <em>s</em> from <em>i</em> to <em>j</em> is defined as the sequence of items with index
-<em>k</em> such that <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;=</span> <span class="pre">k</span> <span class="pre">&lt;</span> <span class="pre">j</span></code>.  If <em>i</em> or <em>j</em> is greater than <code class="docutils literal notranslate"><span class="pre">len(s)</span></code>, use
-<code class="docutils literal notranslate"><span class="pre">len(s)</span></code>.  If <em>i</em> is omitted or <code class="docutils literal notranslate"><span class="pre">None</span></code>, use <code class="docutils literal notranslate"><span class="pre">0</span></code>.  If <em>j</em> is omitted or
-<code class="docutils literal notranslate"><span class="pre">None</span></code>, use <code class="docutils literal notranslate"><span class="pre">len(s)</span></code>.  If <em>i</em> is greater than or equal to <em>j</em>, the slice is
-empty.</p></li>
+<li><p>The slice of <em>s</em> from <em>i</em> to <em>j</em> is defined as the sequence of items with
+index <em>k</em> such that <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;=</span> <span class="pre">k</span> <span class="pre">&lt;</span> <span class="pre">j</span></code>.</p>
+<ul class="simple">
+<li><p>If <em>i</em> is omitted or <code class="docutils literal notranslate"><span class="pre">None</span></code>, use <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>If <em>j</em> is omitted or <code class="docutils literal notranslate"><span class="pre">None</span></code>, use <code class="docutils literal notranslate"><span class="pre">len(s)</span></code>.</p></li>
+<li><p>If <em>i</em> or <em>j</em> is less than <code class="docutils literal notranslate"><span class="pre">-len(s)</span></code>, use <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>If <em>i</em> or <em>j</em> is greater than <code class="docutils literal notranslate"><span class="pre">len(s)</span></code>, use <code class="docutils literal notranslate"><span class="pre">len(s)</span></code>.</p></li>
+<li><p>If <em>i</em> is greater than or equal to <em>j</em>, the slice is empty.</p></li>
+</ul>
+</li>
 <li><p>The slice of <em>s</em> from <em>i</em> to <em>j</em> with step <em>k</em> is defined as the sequence of
 items with index  <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">n*k</span></code> such that <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">n</span> <span class="pre">&lt;</span> <span class="pre">(j-i)/k</span></code>.  In other words,
 the indices are <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">i+k</span></code>, <code class="docutils literal notranslate"><span class="pre">i+2*k</span></code>, <code class="docutils literal notranslate"><span class="pre">i+3*k</span></code> and so on, stopping when
