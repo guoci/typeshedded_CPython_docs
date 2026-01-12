@@ -348,6 +348,12 @@ and export the enum members to the global namespace.</p>
 <blockquote>
 <div><p>Return a list of all power-of-two integers contained in a flag.</p>
 </div></blockquote>
+<p><a class="reference internal" href="#enum.bin" title="enum.bin"><code class="xref py py-func docutils literal notranslate"><span class="pre">enum.bin()</span></code></a></p>
+<blockquote>
+<div><p>Like built-in <a class="reference internal" href="functions.html#bin" title="bin"><code class="xref py py-func docutils literal notranslate"><span class="pre">bin()</span></code></a>, except negative values are represented in
+two’s complement, and the leading bit always indicates sign
+(<code class="docutils literal notranslate"><span class="pre">0</span></code> implies positive, <code class="docutils literal notranslate"><span class="pre">1</span></code> implies negative).</p>
+</div></blockquote>
 </div></blockquote>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.6: </span><code class="docutils literal notranslate"><span class="pre">Flag</span></code>, <code class="docutils literal notranslate"><span class="pre">IntFlag</span></code>, <code class="docutils literal notranslate"><span class="pre">auto</span></code></p>
@@ -1607,6 +1613,24 @@ to the module global namespace (see <a class="reference internal" href="re.html#
 <p>Return a list of all power-of-two integers contained in a flag <em>value</em>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.11.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enum.bin">
+<span class="sig-prename descclassname"><span class="pre">enum.</span></span><span class="sig-name descname"><span class="pre">bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#enum.bin" title="Link to this definition">¶</a></dt>
+<dd><p>Like built-in <a class="reference internal" href="functions.html#bin" title="bin"><code class="xref py py-func docutils literal notranslate"><span class="pre">bin()</span></code></a>, except negative values are represented in
+two’s complement, and the leading bit always indicates sign
+(<code class="docutils literal notranslate"><span class="pre">0</span></code> implies positive, <code class="docutils literal notranslate"><span class="pre">1</span></code> implies negative).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">enum</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enum</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">&#39;0b0 1010&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enum</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="o">~</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># ~10 is -11</span>
+<span class="go">&#39;0b1 0101&#39;</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 </dd></dl>
 
