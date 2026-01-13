@@ -192,9 +192,15 @@ error recovery.</p>
 <p>The notation used here is the same as in the preceding docs,
 and is described in the <a class="reference internal" href="introduction.html#notation"><span class="std std-ref">notation</span></a> section,
 except for an extra complication:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> (“cut”): commit to the current alternative and fail the rule
-even if this fails to parse</p></li>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> (“cut”): commit to the current alternative; fail the rule
+if the alternative fails to parse</p>
+<p>Python mainly uses cuts for optimizations or improved error
+messages. They often appear to be useless in the listing below.</p>
+<p>Cuts currently don’t appear inside parentheses, brackets, lookaheads
+and similar.
+Their behavior in these contexts is deliberately left unspecified.</p>
+</li>
 </ul>
 <div class="highlight-peg notranslate"><div class="highlight"><pre><span></span><span class="c c-Singleline"># PEG grammar for Python</span>
 
