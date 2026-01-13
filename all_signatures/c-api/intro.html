@@ -419,6 +419,15 @@ be inlined.</p>
 </dd></dl>
 
 <dl class="c macro">
+<dt class="sig sig-object c" id="c.Py_LOCAL_SYMBOL">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_LOCAL_SYMBOL</span></span></span><a class="headerlink" href="#c.Py_LOCAL_SYMBOL" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Macro used to declare a symbol as local to the shared library (hidden).
+On supported platforms, it ensures the symbol is not exported.</p>
+<p>On compatible versions of GCC/Clang, it
+expands to <code class="docutils literal notranslate"><span class="pre">__attribute__((visibility(&quot;hidden&quot;)))</span></code>.</p>
+</dd></dl>
+
+<dl class="c macro">
 <dt class="sig sig-object c" id="c.Py_MAX">
 <span class="sig-name descname"><span class="n"><span class="pre">Py_MAX</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">x</span></span>, <span class="n"><span class="pre">y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_MAX" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Return the maximum value between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
@@ -600,6 +609,42 @@ incorrect results.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">sizeof</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">((</span><span class="n">array</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.Py_EXPORTED_SYMBOL">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_EXPORTED_SYMBOL</span></span></span><a class="headerlink" href="#c.Py_EXPORTED_SYMBOL" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Macro used to declare a symbol (function or data) as exported.
+On Windows, this expands to <code class="docutils literal notranslate"><span class="pre">__declspec(dllexport)</span></code>.
+On compatible versions of GCC/Clang, it
+expands to <code class="docutils literal notranslate"><span class="pre">__attribute__((visibility(&quot;default&quot;)))</span></code>.
+This macro is for defining the C API itself; extension modules should not use it.</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.Py_IMPORTED_SYMBOL">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_IMPORTED_SYMBOL</span></span></span><a class="headerlink" href="#c.Py_IMPORTED_SYMBOL" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Macro used to declare a symbol as imported.
+On Windows, this expands to <code class="docutils literal notranslate"><span class="pre">__declspec(dllimport)</span></code>.
+This macro is for defining the C API itself; extension modules should not use it.</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.PyAPI_FUNC">
+<span class="sig-name descname"><span class="n"><span class="pre">PyAPI_FUNC</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyAPI_FUNC" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Macro used by CPython to declare a function as part of the C API.
+Its expansion depends on the platform and build configuration.
+This macro is intended for defining CPython’s C API itself;
+extension modules should not use it for their own symbols.</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.PyAPI_DATA">
+<span class="sig-name descname"><span class="n"><span class="pre">PyAPI_DATA</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyAPI_DATA" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Macro used by CPython to declare a public global variable as part of the C API.
+Its expansion depends on the platform and build configuration.
+This macro is intended for defining CPython’s C API itself;
+extension modules should not use it for their own symbols.</p>
 </dd></dl>
 
 </section>
