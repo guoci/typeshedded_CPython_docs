@@ -33,7 +33,7 @@ The module defines the following user-callable items:
 
 .. function:: TemporaryFile(mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, *, errors=None)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L131>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L131>`__)
 
    Return a :term:`file-like object` that can be used as a temporary storage area.
    The file is created securely, using the same rules as :func:`mkstemp`. It will be destroyed as soon
@@ -79,7 +79,7 @@ The module defines the following user-callable items:
 
 .. function:: NamedTemporaryFile(mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, delete=True, *, errors=None, delete_on_close=True)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L43>`__)
 
    This function operates exactly as :func:`TemporaryFile` does, except the
    following differences:
@@ -149,7 +149,7 @@ The module defines the following user-callable items:
 
 .. class:: SpooledTemporaryFile(max_size=0, mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, *, errors=None)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L274>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L274>`__)
 
    This class operates exactly as :func:`TemporaryFile` does, except that
    data is spooled in memory until the file size exceeds *max_size*, or
@@ -160,7 +160,7 @@ The module defines the following user-callable items:
    .. method:: SpooledTemporaryFile.rollover
                SpooledTemporaryFile.rollover[AnyStr]() -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L353>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L353>`__)
 
       The resulting file has one additional method, :meth:`!rollover`, which
       causes the file to roll over to an on-disk file regardless of its size.
@@ -188,7 +188,7 @@ The module defines the following user-callable items:
            TemporaryDirectory(suffix: str | None = None, prefix: str | None = None, dir: PathLike[str] | str | None = None, ignore_cleanup_errors: bool = False, *, delete: bool = True) -> None
            TemporaryDirectory(suffix: bytes | None = None, prefix: bytes | None = None, dir: PathLike[bytes] | bytes | None = None, ignore_cleanup_errors: bool = False, *, delete: bool = True) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L409>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L401>`__)
 
    This class securely creates a temporary directory using the same rules as :func:`mkdtemp`.
    The resulting object can be used as a :term:`context manager` (see
@@ -199,7 +199,7 @@ The module defines the following user-callable items:
    .. attribute:: TemporaryDirectory.name
       :type: Unknown
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L410>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L402>`__)
 
       The directory name can be retrieved from the :attr:`!name` attribute of the
       returned object.  When the returned object is used as a :term:`context manager`, the
@@ -209,7 +209,7 @@ The module defines the following user-callable items:
    .. method:: TemporaryDirectory.cleanup
                TemporaryDirectory.cleanup[AnyStr]() -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L462>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L454>`__)
 
       The directory can be explicitly cleaned up by calling the
       :meth:`!cleanup` method. If *ignore_cleanup_errors* is true, any unhandled
@@ -241,7 +241,7 @@ The module defines the following user-callable items:
               mkstemp(suffix: str | None = None, prefix: str | None = None, dir: PathLike[str] | str | None = None, text: bool = False) -> tuple[int, str]
               mkstemp(suffix: bytes | None = None, prefix: bytes | None = None, dir: PathLike[bytes] | bytes | None = None, text: bool = False) -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L475>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L461>`__)
 
    Creates a temporary file in the most secure manner possible.  There are
    no race conditions in the file's creation, assuming that the platform
@@ -301,7 +301,7 @@ The module defines the following user-callable items:
               mkdtemp(suffix: str | None = None, prefix: str | None = None, dir: PathLike[str] | str | None = None) -> str
               mkdtemp(suffix: bytes | None = None, prefix: bytes | None = None, dir: PathLike[bytes] | bytes | None = None) -> bytes
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L485>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L471>`__)
 
    Creates a temporary directory in the most secure manner possible. There
    are no race conditions in the directory's creation.  The directory is
@@ -333,7 +333,7 @@ The module defines the following user-callable items:
 .. function:: gettempdir()
               gettempdir() -> str
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L492>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L478>`__)
 
    Return the name of the directory used for temporary files. This
    defines the default value for the *dir* argument to all functions
@@ -369,7 +369,7 @@ The module defines the following user-callable items:
 .. function:: gettempdirb()
               gettempdirb() -> bytes
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L490>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L476>`__)
 
    Same as :func:`gettempdir` but the return value is in bytes.
 
@@ -378,7 +378,7 @@ The module defines the following user-callable items:
 .. function:: gettempprefix()
               gettempprefix() -> str
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L493>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L479>`__)
 
    Return the filename prefix used to create temporary files.  This does not
    contain the directory component.
@@ -386,7 +386,7 @@ The module defines the following user-callable items:
 .. function:: gettempprefixb()
               gettempprefixb() -> bytes
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L491>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L477>`__)
 
    Same as :func:`gettempprefix` but the return value is in bytes.
 
@@ -402,7 +402,7 @@ not surprise other unsuspecting code by changing global API behavior.
 .. data:: tempdir
    :type: str | None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L38>`__)
 
    When set to a value other than ``None``, this variable defines the
    default value for the *dir* argument to the functions defined in this
@@ -487,7 +487,7 @@ other functions described above.
 .. function:: mktemp(suffix='', prefix='tmp', dir=None)
               mktemp(suffix: str = '', prefix: str = 'tmp', dir: PathLike[str] | str | None = None) -> str
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/tempfile.pyi#L489>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L475>`__)
 
    .. deprecated:: 2.3
       Use :func:`mkstemp` instead.

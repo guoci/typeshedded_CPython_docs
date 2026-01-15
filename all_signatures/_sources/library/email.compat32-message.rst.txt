@@ -56,7 +56,7 @@ Here are the methods of the :class:`Message` class:
 .. class:: Message(policy=compat32)
            Message(policy: Policy[typing.Any] = ...) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L35>`__)
 
    If *policy* is specified (it must be an instance of a :mod:`~email.policy`
    class) use the rules it specifies to update and serialize the representation
@@ -71,7 +71,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: as_string(unixfrom=False, maxheaderlen=0, policy=None)
                as_string[_HeaderT_co, _HeaderParamT_contra](unixfrom: bool = False, maxheaderlen: int = 0, policy: Policy[typing.Any] | None = None) -> str
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L135>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L135>`__)
 
       Return the entire message flattened as a string.  When optional *unixfrom*
       is true, the envelope header is included in the returned string.
@@ -118,7 +118,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: as_bytes(unixfrom=False, policy=None)
                as_bytes[_HeaderT_co, _HeaderParamT_contra](unixfrom: bool = False, policy: Policy[typing.Any] | None = None) -> bytes
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L136>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L136>`__)
 
       Return the entire message flattened as a bytes object.  When optional
       *unixfrom* is true, the envelope header is included in the returned
@@ -153,7 +153,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: __bytes__()
                __bytes__[_HeaderT_co, _HeaderParamT_contra]() -> bytes
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L137>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L137>`__)
 
       Equivalent to :meth:`.as_bytes`.  Allows ``bytes(msg)`` to produce a
       bytes object containing the formatted message.
@@ -164,7 +164,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: is_multipart()
                is_multipart[_HeaderT_co, _HeaderParamT_contra]() -> bool
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L43>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L43>`__)
 
       Return ``True`` if the message's payload is a list of
       sub-\ :class:`Message` objects, otherwise return ``False``.  When
@@ -179,7 +179,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: set_unixfrom(unixfrom)
                set_unixfrom[_HeaderT_co, _HeaderParamT_contra](unixfrom: str) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L44>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L44>`__)
 
       Set the message's envelope header to *unixfrom*, which should be a string.
 
@@ -187,7 +187,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_unixfrom()
                get_unixfrom[_HeaderT_co, _HeaderParamT_contra]() -> str | None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L45>`__)
 
       Return the message's envelope header.  Defaults to ``None`` if the
       envelope header was never set.
@@ -196,7 +196,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: attach(payload)
                attach[_HeaderT_co, _HeaderParamT_contra](payload: _PayloadType) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L46>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L46>`__)
 
       Add the given *payload* to the current payload, which must be ``None`` or
       a list of :class:`Message` objects before the call. After the call, the
@@ -217,7 +217,7 @@ Here are the methods of the :class:`Message` class:
                get_payload(i: None = None, *, decode: typing.Literal[True]) -> email.message.Message[str, str] | bytes | typing.Any
                get_payload(i: None, decode: typing.Literal[True]) -> email.message.Message[str, str] | bytes | typing.Any
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L50>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L50>`__)
 
       Return the current payload, which will be a list of
       :class:`Message` objects when :meth:`is_multipart` is ``True``, or a
@@ -264,7 +264,7 @@ Here are the methods of the :class:`Message` class:
                set_payload(payload: email.message.Message[str, str] | _SupportsDecodeToPayload | list[_PayloadType] | str, charset: None = None) -> None
                set_payload(payload: email.message.Message[str, str] | _SupportsDecodeToPayload | _SupportsEncodeToPayload | list[_PayloadType] | str, charset: Charset | str) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L63>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L63>`__)
 
       Set the entire message object's payload to *payload*.  It is the client's
       responsibility to ensure the payload invariants.  Optional *charset* sets
@@ -278,7 +278,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: set_charset(charset)
                set_charset[_HeaderT_co, _HeaderParamT_contra](charset: _CharsetType) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L72>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L72>`__)
 
       Set the character set of the payload to *charset*, which can either be a
       :class:`~email.charset.Charset` instance (see :mod:`email.charset`), a
@@ -311,7 +311,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_charset()
                get_charset[_HeaderT_co, _HeaderParamT_contra]() -> _CharsetType
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L73>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L73>`__)
 
       Return the :class:`~email.charset.Charset` instance associated with the
       message's payload.
@@ -346,7 +346,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: __len__()
                __len__[_HeaderT_co, _HeaderParamT_contra]() -> int
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L74>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L74>`__)
 
       Return the total number of headers, including duplicates.
 
@@ -354,7 +354,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: __contains__(name)
                __contains__[_HeaderT_co, _HeaderParamT_contra](name: str) -> bool
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L75>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L75>`__)
 
       Return ``True`` if the message object has a field named *name*. Matching is
       done case-insensitively and *name* should not include the trailing colon.
@@ -367,7 +367,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: __getitem__(name)
                __getitem__[_HeaderT_co, _HeaderParamT_contra](name: str) -> _HeaderT_co | typing.Any
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L81>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L81>`__)
 
       Return the value of the named header field.  *name* should not include the
       colon field separator.  If the header is missing, ``None`` is returned; a
@@ -382,7 +382,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: __setitem__(name, val)
                __setitem__[_HeaderT_co, _HeaderParamT_contra](name: str, val: _HeaderParamT_contra) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L82>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L82>`__)
 
       Add a header to the message with field name *name* and value *val*.  The
       field is appended to the end of the message's existing fields.
@@ -398,7 +398,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: __delitem__(name)
                __delitem__[_HeaderT_co, _HeaderParamT_contra](name: str) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L83>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L83>`__)
 
       Delete all occurrences of the field with name *name* from the message's
       headers.  No exception is raised if the named field isn't present in the
@@ -408,7 +408,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: keys()
                keys[_HeaderT_co, _HeaderParamT_contra]() -> list[str]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L84>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L84>`__)
 
       Return a list of all the message's header field names.
 
@@ -416,7 +416,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: values()
                values[_HeaderT_co, _HeaderParamT_contra]() -> list[_HeaderT_co]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L85>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L85>`__)
 
       Return a list of all the message's field values.
 
@@ -424,7 +424,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: items()
                items[_HeaderT_co, _HeaderParamT_contra]() -> list[tuple[str, _HeaderT_co]]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L86>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L86>`__)
 
       Return a list of 2-tuples containing all the message's field headers and
       values.
@@ -434,7 +434,7 @@ Here are the methods of the :class:`Message` class:
                get(name: str, failobj: None = None) -> _HeaderT_co | None
                get(name: str, failobj: _T) -> _HeaderT_co | _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L88>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L88>`__)
 
       Return the value of the named header field.  This is identical to
       :meth:`~object.__getitem__` except that optional *failobj* is returned if the
@@ -447,7 +447,7 @@ Here are the methods of the :class:`Message` class:
                get_all(name: str, failobj: None = None) -> list[_HeaderT_co] | None
                get_all(name: str, failobj: _T) -> list[_HeaderT_co] | _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L92>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L92>`__)
 
       Return a list of all the values for the field named *name*. If there are
       no such named headers in the message, *failobj* is returned (defaults to
@@ -457,7 +457,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: add_header(_name, _value, **_params)
                add_header[_HeaderT_co, _HeaderParamT_contra](_name: str, _value: str, **_params: _ParamsType) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L95>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L95>`__)
 
       Extended header setting.  This method is similar to :meth:`__setitem__`
       except that additional header parameters can be provided as keyword
@@ -499,7 +499,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: replace_header(_name, _value)
                replace_header[_HeaderT_co, _HeaderParamT_contra](_name: str, _value: _HeaderParamT_contra) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L96>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L96>`__)
 
       Replace a header.  Replace the first header found in the message that
       matches *_name*, retaining header order and field name case.  If no
@@ -509,7 +509,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_content_type()
                get_content_type[_HeaderT_co, _HeaderParamT_contra]() -> str
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L97>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L97>`__)
 
       Return the message's content type.  The returned string is coerced to
       lower case of the form :mimetype:`maintype/subtype`.  If there was no
@@ -528,7 +528,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_content_maintype()
                get_content_maintype[_HeaderT_co, _HeaderParamT_contra]() -> str
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L98>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L98>`__)
 
       Return the message's main content type.  This is the :mimetype:`maintype`
       part of the string returned by :meth:`get_content_type`.
@@ -537,7 +537,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_content_subtype()
                get_content_subtype[_HeaderT_co, _HeaderParamT_contra]() -> str
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L99>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L99>`__)
 
       Return the message's sub-content type.  This is the :mimetype:`subtype`
       part of the string returned by :meth:`get_content_type`.
@@ -546,7 +546,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_default_type()
                get_default_type[_HeaderT_co, _HeaderParamT_contra]() -> str
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L100>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L100>`__)
 
       Return the default content type.  Most messages have a default content
       type of :mimetype:`text/plain`, except for messages that are subparts of
@@ -557,7 +557,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: set_default_type(ctype)
                set_default_type[_HeaderT_co, _HeaderParamT_contra](ctype: str) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L101>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L101>`__)
 
       Set the default content type.  *ctype* should either be
       :mimetype:`text/plain` or :mimetype:`message/rfc822`, although this is not
@@ -569,7 +569,7 @@ Here are the methods of the :class:`Message` class:
                get_params(failobj: None = None, header: str = 'content-type', unquote: bool = True) -> list[tuple[str, str]] | None
                get_params(failobj: _T, header: str = 'content-type', unquote: bool = True) -> list[tuple[str, str]] | _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L103>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L103>`__)
 
       Return the message's :mailheader:`Content-Type` parameters, as a list.
       The elements of the returned list are 2-tuples of key/value pairs, as
@@ -593,7 +593,7 @@ Here are the methods of the :class:`Message` class:
                get_param(param: str, failobj: None = None, header: str = 'content-type', unquote: bool = True) -> str | tuple[str | None, str | None, str] | None
                get_param(param: str, failobj: _T, header: str = 'content-type', unquote: bool = True) -> str | tuple[str | None, str | None, str] | _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L109>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L109>`__)
 
       Return the value of the :mailheader:`Content-Type` header's parameter
       *param* as a string.  If the message has no :mailheader:`Content-Type`
@@ -635,7 +635,7 @@ Here are the methods of the :class:`Message` class:
                          charset=None, language='', replace=False)
                set_param[_HeaderT_co, _HeaderParamT_contra](param: str, value: str, header: str = 'Content-Type', requote: bool = True, charset: str | None = None, language: str = '', replace: bool = False) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L138>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L138>`__)
 
       Set a parameter in the :mailheader:`Content-Type` header.  If the
       parameter already exists in the header, its value will be replaced with
@@ -662,7 +662,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: del_param(param, header='content-type', requote=True)
                del_param[_HeaderT_co, _HeaderParamT_contra](param: str, header: str = 'content-type', requote: bool = True) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L114>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L114>`__)
 
       Remove the given parameter completely from the :mailheader:`Content-Type`
       header.  The header will be re-written in place without the parameter or
@@ -674,7 +674,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: set_type(type, header='Content-Type', requote=True)
                set_type[_HeaderT_co, _HeaderParamT_contra](type: str, header: str = 'Content-Type', requote: bool = True) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L115>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L115>`__)
 
       Set the main type and subtype for the :mailheader:`Content-Type`
       header. *type* must be a string in the form :mimetype:`maintype/subtype`,
@@ -698,7 +698,7 @@ Here are the methods of the :class:`Message` class:
                get_filename(failobj: None = None) -> str | None
                get_filename(failobj: _T) -> str | _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L117>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L117>`__)
 
       Return the value of the ``filename`` parameter of the
       :mailheader:`Content-Disposition` header of the message.  If the header
@@ -713,7 +713,7 @@ Here are the methods of the :class:`Message` class:
                get_boundary(failobj: None = None) -> str | None
                get_boundary(failobj: _T) -> str | _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L121>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L121>`__)
 
       Return the value of the ``boundary`` parameter of the
       :mailheader:`Content-Type` header of the message, or *failobj* if either
@@ -724,7 +724,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: set_boundary(boundary)
                set_boundary[_HeaderT_co, _HeaderParamT_contra](boundary: str) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L124>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L124>`__)
 
       Set the ``boundary`` parameter of the :mailheader:`Content-Type` header to
       *boundary*.  :meth:`set_boundary` will always quote *boundary* if
@@ -743,7 +743,7 @@ Here are the methods of the :class:`Message` class:
                get_content_charset() -> str | None
                get_content_charset(failobj: _T) -> str | _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L126>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L126>`__)
 
       Return the ``charset`` parameter of the :mailheader:`Content-Type` header,
       coerced to lower case.  If there is no :mailheader:`Content-Type` header, or if
@@ -757,7 +757,7 @@ Here are the methods of the :class:`Message` class:
                get_charsets(failobj: None = None) -> list[str | None]
                get_charsets(failobj: _T) -> list[str | _T]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L130>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L130>`__)
 
       Return a list containing the character set names in the message.  If the
       message is a :mimetype:`multipart`, then the list will contain one element
@@ -774,7 +774,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_content_disposition()
                get_content_disposition[_HeaderT_co, _HeaderParamT_contra]() -> str | None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L134>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L134>`__)
 
       Return the lowercased value (without parameters) of the message's
       :mailheader:`Content-Disposition` header if it has one, or ``None``.  The
@@ -786,7 +786,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: walk()
                walk[_HeaderT_co, _HeaderParamT_contra]() -> collections.abc.Generator[email.message.Message[_HeaderT_co, _HeaderParamT_contra], None, None]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L133>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L133>`__)
 
       The :meth:`walk` method is an all-purpose generator which can be used to
       iterate over all the parts and subparts of a message object tree, in
@@ -858,7 +858,7 @@ Here are the methods of the :class:`Message` class:
    .. attribute:: preamble
       :type: str | None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L39>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L39>`__)
 
       The format of a MIME document allows for some text between the blank line
       following the headers, and the first multipart boundary string. Normally,
@@ -884,7 +884,7 @@ Here are the methods of the :class:`Message` class:
    .. attribute:: epilogue
       :type: str | None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L40>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L40>`__)
 
       The *epilogue* attribute acts the same way as the *preamble* attribute,
       except that it contains text that appears between the last boundary and
@@ -898,7 +898,7 @@ Here are the methods of the :class:`Message` class:
    .. attribute:: defects
       :type: list[MessageDefect]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/email/message.pyi#L41>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L41>`__)
 
       The *defects* attribute contains a list of all the problems found when
       parsing this message.  See :mod:`email.errors` for a detailed description

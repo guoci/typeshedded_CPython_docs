@@ -239,9 +239,9 @@ Creating Tasks
 -----------------------------------------------
 
 .. function:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
-              create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None) -> Task[_T]
+              create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool | None = None) -> Task[_T]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L417>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L417>`__)
 
    Wrap the *coro* :ref:`coroutine <coroutine>` into a :class:`Task`
    and schedule its execution.  Return the Task object.
@@ -336,7 +336,7 @@ and reliable way to wait for all tasks in the group to finish.
 .. class:: TaskGroup()
            TaskGroup() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/taskgroups.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/taskgroups.pyi#L19>`__)
 
    An :ref:`asynchronous context manager <async-context-managers>`
    holding a group of tasks.
@@ -346,9 +346,9 @@ and reliable way to wait for all tasks in the group to finish.
    .. versionadded:: 3.11
 
    .. method:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
-               create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None) -> Task[_T]
+               create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool | None = None) -> Task[_T]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/taskgroups.pyi#L25>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/taskgroups.pyi#L26>`__)
 
       Create a task in this task group.
       The signature matches that of :func:`asyncio.create_task`.
@@ -491,7 +491,7 @@ Sleeping
               sleep(delay: float, result: _T) -> collections.abc.Coroutine[Unknown, Unknown, _T]
    :async:
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L358>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L358>`__)
 
    Block for *delay* seconds.
 
@@ -537,7 +537,7 @@ Running Tasks Concurrently
 
 .. awaitablefunction:: gather(*aws, return_exceptions=False)
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L116>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L116>`__)
 
    Run :ref:`awaitable objects <asyncio-awaitables>` in the *aws*
    sequence *concurrently*.
@@ -642,7 +642,7 @@ Eager Task Factory
 .. function:: eager_task_factory(loop, coro, *, name=None, context=None)
               eager_task_factory[_T_co](loop: AbstractEventLoop | None, coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = True) -> Task[_T_co]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L428>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L433>`__)
 
     A task factory for eager task execution.
 
@@ -669,7 +669,7 @@ Eager Task Factory
 .. function:: create_eager_task_factory(custom_task_constructor)
               create_eager_task_factory[_TaskT_co](custom_task_constructor: _CustomTaskConstructor[_TaskT_co]) -> _EagerTaskFactoryType[_TaskT_co]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L473>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L478>`__)
 
     Create an eager task factory, similar to :func:`eager_task_factory`,
     using the provided *custom_task_constructor* when creating a new task instead
@@ -691,7 +691,7 @@ Shielding From Cancellation
 .. awaitablefunction:: shield(aw)
                        shield[_T](arg: _FutureLike) -> Future[_T]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L356>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L356>`__)
 
    Protect an :ref:`awaitable object <asyncio-awaitables>`
    from being :meth:`cancelled <Task.cancel>`.
@@ -747,7 +747,7 @@ Timeouts
 .. function:: timeout(delay)
               timeout(delay: float | None) -> Timeout
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/timeouts.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/timeouts.pyi#L19>`__)
 
     Return an :ref:`asynchronous context manager <async-context-managers>`
     that can be used to limit the amount of time spent waiting on
@@ -843,7 +843,7 @@ Timeouts
 .. function:: timeout_at(when)
               timeout_at(when: float | None) -> Timeout
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/timeouts.pyi#L20>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/timeouts.pyi#L20>`__)
 
    Similar to :func:`asyncio.timeout`, except *when* is the absolute time
    to stop waiting, or ``None``.
@@ -867,7 +867,7 @@ Timeouts
               wait_for[_T](fut: _FutureLike, timeout: float | None) -> collections.abc.Coroutine[Unknown, Unknown, _T]
    :async:
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L361>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L361>`__)
 
    Wait for the *aw* :ref:`awaitable <asyncio-awaitables>`
    to complete with a timeout.
@@ -932,7 +932,7 @@ Waiting Primitives
               wait(fs: collections.abc.Iterable[Task[_T]], *, timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> collections.abc.Coroutine[Unknown, Unknown, tuple[set[Task[_T]], set[Task[_T]]]]
    :async:
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L373>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L373>`__)
 
    Run :class:`~asyncio.Future` and :class:`~asyncio.Task` instances in the *aws*
    iterable concurrently and block until the condition specified
@@ -989,7 +989,7 @@ Waiting Primitives
 .. function:: as_completed(aws, *, timeout=None)
               as_completed[_T](fs: collections.abc.Iterable[_FutureLike], *, timeout: float | None = None) -> _SyncAndAsyncIterator[Future[_T]]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L93>`__)
 
    Run :ref:`awaitable objects <asyncio-awaitables>` in the *aws* iterable
    concurrently. The returned object can be iterated to obtain the results
@@ -1058,7 +1058,7 @@ Running in Threads
               to_thread[_P, _R]((ParamSpec(_P)) -> _R, ParamSpec(_P)) -> collections.abc.Coroutine[Unknown, Unknown, _R]
    :async:
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/threads.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/threads.pyi#L10>`__)
 
    Asynchronously run function *func* in a separate thread.
 
@@ -1120,7 +1120,7 @@ Scheduling From Other Threads
 .. function:: run_coroutine_threadsafe(coro, loop)
               run_coroutine_threadsafe[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], loop: AbstractEventLoop) -> Future[_T]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L353>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L353>`__)
 
    Submit a coroutine to the given event loop.  Thread-safe.
 
@@ -1214,7 +1214,7 @@ Introspection
 .. function:: current_task(loop=None)
               current_task(loop: AbstractEventLoop | None = None) -> Task[typing.Any] | None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L303>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L107>`__)
 
    Return the currently running :class:`Task` instance, or ``None`` if
    no task is running.
@@ -1228,7 +1228,7 @@ Introspection
 .. function:: all_tasks(loop=None)
               all_tasks(loop: AbstractEventLoop | None = None) -> set[Task[typing.Any]]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/tasks.pyi#L414>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L414>`__)
 
    Return a set of not yet finished :class:`Task` objects run by
    the loop.
@@ -1242,7 +1242,7 @@ Introspection
 .. function:: iscoroutine(obj)
               iscoroutine(obj: object) -> TypeIs[collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/asyncio/coroutines.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/coroutines.pyi#L20>`__)
 
    Return ``True`` if *obj* is a coroutine object.
 
@@ -1256,7 +1256,7 @@ Task Object
 .. class:: Task(coro, *, loop=None, name=None, context=None, eager_start=False)
            Task(coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, loop: AbstractEventLoop | None = None, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = False) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L140>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L54>`__)
 
    A :class:`Future-like <Future>` object that runs a Python
    :ref:`coroutine <coroutine>`.  Not thread-safe.
@@ -1322,7 +1322,7 @@ Task Object
    .. method:: done()
                done[_T_co]() -> bool
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L68>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L32>`__)
 
       Return ``True`` if the Task is *done*.
 
@@ -1332,7 +1332,7 @@ Task Object
    .. method:: result()
                result[_T_co]() -> _T_co
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L76>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L33>`__)
 
       Return the result of the Task.
 
@@ -1349,7 +1349,7 @@ Task Object
    .. method:: exception()
                exception[_T_co]() -> BaseException | None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L85>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L34>`__)
 
       Return the exception of the Task.
 
@@ -1366,7 +1366,7 @@ Task Object
    .. method:: add_done_callback(callback, *, context=None)
                add_done_callback[_T_co](fn: (Task[_T_co]) -> object, /, *, context: contextvars.Context | None = None) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L47>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L29>`__)
 
       Add a callback to be run when the Task is *done*.
 
@@ -1378,7 +1378,7 @@ Task Object
    .. method:: remove_done_callback(callback)
                remove_done_callback[_T_co](fn: (Task[_T_co]) -> object, /) -> int
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L95>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L35>`__)
 
       Remove *callback* from the callbacks list.
 
@@ -1390,7 +1390,7 @@ Task Object
    .. method:: get_stack(*, limit=None)
                get_stack[_T_co](*, limit: int | None = None) -> list[FrameType]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L176>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L89>`__)
 
       Return the list of stack frames for this Task.
 
@@ -1414,7 +1414,7 @@ Task Object
    .. method:: print_stack(*, limit=None, file=None)
                print_stack[_T_co](*, limit: int | None = None, file: TextIO | None = None) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L199>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L90>`__)
 
       Print the stack or traceback for this Task.
 
@@ -1429,7 +1429,7 @@ Task Object
    .. method:: get_coro()
                get_coro[_T_co]() -> collections.abc.Coroutine[typing.Any, typing.Any, _T_co] | None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L167>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L80>`__)
 
       Return the coroutine object wrapped by the :class:`Task`.
 
@@ -1447,7 +1447,7 @@ Task Object
    .. method:: get_context()
                get_context[_T_co]() -> contextvars.Context
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L174>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L87>`__)
 
       Return the :class:`contextvars.Context` object
       associated with the task.
@@ -1457,7 +1457,7 @@ Task Object
    .. method:: get_name()
                get_name[_T_co]() -> str
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L171>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L84>`__)
 
       Return the name of the Task.
 
@@ -1470,7 +1470,7 @@ Task Object
    .. method:: set_name(value)
                set_name[_T_co](value: object, /) -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L172>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L85>`__)
 
       Set the name of the Task.
 
@@ -1485,7 +1485,7 @@ Task Object
    .. method:: cancel(msg=None)
                cancel[_T_co](msg: typing.Any | None = None) -> bool
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L56>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L30>`__)
 
       Request the Task to be cancelled.
 
@@ -1557,7 +1557,7 @@ Task Object
    .. method:: cancelled()
                cancelled[_T_co]() -> bool
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L65>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L31>`__)
 
       Return ``True`` if the Task is *cancelled*.
 
@@ -1568,7 +1568,7 @@ Task Object
    .. method:: uncancel()
                uncancel[_T_co]() -> int
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L219>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L93>`__)
 
       Decrement the count of cancellation requests to this Task.
 
@@ -1619,7 +1619,7 @@ Task Object
    .. method:: cancelling()
                cancelling[_T_co]() -> int
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/_asyncio.pyi#L211>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L92>`__)
 
       Return the number of pending cancellation requests to this Task, i.e.,
       the number of calls to :meth:`cancel` less the number of

@@ -13,7 +13,7 @@
 .. class:: ResourceReader
            ResourceReader() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L11>`__)
 
     *Superseded by TraversableResources*
 
@@ -53,7 +53,7 @@
                 open_resource(resource: str) -> IO[bytes]
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L10>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L13>`__)
 
        Returns an opened, :term:`file-like object` for binary reading
        of the *resource*.
@@ -65,7 +65,7 @@
                 resource_path(resource: str) -> str
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L12>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L15>`__)
 
        Returns the file system path to the *resource*.
 
@@ -76,7 +76,7 @@
                 is_resource(path: str) -> bool
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L14>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L17>`__)
 
        Returns ``True`` if the named *path* is considered a resource.
        :exc:`FileNotFoundError` is raised if *path* does not exist.
@@ -88,7 +88,7 @@
                 contents() -> collections.abc.Iterator[str]
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L16>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L19>`__)
 
        Returns an :term:`iterable` of strings over the contents of
        the package. Do note that it is not required that all names
@@ -110,7 +110,7 @@
 .. class:: Traversable
            Traversable() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L22>`__)
 
     An object with a subset of :class:`pathlib.Path` methods suitable for
     traversing directories and opening files.
@@ -121,7 +121,7 @@
     .. attribute:: name
        :type: name(self: Traversable) -> str
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L40>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L43>`__)
 
        Abstract. The base name of this object without any parent references.
 
@@ -129,7 +129,7 @@
                 iterdir() -> collections.abc.Iterator[Traversable]
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L25>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L28>`__)
 
        Yield Traversable objects in self.
 
@@ -137,7 +137,7 @@
                 is_dir() -> bool
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L21>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L24>`__)
 
        Return ``True`` if self is a directory.
 
@@ -145,15 +145,15 @@
                 is_file() -> bool
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L23>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L26>`__)
 
        Return ``True`` if self is a file.
 
     .. method:: joinpath(*pathsegments)
-                joinpath(*descendants: str) -> Traversable
+                joinpath(*descendants: StrPath) -> Traversable
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L27>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L30>`__)
 
        Traverse directories according to *pathsegments* and return
        the result as :class:`!Traversable`.
@@ -179,10 +179,10 @@
           Previously, only a single *child* argument was accepted.
 
     .. method:: __truediv__(child)
-                __truediv__(child: str, /) -> Traversable
+                __truediv__(child: StrPath, /) -> Traversable
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L43>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L44>`__)
 
        Return Traversable child in self.
        Equivalent to ``joinpath(child)``.
@@ -192,7 +192,7 @@
                 open(mode: typing.Literal['rb']) -> IO[bytes]
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L34>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L37>`__)
 
        *mode* may be 'r' or 'rb' to open as text or binary. Return a handle
        suitable for reading (same as :attr:`pathlib.Path.open`).
@@ -203,14 +203,14 @@
     .. method:: read_bytes()
                 read_bytes() -> bytes
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L45>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L46>`__)
 
        Read contents of self as bytes.
 
     .. method:: read_text(encoding=None)
                 read_text(encoding: str | None = None) -> str
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L47>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L48>`__)
 
        Read contents of self as text.
 
@@ -218,7 +218,7 @@
 .. class:: TraversableResources
            TraversableResources() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L50>`__)
 
     An abstract base class for resource readers capable of serving
     the :meth:`importlib.resources.files` interface. Subclasses
@@ -234,7 +234,7 @@
                 files() -> Traversable
        :abstractmethod:
 
-       (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/importlib/resources/abc.pyi#L51>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L52>`__)
 
        Returns a :class:`importlib.resources.abc.Traversable` object for the loaded
        package.

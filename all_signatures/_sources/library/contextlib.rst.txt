@@ -21,7 +21,7 @@ Functions and classes provided:
 .. class:: AbstractContextManager
            AbstractContextManager() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L48>`__)
 
    An :term:`abstract base class` for classes that implement
    :meth:`object.__enter__` and :meth:`object.__exit__`. A default
@@ -35,7 +35,7 @@ Functions and classes provided:
 .. class:: AbstractAsyncContextManager
            AbstractAsyncContextManager() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L60>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L60>`__)
 
    An :term:`abstract base class` for classes that implement
    :meth:`object.__aenter__` and :meth:`object.__aexit__`. A default
@@ -50,7 +50,7 @@ Functions and classes provided:
 .. decorator:: contextmanager
                contextmanager[_P, _T_co](func: (ParamSpec(_P)) -> collections.abc.Iterator[_T_co]) -> (ParamSpec(_P)) -> _GeneratorContextManager[_T_co, None, None]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L89>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L89>`__)
 
    This function is a :term:`decorator` that can be used to define a factory
    function for :keyword:`with` statement context managers, without needing to
@@ -111,7 +111,7 @@ Functions and classes provided:
 .. decorator:: asynccontextmanager
                asynccontextmanager[_P, _T_co](func: (ParamSpec(_P)) -> AsyncIterator[_T_co]) -> (ParamSpec(_P)) -> _AsyncGeneratorContextManager[_T_co, None]
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L115>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L115>`__)
 
    Similar to :func:`~contextlib.contextmanager`, but creates an
    :ref:`asynchronous context manager <async-context-managers>`.
@@ -171,7 +171,7 @@ Functions and classes provided:
 .. function:: closing(thing)
               closing(thing: _SupportsCloseT) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L122>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L122>`__)
 
    Return a context manager that closes *thing* upon completion of the block.  This
    is basically equivalent to::
@@ -209,7 +209,7 @@ Functions and classes provided:
 .. function:: aclosing(thing)
               aclosing(thing: _SupportsAcloseT) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L133>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L133>`__)
 
    Return an async context manager that calls the ``aclose()`` method of *thing*
    upon completion of the block.  This is basically equivalent to::
@@ -248,7 +248,7 @@ Functions and classes provided:
               nullcontext(enter_result: None = None) -> None
               nullcontext(enter_result: _T) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L197>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L197>`__)
 
    Return a context manager that returns *enter_result* from ``__enter__``, but
    otherwise does nothing. It is intended to be used as a stand-in for an
@@ -301,7 +301,7 @@ Functions and classes provided:
 .. function:: suppress(*exceptions)
               suppress(*exceptions: type[BaseException]) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L137>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L137>`__)
 
    Return a context manager that suppresses any of the specified exceptions
    if they occur in the body of a :keyword:`!with` statement and then
@@ -352,7 +352,7 @@ Functions and classes provided:
 .. function:: redirect_stdout(new_target)
               redirect_stdout(new_target: _SupportsRedirectT) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L159>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L159>`__)
 
    Context manager for temporarily redirecting :data:`sys.stdout` to
    another :term:`file object`.
@@ -395,7 +395,7 @@ Functions and classes provided:
 .. function:: redirect_stderr(new_target)
               redirect_stderr(new_target: _SupportsRedirectT) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L160>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L160>`__)
 
    Similar to :func:`~contextlib.redirect_stdout` but redirecting the global
    :data:`sys.stderr` to another :term:`file object`.
@@ -408,7 +408,7 @@ Functions and classes provided:
 .. function:: chdir(path)
               chdir(path: _T_fd_or_any_path) -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L221>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L221>`__)
 
    Non parallel-safe context manager to change the current working directory.
    As this changes a global state, the working directory, it is not suitable
@@ -428,7 +428,7 @@ Functions and classes provided:
 .. class:: ContextDecorator()
            ContextDecorator() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L68>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L68>`__)
 
    A base class that enables a context manager to also be used as a decorator.
 
@@ -509,7 +509,7 @@ Functions and classes provided:
 .. class:: AsyncContextDecorator
            AsyncContextDecorator() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L94>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L94>`__)
 
    Similar to :class:`ContextDecorator` but only for asynchronous functions.
 
@@ -553,7 +553,7 @@ Functions and classes provided:
 .. class:: ExitStack()
            ExitStack() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L170>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L170>`__)
 
    A context manager that is designed to make it easy to programmatically
    combine other context managers and cleanup functions, especially those
@@ -597,7 +597,7 @@ Functions and classes provided:
    .. method:: enter_context(cm)
                enter_context[_ExitT_co, _T](cm: AbstractContextManager[_T, _ExitT_co]) -> _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L163>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L163>`__)
 
       Enters a new context manager and adds its :meth:`~object.__exit__` method to
       the callback stack. The return value is the result of the context
@@ -613,7 +613,7 @@ Functions and classes provided:
    .. method:: push(exit)
                push[_ExitT_co, _CM_EF](exit: _CM_EF) -> _CM_EF
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L164>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L164>`__)
 
       Adds a context manager's :meth:`~object.__exit__` method to the callback stack.
 
@@ -634,7 +634,7 @@ Functions and classes provided:
    .. method:: callback(callback, /, *args, **kwds)
                callback[_ExitT_co, _P, _T](ExitStack[_ExitT_co], (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> (ParamSpec(_P)) -> _T
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L165>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L165>`__)
 
       Accepts an arbitrary callback function and arguments and adds it to
       the callback stack.
@@ -648,7 +648,7 @@ Functions and classes provided:
    .. method:: pop_all()
                pop_all[_ExitT_co]() -> ExitStack[_ExitT_co]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L166>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L166>`__)
 
       Transfers the callback stack to a fresh :class:`ExitStack` instance
       and returns it. No callbacks are invoked by this operation - instead,
@@ -670,7 +670,7 @@ Functions and classes provided:
    .. method:: close()
                close[_ExitT_co]() -> None
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L171>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L171>`__)
 
       Immediately unwinds the callback stack, invoking callbacks in the
       reverse order of registration. For any context managers and exit
@@ -680,7 +680,7 @@ Functions and classes provided:
 .. class:: AsyncExitStack()
            AsyncExitStack() -> None
 
-   (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L184>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L184>`__)
 
    An :ref:`asynchronous context manager <async-context-managers>`, similar
    to :class:`ExitStack`, that supports combining both synchronous and
@@ -694,7 +694,7 @@ Functions and classes provided:
                enter_async_context[_ExitT_co, _T](cm: AbstractAsyncContextManager[_T, _ExitT_co]) -> collections.abc.Coroutine[Unknown, Unknown, _T]
       :async:
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L185>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L185>`__)
 
       Similar to :meth:`ExitStack.enter_context` but expects an asynchronous context
       manager.
@@ -706,7 +706,7 @@ Functions and classes provided:
    .. method:: push_async_exit(exit)
                push_async_exit[_ExitT_co, _ACM_EF](exit: _ACM_EF) -> _ACM_EF
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L186>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L186>`__)
 
       Similar to :meth:`ExitStack.push` but expects either an asynchronous context manager
       or a coroutine function.
@@ -714,7 +714,7 @@ Functions and classes provided:
    .. method:: push_async_callback(callback, /, *args, **kwds)
                push_async_callback[_ExitT_co, _P, _T](AsyncExitStack[_ExitT_co], (ParamSpec(_P)) -> collections.abc.Awaitable[_T], ParamSpec(_P)) -> (ParamSpec(_P)) -> collections.abc.Awaitable[_T]
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L187>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L187>`__)
 
       Similar to :meth:`ExitStack.callback` but expects a coroutine function.
 
@@ -722,7 +722,7 @@ Functions and classes provided:
                aclose[_ExitT_co]() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
-      (`typeshed <https://github.com/facebook/pyrefly/blob/2b8928/crates/pyrefly_bundled/third_party/typeshed/stdlib/contextlib.pyi#L190>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L190>`__)
 
       Similar to :meth:`ExitStack.close` but properly handles awaitables.
 
