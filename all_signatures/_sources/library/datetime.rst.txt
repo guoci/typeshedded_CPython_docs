@@ -112,7 +112,7 @@ Available Types
 ---------------
 
 .. class:: date
-           date(cls: type[date], year: SupportsIndex, month: SupportsIndex, day: SupportsIndex) -> date
+           date(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex) -> date
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L55>`__)
@@ -123,7 +123,7 @@ Available Types
 
 
 .. class:: time
-           time(cls: type[time], hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> time
+           time(hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> time
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L117>`__)
@@ -135,7 +135,7 @@ Available Types
 
 
 .. class:: datetime
-           datetime(cls: type[datetime], year: SupportsIndex, month: SupportsIndex, day: SupportsIndex, hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> datetime
+           datetime(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex, hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> datetime
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L246>`__)
@@ -146,7 +146,7 @@ Available Types
 
 
 .. class:: timedelta
-           timedelta(cls: type[timedelta], days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> timedelta
+           timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> timedelta
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L197>`__)
@@ -167,7 +167,7 @@ Available Types
    time).
 
 .. class:: timezone
-           timezone(cls: type[timezone], offset: timedelta, name: str = ...) -> timezone
+           timezone(offset: timedelta, name: str = ...) -> timezone
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L28>`__)
@@ -233,7 +233,7 @@ A :class:`timedelta` object represents a duration, the difference between two
 :class:`.datetime` or :class:`date` instances.
 
 .. class:: timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
-           timedelta(cls: type[timedelta], days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> timedelta
+           timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L197>`__)
 
@@ -549,7 +549,7 @@ January 1 of year 1 is called day number 1, January 2 of year 1 is
 called day number 2, and so on. [#]_
 
 .. class:: date(year, month, day)
-           date(cls: type[date], year: SupportsIndex, month: SupportsIndex, day: SupportsIndex) -> date
+           date(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex) -> date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L55>`__)
 
@@ -1038,7 +1038,7 @@ calendar extended in both directions; like a :class:`.time` object,
 Constructor:
 
 .. class:: datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)
-           datetime(cls: type[datetime], year: SupportsIndex, month: SupportsIndex, day: SupportsIndex, hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> datetime
+           datetime(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex, hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L246>`__)
 
@@ -2056,7 +2056,7 @@ A :class:`.time` object represents a (local) time of day, independent of any par
 day, and subject to adjustment via a :class:`tzinfo` object.
 
 .. class:: time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)
-           time(cls: type[time], hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> time
+           time(hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L117>`__)
 
@@ -2712,7 +2712,7 @@ where historical changes have been made to civil time.
 
 
 .. class:: timezone(offset[, name])
-           timezone(cls: type[timezone], offset: timedelta, name: str = ...) -> timezone
+           timezone(offset: timedelta, name: str = ...) -> timezone
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L28>`__)
 

@@ -166,7 +166,7 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. class:: bool(object=False, /)
-           bool(cls: type[bool], o: object = False, /) -> bool
+           bool(o: object = False, /) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L970>`__)
 
@@ -250,9 +250,9 @@ are always available.  They are listed here in alphabetical order.
 .. _func-bytes:
 .. class:: bytes(source=b'')
            bytes(source, encoding, errors='strict')
-           bytes(cls: type[bytes], o: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes | SupportsIndex, /) -> bytes
-           bytes(cls: type[bytes], string: str, /, encoding: str, errors: str = 'strict') -> bytes
-           bytes(cls: type[bytes]) -> bytes
+           bytes(o: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes | SupportsIndex, /) -> bytes
+           bytes(string: str, /, encoding: str, errors: str = 'strict') -> bytes
+           bytes() -> bytes
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L665>`__)
@@ -439,8 +439,8 @@ are always available.  They are listed here in alphabetical order.
 .. class:: complex(number=0, /)
            complex(string, /)
            complex(real=0, imag=0)
-           complex(cls: type[complex], real: SupportsComplex | SupportsFloat | SupportsIndex | complex = 0, imag: SupportsFloat | SupportsIndex | complex = 0) -> complex
-           complex(cls: type[complex], real: SupportsComplex | SupportsFloat | SupportsIndex | complex | str) -> complex
+           complex(real: SupportsComplex | SupportsFloat | SupportsIndex | complex = 0, imag: SupportsFloat | SupportsIndex | complex = 0) -> complex
+           complex(real: SupportsComplex | SupportsFloat | SupportsIndex | complex | str) -> complex
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L432>`__)
 
@@ -640,7 +640,7 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. function:: enumerate(iterable, start=0)
-              enumerate(cls: type[enumerate[_T]], iterable: collections.abc.Iterable[_T], start: int = 0) -> enumerate[_T]
+              enumerate(iterable: collections.abc.Iterable[_T], start: int = 0) -> enumerate[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1327>`__)
 
@@ -825,10 +825,10 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. function:: filter(function, iterable, /)
-              filter(cls: type[filter[_T]], function: None, iterable: collections.abc.Iterable[_T | None], /) -> filter[_T]
-              filter(cls: type[filter[_T]], function: (_S) -> TypeGuard[_T], iterable: collections.abc.Iterable[_S], /) -> filter[_T]
-              filter(cls: type[filter[_T]], function: (_S) -> TypeIs[_T], iterable: collections.abc.Iterable[_S], /) -> filter[_T]
-              filter(cls: type[filter[_T]], function: (_T) -> typing.Any, iterable: collections.abc.Iterable[_T], /) -> filter[_T]
+              filter(function: None, iterable: collections.abc.Iterable[_T | None], /) -> filter[_T]
+              filter(function: (_S) -> TypeGuard[_T], iterable: collections.abc.Iterable[_S], /) -> filter[_T]
+              filter(function: (_S) -> TypeIs[_T], iterable: collections.abc.Iterable[_S], /) -> filter[_T]
+              filter(function: (_T) -> typing.Any, iterable: collections.abc.Iterable[_T], /) -> filter[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1514>`__)
 
@@ -849,7 +849,7 @@ are always available.  They are listed here in alphabetical order.
 
 .. class:: float(number=0.0, /)
            float(string, /)
-           float(cls: type[float], x: ConvertibleToFloat = 0, /) -> float
+           float(x: ConvertibleToFloat = 0, /) -> float
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L366>`__)
 
@@ -954,8 +954,8 @@ are always available.  They are listed here in alphabetical order.
 
 .. _func-frozenset:
 .. class:: frozenset(iterable=(), /)
-           frozenset(cls: type[frozenset[_T_co]]) -> frozenset[_T_co]
-           frozenset(cls: type[frozenset[_T_co]], iterable: collections.abc.Iterable[_T_co], /) -> frozenset[_T_co]
+           frozenset() -> frozenset[_T_co]
+           frozenset(iterable: collections.abc.Iterable[_T_co], /) -> frozenset[_T_co]
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1298>`__)
@@ -1136,8 +1136,8 @@ are always available.  They are listed here in alphabetical order.
 
 .. class:: int(number=0, /)
            int(string, /, base=10)
-           int(cls: type[int], x: ConvertibleToInt = 0, /) -> int
-           int(cls: type[int], x: bytearray | bytes | str, /, base: SupportsIndex) -> int
+           int(x: ConvertibleToInt = 0, /) -> int
+           int(x: bytearray | bytes | str, /, base: SupportsIndex) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L255>`__)
 
@@ -1368,12 +1368,12 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. function:: map(function, iterable, /, *iterables, strict=False)
-              map(cls: type[map[_S]], func: (_T1) -> _S, iterable: collections.abc.Iterable[_T1], /, *, strict: bool = False) -> map[_S]
-              map(cls: type[map[_S]], func: (_T1, _T2) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], /, *, strict: bool = False) -> map[_S]
-              map(cls: type[map[_S]], func: (_T1, _T2, _T3) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], /, *, strict: bool = False) -> map[_S]
-              map(cls: type[map[_S]], func: (_T1, _T2, _T3, _T4) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], /, *, strict: bool = False) -> map[_S]
-              map(cls: type[map[_S]], func: (_T1, _T2, _T3, _T4, _T5) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], iter5: collections.abc.Iterable[_T5], /, *, strict: bool = False) -> map[_S]
-              map(cls: type[map[_S]], func: (...) -> _S, iterable: collections.abc.Iterable[typing.Any], iter2: collections.abc.Iterable[typing.Any], iter3: collections.abc.Iterable[typing.Any], iter4: collections.abc.Iterable[typing.Any], iter5: collections.abc.Iterable[typing.Any], iter6: collections.abc.Iterable[typing.Any], /, *iterables: collections.abc.Iterable[typing.Any], *, strict: bool = False) -> map[_S]
+              map(func: (_T1) -> _S, iterable: collections.abc.Iterable[_T1], /, *, strict: bool = False) -> map[_S]
+              map(func: (_T1, _T2) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], /, *, strict: bool = False) -> map[_S]
+              map(func: (_T1, _T2, _T3) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], /, *, strict: bool = False) -> map[_S]
+              map(func: (_T1, _T2, _T3, _T4) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], /, *, strict: bool = False) -> map[_S]
+              map(func: (_T1, _T2, _T3, _T4, _T5) -> _S, iterable: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], iter5: collections.abc.Iterable[_T5], /, *, strict: bool = False) -> map[_S]
+              map(func: (...) -> _S, iterable: collections.abc.Iterable[typing.Any], iter2: collections.abc.Iterable[typing.Any], iter3: collections.abc.Iterable[typing.Any], iter4: collections.abc.Iterable[typing.Any], iter5: collections.abc.Iterable[typing.Any], iter6: collections.abc.Iterable[typing.Any], /, *iterables: collections.abc.Iterable[typing.Any], *, strict: bool = False) -> map[_S]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1578>`__)
 
@@ -1430,7 +1430,7 @@ are always available.  They are listed here in alphabetical order.
 
 .. _func-memoryview:
 .. class:: memoryview(object)
-           memoryview(cls: type[memoryview[_I]], obj: Buffer) -> memoryview[_I]
+           memoryview(obj: Buffer) -> memoryview[_I]
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L891>`__)
@@ -1958,8 +1958,8 @@ are always available.  They are listed here in alphabetical order.
 .. _func-range:
 .. class:: range(stop, /)
            range(start, stop, step=1, /)
-           range(cls: type[range], stop: SupportsIndex, /) -> range
-           range(cls: type[range], start: SupportsIndex, stop: SupportsIndex, step: SupportsIndex = 1, /) -> range
+           range(stop: SupportsIndex, /) -> range
+           range(start: SupportsIndex, stop: SupportsIndex, step: SupportsIndex = 1, /) -> range
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1334>`__)
@@ -1996,8 +1996,8 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. function:: reversed(object, /)
-              reversed(cls: type[reversed[_T]], sequence: collections.abc.Reversible[_T], /) -> collections.abc.Iterator[_T]
-              reversed(cls: type[reversed[_T]], sequence: SupportsLenAndGetItem[_T], /) -> collections.abc.Iterator[_T]
+              reversed(sequence: collections.abc.Reversible[_T], /) -> collections.abc.Iterator[_T]
+              reversed(sequence: SupportsLenAndGetItem[_T], /) -> collections.abc.Iterator[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1885>`__)
 
@@ -2082,15 +2082,15 @@ are always available.  They are listed here in alphabetical order.
 
 .. class:: slice(stop, /)
            slice(start, stop, step=None, /)
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: None, stop: None = None, step: None = None, /) -> slice[typing.Any, typing.Any, typing.Any]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], stop: _T2, /) -> slice[typing.Any, _T2, typing.Any]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: _T1, stop: None, step: None = None, /) -> slice[_T1, typing.Any, typing.Any]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: None, stop: _T2, step: None = None, /) -> slice[typing.Any, _T2, typing.Any]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: _T1, stop: _T2, step: None = None, /) -> slice[_T1, _T2, typing.Any]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: None, stop: None, step: _T3, /) -> slice[typing.Any, typing.Any, _T3]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: _T1, stop: None, step: _T3, /) -> slice[_T1, typing.Any, _T3]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: None, stop: _T2, step: _T3, /) -> slice[typing.Any, _T2, _T3]
-           slice(cls: type[slice[_StartT_co, _StopT_co, _StepT_co]], start: _T1, stop: _T2, step: _T3, /) -> slice[_T1, _T2, _T3]
+           slice(start: None, stop: None = None, step: None = None, /) -> slice[typing.Any, typing.Any, typing.Any]
+           slice(stop: _T2, /) -> slice[typing.Any, _T2, typing.Any]
+           slice(start: _T1, stop: None, step: None = None, /) -> slice[_T1, typing.Any, typing.Any]
+           slice(start: None, stop: _T2, step: None = None, /) -> slice[typing.Any, _T2, typing.Any]
+           slice(start: _T1, stop: _T2, step: None = None, /) -> slice[_T1, _T2, typing.Any]
+           slice(start: None, stop: None, step: _T3, /) -> slice[typing.Any, typing.Any, _T3]
+           slice(start: _T1, stop: None, step: _T3, /) -> slice[_T1, typing.Any, _T3]
+           slice(start: None, stop: _T2, step: _T3, /) -> slice[typing.Any, _T2, _T3]
+           slice(start: _T1, stop: _T2, step: _T3, /) -> slice[_T1, _T2, _T3]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1003>`__)
 
@@ -2220,8 +2220,8 @@ are always available.  They are listed here in alphabetical order.
            str(object)
            str(object, encoding, errors='strict')
            str(object, *, errors)
-           str(cls: type[str], object: object = '') -> str
-           str(cls: type[str], object: Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
+           str(object: object = '') -> str
+           str(object: Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L480>`__)
@@ -2346,7 +2346,7 @@ are always available.  They are listed here in alphabetical order.
 
 .. _func-tuple:
 .. class:: tuple(iterable=(), /)
-           tuple(cls: type[tuple[_T_co, ...]], iterable: collections.abc.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
+           tuple(iterable: collections.abc.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1043>`__)
@@ -2428,13 +2428,13 @@ are always available.  They are listed here in alphabetical order.
 
 
 .. function:: zip(*iterables, strict=False)
-              zip(cls: type[zip[_T_co]], *, strict: bool = False) -> zip[typing.Any]
-              zip(cls: type[zip[_T_co]], iter1: collections.abc.Iterable[_T1], /, *, strict: bool = False) -> zip[tuple[_T1]]
-              zip(cls: type[zip[_T_co]], iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], /, *, strict: bool = False) -> zip[tuple[_T1, _T2]]
-              zip(cls: type[zip[_T_co]], iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], /, *, strict: bool = False) -> zip[tuple[_T1, _T2, _T3]]
-              zip(cls: type[zip[_T_co]], iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], /, *, strict: bool = False) -> zip[tuple[_T1, _T2, _T3, _T4]]
-              zip(cls: type[zip[_T_co]], iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], iter5: collections.abc.Iterable[_T5], /, *, strict: bool = False) -> zip[tuple[_T1, _T2, _T3, _T4, _T5]]
-              zip(cls: type[zip[_T_co]], iter1: collections.abc.Iterable[typing.Any], iter2: collections.abc.Iterable[typing.Any], iter3: collections.abc.Iterable[typing.Any], iter4: collections.abc.Iterable[typing.Any], iter5: collections.abc.Iterable[typing.Any], iter6: collections.abc.Iterable[typing.Any], /, *iterables: collections.abc.Iterable[typing.Any], *, strict: bool = False) -> zip[tuple[typing.Any, ...]]
+              zip(*, strict: bool = False) -> zip[typing.Any]
+              zip(iter1: collections.abc.Iterable[_T1], /, *, strict: bool = False) -> zip[tuple[_T1]]
+              zip(iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], /, *, strict: bool = False) -> zip[tuple[_T1, _T2]]
+              zip(iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], /, *, strict: bool = False) -> zip[tuple[_T1, _T2, _T3]]
+              zip(iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], /, *, strict: bool = False) -> zip[tuple[_T1, _T2, _T3, _T4]]
+              zip(iter1: collections.abc.Iterable[_T1], iter2: collections.abc.Iterable[_T2], iter3: collections.abc.Iterable[_T3], iter4: collections.abc.Iterable[_T4], iter5: collections.abc.Iterable[_T5], /, *, strict: bool = False) -> zip[tuple[_T1, _T2, _T3, _T4, _T5]]
+              zip(iter1: collections.abc.Iterable[typing.Any], iter2: collections.abc.Iterable[typing.Any], iter3: collections.abc.Iterable[typing.Any], iter4: collections.abc.Iterable[typing.Any], iter5: collections.abc.Iterable[typing.Any], iter6: collections.abc.Iterable[typing.Any], /, *iterables: collections.abc.Iterable[typing.Any], *, strict: bool = False) -> zip[tuple[typing.Any, ...]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1949>`__)
 

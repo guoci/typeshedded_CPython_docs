@@ -1669,7 +1669,7 @@ homogeneous data is needed (such as allowing storage in a :class:`set` or
 :class:`dict` instance).
 
 .. class:: tuple(iterable=(), /)
-           tuple(cls: type[tuple[_T_co, ...]], iterable: collections.abc.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
+           tuple(iterable: collections.abc.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1043>`__)
 
@@ -1715,8 +1715,8 @@ loops.
 
 .. class:: range(stop, /)
            range(start, stop, step=1, /)
-           range(cls: type[range], stop: SupportsIndex, /) -> range
-           range(cls: type[range], start: SupportsIndex, stop: SupportsIndex, step: SupportsIndex = 1, /) -> range
+           range(stop: SupportsIndex, /) -> range
+           range(start: SupportsIndex, stop: SupportsIndex, step: SupportsIndex = 1, /) -> range
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1334>`__)
 
@@ -1991,8 +1991,8 @@ multiple fragments.
            str(object)
            str(object, encoding, errors='strict')
            str(object, *, errors)
-           str(cls: type[str], object: object = '') -> str
-           str(cls: type[str], object: Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
+           str(object: object = '') -> str
+           str(object: Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L480>`__)
 
@@ -3538,9 +3538,9 @@ data and are closely related to string objects in a variety of other ways.
 
 .. class:: bytes(source=b'')
            bytes(source, encoding, errors='strict')
-           bytes(cls: type[bytes], o: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes | SupportsIndex, /) -> bytes
-           bytes(cls: type[bytes], string: str, /, encoding: str, errors: str = 'strict') -> bytes
-           bytes(cls: type[bytes]) -> bytes
+           bytes(o: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes | SupportsIndex, /) -> bytes
+           bytes(string: str, /, encoding: str, errors: str = 'strict') -> bytes
+           bytes() -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L665>`__)
 
@@ -4912,7 +4912,7 @@ of an object that supports the :ref:`buffer protocol <bufferobjects>` without
 copying.
 
 .. class:: memoryview(object)
-           memoryview(cls: type[memoryview[_I]], obj: Buffer) -> memoryview[_I]
+           memoryview(obj: Buffer) -> memoryview[_I]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L891>`__)
 
