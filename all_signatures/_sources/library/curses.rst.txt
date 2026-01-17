@@ -58,7 +58,7 @@ The module :mod:`curses` defines the following exception:
 
 
 .. exception:: error
-               error(*args: object) -> None
+               error(*args: object) -> _curses.error
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L377>`__)
 
@@ -304,7 +304,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: getwin(file)
-              getwin(file: SupportsRead[bytes], /) -> window
+              getwin(file: _typeshed.SupportsRead[bytes], /) -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L300>`__)
 
@@ -408,7 +408,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: initscr()
-              initscr() -> window
+              initscr() -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L315>`__)
 
@@ -512,7 +512,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: newpad(nlines, ncols)
-              newpad(nlines: int, ncols: int, /) -> window
+              newpad(nlines: int, ncols: int, /) -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L326>`__)
 
@@ -534,7 +534,7 @@ The module :mod:`curses` defines the following functions:
 
 .. function:: newwin(nlines, ncols)
               newwin(nlines, ncols, begin_y, begin_x)
-              newwin(nlines: int, ncols: int, begin_y: int = 0, begin_x: int = 0, /) -> window
+              newwin(nlines: int, ncols: int, begin_y: int = 0, begin_x: int = 0, /) -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L327>`__)
 
@@ -622,7 +622,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: putp(str)
-              putp(string: Buffer, /) -> None
+              putp(string: _collections_abc.Buffer, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L336>`__)
 
@@ -838,7 +838,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: tparm(str[, ...])
-              tparm(str: Buffer, i1: int = 0, i2: int = 0, i3: int = 0, i4: int = 0, i5: int = 0, i6: int = 0, i7: int = 0, i8: int = 0, i9: int = 0, /) -> bytes
+              tparm(str: _collections_abc.Buffer, i1: int = 0, i2: int = 0, i3: int = 0, i4: int = 0, i5: int = 0, i6: int = 0, i7: int = 0, i8: int = 0, i9: int = 0, /) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L355>`__)
 
@@ -941,7 +941,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: wrapper(func, /, *args, **kwargs)
-              wrapper[_P, _T]((window, ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+              wrapper[_P, _T]((_curses.window, ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/curses/__init__.pyi#L25>`__)
 
@@ -962,7 +962,7 @@ Window Objects
 --------------
 
 .. class:: window
-           window() -> None
+           window() -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L380>`__)
 
@@ -1208,8 +1208,8 @@ Window Objects
 
 .. method:: window.derwin(begin_y, begin_x)
             window.derwin(nlines, ncols, begin_y, begin_x)
-            window.derwin(begin_y: int, begin_x: int) -> window
-            window.derwin(nlines: int, ncols: int, begin_y: int, begin_x: int) -> window
+            window.derwin(begin_y: int, begin_x: int) -> _curses.window
+            window.derwin(nlines: int, ncols: int, begin_y: int, begin_x: int) -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L433>`__)
 
@@ -1587,8 +1587,8 @@ Window Objects
 
 
 .. method:: window.overlay(destwin[, sminrow, smincol, dminrow, dmincol, dmaxrow, dmaxcol])
-            window.overlay(destwin: window) -> None
-            window.overlay(destwin: window, sminrow: int, smincol: int, dminrow: int, dmincol: int, dmaxrow: int, dmaxcol: int) -> None
+            window.overlay(destwin: _curses.window) -> None
+            window.overlay(destwin: _curses.window, sminrow: int, smincol: int, dminrow: int, dmincol: int, dmaxrow: int, dmaxcol: int) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L507>`__)
 
@@ -1604,8 +1604,8 @@ Window Objects
 
 
 .. method:: window.overwrite(destwin[, sminrow, smincol, dminrow, dmincol, dmaxrow, dmaxcol])
-            window.overwrite(destwin: window) -> None
-            window.overwrite(destwin: window, sminrow: int, smincol: int, dminrow: int, dmincol: int, dmaxrow: int, dmaxcol: int) -> None
+            window.overwrite(destwin: _curses.window) -> None
+            window.overwrite(destwin: _curses.window, sminrow: int, smincol: int, dminrow: int, dmincol: int, dmaxrow: int, dmaxcol: int) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L513>`__)
 
@@ -1621,7 +1621,7 @@ Window Objects
 
 
 .. method:: window.putwin(file)
-            window.putwin(file: SupportsWrite[bytes], /) -> None
+            window.putwin(file: _typeshed.SupportsWrite[bytes], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L518>`__)
 
@@ -1728,8 +1728,8 @@ Window Objects
 
 .. method:: window.subpad(begin_y, begin_x)
             window.subpad(nlines, ncols, begin_y, begin_x)
-            window.subpad(begin_y: int, begin_x: int) -> window
-            window.subpad(nlines: int, ncols: int, begin_y: int, begin_x: int) -> window
+            window.subpad(begin_y: int, begin_x: int) -> _curses.window
+            window.subpad(nlines: int, ncols: int, begin_y: int, begin_x: int) -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L532>`__)
 
@@ -1739,8 +1739,8 @@ Window Objects
 
 .. method:: window.subwin(begin_y, begin_x)
             window.subwin(nlines, ncols, begin_y, begin_x)
-            window.subwin(begin_y: int, begin_x: int) -> window
-            window.subwin(nlines: int, ncols: int, begin_y: int, begin_x: int) -> window
+            window.subwin(begin_y: int, begin_x: int) -> _curses.window
+            window.subwin(nlines: int, ncols: int, begin_y: int, begin_x: int) -> _curses.window
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L536>`__)
 
@@ -1864,7 +1864,7 @@ The :mod:`curses` module defines the following data members:
 
 
 .. data:: ncurses_version
-   :type: _ncurses_version
+   :type: curses._ncurses_version
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_curses.pyi#L551>`__)
 
@@ -2366,7 +2366,7 @@ The module :mod:`curses.textpad` defines the following function:
 
 
 .. function:: rectangle(win, uly, ulx, lry, lrx)
-              rectangle(win: window, uly: int, ulx: int, lry: int, lrx: int) -> None
+              rectangle(win: _curses.window, uly: int, ulx: int, lry: int, lrx: int) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/curses/textpad.pyi#L4>`__)
 
@@ -2389,7 +2389,7 @@ You can instantiate a :class:`Textbox` object as follows:
 
 
 .. class:: Textbox(win)
-           Textbox(win: window, insert_mode: bool = False) -> None
+           Textbox(win: _curses.window, insert_mode: bool = False) -> curses.textpad.Textbox
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/curses/textpad.pyi#L6>`__)
 

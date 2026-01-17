@@ -28,7 +28,7 @@ This module provides the metaclass :class:`ABCMeta` for defining ABCs and
 a helper class :class:`ABC` to alternatively define ABCs through inheritance:
 
 .. class:: ABC
-           ABC() -> None
+           ABC() -> abc.ABC
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/abc.pyi#L45>`__)
 
@@ -56,8 +56,8 @@ a helper class :class:`ABC` to alternatively define ABCs through inheritance:
 
 
 .. class:: ABCMeta
-           ABCMeta(o: object, /) -> None
-           ABCMeta(name: str, bases: tuple[type[typing.Any], ...], dict: dict[str, typing.Any], /, **kwds: typing.Any) -> None
+           ABCMeta(o: object, /) -> abc.ABCMeta
+           ABCMeta(name: str, bases: tuple[type[Any], ...], dict: dict[str, typing.Any], /, **kwds: typing.Any) -> abc.ABCMeta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/abc.pyi#L14>`__)
 
@@ -75,7 +75,7 @@ a helper class :class:`ABC` to alternatively define ABCs through inheritance:
    Classes created with a metaclass of :class:`!ABCMeta` have the following method:
 
    .. method:: register(subclass)
-               register[_T](cls: ABCMeta, subclass: type[_T]) -> type[_T]
+               register[_T](cls: abc.ABCMeta, subclass: type[_T]) -> type[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/abc.pyi#L28>`__)
 
@@ -252,7 +252,7 @@ The :mod:`!abc` module also provides the following decorator:
 The :mod:`!abc` module also supports the following legacy decorators:
 
 .. decorator:: abstractclassmethod
-               abstractclassmethod(callable: (type[_T], ParamSpec(_P)) -> _R_co) -> None
+               abstractclassmethod(callable: (type[_T], ParamSpec(_P)) -> _R_co) -> abc.abstractclassmethod
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/abc.pyi#L32>`__)
 
@@ -276,7 +276,7 @@ The :mod:`!abc` module also supports the following legacy decorators:
 
 
 .. decorator:: abstractstaticmethod
-               abstractstaticmethod(callable: (ParamSpec(_P)) -> _R_co) -> None
+               abstractstaticmethod(callable: (ParamSpec(_P)) -> _R_co) -> abc.abstractstaticmethod
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/abc.pyi#L37>`__)
 
@@ -300,7 +300,7 @@ The :mod:`!abc` module also supports the following legacy decorators:
 
 
 .. decorator:: abstractproperty
-               abstractproperty(fget: ((typing.Any) -> typing.Any) | None = None, fset: ((typing.Any, typing.Any) -> None) | None = None, fdel: ((typing.Any) -> None) | None = None, doc: str | None = None) -> None
+               abstractproperty(fget: ((typing.Any) -> typing.Any) | None = None, fset: ((typing.Any, typing.Any) -> None) | None = None, fdel: ((typing.Any) -> None) | None = None, doc: str | None = None) -> abc.abstractproperty
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/abc.pyi#L42>`__)
 

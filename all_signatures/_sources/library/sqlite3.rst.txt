@@ -266,7 +266,7 @@ Module functions
                       factory=sqlite3.Connection, cached_statements=128, \
                       uri=False, \
                       autocommit=sqlite3.LEGACY_TRANSACTION_CONTROL)
-              connect(database: StrOrBytesPath, timeout: float = ..., detect_types: int = 0, isolation_level: _IsolationLevel = 'DEFERRED', check_same_thread: bool = True, cached_statements: int = 128, uri: bool = False, *, autocommit: bool = ...) -> Connection
+              connect(database: StrOrBytesPath, timeout: float = ..., detect_types: int = 0, isolation_level: _IsolationLevel = 'DEFERRED', check_same_thread: bool = True, cached_statements: int = 128, uri: bool = False, *, autocommit: bool = ...) -> sqlite3.Connection
               connect(database: StrOrBytesPath, timeout: float, detect_types: int, isolation_level: _IsolationLevel, check_same_thread: bool, factory: type[_ConnectionT], cached_statements: int = 128, uri: bool = False, *, autocommit: bool = ...) -> _ConnectionT
               connect(database: StrOrBytesPath, timeout: float = ..., detect_types: int = 0, isolation_level: _IsolationLevel = 'DEFERRED', check_same_thread: bool = True, *, factory: type[_ConnectionT], cached_statements: int = 128, uri: bool = False, autocommit: bool = ...) -> _ConnectionT
 
@@ -641,7 +641,7 @@ Connection objects
 ^^^^^^^^^^^^^^^^^^
 
 .. class:: Connection
-           Connection(database: StrOrBytesPath, timeout: float = ..., detect_types: int = 0, isolation_level: _IsolationLevel = 'DEFERRED', check_same_thread: bool = True, factory: type[Connection] | None = ..., cached_statements: int = 128, uri: bool = False, autocommit: bool = ...) -> None
+           Connection(database: StrOrBytesPath, timeout: float = ..., detect_types: int = 0, isolation_level: _IsolationLevel = 'DEFERRED', check_same_thread: bool = True, factory: type[sqlite3.Connection] | None = ..., cached_statements: int = 128, uri: bool = False, autocommit: bool = ...) -> sqlite3.Connection
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L273>`__)
 
@@ -664,8 +664,8 @@ Connection objects
    An SQLite database connection has the following attributes and methods:
 
    .. method:: cursor(factory=Cursor)
-               cursor(factory: None = None) -> Cursor
-               cursor(factory: (Connection) -> _CursorT) -> _CursorT
+               cursor(factory: None = None) -> sqlite3.Cursor
+               cursor(factory: (sqlite3.Connection) -> _CursorT) -> _CursorT
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L360>`__)
 
@@ -675,7 +675,7 @@ Connection objects
       an instance of :class:`Cursor` or its subclasses.
 
    .. method:: blobopen(table, column, rowid, /, *, readonly=False, name="main")
-               blobopen(table: str, column: str, row: int, /, *, readonly: bool = False, name: str = 'main') -> Blob
+               blobopen(table: str, column: str, row: int, /, *, readonly: bool = False, name: str = 'main') -> sqlite3.Blob
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L334>`__)
 
@@ -748,7 +748,7 @@ Connection objects
       to avoid losing pending changes.
 
    .. method:: execute(sql, parameters=(), /)
-               execute(sql: str, parameters: _Parameters = ..., /) -> Cursor
+               execute(sql: str, parameters: _Parameters = ..., /) -> sqlite3.Cursor
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L363>`__)
 
@@ -757,7 +757,7 @@ Connection objects
       Return the new cursor object.
 
    .. method:: executemany(sql, parameters, /)
-               executemany(sql: str, parameters: collections.abc.Iterable[_Parameters], /) -> Cursor
+               executemany(sql: str, parameters: typing.Iterable[_Parameters], /) -> sqlite3.Cursor
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L364>`__)
 
@@ -766,7 +766,7 @@ Connection objects
       Return the new cursor object.
 
    .. method:: executescript(sql_script, /)
-               executescript(sql_script: str, /) -> Cursor
+               executescript(sql_script: str, /) -> sqlite3.Cursor
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L365>`__)
 
@@ -822,7 +822,7 @@ Connection objects
 
 
    .. method:: create_aggregate(name, n_arg, aggregate_class, /)
-               create_aggregate(name: str, n_arg: int, aggregate_class: () -> _AggregateProtocol) -> None
+               create_aggregate(name: str, n_arg: int, aggregate_class: () -> sqlite3._AggregateProtocol) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L337>`__)
 
@@ -882,9 +882,9 @@ Connection objects
 
 
    .. method:: create_window_function(name, num_params, aggregate_class, /)
-               create_window_function(name: str, num_params: typing.Literal[1], aggregate_class: (() -> _SingleParamWindowAggregateClass) | None, /) -> None
-               create_window_function(name: str, num_params: typing.Literal[-1], aggregate_class: (() -> _AnyParamWindowAggregateClass) | None, /) -> None
-               create_window_function(name: str, num_params: int, aggregate_class: (() -> _WindowAggregateClass) | None, /) -> None
+               create_window_function(name: str, num_params: typing.Literal[1], aggregate_class: (() -> sqlite3._SingleParamWindowAggregateClass) | None, /) -> None
+               create_window_function(name: str, num_params: typing.Literal[-1], aggregate_class: (() -> sqlite3._AnyParamWindowAggregateClass) | None, /) -> None
+               create_window_function(name: str, num_params: int, aggregate_class: (() -> sqlite3._WindowAggregateClass) | None, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L342>`__)
 
@@ -974,7 +974,7 @@ Connection objects
          [('a', 9), ('b', 12), ('c', 16), ('d', 12), ('e', 9)]
 
    .. method:: create_collation(name, callable, /)
-               create_collation(name: str, callback: ((str, str) -> SupportsIndex | int) | None, /) -> None
+               create_collation(name: str, callback: ((str, str) -> typing.SupportsIndex | int) | None, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L355>`__)
 
@@ -1204,7 +1204,7 @@ Connection objects
    .. _Loading an Extension: https://www.sqlite.org/loadext.html#loading_an_extension
 
    .. method:: iterdump(*, filter=None)
-               iterdump(*, filter: str | None = None) -> collections.abc.Generator[str, None, None]
+               iterdump(*, filter: str | None = None) -> typing.Generator[str, None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L368>`__)
 
@@ -1238,7 +1238,7 @@ Connection objects
          Added the *filter* parameter.
 
    .. method:: backup(target, *, pages=-1, progress=None, name="main", sleep=0.250)
-               backup(target: Connection, *, pages: int = -1, progress: ((int, int, int) -> object) | None = None, name: str = 'main', sleep: float = ...) -> None
+               backup(target: sqlite3.Connection, *, pages: int = -1, progress: ((int, int, int) -> object) | None = None, name: str = 'main', sleep: float = ...) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L386>`__)
 
@@ -1441,7 +1441,7 @@ Connection objects
 
 
    .. method:: deserialize(data, /, *, name="main")
-               deserialize(data: Buffer, /, *, name: str = 'main') -> None
+               deserialize(data: _collections_abc.Buffer, /, *, name: str = 'main') -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L399>`__)
 
@@ -1476,7 +1476,7 @@ Connection objects
       .. versionadded:: 3.11
 
    .. attribute:: autocommit
-      :type: autocommit(self: Connection, val: int) -> None
+      :type: autocommit(self: sqlite3.Connection, val: int) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L301>`__)
 
@@ -1511,7 +1511,7 @@ Connection objects
       .. versionadded:: 3.12
 
    .. attribute:: in_transaction
-      :type: in_transaction(self: Connection) -> bool
+      :type: in_transaction(self: sqlite3.Connection) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L295>`__)
 
@@ -1547,7 +1547,7 @@ Connection objects
          set to :data:`LEGACY_TRANSACTION_CONTROL` (the default).
 
    .. attribute:: row_factory
-      :type: (cls: type[Row], cursor: Cursor, data: tuple[typing.Any, ...], /) -> Row
+      :type: (cls: type[sqlite3.Row], cursor: sqlite3.Cursor, data: tuple[typing.Any, ...], /) -> sqlite3.Row
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L304>`__)
 
@@ -1573,7 +1573,7 @@ Connection objects
       See :ref:`sqlite3-howto-encoding` for more details.
 
    .. attribute:: total_changes
-      :type: total_changes(self: Connection) -> int
+      :type: total_changes(self: sqlite3.Connection) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L298>`__)
 
@@ -1617,7 +1617,7 @@ Cursor objects
    .. _database cursor: https://en.wikipedia.org/wiki/Cursor_(databases)
 
 .. class:: Cursor
-           Cursor(cursor: Connection, /) -> None
+           Cursor(cursor: sqlite3.Connection, /) -> sqlite3.Cursor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L411>`__)
 
@@ -1627,7 +1627,7 @@ Cursor objects
    .. index:: single: : (colon); in SQL statements
 
    .. method:: execute(sql, parameters=(), /)
-               execute(sql: str, parameters: _Parameters = ..., /) -> Cursor
+               execute(sql: str, parameters: _Parameters = ..., /) -> sqlite3.Cursor
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L425>`__)
 
@@ -1666,7 +1666,7 @@ Cursor objects
       Use :meth:`executescript` to execute multiple SQL statements.
 
    .. method:: executemany(sql, parameters, /)
-               executemany(sql: str, seq_of_parameters: collections.abc.Iterable[_Parameters], /) -> Cursor
+               executemany(sql: str, seq_of_parameters: typing.Iterable[_Parameters], /) -> sqlite3.Cursor
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L426>`__)
 
@@ -1721,7 +1721,7 @@ Cursor objects
          instead of :class:`dict`\s.
 
    .. method:: executescript(sql_script, /)
-               executescript(sql_script: str, /) -> Cursor
+               executescript(sql_script: str, /) -> sqlite3.Cursor
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L427>`__)
 
@@ -1827,7 +1827,7 @@ Cursor objects
          Negative values are rejected by raising :exc:`ValueError`.
 
    .. attribute:: connection
-      :type: connection(self: Cursor) -> Connection
+      :type: connection(self: sqlite3.Cursor) -> sqlite3.Connection
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L414>`__)
 
@@ -1845,7 +1845,7 @@ Cursor objects
          >>> con.close()
 
    .. attribute:: description
-      :type: description(self: Cursor) -> tuple[tuple[str, None, None, None, None, None, None], ...] | typing.Any
+      :type: description(self: sqlite3.Cursor) -> tuple[tuple[str, None, None, None, None, None, None], ...] | typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L417>`__)
 
@@ -1856,7 +1856,7 @@ Cursor objects
       It is set for ``SELECT`` statements without any matching rows as well.
 
    .. attribute:: lastrowid
-      :type: lastrowid(self: Cursor) -> int | None
+      :type: lastrowid(self: sqlite3.Cursor) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L419>`__)
 
@@ -1874,7 +1874,7 @@ Cursor objects
          Added support for the ``REPLACE`` statement.
 
    .. attribute:: rowcount
-      :type: rowcount(self: Cursor) -> int
+      :type: rowcount(self: sqlite3.Cursor) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L422>`__)
 
@@ -1888,7 +1888,7 @@ Cursor objects
       :attr:`!rowcount` to be updated.
 
    .. attribute:: row_factory
-      :type: (cls: type[Row], cursor: Cursor, data: tuple[typing.Any, ...], /) -> Row
+      :type: (cls: type[sqlite3.Row], cursor: sqlite3.Cursor, data: tuple[typing.Any, ...], /) -> sqlite3.Row
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L420>`__)
 
@@ -1918,7 +1918,7 @@ Row objects
 ^^^^^^^^^^^
 
 .. class:: Row
-           Row(cursor: Cursor, data: tuple[typing.Any, ...], /) -> Row
+           Row(cursor: sqlite3.Cursor, data: tuple[typing.Any, ...], /) -> sqlite3.Row
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L443>`__)
 
@@ -1951,7 +1951,7 @@ Blob objects
 ^^^^^^^^^^^^
 
 .. class:: Blob
-           Blob() -> None
+           Blob() -> sqlite3.Blob
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L468>`__)
 
@@ -2014,7 +2014,7 @@ Blob objects
       the blob.
 
    .. method:: write(data, /)
-               write(data: Buffer, /) -> None
+               write(data: _collections_abc.Buffer, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L471>`__)
 
@@ -2045,7 +2045,7 @@ PrepareProtocol objects
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. class:: PrepareProtocol
-           PrepareProtocol(*args: object, **kwargs: object) -> None
+           PrepareProtocol(*args: object, **kwargs: object) -> sqlite3.PrepareProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L439>`__)
 
@@ -2062,7 +2062,7 @@ Exceptions
 The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
 
 .. exception:: Warning
-               Warning(*args: object) -> None
+               Warning(*args: object) -> sqlite3.Warning
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L270>`__)
 
@@ -2072,7 +2072,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    ``Warning`` is a subclass of :exc:`Exception`.
 
 .. exception:: Error
-               Error(*args: object) -> None
+               Error(*args: object) -> sqlite3.Error
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L257>`__)
 
@@ -2104,7 +2104,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
       .. versionadded:: 3.11
 
 .. exception:: InterfaceError
-               InterfaceError(*args: object) -> None
+               InterfaceError(*args: object) -> sqlite3.InterfaceError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L265>`__)
 
@@ -2114,7 +2114,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    ``InterfaceError`` is a subclass of :exc:`Error`.
 
 .. exception:: DatabaseError
-               DatabaseError(*args: object) -> None
+               DatabaseError(*args: object) -> sqlite3.DatabaseError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L262>`__)
 
@@ -2124,7 +2124,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    ``DatabaseError`` is a subclass of :exc:`Error`.
 
 .. exception:: DataError
-               DataError(*args: object) -> None
+               DataError(*args: object) -> sqlite3.DataError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L263>`__)
 
@@ -2133,7 +2133,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    ``DataError`` is a subclass of :exc:`DatabaseError`.
 
 .. exception:: OperationalError
-               OperationalError(*args: object) -> None
+               OperationalError(*args: object) -> sqlite3.OperationalError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L268>`__)
 
@@ -2144,7 +2144,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    ``OperationalError`` is a subclass of :exc:`DatabaseError`.
 
 .. exception:: IntegrityError
-               IntegrityError(*args: object) -> None
+               IntegrityError(*args: object) -> sqlite3.IntegrityError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L264>`__)
 
@@ -2152,7 +2152,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    e.g. a foreign key check fails.  It is a subclass of :exc:`DatabaseError`.
 
 .. exception:: InternalError
-               InternalError(*args: object) -> None
+               InternalError(*args: object) -> sqlite3.InternalError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L266>`__)
 
@@ -2162,7 +2162,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    ``InternalError`` is a subclass of :exc:`DatabaseError`.
 
 .. exception:: ProgrammingError
-               ProgrammingError(*args: object) -> None
+               ProgrammingError(*args: object) -> sqlite3.ProgrammingError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L269>`__)
 
@@ -2172,7 +2172,7 @@ The exception hierarchy is defined by the DB-API 2.0 (:pep:`249`).
    ``ProgrammingError`` is a subclass of :exc:`DatabaseError`.
 
 .. exception:: NotSupportedError
-               NotSupportedError(*args: object) -> None
+               NotSupportedError(*args: object) -> sqlite3.NotSupportedError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/sqlite3/__init__.pyi#L267>`__)
 

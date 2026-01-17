@@ -89,7 +89,7 @@ Transports Hierarchy
 --------------------
 
 .. class:: BaseTransport
-           BaseTransport(extra: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+           BaseTransport(extra: typing.Mapping[str, typing.Any] | None = None) -> asyncio.transports.BaseTransport
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L10>`__)
 
@@ -97,7 +97,7 @@ Transports Hierarchy
    asyncio transports share.
 
 .. class:: WriteTransport(BaseTransport)
-           WriteTransport(extra: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+           WriteTransport(extra: typing.Mapping[str, typing.Any] | None = None) -> asyncio.transports.WriteTransport
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L25>`__)
 
@@ -109,7 +109,7 @@ Transports Hierarchy
    :meth:`loop.subprocess_exec`.
 
 .. class:: ReadTransport(BaseTransport)
-           ReadTransport(extra: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+           ReadTransport(extra: typing.Mapping[str, typing.Any] | None = None) -> asyncio.transports.ReadTransport
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L19>`__)
 
@@ -121,7 +121,7 @@ Transports Hierarchy
    :meth:`loop.subprocess_exec`.
 
 .. class:: Transport(WriteTransport, ReadTransport)
-           Transport(extra: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+           Transport(extra: typing.Mapping[str, typing.Any] | None = None) -> asyncio.transports.Transport
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L38>`__)
 
@@ -139,7 +139,7 @@ Transports Hierarchy
 
 
 .. class:: DatagramTransport(BaseTransport)
-           DatagramTransport(extra: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+           DatagramTransport(extra: typing.Mapping[str, typing.Any] | None = None) -> asyncio.transports.DatagramTransport
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L41>`__)
 
@@ -150,7 +150,7 @@ Transports Hierarchy
 
 
 .. class:: SubprocessTransport(BaseTransport)
-           SubprocessTransport(extra: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+           SubprocessTransport(extra: typing.Mapping[str, typing.Any] | None = None) -> asyncio.transports.SubprocessTransport
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L46>`__)
 
@@ -251,7 +251,7 @@ Base Transport
      - ``'subprocess'``: :class:`subprocess.Popen` instance
 
 .. method:: BaseTransport.set_protocol(protocol)
-            BaseTransport.set_protocol(protocol: BaseProtocol) -> None
+            BaseTransport.set_protocol(protocol: asyncio.protocols.BaseProtocol) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L16>`__)
 
@@ -261,7 +261,7 @@ Base Transport
    protocols are documented to support the switch.
 
 .. method:: BaseTransport.get_protocol()
-            BaseTransport.get_protocol() -> BaseProtocol
+            BaseTransport.get_protocol() -> asyncio.protocols.BaseProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L17>`__)
 
@@ -394,7 +394,7 @@ Write-only Transports
    to be sent out asynchronously.
 
 .. method:: WriteTransport.writelines(list_of_data)
-            WriteTransport.writelines(list_of_data: collections.abc.Iterable[bytearray | bytes | memoryview[typing.Any]]) -> None
+            WriteTransport.writelines(list_of_data: typing.Iterable[bytearray | bytes | memoryview[typing.Any]]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L31>`__)
 
@@ -419,7 +419,7 @@ Datagram Transports
 -------------------
 
 .. method:: DatagramTransport.sendto(data, addr=None)
-            DatagramTransport.sendto(data: bytearray | bytes | memoryview[int], addr: Buffer | str | tuple[typing.Any, ...] | None = None) -> None
+            DatagramTransport.sendto(data: bytearray | bytes | memoryview[int], addr: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L43>`__)
 
@@ -461,7 +461,7 @@ Subprocess Transports
    Return the subprocess process id as an integer.
 
 .. method:: SubprocessTransport.get_pipe_transport(fd)
-            SubprocessTransport.get_pipe_transport(fd: int) -> BaseTransport | None
+            SubprocessTransport.get_pipe_transport(fd: int) -> asyncio.transports.BaseTransport | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/transports.pyi#L50>`__)
 
@@ -552,14 +552,14 @@ Base Protocols
 --------------
 
 .. class:: BaseProtocol
-           BaseProtocol() -> None
+           BaseProtocol() -> asyncio.protocols.BaseProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/protocols.pyi#L8>`__)
 
    Base protocol with methods that all protocols share.
 
 .. class:: Protocol(BaseProtocol)
-           Protocol() -> None
+           Protocol() -> asyncio.protocols.Protocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/protocols.pyi#L15>`__)
 
@@ -567,7 +567,7 @@ Base Protocols
    (TCP, Unix sockets, etc).
 
 .. class:: BufferedProtocol(BaseProtocol)
-           BufferedProtocol() -> None
+           BufferedProtocol() -> asyncio.protocols.BufferedProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/protocols.pyi#L21>`__)
 
@@ -575,14 +575,14 @@ Base Protocols
    control of the receive buffer.
 
 .. class:: DatagramProtocol(BaseProtocol)
-           DatagramProtocol() -> None
+           DatagramProtocol() -> asyncio.protocols.DatagramProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/protocols.pyi#L27>`__)
 
    The base class for implementing datagram (UDP) protocols.
 
 .. class:: SubprocessProtocol(BaseProtocol)
-           SubprocessProtocol() -> None
+           SubprocessProtocol() -> asyncio.protocols.SubprocessProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/protocols.pyi#L37>`__)
 
@@ -602,7 +602,7 @@ a successful connection.  All other protocol callbacks can only be
 called between those two methods.
 
 .. method:: BaseProtocol.connection_made(transport)
-            BaseProtocol.connection_made(transport: BaseTransport) -> None
+            BaseProtocol.connection_made(transport: asyncio.transports.BaseTransport) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/protocols.pyi#L10>`__)
 
@@ -735,7 +735,7 @@ The following callbacks are called on :class:`BufferedProtocol`
 instances:
 
 .. method:: BufferedProtocol.get_buffer(sizehint)
-            BufferedProtocol.get_buffer(sizehint: int) -> Buffer
+            BufferedProtocol.get_buffer(sizehint: int) -> _collections_abc.Buffer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/protocols.pyi#L23>`__)
 

@@ -58,7 +58,7 @@ doesn't contain :file:`.pyc` files, importing may be rather slow.
 This module defines an exception:
 
 .. exception:: ZipImportError
-               ZipImportError(*args: object, *, name: str | None = None, path: str | None = None) -> None
+               ZipImportError(*args: object, *, name: str | None = None, path: str | None = None) -> zipimport.ZipImportError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/zipimport.pyi#L19>`__)
 
@@ -74,7 +74,7 @@ zipimporter Objects
 :class:`zipimporter` is the class for importing ZIP files.
 
 .. class:: zipimporter(archivepath)
-           zipimporter(path: str) -> None
+           zipimporter(path: str) -> zipimport.zipimporter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/zipimport.pyi#L21>`__)
 
@@ -92,7 +92,7 @@ zipimporter Objects
       now removed.  Use :meth:`find_spec` instead.
 
    .. method:: create_module(spec)
-               create_module(spec: ModuleSpec) -> None
+               create_module(spec: _frozen_importlib.ModuleSpec) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/zipimport.pyi#L55>`__)
 
@@ -103,7 +103,7 @@ zipimporter Objects
 
 
    .. method:: exec_module(module)
-               exec_module(module: ModuleType) -> None
+               exec_module(module: types.ModuleType) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/zipimport.pyi#L54>`__)
 
@@ -113,7 +113,7 @@ zipimporter Objects
 
 
    .. method:: find_spec(fullname, target=None)
-               find_spec(fullname: str, target: ModuleType | None = None) -> ModuleSpec | None
+               find_spec(fullname: str, target: types.ModuleType | None = None) -> _frozen_importlib.ModuleSpec | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/zipimport.pyi#L56>`__)
 
@@ -123,7 +123,7 @@ zipimporter Objects
 
 
    .. method:: get_code(fullname)
-               get_code(fullname: str) -> CodeType
+               get_code(fullname: str) -> types.CodeType
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/zipimport.pyi#L39>`__)
 

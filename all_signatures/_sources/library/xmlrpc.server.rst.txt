@@ -28,7 +28,7 @@ servers written in Python.  Servers can either be free standing, using
 .. class:: SimpleXMLRPCServer(addr, requestHandler=SimpleXMLRPCRequestHandler,\
                logRequests=True, allow_none=False, encoding=None,\
                bind_and_activate=True, use_builtin_types=False)
-           SimpleXMLRPCServer(addr: tuple[str, int], requestHandler: type[SimpleXMLRPCRequestHandler] = ..., logRequests: bool = True, allow_none: bool = False, encoding: str | None = None, bind_and_activate: bool = True, use_builtin_types: bool = False) -> None
+           SimpleXMLRPCServer(addr: tuple[str, int], requestHandler: type[xmlrpc.server.SimpleXMLRPCRequestHandler] = ..., logRequests: bool = True, allow_none: bool = False, encoding: str | None = None, bind_and_activate: bool = True, use_builtin_types: bool = False) -> xmlrpc.server.SimpleXMLRPCServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L78>`__)
 
@@ -54,7 +54,7 @@ servers written in Python.  Servers can either be free standing, using
 
 .. class:: CGIXMLRPCRequestHandler(allow_none=False, encoding=None,\
                use_builtin_types=False)
-           CGIXMLRPCRequestHandler(allow_none: bool = False, encoding: str | None = None, use_builtin_types: bool = False) -> None
+           CGIXMLRPCRequestHandler(allow_none: bool = False, encoding: str | None = None, use_builtin_types: bool = False) -> xmlrpc.server.CGIXMLRPCRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L106>`__)
 
@@ -70,7 +70,7 @@ servers written in Python.  Servers can either be free standing, using
 
 
 .. class:: SimpleXMLRPCRequestHandler()
-           SimpleXMLRPCRequestHandler(request: _RequestType, client_address: typing.Any, server: BaseServer) -> None
+           SimpleXMLRPCRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> xmlrpc.server.SimpleXMLRPCRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L68>`__)
 
@@ -90,7 +90,7 @@ alone XML-RPC servers.
 
 
 .. method:: SimpleXMLRPCServer.register_function(function=None, name=None)
-            SimpleXMLRPCServer.register_function(function: _DispatchArity0 | _DispatchArity1 | _DispatchArity2 | _DispatchArity3 | _DispatchArity4 | _DispatchArityN | None = None, name: str | None = None) -> (...) -> typing.Any
+            SimpleXMLRPCServer.register_function(function: xmlrpc.server._DispatchArity0 | xmlrpc.server._DispatchArity1 | xmlrpc.server._DispatchArity2 | xmlrpc.server._DispatchArity3 | xmlrpc.server._DispatchArity4 | xmlrpc.server._DispatchArityN | None = None, name: str | None = None) -> (...) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L53>`__)
 
@@ -319,7 +319,7 @@ requests sent to Python CGI scripts.
 
 
 .. method:: CGIXMLRPCRequestHandler.register_function(function=None, name=None)
-            CGIXMLRPCRequestHandler.register_function(function: _DispatchArity0 | _DispatchArity1 | _DispatchArity2 | _DispatchArity3 | _DispatchArity4 | _DispatchArityN | None = None, name: str | None = None) -> (...) -> typing.Any
+            CGIXMLRPCRequestHandler.register_function(function: xmlrpc.server._DispatchArity0 | xmlrpc.server._DispatchArity1 | xmlrpc.server._DispatchArity2 | xmlrpc.server._DispatchArity3 | xmlrpc.server._DispatchArity4 | xmlrpc.server._DispatchArityN | None = None, name: str | None = None) -> (...) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L53>`__)
 
@@ -405,7 +405,7 @@ to HTTP GET requests.  Servers can either be free standing, using
 .. class:: DocXMLRPCServer(addr, requestHandler=DocXMLRPCRequestHandler,\
                logRequests=True, allow_none=False, encoding=None,\
                bind_and_activate=True, use_builtin_types=True)
-           DocXMLRPCServer(addr: tuple[str, int], requestHandler: type[SimpleXMLRPCRequestHandler] = ..., logRequests: bool = True, allow_none: bool = False, encoding: str | None = None, bind_and_activate: bool = True, use_builtin_types: bool = False) -> None
+           DocXMLRPCServer(addr: tuple[str, int], requestHandler: type[xmlrpc.server.SimpleXMLRPCRequestHandler] = ..., logRequests: bool = True, allow_none: bool = False, encoding: str | None = None, bind_and_activate: bool = True, use_builtin_types: bool = False) -> xmlrpc.server.DocXMLRPCServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L137>`__)
 
@@ -418,7 +418,7 @@ to HTTP GET requests.  Servers can either be free standing, using
 
 
 .. class:: DocCGIXMLRPCRequestHandler()
-           DocCGIXMLRPCRequestHandler() -> None
+           DocCGIXMLRPCRequestHandler() -> xmlrpc.server.DocCGIXMLRPCRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L149>`__)
 
@@ -426,7 +426,7 @@ to HTTP GET requests.  Servers can either be free standing, using
 
 
 .. class:: DocXMLRPCRequestHandler()
-           DocXMLRPCRequestHandler(request: _RequestType, client_address: typing.Any, server: BaseServer) -> None
+           DocXMLRPCRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> xmlrpc.server.DocXMLRPCRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/server.pyi#L134>`__)
 

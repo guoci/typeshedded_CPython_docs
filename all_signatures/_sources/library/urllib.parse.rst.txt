@@ -51,8 +51,8 @@ The URL parsing functions focus on splitting a URL string into its components,
 or on combining URL components into a URL string.
 
 .. function:: urlparse(urlstring, scheme='', allow_fragments=True)
-              urlparse(url: str, scheme: str = '', allow_fragments: bool = True) -> ParseResult
-              urlparse(url: bytearray | bytes | None, scheme: typing.Literal[''] | bytearray | bytes | None = '', allow_fragments: bool = True) -> ParseResultBytes
+              urlparse(url: str, scheme: str = '', allow_fragments: bool = True) -> urllib.parse.ParseResult
+              urlparse(url: bytearray | bytes | None, scheme: typing.Literal[''] | bytearray | bytes | None = '', allow_fragments: bool = True) -> urllib.parse.ParseResultBytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L170>`__)
 
@@ -298,8 +298,8 @@ or on combining URL components into a URL string.
 
 
 .. function:: urlunparse(parts)
-              urlunparse(components: collections.abc.Iterable[None]) -> typing.Literal[b'']
-              urlunparse(components: collections.abc.Iterable[AnyStr | None]) -> AnyStr
+              urlunparse(components: typing.Iterable[None]) -> typing.Literal[b'']
+              urlunparse(components: typing.Iterable[AnyStr | None]) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L192>`__)
 
@@ -311,8 +311,8 @@ or on combining URL components into a URL string.
 
 
 .. function:: urlsplit(urlstring, scheme='', allow_fragments=True)
-              urlsplit(url: str, scheme: str = '', allow_fragments: bool = True) -> SplitResult
-              urlsplit(url: bytes | None, scheme: typing.Literal[''] | bytes | None = '', allow_fragments: bool = True) -> SplitResultBytes
+              urlsplit(url: str, scheme: str = '', allow_fragments: bool = True) -> urllib.parse.SplitResult
+              urlsplit(url: bytes | None, scheme: typing.Literal[''] | bytes | None = '', allow_fragments: bool = True) -> urllib.parse.SplitResultBytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L176>`__)
 
@@ -389,8 +389,8 @@ or on combining URL components into a URL string.
 .. _WHATWG spec: https://url.spec.whatwg.org/#concept-basic-url-parser
 
 .. function:: urlunsplit(parts)
-              urlunsplit(components: collections.abc.Iterable[None]) -> typing.Literal[b'']
-              urlunsplit(components: collections.abc.Iterable[AnyStr | None]) -> AnyStr
+              urlunsplit(components: typing.Iterable[None]) -> typing.Literal[b'']
+              urlunsplit(components: typing.Iterable[AnyStr | None]) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L198>`__)
 
@@ -448,8 +448,8 @@ or on combining URL components into a URL string.
 
 
 .. function:: urldefrag(url)
-              urldefrag(url: str) -> DefragResult
-              urldefrag(url: bytearray | bytes | None) -> DefragResultBytes
+              urldefrag(url: str) -> urllib.parse.DefragResult
+              urldefrag(url: bytearray | bytes | None) -> urllib.parse.DefragResultBytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L137>`__)
 
@@ -600,7 +600,7 @@ The following classes provide the implementations of the structured parse
 results when operating on :class:`str` objects:
 
 .. class:: DefragResult(url, fragment)
-           DefragResult(url: str, fragment: str) -> None
+           DefragResult(url: str, fragment: str) -> urllib.parse.DefragResult
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L87>`__)
 
@@ -611,7 +611,7 @@ results when operating on :class:`str` objects:
    .. versionadded:: 3.2
 
 .. class:: ParseResult(scheme, netloc, path, params, query, fragment)
-           ParseResult(scheme: str, netloc: str, path: str, params: str, query: str, fragment: str) -> None
+           ParseResult(scheme: str, netloc: str, path: str, params: str, query: str, fragment: str) -> urllib.parse.ParseResult
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L93>`__)
 
@@ -620,7 +620,7 @@ results when operating on :class:`str` objects:
    instance.
 
 .. class:: SplitResult(scheme, netloc, path, query, fragment)
-           SplitResult(scheme: str, netloc: str, path: str, query: str, fragment: str) -> None
+           SplitResult(scheme: str, netloc: str, path: str, query: str, fragment: str) -> urllib.parse.SplitResult
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L90>`__)
 
@@ -633,7 +633,7 @@ The following classes provide the implementations of the parse results when
 operating on :class:`bytes` or :class:`bytearray` objects:
 
 .. class:: DefragResultBytes(url, fragment)
-           DefragResultBytes(url: bytes, fragment: bytes) -> None
+           DefragResultBytes(url: bytes, fragment: bytes) -> urllib.parse.DefragResultBytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L97>`__)
 
@@ -644,7 +644,7 @@ operating on :class:`bytes` or :class:`bytearray` objects:
    .. versionadded:: 3.2
 
 .. class:: ParseResultBytes(scheme, netloc, path, params, query, fragment)
-           ParseResultBytes(scheme: bytes, netloc: bytes, path: bytes, params: bytes, query: bytes, fragment: bytes) -> None
+           ParseResultBytes(scheme: bytes, netloc: bytes, path: bytes, params: bytes, query: bytes, fragment: bytes) -> urllib.parse.ParseResultBytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L103>`__)
 
@@ -655,7 +655,7 @@ operating on :class:`bytes` or :class:`bytearray` objects:
    .. versionadded:: 3.2
 
 .. class:: SplitResultBytes(scheme, netloc, path, query, fragment)
-           SplitResultBytes(scheme: bytes, netloc: bytes, path: bytes, query: bytes, fragment: bytes) -> None
+           SplitResultBytes(scheme: bytes, netloc: bytes, path: bytes, query: bytes, fragment: bytes) -> urllib.parse.SplitResultBytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L100>`__)
 
@@ -676,8 +676,8 @@ recreate the original data from the contents of a URL component if that
 task isn't already covered by the URL parsing functions above.
 
 .. function:: quote(string, safe='/', encoding=None, errors=None)
-              quote(string: str, safe: collections.abc.Iterable[int] | str = '/', encoding: str | None = None, errors: str | None = None) -> str
-              quote(string: bytearray | bytes, safe: collections.abc.Iterable[int] | str = '/') -> str
+              quote(string: str, safe: typing.Iterable[int] | str = '/', encoding: str | None = None, errors: str | None = None) -> str
+              quote(string: bytearray | bytes, safe: typing.Iterable[int] | str = '/') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L125>`__)
 
@@ -708,8 +708,8 @@ task isn't already covered by the URL parsing functions above.
 
 
 .. function:: quote_plus(string, safe='', encoding=None, errors=None)
-              quote_plus(string: str, safe: collections.abc.Iterable[int] | str = '', encoding: str | None = None, errors: str | None = None) -> str
-              quote_plus(string: bytearray | bytes, safe: collections.abc.Iterable[int] | str = '') -> str
+              quote_plus(string: str, safe: typing.Iterable[int] | str = '', encoding: str | None = None, errors: str | None = None) -> str
+              quote_plus(string: bytearray | bytes, safe: typing.Iterable[int] | str = '') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L130>`__)
 
@@ -722,7 +722,7 @@ task isn't already covered by the URL parsing functions above.
 
 
 .. function:: quote_from_bytes(bytes, safe='/')
-              quote_from_bytes(bs: bytearray | bytes, safe: collections.abc.Iterable[int] | str = '/') -> str
+              quote_from_bytes(bs: bytearray | bytes, safe: typing.Iterable[int] | str = '/') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L128>`__)
 
@@ -788,7 +788,7 @@ task isn't already covered by the URL parsing functions above.
 
 .. function:: urlencode(query, doseq=False, safe='', encoding=None, \
                         errors=None, quote_via=quote_plus)
-              urlencode(query: _QueryType, doseq: bool = False, safe: bytes | str = '', encoding: str | None = None, errors: str | None = None, quote_via: _QuoteVia = ...) -> str
+              urlencode(query: _QueryType, doseq: bool = False, safe: bytes | str = '', encoding: str | None = None, errors: str | None = None, quote_via: urllib.parse._QuoteVia = ...) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/parse.pyi#L160>`__)
 

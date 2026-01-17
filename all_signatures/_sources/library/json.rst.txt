@@ -154,7 +154,7 @@ Basic Usage
                    check_circular=True, allow_nan=True, cls=None, \
                    indent=None, separators=None, default=None, \
                    sort_keys=False, **kw)
-              dump(obj: typing.Any, fp: SupportsWrite[str], *, skipkeys: bool = False, ensure_ascii: bool = True, check_circular: bool = True, allow_nan: bool = True, cls: type[JSONEncoder] | None = None, indent: int | str | None = None, separators: tuple[str, str] | None = None, default: ((typing.Any) -> typing.Any) | None = None, sort_keys: bool = False, **kwds: typing.Any) -> None
+              dump(obj: typing.Any, fp: _typeshed.SupportsWrite[str], *, skipkeys: bool = False, ensure_ascii: bool = True, check_circular: bool = True, allow_nan: bool = True, cls: type[json.encoder.JSONEncoder] | None = None, indent: int | str | None = None, separators: tuple[str, str] | None = None, default: ((typing.Any) -> typing.Any) | None = None, sort_keys: bool = False, **kwds: typing.Any) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/__init__.pyi#L24>`__)
 
@@ -254,7 +254,7 @@ Basic Usage
                     check_circular=True, allow_nan=True, cls=None, \
                     indent=None, separators=None, default=None, \
                     sort_keys=False, **kw)
-              dumps(obj: typing.Any, *, skipkeys: bool = False, ensure_ascii: bool = True, check_circular: bool = True, allow_nan: bool = True, cls: type[JSONEncoder] | None = None, indent: int | str | None = None, separators: tuple[str, str] | None = None, default: ((typing.Any) -> typing.Any) | None = None, sort_keys: bool = False, **kwds: typing.Any) -> str
+              dumps(obj: typing.Any, *, skipkeys: bool = False, ensure_ascii: bool = True, check_circular: bool = True, allow_nan: bool = True, cls: type[json.encoder.JSONEncoder] | None = None, indent: int | str | None = None, separators: tuple[str, str] | None = None, default: ((typing.Any) -> typing.Any) | None = None, sort_keys: bool = False, **kwds: typing.Any) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/__init__.pyi#L10>`__)
 
@@ -274,7 +274,7 @@ Basic Usage
 .. function:: load(fp, *, cls=None, object_hook=None, parse_float=None, \
                    parse_int=None, parse_constant=None, \
                    object_pairs_hook=None, **kw)
-              load(fp: SupportsRead[bytes | str], *, cls: type[JSONDecoder] | None = None, object_hook: ((dict[typing.Any, typing.Any]) -> typing.Any) | None = None, parse_float: ((str) -> typing.Any) | None = None, parse_int: ((str) -> typing.Any) | None = None, parse_constant: ((str) -> typing.Any) | None = None, object_pairs_hook: ((list[tuple[typing.Any, typing.Any]]) -> typing.Any) | None = None, **kwds: typing.Any) -> typing.Any
+              load(fp: _typeshed.SupportsRead[bytes | str], *, cls: type[json.decoder.JSONDecoder] | None = None, object_hook: ((dict[typing.Any, typing.Any]) -> typing.Any) | None = None, parse_float: ((str) -> typing.Any) | None = None, parse_int: ((str) -> typing.Any) | None = None, parse_constant: ((str) -> typing.Any) | None = None, object_pairs_hook: ((list[tuple[typing.Any, typing.Any]]) -> typing.Any) | None = None, **kwds: typing.Any) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/__init__.pyi#L50>`__)
 
@@ -362,7 +362,7 @@ Basic Usage
       of service attacks.
 
 .. function:: loads(s, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)
-              loads(s: bytearray | bytes | str, *, cls: type[JSONDecoder] | None = None, object_hook: ((dict[typing.Any, typing.Any]) -> typing.Any) | None = None, parse_float: ((str) -> typing.Any) | None = None, parse_int: ((str) -> typing.Any) | None = None, parse_constant: ((str) -> typing.Any) | None = None, object_pairs_hook: ((list[tuple[typing.Any, typing.Any]]) -> typing.Any) | None = None, **kwds: typing.Any) -> typing.Any
+              loads(s: bytearray | bytes | str, *, cls: type[json.decoder.JSONDecoder] | None = None, object_hook: ((dict[typing.Any, typing.Any]) -> typing.Any) | None = None, parse_float: ((str) -> typing.Any) | None = None, parse_int: ((str) -> typing.Any) | None = None, parse_constant: ((str) -> typing.Any) | None = None, object_pairs_hook: ((list[tuple[typing.Any, typing.Any]]) -> typing.Any) | None = None, **kwds: typing.Any) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/__init__.pyi#L39>`__)
 
@@ -383,7 +383,7 @@ Encoders and Decoders
 ---------------------
 
 .. class:: JSONDecoder(*, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None)
-           JSONDecoder(*, object_hook: ((dict[str, typing.Any]) -> typing.Any) | None = None, parse_float: ((str) -> typing.Any) | None = None, parse_int: ((str) -> typing.Any) | None = None, parse_constant: ((str) -> typing.Any) | None = None, strict: bool = True, object_pairs_hook: ((list[tuple[str, typing.Any]]) -> typing.Any) | None = None) -> None
+           JSONDecoder(*, object_hook: ((dict[str, typing.Any]) -> typing.Any) | None = None, parse_float: ((str) -> typing.Any) | None = None, parse_int: ((str) -> typing.Any) | None = None, parse_constant: ((str) -> typing.Any) | None = None, strict: bool = True, object_pairs_hook: ((list[tuple[str, typing.Any]]) -> typing.Any) | None = None) -> json.decoder.JSONDecoder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/decoder.pyi#L14>`__)
 
@@ -480,7 +480,7 @@ Encoders and Decoders
 
 
 .. class:: JSONEncoder(*, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)
-           JSONEncoder(*, skipkeys: bool = False, ensure_ascii: bool = True, check_circular: bool = True, allow_nan: bool = True, sort_keys: bool = False, indent: int | str | None = None, separators: tuple[str, str] | None = None, default: ((...) -> typing.Any) | None = None) -> None
+           JSONEncoder(*, skipkeys: bool = False, ensure_ascii: bool = True, check_circular: bool = True, allow_nan: bool = True, sort_keys: bool = False, indent: int | str | None = None, separators: tuple[str, str] | None = None, default: ((...) -> typing.Any) | None = None) -> json.encoder.JSONEncoder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/encoder.pyi#L16>`__)
 
@@ -604,7 +604,7 @@ Encoders and Decoders
 
 
    .. method:: iterencode(o)
-               iterencode(o: typing.Any, _one_shot: bool = False) -> collections.abc.Iterator[str]
+               iterencode(o: typing.Any, _one_shot: bool = False) -> typing.Iterator[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/encoder.pyi#L40>`__)
 
@@ -619,7 +619,7 @@ Exceptions
 ----------
 
 .. exception:: JSONDecodeError(msg, doc, pos)
-               JSONDecodeError(msg: str, doc: str, pos: int) -> None
+               JSONDecodeError(msg: str, doc: str, pos: int) -> json.decoder.JSONDecodeError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/json/decoder.pyi#L6>`__)
 

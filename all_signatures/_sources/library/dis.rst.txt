@@ -140,7 +140,7 @@ code.
 .. class:: Bytecode(x, *, first_line=None, current_offset=None,\
                     show_caches=False, adaptive=False, show_offsets=False,\
                     show_positions=False)
-           Bytecode(x: ((...) -> typing.Any) | CodeType | FunctionType | MethodType | str | type[typing.Any], *, first_line: int | None = None, current_offset: int | None = None, show_caches: bool = False, adaptive: bool = False, show_offsets: bool = False, show_positions: bool = False) -> None
+           Bytecode(x: ((...) -> typing.Any) | types.CodeType | types.FunctionType | types.MethodType | str | type[Any], *, first_line: int | None = None, current_offset: int | None = None, show_caches: bool = False, adaptive: bool = False, show_offsets: bool = False, show_positions: bool = False) -> dis.Bytecode
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L131>`__)
 
@@ -174,7 +174,7 @@ code.
    source code positions in the output.
 
    .. classmethod:: from_traceback(tb, *, show_caches=False)
-                    from_traceback(cls: type[Bytecode], tb: TracebackType, *, show_caches: bool = False, adaptive: bool = False) -> Bytecode
+                    from_traceback(cls: type[dis.Bytecode], tb: types.TracebackType, *, show_caches: bool = False, adaptive: bool = False) -> dis.Bytecode
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L178>`__)
 
@@ -182,7 +182,7 @@ code.
       *current_offset* to the instruction responsible for the exception.
 
    .. data:: codeobj
-      :type: CodeType
+      :type: types.CodeType
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L132>`__)
 
@@ -246,7 +246,7 @@ the input directly to the desired output. They can be useful if only a single
 operation is being performed, so the intermediate analysis object isn't useful:
 
 .. function:: code_info(x)
-              code_info(x: ((...) -> typing.Any) | CodeType | FunctionType | MethodType | str | type[typing.Any]) -> str
+              code_info(x: ((...) -> typing.Any) | types.CodeType | types.FunctionType | types.MethodType | str | type[Any]) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L192>`__)
 
@@ -265,7 +265,7 @@ operation is being performed, so the intermediate analysis object isn't useful:
 
 
 .. function:: show_code(x, *, file=None)
-              show_code(co: _HaveCodeType, *, file: IO[str] | None = None) -> None
+              show_code(co: _HaveCodeType, *, file: typing.IO[str] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L293>`__)
 
@@ -284,7 +284,7 @@ operation is being performed, so the intermediate analysis object isn't useful:
 
 .. function:: dis(x=None, *, file=None, depth=None, show_caches=False,\
                   adaptive=False, show_offsets=False, show_positions=False)
-              dis(x: ((...) -> typing.Any) | CodeType | FunctionType | MethodType | bytearray | bytes | str | type[typing.Any] | None = None, *, file: IO[str] | None = None, depth: int | None = None, show_caches: bool = False, adaptive: bool = False, show_offsets: bool = False, show_positions: bool = False) -> None
+              dis(x: ((...) -> typing.Any) | types.CodeType | types.FunctionType | types.MethodType | bytearray | bytes | str | type[Any] | None = None, *, file: typing.IO[str] | None = None, depth: int | None = None, show_caches: bool = False, adaptive: bool = False, show_offsets: bool = False, show_positions: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L196>`__)
 
@@ -333,7 +333,7 @@ operation is being performed, so the intermediate analysis object isn't useful:
 
 .. function:: distb(tb=None, *, file=None, show_caches=False, adaptive=False,\
                     show_offset=False, show_positions=False)
-              distb(tb: TracebackType | None = None, *, file: IO[str] | None = None, show_caches: bool = False, adaptive: bool = False, show_offsets: bool = False, show_positions: bool = False) -> None
+              distb(tb: types.TracebackType | None = None, *, file: typing.IO[str] | None = None, show_caches: bool = False, adaptive: bool = False, show_offsets: bool = False, show_positions: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L216>`__)
 
@@ -395,7 +395,7 @@ operation is being performed, so the intermediate analysis object isn't useful:
       Added the *show_positions* parameter.
 
 .. function:: get_instructions(x, *, first_line=None, show_caches=False, adaptive=False)
-              get_instructions(x: _HaveCodeType, *, first_line: int | None = None, show_caches: bool | None = None, adaptive: bool = False) -> collections.abc.Iterator[Instruction]
+              get_instructions(x: _HaveCodeType, *, first_line: int | None = None, show_caches: bool | None = None, adaptive: bool = False) -> typing.Iterator[dis.Instruction]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L281>`__)
 
@@ -424,7 +424,7 @@ operation is being performed, so the intermediate analysis object isn't useful:
       generates separate items for the cache entries.
 
 .. function:: findlinestarts(code)
-              findlinestarts(code: _HaveCodeType) -> collections.abc.Iterator[tuple[int, int]]
+              findlinestarts(code: _HaveCodeType) -> typing.Iterator[tuple[int, int]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L190>`__)
 
@@ -487,7 +487,7 @@ The :func:`get_instructions` function and :class:`Bytecode` class provide
 details of bytecode instructions as :class:`Instruction` instances:
 
 .. class:: Instruction
-           Instruction(opname: str, opcode: int, arg: int | None, argval: typing.Any, argrepr: str, offset: int, start_offset: int, starts_line: bool, line_number: int | None, label: int | None = ..., positions: Positions | None = ..., cache_info: list[tuple[str, int, typing.Any]] | None = ...) -> None
+           Instruction(opname: str, opcode: int, arg: int | None, argval: typing.Any, argrepr: str, offset: int, start_offset: int, starts_line: bool, line_number: int | None, label: int | None = ..., positions: dis.Positions | None = ..., cache_info: list[tuple[str, int, typing.Any]] | None = ...) -> dis.Instruction
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L92>`__)
 
@@ -511,7 +511,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
    .. data:: baseopcode
-      :type: baseopcode(self: Instruction) -> int
+      :type: baseopcode(self: dis.Instruction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L99>`__)
 
@@ -520,7 +520,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
    .. data:: baseopname
-      :type: baseopname(self: Instruction) -> str
+      :type: baseopname(self: dis.Instruction) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L101>`__)
 
@@ -536,7 +536,7 @@ details of bytecode instructions as :class:`Instruction` instances:
       numeric argument to operation (if any), otherwise ``None``
 
    .. data:: oparg
-      :type: oparg(self: Instruction) -> int
+      :type: oparg(self: dis.Instruction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L97>`__)
 
@@ -577,7 +577,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
    .. data:: cache_offset
-      :type: cache_offset(self: Instruction) -> int
+      :type: cache_offset(self: dis.Instruction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L103>`__)
 
@@ -585,7 +585,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
    .. data:: end_offset
-      :type: end_offset(self: Instruction) -> int
+      :type: end_offset(self: dis.Instruction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L105>`__)
 
@@ -609,7 +609,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
    .. data:: is_jump_target
-      :type: is_jump_target(self: Instruction) -> bool
+      :type: is_jump_target(self: dis.Instruction) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L109>`__)
 
@@ -617,7 +617,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
    .. data:: jump_target
-      :type: jump_target(self: Instruction) -> int
+      :type: jump_target(self: dis.Instruction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L107>`__)
 
@@ -626,7 +626,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
    .. data:: positions
-      :type: Positions | None
+      :type: dis.Positions | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L65>`__)
 
@@ -660,7 +660,7 @@ details of bytecode instructions as :class:`Instruction` instances:
 
 
 .. class:: Positions
-           Positions(lineno: int | None = ..., end_lineno: int | None = ..., col_offset: int | None = ..., end_col_offset: int | None = ...) -> None
+           Positions(lineno: int | None = ..., end_lineno: int | None = ..., col_offset: int | None = ..., end_col_offset: int | None = ...) -> dis.Positions
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dis.pyi#L47>`__)
 

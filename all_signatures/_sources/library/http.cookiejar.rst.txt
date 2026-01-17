@@ -39,7 +39,7 @@ The module defines the following exception:
 
 
 .. exception:: LoadError
-               LoadError(*args: object) -> None
+               LoadError(*args: object) -> http.cookiejar.LoadError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L22>`__)
 
@@ -55,7 +55,7 @@ The following classes are provided:
 
 
 .. class:: CookieJar(policy=None)
-           CookieJar(policy: CookiePolicy | None = None) -> None
+           CookieJar(policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.CookieJar
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L24>`__)
 
@@ -68,7 +68,7 @@ The following classes are provided:
 
 
 .. class:: FileCookieJar(filename=None, delayload=None, policy=None)
-           FileCookieJar(filename: PathLike[str] | str | None = None, delayload: bool = False, policy: CookiePolicy | None = None) -> None
+           FileCookieJar(filename: os.PathLike[str] | str | None = None, delayload: bool = False, policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.FileCookieJar
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L44>`__)
 
@@ -88,7 +88,7 @@ The following classes are provided:
 
 
 .. class:: CookiePolicy()
-           CookiePolicy() -> None
+           CookiePolicy() -> http.cookiejar.CookiePolicy
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L59>`__)
 
@@ -97,7 +97,7 @@ The following classes are provided:
 
 
 .. class:: DefaultCookiePolicy( blocked_domains=None, allowed_domains=None, netscape=True, rfc2965=False, rfc2109_as_netscape=None, hide_cookie2=False, strict_domain=False, strict_rfc2965_unverifiable=True, strict_ns_unverifiable=False, strict_ns_domain=DefaultCookiePolicy.DomainLiberal, strict_ns_set_initial_dollar=False, strict_ns_set_path=False, secure_protocols=("https", "wss") )
-           DefaultCookiePolicy(blocked_domains: collections.abc.Sequence[str] | None = None, allowed_domains: collections.abc.Sequence[str] | None = None, netscape: bool = True, rfc2965: bool = False, rfc2109_as_netscape: bool | None = None, hide_cookie2: bool = False, strict_domain: bool = False, strict_rfc2965_unverifiable: bool = True, strict_ns_unverifiable: bool = False, strict_ns_domain: int = 0, strict_ns_set_initial_dollar: bool = False, strict_ns_set_path: bool = False, secure_protocols: collections.abc.Sequence[str] = ...) -> None
+           DefaultCookiePolicy(blocked_domains: typing.Sequence[str] | None = None, allowed_domains: typing.Sequence[str] | None = None, netscape: bool = True, rfc2965: bool = False, rfc2109_as_netscape: bool | None = None, hide_cookie2: bool = False, strict_domain: bool = False, strict_rfc2965_unverifiable: bool = True, strict_ns_unverifiable: bool = False, strict_ns_domain: int = 0, strict_ns_set_initial_dollar: bool = False, strict_ns_set_path: bool = False, secure_protocols: typing.Sequence[str] = ...) -> http.cookiejar.DefaultCookiePolicy
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L68>`__)
 
@@ -122,7 +122,7 @@ The following classes are provided:
 
 
 .. class:: Cookie()
-           Cookie(version: int | None, name: str, value: str | None, port: str | None, port_specified: bool, domain: str, domain_specified: bool, domain_initial_dot: bool, path: str, path_specified: bool, secure: bool, expires: int | None, discard: bool, comment: str | None, comment_url: str | None, rest: dict[str, str], rfc2109: bool = False) -> None
+           Cookie(version: int | None, name: str, value: str | None, port: str | None, port_specified: bool, domain: str, domain_specified: bool, domain_initial_dot: bool, path: str, path_specified: bool, secure: bool, expires: int | None, discard: bool, comment: str | None, comment_url: str | None, rest: dict[str, str], rfc2109: bool = False) -> http.cookiejar.Cookie
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L116>`__)
 
@@ -172,7 +172,7 @@ contained :class:`Cookie` objects.
 
 
 .. method:: CookieJar.add_cookie_header(request)
-            CookieJar.add_cookie_header(request: Request) -> None
+            CookieJar.add_cookie_header(request: urllib.request.Request) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L32>`__)
 
@@ -195,7 +195,7 @@ contained :class:`Cookie` objects.
 
 
 .. method:: CookieJar.extract_cookies(response, request)
-            CookieJar.extract_cookies(response: HTTPResponse, request: Request) -> None
+            CookieJar.extract_cookies(response: http.client.HTTPResponse, request: urllib.request.Request) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L33>`__)
 
@@ -223,7 +223,7 @@ contained :class:`Cookie` objects.
     deprecated method :meth:`get_origin_req_host` has been removed.
 
 .. method:: CookieJar.set_policy(policy)
-            CookieJar.set_policy(policy: CookiePolicy) -> None
+            CookieJar.set_policy(policy: http.cookiejar.CookiePolicy) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L34>`__)
 
@@ -231,7 +231,7 @@ contained :class:`Cookie` objects.
 
 
 .. method:: CookieJar.make_cookies(response, request)
-            CookieJar.make_cookies(response: HTTPResponse, request: Request) -> collections.abc.Sequence[Cookie]
+            CookieJar.make_cookies(response: http.client.HTTPResponse, request: urllib.request.Request) -> typing.Sequence[http.cookiejar.Cookie]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L35>`__)
 
@@ -242,7 +242,7 @@ contained :class:`Cookie` objects.
 
 
 .. method:: CookieJar.set_cookie_if_ok(cookie, request)
-            CookieJar.set_cookie_if_ok(cookie: Cookie, request: Request) -> None
+            CookieJar.set_cookie_if_ok(cookie: http.cookiejar.Cookie, request: urllib.request.Request) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L37>`__)
 
@@ -250,7 +250,7 @@ contained :class:`Cookie` objects.
 
 
 .. method:: CookieJar.set_cookie(cookie)
-            CookieJar.set_cookie(cookie: Cookie) -> None
+            CookieJar.set_cookie(cookie: http.cookiejar.Cookie) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L36>`__)
 
@@ -377,7 +377,7 @@ The following :class:`CookieJar` subclasses are provided for reading and
 writing.
 
 .. class:: MozillaCookieJar(filename=None, delayload=None, policy=None)
-           MozillaCookieJar(filename: PathLike[str] | str | None = None, delayload: bool = False, policy: CookiePolicy | None = None) -> None
+           MozillaCookieJar(filename: os.PathLike[str] | str | None = None, delayload: bool = False, policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.MozillaCookieJar
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L52>`__)
 
@@ -401,7 +401,7 @@ writing.
 
 
 .. class:: LWPCookieJar(filename=None, delayload=None, policy=None)
-           LWPCookieJar(filename: PathLike[str] | str | None = None, delayload: bool = False, policy: CookiePolicy | None = None) -> None
+           LWPCookieJar(filename: os.PathLike[str] | str | None = None, delayload: bool = False, policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.LWPCookieJar
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L56>`__)
 
@@ -423,7 +423,7 @@ methods:
 
 
 .. method:: CookiePolicy.set_ok(cookie, request)
-            CookiePolicy.set_ok(cookie: Cookie, request: Request) -> bool
+            CookiePolicy.set_ok(cookie: http.cookiejar.Cookie, request: urllib.request.Request) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L63>`__)
 
@@ -435,7 +435,7 @@ methods:
 
 
 .. method:: CookiePolicy.return_ok(cookie, request)
-            CookiePolicy.return_ok(cookie: Cookie, request: Request) -> bool
+            CookiePolicy.return_ok(cookie: http.cookiejar.Cookie, request: urllib.request.Request) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L64>`__)
 
@@ -447,7 +447,7 @@ methods:
 
 
 .. method:: CookiePolicy.domain_return_ok(domain, request)
-            CookiePolicy.domain_return_ok(domain: str, request: Request) -> bool
+            CookiePolicy.domain_return_ok(domain: str, request: urllib.request.Request) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L65>`__)
 
@@ -474,7 +474,7 @@ methods:
 
 
 .. method:: CookiePolicy.path_return_ok(path, request)
-            CookiePolicy.path_return_ok(path: str, request: Request) -> bool
+            CookiePolicy.path_return_ok(path: str, request: urllib.request.Request) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L66>`__)
 
@@ -576,7 +576,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 
 
 .. method:: DefaultCookiePolicy.set_blocked_domains(blocked_domains)
-            DefaultCookiePolicy.set_blocked_domains(blocked_domains: collections.abc.Sequence[str]) -> None
+            DefaultCookiePolicy.set_blocked_domains(blocked_domains: typing.Sequence[str]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L98>`__)
 
@@ -601,7 +601,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 
 
 .. method:: DefaultCookiePolicy.set_allowed_domains(allowed_domains)
-            DefaultCookiePolicy.set_allowed_domains(allowed_domains: collections.abc.Sequence[str] | None) -> None
+            DefaultCookiePolicy.set_allowed_domains(allowed_domains: typing.Sequence[str] | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/cookiejar.pyi#L101>`__)
 

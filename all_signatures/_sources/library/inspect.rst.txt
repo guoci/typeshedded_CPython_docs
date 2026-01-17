@@ -342,8 +342,8 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
    Add ``f_generator`` attribute to frames.
 
 .. function:: getmembers(object[, predicate])
-              getmembers(object: object, predicate: (typing.Any) -> TypeGuard[_T]) -> list[tuple[str, _T]]
-              getmembers(object: object, predicate: (typing.Any) -> TypeIs[_T]) -> list[tuple[str, _T]]
+              getmembers(object: object, predicate: (typing.Any) -> typing.TypeGuard[_T]) -> list[tuple[str, _T]]
+              getmembers(object: object, predicate: (typing.Any) -> typing.TypeIs[_T]) -> list[tuple[str, _T]]
               getmembers(object: object, predicate: ((typing.Any) -> bool) | None = None) -> list[tuple[str, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L192>`__)
@@ -361,8 +361,8 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: getmembers_static(object[, predicate])
-              getmembers_static(object: object, predicate: (typing.Any) -> TypeGuard[_T]) -> list[tuple[str, _T]]
-              getmembers_static(object: object, predicate: (typing.Any) -> TypeIs[_T]) -> list[tuple[str, _T]]
+              getmembers_static(object: object, predicate: (typing.Any) -> typing.TypeGuard[_T]) -> list[tuple[str, _T]]
+              getmembers_static(object: object, predicate: (typing.Any) -> typing.TypeIs[_T]) -> list[tuple[str, _T]]
               getmembers_static(object: object, predicate: ((typing.Any) -> bool) | None = None) -> list[tuple[str, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L200>`__)
@@ -403,7 +403,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: ismodule(object)
-              ismodule(object: object) -> TypeIs[ModuleType]
+              ismodule(object: object) -> typing.TypeIs[types.ModuleType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L207>`__)
 
@@ -411,7 +411,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isclass(object)
-              isclass(object: object) -> TypeIs[type[typing.Any]]
+              isclass(object: object) -> typing.TypeIs[type[Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L208>`__)
 
@@ -420,7 +420,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: ismethod(object)
-              ismethod(object: object) -> TypeIs[MethodType]
+              ismethod(object: object) -> typing.TypeIs[types.MethodType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L209>`__)
 
@@ -428,7 +428,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: ispackage(object)
-              ispackage(object: object) -> TypeGuard[ModuleType]
+              ispackage(object: object) -> typing.TypeGuard[types.ModuleType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L213>`__)
 
@@ -438,7 +438,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isfunction(object)
-              isfunction(object: object) -> TypeIs[FunctionType]
+              isfunction(object: object) -> typing.TypeIs[types.FunctionType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L215>`__)
 
@@ -447,9 +447,9 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isgeneratorfunction(object)
-              isgeneratorfunction(obj: (...) -> collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> bool
-              isgeneratorfunction(obj: (ParamSpec(_P)) -> typing.Any) -> TypeGuard[(ParamSpec(_P)) -> GeneratorType[typing.Any, typing.Any, typing.Any]]
-              isgeneratorfunction(obj: object) -> TypeGuard[(...) -> GeneratorType[typing.Any, typing.Any, typing.Any]]
+              isgeneratorfunction(obj: (...) -> typing.Generator[typing.Any, typing.Any, typing.Any]) -> bool
+              isgeneratorfunction(obj: (ParamSpec(_P)) -> typing.Any) -> typing.TypeGuard[(ParamSpec(_P)) -> types.GeneratorType[typing.Any, typing.Any, typing.Any]]
+              isgeneratorfunction(obj: object) -> typing.TypeGuard[(...) -> types.GeneratorType[typing.Any, typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L221>`__)
 
@@ -464,7 +464,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
       if the wrapped function is a Python generator function.
 
 .. function:: isgenerator(object)
-              isgenerator(object: object) -> TypeIs[GeneratorType[typing.Any, typing.Any, typing.Any]]
+              isgenerator(object: object) -> typing.TypeIs[types.GeneratorType[typing.Any, typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L234>`__)
 
@@ -472,10 +472,10 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: iscoroutinefunction(object)
-              iscoroutinefunction(obj: (...) -> collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> bool
-              iscoroutinefunction(obj: (ParamSpec(_P)) -> collections.abc.Awaitable[_T]) -> TypeGuard[(ParamSpec(_P)) -> CoroutineType[typing.Any, typing.Any, _T]]
-              iscoroutinefunction(obj: (ParamSpec(_P)) -> object) -> TypeGuard[(ParamSpec(_P)) -> CoroutineType[typing.Any, typing.Any, typing.Any]]
-              iscoroutinefunction(obj: object) -> TypeGuard[(...) -> CoroutineType[typing.Any, typing.Any, typing.Any]]
+              iscoroutinefunction(obj: (...) -> typing.Coroutine[typing.Any, typing.Any, typing.Any]) -> bool
+              iscoroutinefunction(obj: (ParamSpec(_P)) -> typing.Awaitable[_T]) -> typing.TypeGuard[(ParamSpec(_P)) -> types.CoroutineType[typing.Any, typing.Any, _T]]
+              iscoroutinefunction(obj: (ParamSpec(_P)) -> object) -> typing.TypeGuard[(ParamSpec(_P)) -> types.CoroutineType[typing.Any, typing.Any, typing.Any]]
+              iscoroutinefunction(obj: object) -> typing.TypeGuard[(...) -> types.CoroutineType[typing.Any, typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L227>`__)
 
@@ -518,7 +518,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: iscoroutine(object)
-              iscoroutine(object: object) -> TypeIs[CoroutineType[typing.Any, typing.Any, typing.Any]]
+              iscoroutine(object: object) -> typing.TypeIs[types.CoroutineType[typing.Any, typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L235>`__)
 
@@ -529,7 +529,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isawaitable(object)
-              isawaitable(object: object) -> TypeIs[collections.abc.Awaitable[typing.Any]]
+              isawaitable(object: object) -> typing.TypeIs[typing.Awaitable[typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L236>`__)
 
@@ -555,9 +555,9 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isasyncgenfunction(object)
-              isasyncgenfunction(obj: (...) -> collections.abc.AsyncGenerator[typing.Any, typing.Any]) -> bool
-              isasyncgenfunction(obj: (ParamSpec(_P)) -> typing.Any) -> TypeGuard[(ParamSpec(_P)) -> AsyncGeneratorType[typing.Any, typing.Any]]
-              isasyncgenfunction(obj: object) -> TypeGuard[(...) -> AsyncGeneratorType[typing.Any, typing.Any]]
+              isasyncgenfunction(obj: (...) -> typing.AsyncGenerator[typing.Any, typing.Any]) -> bool
+              isasyncgenfunction(obj: (ParamSpec(_P)) -> typing.Any) -> typing.TypeGuard[(ParamSpec(_P)) -> types.AsyncGeneratorType[typing.Any, typing.Any]]
+              isasyncgenfunction(obj: object) -> typing.TypeGuard[(...) -> types.AsyncGeneratorType[typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L238>`__)
 
@@ -583,7 +583,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
       if the wrapped function is a :term:`coroutine function`.
 
 .. function:: isasyncgen(object)
-              isasyncgen(object: object) -> TypeIs[AsyncGeneratorType[typing.Any, typing.Any]]
+              isasyncgen(object: object) -> typing.TypeIs[types.AsyncGeneratorType[typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L251>`__)
 
@@ -593,7 +593,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
    .. versionadded:: 3.6
 
 .. function:: istraceback(object)
-              istraceback(object: object) -> TypeIs[TracebackType]
+              istraceback(object: object) -> typing.TypeIs[types.TracebackType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L252>`__)
 
@@ -601,7 +601,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isframe(object)
-              isframe(object: object) -> TypeIs[FrameType]
+              isframe(object: object) -> typing.TypeIs[types.FrameType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L253>`__)
 
@@ -609,7 +609,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: iscode(object)
-              iscode(object: object) -> TypeIs[CodeType]
+              iscode(object: object) -> typing.TypeIs[types.CodeType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L254>`__)
 
@@ -617,7 +617,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isbuiltin(object)
-              isbuiltin(object: object) -> TypeIs[BuiltinFunctionType]
+              isbuiltin(object: object) -> typing.TypeIs[types.BuiltinFunctionType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L255>`__)
 
@@ -625,7 +625,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: ismethodwrapper(object)
-              ismethodwrapper(object: object) -> TypeIs[MethodWrapperType]
+              ismethodwrapper(object: object) -> typing.TypeIs[types.MethodWrapperType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L258>`__)
 
@@ -638,7 +638,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isroutine(object)
-              isroutine(object: object) -> TypeIs[BuiltinFunctionType | ClassMethodDescriptorType | FunctionType | MethodDescriptorType | MethodType | WrapperDescriptorType]
+              isroutine(object: object) -> typing.TypeIs[types.BuiltinFunctionType | types.ClassMethodDescriptorType | types.FunctionType | types.MethodDescriptorType | types.MethodType | types.WrapperDescriptorType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L260>`__)
 
@@ -654,7 +654,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: ismethoddescriptor(object)
-              ismethoddescriptor(object: object) -> TypeIs[MethodDescriptorType]
+              ismethoddescriptor(object: object) -> typing.TypeIs[types.MethodDescriptorType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L272>`__)
 
@@ -681,7 +681,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isdatadescriptor(object)
-              isdatadescriptor(object: object) -> TypeIs[_SupportsDelete[typing.Any] | _SupportsSet[typing.Any, typing.Any]]
+              isdatadescriptor(object: object) -> typing.TypeIs[inspect._SupportsDelete[typing.Any] | inspect._SupportsSet[typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L276>`__)
 
@@ -697,7 +697,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isgetsetdescriptor(object)
-              isgetsetdescriptor(object: object) -> TypeIs[GetSetDescriptorType]
+              isgetsetdescriptor(object: object) -> typing.TypeIs[types.GetSetDescriptorType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L275>`__)
 
@@ -711,7 +711,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: ismemberdescriptor(object)
-              ismemberdescriptor(object: object) -> TypeIs[MemberDescriptorType]
+              ismemberdescriptor(object: object) -> typing.TypeIs[types.MemberDescriptorType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L273>`__)
 
@@ -779,7 +779,7 @@ Retrieving source code
 
 
 .. function:: getmodule(object)
-              getmodule(object: object, _filename: str | None = None) -> ModuleType | None
+              getmodule(object: object, _filename: str | None = None) -> types.ModuleType | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L299>`__)
 
@@ -861,7 +861,7 @@ use the :func:`!signature`
 function.
 
 .. function:: signature(callable, *, follow_wrapped=True, globals=None, locals=None, eval_str=False, annotation_format=Format.VALUE)
-              signature(obj: (...) -> typing.Any, *, follow_wrapped: bool = True, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: Format = Format.VALUE) -> Signature
+              signature(obj: (...) -> typing.Any, *, follow_wrapped: bool = True, globals: typing.Mapping[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L312>`__)
 
@@ -938,7 +938,7 @@ function.
 
 
 .. class:: Signature(parameters=None, *, return_annotation=Signature.empty)
-           Signature(parameters: collections.abc.Sequence[Parameter] | None = None, *, return_annotation: typing.Any = ..., __validate_parameters__: bool = True) -> None
+           Signature(parameters: typing.Sequence[inspect.Parameter] | None = None, *, return_annotation: typing.Any = ..., __validate_parameters__: bool = True) -> inspect.Signature
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L338>`__)
 
@@ -963,14 +963,14 @@ function.
       :class:`!Signature` objects are now picklable and :term:`hashable`.
 
    .. attribute:: Signature.empty
-      :type: (self: _empty) -> None
+      :type: (self: inspect._empty) -> inspect._empty
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L343>`__)
 
       A special class-level marker to specify absence of a return annotation.
 
    .. attribute:: Signature.parameters
-      :type: parameters(self: Signature) -> MappingProxyType[str, Parameter]
+      :type: parameters(self: inspect.Signature) -> types.MappingProxyType[str, inspect.Parameter]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L345>`__)
 
@@ -984,7 +984,7 @@ function.
          this order had always been preserved in Python 3.
 
    .. attribute:: Signature.return_annotation
-      :type: return_annotation(self: Signature) -> typing.Any
+      :type: return_annotation(self: inspect.Signature) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L347>`__)
 
@@ -992,7 +992,7 @@ function.
       annotation, this attribute is set to :attr:`Signature.empty`.
 
    .. method:: Signature.bind(*args, **kwargs)
-               Signature.bind(*args: typing.Any, **kwargs: typing.Any) -> BoundArguments
+               Signature.bind(*args: typing.Any, **kwargs: typing.Any) -> inspect.BoundArguments
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L348>`__)
 
@@ -1001,7 +1001,7 @@ function.
       signature, or raises a :exc:`TypeError`.
 
    .. method:: Signature.bind_partial(*args, **kwargs)
-               Signature.bind_partial(*args: typing.Any, **kwargs: typing.Any) -> BoundArguments
+               Signature.bind_partial(*args: typing.Any, **kwargs: typing.Any) -> inspect.BoundArguments
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L349>`__)
 
@@ -1011,7 +1011,7 @@ function.
       passed arguments do not match the signature.
 
    .. method:: Signature.replace(*[, parameters][, return_annotation])
-               Signature.replace(*, parameters: collections.abc.Sequence[Parameter] | type[_void] | None = ..., return_annotation: typing.Any = ...) -> Signature
+               Signature.replace(*, parameters: typing.Sequence[inspect.Parameter] | type[inspect._void] | None = ..., return_annotation: typing.Any = ...) -> inspect.Signature
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L350>`__)
 
@@ -1060,7 +1060,7 @@ function.
          The *unquote_annotations* parameter was added.
 
    .. classmethod:: Signature.from_callable(obj, *, follow_wrapped=True, globals=None, locals=None, eval_str=False)
-                    Signature.from_callable(cls: type[Signature], obj: (...) -> typing.Any, *, follow_wrapped: bool = True, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: Format = Format.VALUE) -> Signature
+                    Signature.from_callable(cls: type[inspect.Signature], obj: (...) -> typing.Any, *, follow_wrapped: bool = True, globals: typing.Mapping[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L354>`__)
 
@@ -1085,7 +1085,7 @@ function.
 
 
 .. class:: Parameter(name, kind, *, default=Parameter.empty, annotation=Parameter.empty)
-           Parameter(name: str, kind: _ParameterKind, *, default: typing.Any = ..., annotation: typing.Any = ...) -> None
+           Parameter(name: str, kind: inspect._ParameterKind, *, default: typing.Any = ..., annotation: typing.Any = ...) -> inspect.Parameter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L419>`__)
 
@@ -1097,7 +1097,7 @@ function.
       Parameter objects are now picklable and :term:`hashable`.
 
    .. attribute:: Parameter.empty
-      :type: (self: _empty) -> None
+      :type: (self: inspect._empty) -> inspect._empty
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L422>`__)
 
@@ -1105,7 +1105,7 @@ function.
       annotations.
 
    .. attribute:: Parameter.name
-      :type: name(self: Parameter) -> str
+      :type: name(self: inspect.Parameter) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L430>`__)
 
@@ -1123,7 +1123,7 @@ function.
             ``implicit0``.
 
    .. attribute:: Parameter.default
-      :type: default(self: Parameter) -> typing.Any
+      :type: default(self: inspect.Parameter) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L432>`__)
 
@@ -1131,7 +1131,7 @@ function.
       value, this attribute is set to :attr:`Parameter.empty`.
 
    .. attribute:: Parameter.annotation
-      :type: annotation(self: Parameter) -> typing.Any
+      :type: annotation(self: inspect.Parameter) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L436>`__)
 
@@ -1139,7 +1139,7 @@ function.
       this attribute is set to :attr:`Parameter.empty`.
 
    .. attribute:: Parameter.kind
-      :type: kind(self: Parameter) -> _ParameterKind
+      :type: kind(self: inspect.Parameter) -> inspect._ParameterKind
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L434>`__)
 
@@ -1217,7 +1217,7 @@ function.
          keyword-only
 
    .. method:: Parameter.replace(*[, name][, kind][, default][, annotation])
-               Parameter.replace(*, name: str | type[_void] = ..., kind: _ParameterKind | type[_void] = ..., default: typing.Any = ..., annotation: typing.Any = ...) -> Parameter
+               Parameter.replace(*, name: str | type[inspect._void] = ..., kind: inspect._ParameterKind | type[inspect._void] = ..., default: typing.Any = ..., annotation: typing.Any = ...) -> inspect.Parameter
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L437>`__)
 
@@ -1248,7 +1248,7 @@ function.
       This is no longer permitted.
 
 .. class:: BoundArguments
-           BoundArguments(signature: Signature, arguments: collections.abc.OrderedDict[str, typing.Any]) -> None
+           BoundArguments(signature: inspect.Signature, arguments: collections.OrderedDict[str, typing.Any]) -> inspect.BoundArguments
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L451>`__)
 
@@ -1256,7 +1256,7 @@ function.
    Holds the mapping of arguments to the function's parameters.
 
    .. attribute:: BoundArguments.arguments
-      :type: collections.abc.OrderedDict[str, typing.Any]
+      :type: collections.OrderedDict[str, typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L453>`__)
 
@@ -1279,7 +1279,7 @@ function.
          type :class:`collections.OrderedDict`.
 
    .. attribute:: BoundArguments.args
-      :type: args(self: BoundArguments) -> tuple[typing.Any, ...]
+      :type: args(self: inspect.BoundArguments) -> tuple[typing.Any, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L455>`__)
 
@@ -1287,7 +1287,7 @@ function.
       :attr:`arguments` attribute.
 
    .. attribute:: BoundArguments.kwargs
-      :type: kwargs(self: BoundArguments) -> dict[str, typing.Any]
+      :type: kwargs(self: inspect.BoundArguments) -> dict[str, typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L457>`__)
 
@@ -1296,7 +1296,7 @@ function.
       are included in :attr:`args` instead.
 
    .. attribute:: BoundArguments.signature
-      :type: signature(self: BoundArguments) -> Signature
+      :type: signature(self: inspect.BoundArguments) -> inspect.Signature
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L459>`__)
 
@@ -1350,7 +1350,7 @@ Classes and functions
 ---------------------
 
 .. function:: getclasstree(classes, unique=False)
-              getclasstree(classes: list[type[typing.Any]], unique: bool = False) -> _ClassTreeItem
+              getclasstree(classes: list[type[Any]], unique: bool = False) -> _ClassTreeItem
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L471>`__)
 
@@ -1364,7 +1364,7 @@ Classes and functions
 
 
 .. function:: getfullargspec(func)
-              getfullargspec(func: object) -> FullArgSpec
+              getfullargspec(func: object) -> inspect.FullArgSpec
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L501>`__)
 
@@ -1415,7 +1415,7 @@ Classes and functions
 
 
 .. function:: getargvalues(frame)
-              getargvalues(frame: FrameType) -> ArgInfo
+              getargvalues(frame: types.FrameType) -> inspect.ArgInfo
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L509>`__)
 
@@ -1430,7 +1430,7 @@ Classes and functions
 
 
 .. function:: formatargvalues(args[, varargs, varkw, locals, formatarg, formatvarargs, formatvarkw, formatvalue])
-              formatargvalues(args: list[str], varargs: str | None, varkw: str | None, locals: collections.abc.Mapping[str, typing.Any] | None, formatarg: ((str) -> str) | None = ..., formatvarargs: ((str) -> str) | None = ..., formatvarkw: ((str) -> str) | None = ..., formatvalue: ((typing.Any) -> str) | None = ...) -> str
+              formatargvalues(args: list[str], varargs: str | None, varkw: str | None, locals: typing.Mapping[str, typing.Any] | None, formatarg: ((str) -> str) | None = ..., formatvarargs: ((str) -> str) | None = ..., formatvarkw: ((str) -> str) | None = ..., formatvalue: ((typing.Any) -> str) | None = ...) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L539>`__)
 
@@ -1443,7 +1443,7 @@ Classes and functions
 
 
 .. function:: getmro(cls)
-              getmro(cls: type[typing.Any]) -> tuple[type[typing.Any], ...]
+              getmro(cls: type[Any]) -> tuple[type[Any], ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L549>`__)
 
@@ -1489,7 +1489,7 @@ Classes and functions
 
 
 .. function:: getclosurevars(func)
-              getclosurevars(func: (...) -> typing.Any) -> ClosureVars
+              getclosurevars(func: (...) -> typing.Any) -> inspect.ClosureVars
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L559>`__)
 
@@ -1528,9 +1528,9 @@ Classes and functions
 
 
 .. function:: get_annotations(obj, *, globals=None, locals=None, eval_str=False, format=annotationlib.Format.VALUE)
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[Format.STRING]) -> dict[str, str]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: Format = Format.VALUE) -> dict[str, typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.STRING]) -> dict[str, str]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L119>`__)
 
@@ -1562,12 +1562,12 @@ tuple-like operations on all attributes except ``positions``. This behavior
 is considered deprecated and may be removed in the future.
 
 .. class:: FrameInfo
-           FrameInfo(frame: FrameType, filename: str, lineno: int, function: str, code_context: list[str] | None, index: int | None) -> None
+           FrameInfo(frame: types.FrameType, filename: str, lineno: int, function: str, code_context: list[str] | None, index: int | None) -> inspect.FrameInfo
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L596>`__)
 
    .. attribute:: frame
-      :type: FrameType
+      :type: types.FrameType
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L575>`__)
 
@@ -1612,7 +1612,7 @@ is considered deprecated and may be removed in the future.
       The index of the current line being executed in the :attr:`code_context` list.
 
    .. attribute:: positions
-      :type: Positions | None
+      :type: dis.Positions | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L597>`__)
 
@@ -1629,7 +1629,7 @@ is considered deprecated and may be removed in the future.
 
 
 .. class:: Traceback
-           Traceback(filename: str, lineno: int, function: str, code_context: list[str] | None, index: int | None) -> None
+           Traceback(filename: str, lineno: int, function: str, code_context: list[str] | None, index: int | None) -> inspect.Traceback
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L583>`__)
 
@@ -1672,7 +1672,7 @@ is considered deprecated and may be removed in the future.
       The index of the current line being executed in the :attr:`code_context` list.
 
    .. attribute:: positions
-      :type: Positions | None
+      :type: dis.Positions | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L584>`__)
 
@@ -1718,7 +1718,7 @@ line.
 
 
 .. function:: getframeinfo(frame, context=1)
-              getframeinfo(frame: FrameType | TracebackType, context: int = 1) -> Traceback
+              getframeinfo(frame: types.FrameType | types.TracebackType, context: int = 1) -> inspect.Traceback
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L656>`__)
 
@@ -1729,7 +1729,7 @@ line.
       A :class:`Traceback` object is returned instead of a named tuple.
 
 .. function:: getouterframes(frame, context=1)
-              getouterframes(frame: typing.Any, context: int = 1) -> list[FrameInfo]
+              getouterframes(frame: typing.Any, context: int = 1) -> list[inspect.FrameInfo]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L657>`__)
 
@@ -1747,7 +1747,7 @@ line.
       A list of :class:`FrameInfo` objects is returned.
 
 .. function:: getinnerframes(traceback, context=1)
-              getinnerframes(tb: TracebackType, context: int = 1) -> list[FrameInfo]
+              getinnerframes(tb: types.TracebackType, context: int = 1) -> list[inspect.FrameInfo]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L658>`__)
 
@@ -1765,7 +1765,7 @@ line.
       A list of :class:`FrameInfo` objects is returned.
 
 .. function:: currentframe()
-              currentframe() -> FrameType | None
+              currentframe() -> types.FrameType | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L660>`__)
 
@@ -1780,7 +1780,7 @@ line.
 
 
 .. function:: stack(context=1)
-              stack(context: int = 1) -> list[FrameInfo]
+              stack(context: int = 1) -> list[inspect.FrameInfo]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L661>`__)
 
@@ -1797,7 +1797,7 @@ line.
       A list of :class:`FrameInfo` objects is returned.
 
 .. function:: trace(context=1)
-              trace(context: int = 1) -> list[FrameInfo]
+              trace(context: int = 1) -> list[inspect.FrameInfo]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L662>`__)
 
@@ -1887,7 +1887,7 @@ terminated. :func:`getgeneratorstate` allows the current state of a
 generator to be determined easily.
 
 .. function:: getgeneratorstate(generator)
-              getgeneratorstate(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> typing.Literal['GEN_CLOSED', 'GEN_CREATED', 'GEN_RUNNING', 'GEN_SUSPENDED']
+              getgeneratorstate(generator: typing.Generator[typing.Any, typing.Any, typing.Any]) -> typing.Literal['GEN_CLOSED', 'GEN_CREATED', 'GEN_RUNNING', 'GEN_SUSPENDED']
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L679>`__)
 
@@ -1903,7 +1903,7 @@ generator to be determined easily.
    .. versionadded:: 3.2
 
 .. function:: getcoroutinestate(coroutine)
-              getcoroutinestate(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> typing.Literal['CORO_CLOSED', 'CORO_CREATED', 'CORO_RUNNING', 'CORO_SUSPENDED']
+              getcoroutinestate(coroutine: typing.Coroutine[typing.Any, typing.Any, typing.Any]) -> typing.Literal['CORO_CLOSED', 'CORO_CREATED', 'CORO_RUNNING', 'CORO_SUSPENDED']
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L688>`__)
 
@@ -1922,7 +1922,7 @@ generator to be determined easily.
    .. versionadded:: 3.5
 
 .. function:: getasyncgenstate(agen)
-              getasyncgenstate(agen: collections.abc.AsyncGenerator[typing.Any, typing.Any]) -> typing.Literal['AGEN_CLOSED', 'AGEN_CREATED', 'AGEN_RUNNING', 'AGEN_SUSPENDED']
+              getasyncgenstate(agen: typing.AsyncGenerator[typing.Any, typing.Any]) -> typing.Literal['AGEN_CLOSED', 'AGEN_CREATED', 'AGEN_RUNNING', 'AGEN_SUSPENDED']
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L414>`__)
 
@@ -1946,7 +1946,7 @@ mostly useful for testing purposes, to ensure that internal state is being
 updated as expected:
 
 .. function:: getgeneratorlocals(generator)
-              getgeneratorlocals(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
+              getgeneratorlocals(generator: typing.Generator[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L691>`__)
 
@@ -1969,7 +1969,7 @@ updated as expected:
    .. versionadded:: 3.3
 
 .. function:: getcoroutinelocals(coroutine)
-              getcoroutinelocals(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
+              getcoroutinelocals(coroutine: typing.Coroutine[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L692>`__)
 
@@ -1979,7 +1979,7 @@ updated as expected:
    .. versionadded:: 3.5
 
 .. function:: getasyncgenlocals(agen)
-              getasyncgenlocals(agen: AsyncGeneratorType[typing.Any, typing.Any]) -> dict[str, typing.Any]
+              getasyncgenlocals(agen: types.AsyncGeneratorType[typing.Any, typing.Any]) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L417>`__)
 
@@ -2109,7 +2109,7 @@ Buffer flags
 ------------
 
 .. class:: BufferFlags
-           BufferFlags(value: int) -> BufferFlags
+           BufferFlags(value: int) -> inspect.BufferFlags
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L709>`__)
 
@@ -2120,97 +2120,97 @@ Buffer flags
    The meaning of the flags is explained at :ref:`buffer-request-types`.
 
    .. attribute:: BufferFlags.SIMPLE
-      :type: typing.Literal[BufferFlags.SIMPLE]
+      :type: typing.Literal[inspect.BufferFlags.SIMPLE]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L710>`__)
 
    .. attribute:: BufferFlags.WRITABLE
-      :type: typing.Literal[BufferFlags.WRITABLE]
+      :type: typing.Literal[inspect.BufferFlags.WRITABLE]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L711>`__)
 
    .. attribute:: BufferFlags.FORMAT
-      :type: typing.Literal[BufferFlags.FORMAT]
+      :type: typing.Literal[inspect.BufferFlags.FORMAT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L712>`__)
 
    .. attribute:: BufferFlags.ND
-      :type: typing.Literal[BufferFlags.ND]
+      :type: typing.Literal[inspect.BufferFlags.ND]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L713>`__)
 
    .. attribute:: BufferFlags.STRIDES
-      :type: typing.Literal[BufferFlags.STRIDES]
+      :type: typing.Literal[inspect.BufferFlags.STRIDES]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L714>`__)
 
    .. attribute:: BufferFlags.C_CONTIGUOUS
-      :type: typing.Literal[BufferFlags.C_CONTIGUOUS]
+      :type: typing.Literal[inspect.BufferFlags.C_CONTIGUOUS]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L715>`__)
 
    .. attribute:: BufferFlags.F_CONTIGUOUS
-      :type: typing.Literal[BufferFlags.F_CONTIGUOUS]
+      :type: typing.Literal[inspect.BufferFlags.F_CONTIGUOUS]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L716>`__)
 
    .. attribute:: BufferFlags.ANY_CONTIGUOUS
-      :type: typing.Literal[BufferFlags.ANY_CONTIGUOUS]
+      :type: typing.Literal[inspect.BufferFlags.ANY_CONTIGUOUS]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L717>`__)
 
    .. attribute:: BufferFlags.INDIRECT
-      :type: typing.Literal[BufferFlags.INDIRECT]
+      :type: typing.Literal[inspect.BufferFlags.INDIRECT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L718>`__)
 
    .. attribute:: BufferFlags.CONTIG
-      :type: typing.Literal[BufferFlags.CONTIG]
+      :type: typing.Literal[inspect.BufferFlags.CONTIG]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L719>`__)
 
    .. attribute:: BufferFlags.CONTIG_RO
-      :type: typing.Literal[BufferFlags.CONTIG_RO]
+      :type: typing.Literal[inspect.BufferFlags.CONTIG_RO]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L720>`__)
 
    .. attribute:: BufferFlags.STRIDED
-      :type: typing.Literal[BufferFlags.STRIDED]
+      :type: typing.Literal[inspect.BufferFlags.STRIDED]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L721>`__)
 
    .. attribute:: BufferFlags.STRIDED_RO
-      :type: typing.Literal[BufferFlags.STRIDED_RO]
+      :type: typing.Literal[inspect.BufferFlags.STRIDED_RO]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L722>`__)
 
    .. attribute:: BufferFlags.RECORDS
-      :type: typing.Literal[BufferFlags.RECORDS]
+      :type: typing.Literal[inspect.BufferFlags.RECORDS]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L723>`__)
 
    .. attribute:: BufferFlags.RECORDS_RO
-      :type: typing.Literal[BufferFlags.RECORDS_RO]
+      :type: typing.Literal[inspect.BufferFlags.RECORDS_RO]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L724>`__)
 
    .. attribute:: BufferFlags.FULL
-      :type: typing.Literal[BufferFlags.FULL]
+      :type: typing.Literal[inspect.BufferFlags.FULL]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L725>`__)
 
    .. attribute:: BufferFlags.FULL_RO
-      :type: typing.Literal[BufferFlags.FULL_RO]
+      :type: typing.Literal[inspect.BufferFlags.FULL_RO]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L726>`__)
 
    .. attribute:: BufferFlags.READ
-      :type: typing.Literal[BufferFlags.READ]
+      :type: typing.Literal[inspect.BufferFlags.READ]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L727>`__)
 
    .. attribute:: BufferFlags.WRITE
-      :type: typing.Literal[BufferFlags.WRITE]
+      :type: typing.Literal[inspect.BufferFlags.WRITE]
 
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/inspect.pyi#L728>`__)

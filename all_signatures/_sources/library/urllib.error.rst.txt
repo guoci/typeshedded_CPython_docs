@@ -17,7 +17,7 @@ raised by :mod:`urllib.request`.  The base exception class is :exc:`URLError`.
 The following exceptions are raised by :mod:`urllib.error` as appropriate:
 
 .. exception:: URLError
-               URLError(reason: BaseException | str, filename: str | None = None) -> None
+               URLError(reason: BaseException | str, filename: str | None = None) -> urllib.error.URLError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/error.pyi#L7>`__)
 
@@ -38,7 +38,7 @@ The following exceptions are raised by :mod:`urllib.error` as appropriate:
 
 
 .. exception:: HTTPError(url, code, msg, hdrs, fp)
-               HTTPError(url: str, code: int, msg: str, hdrs: email.message.Message[str, str], fp: IO[bytes] | None) -> None
+               HTTPError(url: str, code: int, msg: str, hdrs: email.message.Message[str, str], fp: typing.IO[bytes] | None) -> urllib.error.HTTPError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/error.pyi#L13>`__)
 
@@ -66,7 +66,7 @@ The following exceptions are raised by :mod:`urllib.error` as appropriate:
       :attr:`http.server.BaseHTTPRequestHandler.responses`.
 
    .. attribute:: reason
-      :type: reason(self: HTTPError) -> str
+      :type: reason(self: urllib.error.HTTPError) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/error.pyi#L19>`__)
 
@@ -74,7 +74,7 @@ The following exceptions are raised by :mod:`urllib.error` as appropriate:
       An alias for *msg* attribute.
 
    .. attribute:: headers
-      :type: headers(self: HTTPError, headers: email.message.Message[str, str]) -> None
+      :type: headers(self: urllib.error.HTTPError, headers: email.message.Message[str, str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/error.pyi#L15>`__)
 
@@ -85,14 +85,14 @@ The following exceptions are raised by :mod:`urllib.error` as appropriate:
       .. versionadded:: 3.4
 
    .. attribute:: fp
-      :type: IO[bytes]
+      :type: typing.IO[bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/error.pyi#L23>`__)
 
       A file-like object where the HTTP error body can be read from.
 
 .. exception:: ContentTooShortError(msg, content)
-               ContentTooShortError(message: str, content: tuple[str, email.message.Message[str, str]]) -> None
+               ContentTooShortError(message: str, content: tuple[str, email.message.Message[str, str]]) -> urllib.error.ContentTooShortError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/error.pyi#L26>`__)
 

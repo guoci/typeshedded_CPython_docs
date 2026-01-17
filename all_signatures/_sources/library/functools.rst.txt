@@ -27,7 +27,7 @@ function for the purposes of this module.
 The :mod:`functools` module defines the following functions:
 
 .. decorator:: cache(user_function)
-               cache[_T](user_function: (...) -> _T, /) -> _lru_cache_wrapper[_T]
+               cache[_T](user_function: (...) -> _T, /) -> functools._lru_cache_wrapper[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L240>`__)
 
@@ -68,7 +68,7 @@ The :mod:`functools` module defines the following functions:
 
 
 .. decorator:: cached_property(func)
-               cached_property(func: (typing.Any) -> _T_co) -> None
+               cached_property(func: (typing.Any) -> _T_co) -> functools.cached_property
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L227>`__)
 
@@ -136,7 +136,7 @@ The :mod:`functools` module defines the following functions:
 
 
 .. function:: cmp_to_key(func)
-              cmp_to_key[_T](mycmp: (_T, _T) -> int) -> (_T) -> SupportsAllComparisons
+              cmp_to_key[_T](mycmp: (_T, _T) -> int) -> (_T) -> _typeshed.SupportsAllComparisons
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L152>`__)
 
@@ -163,8 +163,8 @@ The :mod:`functools` module defines the following functions:
 
 .. decorator:: lru_cache(user_function)
                lru_cache(maxsize=128, typed=False)
-               lru_cache(maxsize: int | None = 128, typed: bool = False) -> [_T]((...) -> _T) -> _lru_cache_wrapper[_T]
-               lru_cache(maxsize: (...) -> _T, typed: bool = False) -> _lru_cache_wrapper[_T]
+               lru_cache(maxsize: int | None = 128, typed: bool = False) -> [_T]((...) -> _T) -> functools._lru_cache_wrapper[_T]
+               lru_cache(maxsize: (...) -> _T, typed: bool = False) -> functools._lru_cache_wrapper[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L67>`__)
 
@@ -217,7 +217,7 @@ The :mod:`functools` module defines the following functions:
    has no effect.
 
    .. method:: lru_cache.cache_info()
-               lru_cache.cache_info() -> _CacheInfo
+               lru_cache.cache_info() -> functools._CacheInfo
       :no-typesetting:
 
 
@@ -363,7 +363,7 @@ The :mod:`functools` module defines the following functions:
       unrecognised types is now supported.
 
 .. data:: Placeholder
-   :type: _PlaceholderType
+   :type: functools._PlaceholderType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L256>`__)
 
@@ -374,7 +374,7 @@ The :mod:`functools` module defines the following functions:
    .. versionadded:: 3.14
 
 .. function:: partial(func, /, *args, **keywords)
-              partial(func: (...) -> _T, /, *args: typing.Any, **kwargs: typing.Any) -> partial[_T]
+              partial(func: (...) -> _T, /, *args: typing.Any, **kwargs: typing.Any) -> functools.partial[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L154>`__)
 
@@ -449,8 +449,8 @@ The :mod:`functools` module defines the following functions:
       Added support for :data:`Placeholder` in positional arguments.
 
 .. class:: partialmethod(func, /, *args, **keywords)
-           partialmethod(func: (...) -> _T, /, *args: typing.Any, **keywords: typing.Any) -> partialmethod[_T]
-           partialmethod(func: typing.Any, /, *args: typing.Any, **keywords: typing.Any) -> partialmethod[_T]
+           partialmethod(func: (...) -> _T, /, *args: typing.Any, **keywords: typing.Any) -> functools.partialmethod[_T]
+           partialmethod(func: typing.Any, /, *args: typing.Any, **keywords: typing.Any) -> functools.partialmethod[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L168>`__)
 
@@ -497,8 +497,8 @@ The :mod:`functools` module defines the following functions:
 
 
 .. function:: reduce(function, iterable, /[, initial])
-              reduce(function: (_T, _S) -> _T, iterable: collections.abc.Iterable[_S], /, initial: _T) -> _T
-              reduce(function: (_T, _T) -> _T, iterable: collections.abc.Iterable[_T], /) -> _T
+              reduce(function: (_T, _S) -> _T, iterable: typing.Iterable[_S], /, initial: _T) -> _T
+              reduce(function: (_T, _T) -> _T, iterable: typing.Iterable[_T], /) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L36>`__)
 
@@ -532,7 +532,7 @@ The :mod:`functools` module defines the following functions:
       *initial* is now supported as a keyword argument.
 
 .. decorator:: singledispatch
-               singledispatch[_T](func: (...) -> _T) -> _SingleDispatchCallable[_T]
+               singledispatch[_T](func: (...) -> _T) -> functools._SingleDispatchCallable[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L211>`__)
 
@@ -718,7 +718,7 @@ The :mod:`functools` module defines the following functions:
 
 
 .. class:: singledispatchmethod(func)
-           singledispatchmethod(func: (...) -> _T) -> None
+           singledispatchmethod(func: (...) -> _T) -> functools.singledispatchmethod
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L213>`__)
 
@@ -775,7 +775,7 @@ The :mod:`functools` module defines the following functions:
 
 
 .. function:: update_wrapper(wrapper, wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
-              update_wrapper[_PWrapper, _RWrapper, _PWrapped, _RWrapped](wrapper: (ParamSpec(_PWrapper)) -> _RWrapper, wrapped: (ParamSpec(_PWrapped)) -> _RWrapped, assigned: collections.abc.Iterable[str] = ..., updated: collections.abc.Iterable[str] = ...) -> _Wrapped[_PWrapped, _RWrapped, _PWrapper, _RWrapper]
+              update_wrapper[_PWrapper, _RWrapper, _PWrapped, _RWrapped](wrapper: (ParamSpec(_PWrapper)) -> _RWrapper, wrapped: (ParamSpec(_PWrapped)) -> _RWrapped, assigned: typing.Iterable[str] = ..., updated: typing.Iterable[str] = ...) -> functools._Wrapped[_PWrapped, _RWrapped, _PWrapper, _RWrapper]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L113>`__)
 
@@ -823,7 +823,7 @@ The :mod:`functools` module defines the following functions:
 
 
 .. decorator:: wraps(wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
-               wraps[_PWrapped, _RWrapped](wrapped: (ParamSpec(_PWrapped)) -> _RWrapped, assigned: collections.abc.Iterable[str] = ..., updated: collections.abc.Iterable[str] = ...) -> _Wrapper[_PWrapped, _RWrapped]
+               wraps[_PWrapped, _RWrapped](wrapped: (ParamSpec(_PWrapped)) -> _RWrapped, assigned: typing.Iterable[str] = ..., updated: typing.Iterable[str] = ...) -> functools._Wrapper[_PWrapped, _RWrapped]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L119>`__)
 
@@ -868,7 +868,7 @@ have three read-only attributes:
 
 
 .. attribute:: partial.func
-   :type: func[_T](self: partial[_T]) -> (...) -> _T
+   :type: func[_T](self: functools.partial[_T]) -> (...) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L156>`__)
 
@@ -877,7 +877,7 @@ have three read-only attributes:
 
 
 .. attribute:: partial.args
-   :type: args[_T](self: partial[_T]) -> tuple[typing.Any, ...]
+   :type: args[_T](self: functools.partial[_T]) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L158>`__)
 
@@ -886,7 +886,7 @@ have three read-only attributes:
 
 
 .. attribute:: partial.keywords
-   :type: keywords[_T](self: partial[_T]) -> dict[str, typing.Any]
+   :type: keywords[_T](self: functools.partial[_T]) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/functools.pyi#L160>`__)
 

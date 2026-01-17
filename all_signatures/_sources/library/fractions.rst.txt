@@ -22,9 +22,9 @@ a single number, or from a string.
 .. class:: Fraction(numerator=0, denominator=1)
            Fraction(number)
            Fraction(string)
-           Fraction(numerator: Rational | int = 0, denominator: Rational | int | None = None) -> Fraction
-           Fraction(numerator: Decimal | float | str) -> Fraction
-           Fraction(numerator: _ConvertibleToIntegerRatio) -> Fraction
+           Fraction(numerator: numbers.Rational | int = 0, denominator: numbers.Rational | int | None = None) -> fractions.Fraction
+           Fraction(numerator: decimal.Decimal | float | str) -> fractions.Fraction
+           Fraction(numerator: fractions._ConvertibleToIntegerRatio) -> fractions.Fraction
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L16>`__)
 
@@ -125,14 +125,14 @@ a single number, or from a string.
       :meth:`!as_integer_ratio` method.
 
    .. attribute:: numerator
-      :type: numerator(a: Fraction) -> int
+      :type: numerator(a: fractions.Fraction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L37>`__)
 
       Numerator of the Fraction in lowest term.
 
    .. attribute:: denominator
-      :type: denominator(a: Fraction) -> int
+      :type: denominator(a: fractions.Fraction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L39>`__)
 
@@ -161,7 +161,7 @@ a single number, or from a string.
       .. versionadded:: 3.12
 
    .. classmethod:: from_float(f)
-                    from_float(cls: type[Fraction], f: float) -> Fraction
+                    from_float(cls: type[fractions.Fraction], f: float) -> fractions.Fraction
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L28>`__)
 
@@ -176,7 +176,7 @@ a single number, or from a string.
 
 
    .. classmethod:: from_decimal(dec)
-                    from_decimal(cls: type[Fraction], dec: Decimal) -> Fraction
+                    from_decimal(cls: type[fractions.Fraction], dec: decimal.Decimal) -> fractions.Fraction
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L30>`__)
 
@@ -191,7 +191,7 @@ a single number, or from a string.
 
 
    .. classmethod:: from_number(number)
-                    from_number(cls: type[Fraction], number: Rational | _ConvertibleToIntegerRatio | float) -> Fraction
+                    from_number(cls: type[fractions.Fraction], number: numbers.Rational | fractions._ConvertibleToIntegerRatio | float) -> fractions.Fraction
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L167>`__)
 
@@ -204,7 +204,7 @@ a single number, or from a string.
 
 
    .. method:: limit_denominator(max_denominator=1000000)
-               limit_denominator(max_denominator: int = 1000000) -> Fraction
+               limit_denominator(max_denominator: int = 1000000) -> fractions.Fraction
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L31>`__)
 
@@ -228,7 +228,7 @@ a single number, or from a string.
 
 
    .. method:: __floor__()
-               __floor__(a: Fraction) -> int
+               __floor__(a: fractions.Fraction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L141>`__)
 
@@ -241,7 +241,7 @@ a single number, or from a string.
 
 
    .. method:: __ceil__()
-               __ceil__(a: Fraction) -> int
+               __ceil__(a: fractions.Fraction) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L142>`__)
 
@@ -252,7 +252,7 @@ a single number, or from a string.
    .. method:: __round__()
                __round__(ndigits)
                __round__(ndigits: None = None) -> int
-               __round__(ndigits: int) -> Fraction
+               __round__(ndigits: int) -> fractions.Fraction
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fractions.pyi#L144>`__)
 

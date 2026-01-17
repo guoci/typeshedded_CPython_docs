@@ -18,7 +18,7 @@ a new  parser object.
 
 
 .. class:: XMLReader()
-           XMLReader() -> None
+           XMLReader() -> xml.sax.xmlreader.XMLReader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L8>`__)
 
@@ -26,7 +26,7 @@ a new  parser object.
 
 
 .. class:: IncrementalParser()
-           IncrementalParser(bufsize: int = 65536) -> None
+           IncrementalParser(bufsize: int = 65536) -> xml.sax.xmlreader.IncrementalParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L24>`__)
 
@@ -50,7 +50,7 @@ a new  parser object.
 
 
 .. class:: Locator()
-           Locator() -> None
+           Locator() -> xml.sax.xmlreader.Locator
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L32>`__)
 
@@ -61,7 +61,7 @@ a new  parser object.
 
 
 .. class:: InputSource(system_id=None)
-           InputSource(system_id: str | None = None) -> None
+           InputSource(system_id: str | None = None) -> xml.sax.xmlreader.InputSource
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L38>`__)
 
@@ -82,7 +82,7 @@ a new  parser object.
 
 
 .. class:: AttributesImpl(attrs)
-           AttributesImpl(attrs: collections.abc.Mapping[_AttrKey, str]) -> None
+           AttributesImpl(attrs: typing.Mapping[_AttrKey, str]) -> xml.sax.xmlreader.AttributesImpl
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L53>`__)
 
@@ -96,7 +96,7 @@ a new  parser object.
 
 
 .. class:: AttributesNSImpl(attrs, qnames)
-           AttributesNSImpl(attrs: collections.abc.Mapping[tuple[str | None, str], str], qnames: collections.abc.Mapping[tuple[str | None, str], str]) -> None
+           AttributesNSImpl(attrs: typing.Mapping[tuple[str | None, str], str], qnames: typing.Mapping[tuple[str | None, str], str]) -> xml.sax.xmlreader.AttributesNSImpl
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L77>`__)
 
@@ -117,7 +117,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.parse(source)
-            XMLReader.parse(source: InputSource | PathLike[str] | _SupportsReadClose[bytes] | _SupportsReadClose[str] | str) -> None
+            XMLReader.parse(source: xml.sax.xmlreader.InputSource | os.PathLike[str] | xml.sax._SupportsReadClose[bytes] | xml.sax._SupportsReadClose[str] | str) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L9>`__)
 
@@ -136,7 +136,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.getContentHandler()
-            XMLReader.getContentHandler() -> _ContentHandlerProtocol
+            XMLReader.getContentHandler() -> xml.sax.handler._ContentHandlerProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L10>`__)
 
@@ -144,7 +144,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.setContentHandler(handler)
-            XMLReader.setContentHandler(handler: _ContentHandlerProtocol) -> None
+            XMLReader.setContentHandler(handler: xml.sax.handler._ContentHandlerProtocol) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L11>`__)
 
@@ -154,7 +154,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.getDTDHandler()
-            XMLReader.getDTDHandler() -> _DTDHandlerProtocol
+            XMLReader.getDTDHandler() -> xml.sax.handler._DTDHandlerProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L12>`__)
 
@@ -162,7 +162,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.setDTDHandler(handler)
-            XMLReader.setDTDHandler(handler: _DTDHandlerProtocol) -> None
+            XMLReader.setDTDHandler(handler: xml.sax.handler._DTDHandlerProtocol) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L13>`__)
 
@@ -172,7 +172,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.getEntityResolver()
-            XMLReader.getEntityResolver() -> _EntityResolverProtocol
+            XMLReader.getEntityResolver() -> xml.sax.handler._EntityResolverProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L14>`__)
 
@@ -180,7 +180,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.setEntityResolver(handler)
-            XMLReader.setEntityResolver(resolver: _EntityResolverProtocol) -> None
+            XMLReader.setEntityResolver(resolver: xml.sax.handler._EntityResolverProtocol) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L15>`__)
 
@@ -191,7 +191,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.getErrorHandler()
-            XMLReader.getErrorHandler() -> _ErrorHandlerProtocol
+            XMLReader.getErrorHandler() -> xml.sax.handler._ErrorHandlerProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L16>`__)
 
@@ -199,7 +199,7 @@ The :class:`XMLReader` interface supports the following methods:
 
 
 .. method:: XMLReader.setErrorHandler(handler)
-            XMLReader.setErrorHandler(handler: _ErrorHandlerProtocol) -> None
+            XMLReader.setErrorHandler(handler: xml.sax.handler._ErrorHandlerProtocol) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L17>`__)
 
@@ -268,7 +268,7 @@ Instances of :class:`IncrementalParser` offer the following additional methods:
 
 
 .. method:: IncrementalParser.feed(data)
-            IncrementalParser.feed(data: Buffer | str) -> None
+            IncrementalParser.feed(data: _collections_abc.Buffer | str) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L27>`__)
 
@@ -396,7 +396,7 @@ InputSource Objects
 
 
 .. method:: InputSource.setByteStream(bytefile)
-            InputSource.setByteStream(bytefile: _SupportsReadClose[bytes] | None) -> None
+            InputSource.setByteStream(bytefile: xml.sax._SupportsReadClose[bytes] | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L46>`__)
 
@@ -410,7 +410,7 @@ InputSource Objects
 
 
 .. method:: InputSource.getByteStream()
-            InputSource.getByteStream() -> _SupportsReadClose[bytes] | None
+            InputSource.getByteStream() -> xml.sax._SupportsReadClose[bytes] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L47>`__)
 
@@ -421,7 +421,7 @@ InputSource Objects
 
 
 .. method:: InputSource.setCharacterStream(charfile)
-            InputSource.setCharacterStream(charfile: _SupportsReadClose[str] | None) -> None
+            InputSource.setCharacterStream(charfile: xml.sax._SupportsReadClose[str] | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L48>`__)
 
@@ -432,7 +432,7 @@ InputSource Objects
 
 
 .. method:: InputSource.getCharacterStream()
-            InputSource.getCharacterStream() -> _SupportsReadClose[str] | None
+            InputSource.getCharacterStream() -> xml.sax._SupportsReadClose[str] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/xmlreader.pyi#L49>`__)
 

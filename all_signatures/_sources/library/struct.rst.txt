@@ -51,7 +51,7 @@ The module defines the following exception and functions:
 
 
 .. exception:: error
-               error(*args: object) -> None
+               error(*args: object) -> struct.error
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/struct.pyi#L5>`__)
 
@@ -70,7 +70,7 @@ The module defines the following exception and functions:
 
 
 .. function:: pack_into(format, buffer, offset, v1, v2, ...)
-              pack_into(fmt: bytes | str, buffer: Buffer, offset: int, /, *v: typing.Any) -> None
+              pack_into(fmt: bytes | str, buffer: _collections_abc.Buffer, offset: int, /, *v: typing.Any) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L7>`__)
 
@@ -80,7 +80,7 @@ The module defines the following exception and functions:
 
 
 .. function:: unpack(format, buffer)
-              unpack(format: bytes | str, buffer: Buffer, /) -> tuple[typing.Any, ...]
+              unpack(format: bytes | str, buffer: _collections_abc.Buffer, /) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L8>`__)
 
@@ -91,7 +91,7 @@ The module defines the following exception and functions:
 
 
 .. function:: unpack_from(format, /, buffer, offset=0)
-              unpack_from(format: bytes | str, /, buffer: Buffer, offset: int = 0) -> tuple[typing.Any, ...]
+              unpack_from(format: bytes | str, /, buffer: _collections_abc.Buffer, offset: int = 0) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L9>`__)
 
@@ -102,7 +102,7 @@ The module defines the following exception and functions:
 
 
 .. function:: iter_unpack(format, buffer)
-              iter_unpack(format: bytes | str, buffer: Buffer, /) -> collections.abc.Iterator[tuple[typing.Any, ...]]
+              iter_unpack(format: bytes | str, buffer: _collections_abc.Buffer, /) -> typing.Iterator[tuple[typing.Any, ...]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L10>`__)
 
@@ -596,7 +596,7 @@ The :mod:`struct` module also defines the following type:
 
 
 .. class:: Struct(format)
-           Struct(format: bytes | str) -> None
+           Struct(format: bytes | str) -> _struct.Struct
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L13>`__)
 
@@ -624,7 +624,7 @@ The :mod:`struct` module also defines the following type:
 
 
    .. method:: pack_into(buffer, offset, v1, v2, ...)
-               pack_into(buffer: Buffer, offset: int, *v: typing.Any) -> None
+               pack_into(buffer: _collections_abc.Buffer, offset: int, *v: typing.Any) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L20>`__)
 
@@ -632,7 +632,7 @@ The :mod:`struct` module also defines the following type:
 
 
    .. method:: unpack(buffer)
-               unpack(buffer: Buffer, /) -> tuple[typing.Any, ...]
+               unpack(buffer: _collections_abc.Buffer, /) -> tuple[typing.Any, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L21>`__)
 
@@ -641,7 +641,7 @@ The :mod:`struct` module also defines the following type:
 
 
    .. method:: unpack_from(buffer, offset=0)
-               unpack_from(buffer: Buffer, offset: int = 0) -> tuple[typing.Any, ...]
+               unpack_from(buffer: _collections_abc.Buffer, offset: int = 0) -> tuple[typing.Any, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L22>`__)
 
@@ -651,7 +651,7 @@ The :mod:`struct` module also defines the following type:
 
 
    .. method:: iter_unpack(buffer)
-               iter_unpack(buffer: Buffer, /) -> collections.abc.Iterator[tuple[typing.Any, ...]]
+               iter_unpack(buffer: _collections_abc.Buffer, /) -> typing.Iterator[tuple[typing.Any, ...]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L23>`__)
 
@@ -661,7 +661,7 @@ The :mod:`struct` module also defines the following type:
       .. versionadded:: 3.4
 
    .. attribute:: format
-      :type: format(self: Struct) -> str
+      :type: format(self: _struct.Struct) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L15>`__)
 
@@ -671,7 +671,7 @@ The :mod:`struct` module also defines the following type:
          The format string type is now :class:`str` instead of :class:`bytes`.
 
    .. attribute:: size
-      :type: size(self: Struct) -> int
+      :type: size(self: _struct.Struct) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_struct.pyi#L17>`__)
 

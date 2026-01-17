@@ -31,8 +31,8 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 -------------------------
 
 .. class:: Mailbox
-           Mailbox(path: StrPath, factory: (IO[typing.Any]) -> _MessageT, create: bool = True) -> None
-           Mailbox(path: StrPath, factory: None = None, create: bool = True) -> None
+           Mailbox(path: StrPath, factory: (typing.IO[typing.Any]) -> _MessageT, create: bool = True) -> mailbox.Mailbox
+           Mailbox(path: StrPath, factory: None = None, create: bool = True) -> mailbox.Mailbox
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L49>`__)
 
@@ -141,7 +141,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: iterkeys()
-               iterkeys[_MessageT]() -> collections.abc.Iterator[str]
+               iterkeys[_MessageT]() -> typing.Iterator[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L78>`__)
 
@@ -184,7 +184,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: iteritems()
-               iteritems[_MessageT]() -> collections.abc.Iterator[tuple[str, _MessageT]]
+               iteritems[_MessageT]() -> typing.Iterator[tuple[str, _MessageT]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L83>`__)
 
@@ -327,7 +327,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: update(arg)
-               update[_MessageT](arg: collections.abc.Iterable[tuple[str, _MessageData]] | _HasItems | _HasIteritems | None = None) -> None
+               update[_MessageT](arg: typing.Iterable[tuple[str, _MessageData]] | mailbox._HasItems | mailbox._HasIteritems | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L95>`__)
 
@@ -390,7 +390,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
 .. class:: Maildir(dirname, factory=None, create=True)
-           Maildir(dirname: StrPath, factory: ((IO[typing.Any]) -> MaildirMessage) | None = None, create: bool = True) -> None
+           Maildir(dirname: StrPath, factory: ((typing.IO[typing.Any]) -> mailbox.MaildirMessage) | None = None, create: bool = True) -> mailbox.Maildir
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L106>`__)
 
@@ -460,7 +460,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_folder(folder)
-               get_folder(folder: str) -> Maildir
+               get_folder(folder: str) -> mailbox.Maildir
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L133>`__)
 
@@ -470,7 +470,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: add_folder(folder)
-               add_folder(folder: str) -> Maildir
+               add_folder(folder: str) -> mailbox.Maildir
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L134>`__)
 
@@ -663,7 +663,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_file(key)
-               get_file(key: str) -> _ProxyFile[bytes]
+               get_file(key: str) -> mailbox._ProxyFile[bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L116>`__)
 
@@ -689,7 +689,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
 .. class:: mbox(path, factory=None, create=True)
-           mbox(path: StrPath, factory: ((IO[typing.Any]) -> mboxMessage) | None = None, create: bool = True) -> None
+           mbox(path: StrPath, factory: ((typing.IO[typing.Any]) -> mailbox.mboxMessage) | None = None, create: bool = True) -> mailbox.mbox
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L157>`__)
 
@@ -726,7 +726,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
       If *from_* is False, the first line of the file is dropped.
 
    .. method:: get_file(key, from_=False)
-               get_file(key: str, from_: bool = False) -> _PartialFile[bytes]
+               get_file(key: str, from_: bool = False) -> mailbox._PartialFile[bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L153>`__)
 
@@ -775,7 +775,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
 .. class:: MH(path, factory=None, create=True)
-           MH(path: StrPath, factory: ((IO[typing.Any]) -> MHMessage) | None = None, create: bool = True) -> None
+           MH(path: StrPath, factory: ((typing.IO[typing.Any]) -> mailbox.MHMessage) | None = None, create: bool = True) -> mailbox.MH
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L163>`__)
 
@@ -816,7 +816,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_folder(folder)
-               get_folder(folder: StrPath) -> MH
+               get_folder(folder: StrPath) -> mailbox.MH
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L179>`__)
 
@@ -826,7 +826,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: add_folder(folder)
-               add_folder(folder: StrPath) -> MH
+               add_folder(folder: StrPath) -> mailbox.MH
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L180>`__)
 
@@ -854,7 +854,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: set_sequences(sequences)
-               set_sequences(sequences: collections.abc.Mapping[str, collections.abc.Sequence[int]]) -> None
+               set_sequences(sequences: typing.Mapping[str, typing.Sequence[int]]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L183>`__)
 
@@ -903,7 +903,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_file(key)
-               get_file(key: str) -> _ProxyFile[bytes]
+               get_file(key: str) -> mailbox._ProxyFile[bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L170>`__)
 
@@ -946,7 +946,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
 .. class:: Babyl(path, factory=None, create=True)
-           Babyl(path: StrPath, factory: ((IO[typing.Any]) -> BabylMessage) | None = None, create: bool = True) -> None
+           Babyl(path: StrPath, factory: ((typing.IO[typing.Any]) -> mailbox.BabylMessage) | None = None, create: bool = True) -> mailbox.Babyl
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L186>`__)
 
@@ -995,7 +995,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: get_file(key)
-               get_file(key: str) -> IO[bytes]
+               get_file(key: str) -> typing.IO[bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L190>`__)
 
@@ -1033,7 +1033,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
 .. class:: MMDF(path, factory=None, create=True)
-           MMDF(path: StrPath, factory: ((IO[typing.Any]) -> MMDFMessage) | None = None, create: bool = True) -> None
+           MMDF(path: StrPath, factory: ((typing.IO[typing.Any]) -> mailbox.MMDFMessage) | None = None, create: bool = True) -> mailbox.MMDF
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L160>`__)
 
@@ -1067,7 +1067,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
       If *from_* is False, the first line of the file is dropped.
 
    .. method:: get_file(key, from_=False)
-               get_file(key: str, from_: bool = False) -> _PartialFile[bytes]
+               get_file(key: str, from_: bool = False) -> mailbox._PartialFile[bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L153>`__)
 
@@ -1106,7 +1106,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
 .. class:: Message(message=None)
-           Message(message: email.message.Message[str, str] | StringIO | _SupportsReadAndReadline | bytes | str | None = None) -> None
+           Message(message: email.message.Message[str, str] | _io.StringIO | mailbox._SupportsReadAndReadline | bytes | str | None = None) -> mailbox.Message
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L193>`__)
 
@@ -1147,7 +1147,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
 .. class:: MaildirMessage(message=None)
-           MaildirMessage(message: Message[str, str] | StringIO | _SupportsReadAndReadline | bytes | str | None = None) -> None
+           MaildirMessage(message: email.message.Message[str, str] | _io.StringIO | mailbox._SupportsReadAndReadline | bytes | str | None = None) -> mailbox.MaildirMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L196>`__)
 
@@ -1224,7 +1224,7 @@ Supported mailbox formats are Maildir, mbox, MH, Babyl, and MMDF.
 
 
    .. method:: set_flags(flags)
-               set_flags(flags: collections.abc.Iterable[str]) -> None
+               set_flags(flags: typing.Iterable[str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L200>`__)
 
@@ -1348,7 +1348,7 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
 .. class:: mboxMessage(message=None)
-           mboxMessage(message: Message[str, str] | StringIO | _SupportsReadAndReadline | bytes | str | None = None) -> None
+           mboxMessage(message: email.message.Message[str, str] | _io.StringIO | mailbox._SupportsReadAndReadline | bytes | str | None = None) -> mailbox.mboxMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L216>`__)
 
@@ -1421,7 +1421,7 @@ When a :class:`!MaildirMessage` instance is created based upon a
 
 
    .. method:: set_flags(flags)
-               set_flags(flags: collections.abc.Iterable[str]) -> None
+               set_flags(flags: typing.Iterable[str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L212>`__)
 
@@ -1524,7 +1524,7 @@ instance, the "From " line is copied and all flags directly correspond:
 
 
 .. class:: MHMessage(message=None)
-           MHMessage(message: Message[str, str] | StringIO | _SupportsReadAndReadline | bytes | str | None = None) -> None
+           MHMessage(message: email.message.Message[str, str] | _io.StringIO | mailbox._SupportsReadAndReadline | bytes | str | None = None) -> mailbox.MHMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L218>`__)
 
@@ -1559,7 +1559,7 @@ instance, the "From " line is copied and all flags directly correspond:
 
 
    .. method:: set_sequences(sequences)
-               set_sequences(sequences: collections.abc.Iterable[str]) -> None
+               set_sequences(sequences: typing.Iterable[str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L220>`__)
 
@@ -1629,7 +1629,7 @@ When an :class:`!MHMessage` instance is created based upon a
 
 
 .. class:: BabylMessage(message=None)
-           BabylMessage(message: Message[str, str] | StringIO | _SupportsReadAndReadline | bytes | str | None = None) -> None
+           BabylMessage(message: email.message.Message[str, str] | _io.StringIO | mailbox._SupportsReadAndReadline | bytes | str | None = None) -> mailbox.BabylMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L224>`__)
 
@@ -1673,7 +1673,7 @@ When an :class:`!MHMessage` instance is created based upon a
 
 
    .. method:: set_labels(labels)
-               set_labels(labels: collections.abc.Iterable[str]) -> None
+               set_labels(labels: typing.Iterable[str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L226>`__)
 
@@ -1697,7 +1697,7 @@ When an :class:`!MHMessage` instance is created based upon a
 
 
    .. method:: get_visible()
-               get_visible() -> Message
+               get_visible() -> mailbox.Message
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L229>`__)
 
@@ -1781,7 +1781,7 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
 .. class:: MMDFMessage(message=None)
-           MMDFMessage(message: Message[str, str] | StringIO | _SupportsReadAndReadline | bytes | str | None = None) -> None
+           MMDFMessage(message: email.message.Message[str, str] | _io.StringIO | mailbox._SupportsReadAndReadline | bytes | str | None = None) -> mailbox.MMDFMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L233>`__)
 
@@ -1853,7 +1853,7 @@ When a :class:`!BabylMessage` instance is created based upon an
 
 
    .. method:: set_flags(flags)
-               set_flags(flags: collections.abc.Iterable[str]) -> None
+               set_flags(flags: typing.Iterable[str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L212>`__)
 
@@ -1956,7 +1956,7 @@ The following exception classes are defined in the :mod:`!mailbox` module:
 
 
 .. exception:: Error()
-               Error(*args: object) -> None
+               Error(*args: object) -> mailbox.Error
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L258>`__)
 
@@ -1964,7 +1964,7 @@ The following exception classes are defined in the :mod:`!mailbox` module:
 
 
 .. exception:: NoSuchMailboxError()
-               NoSuchMailboxError(*args: object) -> None
+               NoSuchMailboxError(*args: object) -> mailbox.NoSuchMailboxError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L259>`__)
 
@@ -1974,7 +1974,7 @@ The following exception classes are defined in the :mod:`!mailbox` module:
 
 
 .. exception:: NotEmptyError()
-               NotEmptyError(*args: object) -> None
+               NotEmptyError(*args: object) -> mailbox.NotEmptyError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L260>`__)
 
@@ -1983,7 +1983,7 @@ The following exception classes are defined in the :mod:`!mailbox` module:
 
 
 .. exception:: ExternalClashError()
-               ExternalClashError(*args: object) -> None
+               ExternalClashError(*args: object) -> mailbox.ExternalClashError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L261>`__)
 
@@ -1994,7 +1994,7 @@ The following exception classes are defined in the :mod:`!mailbox` module:
 
 
 .. exception:: FormatError()
-               FormatError(*args: object) -> None
+               FormatError(*args: object) -> mailbox.FormatError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/mailbox.pyi#L262>`__)
 

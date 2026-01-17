@@ -171,8 +171,8 @@ Data Types
 
 
 .. class:: EnumType
-           EnumType(o: object, /) -> None
-           EnumType(name: str, bases: tuple[type[typing.Any], ...], dict: dict[str, typing.Any], /, **kwds: typing.Any) -> None
+           EnumType(o: object, /) -> enum.EnumMeta
+           EnumType(name: str, bases: tuple[type[Any], ...], dict: dict[str, typing.Any], /, **kwds: typing.Any) -> enum.EnumMeta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L180>`__)
 
@@ -191,7 +191,7 @@ Data Types
 
    .. method:: EnumType.__call__(cls, value, names=None, *, module=None, qualname=None, type=None, start=1, boundary=None)
                EnumType.__call__(cls: type[_EnumMemberT], value: typing.Any, names: None = None) -> _EnumMemberT
-               EnumType.__call__(cls: EnumMeta, value: str, names: _EnumNames, *, module: str | None = None, qualname: str | None = None, type: type[typing.Any] | None = None, start: int = 1, boundary: FlagBoundary | None = None) -> type[Enum]
+               EnumType.__call__(cls: enum.EnumMeta, value: str, names: _EnumNames, *, module: str | None = None, qualname: str | None = None, type: type[Any] | None = None, start: int = 1, boundary: enum.FlagBoundary | None = None) -> type[enum.Enum]
                EnumType.__call__(cls: type[_EnumMemberT], value: typing.Any, *values: typing.Any) -> _EnumMemberT
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L131>`__)
@@ -255,7 +255,7 @@ Data Types
         <Color.BLUE: 3>
 
    .. method:: EnumType.__iter__(cls)
-               EnumType.__iter__[_EnumMemberT]() -> collections.abc.Iterator[_EnumMemberT]
+               EnumType.__iter__[_EnumMemberT]() -> typing.Iterator[_EnumMemberT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L111>`__)
 
@@ -275,14 +275,14 @@ Data Types
         3
 
    .. attribute:: EnumType.__members__
-      :type: __members__[_EnumMemberT](self: type[_EnumMemberT]) -> MappingProxyType[str, _EnumMemberT]
+      :type: __members__[_EnumMemberT](self: type[_EnumMemberT]) -> types.MappingProxyType[str, _EnumMemberT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L124>`__)
 
       Returns a mapping of every enum name to its member, including aliases
 
    .. method:: EnumType.__reversed__(cls)
-               EnumType.__reversed__[_EnumMemberT]() -> collections.abc.Iterator[_EnumMemberT]
+               EnumType.__reversed__[_EnumMemberT]() -> typing.Iterator[_EnumMemberT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L112>`__)
 
@@ -293,14 +293,14 @@ Data Types
 
 
 .. class:: Enum
-           Enum(value: object) -> Enum
+           Enum(value: object) -> enum.Enum
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L192>`__)
 
    *Enum* is the base class for all *enum* enumerations.
 
    .. attribute:: Enum.name
-      :type: name(self: Enum) -> str
+      :type: name(self: enum.Enum) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L194>`__)
 
@@ -310,7 +310,7 @@ Data Types
         'BLUE'
 
    .. attribute:: Enum.value
-      :type: value(self: Enum) -> typing.Any
+      :type: value(self: enum.Enum) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L196>`__)
 
@@ -433,7 +433,7 @@ Data Types
       By default, does nothing.
 
    .. method:: Enum._missing_(cls, value)
-               Enum._missing_(cls: type[Enum], value: object) -> typing.Any
+               Enum._missing_(cls: type[enum.Enum], value: object) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L203>`__)
 
@@ -568,7 +568,7 @@ Data Types
 
 
 .. class:: IntEnum
-           IntEnum(value: int) -> IntEnum
+           IntEnum(value: int) -> enum.IntEnum
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L232>`__)
 
@@ -602,7 +602,7 @@ Data Types
 
 
 .. class:: StrEnum
-           StrEnum(value: str) -> StrEnum
+           StrEnum(value: str) -> enum.StrEnum
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L277>`__)
 
@@ -646,7 +646,7 @@ Data Types
    .. versionadded:: 3.11
 
 .. class:: Flag
-           Flag(value: object) -> Flag
+           Flag(value: object) -> enum.Flag
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L255>`__)
 
@@ -655,7 +655,7 @@ Data Types
    the results of those operations are (aliases of) members of the enumeration.
 
    .. method:: __contains__(self, value)
-               __contains__(other: Flag) -> bool
+               __contains__(other: enum.Flag) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L263>`__)
 
@@ -679,7 +679,7 @@ Data Types
          False
 
    .. method:: __iter__(self):
-               __iter__() -> collections.abc.Iterator[Flag]
+               __iter__() -> typing.Iterator[enum.Flag]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L270>`__)
 
@@ -722,7 +722,7 @@ Data Types
          False
 
    .. method:: __or__(self, other)
-               __or__(other: Flag) -> Flag
+               __or__(other: enum.Flag) -> enum.Flag
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L265>`__)
 
@@ -732,7 +732,7 @@ Data Types
          <Color.RED|GREEN: 3>
 
    .. method:: __and__(self, other)
-               __and__(other: Flag) -> Flag
+               __and__(other: enum.Flag) -> enum.Flag
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L266>`__)
 
@@ -744,7 +744,7 @@ Data Types
          <Color: 0>
 
    .. method:: __xor__(self, other)
-               __xor__(other: Flag) -> Flag
+               __xor__(other: enum.Flag) -> enum.Flag
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L267>`__)
 
@@ -756,7 +756,7 @@ Data Types
          <Color.RED|GREEN|BLUE: 7>
 
    .. method:: __invert__(self):
-               __invert__() -> Flag
+               __invert__() -> enum.Flag
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L268>`__)
 
@@ -789,7 +789,7 @@ Data Types
          <Color: 0>
 
 .. class:: IntFlag
-           IntFlag(value: int) -> IntFlag
+           IntFlag(value: int) -> enum.IntFlag
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L317>`__)
 
@@ -839,7 +839,7 @@ Data Types
       This matches the existing :class:`Flag` behavior.
 
 .. class:: ReprEnum
-           ReprEnum(value: object) -> ReprEnum
+           ReprEnum(value: object) -> enum.ReprEnum
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L229>`__)
 
@@ -857,7 +857,7 @@ Data Types
    .. versionadded:: 3.11
 
 .. class:: EnumCheck
-           EnumCheck(value: str) -> EnumCheck
+           EnumCheck(value: str) -> enum.EnumCheck
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L285>`__)
 
@@ -865,7 +865,7 @@ Data Types
    various constraints; failed constraints result in a :exc:`ValueError`.
 
    .. attribute:: UNIQUE
-      :type: typing.Literal[EnumCheck.UNIQUE]
+      :type: typing.Literal[enum.EnumCheck.UNIQUE]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L288>`__)
 
@@ -884,7 +884,7 @@ Data Types
 
 
    .. attribute:: CONTINUOUS
-      :type: typing.Literal[EnumCheck.CONTINUOUS]
+      :type: typing.Literal[enum.EnumCheck.CONTINUOUS]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L286>`__)
 
@@ -902,7 +902,7 @@ Data Types
          ValueError: invalid enum 'Color': missing values 3, 4
 
    .. attribute:: NAMED_FLAGS
-      :type: typing.Literal[EnumCheck.NAMED_FLAGS]
+      :type: typing.Literal[enum.EnumCheck.NAMED_FLAGS]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L287>`__)
 
@@ -928,7 +928,7 @@ Data Types
    .. versionadded:: 3.11
 
 .. class:: FlagBoundary
-           FlagBoundary(value: str) -> FlagBoundary
+           FlagBoundary(value: str) -> enum.FlagBoundary
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L298>`__)
 
@@ -936,7 +936,7 @@ Data Types
    subclasses.
 
    .. attribute:: STRICT
-      :type: typing.Literal[FlagBoundary.STRICT]
+      :type: typing.Literal[enum.FlagBoundary.STRICT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L299>`__)
 
@@ -957,7 +957,7 @@ Data Types
            allowed 0b0 00111
 
    .. attribute:: CONFORM
-      :type: typing.Literal[FlagBoundary.CONFORM]
+      :type: typing.Literal[enum.FlagBoundary.CONFORM]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L300>`__)
 
@@ -974,7 +974,7 @@ Data Types
          <ConformFlag.BLUE: 4>
 
    .. attribute:: EJECT
-      :type: typing.Literal[FlagBoundary.EJECT]
+      :type: typing.Literal[enum.FlagBoundary.EJECT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L301>`__)
 
@@ -990,7 +990,7 @@ Data Types
          20
 
    .. attribute:: KEEP
-      :type: typing.Literal[FlagBoundary.KEEP]
+      :type: typing.Literal[enum.FlagBoundary.KEEP]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L302>`__)
 
@@ -1009,7 +1009,7 @@ Data Types
    .. versionadded:: 3.11
 
 .. class:: EnumDict
-           EnumDict(cls_name: str | None = None) -> None
+           EnumDict(cls_name: str | None = None) -> enum._EnumDict
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L89>`__)
 
@@ -1026,7 +1026,7 @@ Data Types
    operations like :meth:`|= <object.__ior__>`.
 
    .. attribute:: EnumDict.member_names
-      :type: member_names(self: _EnumDict) -> list[str]
+      :type: member_names(self: enum._EnumDict) -> list[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L86>`__)
 
@@ -1091,7 +1091,7 @@ Utilities and Decorators
 ------------------------
 
 .. class:: auto
-           auto() -> auto
+           auto() -> enum.auto
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L352>`__)
 
@@ -1125,7 +1125,7 @@ Utilities and Decorators
              member is an incompatible type.
 
 .. decorator:: property
-               property(fget: ((typing.Any) -> typing.Any) | None = None, fset: ((typing.Any, typing.Any) -> object) | None = None, fdel: ((typing.Any) -> object) | None = None, doc: str | None = None) -> None
+               property(fget: ((typing.Any) -> typing.Any) | None = None, fset: ((typing.Any, typing.Any) -> object) | None = None, fdel: ((typing.Any) -> object) | None = None, doc: str | None = None) -> enum.property
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L182>`__)
 
@@ -1162,7 +1162,7 @@ Utilities and Decorators
       ValueError: duplicate values found in <enum 'Mistake'>: FOUR -> THREE
 
 .. decorator:: verify
-               verify(*checks: EnumCheck) -> None
+               verify(*checks: enum.EnumCheck) -> enum.verify
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L294>`__)
 
@@ -1173,7 +1173,7 @@ Utilities and Decorators
    .. versionadded:: 3.11
 
 .. decorator:: member
-               member(value: _EnumMemberT) -> None
+               member(value: _EnumMemberT) -> enum.member
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L63>`__)
 
@@ -1182,7 +1182,7 @@ Utilities and Decorators
    .. versionadded:: 3.11
 
 .. decorator:: nonmember
-               nonmember(value: _EnumMemberT) -> None
+               nonmember(value: _EnumMemberT) -> enum.nonmember
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/enum.pyi#L59>`__)
 

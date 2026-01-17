@@ -35,7 +35,7 @@ The :mod:`urllib.request` module defines the following functions:
 
 
 .. function:: urlopen(url, data=None[, timeout], *, context=None)
-              urlopen(url: Request | str, data: Buffer | collections.abc.Iterable[bytes] | SupportsRead[bytes] | None = None, timeout: float | None = ..., *, context: SSLContext | None = None) -> typing.Any
+              urlopen(url: urllib.request.Request | str, data: _collections_abc.Buffer | typing.Iterable[bytes] | _typeshed.SupportsRead[bytes] | None = None, timeout: float | None = ..., *, context: ssl.SSLContext | None = None) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L63>`__)
 
@@ -121,7 +121,7 @@ The :mod:`urllib.request` module defines the following functions:
 
 
 .. function:: install_opener(opener)
-              install_opener(opener: OpenerDirector) -> None
+              install_opener(opener: urllib.request.OpenerDirector) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L95>`__)
 
@@ -134,7 +134,7 @@ The :mod:`urllib.request` module defines the following functions:
 
 
 .. function:: build_opener([handler, ...])
-              build_opener(*handlers: (() -> BaseHandler) | BaseHandler) -> OpenerDirector
+              build_opener(*handlers: (() -> urllib.request.BaseHandler) | urllib.request.BaseHandler) -> urllib.request.OpenerDirector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L96>`__)
 
@@ -259,7 +259,7 @@ The :mod:`urllib.request` module defines the following functions:
 The following classes are provided:
 
 .. class:: Request(url, data=None, headers={}, origin_req_host=None, unverifiable=False, method=None)
-           Request(url: str, data: _DataType = None, headers: collections.abc.MutableMapping[str, str] = ..., origin_req_host: str | None = None, unverifiable: bool = False, method: str | None = None) -> None
+           Request(url: str, data: _DataType = None, headers: typing.MutableMapping[str, str] = ..., origin_req_host: str | None = None, unverifiable: bool = False, method: str | None = None) -> urllib.request.Request
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L120>`__)
 
@@ -344,7 +344,7 @@ The following classes are provided:
       Fall back to use chunked transfer encoding instead.
 
 .. class:: OpenerDirector()
-           OpenerDirector() -> None
+           OpenerDirector() -> urllib.request.OpenerDirector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L160>`__)
 
@@ -353,7 +353,7 @@ The following classes are provided:
 
 
 .. class:: BaseHandler()
-           BaseHandler() -> None
+           BaseHandler() -> urllib.request.BaseHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L167>`__)
 
@@ -362,7 +362,7 @@ The following classes are provided:
 
 
 .. class:: HTTPDefaultErrorHandler()
-           HTTPDefaultErrorHandler() -> None
+           HTTPDefaultErrorHandler() -> urllib.request.HTTPDefaultErrorHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L174>`__)
 
@@ -371,7 +371,7 @@ The following classes are provided:
 
 
 .. class:: HTTPRedirectHandler()
-           HTTPRedirectHandler() -> None
+           HTTPRedirectHandler() -> urllib.request.HTTPRedirectHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L179>`__)
 
@@ -379,7 +379,7 @@ The following classes are provided:
 
 
 .. class:: HTTPCookieProcessor(cookiejar=None)
-           HTTPCookieProcessor(cookiejar: CookieJar | None = None) -> None
+           HTTPCookieProcessor(cookiejar: http.cookiejar.CookieJar | None = None) -> urllib.request.HTTPCookieProcessor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L195>`__)
 
@@ -387,7 +387,7 @@ The following classes are provided:
 
 
 .. class:: ProxyHandler(proxies=None)
-           ProxyHandler(proxies: dict[str, str] | None = None) -> None
+           ProxyHandler(proxies: dict[str, str] | None = None) -> urllib.request.ProxyHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L203>`__)
 
@@ -413,7 +413,7 @@ The following classes are provided:
 
 
 .. class:: HTTPPasswordMgr()
-           HTTPPasswordMgr() -> None
+           HTTPPasswordMgr() -> urllib.request.HTTPPasswordMgr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L208>`__)
 
@@ -421,7 +421,7 @@ The following classes are provided:
 
 
 .. class:: HTTPPasswordMgrWithDefaultRealm()
-           HTTPPasswordMgrWithDefaultRealm() -> None
+           HTTPPasswordMgrWithDefaultRealm() -> urllib.request.HTTPPasswordMgrWithDefaultRealm
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L214>`__)
 
@@ -431,7 +431,7 @@ The following classes are provided:
 
 
 .. class:: HTTPPasswordMgrWithPriorAuth()
-           HTTPPasswordMgrWithPriorAuth() -> None
+           HTTPPasswordMgrWithPriorAuth() -> urllib.request.HTTPPasswordMgrWithPriorAuth
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L218>`__)
 
@@ -444,7 +444,7 @@ The following classes are provided:
 
 
 .. class:: AbstractBasicAuthHandler(password_mgr=None)
-           AbstractBasicAuthHandler(password_mgr: HTTPPasswordMgr | None = None) -> None
+           AbstractBasicAuthHandler(password_mgr: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.AbstractBasicAuthHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L225>`__)
 
@@ -470,7 +470,7 @@ The following classes are provided:
 
 
 .. class:: HTTPBasicAuthHandler(password_mgr=None)
-           HTTPBasicAuthHandler(password_mgr: HTTPPasswordMgr | None = None) -> None
+           HTTPBasicAuthHandler(password_mgr: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.HTTPBasicAuthHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L237>`__)
 
@@ -482,7 +482,7 @@ The following classes are provided:
 
 
 .. class:: ProxyBasicAuthHandler(password_mgr=None)
-           ProxyBasicAuthHandler(password_mgr: HTTPPasswordMgr | None = None) -> None
+           ProxyBasicAuthHandler(password_mgr: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.ProxyBasicAuthHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L241>`__)
 
@@ -493,7 +493,7 @@ The following classes are provided:
 
 
 .. class:: AbstractDigestAuthHandler(password_mgr=None)
-           AbstractDigestAuthHandler(passwd: HTTPPasswordMgr | None = None) -> None
+           AbstractDigestAuthHandler(passwd: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.AbstractDigestAuthHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L245>`__)
 
@@ -508,7 +508,7 @@ The following classes are provided:
 
 
 .. class:: HTTPDigestAuthHandler(password_mgr=None)
-           HTTPDigestAuthHandler(passwd: HTTPPasswordMgr | None = None) -> None
+           HTTPDigestAuthHandler(passwd: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.HTTPDigestAuthHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L255>`__)
 
@@ -528,7 +528,7 @@ The following classes are provided:
 
 
 .. class:: ProxyDigestAuthHandler(password_mgr=None)
-           ProxyDigestAuthHandler(passwd: HTTPPasswordMgr | None = None) -> None
+           ProxyDigestAuthHandler(passwd: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.ProxyDigestAuthHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L259>`__)
 
@@ -539,7 +539,7 @@ The following classes are provided:
 
 
 .. class:: HTTPHandler()
-           HTTPHandler(debuglevel: int | None = None) -> None
+           HTTPHandler(debuglevel: int | None = None) -> urllib.request.HTTPHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L286>`__)
 
@@ -547,7 +547,7 @@ The following classes are provided:
 
 
 .. class:: HTTPSHandler(debuglevel=0, context=None, check_hostname=None)
-           HTTPSHandler(debuglevel: int | None = None, context: SSLContext | None = None, check_hostname: bool | None = None) -> None
+           HTTPSHandler(debuglevel: int | None = None, context: ssl.SSLContext | None = None, check_hostname: bool | None = None) -> urllib.request.HTTPSHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L290>`__)
 
@@ -559,14 +559,14 @@ The following classes are provided:
 
 
 .. class:: FileHandler()
-           FileHandler() -> None
+           FileHandler() -> urllib.request.FileHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L303>`__)
 
    Open local files.
 
 .. class:: DataHandler()
-           DataHandler() -> None
+           DataHandler() -> urllib.request.DataHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L309>`__)
 
@@ -575,7 +575,7 @@ The following classes are provided:
    .. versionadded:: 3.4
 
 .. class:: FTPHandler()
-           FTPHandler() -> None
+           FTPHandler() -> urllib.request.FTPHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L323>`__)
 
@@ -583,7 +583,7 @@ The following classes are provided:
 
 
 .. class:: CacheFTPHandler()
-           CacheFTPHandler() -> None
+           CacheFTPHandler() -> urllib.request.CacheFTPHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L329>`__)
 
@@ -591,7 +591,7 @@ The following classes are provided:
 
 
 .. class:: UnknownHandler()
-           UnknownHandler() -> None
+           UnknownHandler() -> urllib.request.UnknownHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L335>`__)
 
@@ -599,7 +599,7 @@ The following classes are provided:
 
 
 .. class:: HTTPErrorProcessor()
-           HTTPErrorProcessor() -> None
+           HTTPErrorProcessor() -> urllib.request.HTTPErrorProcessor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L338>`__)
 
@@ -617,7 +617,7 @@ public attributes that can be used by clients to inspect the parsed
 request.
 
 .. attribute:: Request.full_url
-   :type: full_url(self: Request, value: str) -> None
+   :type: full_url(self: urllib.request.Request, value: str) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L122>`__)
 
@@ -660,7 +660,7 @@ request.
    will be the full URL that is passed to the proxy.
 
 .. attribute:: Request.data
-   :type: Buffer | collections.abc.Iterable[bytes] | SupportsRead[bytes] | None
+   :type: _collections_abc.Buffer | typing.Iterable[bytes] | _typeshed.SupportsRead[bytes] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L131>`__)
 
@@ -809,7 +809,7 @@ OpenerDirector Objects
 
 
 .. method:: OpenerDirector.add_handler(handler)
-            OpenerDirector.add_handler(handler: BaseHandler) -> None
+            OpenerDirector.add_handler(handler: urllib.request.BaseHandler) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L162>`__)
 
@@ -850,7 +850,7 @@ OpenerDirector Objects
 .. |protocol_response| replace:: :meth:`BaseHandler.<protocol>_response`
 
 .. method:: OpenerDirector.open(url, data=None[, timeout])
-            OpenerDirector.open(fullurl: Request | str, data: _DataType = None, timeout: float | None = ...) -> typing.Any
+            OpenerDirector.open(fullurl: urllib.request.Request | str, data: _DataType = None, timeout: float | None = ...) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L163>`__)
 
@@ -915,7 +915,7 @@ intended for direct use:
 
 
 .. method:: BaseHandler.add_parent(director)
-            BaseHandler.add_parent(parent: OpenerDirector) -> None
+            BaseHandler.add_parent(parent: urllib.request.OpenerDirector) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L170>`__)
 
@@ -940,7 +940,7 @@ The following attribute and methods should only be used by classes derived from
 
 
 .. attribute:: BaseHandler.parent
-   :type: OpenerDirector
+   :type: urllib.request.OpenerDirector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L169>`__)
 
@@ -1060,7 +1060,7 @@ HTTPRedirectHandler Objects
 
 
 .. method:: HTTPRedirectHandler.redirect_request(req, fp, code, msg, hdrs, newurl)
-            HTTPRedirectHandler.redirect_request(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage, newurl: str) -> Request | None
+            HTTPRedirectHandler.redirect_request(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage, newurl: str) -> urllib.request.Request | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L183>`__)
 
@@ -1082,7 +1082,7 @@ HTTPRedirectHandler Objects
 
 
 .. method:: HTTPRedirectHandler.http_error_301(req, fp, code, msg, hdrs)
-            HTTPRedirectHandler.http_error_301(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            HTTPRedirectHandler.http_error_301(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L186>`__)
 
@@ -1091,7 +1091,7 @@ HTTPRedirectHandler Objects
 
 
 .. method:: HTTPRedirectHandler.http_error_302(req, fp, code, msg, hdrs)
-            HTTPRedirectHandler.http_error_302(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            HTTPRedirectHandler.http_error_302(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L187>`__)
 
@@ -1099,7 +1099,7 @@ HTTPRedirectHandler Objects
 
 
 .. method:: HTTPRedirectHandler.http_error_303(req, fp, code, msg, hdrs)
-            HTTPRedirectHandler.http_error_303(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            HTTPRedirectHandler.http_error_303(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L188>`__)
 
@@ -1107,7 +1107,7 @@ HTTPRedirectHandler Objects
 
 
 .. method:: HTTPRedirectHandler.http_error_307(req, fp, code, msg, hdrs)
-            HTTPRedirectHandler.http_error_307(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            HTTPRedirectHandler.http_error_307(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L189>`__)
 
@@ -1117,7 +1117,7 @@ HTTPRedirectHandler Objects
 
 
 .. method:: HTTPRedirectHandler.http_error_308(req, fp, code, msg, hdrs)
-            HTTPRedirectHandler.http_error_308(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            HTTPRedirectHandler.http_error_308(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L191>`__)
 
@@ -1136,7 +1136,7 @@ HTTPCookieProcessor Objects
 :class:`HTTPCookieProcessor` instances have one attribute:
 
 .. attribute:: HTTPCookieProcessor.cookiejar
-   :type: CookieJar
+   :type: http.cookiejar.CookieJar
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L196>`__)
 
@@ -1169,7 +1169,7 @@ These methods are available on :class:`HTTPPasswordMgr` and
 
 
 .. method:: HTTPPasswordMgr.add_password(realm, uri, user, passwd)
-            HTTPPasswordMgr.add_password(realm: str, uri: collections.abc.Sequence[str] | str, user: str, passwd: str) -> None
+            HTTPPasswordMgr.add_password(realm: str, uri: typing.Sequence[str] | str, user: str, passwd: str) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L209>`__)
 
@@ -1202,7 +1202,7 @@ tracking URIs for which authentication credentials should always be sent.
 
 .. method:: HTTPPasswordMgrWithPriorAuth.add_password(realm, uri, user, \
             passwd, is_authenticated=False)
-            HTTPPasswordMgrWithPriorAuth.add_password(realm: str | None, uri: collections.abc.Sequence[str] | str, user: str, passwd: str, is_authenticated: bool = False) -> None
+            HTTPPasswordMgrWithPriorAuth.add_password(realm: str | None, uri: typing.Sequence[str] | str, user: str, passwd: str, is_authenticated: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L219>`__)
 
@@ -1222,7 +1222,7 @@ tracking URIs for which authentication credentials should always be sent.
 
 .. method:: HTTPPasswordMgrWithPriorAuth.update_authenticated(self, uri, \
             is_authenticated=False)
-            HTTPPasswordMgrWithPriorAuth.update_authenticated(uri: collections.abc.Sequence[str] | str, is_authenticated: bool = False) -> None
+            HTTPPasswordMgrWithPriorAuth.update_authenticated(uri: typing.Sequence[str] | str, is_authenticated: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L222>`__)
 
@@ -1246,7 +1246,7 @@ AbstractBasicAuthHandler Objects
 
 
 .. method:: AbstractBasicAuthHandler.http_error_auth_reqed(authreq, host, req, headers)
-            AbstractBasicAuthHandler.http_error_auth_reqed(authreq: str, host: str, req: Request, headers: HTTPMessage) -> None
+            AbstractBasicAuthHandler.http_error_auth_reqed(authreq: str, host: str, req: urllib.request.Request, headers: http.client.HTTPMessage) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L230>`__)
 
@@ -1269,7 +1269,7 @@ HTTPBasicAuthHandler Objects
 
 
 .. method:: HTTPBasicAuthHandler.http_error_401(req, fp, code,  msg, hdrs)
-            HTTPBasicAuthHandler.http_error_401(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            HTTPBasicAuthHandler.http_error_401(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L239>`__)
 
@@ -1283,7 +1283,7 @@ ProxyBasicAuthHandler Objects
 
 
 .. method:: ProxyBasicAuthHandler.http_error_407(req, fp, code,  msg, hdrs)
-            ProxyBasicAuthHandler.http_error_407(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            ProxyBasicAuthHandler.http_error_407(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L243>`__)
 
@@ -1297,7 +1297,7 @@ AbstractDigestAuthHandler Objects
 
 
 .. method:: AbstractDigestAuthHandler.http_error_auth_reqed(authreq, host, req, headers)
-            AbstractDigestAuthHandler.http_error_auth_reqed(auth_header: str, host: str, req: Request, headers: HTTPMessage) -> None
+            AbstractDigestAuthHandler.http_error_auth_reqed(auth_header: str, host: str, req: urllib.request.Request, headers: http.client.HTTPMessage) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L248>`__)
 
@@ -1314,7 +1314,7 @@ HTTPDigestAuthHandler Objects
 
 
 .. method:: HTTPDigestAuthHandler.http_error_401(req, fp, code,  msg, hdrs)
-            HTTPDigestAuthHandler.http_error_401(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            HTTPDigestAuthHandler.http_error_401(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L257>`__)
 
@@ -1328,7 +1328,7 @@ ProxyDigestAuthHandler Objects
 
 
 .. method:: ProxyDigestAuthHandler.http_error_407(req, fp, code,  msg, hdrs)
-            ProxyDigestAuthHandler.http_error_407(req: Request, fp: IO[bytes], code: int, msg: str, headers: HTTPMessage) -> typing.Any | None
+            ProxyDigestAuthHandler.http_error_407(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L261>`__)
 
@@ -1342,7 +1342,7 @@ HTTPHandler Objects
 
 
 .. method:: HTTPHandler.http_open(req)
-            HTTPHandler.http_open(req: Request) -> HTTPResponse
+            HTTPHandler.http_open(req: urllib.request.Request) -> http.client.HTTPResponse
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L287>`__)
 
@@ -1357,7 +1357,7 @@ HTTPSHandler Objects
 
 
 .. method:: HTTPSHandler.https_open(req)
-            HTTPSHandler.https_open(req: Request) -> HTTPResponse
+            HTTPSHandler.https_open(req: urllib.request.Request) -> http.client.HTTPResponse
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L300>`__)
 
@@ -1372,7 +1372,7 @@ FileHandler Objects
 
 
 .. method:: FileHandler.file_open(req)
-            FileHandler.file_open(req: Request) -> addinfourl
+            FileHandler.file_open(req: urllib.request.Request) -> urllib.response.addinfourl
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L305>`__)
 
@@ -1390,7 +1390,7 @@ DataHandler Objects
 -------------------
 
 .. method:: DataHandler.data_open(req)
-            DataHandler.data_open(req: Request) -> addinfourl
+            DataHandler.data_open(req: urllib.request.Request) -> urllib.response.addinfourl
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L310>`__)
 
@@ -1409,7 +1409,7 @@ FTPHandler Objects
 
 
 .. method:: FTPHandler.ftp_open(req)
-            FTPHandler.ftp_open(req: Request) -> addinfourl
+            FTPHandler.ftp_open(req: urllib.request.Request) -> urllib.response.addinfourl
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L324>`__)
 
@@ -1449,7 +1449,7 @@ UnknownHandler Objects
 
 
 .. method:: UnknownHandler.unknown_open()
-            UnknownHandler.unknown_open(req: Request) -> NoReturn
+            UnknownHandler.unknown_open(req: urllib.request.Request) -> typing.NoReturn
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L336>`__)
 
@@ -1462,7 +1462,7 @@ HTTPErrorProcessor Objects
 --------------------------
 
 .. method:: HTTPErrorProcessor.http_response(request, response)
-            HTTPErrorProcessor.http_response(request: Request, response: HTTPResponse) -> typing.Any
+            HTTPErrorProcessor.http_response(request: urllib.request.Request, response: http.client.HTTPResponse) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L339>`__)
 
@@ -1477,7 +1477,7 @@ HTTPErrorProcessor Objects
 
 
 .. method:: HTTPErrorProcessor.https_response(request, response)
-            HTTPErrorProcessor.https_response(request: Request, response: HTTPResponse) -> typing.Any
+            HTTPErrorProcessor.https_response(request: urllib.request.Request, response: http.client.HTTPResponse) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L340>`__)
 
@@ -1680,7 +1680,7 @@ The following functions and classes are ported from the Python 2 module
 some point in the future.
 
 .. function:: urlretrieve(url, filename=None, reporthook=None, data=None)
-              urlretrieve(url: str, filename: PathLike[bytes] | PathLike[str] | bytes | str | None = None, reporthook: ((int, int, int) -> object) | None = None, data: _DataType = None) -> tuple[str, HTTPMessage]
+              urlretrieve(url: str, filename: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, reporthook: ((int, int, int) -> object) | None = None, data: _DataType = None) -> tuple[str, http.client.HTTPMessage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/request.pyi#L342>`__)
 
@@ -1804,7 +1804,7 @@ Functions defined by this module are used internally by the :mod:`urllib.request
 The typical response object is a :class:`urllib.response.addinfourl` instance:
 
 .. class:: addinfourl
-           addinfourl(fp: IO[bytes], headers: email.message.Message[str, str], url: str, code: int | None = None) -> None
+           addinfourl(fp: typing.IO[bytes], headers: email.message.Message[str, str], url: str, code: int | None = None) -> urllib.response.addinfourl
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/response.pyi#L33>`__)
 
@@ -1823,7 +1823,7 @@ The typical response object is a :class:`urllib.response.addinfourl` instance:
       Returns the headers of the response in the form of an :class:`~email.message.EmailMessage` instance.
 
    .. attribute:: status
-      :type: status(self: addinfourl) -> int | None
+      :type: status(self: urllib.response.addinfourl) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/urllib/response.pyi#L37>`__)
 

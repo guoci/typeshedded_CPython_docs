@@ -367,7 +367,7 @@ from ``get()`` calls.
 .. index:: single: % (percent); interpolation in configuration files
 
 .. class:: BasicInterpolation()
-           BasicInterpolation() -> None
+           BasicInterpolation() -> configparser.BasicInterpolation
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L136>`__)
 
@@ -403,7 +403,7 @@ from ``get()`` calls.
 .. index:: single: $ (dollar); interpolation in configuration files
 
 .. class:: ExtendedInterpolation()
-           ExtendedInterpolation() -> None
+           ExtendedInterpolation() -> configparser.ExtendedInterpolation
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L137>`__)
 
@@ -750,7 +750,7 @@ these parser attributes.  The defaults are defined on the classes, so they may
 be overridden by subclasses or by attribute assignment.
 
 .. attribute:: ConfigParser.BOOLEAN_STATES
-   :type: collections.abc.Mapping[str, bool]
+   :type: typing.Mapping[str, bool]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L156>`__)
 
@@ -964,9 +964,9 @@ ConfigParser Objects
                         default_section=configparser.DEFAULTSECT, \
                         interpolation=BasicInterpolation(), converters={}, \
                         allow_unnamed_section=False)
-           ConfigParser(defaults: collections.abc.Mapping[str, str | None] | None = None, dict_type: type[collections.abc.Mapping[str, str]] = ..., *, allow_no_value: typing.Literal[True], delimiters: collections.abc.Sequence[str] = ..., comment_prefixes: collections.abc.Sequence[str] = ..., inline_comment_prefixes: collections.abc.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> None
-           ConfigParser(defaults: collections.abc.Mapping[str, str | None] | None, dict_type: type[collections.abc.Mapping[str, str]], allow_no_value: typing.Literal[True], *, delimiters: collections.abc.Sequence[str] = ..., comment_prefixes: collections.abc.Sequence[str] = ..., inline_comment_prefixes: collections.abc.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> None
-           ConfigParser(defaults: collections.abc.Mapping[str, str] | None = None, dict_type: type[collections.abc.Mapping[str, str]] = ..., allow_no_value: bool = False, *, delimiters: collections.abc.Sequence[str] = ..., comment_prefixes: collections.abc.Sequence[str] = ..., inline_comment_prefixes: collections.abc.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> None
+           ConfigParser(defaults: typing.Mapping[str, str | None] | None = None, dict_type: type[typing.Mapping[str, str]] = ..., *, allow_no_value: typing.Literal[True], delimiters: typing.Sequence[str] = ..., comment_prefixes: typing.Sequence[str] = ..., inline_comment_prefixes: typing.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: configparser.Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> configparser.ConfigParser
+           ConfigParser(defaults: typing.Mapping[str, str | None] | None, dict_type: type[typing.Mapping[str, str]], allow_no_value: typing.Literal[True], *, delimiters: typing.Sequence[str] = ..., comment_prefixes: typing.Sequence[str] = ..., inline_comment_prefixes: typing.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: configparser.Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> configparser.ConfigParser
+           ConfigParser(defaults: typing.Mapping[str, str] | None = None, dict_type: type[typing.Mapping[str, str]] = ..., allow_no_value: bool = False, *, delimiters: typing.Sequence[str] = ..., comment_prefixes: typing.Sequence[str] = ..., inline_comment_prefixes: typing.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: configparser.Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> configparser.ConfigParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L328>`__)
 
@@ -1073,7 +1073,7 @@ ConfigParser Objects
       The *allow_unnamed_section* argument was added.
 
    .. method:: defaults()
-               defaults() -> collections.abc.Mapping[str, str]
+               defaults() -> typing.Mapping[str, str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L266>`__)
 
@@ -1131,7 +1131,7 @@ ConfigParser Objects
 
 
    .. method:: read(filenames, encoding=None)
-               read(filenames: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str, encoding: str | None = None) -> list[str]
+               read(filenames: typing.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str, encoding: str | None = None) -> list[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L272>`__)
 
@@ -1172,7 +1172,7 @@ ConfigParser Objects
 
 
    .. method:: read_file(f, source=None)
-               read_file(f: collections.abc.Iterable[str], source: str | None = None) -> None
+               read_file(f: typing.Iterable[str], source: str | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L273>`__)
 
@@ -1201,7 +1201,7 @@ ConfigParser Objects
 
 
    .. method:: read_dict(dictionary, source='<dict>')
-               read_dict(dictionary: collections.abc.Mapping[str, collections.abc.Mapping[str, typing.Any]], source: str = '<dict>') -> None
+               read_dict(dictionary: typing.Mapping[str, typing.Mapping[str, typing.Any]], source: str = '<dict>') -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L275>`__)
 
@@ -1220,8 +1220,8 @@ ConfigParser Objects
 
 
    .. method:: get(section, option, *, raw=False, vars=None[, fallback])
-               get(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> str
-               get(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T) -> str | _T
+               get(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None) -> str
+               get(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None, fallback: _T) -> str | _T
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L331>`__)
 
@@ -1242,8 +1242,8 @@ ConfigParser Objects
 
 
    .. method:: getint(section, option, *, raw=False, vars=None[, fallback])
-               getint(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> int
-               getint(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T = ...) -> int | _T
+               getint(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None) -> int
+               getint(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None, fallback: _T = ...) -> int | _T
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L282>`__)
 
@@ -1253,8 +1253,8 @@ ConfigParser Objects
 
 
    .. method:: getfloat(section, option, *, raw=False, vars=None[, fallback])
-               getfloat(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> float
-               getfloat(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T = ...) -> float | _T
+               getfloat(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None) -> float
+               getfloat(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None, fallback: _T = ...) -> float | _T
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L288>`__)
 
@@ -1264,8 +1264,8 @@ ConfigParser Objects
 
 
    .. method:: getboolean(section, option, *, raw=False, vars=None[, fallback])
-               getboolean(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> bool
-               getboolean(section: _SectionName, option: str, *, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None, fallback: _T = ...) -> bool | _T
+               getboolean(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None) -> bool
+               getboolean(section: _SectionName, option: str, *, raw: bool = False, vars: typing.Mapping[str, str] | None = None, fallback: _T = ...) -> bool | _T
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L294>`__)
 
@@ -1281,8 +1281,8 @@ ConfigParser Objects
 
    .. method:: items(raw=False, vars=None)
                items(section, raw=False, vars=None)
-               items(*, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> collections.abc.ItemsView[str, SectionProxy]
-               items(section: _SectionName, raw: bool = False, vars: collections.abc.Mapping[str, str] | None = None) -> list[tuple[str, str]]
+               items(*, raw: bool = False, vars: typing.Mapping[str, str] | None = None) -> typing.ItemsView[str, configparser.SectionProxy]
+               items(section: _SectionName, raw: bool = False, vars: typing.Mapping[str, str] | None = None) -> list[tuple[str, str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L317>`__)
 
@@ -1310,7 +1310,7 @@ ConfigParser Objects
 
 
    .. method:: write(fileobject, space_around_delimiters=True)
-               write(fp: SupportsWrite[str], space_around_delimiters: bool = True) -> None
+               write(fp: _typeshed.SupportsWrite[str], space_around_delimiters: bool = True) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L321>`__)
 
@@ -1376,7 +1376,7 @@ ConfigParser Objects
 
 
 .. data:: UNNAMED_SECTION
-   :type: _UNNAMED_SECTION
+   :type: configparser._UNNAMED_SECTION
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L110>`__)
 
@@ -1406,9 +1406,9 @@ RawConfigParser Objects
                            default_section=configparser.DEFAULTSECT, \
                            interpolation=BasicInterpolation(), converters={}, \
                            allow_unnamed_section=False)
-           RawConfigParser(defaults: collections.abc.Mapping[str, str | None] | None = None, dict_type: type[collections.abc.Mapping[str, str]] = ..., *, allow_no_value: typing.Literal[True], delimiters: collections.abc.Sequence[str] = ..., comment_prefixes: collections.abc.Sequence[str] = ..., inline_comment_prefixes: collections.abc.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> None
-           RawConfigParser(defaults: collections.abc.Mapping[str, str | None] | None, dict_type: type[collections.abc.Mapping[str, str]], allow_no_value: typing.Literal[True], *, delimiters: collections.abc.Sequence[str] = ..., comment_prefixes: collections.abc.Sequence[str] = ..., inline_comment_prefixes: collections.abc.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> None
-           RawConfigParser(defaults: collections.abc.Mapping[str, str] | None = None, dict_type: type[collections.abc.Mapping[str, str]] = ..., allow_no_value: bool = False, *, delimiters: collections.abc.Sequence[str] = ..., comment_prefixes: collections.abc.Sequence[str] = ..., inline_comment_prefixes: collections.abc.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> None
+           RawConfigParser(defaults: typing.Mapping[str, str | None] | None = None, dict_type: type[typing.Mapping[str, str]] = ..., *, allow_no_value: typing.Literal[True], delimiters: typing.Sequence[str] = ..., comment_prefixes: typing.Sequence[str] = ..., inline_comment_prefixes: typing.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: configparser.Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> configparser.RawConfigParser
+           RawConfigParser(defaults: typing.Mapping[str, str | None] | None, dict_type: type[typing.Mapping[str, str]], allow_no_value: typing.Literal[True], *, delimiters: typing.Sequence[str] = ..., comment_prefixes: typing.Sequence[str] = ..., inline_comment_prefixes: typing.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: configparser.Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> configparser.RawConfigParser
+           RawConfigParser(defaults: typing.Mapping[str, str] | None = None, dict_type: type[typing.Mapping[str, str]] = ..., allow_no_value: bool = False, *, delimiters: typing.Sequence[str] = ..., comment_prefixes: typing.Sequence[str] = ..., inline_comment_prefixes: typing.Sequence[str] | None = None, strict: bool = True, empty_lines_in_values: bool = True, default_section: str = 'DEFAULT', interpolation: configparser.Interpolation | None = ..., converters: dict[str, (str) -> typing.Any] = ..., allow_unnamed_section: bool = False) -> configparser.RawConfigParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L146>`__)
 
@@ -1479,7 +1479,7 @@ Exceptions
 ----------
 
 .. exception:: Error
-               Error(msg: str = '') -> None
+               Error(msg: str = '') -> configparser.Error
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L402>`__)
 
@@ -1487,7 +1487,7 @@ Exceptions
 
 
 .. exception:: NoSectionError
-               NoSectionError(section: _SectionName) -> None
+               NoSectionError(section: _SectionName) -> configparser.NoSectionError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L406>`__)
 
@@ -1495,7 +1495,7 @@ Exceptions
 
 
 .. exception:: DuplicateSectionError
-               DuplicateSectionError(section: _SectionName, source: str | None = None, lineno: int | None = None) -> None
+               DuplicateSectionError(section: _SectionName, source: str | None = None, lineno: int | None = None) -> configparser.DuplicateSectionError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L410>`__)
 
@@ -1509,7 +1509,7 @@ Exceptions
 
 
 .. exception:: DuplicateOptionError
-               DuplicateOptionError(section: _SectionName, option: str, source: str | None = None, lineno: int | None = None) -> None
+               DuplicateOptionError(section: _SectionName, option: str, source: str | None = None, lineno: int | None = None) -> configparser.DuplicateOptionError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L416>`__)
 
@@ -1520,7 +1520,7 @@ Exceptions
 
 
 .. exception:: NoOptionError
-               NoOptionError(option: str, section: _SectionName) -> None
+               NoOptionError(option: str, section: _SectionName) -> configparser.NoOptionError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L423>`__)
 
@@ -1529,7 +1529,7 @@ Exceptions
 
 
 .. exception:: InterpolationError
-               InterpolationError(option: str, section: _SectionName, msg: str) -> None
+               InterpolationError(option: str, section: _SectionName, msg: str) -> configparser.InterpolationError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L428>`__)
 
@@ -1538,7 +1538,7 @@ Exceptions
 
 
 .. exception:: InterpolationDepthError
-               InterpolationDepthError(option: str, section: _SectionName, rawval: object) -> None
+               InterpolationDepthError(option: str, section: _SectionName, rawval: object) -> configparser.InterpolationDepthError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L433>`__)
 
@@ -1548,7 +1548,7 @@ Exceptions
 
 
 .. exception:: InterpolationMissingOptionError
-               InterpolationMissingOptionError(option: str, section: _SectionName, rawval: object, reference: str) -> None
+               InterpolationMissingOptionError(option: str, section: _SectionName, rawval: object, reference: str) -> configparser.InterpolationMissingOptionError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L436>`__)
 
@@ -1557,7 +1557,7 @@ Exceptions
 
 
 .. exception:: InterpolationSyntaxError
-               InterpolationSyntaxError(option: str, section: _SectionName, msg: str) -> None
+               InterpolationSyntaxError(option: str, section: _SectionName, msg: str) -> configparser.InterpolationSyntaxError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L440>`__)
 
@@ -1566,7 +1566,7 @@ Exceptions
 
 
 .. exception:: MissingSectionHeaderError
-               MissingSectionHeaderError(filename: str, lineno: int, line: str) -> None
+               MissingSectionHeaderError(filename: str, lineno: int, line: str) -> configparser.MissingSectionHeaderError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L470>`__)
 
@@ -1574,7 +1574,7 @@ Exceptions
    headers.
 
 .. exception:: ParsingError
-               ParsingError(source: str, *args: object) -> None
+               ParsingError(source: str, *args: object) -> configparser.ParsingError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L442>`__)
 
@@ -1585,7 +1585,7 @@ Exceptions
       removed.  They have been available using the name ``source`` since 3.2.
 
 .. exception:: MultilineContinuationError
-               MultilineContinuationError(filename: str, lineno: int, line: str) -> None
+               MultilineContinuationError(filename: str, lineno: int, line: str) -> configparser.MultilineContinuationError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L476>`__)
 
@@ -1595,7 +1595,7 @@ Exceptions
    .. versionadded:: 3.13
 
 .. exception:: UnnamedSectionDisabledError
-               UnnamedSectionDisabledError() -> None
+               UnnamedSectionDisabledError() -> configparser.UnnamedSectionDisabledError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L482>`__)
 
@@ -1605,7 +1605,7 @@ Exceptions
     .. versionadded:: 3.14
 
 .. exception:: InvalidWriteError
-               InvalidWriteError(msg: str = '') -> None
+               InvalidWriteError(msg: str = '') -> configparser.InvalidWriteError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/configparser.pyi#L486>`__)
 

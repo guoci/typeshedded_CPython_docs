@@ -32,7 +32,7 @@ Executor Objects
 ----------------
 
 .. class:: Executor
-           Executor() -> None
+           Executor() -> concurrent.futures._base.Executor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L54>`__)
 
@@ -40,7 +40,7 @@ Executor Objects
    should not be used directly, but through its concrete subclasses.
 
    .. method:: submit(fn, /, *args, **kwargs)
-               submit[_P, _T](Executor, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> Future[_T]
+               submit[_P, _T](concurrent.futures._base.Executor, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> concurrent.futures._base.Future[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L55>`__)
 
@@ -53,7 +53,7 @@ Executor Objects
              print(future.result())
 
    .. method:: map(fn, *iterables, timeout=None, chunksize=1, buffersize=None)
-               map[_T](fn: (...) -> _T, *iterables: collections.abc.Iterable[typing.Any], *, timeout: float | None = None, chunksize: int = 1, buffersize: int | None = None) -> collections.abc.Iterator[_T]
+               map[_T](fn: (...) -> _T, *iterables: typing.Iterable[typing.Any], *, timeout: float | None = None, chunksize: int = 1, buffersize: int | None = None) -> typing.Iterator[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L57>`__)
 
@@ -172,9 +172,9 @@ And::
 
 
 .. class:: ThreadPoolExecutor(max_workers=None, thread_name_prefix='', initializer=None, initargs=())
-           ThreadPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', initializer: (() -> object) | None = None, initargs: tuple[()] = ...) -> None
-           ThreadPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', *, initializer: (**tuple[*_Ts]) -> object, initargs: tuple[*_Ts]) -> None
-           ThreadPoolExecutor(max_workers: int | None, thread_name_prefix: str, initializer: (**tuple[*_Ts]) -> object, initargs: tuple[*_Ts]) -> None
+           ThreadPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', initializer: (() -> object) | None = None, initargs: tuple[()] = ...) -> concurrent.futures.thread.ThreadPoolExecutor
+           ThreadPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', *, initializer: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.thread.ThreadPoolExecutor
+           ThreadPoolExecutor(max_workers: int | None, thread_name_prefix: str, initializer: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.thread.ThreadPoolExecutor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/thread.pyi#L83>`__)
 
@@ -312,9 +312,9 @@ the bytes over a shared :mod:`socket <socket>` or
 :func:`pipe <os.pipe>`.
 
 .. class:: InterpreterPoolExecutor(max_workers=None, thread_name_prefix='', initializer=None, initargs=())
-           InterpreterPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', initializer: (() -> object) | None = None, initargs: tuple[()] = ...) -> None
-           InterpreterPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', *, initializer: (**tuple[*_Ts]) -> object, initargs: tuple[*_Ts]) -> None
-           InterpreterPoolExecutor(max_workers: int | None, thread_name_prefix: str, initializer: (**tuple[*_Ts]) -> object, initargs: tuple[*_Ts]) -> None
+           InterpreterPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', initializer: (() -> object) | None = None, initargs: tuple[()] = ...) -> concurrent.futures.interpreter.InterpreterPoolExecutor
+           InterpreterPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', *, initializer: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.interpreter.InterpreterPoolExecutor
+           InterpreterPoolExecutor(max_workers: int | None, thread_name_prefix: str, initializer: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.interpreter.InterpreterPoolExecutor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/interpreter.pyi#L42>`__)
 
@@ -377,9 +377,9 @@ and :meth:`~Executor.map` on a :class:`ProcessPoolExecutor`. A function defined
 in a REPL or a lambda should not be expected to work.
 
 .. class:: ProcessPoolExecutor(max_workers=None, mp_context=None, initializer=None, initargs=(), max_tasks_per_child=None)
-           ProcessPoolExecutor(max_workers: int | None = None, mp_context: BaseContext | None = None, initializer: (() -> object) | None = None, initargs: tuple[()] = ..., *, max_tasks_per_child: int | None = None) -> None
-           ProcessPoolExecutor(max_workers: int | None = None, mp_context: BaseContext | None = None, *, initializer: (**tuple[*_Ts]) -> object, initargs: tuple[*_Ts], max_tasks_per_child: int | None = None) -> None
-           ProcessPoolExecutor(max_workers: int | None, mp_context: BaseContext | None, initializer: (**tuple[*_Ts]) -> object, initargs: tuple[*_Ts], *, max_tasks_per_child: int | None = None) -> None
+           ProcessPoolExecutor(max_workers: int | None = None, mp_context: multiprocessing.context.BaseContext | None = None, initializer: (() -> object) | None = None, initargs: tuple[()] = ..., *, max_tasks_per_child: int | None = None) -> concurrent.futures.process.ProcessPoolExecutor
+           ProcessPoolExecutor(max_workers: int | None = None, mp_context: multiprocessing.context.BaseContext | None = None, *, initializer: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, initargs: tuple[Unpack[_Ts]], max_tasks_per_child: int | None = None) -> concurrent.futures.process.ProcessPoolExecutor
+           ProcessPoolExecutor(max_workers: int | None, mp_context: multiprocessing.context.BaseContext | None, initializer: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, initargs: tuple[Unpack[_Ts]], *, max_tasks_per_child: int | None = None) -> concurrent.futures.process.ProcessPoolExecutor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/process.pyi#L163>`__)
 
@@ -528,7 +528,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
 :class:`Future` instances are created by :meth:`Executor.submit`.
 
 .. class:: Future
-           Future() -> None
+           Future() -> concurrent.futures._base.Future
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L36>`__)
 
@@ -604,7 +604,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
       If the call completed without raising, ``None`` is returned.
 
    .. method:: add_done_callback(fn)
-               add_done_callback[_T](fn: (Future[_T]) -> object) -> None
+               add_done_callback[_T](fn: (concurrent.futures._base.Future[_T]) -> object) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L46>`__)
 
@@ -682,7 +682,7 @@ Module Functions
 ----------------
 
 .. function:: wait(fs, timeout=None, return_when=ALL_COMPLETED)
-              wait[_T](fs: collections.abc.Iterable[Future[_T]], timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> DoneAndNotDoneFutures[_T]
+              wait[_T](fs: typing.Iterable[concurrent.futures._base.Future[_T]], timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> concurrent.futures._base.DoneAndNotDoneFutures[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L93>`__)
 
@@ -719,7 +719,7 @@ Module Functions
         - The function will return when all futures finish or are cancelled.
 
 .. function:: as_completed(fs, timeout=None)
-              as_completed[_T](fs: collections.abc.Iterable[_AsCompletedFuture[_T]], timeout: float | None = None) -> collections.abc.Iterator[Future[_T]]
+              as_completed[_T](fs: typing.Iterable[concurrent.futures._base._AsCompletedFuture[_T]], timeout: float | None = None) -> typing.Iterator[concurrent.futures._base.Future[_T]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L87>`__)
 
@@ -747,14 +747,14 @@ Exception classes
 .. currentmodule:: concurrent.futures
 
 .. exception:: CancelledError
-               CancelledError(*args: object) -> None
+               CancelledError(*args: object) -> concurrent.futures._base.CancelledError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L22>`__)
 
    Raised when a future is cancelled.
 
 .. exception:: TimeoutError
-               TimeoutError(*args: object) -> None
+               TimeoutError(*args: object) -> TimeoutError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L2211>`__)
 
@@ -767,7 +767,7 @@ Exception classes
 
 
 .. exception:: BrokenExecutor
-               BrokenExecutor(*args: object) -> None
+               BrokenExecutor(*args: object) -> concurrent.futures._base.BrokenExecutor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L30>`__)
 
@@ -778,7 +778,7 @@ Exception classes
    .. versionadded:: 3.7
 
 .. exception:: InvalidStateError
-               InvalidStateError(*args: object) -> None
+               InvalidStateError(*args: object) -> concurrent.futures._base.InvalidStateError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/_base.pyi#L29>`__)
 
@@ -790,7 +790,7 @@ Exception classes
 .. currentmodule:: concurrent.futures.thread
 
 .. exception:: BrokenThreadPool
-               BrokenThreadPool(*args: object) -> None
+               BrokenThreadPool(*args: object) -> concurrent.futures.thread.BrokenThreadPool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/thread.pyi#L81>`__)
 
@@ -804,7 +804,7 @@ Exception classes
 .. currentmodule:: concurrent.futures.interpreter
 
 .. exception:: BrokenInterpreterPool
-               BrokenInterpreterPool(*args: object) -> None
+               BrokenInterpreterPool(*args: object) -> concurrent.futures.interpreter.BrokenInterpreterPool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/interpreter.pyi#L40>`__)
 
@@ -818,7 +818,7 @@ Exception classes
 .. currentmodule:: concurrent.futures.process
 
 .. exception:: BrokenProcessPool
-               BrokenProcessPool(*args: object) -> None
+               BrokenProcessPool(*args: object) -> concurrent.futures.process.BrokenProcessPool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/futures/process.pyi#L161>`__)
 

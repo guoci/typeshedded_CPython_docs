@@ -75,7 +75,7 @@ and switch to DOM-related processing.
 
 
 .. class:: PullDOM(documentFactory=None)
-           PullDOM(documentFactory: _DocumentFactory = None) -> None
+           PullDOM(documentFactory: _DocumentFactory = None) -> xml.dom.pulldom.PullDOM
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/pulldom.pyi#L34>`__)
 
@@ -83,7 +83,7 @@ and switch to DOM-related processing.
 
 
 .. class:: SAX2DOM(documentFactory=None)
-           SAX2DOM(documentFactory: _DocumentFactory = None) -> None
+           SAX2DOM(documentFactory: _DocumentFactory = None) -> xml.dom.pulldom.SAX2DOM
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/pulldom.pyi#L95>`__)
 
@@ -91,7 +91,7 @@ and switch to DOM-related processing.
 
 
 .. function:: parse(stream_or_string, parser=None, bufsize=None)
-              parse(stream_or_string: _SupportsReadClose[bytes] | _SupportsReadClose[str] | str, parser: XMLReader | None = None, bufsize: int | None = None) -> DOMEventStream
+              parse(stream_or_string: xml.sax._SupportsReadClose[bytes] | xml.sax._SupportsReadClose[str] | str, parser: xml.sax.xmlreader.XMLReader | None = None, bufsize: int | None = None) -> xml.dom.pulldom.DOMEventStream
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/pulldom.pyi#L104>`__)
 
@@ -105,7 +105,7 @@ and switch to DOM-related processing.
 If you have XML in a string, you can use the :func:`parseString` function instead:
 
 .. function:: parseString(string, parser=None)
-              parseString(string: str, parser: XMLReader | None = None) -> DOMEventStream
+              parseString(string: str, parser: xml.sax.xmlreader.XMLReader | None = None) -> xml.dom.pulldom.DOMEventStream
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/pulldom.pyi#L109>`__)
 
@@ -127,7 +127,7 @@ DOMEventStream Objects
 ----------------------
 
 .. class:: DOMEventStream(stream, parser, bufsize)
-           DOMEventStream(stream: _SupportsReadClose[bytes] | _SupportsReadClose[str], parser: XMLReader, bufsize: int) -> None
+           DOMEventStream(stream: xml.sax._SupportsReadClose[bytes] | xml.sax._SupportsReadClose[str], parser: xml.sax.xmlreader.XMLReader, bufsize: int) -> xml.dom.pulldom.DOMEventStream
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/pulldom.pyi#L79>`__)
 
@@ -135,7 +135,7 @@ DOMEventStream Objects
       Support for :meth:`~object.__getitem__` method has been removed.
 
    .. method:: getEvent()
-               getEvent() -> tuple[typing.Literal['CHARACTERS'], Text] | tuple[typing.Literal['COMMENT'], Comment] | tuple[typing.Literal['END_DOCUMENT'], Document] | tuple[typing.Literal['END_ELEMENT'], Element] | tuple[typing.Literal['IGNORABLE_WHITESPACE'], Text] | tuple[typing.Literal['PROCESSING_INSTRUCTION'], ProcessingInstruction] | tuple[typing.Literal['START_DOCUMENT'], Document] | tuple[typing.Literal['START_ELEMENT'], Element] | None
+               getEvent() -> tuple[typing.Literal['CHARACTERS'], xml.dom.minidom.Text] | tuple[typing.Literal['COMMENT'], xml.dom.minidom.Comment] | tuple[typing.Literal['END_DOCUMENT'], xml.dom.minidom.Document] | tuple[typing.Literal['END_ELEMENT'], xml.dom.minidom.Element] | tuple[typing.Literal['IGNORABLE_WHITESPACE'], xml.dom.minidom.Text] | tuple[typing.Literal['PROCESSING_INSTRUCTION'], xml.dom.minidom.ProcessingInstruction] | tuple[typing.Literal['START_DOCUMENT'], xml.dom.minidom.Document] | tuple[typing.Literal['START_ELEMENT'], xml.dom.minidom.Element] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/pulldom.pyi#L90>`__)
 
@@ -148,7 +148,7 @@ DOMEventStream Objects
       :func:`expandNode` is called.
 
    .. method:: expandNode(node)
-               expandNode(node: Document) -> None
+               expandNode(node: xml.dom.minidom.Document) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/pulldom.pyi#L91>`__)
 

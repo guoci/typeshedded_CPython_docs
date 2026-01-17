@@ -67,7 +67,7 @@ constants below:
 
 
 .. class:: SelectorKey
-           SelectorKey(fileobj: FileDescriptorLike, fd: int, events: int, data: typing.Any) -> None
+           SelectorKey(fileobj: FileDescriptorLike, fd: int, events: int, data: typing.Any) -> selectors.SelectorKey
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L13>`__)
 
@@ -77,7 +77,7 @@ constants below:
    methods.
 
    .. attribute:: fileobj
-      :type: HasFileno | int
+      :type: _typeshed.HasFileno | int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L14>`__)
 
@@ -107,7 +107,7 @@ constants below:
 
 
 .. class:: BaseSelector
-           BaseSelector() -> None
+           BaseSelector() -> selectors.BaseSelector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L19>`__)
 
@@ -122,7 +122,7 @@ constants below:
    :term:`context manager` protocol.
 
    .. method:: register(fileobj, events, data=None)
-               register(fileobj: FileDescriptorLike, events: int, data: typing.Any = None) -> SelectorKey
+               register(fileobj: FileDescriptorLike, events: int, data: typing.Any = None) -> selectors.SelectorKey
       :abstractmethod:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L21>`__)
@@ -139,7 +139,7 @@ constants below:
       :exc:`KeyError` if the file object is already registered.
 
    .. method:: unregister(fileobj)
-               unregister(fileobj: FileDescriptorLike) -> SelectorKey
+               unregister(fileobj: FileDescriptorLike) -> selectors.SelectorKey
       :abstractmethod:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L23>`__)
@@ -155,7 +155,7 @@ constants below:
       method or its ``fileno()`` method has an invalid return value).
 
    .. method:: modify(fileobj, events, data=None)
-               modify(fileobj: FileDescriptorLike, events: int, data: typing.Any = None) -> SelectorKey
+               modify(fileobj: FileDescriptorLike, events: int, data: typing.Any = None) -> selectors.SelectorKey
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L24>`__)
 
@@ -170,7 +170,7 @@ constants below:
       :exc:`KeyError` if the file object is not registered.
 
    .. method:: select(timeout=None)
-               select(timeout: float | None = None) -> list[tuple[SelectorKey, int]]
+               select(timeout: float | None = None) -> list[tuple[selectors.SelectorKey, int]]
       :abstractmethod:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L26>`__)
@@ -213,7 +213,7 @@ constants below:
       The selector shall not be used once it has been closed.
 
    .. method:: get_key(fileobj)
-               get_key(fileobj: FileDescriptorLike) -> SelectorKey
+               get_key(fileobj: FileDescriptorLike) -> selectors.SelectorKey
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L28>`__)
 
@@ -223,7 +223,7 @@ constants below:
       object, or raises :exc:`KeyError` if the file object is not registered.
 
    .. method:: get_map()
-               get_map() -> collections.abc.Mapping[FileDescriptorLike, SelectorKey]
+               get_map() -> typing.Mapping[FileDescriptorLike, selectors.SelectorKey]
       :abstractmethod:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L30>`__)
@@ -236,7 +236,7 @@ constants below:
 
 
 .. class:: DefaultSelector()
-           DefaultSelector() -> None
+           DefaultSelector() -> selectors.DefaultSelector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L66>`__)
 
@@ -246,7 +246,7 @@ constants below:
 
 
 .. class:: SelectSelector()
-           SelectSelector() -> None
+           SelectSelector() -> selectors.SelectSelector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L40>`__)
 
@@ -254,7 +254,7 @@ constants below:
 
 
 .. class:: PollSelector()
-           PollSelector() -> None
+           PollSelector() -> selectors.PollSelector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L47>`__)
 
@@ -262,7 +262,7 @@ constants below:
 
 
 .. class:: EpollSelector()
-           EpollSelector() -> None
+           EpollSelector() -> selectors.EpollSelector
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/selectors.pyi#L50>`__)
 

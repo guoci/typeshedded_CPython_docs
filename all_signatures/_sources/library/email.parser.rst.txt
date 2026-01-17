@@ -71,8 +71,8 @@ Here is the API for the :class:`BytesFeedParser`:
 
 
 .. class:: BytesFeedParser(_factory=None, *, policy=policy.compat32)
-           BytesFeedParser(_factory: None = None, *, policy: Policy[email.message.Message[str, str]] = ...) -> None
-           BytesFeedParser(_factory: () -> _MessageT, *, policy: Policy[_MessageT] = ...) -> None
+           BytesFeedParser(_factory: None = None, *, policy: email._policybase.Policy[email.message.Message[str, str]] = ...) -> email.feedparser.BytesFeedParser
+           BytesFeedParser(_factory: () -> _MessageT, *, policy: email._policybase.Policy[_MessageT] = ...) -> email.feedparser.BytesFeedParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/feedparser.pyi#L17>`__)
 
@@ -122,8 +122,8 @@ Here is the API for the :class:`BytesFeedParser`:
 
 
 .. class:: FeedParser(_factory=None, *, policy=policy.compat32)
-           FeedParser(_factory: None = None, *, policy: Policy[email.message.Message[str, str]] = ...) -> None
-           FeedParser(_factory: () -> _MessageT, *, policy: Policy[_MessageT] = ...) -> None
+           FeedParser(_factory: None = None, *, policy: email._policybase.Policy[email.message.Message[str, str]] = ...) -> email.feedparser.FeedParser
+           FeedParser(_factory: () -> _MessageT, *, policy: email._policybase.Policy[_MessageT] = ...) -> email.feedparser.FeedParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/feedparser.pyi#L9>`__)
 
@@ -151,9 +151,9 @@ message body, instead setting the payload to the raw body.
 
 
 .. class:: BytesParser(_class=None, *, policy=policy.compat32)
-           BytesParser(_class: None = None) -> None
-           BytesParser(_class: None = None, *, policy: Policy[_MessageT]) -> None
-           BytesParser(_class: () -> _MessageT, *, policy: Policy[_MessageT] = ...) -> None
+           BytesParser(_class: None = None) -> email.parser.BytesParser
+           BytesParser(_class: None = None, *, policy: email._policybase.Policy[_MessageT]) -> email.parser.BytesParser
+           BytesParser(_class: () -> _MessageT, *, policy: email._policybase.Policy[_MessageT] = ...) -> email.parser.BytesParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/parser.pyi#L26>`__)
 
@@ -171,7 +171,7 @@ message body, instead setting the payload to the raw body.
 
 
    .. method:: parse(fp, headersonly=False)
-               parse[_MessageT](fp: _WrappedBuffer, headersonly: bool = False) -> _MessageT
+               parse[_MessageT](fp: _io._WrappedBuffer, headersonly: bool = False) -> _MessageT
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/parser.pyi#L34>`__)
 
@@ -209,9 +209,9 @@ message body, instead setting the payload to the raw body.
 
 
 .. class:: BytesHeaderParser(_class=None, *, policy=policy.compat32)
-           BytesHeaderParser(_class: None = None) -> None
-           BytesHeaderParser(_class: None = None, *, policy: Policy[_MessageT]) -> None
-           BytesHeaderParser(_class: () -> _MessageT, *, policy: Policy[_MessageT] = ...) -> None
+           BytesHeaderParser(_class: None = None) -> email.parser.BytesHeaderParser
+           BytesHeaderParser(_class: None = None, *, policy: email._policybase.Policy[_MessageT]) -> email.parser.BytesHeaderParser
+           BytesHeaderParser(_class: () -> _MessageT, *, policy: email._policybase.Policy[_MessageT] = ...) -> email.parser.BytesHeaderParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/parser.pyi#L37>`__)
 
@@ -222,9 +222,9 @@ message body, instead setting the payload to the raw body.
 
 
 .. class:: Parser(_class=None, *, policy=policy.compat32)
-           Parser(_class: None = None) -> None
-           Parser(_class: None = None, *, policy: Policy[_MessageT]) -> None
-           Parser(_class: (() -> _MessageT) | None, *, policy: Policy[_MessageT] = ...) -> None
+           Parser(_class: None = None) -> email.parser.Parser
+           Parser(_class: None = None, *, policy: email._policybase.Policy[_MessageT]) -> email.parser.Parser
+           Parser(_class: (() -> _MessageT) | None, *, policy: email._policybase.Policy[_MessageT] = ...) -> email.parser.Parser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/parser.pyi#L12>`__)
 
@@ -236,7 +236,7 @@ message body, instead setting the payload to the raw body.
 
 
    .. method:: parse(fp, headersonly=False)
-               parse[_MessageT](fp: SupportsRead[str], headersonly: bool = False) -> _MessageT
+               parse[_MessageT](fp: _typeshed.SupportsRead[str], headersonly: bool = False) -> _MessageT
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/parser.pyi#L19>`__)
 
@@ -263,9 +263,9 @@ message body, instead setting the payload to the raw body.
 
 
 .. class:: HeaderParser(_class=None, *, policy=policy.compat32)
-           HeaderParser(_class: None = None) -> None
-           HeaderParser(_class: None = None, *, policy: Policy[_MessageT]) -> None
-           HeaderParser(_class: (() -> _MessageT) | None, *, policy: Policy[_MessageT] = ...) -> None
+           HeaderParser(_class: None = None) -> email.parser.HeaderParser
+           HeaderParser(_class: None = None, *, policy: email._policybase.Policy[_MessageT]) -> email.parser.HeaderParser
+           HeaderParser(_class: (() -> _MessageT) | None, *, policy: email._policybase.Policy[_MessageT] = ...) -> email.parser.HeaderParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/parser.pyi#L22>`__)
 
@@ -283,7 +283,7 @@ in the top-level :mod:`email` package namespace.
 .. function:: message_from_bytes(s, _class=None, *, policy=policy.compat32)
               message_from_bytes(s: bytearray | bytes) -> email.message.Message[str, str]
               message_from_bytes(s: bytearray | bytes, _class: () -> _MessageT) -> _MessageT
-              message_from_bytes(s: bytearray | bytes, _class: () -> _MessageT = ..., *, policy: Policy[_MessageT]) -> _MessageT
+              message_from_bytes(s: bytearray | bytes, _class: () -> _MessageT = ..., *, policy: email._policybase.Policy[_MessageT]) -> _MessageT
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/__init__.pyi#L42>`__)
 
@@ -299,9 +299,9 @@ in the top-level :mod:`email` package namespace.
 
 .. function:: message_from_binary_file(fp, _class=None, *, \
                                        policy=policy.compat32)
-              message_from_binary_file(fp: IO[bytes]) -> email.message.Message[str, str]
-              message_from_binary_file(fp: IO[bytes], _class: () -> _MessageT) -> _MessageT
-              message_from_binary_file(fp: IO[bytes], _class: () -> _MessageT = ..., *, policy: Policy[_MessageT]) -> _MessageT
+              message_from_binary_file(fp: typing.IO[bytes]) -> email.message.Message[str, str]
+              message_from_binary_file(fp: typing.IO[bytes], _class: () -> _MessageT) -> _MessageT
+              message_from_binary_file(fp: typing.IO[bytes], _class: () -> _MessageT = ..., *, policy: email._policybase.Policy[_MessageT]) -> _MessageT
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/__init__.pyi#L56>`__)
 
@@ -318,7 +318,7 @@ in the top-level :mod:`email` package namespace.
 .. function:: message_from_string(s, _class=None, *, policy=policy.compat32)
               message_from_string(s: str) -> email.message.Message[str, str]
               message_from_string(s: str, _class: () -> _MessageT) -> _MessageT
-              message_from_string(s: str, _class: () -> _MessageT = ..., *, policy: Policy[_MessageT]) -> _MessageT
+              message_from_string(s: str, _class: () -> _MessageT = ..., *, policy: email._policybase.Policy[_MessageT]) -> _MessageT
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/__init__.pyi#L36>`__)
 
@@ -331,9 +331,9 @@ in the top-level :mod:`email` package namespace.
 
 
 .. function:: message_from_file(fp, _class=None, *, policy=policy.compat32)
-              message_from_file(fp: IO[str]) -> email.message.Message[str, str]
-              message_from_file(fp: IO[str], _class: () -> _MessageT) -> _MessageT
-              message_from_file(fp: IO[str], _class: () -> _MessageT = ..., *, policy: Policy[_MessageT]) -> _MessageT
+              message_from_file(fp: typing.IO[str]) -> email.message.Message[str, str]
+              message_from_file(fp: typing.IO[str], _class: () -> _MessageT) -> _MessageT
+              message_from_file(fp: typing.IO[str], _class: () -> _MessageT = ..., *, policy: email._policybase.Policy[_MessageT]) -> _MessageT
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/__init__.pyi#L50>`__)
 

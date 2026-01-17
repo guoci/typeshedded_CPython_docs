@@ -242,9 +242,9 @@ Module contents
    occurs in a single class, or as a result of class inheritance.
 
 .. function:: field(*, default=MISSING, default_factory=MISSING, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=MISSING, doc=None)
-              field(*, default: _T, default_factory: typing.Literal[_MISSING_TYPE.MISSING] = ..., init: bool = True, repr: bool = True, hash: bool | None = None, compare: bool = True, metadata: collections.abc.Mapping[typing.Any, typing.Any] | None = None, kw_only: _MISSING_TYPE | bool = ..., doc: str | None = None) -> _T
-              field(*, default: typing.Literal[_MISSING_TYPE.MISSING] = ..., default_factory: () -> _T, init: bool = True, repr: bool = True, hash: bool | None = None, compare: bool = True, metadata: collections.abc.Mapping[typing.Any, typing.Any] | None = None, kw_only: _MISSING_TYPE | bool = ..., doc: str | None = None) -> _T
-              field(*, default: typing.Literal[_MISSING_TYPE.MISSING] = ..., default_factory: typing.Literal[_MISSING_TYPE.MISSING] = ..., init: bool = True, repr: bool = True, hash: bool | None = None, compare: bool = True, metadata: collections.abc.Mapping[typing.Any, typing.Any] | None = None, kw_only: _MISSING_TYPE | bool = ..., doc: str | None = None) -> typing.Any
+              field(*, default: _T, default_factory: typing.Literal[dataclasses._MISSING_TYPE.MISSING] = ..., init: bool = True, repr: bool = True, hash: bool | None = None, compare: bool = True, metadata: typing.Mapping[typing.Any, typing.Any] | None = None, kw_only: dataclasses._MISSING_TYPE | bool = ..., doc: str | None = None) -> _T
+              field(*, default: typing.Literal[dataclasses._MISSING_TYPE.MISSING] = ..., default_factory: () -> _T, init: bool = True, repr: bool = True, hash: bool | None = None, compare: bool = True, metadata: typing.Mapping[typing.Any, typing.Any] | None = None, kw_only: dataclasses._MISSING_TYPE | bool = ..., doc: str | None = None) -> _T
+              field(*, default: typing.Literal[dataclasses._MISSING_TYPE.MISSING] = ..., default_factory: typing.Literal[dataclasses._MISSING_TYPE.MISSING] = ..., init: bool = True, repr: bool = True, hash: bool | None = None, compare: bool = True, metadata: typing.Mapping[typing.Any, typing.Any] | None = None, kw_only: dataclasses._MISSING_TYPE | bool = ..., doc: str | None = None) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L264>`__)
 
@@ -343,7 +343,7 @@ Module contents
    :attr:`!C.y` will not be set.
 
 .. class:: Field
-           Field(default: _T, default_factory: () -> _T, init: bool, repr: bool, hash: bool | None, compare: bool, metadata: collections.abc.Mapping[typing.Any, typing.Any], kw_only: bool, doc: str | None) -> None
+           Field(default: _T, default_factory: () -> _T, init: bool, repr: bool, hash: bool | None, compare: bool, metadata: typing.Mapping[typing.Any, typing.Any], kw_only: bool, doc: str | None) -> dataclasses.Field
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L172>`__)
 
@@ -362,7 +362,7 @@ Module contents
    inspected or relied on.
 
 .. class:: InitVar
-           InitVar(type: type[_T]) -> None
+           InitVar(type: type[_T]) -> dataclasses.InitVar
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L388>`__)
 
@@ -374,7 +374,7 @@ Module contents
    :meth:`__post_init__`.
 
 .. function:: fields(class_or_instance)
-              fields(class_or_instance: DataclassInstance | type[DataclassInstance]) -> tuple[Field[typing.Any], ...]
+              fields(class_or_instance: _typeshed.DataclassInstance | type[_typeshed.DataclassInstance]) -> tuple[dataclasses.Field[typing.Any], ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L376>`__)
 
@@ -384,8 +384,8 @@ Module contents
    Does not return pseudo-fields which are ``ClassVar`` or ``InitVar``.
 
 .. function:: asdict(obj, *, dict_factory=dict)
-              asdict(obj: DataclassInstance) -> dict[str, typing.Any]
-              asdict(obj: DataclassInstance, *, dict_factory: (list[tuple[str, typing.Any]]) -> _T) -> _T
+              asdict(obj: _typeshed.DataclassInstance) -> dict[str, typing.Any]
+              asdict(obj: _typeshed.DataclassInstance, *, dict_factory: (list[tuple[str, typing.Any]]) -> _T) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L67>`__)
 
@@ -420,8 +420,8 @@ Module contents
    instance.
 
 .. function:: astuple(obj, *, tuple_factory=tuple)
-              astuple(obj: DataclassInstance) -> tuple[typing.Any, ...]
-              astuple(obj: DataclassInstance, *, tuple_factory: (list[typing.Any]) -> _T) -> _T
+              astuple(obj: _typeshed.DataclassInstance) -> tuple[typing.Any, ...]
+              astuple(obj: _typeshed.DataclassInstance, *, tuple_factory: (list[typing.Any]) -> _T) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L71>`__)
 
@@ -444,7 +444,7 @@ Module contents
    instance.
 
 .. function:: make_dataclass(cls_name, fields, *, bases=(), namespace=None, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False, module=None, decorator=dataclass)
-              make_dataclass(cls_name: str, fields: collections.abc.Iterable[str | tuple[str, typing.Any] | tuple[str, typing.Any, typing.Any]], *, bases: tuple[type[typing.Any], ...] = ..., namespace: dict[str, typing.Any] | None = None, init: bool = True, repr: bool = True, eq: bool = True, order: bool = False, unsafe_hash: bool = False, frozen: bool = False, match_args: bool = True, kw_only: bool = False, slots: bool = False, weakref_slot: bool = False, module: str | None = None, decorator: _DataclassFactory = ...) -> type[typing.Any]
+              make_dataclass(cls_name: str, fields: typing.Iterable[str | tuple[str, typing.Any] | tuple[str, typing.Any, typing.Any]], *, bases: tuple[type[Any], ...] = ..., namespace: dict[str, typing.Any] | None = None, init: bool = True, repr: bool = True, eq: bool = True, order: bool = False, unsafe_hash: bool = False, frozen: bool = False, match_args: bool = True, kw_only: bool = False, slots: bool = False, weakref_slot: bool = False, module: str | None = None, decorator: dataclasses._DataclassFactory = ...) -> type[Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L398>`__)
 
@@ -527,9 +527,9 @@ Module contents
    Dataclass instances are also supported by generic function :func:`copy.replace`.
 
 .. function:: is_dataclass(obj)
-              is_dataclass(obj: Never) -> TypeIs[DataclassInstance | type[DataclassInstance]]
-              is_dataclass(obj: type[typing.Any]) -> TypeIs[type[DataclassInstance]]
-              is_dataclass(obj: object) -> TypeIs[DataclassInstance | type[DataclassInstance]]
+              is_dataclass(obj: typing.Never) -> typing.TypeIs[_typeshed.DataclassInstance | type[_typeshed.DataclassInstance]]
+              is_dataclass(obj: type[Any]) -> typing.TypeIs[type[_typeshed.DataclassInstance]]
+              is_dataclass(obj: object) -> typing.TypeIs[_typeshed.DataclassInstance | type[_typeshed.DataclassInstance]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L380>`__)
 
@@ -544,14 +544,14 @@ Module contents
          return is_dataclass(obj) and not isinstance(obj, type)
 
 .. data:: MISSING
-   :type: typing.Literal[_MISSING_TYPE.MISSING]
+   :type: typing.Literal[dataclasses._MISSING_TYPE.MISSING]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L61>`__)
 
    A sentinel value signifying a missing default or default_factory.
 
 .. data:: KW_ONLY
-   :type: (self: KW_ONLY) -> None
+   :type: (self: dataclasses.KW_ONLY) -> dataclasses.KW_ONLY
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L64>`__)
 
@@ -581,7 +581,7 @@ Module contents
    .. versionadded:: 3.10
 
 .. exception:: FrozenInstanceError
-               FrozenInstanceError(*args: object, *, name: str | None = None, obj: object = None) -> None
+               FrozenInstanceError(*args: object, *, name: str | None = None, obj: object = None) -> dataclasses.FrozenInstanceError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/dataclasses.pyi#L386>`__)
 

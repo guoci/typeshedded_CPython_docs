@@ -84,7 +84,7 @@ The :mod:`xml.dom` contains the following functions:
 
 
 .. function:: registerDOMImplementation(name, factory)
-              registerDOMImplementation(name: str, factory: () -> DOMImplementation) -> None
+              registerDOMImplementation(name: str, factory: () -> _typeshed.xml.DOMImplementation) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/domreg.pyi#L7>`__)
 
@@ -96,7 +96,7 @@ The :mod:`xml.dom` contains the following functions:
 
 
 .. function:: getDOMImplementation(name=None, features=())
-              getDOMImplementation(name: str | None = None, features: collections.abc.Iterable[tuple[str, str | None]] | str = ...) -> DOMImplementation
+              getDOMImplementation(name: str | None = None, features: typing.Iterable[tuple[str, str | None]] | str = ...) -> _typeshed.xml.DOMImplementation
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/domreg.pyi#L8>`__)
 
@@ -280,7 +280,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.parentNode
-   :type: Document | DocumentFragment | Element | None
+   :type: xml.dom.minidom.Document | xml.dom.minidom.DocumentFragment | xml.dom.minidom.Element | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L296>`__)
 
@@ -292,7 +292,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.attributes
-   :type: NamedNodeMap
+   :type: xml.dom.minidom.NamedNodeMap
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L294>`__)
 
@@ -302,7 +302,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.previousSibling
-   :type: CDATASection | Comment | DocumentType | Element | Notation | ProcessingInstruction | Text | None
+   :type: xml.dom.minidom.CDATASection | xml.dom.minidom.Comment | xml.dom.minidom.DocumentType | xml.dom.minidom.Element | xml.dom.minidom.Notation | xml.dom.minidom.ProcessingInstruction | xml.dom.minidom.Text | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L298>`__)
 
@@ -315,7 +315,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.nextSibling
-   :type: CDATASection | Comment | DocumentType | Element | Notation | ProcessingInstruction | Text | None
+   :type: xml.dom.minidom.CDATASection | xml.dom.minidom.Comment | xml.dom.minidom.DocumentType | xml.dom.minidom.Element | xml.dom.minidom.Notation | xml.dom.minidom.ProcessingInstruction | xml.dom.minidom.Text | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L297>`__)
 
@@ -325,7 +325,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.childNodes
-   :type: NodeList[_ElementChildren]
+   :type: xml.dom.minicompat.NodeList[_ElementChildren]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L299>`__)
 
@@ -333,7 +333,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.firstChild
-   :type: CDATASection | Comment | Element | ProcessingInstruction | Text | None
+   :type: xml.dom.minidom.CDATASection | xml.dom.minidom.Comment | xml.dom.minidom.Element | xml.dom.minidom.ProcessingInstruction | xml.dom.minidom.Text | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L301>`__)
 
@@ -342,7 +342,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. attribute:: Node.lastChild
-   :type: CDATASection | Comment | Element | ProcessingInstruction | Text | None
+   :type: xml.dom.minidom.CDATASection | xml.dom.minidom.Comment | xml.dom.minidom.Element | xml.dom.minidom.ProcessingInstruction | xml.dom.minidom.Text | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L303>`__)
 
@@ -416,7 +416,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. method:: Node.isSameNode(other)
-            Node.isSameNode(other: Node) -> bool
+            Node.isSameNode(other: xml.dom.minidom.Node) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L146>`__)
 
@@ -443,7 +443,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. method:: Node.insertBefore(newChild, refChild)
-            Node.insertBefore[_ElementChildrenPlusFragment](newChild: _ElementChildrenPlusFragment, refChild: CDATASection | Comment | Element | ProcessingInstruction | Text | None) -> _ElementChildrenPlusFragment
+            Node.insertBefore[_ElementChildrenPlusFragment](newChild: _ElementChildrenPlusFragment, refChild: xml.dom.minidom.CDATASection | xml.dom.minidom.Comment | xml.dom.minidom.Element | xml.dom.minidom.ProcessingInstruction | xml.dom.minidom.Text | None) -> _ElementChildrenPlusFragment
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L338>`__)
 
@@ -464,7 +464,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. method:: Node.replaceChild(newChild, oldChild)
-            Node.replaceChild(newChild: DocumentFragment, oldChild: _ElementChildrenVar) -> DocumentFragment | _ElementChildrenVar
+            Node.replaceChild(newChild: xml.dom.minidom.DocumentFragment, oldChild: _ElementChildrenVar) -> xml.dom.minidom.DocumentFragment | _ElementChildrenVar
             Node.replaceChild(newChild: _ElementChildren, oldChild: _ElementChildrenVar) -> _ElementChildrenVar | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L343>`__)
@@ -484,7 +484,7 @@ All of the components of an XML document are subclasses of :class:`Node`.
 
 
 .. method:: Node.cloneNode(deep)
-            Node.cloneNode(deep: bool) -> Element | None
+            Node.cloneNode(deep: bool) -> xml.dom.minidom.Element | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L144>`__)
 
@@ -508,7 +508,7 @@ objects:
 
 
 .. method:: NodeList.item(i)
-            NodeList.item(index: int) -> CDATASection | Comment | Element | ProcessingInstruction | Text | None
+            NodeList.item(index: int) -> xml.dom.minidom.CDATASection | xml.dom.minidom.Comment | xml.dom.minidom.Element | xml.dom.minidom.ProcessingInstruction | xml.dom.minidom.Text | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minicompat.pyi#L14>`__)
 
@@ -592,7 +592,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.entities
-   :type: ReadOnlySequentialNamedNodeMap[Entity]
+   :type: xml.dom.minidom.ReadOnlySequentialNamedNodeMap[xml.dom.minidom.Entity]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L526>`__)
 
@@ -604,7 +604,7 @@ following attributes:
 
 
 .. attribute:: DocumentType.notations
-   :type: ReadOnlySequentialNamedNodeMap[Notation]
+   :type: xml.dom.minidom.ReadOnlySequentialNamedNodeMap[xml.dom.minidom.Notation]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L527>`__)
 
@@ -626,7 +626,7 @@ inherits properties from :class:`Node`.
 
 
 .. attribute:: Document.documentElement
-   :type: Element | None
+   :type: xml.dom.minidom.Element | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L634>`__)
 
@@ -634,7 +634,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.createElement(tagName)
-            Document.createElement(tagName: str) -> Element
+            Document.createElement(tagName: str) -> xml.dom.minidom.Element
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L642>`__)
 
@@ -644,7 +644,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.createElementNS(namespaceURI, tagName)
-            Document.createElementNS(namespaceURI: str | None, qualifiedName: str) -> Element
+            Document.createElementNS(namespaceURI: str | None, qualifiedName: str) -> xml.dom.minidom.Element
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L648>`__)
 
@@ -655,7 +655,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.createTextNode(data)
-            Document.createTextNode(data: str) -> Text
+            Document.createTextNode(data: str) -> xml.dom.minidom.Text
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L643>`__)
 
@@ -665,7 +665,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.createComment(data)
-            Document.createComment(data: str) -> Comment
+            Document.createComment(data: str) -> xml.dom.minidom.Comment
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L645>`__)
 
@@ -675,7 +675,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.createProcessingInstruction(target, data)
-            Document.createProcessingInstruction(target: str, data: str) -> ProcessingInstruction
+            Document.createProcessingInstruction(target: str, data: str) -> xml.dom.minidom.ProcessingInstruction
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L646>`__)
 
@@ -685,7 +685,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.createAttribute(name)
-            Document.createAttribute(qName: str) -> Attr
+            Document.createAttribute(qName: str) -> xml.dom.minidom.Attr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L647>`__)
 
@@ -696,7 +696,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.createAttributeNS(namespaceURI, qualifiedName)
-            Document.createAttributeNS(namespaceURI: str | None, qualifiedName: str) -> Attr
+            Document.createAttributeNS(namespaceURI: str | None, qualifiedName: str) -> xml.dom.minidom.Attr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L649>`__)
 
@@ -707,7 +707,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.getElementsByTagName(tagName)
-            Document.getElementsByTagName(name: str) -> NodeList[Element]
+            Document.getElementsByTagName(name: str) -> xml.dom.minicompat.NodeList[xml.dom.minidom.Element]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L651>`__)
 
@@ -716,7 +716,7 @@ inherits properties from :class:`Node`.
 
 
 .. method:: Document.getElementsByTagNameNS(namespaceURI, localName)
-            Document.getElementsByTagNameNS(namespaceURI: str | None, localName: str) -> NodeList[Element]
+            Document.getElementsByTagNameNS(namespaceURI: str | None, localName: str) -> xml.dom.minicompat.NodeList[xml.dom.minidom.Element]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L652>`__)
 
@@ -744,7 +744,7 @@ of that class.
 
 
 .. method:: Element.getElementsByTagName(tagName)
-            Element.getElementsByTagName(name: str) -> NodeList[Element]
+            Element.getElementsByTagName(name: str) -> xml.dom.minicompat.NodeList[xml.dom.minidom.Element]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L331>`__)
 
@@ -752,7 +752,7 @@ of that class.
 
 
 .. method:: Element.getElementsByTagNameNS(namespaceURI, localName)
-            Element.getElementsByTagNameNS(namespaceURI: str | None, localName: str) -> NodeList[Element]
+            Element.getElementsByTagNameNS(namespaceURI: str | None, localName: str) -> xml.dom.minicompat.NodeList[xml.dom.minidom.Element]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L332>`__)
 
@@ -786,7 +786,7 @@ of that class.
 
 
 .. method:: Element.getAttributeNode(attrname)
-            Element.getAttributeNode(attrname: str) -> Attr | None
+            Element.getAttributeNode(attrname: str) -> xml.dom.minidom.Attr | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L321>`__)
 
@@ -804,7 +804,7 @@ of that class.
 
 
 .. method:: Element.getAttributeNodeNS(namespaceURI, localName)
-            Element.getAttributeNodeNS(namespaceURI: str | None, localName: str) -> Attr | None
+            Element.getAttributeNodeNS(namespaceURI: str | None, localName: str) -> xml.dom.minidom.Attr | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L322>`__)
 
@@ -821,7 +821,7 @@ of that class.
 
 
 .. method:: Element.removeAttributeNode(oldAttr)
-            Element.removeAttributeNode(node: Attr) -> Attr
+            Element.removeAttributeNode(node: xml.dom.minidom.Attr) -> xml.dom.minidom.Attr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L327>`__)
 
@@ -847,7 +847,7 @@ of that class.
 
 
 .. method:: Element.setAttributeNode(newAttr)
-            Element.setAttributeNode(attr: Attr) -> Attr | None
+            Element.setAttributeNode(attr: xml.dom.minidom.Attr) -> xml.dom.minidom.Attr | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L323>`__)
 
@@ -858,7 +858,7 @@ of that class.
 
 
 .. method:: Element.setAttributeNodeNS(newAttr)
-            Element.setAttributeNodeNS(attr: Attr) -> Attr | None
+            Element.setAttributeNodeNS(attr: xml.dom.minidom.Attr) -> xml.dom.minidom.Attr | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L324>`__)
 
@@ -939,7 +939,7 @@ NamedNodeMap Objects
 
 
 .. method:: NamedNodeMap.item(index)
-            NamedNodeMap.item(index: int) -> Node | None
+            NamedNodeMap.item(index: int) -> xml.dom.minidom.Node | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/minidom.pyi#L239>`__)
 
@@ -1047,7 +1047,7 @@ attribute.
 
 
 .. exception:: DOMException
-               DOMException(*args: typing.Any, **kw: typing.Any) -> None
+               DOMException(*args: typing.Any, **kw: typing.Any) -> xml.dom.DOMException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L38>`__)
 
@@ -1056,7 +1056,7 @@ attribute.
 
 
 .. exception:: DomstringSizeErr
-               DomstringSizeErr(*args: typing.Any, **kw: typing.Any) -> None
+               DomstringSizeErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.DomstringSizeErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L46>`__)
 
@@ -1066,7 +1066,7 @@ attribute.
 
 
 .. exception:: HierarchyRequestErr
-               HierarchyRequestErr(*args: typing.Any, **kw: typing.Any) -> None
+               HierarchyRequestErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.HierarchyRequestErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L49>`__)
 
@@ -1075,7 +1075,7 @@ attribute.
 
 
 .. exception:: IndexSizeErr
-               IndexSizeErr(*args: typing.Any, **kw: typing.Any) -> None
+               IndexSizeErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.IndexSizeErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L43>`__)
 
@@ -1084,7 +1084,7 @@ attribute.
 
 
 .. exception:: InuseAttributeErr
-               InuseAttributeErr(*args: typing.Any, **kw: typing.Any) -> None
+               InuseAttributeErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.InuseAttributeErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L70>`__)
 
@@ -1093,7 +1093,7 @@ attribute.
 
 
 .. exception:: InvalidAccessErr
-               InvalidAccessErr(*args: typing.Any, **kw: typing.Any) -> None
+               InvalidAccessErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.InvalidAccessErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L85>`__)
 
@@ -1101,7 +1101,7 @@ attribute.
 
 
 .. exception:: InvalidCharacterErr
-               InvalidCharacterErr(*args: typing.Any, **kw: typing.Any) -> None
+               InvalidCharacterErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.InvalidCharacterErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L55>`__)
 
@@ -1112,7 +1112,7 @@ attribute.
 
 
 .. exception:: InvalidModificationErr
-               InvalidModificationErr(*args: typing.Any, **kw: typing.Any) -> None
+               InvalidModificationErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.InvalidModificationErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L79>`__)
 
@@ -1120,7 +1120,7 @@ attribute.
 
 
 .. exception:: InvalidStateErr
-               InvalidStateErr(*args: typing.Any, **kw: typing.Any) -> None
+               InvalidStateErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.InvalidStateErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L73>`__)
 
@@ -1129,7 +1129,7 @@ attribute.
 
 
 .. exception:: NamespaceErr
-               NamespaceErr(*args: typing.Any, **kw: typing.Any) -> None
+               NamespaceErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.NamespaceErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L82>`__)
 
@@ -1139,7 +1139,7 @@ attribute.
 
 
 .. exception:: NotFoundErr
-               NotFoundErr(*args: typing.Any, **kw: typing.Any) -> None
+               NotFoundErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.NotFoundErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L64>`__)
 
@@ -1149,7 +1149,7 @@ attribute.
 
 
 .. exception:: NotSupportedErr
-               NotSupportedErr(*args: typing.Any, **kw: typing.Any) -> None
+               NotSupportedErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.NotSupportedErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L67>`__)
 
@@ -1158,7 +1158,7 @@ attribute.
 
 
 .. exception:: NoDataAllowedErr
-               NoDataAllowedErr(*args: typing.Any, **kw: typing.Any) -> None
+               NoDataAllowedErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.NoDataAllowedErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L58>`__)
 
@@ -1168,7 +1168,7 @@ attribute.
 
 
 .. exception:: NoModificationAllowedErr
-               NoModificationAllowedErr(*args: typing.Any, **kw: typing.Any) -> None
+               NoModificationAllowedErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.NoModificationAllowedErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L61>`__)
 
@@ -1177,7 +1177,7 @@ attribute.
 
 
 .. exception:: SyntaxErr
-               SyntaxErr(*args: typing.Any, **kw: typing.Any) -> None
+               SyntaxErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.SyntaxErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L76>`__)
 
@@ -1187,7 +1187,7 @@ attribute.
 
 
 .. exception:: WrongDocumentErr
-               WrongDocumentErr(*args: typing.Any, **kw: typing.Any) -> None
+               WrongDocumentErr(*args: typing.Any, **kw: typing.Any) -> xml.dom.WrongDocumentErr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/dom/__init__.pyi#L52>`__)
 

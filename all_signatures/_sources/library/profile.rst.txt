@@ -77,7 +77,7 @@ following functions:
    results are sorted.
 
 .. function:: runctx(command, globals, locals, filename=None, sort=-1)
-              runctx(statement: str, globals: dict[str, typing.Any], locals: collections.abc.Mapping[str, typing.Any], filename: str | None = None, sort: int | str = -1) -> None
+              runctx(statement: str, globals: dict[str, typing.Any], locals: typing.Mapping[str, typing.Any], filename: str | None = None, sort: int | str = -1) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/profile.pyi#L9>`__)
 
@@ -90,7 +90,7 @@ following functions:
    and gathers profiling statistics as in the :func:`run` function above.
 
 .. class:: Profile(timer=None, timeunit=0.0, subcalls=True, builtins=True)
-           Profile(timer: (() -> float) | None = None, bias: int | None = None) -> None
+           Profile(timer: (() -> float) | None = None, bias: int | None = None) -> profile.Profile
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/profile.pyi#L17>`__)
 
@@ -181,14 +181,14 @@ following functions:
       Write the results of the current profile to *filename*.
 
    .. method:: run(cmd)
-               run(cmd: str) -> Profile
+               run(cmd: str) -> profile.Profile
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/profile.pyi#L28>`__)
 
       Profile the cmd via :func:`exec`.
 
    .. method:: runctx(cmd, globals, locals)
-               runctx(cmd: str, globals: dict[str, typing.Any], locals: collections.abc.Mapping[str, typing.Any]) -> Profile
+               runctx(cmd: str, globals: dict[str, typing.Any], locals: typing.Mapping[str, typing.Any]) -> profile.Profile
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/profile.pyi#L29>`__)
 
@@ -196,7 +196,7 @@ following functions:
       local environment.
 
    .. method:: runcall(func, /, *args, **kwargs)
-               runcall[_P, _T](Profile, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+               runcall[_P, _T](profile.Profile, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/profile.pyi#L30>`__)
 

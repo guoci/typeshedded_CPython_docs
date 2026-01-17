@@ -54,7 +54,7 @@ Here are the methods of the :class:`Message` class:
 
 
 .. class:: Message(policy=compat32)
-           Message(policy: Policy[typing.Any] = ...) -> None
+           Message(policy: email._policybase.Policy[typing.Any] = ...) -> email.message.Message
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L35>`__)
 
@@ -69,7 +69,7 @@ Here are the methods of the :class:`Message` class:
 
 
    .. method:: as_string(unixfrom=False, maxheaderlen=0, policy=None)
-               as_string[_HeaderT_co, _HeaderParamT_contra](unixfrom: bool = False, maxheaderlen: int = 0, policy: Policy[typing.Any] | None = None) -> str
+               as_string[_HeaderT_co, _HeaderParamT_contra](unixfrom: bool = False, maxheaderlen: int = 0, policy: email._policybase.Policy[typing.Any] | None = None) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L135>`__)
 
@@ -116,7 +116,7 @@ Here are the methods of the :class:`Message` class:
 
 
    .. method:: as_bytes(unixfrom=False, policy=None)
-               as_bytes[_HeaderT_co, _HeaderParamT_contra](unixfrom: bool = False, policy: Policy[typing.Any] | None = None) -> bytes
+               as_bytes[_HeaderT_co, _HeaderParamT_contra](unixfrom: bool = False, policy: email._policybase.Policy[typing.Any] | None = None) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L136>`__)
 
@@ -261,8 +261,8 @@ Here are the methods of the :class:`Message` class:
 
 
    .. method:: set_payload(payload, charset=None)
-               set_payload(payload: email.message.Message[str, str] | _SupportsDecodeToPayload | list[_PayloadType] | str, charset: None = None) -> None
-               set_payload(payload: email.message.Message[str, str] | _SupportsDecodeToPayload | _SupportsEncodeToPayload | list[_PayloadType] | str, charset: Charset | str) -> None
+               set_payload(payload: email.message.Message[str, str] | email.message._SupportsDecodeToPayload | list[_PayloadType] | str, charset: None = None) -> None
+               set_payload(payload: email.message.Message[str, str] | email.message._SupportsDecodeToPayload | email.message._SupportsEncodeToPayload | list[_PayloadType] | str, charset: email.charset.Charset | str) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L63>`__)
 
@@ -784,7 +784,7 @@ Here are the methods of the :class:`Message` class:
       .. versionadded:: 3.5
 
    .. method:: walk()
-               walk[_HeaderT_co, _HeaderParamT_contra]() -> collections.abc.Generator[email.message.Message[_HeaderT_co, _HeaderParamT_contra], None, None]
+               walk[_HeaderT_co, _HeaderParamT_contra]() -> typing.Generator[email.message.Message[_HeaderT_co, _HeaderParamT_contra], None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L133>`__)
 
@@ -896,7 +896,7 @@ Here are the methods of the :class:`Message` class:
 
 
    .. attribute:: defects
-      :type: list[MessageDefect]
+      :type: list[email.errors.MessageDefect]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L41>`__)
 

@@ -40,7 +40,7 @@ headers.
 
 
 .. class:: BaseHeader(name, value)
-           BaseHeader(name: str, value: typing.Any) -> BaseHeader
+           BaseHeader(name: str, value: typing.Any) -> email.headerregistry.BaseHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L19>`__)
 
@@ -52,7 +52,7 @@ headers.
 
 
    .. attribute:: name
-      :type: name(self: BaseHeader) -> str
+      :type: name(self: email.headerregistry.BaseHeader) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L23>`__)
 
@@ -63,7 +63,7 @@ headers.
 
 
    .. attribute:: defects
-      :type: defects(self: BaseHeader) -> tuple[MessageDefect, ...]
+      :type: defects(self: email.headerregistry.BaseHeader) -> tuple[email.errors.MessageDefect, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L25>`__)
 
@@ -88,7 +88,7 @@ headers.
    programs:
 
    .. method:: fold(*, policy)
-               fold(*, policy: Policy[email.message.Message[str, str]]) -> str
+               fold(*, policy: email._policybase.Policy[email.message.Message[str, str]]) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L28>`__)
 
@@ -132,7 +132,7 @@ headers.
 
 
 .. class:: UnstructuredHeader
-           UnstructuredHeader() -> None
+           UnstructuredHeader() -> email.headerregistry.UnstructuredHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L30>`__)
 
@@ -155,7 +155,7 @@ headers.
 
 
 .. class:: DateHeader
-           DateHeader() -> None
+           DateHeader() -> email.headerregistry.DateHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L40>`__)
 
@@ -167,7 +167,7 @@ headers.
    This header type provides the following additional attributes:
 
    .. attribute:: datetime
-      :type: datetime(self: DateHeader) -> datetime | None
+      :type: datetime(self: email.headerregistry.DateHeader) -> datetime.datetime | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L44>`__)
 
@@ -204,7 +204,7 @@ headers.
 
 
 .. class:: AddressHeader
-           AddressHeader() -> None
+           AddressHeader() -> email.headerregistry.AddressHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L53>`__)
 
@@ -216,7 +216,7 @@ headers.
 
 
    .. attribute:: groups
-      :type: groups(self: AddressHeader) -> tuple[Group, ...]
+      :type: groups(self: email.headerregistry.AddressHeader) -> tuple[email.headerregistry.Group, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L57>`__)
 
@@ -227,7 +227,7 @@ headers.
 
 
    .. attribute:: addresses
-      :type: addresses(self: AddressHeader) -> tuple[Address, ...]
+      :type: addresses(self: email.headerregistry.AddressHeader) -> tuple[email.headerregistry.Address, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L59>`__)
 
@@ -251,7 +251,7 @@ headers.
 
 
 .. class:: SingleAddressHeader
-           SingleAddressHeader() -> None
+           SingleAddressHeader() -> email.headerregistry.SingleAddressHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L68>`__)
 
@@ -260,7 +260,7 @@ headers.
 
 
    .. attribute:: address
-      :type: address(self: SingleAddressHeader) -> Address
+      :type: address(self: email.headerregistry.SingleAddressHeader) -> email.headerregistry.Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L70>`__)
 
@@ -276,7 +276,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
 .. class:: MIMEVersionHeader
-           MIMEVersionHeader() -> None
+           MIMEVersionHeader() -> email.headerregistry.MIMEVersionHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L75>`__)
 
@@ -287,7 +287,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
    the following attributes:
 
    .. attribute:: version
-      :type: version(self: MIMEVersionHeader) -> str | None
+      :type: version(self: email.headerregistry.MIMEVersionHeader) -> str | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L88>`__)
 
@@ -295,14 +295,14 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
       removed.
 
    .. attribute:: major
-      :type: major(self: MIMEVersionHeader) -> int | None
+      :type: major(self: email.headerregistry.MIMEVersionHeader) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L90>`__)
 
       The major version number as an integer
 
    .. attribute:: minor
-      :type: minor(self: MIMEVersionHeader) -> int | None
+      :type: minor(self: email.headerregistry.MIMEVersionHeader) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L92>`__)
 
@@ -310,7 +310,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
 .. class:: ParameterizedMIMEHeader
-           ParameterizedMIMEHeader() -> None
+           ParameterizedMIMEHeader() -> email.headerregistry.ParameterizedMIMEHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L98>`__)
 
@@ -320,7 +320,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
     This class serves as a base for all the MIME headers that take parameters.
 
     .. attribute:: params
-       :type: params(self: ParameterizedMIMEHeader) -> MappingProxyType[str, typing.Any]
+       :type: params(self: email.headerregistry.ParameterizedMIMEHeader) -> types.MappingProxyType[str, typing.Any]
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L102>`__)
 
@@ -328,7 +328,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
 .. class:: ContentTypeHeader
-           ContentTypeHeader() -> None
+           ContentTypeHeader() -> email.headerregistry.ContentTypeHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L106>`__)
 
@@ -336,26 +336,26 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
     :mailheader:`Content-Type` header.
 
     .. attribute:: content_type
-       :type: content_type(self: ContentTypeHeader) -> str
+       :type: content_type(self: email.headerregistry.ContentTypeHeader) -> str
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L108>`__)
 
        The content type string, in the form ``maintype/subtype``.
 
     .. attribute:: maintype
-       :type: maintype(self: ContentTypeHeader) -> str
+       :type: maintype(self: email.headerregistry.ContentTypeHeader) -> str
 
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L110>`__)
 
     .. attribute:: subtype
-       :type: subtype(self: ContentTypeHeader) -> str
+       :type: subtype(self: email.headerregistry.ContentTypeHeader) -> str
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L112>`__)
 
 
 .. class:: ContentDispositionHeader
-           ContentDispositionHeader() -> None
+           ContentDispositionHeader() -> email.headerregistry.ContentDispositionHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L116>`__)
 
@@ -363,7 +363,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
     :mailheader:`Content-Disposition` header.
 
     .. attribute:: content_disposition
-       :type: content_disposition(self: ContentDispositionHeader) -> str | None
+       :type: content_disposition(self: email.headerregistry.ContentDispositionHeader) -> str | None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L119>`__)
 
@@ -371,14 +371,14 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
 .. class:: ContentTransferEncodingHeader
-           ContentTransferEncodingHeader() -> None
+           ContentTransferEncodingHeader() -> email.headerregistry.ContentTransferEncodingHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L123>`__)
 
    Handles the :mailheader:`Content-Transfer-Encoding` header.
 
    .. attribute:: cte
-      :type: cte(self: ContentTransferEncodingHeader) -> str
+      :type: cte(self: email.headerregistry.ContentTransferEncodingHeader) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L127>`__)
 
@@ -390,7 +390,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 .. class:: HeaderRegistry(base_class=BaseHeader, \
                           default_class=UnstructuredHeader, \
                           use_default_map=True)
-           HeaderRegistry(base_class: type[BaseHeader] = ..., default_class: type[_HeaderParser] = ..., use_default_map: bool = True) -> None
+           HeaderRegistry(base_class: type[email.headerregistry.BaseHeader] = ..., default_class: type[email.headerregistry._HeaderParser] = ..., use_default_map: bool = True) -> email.headerregistry.HeaderRegistry
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L148>`__)
 
@@ -431,7 +431,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
     .. method:: map_to_type(self, name, cls)
-                map_to_type(name: str, cls: type[BaseHeader]) -> None
+                map_to_type(name: str, cls: type[email.headerregistry.BaseHeader]) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L155>`__)
 
@@ -442,7 +442,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
     .. method:: __getitem__(name)
-                __getitem__(name: str) -> type[BaseHeader]
+                __getitem__(name: str) -> type[email.headerregistry.BaseHeader]
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L156>`__)
 
@@ -450,7 +450,7 @@ variant, :attr:`~.BaseHeader.max_count` is set to 1.
 
 
     .. method:: __call__(name, value)
-                __call__(name: str, value: typing.Any) -> BaseHeader
+                __call__(name: str, value: typing.Any) -> email.headerregistry.BaseHeader
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L157>`__)
 
@@ -467,7 +467,7 @@ construct structured values to assign to specific headers.
 
 
 .. class:: Address(display_name='', username='', domain='', addr_spec=None)
-           Address(display_name: str = '', username: str | None = '', domain: str | None = '', addr_spec: str | None = None) -> None
+           Address(display_name: str = '', username: str | None = '', domain: str | None = '', addr_spec: str | None = None) -> email.headerregistry.Address
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L159>`__)
 
@@ -491,7 +491,7 @@ construct structured values to assign to specific headers.
    *not* allowed in the username portion of the address.
 
    .. attribute:: display_name
-      :type: display_name(self: Address) -> str
+      :type: display_name(self: email.headerregistry.Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L161>`__)
 
@@ -500,21 +500,21 @@ construct structured values to assign to specific headers.
       will be an empty string.
 
    .. attribute:: username
-      :type: username(self: Address) -> str
+      :type: username(self: email.headerregistry.Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L163>`__)
 
       The ``username`` portion of the address, with all quoting removed.
 
    .. attribute:: domain
-      :type: domain(self: Address) -> str
+      :type: domain(self: email.headerregistry.Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L165>`__)
 
       The ``domain`` portion of the address.
 
    .. attribute:: addr_spec
-      :type: addr_spec(self: Address) -> str
+      :type: addr_spec(self: email.headerregistry.Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L167>`__)
 
@@ -534,7 +534,7 @@ construct structured values to assign to specific headers.
 
 
 .. class:: Group(display_name=None, addresses=None)
-           Group(display_name: str | None = None, addresses: collections.abc.Iterable[Address] | None = None) -> None
+           Group(display_name: str | None = None, addresses: typing.Iterable[email.headerregistry.Address] | None = None) -> email.headerregistry.Group
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L174>`__)
 
@@ -549,7 +549,7 @@ construct structured values to assign to specific headers.
    ``None`` and providing a list of the single address as *addresses*.
 
    .. attribute:: display_name
-      :type: display_name(self: Group) -> str | None
+      :type: display_name(self: email.headerregistry.Group) -> str | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L176>`__)
 
@@ -558,7 +558,7 @@ construct structured values to assign to specific headers.
       single address that is not in a group.
 
    .. attribute:: addresses
-      :type: addresses(self: Group) -> tuple[Address, ...]
+      :type: addresses(self: email.headerregistry.Group) -> tuple[email.headerregistry.Address, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/headerregistry.pyi#L178>`__)
 

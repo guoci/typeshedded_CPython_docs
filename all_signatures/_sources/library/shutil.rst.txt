@@ -38,7 +38,7 @@ Directory and files operations
 ------------------------------
 
 .. function:: copyfileobj(fsrc, fdst[, length])
-              copyfileobj[AnyStr](fsrc: SupportsRead[AnyStr], fdst: SupportsWrite[AnyStr], length: int = 0) -> None
+              copyfileobj[AnyStr](fsrc: _typeshed.SupportsRead[AnyStr], fdst: _typeshed.SupportsWrite[AnyStr], length: int = 0) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L56>`__)
 
@@ -97,7 +97,7 @@ Directory and files operations
       :ref:`shutil-platform-dependent-efficient-copy-operations` section.
 
 .. exception:: SpecialFileError
-               SpecialFileError(*args: object) -> None
+               SpecialFileError(*args: object) -> shutil.SpecialFileError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L45>`__)
 
@@ -107,7 +107,7 @@ Directory and files operations
    .. versionadded:: 2.7
 
 .. exception:: SameFileError
-               SameFileError(*args: object) -> None
+               SameFileError(*args: object) -> shutil.SameFileError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L44>`__)
 
@@ -272,7 +272,7 @@ Directory and files operations
 .. function:: copytree(src, dst, symlinks=False, ignore=None, \
               copy_function=copy2, ignore_dangling_symlinks=False, \
               dirs_exist_ok=False)
-              copytree[_StrPathT](src: StrPath, dst: _StrPathT, symlinks: bool = False, ignore: ((StrPath, list[str]) -> collections.abc.Iterable[str]) | ((str, list[str]) -> collections.abc.Iterable[str]) | None = None, copy_function: (str, str) -> object = ..., ignore_dangling_symlinks: bool = False, dirs_exist_ok: bool = False) -> _StrPathT
+              copytree[_StrPathT](src: StrPath, dst: _StrPathT, symlinks: bool = False, ignore: ((StrPath, list[str]) -> typing.Iterable[str]) | ((str, list[str]) -> typing.Iterable[str]) | None = None, copy_function: (str, str) -> object = ..., ignore_dangling_symlinks: bool = False, dirs_exist_ok: bool = False) -> _StrPathT
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L69>`__)
 
@@ -339,8 +339,8 @@ Directory and files operations
       Added the *dirs_exist_ok* parameter.
 
 .. function:: rmtree(path, ignore_errors=False, onerror=None, *, onexc=None, dir_fd=None)
-              rmtree(path: StrOrBytesPath, ignore_errors: bool, onerror: (((...) -> typing.Any, str, tuple[type[BaseException], BaseException, TracebackType]) -> object) | None, *, onexc: None = None, dir_fd: int | None = None) -> None
-              rmtree(path: StrOrBytesPath, ignore_errors: bool = False, *, onerror: (((...) -> typing.Any, str, tuple[type[BaseException], BaseException, TracebackType]) -> object) | None, onexc: None = None, dir_fd: int | None = None) -> None
+              rmtree(path: StrOrBytesPath, ignore_errors: bool, onerror: (((...) -> typing.Any, str, tuple[type[BaseException], BaseException, types.TracebackType]) -> object) | None, *, onexc: None = None, dir_fd: int | None = None) -> None
+              rmtree(path: StrOrBytesPath, ignore_errors: bool = False, *, onerror: (((...) -> typing.Any, str, tuple[type[BaseException], BaseException, types.TracebackType]) -> object) | None, onexc: None = None, dir_fd: int | None = None) -> None
               rmtree(path: StrOrBytesPath, ignore_errors: bool = False, *, onexc: (((...) -> typing.Any, str, BaseException) -> object) | None = None, dir_fd: int | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L132>`__)
@@ -463,7 +463,7 @@ Directory and files operations
       Accepts a :term:`path-like object` for both *src* and *dst*.
 
 .. function:: disk_usage(path)
-              disk_usage(path: FileDescriptorOrPath) -> _ntuple_diskusage
+              disk_usage(path: FileDescriptorOrPath) -> shutil._ntuple_diskusage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L146>`__)
 
@@ -512,8 +512,8 @@ Directory and files operations
 
 
 .. function:: which(cmd, mode=os.F_OK | os.X_OK, path=None)
-              which(cmd: StrPath, mode: int = 1, path: PathLike[str] | str | None = None) -> str | None
-              which(cmd: bytes, mode: int = 1, path: PathLike[str] | str | None = None) -> bytes | None
+              which(cmd: StrPath, mode: int = 1, path: os.PathLike[str] | str | None = None) -> str | None
+              which(cmd: bytes, mode: int = 1, path: os.PathLike[str] | str | None = None) -> bytes | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L195>`__)
 
@@ -570,7 +570,7 @@ Directory and files operations
       have no extension can now be found.
 
 .. exception:: Error
-               Error(*args: object) -> None
+               Error(*args: object) -> shutil.Error
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L43>`__)
 
@@ -675,7 +675,7 @@ High-level utilities to create and read compressed and archived files are also
 provided.  They rely on the :mod:`zipfile` and :mod:`tarfile` modules.
 
 .. function:: make_archive(base_name, format, [root_dir, [base_dir, [verbose, [dry_run, [owner, [group, [logger]]]]]]])
-              make_archive(base_name: str, format: str, root_dir: PathLike[str] | str | None = None, base_dir: PathLike[str] | str | None = None, verbose: bool = ..., dry_run: bool = ..., owner: str | None = None, group: str | None = None, logger: typing.Any | None = None) -> str
+              make_archive(base_name: str, format: str, root_dir: os.PathLike[str] | str | None = None, base_dir: os.PathLike[str] | str | None = None, verbose: bool = ..., dry_run: bool = ..., owner: str | None = None, group: str | None = None, logger: typing.Any | None = None) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L198>`__)
 
@@ -754,7 +754,7 @@ provided.  They rely on the :mod:`zipfile` and :mod:`tarfile` modules.
 
 
 .. function:: register_archive_format(name, function, [extra_args, [description]])
-              register_archive_format(name: str, function: (...) -> object, extra_args: collections.abc.Sequence[list[typing.Any] | tuple[str, typing.Any]], description: str = '') -> None
+              register_archive_format(name: str, function: (...) -> object, extra_args: typing.Sequence[list[typing.Any] | tuple[str, typing.Any]], description: str = '') -> None
               register_archive_format(name: str, function: (str, str) -> object, extra_args: None = None, description: str = '') -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L211>`__)
@@ -792,7 +792,7 @@ provided.  They rely on the :mod:`zipfile` and :mod:`tarfile` modules.
 
 
 .. function:: unpack_archive(filename[, extract_dir[, format[, filter]]])
-              unpack_archive(filename: StrPath, extract_dir: PathLike[str] | str | None = None, format: str | None = None, *, filter: typing.Literal['data', 'fully_trusted', 'tar'] | ((TarInfo, str) -> TarInfo | None) | None = None) -> None
+              unpack_archive(filename: StrPath, extract_dir: os.PathLike[str] | str | None = None, format: str | None = None, *, filter: typing.Literal['data', 'fully_trusted', 'tar'] | ((tarfile.TarInfo, str) -> tarfile.TarInfo | None) | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L219>`__)
 
@@ -836,7 +836,7 @@ provided.  They rely on the :mod:`zipfile` and :mod:`tarfile` modules.
       Added the *filter* argument.
 
 .. function:: register_unpack_format(name, extensions, function[, extra_args[, description]])
-              register_unpack_format(name: str, extensions: list[str], function: (...) -> object, extra_args: collections.abc.Sequence[tuple[str, typing.Any]], description: str = '') -> None
+              register_unpack_format(name: str, extensions: list[str], function: (...) -> object, extra_args: typing.Sequence[tuple[str, typing.Any]], description: str = '') -> None
               register_unpack_format(name: str, extensions: list[str], function: (str, str) -> object, extra_args: None = None, description: str = '') -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L223>`__)
@@ -967,7 +967,7 @@ Querying the size of the output terminal
 ----------------------------------------
 
 .. function:: get_terminal_size(fallback=(columns, lines))
-              get_terminal_size(fallback: tuple[int, int] = ...) -> terminal_size
+              get_terminal_size(fallback: tuple[int, int] = ...) -> os.terminal_size
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shutil.pyi#L236>`__)
 

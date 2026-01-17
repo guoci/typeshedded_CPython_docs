@@ -637,7 +637,7 @@ The following decorators and exception implement test skipping and expected fail
    be considered a failure.
 
 .. exception:: SkipTest(reason)
-               SkipTest(reason: str) -> None
+               SkipTest(reason: str) -> unittest.case.SkipTest
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L56>`__)
 
@@ -733,7 +733,7 @@ Test cases
 ~~~~~~~~~~
 
 .. class:: TestCase(methodName='runTest')
-           TestCase(methodName: str = 'runTest') -> None
+           TestCase(methodName: str = 'runTest') -> unittest.case.TestCase
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L62>`__)
 
@@ -789,7 +789,7 @@ Test cases
 
 
    .. method:: setUpClass()
-               setUpClass(cls: type[TestCase]) -> None
+               setUpClass(cls: type[unittest.case.TestCase]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L76>`__)
 
@@ -807,7 +807,7 @@ Test cases
 
 
    .. method:: tearDownClass()
-               tearDownClass(cls: type[TestCase]) -> None
+               tearDownClass(cls: type[unittest.case.TestCase]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L78>`__)
 
@@ -825,7 +825,7 @@ Test cases
 
 
    .. method:: run(result=None)
-               run(result: TestResult | None = None) -> TestResult | None
+               run(result: unittest.result.TestResult | None = None) -> unittest.result.TestResult | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L79>`__)
 
@@ -843,7 +843,7 @@ Test cases
          calling an instance.
 
    .. method:: skipTest(reason)
-               skipTest(reason: typing.Any) -> NoReturn
+               skipTest(reason: typing.Any) -> typing.NoReturn
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L81>`__)
 
@@ -854,7 +854,7 @@ Test cases
 
 
    .. method:: subTest(msg=None, **params)
-               subTest(msg: typing.Any = ..., **params: typing.Any) -> AbstractContextManager[None, bool | None]
+               subTest(msg: typing.Any = ..., **params: typing.Any) -> contextlib.AbstractContextManager[None, bool | None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L82>`__)
 
@@ -1065,7 +1065,7 @@ Test cases
    .. method:: assertRaises(exception, callable, *args, **kwds)
                assertRaises(exception, *, msg=None)
                assertRaises(expected_exception: tuple[type[BaseException], ...] | type[BaseException], callable: (...) -> object, *args: typing.Any, **kwargs: typing.Any) -> None
-               assertRaises(expected_exception: tuple[type[_E], ...] | type[_E], *, msg: typing.Any = ...) -> _AssertRaisesContext[_E]
+               assertRaises(expected_exception: tuple[type[_E], ...] | type[_E], *, msg: typing.Any = ...) -> unittest.case._AssertRaisesContext[_E]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L119>`__)
 
@@ -1109,7 +1109,7 @@ Test cases
    .. method:: assertRaisesRegex(exception, regex, callable, *args, **kwds)
                assertRaisesRegex(exception, regex, *, msg=None)
                assertRaisesRegex(expected_exception: tuple[type[BaseException], ...] | type[BaseException], expected_regex: re.Pattern[str] | str, callable: (...) -> object, *args: typing.Any, **kwargs: typing.Any) -> None
-               assertRaisesRegex(expected_exception: tuple[type[_E], ...] | type[_E], expected_regex: re.Pattern[str] | str, *, msg: typing.Any = ...) -> _AssertRaisesContext[_E]
+               assertRaisesRegex(expected_exception: tuple[type[_E], ...] | type[_E], expected_regex: re.Pattern[str] | str, *, msg: typing.Any = ...) -> unittest.case._AssertRaisesContext[_E]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L131>`__)
 
@@ -1138,8 +1138,8 @@ Test cases
 
    .. method:: assertWarns(warning, callable, *args, **kwds)
                assertWarns(warning, *, msg=None)
-               assertWarns(TestCase, tuple[type[Warning], ...] | type[Warning], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
-               assertWarns(expected_warning: tuple[type[Warning], ...] | type[Warning], *, msg: typing.Any = ...) -> _AssertWarnsContext
+               assertWarns(unittest.case.TestCase, tuple[type[Warning], ...] | type[Warning], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               assertWarns(expected_warning: tuple[type[Warning], ...] | type[Warning], *, msg: typing.Any = ...) -> unittest.case._AssertWarnsContext
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L144>`__)
 
@@ -1183,8 +1183,8 @@ Test cases
 
    .. method:: assertWarnsRegex(warning, regex, callable, *args, **kwds)
                assertWarnsRegex(warning, regex, *, msg=None)
-               assertWarnsRegex(TestCase, tuple[type[Warning], ...] | type[Warning], re.Pattern[str] | str, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
-               assertWarnsRegex(expected_warning: tuple[type[Warning], ...] | type[Warning], expected_regex: re.Pattern[str] | str, *, msg: typing.Any = ...) -> _AssertWarnsContext
+               assertWarnsRegex(unittest.case.TestCase, tuple[type[Warning], ...] | type[Warning], re.Pattern[str] | str, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               assertWarnsRegex(expected_warning: tuple[type[Warning], ...] | type[Warning], expected_regex: re.Pattern[str] | str, *, msg: typing.Any = ...) -> unittest.case._AssertWarnsContext
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L156>`__)
 
@@ -1208,7 +1208,7 @@ Test cases
          Added the *msg* keyword argument when used as a context manager.
 
    .. method:: assertLogs(logger=None, level=None, formatter=None)
-               assertLogs(logger: Logger | str | None = None, level: int | str | None = None) -> _AssertLogsContext[_LoggingWatcher]
+               assertLogs(logger: logging.Logger | str | None = None, level: int | str | None = None) -> unittest._log._AssertLogsContext[unittest._log._LoggingWatcher]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L168>`__)
 
@@ -1260,7 +1260,7 @@ Test cases
          Now accepts a *formatter* to control how messages are formatted.
 
    .. method:: assertNoLogs(logger=None, level=None)
-               assertNoLogs(logger: Logger | str | None = None, level: int | str | None = None) -> _AssertLogsContext[None]
+               assertNoLogs(logger: logging.Logger | str | None = None, level: int | str | None = None) -> unittest._log._AssertLogsContext[None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L172>`__)
 
@@ -1393,7 +1393,7 @@ Test cases
 
 
    .. method:: assertCountEqual(first, second, msg=None)
-               assertCountEqual(first: collections.abc.Iterable[typing.Any], second: collections.abc.Iterable[typing.Any], msg: typing.Any = None) -> None
+               assertCountEqual(first: typing.Iterable[typing.Any], second: typing.Iterable[typing.Any], msg: typing.Any = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L226>`__)
 
@@ -1467,7 +1467,7 @@ Test cases
    register new methods using :meth:`addTypeEqualityFunc`:
 
    .. method:: addTypeEqualityFunc(typeobj, function)
-               addTypeEqualityFunc(typeobj: type[typing.Any], function: (...) -> None) -> None
+               addTypeEqualityFunc(typeobj: type[Any], function: (...) -> None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L227>`__)
 
@@ -1524,7 +1524,7 @@ Test cases
 
 
    .. method:: assertSequenceEqual(first, second, msg=None, seq_type=None)
-               assertSequenceEqual(seq1: collections.abc.Sequence[typing.Any], seq2: collections.abc.Sequence[typing.Any], msg: typing.Any = None, seq_type: type[collections.abc.Sequence[typing.Any]] | None = None) -> None
+               assertSequenceEqual(seq1: typing.Sequence[typing.Any], seq2: typing.Sequence[typing.Any], msg: typing.Any = None, seq_type: type[typing.Sequence[typing.Any]] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L229>`__)
 
@@ -1555,7 +1555,7 @@ Test cases
 
 
    .. method:: assertSetEqual(first, second, msg=None)
-               assertSetEqual(set1: AbstractSet[object], set2: AbstractSet[object], msg: typing.Any = None) -> None
+               assertSetEqual(set1: typing.AbstractSet[object], set2: typing.AbstractSet[object], msg: typing.Any = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L234>`__)
 
@@ -1570,7 +1570,7 @@ Test cases
 
 
    .. method:: assertDictEqual(first, second, msg=None)
-               assertDictEqual(d1: collections.abc.Mapping[typing.Any, object], d2: collections.abc.Mapping[typing.Any, object], msg: typing.Any = None) -> None
+               assertDictEqual(d1: typing.Mapping[typing.Any, object], d2: typing.Mapping[typing.Any, object], msg: typing.Any = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L237>`__)
 
@@ -1589,7 +1589,7 @@ Test cases
 
 
    .. method:: fail(msg=None)
-               fail(msg: typing.Any = None) -> NoReturn
+               fail(msg: typing.Any = None) -> typing.NoReturn
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L238>`__)
 
@@ -1598,7 +1598,7 @@ Test cases
 
 
    .. attribute:: failureException
-      :type: (self: BaseException, *args: object) -> None
+      :type: (self: BaseException, *args: object) -> BaseException
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L63>`__)
 
@@ -1661,7 +1661,7 @@ Test cases
 
 
    .. method:: defaultTestResult()
-               defaultTestResult() -> TestResult
+               defaultTestResult() -> unittest.result.TestResult
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L240>`__)
 
@@ -1701,7 +1701,7 @@ Test cases
 
 
    .. method:: addCleanup(function, /, *args, **kwargs)
-               addCleanup[_P](TestCase, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               addCleanup[_P](unittest.case.TestCase, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L243>`__)
 
@@ -1718,7 +1718,7 @@ Test cases
 
 
    .. method:: enterContext(cm)
-               enterContext[_T](cm: AbstractContextManager[_T, bool | None]) -> _T
+               enterContext[_T](cm: contextlib.AbstractContextManager[_T, bool | None]) -> _T
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L246>`__)
 
@@ -1750,7 +1750,7 @@ Test cases
 
 
    .. classmethod:: addClassCleanup(function, /, *args, **kwargs)
-                    addClassCleanup[_P](type[TestCase], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+                    addClassCleanup[_P](type[unittest.case.TestCase], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L250>`__)
 
@@ -1767,7 +1767,7 @@ Test cases
 
 
    .. classmethod:: enterClassContext(cm)
-                    enterClassContext[_T](cls: type[TestCase], cm: AbstractContextManager[_T, bool | None]) -> _T
+                    enterClassContext[_T](cls: type[unittest.case.TestCase], cm: contextlib.AbstractContextManager[_T, bool | None]) -> _T
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L256>`__)
 
@@ -1780,7 +1780,7 @@ Test cases
 
 
    .. classmethod:: doClassCleanups()
-                    doClassCleanups(cls: type[TestCase]) -> None
+                    doClassCleanups(cls: type[unittest.case.TestCase]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L252>`__)
 
@@ -1799,7 +1799,7 @@ Test cases
 
 
 .. class:: IsolatedAsyncioTestCase(methodName='runTest')
-           IsolatedAsyncioTestCase(methodName: str = 'runTest') -> None
+           IsolatedAsyncioTestCase(methodName: str = 'runTest') -> unittest.async_case.IsolatedAsyncioTestCase
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/async_case.pyi#L15>`__)
 
@@ -1809,7 +1809,7 @@ Test cases
    .. versionadded:: 3.8
 
    .. attribute:: loop_factory
-      :type: (() -> AbstractEventLoop) | None
+      :type: (() -> asyncio.events.AbstractEventLoop) | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/async_case.pyi#L17>`__)
 
@@ -1820,7 +1820,7 @@ Test cases
       .. versionadded:: 3.13
 
    .. method:: asyncSetUp()
-               asyncSetUp() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               asyncSetUp() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/async_case.pyi#L19>`__)
@@ -1832,7 +1832,7 @@ Test cases
       does nothing.
 
    .. method:: asyncTearDown()
-               asyncTearDown() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               asyncTearDown() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/async_case.pyi#L20>`__)
@@ -1848,14 +1848,14 @@ Test cases
       The default implementation does nothing.
 
    .. method:: addAsyncCleanup(function, /, *args, **kwargs)
-               addAsyncCleanup[_P](IsolatedAsyncioTestCase, (ParamSpec(_P)) -> collections.abc.Awaitable[object], ParamSpec(_P)) -> None
+               addAsyncCleanup[_P](unittest.async_case.IsolatedAsyncioTestCase, (ParamSpec(_P)) -> typing.Awaitable[object], ParamSpec(_P)) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/async_case.pyi#L21>`__)
 
       This method accepts a coroutine that can be used as a cleanup function.
 
    .. method:: enterAsyncContext(cm)
-               enterAsyncContext[_T](cm: AbstractAsyncContextManager[_T, bool | None]) -> collections.abc.Coroutine[Unknown, Unknown, _T]
+               enterAsyncContext[_T](cm: contextlib.AbstractAsyncContextManager[_T, bool | None]) -> typing.Coroutine[Unknown, Unknown, _T]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/async_case.pyi#L23>`__)
@@ -1869,7 +1869,7 @@ Test cases
 
 
    .. method:: run(result=None)
-               run(result: TestResult | None = None) -> TestResult | None
+               run(result: unittest.result.TestResult | None = None) -> unittest.result.TestResult | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L79>`__)
 
@@ -1921,7 +1921,7 @@ Test cases
 
 
 .. class:: FunctionTestCase(testFunc, setUp=None, tearDown=None, description=None)
-           FunctionTestCase(testFunc: () -> object, setUp: (() -> object) | None = None, tearDown: (() -> object) | None = None, description: str | None = None) -> None
+           FunctionTestCase(testFunc: () -> object, setUp: (() -> object) | None = None, tearDown: (() -> object) | None = None, description: str | None = None) -> unittest.case.FunctionTestCase
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L294>`__)
 
@@ -1938,7 +1938,7 @@ Grouping tests
 ~~~~~~~~~~~~~~
 
 .. class:: TestSuite(tests=())
-           TestSuite(tests: collections.abc.Iterable[_TestType] = ...) -> None
+           TestSuite(tests: typing.Iterable[_TestType] = ...) -> unittest.suite.TestSuite
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/suite.pyi#L23>`__)
 
@@ -1966,7 +1966,7 @@ Grouping tests
 
 
    .. method:: TestSuite.addTests(tests)
-               TestSuite.addTests(tests: collections.abc.Iterable[_TestType]) -> None
+               TestSuite.addTests(tests: typing.Iterable[_TestType]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/suite.pyi#L15>`__)
 
@@ -1980,7 +1980,7 @@ Grouping tests
 
 
    .. method:: run(result)
-               run(result: TestResult, debug: bool = False) -> TestResult
+               run(result: unittest.result.TestResult, debug: bool = False) -> unittest.result.TestResult
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/suite.pyi#L24>`__)
 
@@ -2010,7 +2010,7 @@ Grouping tests
 
 
    .. method:: __iter__()
-               __iter__() -> collections.abc.Iterator[_TestType]
+               __iter__() -> typing.Iterator[_TestType]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/suite.pyi#L19>`__)
 
@@ -2042,7 +2042,7 @@ Loading and running tests
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. class:: TestLoader()
-           TestLoader() -> None
+           TestLoader() -> unittest.loader.TestLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L15>`__)
 
@@ -2073,7 +2073,7 @@ Loading and running tests
 
 
    .. method:: loadTestsFromTestCase(testCaseClass)
-               loadTestsFromTestCase(testCaseClass: type[TestCase]) -> TestSuite
+               loadTestsFromTestCase(testCaseClass: type[unittest.case.TestCase]) -> unittest.suite.TestSuite
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L21>`__)
 
@@ -2088,7 +2088,7 @@ Loading and running tests
 
 
    .. method:: loadTestsFromModule(module, *, pattern=None)
-               loadTestsFromModule(module: ModuleType, *, pattern: str | None = None) -> TestSuite
+               loadTestsFromModule(module: types.ModuleType, *, pattern: str | None = None) -> unittest.suite.TestSuite
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L23>`__)
 
@@ -2122,7 +2122,7 @@ Loading and running tests
 
 
    .. method:: loadTestsFromName(name, module=None)
-               loadTestsFromName(name: str, module: ModuleType | None = None) -> TestSuite
+               loadTestsFromName(name: str, module: types.ModuleType | None = None) -> unittest.suite.TestSuite
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L27>`__)
 
@@ -2156,7 +2156,7 @@ Loading and running tests
 
 
    .. method:: loadTestsFromNames(names, module=None)
-               loadTestsFromNames(names: collections.abc.Sequence[str], module: ModuleType | None = None) -> TestSuite
+               loadTestsFromNames(names: typing.Sequence[str], module: types.ModuleType | None = None) -> unittest.suite.TestSuite
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L28>`__)
 
@@ -2166,7 +2166,7 @@ Loading and running tests
 
 
    .. method:: getTestCaseNames(testCaseClass)
-               getTestCaseNames(testCaseClass: type[TestCase]) -> collections.abc.Sequence[str]
+               getTestCaseNames(testCaseClass: type[unittest.case.TestCase]) -> typing.Sequence[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L29>`__)
 
@@ -2175,7 +2175,7 @@ Loading and running tests
 
 
    .. method:: discover(start_dir, pattern='test*.py', top_level_dir=None)
-               discover(start_dir: str, pattern: str = 'test*.py', top_level_dir: str | None = None) -> TestSuite
+               discover(start_dir: str, pattern: str = 'test*.py', top_level_dir: str | None = None) -> unittest.suite.TestSuite
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L30>`__)
 
@@ -2268,7 +2268,7 @@ Loading and running tests
 
 
    .. attribute:: suiteClass
-      :type: (list[TestCase]) -> TestSuite
+      :type: (list[unittest.case.TestCase]) -> unittest.suite.TestSuite
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L20>`__)
 
@@ -2298,7 +2298,7 @@ Loading and running tests
 
 
 .. class:: TestResult
-           TestResult(stream: TextIO | None = None, descriptions: bool | None = None, verbosity: int | None = None) -> None
+           TestResult(stream: typing.TextIO | None = None, descriptions: bool | None = None, verbosity: int | None = None) -> unittest.result.TestResult
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L17>`__)
 
@@ -2320,7 +2320,7 @@ Loading and running tests
 
 
    .. attribute:: errors
-      :type: list[tuple[TestCase, str]]
+      :type: list[tuple[unittest.case.TestCase, str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L18>`__)
 
@@ -2329,7 +2329,7 @@ Loading and running tests
       unexpected exception.
 
    .. attribute:: failures
-      :type: list[tuple[TestCase, str]]
+      :type: list[tuple[unittest.case.TestCase, str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L19>`__)
 
@@ -2338,7 +2338,7 @@ Loading and running tests
       was explicitly signalled using the :ref:`assert\* methods <assert-methods>`.
 
    .. attribute:: skipped
-      :type: list[tuple[TestCase, str]]
+      :type: list[tuple[unittest.case.TestCase, str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L20>`__)
 
@@ -2348,7 +2348,7 @@ Loading and running tests
       .. versionadded:: 3.1
 
    .. attribute:: expectedFailures
-      :type: list[tuple[TestCase, str]]
+      :type: list[tuple[unittest.case.TestCase, str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L21>`__)
 
@@ -2357,7 +2357,7 @@ Loading and running tests
       or error of the test case.
 
    .. attribute:: unexpectedSuccesses
-      :type: list[TestCase]
+      :type: list[unittest.case.TestCase]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L22>`__)
 
@@ -2453,14 +2453,14 @@ Loading and running tests
 
 
    .. method:: startTest(test)
-               startTest(test: TestCase) -> None
+               startTest(test: unittest.case.TestCase) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L35>`__)
 
       Called when the test case *test* is about to be run.
 
    .. method:: stopTest(test)
-               stopTest(test: TestCase) -> None
+               stopTest(test: unittest.case.TestCase) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L36>`__)
 
@@ -2488,7 +2488,7 @@ Loading and running tests
 
 
    .. method:: addError(test, err)
-               addError(test: TestCase, err: OptExcInfo) -> None
+               addError(test: unittest.case.TestCase, err: OptExcInfo) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L39>`__)
 
@@ -2502,7 +2502,7 @@ Loading and running tests
 
 
    .. method:: addFailure(test, err)
-               addFailure(test: TestCase, err: OptExcInfo) -> None
+               addFailure(test: unittest.case.TestCase, err: OptExcInfo) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L40>`__)
 
@@ -2515,7 +2515,7 @@ Loading and running tests
 
 
    .. method:: addSuccess(test)
-               addSuccess(test: TestCase) -> None
+               addSuccess(test: unittest.case.TestCase) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L41>`__)
 
@@ -2525,7 +2525,7 @@ Loading and running tests
 
 
    .. method:: addSkip(test, reason)
-               addSkip(test: TestCase, reason: str) -> None
+               addSkip(test: unittest.case.TestCase, reason: str) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L42>`__)
 
@@ -2537,7 +2537,7 @@ Loading and running tests
 
 
    .. method:: addExpectedFailure(test, err)
-               addExpectedFailure(test: TestCase, err: OptExcInfo) -> None
+               addExpectedFailure(test: unittest.case.TestCase, err: OptExcInfo) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L43>`__)
 
@@ -2550,7 +2550,7 @@ Loading and running tests
 
 
    .. method:: addUnexpectedSuccess(test)
-               addUnexpectedSuccess(test: TestCase) -> None
+               addUnexpectedSuccess(test: unittest.case.TestCase) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L44>`__)
 
@@ -2562,7 +2562,7 @@ Loading and running tests
 
 
    .. method:: addSubTest(test, subtest, outcome)
-               addSubTest(test: TestCase, subtest: TestCase, err: tuple[type[BaseException], BaseException, TracebackType] | tuple[None, None, None] | None) -> None
+               addSubTest(test: unittest.case.TestCase, subtest: unittest.case.TestCase, err: tuple[type[BaseException], BaseException, types.TracebackType] | tuple[None, None, None] | None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L45>`__)
 
@@ -2580,7 +2580,7 @@ Loading and running tests
       .. versionadded:: 3.4
 
    .. method:: addDuration(test, elapsed)
-               addDuration(test: TestCase, elapsed: float) -> None
+               addDuration(test: unittest.case.TestCase, elapsed: float) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/result.pyi#L47>`__)
 
@@ -2590,7 +2590,7 @@ Loading and running tests
       .. versionadded:: 3.12
 
 .. class:: TextTestResult(stream, descriptions, verbosity, *, durations=None)
-           TextTestResult(stream: _StreamT, descriptions: bool, verbosity: int, *, durations: int | None = None) -> None
+           TextTestResult(stream: _StreamT, descriptions: bool, verbosity: int, *, durations: int | None = None) -> unittest.runner.TextTestResult
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/runner.pyi#L37>`__)
 
@@ -2604,7 +2604,7 @@ Loading and running tests
       Added the *durations* keyword parameter.
 
 .. data:: defaultTestLoader
-   :type: TestLoader
+   :type: unittest.loader.TestLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/loader.pyi#L35>`__)
 
@@ -2616,7 +2616,7 @@ Loading and running tests
 .. class:: TextTestRunner(stream=None, descriptions=True, verbosity=1, failfast=False, \
                           buffer=False, resultclass=None, warnings=None, *, \
                           tb_locals=False, durations=None)
-           TextTestRunner(stream: _SupportsWriteAndFlush | None = None, descriptions: bool = True, verbosity: int = 1, failfast: bool = False, buffer: bool = False, resultclass: ((_TextTestStream, bool, int) -> TextTestResult[typing.Any]) | None = None, warnings: typing.Literal['always', 'default', 'error', 'ignore', 'module', 'once'] | None = None, *, tb_locals: bool = False, durations: int | None = None) -> None
+           TextTestRunner(stream: unittest.runner._SupportsWriteAndFlush | None = None, descriptions: bool = True, verbosity: int = 1, failfast: bool = False, buffer: bool = False, resultclass: ((unittest.runner._TextTestStream, bool, int) -> unittest.runner.TextTestResult[typing.Any]) | None = None, warnings: typing.Literal['always', 'default', 'error', 'ignore', 'module', 'once'] | None = None, *, tb_locals: bool = False, durations: int | None = None) -> unittest.runner.TextTestRunner
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/runner.pyi#L53>`__)
 
@@ -2649,7 +2649,7 @@ Loading and running tests
       Added the *durations* parameter.
 
    .. method:: _makeResult()
-               _makeResult() -> TextTestResult[_WritelnDecorator]
+               _makeResult() -> unittest.runner.TextTestResult[unittest.runner._WritelnDecorator]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/runner.pyi#L92>`__)
 
@@ -2665,7 +2665,7 @@ Loading and running tests
         stream, descriptions, verbosity
 
    .. method:: run(test)
-               run(test: TestCase | TestSuite) -> TextTestResult[_WritelnDecorator]
+               run(test: unittest.case.TestCase | unittest.suite.TestSuite) -> unittest.runner.TextTestResult[unittest.runner._WritelnDecorator]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/runner.pyi#L93>`__)
 
@@ -2679,7 +2679,7 @@ Loading and running tests
 .. function:: main(module='__main__', defaultTest=None, argv=None, testRunner=None, \
                    testLoader=unittest.defaultTestLoader, exit=True, verbosity=1, \
                    failfast=None, catchbreak=None, buffer=None, warnings=None)
-              main(module: ModuleType | str | None = '__main__', defaultTest: collections.abc.Iterable[str] | str | None = None, argv: list[str] | None = None, testRunner: _TestRunner | type[_TestRunner] | None = None, testLoader: TestLoader = ..., exit: bool = True, verbosity: int = 1, failfast: bool | None = None, catchbreak: bool | None = None, buffer: bool | None = None, warnings: str | None = None, *, tb_locals: bool = False, durations: list[tuple[str, float]] | None = None) -> None
+              main(module: types.ModuleType | str | None = '__main__', defaultTest: typing.Iterable[str] | str | None = None, argv: list[str] | None = None, testRunner: unittest.main._TestRunner | type[unittest.main._TestRunner] | None = None, testLoader: unittest.loader.TestLoader = ..., exit: bool = True, verbosity: int = 1, failfast: bool | None = None, catchbreak: bool | None = None, buffer: bool | None = None, warnings: str | None = None, *, tb_locals: bool = False, durations: list[tuple[str, float]] | None = None) -> unittest.main.TestProgram
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/main.pyi#L77>`__)
 
@@ -2919,7 +2919,7 @@ To add cleanup code that must be run even in the case of an exception, use
 
 
 .. function:: enterModuleContext(cm)
-              enterModuleContext[_T](cm: AbstractContextManager[_T, bool | None]) -> _T
+              enterModuleContext[_T](cm: contextlib.AbstractContextManager[_T, bool | None]) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/case.pyi#L49>`__)
 
@@ -2985,7 +2985,7 @@ handling functionality within test frameworks.
 
 
 .. function:: registerResult(result)
-              registerResult(result: TestResult) -> None
+              registerResult(result: unittest.result.TestResult) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/signals.pyi#L10>`__)
 
@@ -2999,7 +2999,7 @@ handling functionality within test frameworks.
 
 
 .. function:: removeResult(result)
-              removeResult(result: TestResult) -> bool
+              removeResult(result: unittest.result.TestResult) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/signals.pyi#L11>`__)
 

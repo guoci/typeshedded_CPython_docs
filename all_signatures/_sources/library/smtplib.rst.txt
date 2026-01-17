@@ -22,7 +22,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
 .. include:: ../includes/wasm-notavail.rst
 
 .. class:: SMTP(host='', port=0, local_hostname=None[, timeout], source_address=None)
-           SMTP(host: str = '', port: int = 0, local_hostname: str | None = None, timeout: float = ..., source_address: Buffer | str | tuple[typing.Any, ...] | None = None) -> None
+           SMTP(host: str = '', port: int = 0, local_hostname: str | None = None, timeout: float = ..., source_address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None) -> smtplib.SMTP
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L75>`__)
 
@@ -90,7 +90,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
 
 .. class:: SMTP_SSL(host='', port=0, local_hostname=None, * [, timeout], \
                     context=None, source_address=None)
-           SMTP_SSL(host: str = '', port: int = 0, local_hostname: str | None = None, *, timeout: float = ..., source_address: Buffer | str | tuple[typing.Any, ...] | None = None, context: SSLContext | None = None) -> None
+           SMTP_SSL(host: str = '', port: int = 0, local_hostname: str | None = None, *, timeout: float = ..., source_address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None, context: ssl.SSLContext | None = None) -> smtplib.SMTP_SSL
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L164>`__)
 
@@ -136,7 +136,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
 
 .. class:: LMTP(host='', port=LMTP_PORT, local_hostname=None, \
                 source_address=None[, timeout])
-           LMTP(host: str = '', port: int = 2003, local_hostname: str | None = None, source_address: Buffer | str | tuple[typing.Any, ...] | None = None, timeout: float = ...) -> None
+           LMTP(host: str = '', port: int = 2003, local_hostname: str | None = None, source_address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None, timeout: float = ...) -> smtplib.LMTP
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L211>`__)
 
@@ -159,7 +159,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPException
-               SMTPException(*args: object) -> None
+               SMTPException(*args: object) -> smtplib.SMTPException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L40>`__)
 
@@ -171,7 +171,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPServerDisconnected
-               SMTPServerDisconnected(*args: object) -> None
+               SMTPServerDisconnected(*args: object) -> smtplib.SMTPServerDisconnected
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L42>`__)
 
@@ -181,7 +181,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPResponseException
-               SMTPResponseException(code: int, msg: bytes | str) -> None
+               SMTPResponseException(code: int, msg: bytes | str) -> smtplib.SMTPResponseException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L44>`__)
 
@@ -204,7 +204,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPSenderRefused
-               SMTPSenderRefused(code: int, msg: bytes, sender: str) -> None
+               SMTPSenderRefused(code: int, msg: bytes, sender: str) -> smtplib.SMTPSenderRefused
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L50>`__)
 
@@ -214,7 +214,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPRecipientsRefused
-               SMTPRecipientsRefused(recipients: dict[str, tuple[int, bytes]]) -> None
+               SMTPRecipientsRefused(recipients: dict[str, tuple[int, bytes]]) -> smtplib.SMTPRecipientsRefused
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L56>`__)
 
@@ -231,7 +231,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPDataError
-               SMTPDataError(code: int, msg: bytes | str) -> None
+               SMTPDataError(code: int, msg: bytes | str) -> smtplib.SMTPDataError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L61>`__)
 
@@ -239,7 +239,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPConnectError
-               SMTPConnectError(code: int, msg: bytes | str) -> None
+               SMTPConnectError(code: int, msg: bytes | str) -> smtplib.SMTPConnectError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L62>`__)
 
@@ -247,7 +247,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPHeloError
-               SMTPHeloError(code: int, msg: bytes | str) -> None
+               SMTPHeloError(code: int, msg: bytes | str) -> smtplib.SMTPHeloError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L63>`__)
 
@@ -255,7 +255,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPNotSupportedError
-               SMTPNotSupportedError(*args: object) -> None
+               SMTPNotSupportedError(*args: object) -> smtplib.SMTPNotSupportedError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L41>`__)
 
@@ -265,7 +265,7 @@ A nice selection of exceptions is defined as well:
 
 
 .. exception:: SMTPAuthenticationError
-               SMTPAuthenticationError(code: int, msg: bytes | str) -> None
+               SMTPAuthenticationError(code: int, msg: bytes | str) -> smtplib.SMTPAuthenticationError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L64>`__)
 
@@ -325,7 +325,7 @@ An :class:`SMTP` instance has the following methods:
 
 
 .. method:: SMTP.connect(host='localhost', port=0)
-            SMTP.connect(host: str = 'localhost', port: int = 0, source_address: Buffer | str | tuple[typing.Any, ...] | None = None) -> tuple[int, bytes]
+            SMTP.connect(host: str = 'localhost', port: int = 0, source_address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None) -> tuple[int, bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L103>`__)
 
@@ -451,7 +451,7 @@ An :class:`SMTP` instance has the following methods:
 
 
 .. method:: SMTP.auth(mechanism, authobject, *, initial_response_ok=True)
-            SMTP.auth(mechanism: str, authobject: _AuthObject, *, initial_response_ok: bool = True) -> tuple[int, bytes]
+            SMTP.auth(mechanism: str, authobject: smtplib._AuthObject, *, initial_response_ok: bool = True) -> tuple[int, bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L123>`__)
 
@@ -496,7 +496,7 @@ An :class:`SMTP` instance has the following methods:
 
 
 .. method:: SMTP.starttls(*, context=None)
-            SMTP.starttls(*, context: SSLContext | None = None) -> tuple[int, bytes]
+            SMTP.starttls(*, context: ssl.SSLContext | None = None) -> tuple[int, bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L132>`__)
 
@@ -541,7 +541,7 @@ An :class:`SMTP` instance has the following methods:
 
 
 .. method:: SMTP.sendmail(from_addr, to_addrs, msg, mail_options=(), rcpt_options=())
-            SMTP.sendmail(from_addr: str, to_addrs: collections.abc.Sequence[str] | str, msg: SizedBuffer | str, mail_options: collections.abc.Sequence[str] = ..., rcpt_options: collections.abc.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
+            SMTP.sendmail(from_addr: str, to_addrs: typing.Sequence[str] | str, msg: _typeshed.SizedBuffer | str, mail_options: typing.Sequence[str] = ..., rcpt_options: typing.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L145>`__)
 
@@ -615,7 +615,7 @@ An :class:`SMTP` instance has the following methods:
 
 .. method:: SMTP.send_message(msg, from_addr=None, to_addrs=None, \
                               mail_options=(), rcpt_options=())
-            SMTP.send_message(msg: email.message.Message[str, str], from_addr: str | None = None, to_addrs: collections.abc.Sequence[str] | str | None = None, mail_options: collections.abc.Sequence[str] = ..., rcpt_options: collections.abc.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
+            SMTP.send_message(msg: email.message.Message[str, str], from_addr: str | None = None, to_addrs: typing.Sequence[str] | str | None = None, mail_options: typing.Sequence[str] = ..., rcpt_options: typing.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/smtplib.pyi#L153>`__)
 

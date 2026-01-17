@@ -32,13 +32,13 @@ is recommended to use keyword arguments for clarity.
 The module defines the following user-callable items:
 
 .. function:: TemporaryFile(mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, *, errors=None)
-              TemporaryFile(mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> TextIOWrapper[_WrappedBuffer]
-              TemporaryFile(mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> FileIO
-              TemporaryFile(*, buffering: typing.Literal[0], encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, errors: str | None = None) -> FileIO
-              TemporaryFile(mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> BufferedWriter
-              TemporaryFile(mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> BufferedReader[_BufferedReaderStream]
-              TemporaryFile(mode: OpenBinaryModeUpdating = 'w+b', buffering: typing.Literal[-1, 1] = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> BufferedRandom
-              TemporaryFile(mode: str = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> IO[typing.Any]
+              TemporaryFile(mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              TemporaryFile(mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> _io.FileIO
+              TemporaryFile(*, buffering: typing.Literal[0], encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, errors: str | None = None) -> _io.FileIO
+              TemporaryFile(mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> _io.BufferedWriter
+              TemporaryFile(mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> _io.BufferedReader[_io._BufferedReaderStream]
+              TemporaryFile(mode: OpenBinaryModeUpdating = 'w+b', buffering: typing.Literal[-1, 1] = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> _io.BufferedRandom
+              TemporaryFile(mode: str = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, *, errors: str | None = None) -> typing.IO[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L131>`__)
 
@@ -85,9 +85,9 @@ The module defines the following user-callable items:
 
 
 .. function:: NamedTemporaryFile(mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, delete=True, *, errors=None, delete_on_close=True)
-              NamedTemporaryFile(mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, delete: bool = True, *, errors: str | None = None, delete_on_close: bool = True) -> _TemporaryFileWrapper[str]
-              NamedTemporaryFile(mode: OpenBinaryMode = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, delete: bool = True, *, errors: str | None = None, delete_on_close: bool = True) -> _TemporaryFileWrapper[bytes]
-              NamedTemporaryFile(mode: str = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: PathLike[AnyStr] | AnyStr | None = None, delete: bool = True, *, errors: str | None = None, delete_on_close: bool = True) -> _TemporaryFileWrapper[typing.Any]
+              NamedTemporaryFile(mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, delete: bool = True, *, errors: str | None = None, delete_on_close: bool = True) -> tempfile._TemporaryFileWrapper[str]
+              NamedTemporaryFile(mode: OpenBinaryMode = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, delete: bool = True, *, errors: str | None = None, delete_on_close: bool = True) -> tempfile._TemporaryFileWrapper[bytes]
+              NamedTemporaryFile(mode: str = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: AnyStr | None = None, prefix: AnyStr | None = None, dir: os.PathLike[AnyStr] | AnyStr | None = None, delete: bool = True, *, errors: str | None = None, delete_on_close: bool = True) -> tempfile._TemporaryFileWrapper[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L43>`__)
 
@@ -158,11 +158,11 @@ The module defines the following user-callable items:
 
 
 .. class:: SpooledTemporaryFile(max_size=0, mode='w+b', buffering=-1, encoding=None, newline=None, suffix=None, prefix=None, dir=None, *, errors=None)
-           SpooledTemporaryFile(max_size: int = 0, mode: OpenBinaryMode = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, *, errors: str | None = None) -> None
-           SpooledTemporaryFile(max_size: int, mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, *, errors: str | None = None) -> None
-           SpooledTemporaryFile(max_size: int = 0, *, mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, errors: str | None = None) -> None
-           SpooledTemporaryFile(max_size: int, mode: str, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, *, errors: str | None = None) -> None
-           SpooledTemporaryFile(max_size: int = 0, *, mode: str, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, errors: str | None = None) -> None
+           SpooledTemporaryFile(max_size: int = 0, mode: OpenBinaryMode = 'w+b', buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, *, errors: str | None = None) -> tempfile.SpooledTemporaryFile
+           SpooledTemporaryFile(max_size: int, mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, *, errors: str | None = None) -> tempfile.SpooledTemporaryFile
+           SpooledTemporaryFile(max_size: int = 0, *, mode: OpenTextMode, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, errors: str | None = None) -> tempfile.SpooledTemporaryFile
+           SpooledTemporaryFile(max_size: int, mode: str, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, *, errors: str | None = None) -> tempfile.SpooledTemporaryFile
+           SpooledTemporaryFile(max_size: int = 0, *, mode: str, buffering: int = -1, encoding: str | None = None, newline: str | None = None, suffix: str | None = None, prefix: str | None = None, dir: str | None = None, errors: str | None = None) -> tempfile.SpooledTemporaryFile
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L274>`__)
 
@@ -200,8 +200,8 @@ The module defines the following user-callable items:
 
 
 .. class:: TemporaryDirectory(suffix=None, prefix=None, dir=None, ignore_cleanup_errors=False, *, delete=True)
-           TemporaryDirectory(suffix: str | None = None, prefix: str | None = None, dir: PathLike[str] | str | None = None, ignore_cleanup_errors: bool = False, *, delete: bool = True) -> None
-           TemporaryDirectory(suffix: bytes | None = None, prefix: bytes | None = None, dir: PathLike[bytes] | bytes | None = None, ignore_cleanup_errors: bool = False, *, delete: bool = True) -> None
+           TemporaryDirectory(suffix: str | None = None, prefix: str | None = None, dir: os.PathLike[str] | str | None = None, ignore_cleanup_errors: bool = False, *, delete: bool = True) -> tempfile.TemporaryDirectory
+           TemporaryDirectory(suffix: bytes | None = None, prefix: bytes | None = None, dir: os.PathLike[bytes] | bytes | None = None, ignore_cleanup_errors: bool = False, *, delete: bool = True) -> tempfile.TemporaryDirectory
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L401>`__)
 
@@ -253,8 +253,8 @@ The module defines the following user-callable items:
 
 
 .. function:: mkstemp(suffix=None, prefix=None, dir=None, text=False)
-              mkstemp(suffix: str | None = None, prefix: str | None = None, dir: PathLike[str] | str | None = None, text: bool = False) -> tuple[int, str]
-              mkstemp(suffix: bytes | None = None, prefix: bytes | None = None, dir: PathLike[bytes] | bytes | None = None, text: bool = False) -> tuple[int, bytes]
+              mkstemp(suffix: str | None = None, prefix: str | None = None, dir: os.PathLike[str] | str | None = None, text: bool = False) -> tuple[int, str]
+              mkstemp(suffix: bytes | None = None, prefix: bytes | None = None, dir: os.PathLike[bytes] | bytes | None = None, text: bool = False) -> tuple[int, bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L461>`__)
 
@@ -313,8 +313,8 @@ The module defines the following user-callable items:
 
 
 .. function:: mkdtemp(suffix=None, prefix=None, dir=None)
-              mkdtemp(suffix: str | None = None, prefix: str | None = None, dir: PathLike[str] | str | None = None) -> str
-              mkdtemp(suffix: bytes | None = None, prefix: bytes | None = None, dir: PathLike[bytes] | bytes | None = None) -> bytes
+              mkdtemp(suffix: str | None = None, prefix: str | None = None, dir: os.PathLike[str] | str | None = None) -> str
+              mkdtemp(suffix: bytes | None = None, prefix: bytes | None = None, dir: os.PathLike[bytes] | bytes | None = None) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L471>`__)
 
@@ -500,7 +500,7 @@ file immediately. This approach is used by :func:`mkstemp` and the
 other functions described above.
 
 .. function:: mktemp(suffix='', prefix='tmp', dir=None)
-              mktemp(suffix: str = '', prefix: str = 'tmp', dir: PathLike[str] | str | None = None) -> str
+              mktemp(suffix: str = '', prefix: str = 'tmp', dir: os.PathLike[str] | str | None = None) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tempfile.pyi#L475>`__)
 

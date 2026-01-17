@@ -228,7 +228,7 @@ the *new_callable* argument to :func:`patch`.
 
 
 .. class:: Mock(spec=None, side_effect=None, return_value=DEFAULT, wraps=None, name=None, spec_set=None, unsafe=False, **kwargs)
-           Mock(spec: typing.Any | None = None, side_effect: typing.Any | None = None, return_value: typing.Any = ..., wraps: typing.Any | None = None, name: typing.Any | None = None, spec_set: typing.Any | None = None, parent: typing.Any | None = None, _spec_state: typing.Any | None = None, _new_name: typing.Any = '', _new_parent: typing.Any | None = None, **kwargs: typing.Any) -> None
+           Mock(spec: typing.Any | None = None, side_effect: typing.Any | None = None, return_value: typing.Any = ..., wraps: typing.Any | None = None, name: typing.Any | None = None, spec_set: typing.Any | None = None, parent: typing.Any | None = None, _spec_state: typing.Any | None = None, _new_name: typing.Any = '', _new_parent: typing.Any | None = None, **kwargs: typing.Any) -> unittest.mock.Mock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L230>`__)
 
@@ -378,7 +378,7 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: assert_has_calls(calls, any_order=False)
-                assert_has_calls(calls: collections.abc.Sequence[_Call], any_order: bool = False) -> None
+                assert_has_calls(calls: typing.Sequence[unittest.mock._Call], any_order: bool = False) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L191>`__)
 
@@ -487,7 +487,7 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: attach_mock(mock, attribute)
-                attach_mock(mock: NonCallableMock, attribute: str) -> None
+                attach_mock(mock: unittest.mock.NonCallableMock, attribute: str) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L194>`__)
 
@@ -548,7 +548,7 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. method:: _get_child_mock(**kw)
-                _get_child_mock(**kw: typing.Any) -> NonCallableMock
+                _get_child_mock(**kw: typing.Any) -> unittest.mock.NonCallableMock
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L206>`__)
 
@@ -689,7 +689,7 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: call_args
-       :type: _Call | typing.Any
+       :type: unittest.mock._Call | typing.Any
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L200>`__)
 
@@ -737,7 +737,7 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: call_args_list
-       :type: _CallList
+       :type: unittest.mock._CallList
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L201>`__)
 
@@ -763,7 +763,7 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: method_calls
-       :type: _CallList
+       :type: unittest.mock._CallList
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L202>`__)
 
@@ -784,7 +784,7 @@ the *new_callable* argument to :func:`patch`.
 
 
     .. attribute:: mock_calls
-       :type: _CallList
+       :type: unittest.mock._CallList
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L203>`__)
 
@@ -844,7 +844,7 @@ the *new_callable* argument to :func:`patch`.
             True
 
 .. class:: NonCallableMock(spec=None, wraps=None, name=None, spec_set=None, **kwargs)
-           NonCallableMock(spec: list[str] | object | type[object] | None = None, wraps: typing.Any | None = None, name: str | None = None, spec_set: list[str] | object | type[object] | None = None, parent: NonCallableMock | None = None, _spec_state: typing.Any | None = None, _new_name: str = '', _new_parent: NonCallableMock | None = None, _spec_as_instance: bool = False, _eat_self: bool | None = None, unsafe: bool = False, **kwargs: typing.Any) -> None
+           NonCallableMock(spec: list[str] | object | type[object] | None = None, wraps: typing.Any | None = None, name: str | None = None, spec_set: list[str] | object | type[object] | None = None, parent: unittest.mock.NonCallableMock | None = None, _spec_state: typing.Any | None = None, _new_name: str = '', _new_parent: unittest.mock.NonCallableMock | None = None, _spec_as_instance: bool = False, _eat_self: bool | None = None, unsafe: bool = False, **kwargs: typing.Any) -> unittest.mock.NonCallableMock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L142>`__)
 
@@ -914,7 +914,7 @@ apply to method calls on the mock object.
 
 
 .. class:: PropertyMock(*args, **kwargs)
-           PropertyMock(spec: typing.Any | None = None, side_effect: typing.Any | None = None, return_value: typing.Any = ..., wraps: typing.Any | None = None, name: typing.Any | None = None, spec_set: typing.Any | None = None, parent: typing.Any | None = None, _spec_state: typing.Any | None = None, _new_name: typing.Any = '', _new_parent: typing.Any | None = None, **kwargs: typing.Any) -> None
+           PropertyMock(spec: typing.Any | None = None, side_effect: typing.Any | None = None, return_value: typing.Any = ..., wraps: typing.Any | None = None, name: typing.Any | None = None, spec_set: typing.Any | None = None, parent: typing.Any | None = None, _spec_state: typing.Any | None = None, _new_name: typing.Any = '', _new_parent: typing.Any | None = None, **kwargs: typing.Any) -> unittest.mock.PropertyMock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L561>`__)
 
@@ -971,7 +971,7 @@ object::
 
 
 .. class:: AsyncMock(spec=None, side_effect=None, return_value=DEFAULT, wraps=None, name=None, spec_set=None, unsafe=False, **kwargs)
-           AsyncMock(*args: typing.Any, **kwargs: typing.Any) -> None
+           AsyncMock(*args: typing.Any, **kwargs: typing.Any) -> unittest.mock.AsyncMock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L499>`__)
 
@@ -1139,7 +1139,7 @@ object::
         AssertionError: mock('other') await not found
 
   .. method:: assert_has_awaits(calls, any_order=False)
-              assert_has_awaits(calls: collections.abc.Iterable[_Call], any_order: bool = False) -> None
+              assert_has_awaits(calls: typing.Iterable[unittest.mock._Call], any_order: bool = False) -> None
 
      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L489>`__)
 
@@ -1205,7 +1205,7 @@ object::
       2
 
   .. attribute:: await_args
-     :type: _Call | None
+     :type: unittest.mock._Call | None
 
      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L493>`__)
 
@@ -1226,7 +1226,7 @@ object::
 
 
   .. attribute:: await_args_list
-     :type: _CallList
+     :type: unittest.mock._CallList
 
      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L494>`__)
 
@@ -1249,7 +1249,7 @@ object::
 
 
 .. class:: ThreadingMock(spec=None, side_effect=None, return_value=DEFAULT, wraps=None, name=None, spec_set=None, unsafe=False, *, timeout=UNSET, **kwargs)
-           ThreadingMock(/, *args: typing.Any, *, timeout: _SentinelObject | float | None = ..., **kwargs: typing.Any) -> None
+           ThreadingMock(/, *args: typing.Any, *, timeout: unittest.mock._SentinelObject | float | None = ..., **kwargs: typing.Any) -> unittest.mock.ThreadingMock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L575>`__)
 
@@ -1263,7 +1263,7 @@ object::
   You can configure the global default timeout by setting :attr:`ThreadingMock.DEFAULT_TIMEOUT`.
 
   .. method:: wait_until_called(*, timeout=UNSET)
-              wait_until_called(*, timeout: _SentinelObject | float | None = ...) -> None
+              wait_until_called(*, timeout: unittest.mock._SentinelObject | float | None = ...) -> None
 
      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L572>`__)
 
@@ -1541,9 +1541,9 @@ patch
     The key is to do the patching in the right namespace. See the section `where to patch`_.
 
 .. function:: patch(target, new=DEFAULT, spec=None, create=False, spec_set=None, autospec=None, new_callable=None, **kwargs)
-              patch(target: str, new: _T, spec: typing.Literal[False] | None = None, create: bool = False, spec_set: typing.Literal[False] | None = None, autospec: typing.Literal[False] | None = None, new_callable: None = None, *, unsafe: bool = False) -> _patch[_T]
-              patch(target: str, *, spec: typing.Literal[False] | typing.Any | None = None, create: bool = False, spec_set: typing.Literal[False] | typing.Any | None = None, autospec: typing.Literal[False] | None = None, new_callable: (...) -> _T, unsafe: bool = False, **kwargs: typing.Any) -> _patch_pass_arg[_T]
-              patch(target: str, *, spec: bool | typing.Any | None = None, create: bool = False, spec_set: bool | typing.Any | None = None, autospec: bool | typing.Any | None = None, new_callable: None = None, unsafe: bool = False, **kwargs: typing.Any) -> _patch_pass_arg[AsyncMock | MagicMock]
+              patch(target: str, new: _T, spec: typing.Literal[False] | None = None, create: bool = False, spec_set: typing.Literal[False] | None = None, autospec: typing.Literal[False] | None = None, new_callable: None = None, *, unsafe: bool = False) -> unittest.mock._patch[_T]
+              patch(target: str, *, spec: typing.Literal[False] | typing.Any | None = None, create: bool = False, spec_set: typing.Literal[False] | typing.Any | None = None, autospec: typing.Literal[False] | None = None, new_callable: (...) -> _T, unsafe: bool = False, **kwargs: typing.Any) -> unittest.mock._patch_pass_arg[_T]
+              patch(target: str, *, spec: bool | typing.Any | None = None, create: bool = False, spec_set: bool | typing.Any | None = None, autospec: bool | typing.Any | None = None, new_callable: None = None, unsafe: bool = False, **kwargs: typing.Any) -> unittest.mock._patch_pass_arg[unittest.mock.AsyncMock | unittest.mock.MagicMock]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L473>`__)
 
@@ -1748,9 +1748,9 @@ patch.object
 ~~~~~~~~~~~~
 
 .. function:: patch.object(target, attribute, new=DEFAULT, spec=None, create=False, spec_set=None, autospec=None, new_callable=None, **kwargs)
-              patch.object(target: typing.Any, attribute: str, new: _T, spec: typing.Literal[False] | None = None, create: bool = False, spec_set: typing.Literal[False] | None = None, autospec: typing.Literal[False] | None = None, new_callable: None = None, *, unsafe: bool = False) -> _patch[_T]
-              patch.object(target: typing.Any, attribute: str, *, spec: typing.Literal[False] | typing.Any | None = None, create: bool = False, spec_set: typing.Literal[False] | typing.Any | None = None, autospec: typing.Literal[False] | None = None, new_callable: (...) -> _T, unsafe: bool = False, **kwargs: typing.Any) -> _patch_pass_arg[_T]
-              patch.object(target: typing.Any, attribute: str, *, spec: bool | typing.Any | None = None, create: bool = False, spec_set: bool | typing.Any | None = None, autospec: bool | typing.Any | None = None, new_callable: None = None, unsafe: bool = False, **kwargs: typing.Any) -> _patch_pass_arg[AsyncMock | MagicMock]
+              patch.object(target: typing.Any, attribute: str, new: _T, spec: typing.Literal[False] | None = None, create: bool = False, spec_set: typing.Literal[False] | None = None, autospec: typing.Literal[False] | None = None, new_callable: None = None, *, unsafe: bool = False) -> unittest.mock._patch[_T]
+              patch.object(target: typing.Any, attribute: str, *, spec: typing.Literal[False] | typing.Any | None = None, create: bool = False, spec_set: typing.Literal[False] | typing.Any | None = None, autospec: typing.Literal[False] | None = None, new_callable: (...) -> _T, unsafe: bool = False, **kwargs: typing.Any) -> unittest.mock._patch_pass_arg[_T]
+              patch.object(target: typing.Any, attribute: str, *, spec: bool | typing.Any | None = None, create: bool = False, spec_set: bool | typing.Any | None = None, autospec: bool | typing.Any | None = None, new_callable: None = None, unsafe: bool = False, **kwargs: typing.Any) -> unittest.mock._patch_pass_arg[unittest.mock.AsyncMock | unittest.mock.MagicMock]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L385>`__)
 
@@ -1789,7 +1789,7 @@ patch.dict
 ~~~~~~~~~~
 
 .. function:: patch.dict(in_dict, values=(), clear=False, **kwargs)
-              patch.dict(in_dict: typing.Any, values: typing.Any = ..., clear: typing.Any = False, **kwargs: typing.Any) -> None
+              patch.dict(in_dict: typing.Any, values: typing.Any = ..., clear: typing.Any = False, **kwargs: typing.Any) -> unittest.mock._patch_dict
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L333>`__)
 
@@ -1908,9 +1908,9 @@ patch.multiple
 ~~~~~~~~~~~~~~
 
 .. function:: patch.multiple(target, spec=None, create=False, spec_set=None, autospec=None, new_callable=None, **kwargs)
-              patch.multiple(target: str | typing.Any, spec: typing.Literal[False] | typing.Any | None = None, create: bool = False, spec_set: typing.Literal[False] | typing.Any | None = None, autospec: typing.Literal[False] | None = None, *, new_callable: (...) -> _T, **kwargs: typing.Any) -> _patch_pass_arg[_T]
-              patch.multiple(target: str | typing.Any, spec: typing.Literal[False] | typing.Any | None, create: bool, spec_set: typing.Literal[False] | typing.Any | None, autospec: typing.Literal[False] | None, new_callable: (...) -> _T, **kwargs: typing.Any) -> _patch_pass_arg[_T]
-              patch.multiple(target: str | typing.Any, spec: bool | typing.Any | None = None, create: bool = False, spec_set: bool | typing.Any | None = None, autospec: bool | typing.Any | None = None, new_callable: None = None, **kwargs: typing.Any) -> _patch[typing.Any]
+              patch.multiple(target: str | typing.Any, spec: typing.Literal[False] | typing.Any | None = None, create: bool = False, spec_set: typing.Literal[False] | typing.Any | None = None, autospec: typing.Literal[False] | None = None, *, new_callable: (...) -> _T, **kwargs: typing.Any) -> unittest.mock._patch_pass_arg[_T]
+              patch.multiple(target: str | typing.Any, spec: typing.Literal[False] | typing.Any | None, create: bool, spec_set: typing.Literal[False] | typing.Any | None, autospec: typing.Literal[False] | None, new_callable: (...) -> _T, **kwargs: typing.Any) -> unittest.mock._patch_pass_arg[_T]
+              patch.multiple(target: str | typing.Any, spec: bool | typing.Any | None = None, create: bool = False, spec_set: bool | typing.Any | None = None, autospec: bool | typing.Any | None = None, new_callable: None = None, **kwargs: typing.Any) -> unittest.mock._patch[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L431>`__)
 
@@ -2284,7 +2284,7 @@ There are two ``MagicMock`` variants: :class:`MagicMock` and :class:`NonCallable
 
 
 .. class:: MagicMock(*args, **kw)
-           MagicMock(*args: typing.Any, **kw: typing.Any) -> None
+           MagicMock(*args: typing.Any, **kw: typing.Any) -> unittest.mock.MagicMock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L479>`__)
 
@@ -2299,7 +2299,7 @@ There are two ``MagicMock`` variants: :class:`MagicMock` and :class:`NonCallable
 
 
 .. class:: NonCallableMagicMock(*args, **kw)
-           NonCallableMagicMock(*args: typing.Any, **kw: typing.Any) -> None
+           NonCallableMagicMock(*args: typing.Any, **kw: typing.Any) -> unittest.mock.NonCallableMagicMock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L478>`__)
 
@@ -2421,7 +2421,7 @@ sentinel
 ~~~~~~~~
 
 .. data:: sentinel
-   :type: _Sentinel
+   :type: unittest.mock._Sentinel
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L64>`__)
 
@@ -2470,7 +2470,7 @@ call
 ~~~~
 
 .. function:: call(*args, **kwargs)
-              call(*args: typing.Any, **kwargs: typing.Any) -> _Call
+              call(*args: typing.Any, **kwargs: typing.Any) -> unittest.mock._Call
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L132>`__)
 
@@ -2600,7 +2600,7 @@ ANY
 ~~~
 
 .. data:: ANY
-   :type: _ANY
+   :type: unittest.mock._ANY
 
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/unittest/mock.pyi#L518>`__)

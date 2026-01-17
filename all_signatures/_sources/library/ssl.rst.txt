@@ -128,7 +128,7 @@ purposes.
 
 .. function:: create_default_context(purpose=Purpose.SERVER_AUTH, *,\
                                      cafile=None, capath=None, cadata=None)
-              create_default_context(purpose: Purpose = Purpose.SERVER_AUTH, *, cafile: PathLike[bytes] | PathLike[str] | bytes | str | None = None, capath: PathLike[bytes] | PathLike[str] | bytes | str | None = None, cadata: Buffer | str | None = None) -> SSLContext
+              create_default_context(purpose: ssl.Purpose = Purpose.SERVER_AUTH, *, cafile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, capath: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, cadata: _collections_abc.Buffer | str | None = None) -> ssl.SSLContext
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L443>`__)
 
@@ -243,7 +243,7 @@ Exceptions
 ^^^^^^^^^^
 
 .. exception:: SSLError
-               SSLError(*args: object) -> None
+               SSLError(*args: object) -> ssl.SSLError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L70>`__)
 
@@ -280,7 +280,7 @@ Exceptions
       .. versionadded:: 3.3
 
 .. exception:: SSLZeroReturnError
-               SSLZeroReturnError(*args: object) -> None
+               SSLZeroReturnError(*args: object) -> ssl.SSLZeroReturnError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L74>`__)
 
@@ -291,7 +291,7 @@ Exceptions
    .. versionadded:: 3.3
 
 .. exception:: SSLWantReadError
-               SSLWantReadError(*args: object) -> None
+               SSLWantReadError(*args: object) -> ssl.SSLWantReadError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L75>`__)
 
@@ -303,7 +303,7 @@ Exceptions
    .. versionadded:: 3.3
 
 .. exception:: SSLWantWriteError
-               SSLWantWriteError(*args: object) -> None
+               SSLWantWriteError(*args: object) -> ssl.SSLWantWriteError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L76>`__)
 
@@ -315,7 +315,7 @@ Exceptions
    .. versionadded:: 3.3
 
 .. exception:: SSLSyscallError
-               SSLSyscallError(*args: object) -> None
+               SSLSyscallError(*args: object) -> ssl.SSLSyscallError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L77>`__)
 
@@ -326,7 +326,7 @@ Exceptions
    .. versionadded:: 3.3
 
 .. exception:: SSLEOFError
-               SSLEOFError(*args: object) -> None
+               SSLEOFError(*args: object) -> ssl.SSLEOFError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L78>`__)
 
@@ -337,7 +337,7 @@ Exceptions
    .. versionadded:: 3.3
 
 .. exception:: SSLCertVerificationError
-               SSLCertVerificationError(*args: object) -> None
+               SSLCertVerificationError(*args: object) -> ssl.SSLCertVerificationError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L80>`__)
 
@@ -361,7 +361,7 @@ Exceptions
       A human readable string of the verification error.
 
 .. exception:: CertificateError
-               CertificateError(*args: object) -> None
+               CertificateError(*args: object) -> ssl.SSLCertVerificationError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L84>`__)
 
@@ -404,7 +404,7 @@ Random generation
    to increase the randomness of the pseudo-random number generator.
 
 .. function:: RAND_add(bytes, entropy, /)
-              RAND_add(string: Buffer | str, entropy: float, /) -> None
+              RAND_add(string: _collections_abc.Buffer | str, entropy: float, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L50>`__)
 
@@ -481,7 +481,7 @@ Certificate handling
       The *timeout* parameter was added.
 
 .. function:: DER_cert_to_PEM_cert(der_cert_bytes)
-              DER_cert_to_PEM_cert(der_cert_bytes: Buffer) -> str
+              DER_cert_to_PEM_cert(der_cert_bytes: _collections_abc.Buffer) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L347>`__)
 
@@ -497,7 +497,7 @@ Certificate handling
    bytes for that same certificate.
 
 .. function:: get_default_verify_paths()
-              get_default_verify_paths() -> DefaultVerifyPaths
+              get_default_verify_paths() -> ssl.DefaultVerifyPaths
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L94>`__)
 
@@ -562,7 +562,7 @@ Constants
    .. versionadded:: 3.6
 
 .. data:: CERT_NONE
-   :type: typing.Literal[VerifyMode.CERT_NONE]
+   :type: typing.Literal[ssl.VerifyMode.CERT_NONE]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L101>`__)
 
@@ -578,7 +578,7 @@ Constants
    See the discussion of :ref:`ssl-security` below.
 
 .. data:: CERT_OPTIONAL
-   :type: typing.Literal[VerifyMode.CERT_OPTIONAL]
+   :type: typing.Literal[ssl.VerifyMode.CERT_OPTIONAL]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L102>`__)
 
@@ -597,7 +597,7 @@ Constants
    be passed to :meth:`SSLContext.load_verify_locations`.
 
 .. data:: CERT_REQUIRED
-   :type: typing.Literal[VerifyMode.CERT_REQUIRED]
+   :type: typing.Literal[ssl.VerifyMode.CERT_REQUIRED]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L103>`__)
 
@@ -619,7 +619,7 @@ Constants
    be passed to :meth:`SSLContext.load_verify_locations`.
 
 .. class:: VerifyMode
-           VerifyMode(value: int) -> VerifyMode
+           VerifyMode(value: int) -> ssl.VerifyMode
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L96>`__)
 
@@ -628,7 +628,7 @@ Constants
    .. versionadded:: 3.6
 
 .. data:: VERIFY_DEFAULT
-   :type: typing.Literal[VerifyFlags.VERIFY_DEFAULT]
+   :type: typing.Literal[ssl.VerifyFlags.VERIFY_DEFAULT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L115>`__)
 
@@ -639,7 +639,7 @@ Constants
    .. versionadded:: 3.4
 
 .. data:: VERIFY_CRL_CHECK_LEAF
-   :type: typing.Literal[VerifyFlags.VERIFY_CRL_CHECK_LEAF]
+   :type: typing.Literal[ssl.VerifyFlags.VERIFY_CRL_CHECK_LEAF]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L116>`__)
 
@@ -652,7 +652,7 @@ Constants
    .. versionadded:: 3.4
 
 .. data:: VERIFY_CRL_CHECK_CHAIN
-   :type: typing.Literal[VerifyFlags.VERIFY_CRL_CHECK_CHAIN]
+   :type: typing.Literal[ssl.VerifyFlags.VERIFY_CRL_CHECK_CHAIN]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L117>`__)
 
@@ -662,7 +662,7 @@ Constants
    .. versionadded:: 3.4
 
 .. data:: VERIFY_X509_STRICT
-   :type: typing.Literal[VerifyFlags.VERIFY_X509_STRICT]
+   :type: typing.Literal[ssl.VerifyFlags.VERIFY_X509_STRICT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L118>`__)
 
@@ -672,7 +672,7 @@ Constants
    .. versionadded:: 3.4
 
 .. data:: VERIFY_ALLOW_PROXY_CERTS
-   :type: typing.Literal[VerifyFlags.VERIFY_ALLOW_PROXY_CERTS]
+   :type: typing.Literal[ssl.VerifyFlags.VERIFY_ALLOW_PROXY_CERTS]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L122>`__)
 
@@ -682,7 +682,7 @@ Constants
    .. versionadded:: 3.10
 
 .. data:: VERIFY_X509_TRUSTED_FIRST
-   :type: typing.Literal[VerifyFlags.VERIFY_X509_TRUSTED_FIRST]
+   :type: typing.Literal[ssl.VerifyFlags.VERIFY_X509_TRUSTED_FIRST]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L119>`__)
 
@@ -693,7 +693,7 @@ Constants
    .. versionadded:: 3.4.4
 
 .. data:: VERIFY_X509_PARTIAL_CHAIN
-   :type: typing.Literal[VerifyFlags.VERIFY_X509_PARTIAL_CHAIN]
+   :type: typing.Literal[ssl.VerifyFlags.VERIFY_X509_PARTIAL_CHAIN]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L123>`__)
 
@@ -707,7 +707,7 @@ Constants
 
 
 .. class:: VerifyFlags
-           VerifyFlags(value: int) -> VerifyFlags
+           VerifyFlags(value: int) -> ssl.VerifyFlags
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L105>`__)
 
@@ -716,7 +716,7 @@ Constants
    .. versionadded:: 3.6
 
 .. data:: PROTOCOL_TLS
-   :type: typing.Literal[_SSLMethod.PROTOCOL_TLS]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_TLS]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L142>`__)
 
@@ -732,7 +732,7 @@ Constants
       favor of :data:`PROTOCOL_TLS_CLIENT` and :data:`PROTOCOL_TLS_SERVER`.
 
 .. data:: PROTOCOL_TLS_CLIENT
-   :type: typing.Literal[_SSLMethod.PROTOCOL_TLS_CLIENT]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_TLS_CLIENT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L143>`__)
 
@@ -744,7 +744,7 @@ Constants
    .. versionadded:: 3.6
 
 .. data:: PROTOCOL_TLS_SERVER
-   :type: typing.Literal[_SSLMethod.PROTOCOL_TLS_SERVER]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_TLS_SERVER]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L144>`__)
 
@@ -754,7 +754,7 @@ Constants
    .. versionadded:: 3.6
 
 .. data:: PROTOCOL_SSLv23
-   :type: typing.Literal[_SSLMethod.PROTOCOL_SSLv23]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_SSLv23]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L136>`__)
 
@@ -765,7 +765,7 @@ Constants
       Use :data:`PROTOCOL_TLS` instead.
 
 .. data:: PROTOCOL_SSLv3
-   :type: typing.Literal[_SSLMethod.PROTOCOL_SSLv3]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_SSLv3]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L138>`__)
 
@@ -787,7 +787,7 @@ Constants
 
 
 .. data:: PROTOCOL_TLSv1
-   :type: typing.Literal[_SSLMethod.PROTOCOL_TLSv1]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_TLSv1]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L139>`__)
 
@@ -798,7 +798,7 @@ Constants
       OpenSSL has deprecated all version specific protocols.
 
 .. data:: PROTOCOL_TLSv1_1
-   :type: typing.Literal[_SSLMethod.PROTOCOL_TLSv1_1]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_TLSv1_1]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L140>`__)
 
@@ -812,7 +812,7 @@ Constants
       OpenSSL has deprecated all version specific protocols.
 
 .. data:: PROTOCOL_TLSv1_2
-   :type: typing.Literal[_SSLMethod.PROTOCOL_TLSv1_2]
+   :type: typing.Literal[ssl._SSLMethod.PROTOCOL_TLSv1_2]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L141>`__)
 
@@ -826,7 +826,7 @@ Constants
       OpenSSL has deprecated all version specific protocols.
 
 .. data:: OP_ALL
-   :type: typing.Literal[Options.OP_ALL]
+   :type: typing.Literal[ssl.Options.OP_ALL]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L167>`__)
 
@@ -837,7 +837,7 @@ Constants
    .. versionadded:: 3.2
 
 .. data:: OP_NO_SSLv2
-   :type: typing.Literal[Options.OP_NO_SSLv2]
+   :type: typing.Literal[ssl.Options.OP_NO_SSLv2]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L168>`__)
 
@@ -852,7 +852,7 @@ Constants
       SSLv2 is deprecated
 
 .. data:: OP_NO_SSLv3
-   :type: typing.Literal[Options.OP_NO_SSLv3]
+   :type: typing.Literal[ssl.Options.OP_NO_SSLv3]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L169>`__)
 
@@ -867,7 +867,7 @@ Constants
       SSLv3 is deprecated
 
 .. data:: OP_NO_TLSv1
-   :type: typing.Literal[Options.OP_NO_TLSv1]
+   :type: typing.Literal[ssl.Options.OP_NO_TLSv1]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L170>`__)
 
@@ -883,7 +883,7 @@ Constants
       :attr:`SSLContext.maximum_version` instead.
 
 .. data:: OP_NO_TLSv1_1
-   :type: typing.Literal[Options.OP_NO_TLSv1_1]
+   :type: typing.Literal[ssl.Options.OP_NO_TLSv1_1]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L171>`__)
 
@@ -897,7 +897,7 @@ Constants
       The option is deprecated since OpenSSL 1.1.0.
 
 .. data:: OP_NO_TLSv1_2
-   :type: typing.Literal[Options.OP_NO_TLSv1_2]
+   :type: typing.Literal[ssl.Options.OP_NO_TLSv1_2]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L172>`__)
 
@@ -911,7 +911,7 @@ Constants
       The option is deprecated since OpenSSL 1.1.0.
 
 .. data:: OP_NO_TLSv1_3
-   :type: typing.Literal[Options.OP_NO_TLSv1_3]
+   :type: typing.Literal[ssl.Options.OP_NO_TLSv1_3]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L173>`__)
 
@@ -928,7 +928,7 @@ Constants
       3.6.3 for backwards compatibility with OpenSSL 1.0.2.
 
 .. data:: OP_NO_RENEGOTIATION
-   :type: typing.Literal[Options.OP_NO_RENEGOTIATION]
+   :type: typing.Literal[ssl.Options.OP_NO_RENEGOTIATION]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L179>`__)
 
@@ -940,7 +940,7 @@ Constants
    .. versionadded:: 3.7
 
 .. data:: OP_CIPHER_SERVER_PREFERENCE
-   :type: typing.Literal[Options.OP_CIPHER_SERVER_PREFERENCE]
+   :type: typing.Literal[ssl.Options.OP_CIPHER_SERVER_PREFERENCE]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L174>`__)
 
@@ -950,7 +950,7 @@ Constants
    .. versionadded:: 3.3
 
 .. data:: OP_SINGLE_DH_USE
-   :type: typing.Literal[Options.OP_SINGLE_DH_USE]
+   :type: typing.Literal[ssl.Options.OP_SINGLE_DH_USE]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L175>`__)
 
@@ -961,7 +961,7 @@ Constants
    .. versionadded:: 3.3
 
 .. data:: OP_SINGLE_ECDH_USE
-   :type: typing.Literal[Options.OP_SINGLE_ECDH_USE]
+   :type: typing.Literal[ssl.Options.OP_SINGLE_ECDH_USE]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L176>`__)
 
@@ -972,7 +972,7 @@ Constants
    .. versionadded:: 3.3
 
 .. data:: OP_ENABLE_MIDDLEBOX_COMPAT
-   :type: typing.Literal[Options.OP_ENABLE_MIDDLEBOX_COMPAT]
+   :type: typing.Literal[ssl.Options.OP_ENABLE_MIDDLEBOX_COMPAT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L180>`__)
 
@@ -984,7 +984,7 @@ Constants
    .. versionadded:: 3.8
 
 .. data:: OP_NO_COMPRESSION
-   :type: typing.Literal[Options.OP_NO_COMPRESSION]
+   :type: typing.Literal[ssl.Options.OP_NO_COMPRESSION]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L177>`__)
 
@@ -994,14 +994,14 @@ Constants
    .. versionadded:: 3.3
 
 .. class:: Options
-           Options(value: int) -> Options
+           Options(value: int) -> ssl.Options
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L146>`__)
 
    :class:`enum.IntFlag` collection of OP_* constants.
 
 .. data:: OP_NO_TICKET
-   :type: typing.Literal[Options.OP_NO_TICKET]
+   :type: typing.Literal[ssl.Options.OP_NO_TICKET]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L178>`__)
 
@@ -1010,7 +1010,7 @@ Constants
    .. versionadded:: 3.6
 
 .. data:: OP_IGNORE_UNEXPECTED_EOF
-   :type: typing.Literal[Options.OP_IGNORE_UNEXPECTED_EOF]
+   :type: typing.Literal[ssl.Options.OP_IGNORE_UNEXPECTED_EOF]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L185>`__)
 
@@ -1021,7 +1021,7 @@ Constants
    .. versionadded:: 3.10
 
 .. data:: OP_ENABLE_KTLS
-   :type: typing.Literal[Options.OP_ENABLE_KTLS]
+   :type: typing.Literal[ssl.Options.OP_ENABLE_KTLS]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L183>`__)
 
@@ -1040,7 +1040,7 @@ Constants
    .. versionadded:: 3.12
 
 .. data:: OP_LEGACY_SERVER_CONNECT
-   :type: typing.Literal[Options.OP_LEGACY_SERVER_CONNECT]
+   :type: typing.Literal[ssl.Options.OP_LEGACY_SERVER_CONNECT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L182>`__)
 
@@ -1248,7 +1248,7 @@ Constants
    .. versionadded:: 3.4
 
 .. class:: AlertDescription
-           AlertDescription(value: int) -> AlertDescription
+           AlertDescription(value: int) -> ssl.AlertDescription
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L191>`__)
 
@@ -1257,7 +1257,7 @@ Constants
    .. versionadded:: 3.6
 
 .. data:: Purpose.SERVER_AUTH
-   :type: typing.Literal[Purpose.SERVER_AUTH]
+   :type: typing.Literal[ssl.Purpose.SERVER_AUTH]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L268>`__)
 
@@ -1269,7 +1269,7 @@ Constants
    .. versionadded:: 3.4
 
 .. data:: Purpose.CLIENT_AUTH
-   :type: typing.Literal[Purpose.CLIENT_AUTH]
+   :type: typing.Literal[ssl.Purpose.CLIENT_AUTH]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L269>`__)
 
@@ -1281,7 +1281,7 @@ Constants
    .. versionadded:: 3.4
 
 .. class:: SSLErrorNumber
-           SSLErrorNumber(value: int) -> SSLErrorNumber
+           SSLErrorNumber(value: int) -> ssl.SSLErrorNumber
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L519>`__)
 
@@ -1290,7 +1290,7 @@ Constants
    .. versionadded:: 3.6
 
 .. class:: TLSVersion
-           TLSVersion(value: int) -> TLSVersion
+           TLSVersion(value: int) -> ssl.TLSVersion
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L363>`__)
 
@@ -1300,12 +1300,12 @@ Constants
    .. versionadded:: 3.7
 
 .. attribute:: TLSVersion.MINIMUM_SUPPORTED
-   :type: typing.Literal[TLSVersion.MINIMUM_SUPPORTED]
+   :type: typing.Literal[ssl.TLSVersion.MINIMUM_SUPPORTED]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L364>`__)
 
 .. attribute:: TLSVersion.MAXIMUM_SUPPORTED
-   :type: typing.Literal[TLSVersion.MAXIMUM_SUPPORTED]
+   :type: typing.Literal[ssl.TLSVersion.MAXIMUM_SUPPORTED]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L365>`__)
 
@@ -1314,27 +1314,27 @@ Constants
    TLS/SSL versions.
 
 .. attribute:: TLSVersion.SSLv3
-   :type: typing.Literal[TLSVersion.SSLv3]
+   :type: typing.Literal[ssl.TLSVersion.SSLv3]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L366>`__)
 
 .. attribute:: TLSVersion.TLSv1
-   :type: typing.Literal[TLSVersion.TLSv1]
+   :type: typing.Literal[ssl.TLSVersion.TLSv1]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L367>`__)
 
 .. attribute:: TLSVersion.TLSv1_1
-   :type: typing.Literal[TLSVersion.TLSv1_1]
+   :type: typing.Literal[ssl.TLSVersion.TLSv1_1]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L368>`__)
 
 .. attribute:: TLSVersion.TLSv1_2
-   :type: typing.Literal[TLSVersion.TLSv1_2]
+   :type: typing.Literal[ssl.TLSVersion.TLSv1_2]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L369>`__)
 
 .. attribute:: TLSVersion.TLSv1_3
-   :type: typing.Literal[TLSVersion.TLSv1_3]
+   :type: typing.Literal[ssl.TLSVersion.TLSv1_3]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L370>`__)
 
@@ -1350,7 +1350,7 @@ SSL Sockets
 -----------
 
 .. class:: SSLSocket(socket.socket)
-           SSLSocket(*args: typing.Any, **kwargs: typing.Any) -> None
+           SSLSocket(*args: typing.Any, **kwargs: typing.Any) -> ssl.SSLSocket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L271>`__)
 
@@ -1439,7 +1439,7 @@ SSL sockets also have the following additional methods and attributes:
       Use :meth:`~SSLSocket.recv` instead of :meth:`~SSLSocket.read`.
 
 .. method:: SSLSocket.write(data)
-            SSLSocket.write(data: Buffer) -> int
+            SSLSocket.write(data: _collections_abc.Buffer) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L297>`__)
 
@@ -1695,7 +1695,7 @@ SSL sockets also have the following additional methods and attributes:
       NPN has been superseded by ALPN
 
 .. method:: SSLSocket.unwrap()
-            SSLSocket.unwrap() -> socket
+            SSLSocket.unwrap() -> socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L317>`__)
 
@@ -1750,7 +1750,7 @@ SSL sockets also have the following additional methods and attributes:
    the connection.
 
 .. attribute:: SSLSocket.context
-   :type: SSLContext
+   :type: ssl.SSLContext
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L272>`__)
 
@@ -1785,7 +1785,7 @@ SSL sockets also have the following additional methods and attributes:
       (``"pythön.org"``).
 
 .. attribute:: SSLSocket.session
-   :type: SSLSession | None
+   :type: _ssl.SSLSession | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L275>`__)
 
@@ -1797,7 +1797,7 @@ SSL sockets also have the following additional methods and attributes:
    .. versionadded:: 3.6
 
 .. attribute:: SSLSocket.session_reused
-   :type: session_reused(self: SSLSocket) -> bool | None
+   :type: session_reused(self: ssl.SSLSocket) -> bool | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L277>`__)
 
@@ -1815,8 +1815,8 @@ It also manages a cache of SSL sessions for server-side sockets, in order
 to speed up repeated connections from the same clients.
 
 .. class:: SSLContext(protocol=None)
-           SSLContext(protocol: int, *args: typing.Any, **kwargs: typing.Any) -> SSLContext
-           SSLContext(protocol: None = None, *args: typing.Any, **kwargs: typing.Any) -> SSLContext
+           SSLContext(protocol: int, *args: typing.Any, **kwargs: typing.Any) -> ssl.SSLContext
+           SSLContext(protocol: None = None, *args: typing.Any, **kwargs: typing.Any) -> ssl.SSLContext
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L372>`__)
 
@@ -1914,7 +1914,7 @@ to speed up repeated connections from the same clients.
 
 
 .. method:: SSLContext.load_cert_chain(certfile, keyfile=None, password=None)
-            SSLContext.load_cert_chain(certfile: StrOrBytesPath, keyfile: PathLike[bytes] | PathLike[str] | bytes | str | None = None, password: (() -> bytearray | bytes | str) | bytearray | bytes | str | None = None) -> None
+            SSLContext.load_cert_chain(certfile: StrOrBytesPath, keyfile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, password: (() -> bytearray | bytes | str) | bytearray | bytes | str | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L94>`__)
 
@@ -1947,7 +1947,7 @@ to speed up repeated connections from the same clients.
       New optional argument *password*.
 
 .. method:: SSLContext.load_default_certs(purpose=Purpose.SERVER_AUTH)
-            SSLContext.load_default_certs(purpose: Purpose = Purpose.SERVER_AUTH) -> None
+            SSLContext.load_default_certs(purpose: ssl.Purpose = Purpose.SERVER_AUTH) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L399>`__)
 
@@ -1966,7 +1966,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.4
 
 .. method:: SSLContext.load_verify_locations(cafile=None, capath=None, cadata=None)
-            SSLContext.load_verify_locations(cafile: PathLike[bytes] | PathLike[str] | bytes | str | None = None, capath: PathLike[bytes] | PathLike[str] | bytes | str | None = None, cadata: Buffer | str | None = None) -> None
+            SSLContext.load_verify_locations(cafile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, capath: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, cadata: _collections_abc.Buffer | str | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L400>`__)
 
@@ -2017,7 +2017,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.4
 
 .. method:: SSLContext.get_ciphers()
-            SSLContext.get_ciphers() -> list[_Cipher]
+            SSLContext.get_ciphers() -> list[ssl._Cipher]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L412>`__)
 
@@ -2163,7 +2163,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.15
 
 .. method:: SSLContext.set_alpn_protocols(alpn_protocols)
-            SSLContext.set_alpn_protocols(alpn_protocols: collections.abc.Iterable[str]) -> None
+            SSLContext.set_alpn_protocols(alpn_protocols: typing.Iterable[str]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L415>`__)
 
@@ -2180,7 +2180,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.5
 
 .. method:: SSLContext.set_npn_protocols(npn_protocols)
-            SSLContext.set_npn_protocols(npn_protocols: collections.abc.Iterable[str]) -> None
+            SSLContext.set_npn_protocols(npn_protocols: typing.Iterable[str]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L418>`__)
 
@@ -2202,7 +2202,7 @@ to speed up repeated connections from the same clients.
       NPN has been superseded by ALPN
 
 .. attribute:: SSLContext.sni_callback
-   :type: ((SSLObject, str, SSLContext) -> int | None) | None
+   :type: ((ssl.SSLObject, str, ssl.SSLContext) -> int | None) | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L82>`__)
 
@@ -2253,7 +2253,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.7
 
 .. method:: SSLContext.set_servername_callback(server_name_callback)
-            SSLContext.set_servername_callback(server_name_callback: ((SSLObject | SSLSocket, str | None, SSLSocket) -> int | None) | None) -> None
+            SSLContext.set_servername_callback(server_name_callback: ((ssl.SSLObject | ssl.SSLSocket, str | None, ssl.SSLSocket) -> int | None) | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L422>`__)
 
@@ -2308,7 +2308,7 @@ to speed up repeated connections from the same clients.
          Vincent Bernat.
 
 .. method:: SSLContext.wrap_socket(sock, server_side=False, \
-            SSLContext.wrap_socket(sock: socket, server_side: bool = False, do_handshake_on_connect: bool = True, suppress_ragged_eofs: bool = True, server_hostname: bytes | str | None = None, session: SSLSession | None = None) -> SSLSocket
+            SSLContext.wrap_socket(sock: socket.socket, server_side: bool = False, do_handshake_on_connect: bool = True, suppress_ragged_eofs: bool = True, server_hostname: bytes | str | None = None, session: _ssl.SSLSession | None = None) -> ssl.SSLSocket
       do_handshake_on_connect=True, suppress_ragged_eofs=True, \
       server_hostname=None, session=None)
 
@@ -2368,7 +2368,7 @@ to speed up repeated connections from the same clients.
       instead of hard-coded :class:`SSLSocket`.
 
 .. attribute:: SSLContext.sslsocket_class
-   :type: (self: SSLSocket, *args: typing.Any, **kwargs: typing.Any) -> None
+   :type: (self: ssl.SSLSocket, *args: typing.Any, **kwargs: typing.Any) -> ssl.SSLSocket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L385>`__)
 
@@ -2381,7 +2381,7 @@ to speed up repeated connections from the same clients.
 
 .. method:: SSLContext.wrap_bio(incoming, outgoing, server_side=False, \
                                 server_hostname=None, session=None)
-            SSLContext.wrap_bio(incoming: MemoryBIO, outgoing: MemoryBIO, server_side: bool = False, server_hostname: bytes | str | None = None, session: SSLSession | None = None) -> SSLObject
+            SSLContext.wrap_bio(incoming: _ssl.MemoryBIO, outgoing: _ssl.MemoryBIO, server_side: bool = False, server_hostname: bytes | str | None = None, session: _ssl.SSLSession | None = None) -> ssl.SSLObject
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L434>`__)
 
@@ -2401,7 +2401,7 @@ to speed up repeated connections from the same clients.
       instead of hard-coded :class:`SSLObject`.
 
 .. attribute:: SSLContext.sslobject_class
-   :type: (self: SSLObject, *args: typing.Any, **kwargs: typing.Any) -> None
+   :type: (self: ssl.SSLObject, *args: typing.Any, **kwargs: typing.Any) -> ssl.SSLObject
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L384>`__)
 
@@ -2477,7 +2477,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.8
 
 .. attribute:: SSLContext.maximum_version
-   :type: TLSVersion
+   :type: ssl.TLSVersion
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L379>`__)
 
@@ -2498,7 +2498,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.7
 
 .. attribute:: SSLContext.minimum_version
-   :type: TLSVersion
+   :type: ssl.TLSVersion
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L380>`__)
 
@@ -2519,7 +2519,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.8
 
 .. attribute:: SSLContext.options
-   :type: Options
+   :type: ssl.Options
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L373>`__)
 
@@ -2561,7 +2561,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.8
 
 .. attribute:: SSLContext.protocol
-   :type: protocol(self: SSLContext) -> _SSLMethod
+   :type: protocol(self: ssl.SSLContext) -> ssl._SSLMethod
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L377>`__)
 
@@ -2596,7 +2596,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.10
 
 .. attribute:: SSLContext.verify_flags
-   :type: VerifyFlags
+   :type: ssl.VerifyFlags
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L374>`__)
 
@@ -2613,7 +2613,7 @@ to speed up repeated connections from the same clients.
          <VerifyFlags.VERIFY_X509_TRUSTED_FIRST: 32768>
 
 .. attribute:: SSLContext.verify_mode
-   :type: VerifyMode
+   :type: ssl.VerifyMode
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L375>`__)
 
@@ -3126,7 +3126,7 @@ reduced scope variant of :class:`SSLSocket` called :class:`SSLObject` is
 provided.
 
 .. class:: SSLObject
-           SSLObject(*args: typing.Any, **kwargs: typing.Any) -> None
+           SSLObject(*args: typing.Any, **kwargs: typing.Any) -> ssl.SSLObject
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ssl.pyi#L481>`__)
 
@@ -3209,7 +3209,7 @@ class :class:`MemoryBIO` provides a memory buffer that can be used for this
 purpose.  It wraps an OpenSSL memory BIO (Basic IO) object:
 
 .. class:: MemoryBIO
-           MemoryBIO() -> MemoryBIO
+           MemoryBIO() -> _ssl.MemoryBIO
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L115>`__)
 
@@ -3240,7 +3240,7 @@ purpose.  It wraps an OpenSSL memory BIO (Basic IO) object:
       negative, all bytes are returned.
 
    .. method:: MemoryBIO.write(buf, /)
-               MemoryBIO.write(b: Buffer, /) -> int
+               MemoryBIO.write(b: _collections_abc.Buffer, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L120>`__)
 
@@ -3266,34 +3266,34 @@ SSL session
 .. versionadded:: 3.6
 
 .. class:: SSLSession
-           SSLSession() -> None
+           SSLSession() -> _ssl.SSLSession
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L124>`__)
 
    Session object used by :attr:`~SSLSocket.session`.
 
    .. attribute:: id
-      :type: id(self: SSLSession) -> bytes
+      :type: id(self: _ssl.SSLSession) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L129>`__)
 
    .. attribute:: time
-      :type: time(self: SSLSession) -> int
+      :type: time(self: _ssl.SSLSession) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L133>`__)
 
    .. attribute:: timeout
-      :type: timeout(self: SSLSession) -> int
+      :type: timeout(self: _ssl.SSLSession) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L135>`__)
 
    .. attribute:: ticket_lifetime_hint
-      :type: ticket_lifetime_hint(self: SSLSession) -> int
+      :type: ticket_lifetime_hint(self: _ssl.SSLSession) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L131>`__)
 
    .. attribute:: has_ticket
-      :type: has_ticket(self: SSLSession) -> bool
+      :type: has_ticket(self: _ssl.SSLSession) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ssl.pyi#L127>`__)
 

@@ -1465,7 +1465,7 @@ way is to instantiate one of the following classes:
 
 
 .. class:: CDLL(name, mode=DEFAULT_MODE, handle=None, use_errno=False, use_last_error=False, winmode=None)
-           CDLL(name: _NameTypes, mode: int = ..., handle: int | None = None, use_errno: bool = False, use_last_error: bool = False, winmode: int | None = None) -> None
+           CDLL(name: _NameTypes, mode: int = ..., handle: int | None = None, use_errno: bool = False, use_last_error: bool = False, winmode: int | None = None) -> ctypes.CDLL
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L82>`__)
 
@@ -1531,7 +1531,7 @@ function exported by these libraries, and reacquired afterwards.
 
 
 .. class:: PyDLL(name, mode=DEFAULT_MODE, handle=None)
-           PyDLL(name: _NameTypes, mode: int = ..., handle: int | None = None, use_errno: bool = False, use_last_error: bool = False, winmode: int | None = None) -> None
+           PyDLL(name: _NameTypes, mode: int = ..., handle: int | None = None, use_errno: bool = False, use_last_error: bool = False, winmode: int | None = None) -> ctypes.PyDLL
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L104>`__)
 
@@ -1654,7 +1654,7 @@ attribute of the loader instance.
 
 
 .. class:: LibraryLoader(dlltype)
-           LibraryLoader(dlltype: type[_DLLT]) -> None
+           LibraryLoader(dlltype: type[_DLLT]) -> ctypes.LibraryLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L106>`__)
 
@@ -1677,7 +1677,7 @@ attribute of the loader instance.
 These prefabricated library loaders are available:
 
 .. data:: cdll
-   :type: LibraryLoader[CDLL]
+   :type: ctypes.LibraryLoader[ctypes.CDLL]
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L113>`__)
@@ -1702,7 +1702,7 @@ These prefabricated library loaders are available:
 
 
 .. data:: pydll
-   :type: LibraryLoader[PyDLL]
+   :type: ctypes.LibraryLoader[ctypes.PyDLL]
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L117>`__)
@@ -1714,7 +1714,7 @@ For accessing the C Python api directly, a ready-to-use Python shared library
 object is available:
 
 .. data:: pythonapi
-   :type: PyDLL
+   :type: ctypes.PyDLL
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L118>`__)
@@ -1765,10 +1765,10 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
    False
 
 .. class:: _CFuncPtr
-           _CFuncPtr() -> CFuncPtr
-           _CFuncPtr(address: int, /) -> CFuncPtr
-           _CFuncPtr(callable: (...) -> typing.Any, /) -> CFuncPtr
-           _CFuncPtr(func_spec: tuple[int | str, CDLL], paramflags: tuple[_PF, ...] | None = ..., /) -> CFuncPtr
+           _CFuncPtr() -> _ctypes.CFuncPtr
+           _CFuncPtr(address: int, /) -> _ctypes.CFuncPtr
+           _CFuncPtr(callable: (...) -> typing.Any, /) -> _ctypes.CFuncPtr
+           _CFuncPtr(func_spec: tuple[int | str, ctypes.CDLL], paramflags: tuple[_PF, ...] | None = ..., /) -> _ctypes.CFuncPtr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L174>`__)
 
@@ -1781,7 +1781,7 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
    foreign function object.
 
    .. attribute:: restype
-      :type: (self: _SimpleCData[typing.Any], value: typing.Any = ...) -> None
+      :type: (self: _ctypes._SimpleCData[typing.Any], value: typing.Any = ...) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L175>`__)
 
@@ -1796,7 +1796,7 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
       :attr:`!restype` and assign a callable to the :attr:`errcheck` attribute.
 
    .. attribute:: argtypes
-      :type: collections.abc.Sequence[type[_CDataType]]
+      :type: typing.Sequence[type[_CDataType]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L176>`__)
 
@@ -1819,7 +1819,7 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
       defining adapters that can adapt custom objects as function parameters.
 
    .. attribute:: errcheck
-      :type: (Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any] | None, CFuncPtr, tuple[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any], ...]) -> _CDataType
+      :type: (_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | None, _ctypes.CFuncPtr, tuple[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], ...]) -> _CDataType
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L177>`__)
 
@@ -1875,7 +1875,7 @@ See :ref:`ctypes-callback-functions` for examples.
 
 
 .. function:: CFUNCTYPE(restype, *argtypes, use_errno=False, use_last_error=False)
-              CFUNCTYPE(restype: type[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any]] | None, *argtypes: type[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any]], *, use_errno: bool = False, use_last_error: bool = False) -> type[_CFunctionType]
+              CFUNCTYPE(restype: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]] | None, *argtypes: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]], *, use_errno: bool = False, use_last_error: bool = False) -> type[ctypes._CFunctionType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L134>`__)
 
@@ -1898,7 +1898,7 @@ See :ref:`ctypes-callback-functions` for examples.
 
 
 .. function:: PYFUNCTYPE(restype, *argtypes)
-              PYFUNCTYPE(restype: type[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any]] | None, *argtypes: type[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any]]) -> type[_CFunctionType]
+              PYFUNCTYPE(restype: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]] | None, *argtypes: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]]) -> type[ctypes._CFunctionType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L149>`__)
 
@@ -2061,7 +2061,7 @@ Utility functions
 ^^^^^^^^^^^^^^^^^
 
 .. function:: addressof(obj)
-              addressof(obj: Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any], /) -> int
+              addressof(obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L356>`__)
 
@@ -2072,7 +2072,7 @@ Utility functions
 
 
 .. function:: alignment(obj_or_type)
-              alignment(obj_or_type: Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any] | type[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any]], /) -> int
+              alignment(obj_or_type: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L357>`__)
 
@@ -2081,7 +2081,7 @@ Utility functions
 
 
 .. function:: byref(obj[, offset])
-              byref(obj: Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any], offset: int = 0, /) -> _CArgObject
+              byref(obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], offset: int = 0, /) -> _ctypes._CArgObject
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L153>`__)
 
@@ -2116,7 +2116,7 @@ Utility functions
 
 
 .. function:: cast(obj, type)
-              cast[_CastT](obj: Array[typing.Any] | CFuncPtr | Structure | Union | _CArgObject | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any] | int, typ: type[_CastT]) -> _CastT
+              cast[_CastT](obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CArgObject | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | int, typ: type[_CastT]) -> _CastT
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L162>`__)
 
@@ -2128,7 +2128,7 @@ Utility functions
 
 .. function:: create_string_buffer(init, size=None)
               create_string_buffer(size)
-              create_string_buffer(init: bytes | int, size: int | None = None) -> Array[c_char]
+              create_string_buffer(init: bytes | int, size: int | None = None) -> _ctypes.Array[ctypes.c_char]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L163>`__)
 
@@ -2172,7 +2172,7 @@ Utility functions
 
 .. function:: create_unicode_buffer(init, size=None)
               create_unicode_buffer(size)
-              create_unicode_buffer(init: int | str, size: int | None = None) -> Array[c_wchar]
+              create_unicode_buffer(init: int | str, size: int | None = None) -> _ctypes.Array[ctypes.c_wchar]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L167>`__)
 
@@ -2309,9 +2309,9 @@ Utility functions
 
 
 .. function:: POINTER(type, /)
-              POINTER(cls: str) -> type[typing.Any]
-              POINTER(cls: None) -> type[c_void_p]
-              POINTER(cls: type[_CT]) -> type[_Pointer[_CT]]
+              POINTER(cls: str) -> type[Any]
+              POINTER(cls: None) -> type[ctypes.c_void_p]
+              POINTER(cls: type[_CT]) -> type[_ctypes._Pointer[_CT]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L48>`__)
 
@@ -2331,7 +2331,7 @@ Utility functions
 
 
 .. function:: pointer(obj, /)
-              pointer[_CT](obj: _CT) -> _Pointer[_CT]
+              pointer[_CT](obj: _CT) -> _ctypes._Pointer[_CT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L53>`__)
 
@@ -2343,7 +2343,7 @@ Utility functions
 
 
 .. function:: resize(obj, size)
-              resize(obj: Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any], size: int, /) -> None
+              resize(obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], size: int, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L359>`__)
 
@@ -2376,7 +2376,7 @@ Utility functions
 
 
 .. function:: sizeof(obj_or_type)
-              sizeof(obj_or_type: Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any] | type[Array[typing.Any] | CFuncPtr | Structure | Union | _CData | _Pointer[typing.Any] | _SimpleCData[typing.Any]], /) -> int
+              sizeof(obj_or_type: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L361>`__)
 
@@ -2455,7 +2455,7 @@ Data types
 
 
 .. class:: _CData
-           _CData() -> None
+           _CData() -> _ctypes._CData
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L73>`__)
 
@@ -2550,7 +2550,7 @@ Data types
       allocated the memory block itself, false otherwise.
 
    .. attribute:: _objects
-      :type: collections.abc.Mapping[typing.Any, int] | None
+      :type: typing.Mapping[typing.Any, int] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L76>`__)
 
@@ -2566,7 +2566,7 @@ Fundamental data types
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. class:: _SimpleCData
-           _SimpleCData(value: _T = ...) -> None
+           _SimpleCData(value: _T = ...) -> _ctypes._SimpleCData
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L100>`__)
 
@@ -2610,7 +2610,7 @@ get the value of the pointer by accessing the ``value`` attribute.
 These are the fundamental ctypes data types:
 
 .. class:: c_byte
-           c_byte(value: int = ...) -> None
+           c_byte(value: int = ...) -> ctypes.c_byte
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L226>`__)
 
@@ -2620,7 +2620,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_char
-           c_char(value: bytearray | bytes | int = ...) -> None
+           c_char(value: bytearray | bytes | int = ...) -> ctypes.c_char
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L302>`__)
 
@@ -2630,7 +2630,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_char_p
-           c_char_p(value: bytes | int | None = ...) -> None
+           c_char_p(value: bytes | int | None = ...) -> ctypes.c_char_p
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L306>`__)
 
@@ -2641,7 +2641,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_double
-           c_double(value: float = ...) -> None
+           c_double(value: float = ...) -> ctypes.c_double
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L286>`__)
 
@@ -2650,7 +2650,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_longdouble
-           c_longdouble(value: float = ...) -> None
+           c_longdouble(value: float = ...) -> ctypes.c_longdouble
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L289>`__)
 
@@ -2659,7 +2659,7 @@ These are the fundamental ctypes data types:
    sizeof(double)`` it is an alias to :class:`c_double`.
 
 .. class:: c_float
-           c_float(value: float = ...) -> None
+           c_float(value: float = ...) -> ctypes.c_float
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L283>`__)
 
@@ -2668,7 +2668,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_double_complex
-           c_double_complex(value: complex = ...) -> None
+           c_double_complex(value: complex = ...) -> ctypes.c_double_complex
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L293>`__)
 
@@ -2679,7 +2679,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_float_complex
-           c_float_complex(value: complex = ...) -> None
+           c_float_complex(value: complex = ...) -> ctypes.c_float_complex
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L296>`__)
 
@@ -2690,7 +2690,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_longdouble_complex
-           c_longdouble_complex(value: complex = ...) -> None
+           c_longdouble_complex(value: complex = ...) -> ctypes.c_longdouble_complex
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L299>`__)
 
@@ -2701,7 +2701,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_int
-           c_int(value: int = ...) -> None
+           c_int(value: int = ...) -> ctypes.c_int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L244>`__)
 
@@ -2711,7 +2711,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_int8
-           c_int8(value: int = ...) -> None
+           c_int8(value: int = ...) -> ctypes.c_byte
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L256>`__)
 
@@ -2720,7 +2720,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_int16
-           c_int16(value: int = ...) -> None
+           c_int16(value: int = ...) -> ctypes.c_int16
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L259>`__)
 
@@ -2729,7 +2729,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_int32
-           c_int32(value: int = ...) -> None
+           c_int32(value: int = ...) -> ctypes.c_int32
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L265>`__)
 
@@ -2738,7 +2738,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_int64
-           c_int64(value: int = ...) -> None
+           c_int64(value: int = ...) -> ctypes.c_int64
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L271>`__)
 
@@ -2747,7 +2747,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_long
-           c_long(value: int = ...) -> None
+           c_long(value: int = ...) -> ctypes.c_long
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L238>`__)
 
@@ -2756,7 +2756,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_longlong
-           c_longlong(value: int = ...) -> None
+           c_longlong(value: int = ...) -> ctypes.c_longlong
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L250>`__)
 
@@ -2765,7 +2765,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_short
-           c_short(value: int = ...) -> None
+           c_short(value: int = ...) -> ctypes.c_short
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L232>`__)
 
@@ -2774,7 +2774,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_size_t
-           c_size_t(value: int = ...) -> None
+           c_size_t(value: int = ...) -> ctypes.c_size_t
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L280>`__)
 
@@ -2782,7 +2782,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_ssize_t
-           c_ssize_t(value: int = ...) -> None
+           c_ssize_t(value: int = ...) -> ctypes.c_ssize_t
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L277>`__)
 
@@ -2792,7 +2792,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_time_t
-           c_time_t(value: int = ...) -> None
+           c_time_t(value: int = ...) -> ctypes.c_int | ctypes.c_int32 | ctypes.c_int64 | ctypes.c_long | ctypes.c_longlong
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L336>`__)
 
@@ -2802,7 +2802,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_ubyte
-           c_ubyte(value: int = ...) -> None
+           c_ubyte(value: int = ...) -> ctypes.c_ubyte
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L229>`__)
 
@@ -2812,7 +2812,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_uint
-           c_uint(value: int = ...) -> None
+           c_uint(value: int = ...) -> ctypes.c_uint
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L247>`__)
 
@@ -2822,7 +2822,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_uint8
-           c_uint8(value: int = ...) -> None
+           c_uint8(value: int = ...) -> ctypes.c_ubyte
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L257>`__)
 
@@ -2831,7 +2831,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_uint16
-           c_uint16(value: int = ...) -> None
+           c_uint16(value: int = ...) -> ctypes.c_uint16
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L262>`__)
 
@@ -2840,7 +2840,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_uint32
-           c_uint32(value: int = ...) -> None
+           c_uint32(value: int = ...) -> ctypes.c_uint32
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L268>`__)
 
@@ -2849,7 +2849,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_uint64
-           c_uint64(value: int = ...) -> None
+           c_uint64(value: int = ...) -> ctypes.c_uint64
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L274>`__)
 
@@ -2858,7 +2858,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_ulong
-           c_ulong(value: int = ...) -> None
+           c_ulong(value: int = ...) -> ctypes.c_ulong
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L241>`__)
 
@@ -2867,7 +2867,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_ulonglong
-           c_ulonglong(value: int = ...) -> None
+           c_ulonglong(value: int = ...) -> ctypes.c_ulonglong
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L253>`__)
 
@@ -2876,7 +2876,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_ushort
-           c_ushort(value: int = ...) -> None
+           c_ushort(value: int = ...) -> ctypes.c_ushort
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L235>`__)
 
@@ -2885,7 +2885,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_void_p
-           c_void_p(value: int | None = ...) -> None
+           c_void_p(value: int | None = ...) -> ctypes.c_void_p
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L312>`__)
 
@@ -2894,7 +2894,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_wchar
-           c_wchar(value: str = ...) -> None
+           c_wchar(value: str = ...) -> ctypes.c_wchar
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L319>`__)
 
@@ -2904,7 +2904,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_wchar_p
-           c_wchar_p(value: int | str | None = ...) -> None
+           c_wchar_p(value: int | str | None = ...) -> ctypes.c_wchar_p
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L322>`__)
 
@@ -2914,7 +2914,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: c_bool
-           c_bool(value: SupportsBool | SupportsLen | None = ...) -> None
+           c_bool(value: _typeshed.SupportsBool | _typeshed.SupportsLen | None = ...) -> ctypes.c_bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L222>`__)
 
@@ -2932,7 +2932,7 @@ These are the fundamental ctypes data types:
 
 
 .. class:: py_object
-           py_object(value: _T = ...) -> None
+           py_object(value: _T = ...) -> ctypes.py_object
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L217>`__)
 
@@ -2954,7 +2954,7 @@ Structured data types
 
 
 .. class:: Union(*args, **kw)
-           Union(*args: typing.Any, **kw: typing.Any) -> None
+           Union(*args: typing.Any, **kw: typing.Any) -> _ctypes.Union
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L256>`__)
 
@@ -2964,7 +2964,7 @@ Structured data types
    see :class:`Structure` documentation for details.
 
 .. class:: BigEndianUnion(*args, **kw)
-           BigEndianUnion(*args: typing.Any, **kw: typing.Any) -> None
+           BigEndianUnion(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.BigEndianUnion
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/_endian.pyi#L13>`__)
 
@@ -2973,7 +2973,7 @@ Structured data types
    .. versionadded:: 3.11
 
 .. class:: LittleEndianUnion(*args, **kw)
-           LittleEndianUnion(*args: typing.Any, **kw: typing.Any) -> None
+           LittleEndianUnion(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.LittleEndianUnion
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/_endian.pyi#L16>`__)
 
@@ -2982,7 +2982,7 @@ Structured data types
    .. versionadded:: 3.11
 
 .. class:: BigEndianStructure(*args, **kw)
-           BigEndianStructure(*args: typing.Any, **kw: typing.Any) -> None
+           BigEndianStructure(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.BigEndianStructure
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/_endian.pyi#L6>`__)
 
@@ -2990,7 +2990,7 @@ Structured data types
 
 
 .. class:: LittleEndianStructure(*args, **kw)
-           LittleEndianStructure(*args: typing.Any, **kw: typing.Any) -> None
+           LittleEndianStructure(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.LittleEndianStructure
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/_endian.pyi#L9>`__)
 
@@ -3001,7 +3001,7 @@ fields, or any other data types containing pointer type fields.
 
 
 .. class:: Structure(*args, **kw)
-           Structure(*args: typing.Any, **kw: typing.Any) -> None
+           Structure(*args: typing.Any, **kw: typing.Any) -> _ctypes.Structure
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L284>`__)
 
@@ -3014,7 +3014,7 @@ fields, or any other data types containing pointer type fields.
 
 
    .. attribute:: _fields_
-      :type: collections.abc.Sequence[tuple[str, type[_CDataType]] | tuple[str, type[_CDataType], int]]
+      :type: typing.Sequence[tuple[str, type[_CDataType]] | tuple[str, type[_CDataType], int]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L285>`__)
 
@@ -3138,7 +3138,7 @@ fields, or any other data types containing pointer type fields.
       .. versionadded:: 3.14
 
    .. attribute:: _anonymous_
-      :type: collections.abc.Sequence[str]
+      :type: typing.Sequence[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L287>`__)
 
@@ -3190,7 +3190,7 @@ fields, or any other data types containing pointer type fields.
 
 
 .. class:: CField(*args, **kw)
-           CField() -> None
+           CField() -> _ctypes.CField
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L59>`__)
 
@@ -3312,7 +3312,7 @@ Arrays and pointers
 ^^^^^^^^^^^^^^^^^^^
 
 .. class:: Array(*args)
-           Array(*args: typing.Any) -> None
+           Array(*args: typing.Any) -> _ctypes.Array
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L312>`__)
 
@@ -3327,7 +3327,7 @@ Arrays and pointers
 
 
    .. attribute:: _length_
-      :type: _length_[_CT](self: Array[_CT], value: int) -> None
+      :type: _length_[_CT](self: _ctypes.Array[_CT], value: int) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L315>`__)
 
@@ -3337,7 +3337,7 @@ Arrays and pointers
 
 
    .. attribute:: _type_
-      :type: _type_[_CT](self: Array[_CT], value: type[_CT]) -> None
+      :type: _type_[_CT](self: _ctypes.Array[_CT], value: type[_CT]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L320>`__)
 
@@ -3348,7 +3348,7 @@ Arrays and pointers
    initialize the elements in order.
 
 .. function:: ARRAY(type, length)
-              ARRAY[_CT](typ: _CT, len: int) -> Array[_CT]
+              ARRAY[_CT](typ: _CT, len: int) -> _ctypes.Array[_CT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L173>`__)
 
@@ -3361,8 +3361,8 @@ Arrays and pointers
 
 
 .. class:: _Pointer
-           _Pointer() -> None
-           _Pointer(arg: _CT) -> None
+           _Pointer() -> _ctypes._Pointer
+           _Pointer(arg: _CT) -> _ctypes._Pointer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_ctypes.pyi#L127>`__)
 
@@ -3402,7 +3402,7 @@ Exceptions
 ^^^^^^^^^^
 
 .. exception:: ArgumentError
-               ArgumentError(*args: object) -> None
+               ArgumentError(*args: object) -> ctypes.ArgumentError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ctypes/__init__.pyi#L63>`__)
 

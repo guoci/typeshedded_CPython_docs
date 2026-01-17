@@ -24,7 +24,7 @@ Queue
 =====
 
 .. class:: Queue(maxsize=0)
-           Queue(maxsize: int = 0) -> None
+           Queue(maxsize: int = 0) -> asyncio.queues.Queue
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L29>`__)
 
@@ -46,7 +46,7 @@ Queue
    This class is :ref:`not thread safe <asyncio-multithreading>`.
 
    .. attribute:: maxsize
-      :type: maxsize[_T](self: Queue[_T]) -> int
+      :type: maxsize[_T](self: asyncio.queues.Queue[_T]) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L41>`__)
 
@@ -70,7 +70,7 @@ Queue
       then :meth:`full` never returns ``True``.
 
    .. method:: get()
-               get[_T]() -> collections.abc.Coroutine[Unknown, Unknown, _T]
+               get[_T]() -> typing.Coroutine[Unknown, Unknown, _T]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L46>`__)
@@ -90,7 +90,7 @@ Queue
       :exc:`QueueEmpty`.
 
    .. method:: join()
-               join[_T]() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               join[_T]() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L48>`__)
@@ -104,7 +104,7 @@ Queue
       to zero, :meth:`join` unblocks.
 
    .. method:: put(item)
-               put[_T](item: _T) -> collections.abc.Coroutine[Unknown, Unknown, None]
+               put[_T](item: _T) -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L44>`__)
@@ -190,7 +190,7 @@ Priority Queue
 ==============
 
 .. class:: PriorityQueue
-           PriorityQueue(maxsize: int = 0) -> None
+           PriorityQueue(maxsize: int = 0) -> asyncio.queues.PriorityQueue
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L54>`__)
 
@@ -205,7 +205,7 @@ LIFO Queue
 ==========
 
 .. class:: LifoQueue
-           LifoQueue(maxsize: int = 0) -> None
+           LifoQueue(maxsize: int = 0) -> asyncio.queues.LifoQueue
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L55>`__)
 
@@ -217,7 +217,7 @@ Exceptions
 ==========
 
 .. exception:: QueueEmpty
-               QueueEmpty(*args: object) -> None
+               QueueEmpty(*args: object) -> asyncio.queues.QueueEmpty
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L12>`__)
 
@@ -226,7 +226,7 @@ Exceptions
 
 
 .. exception:: QueueFull
-               QueueFull(*args: object) -> None
+               QueueFull(*args: object) -> asyncio.queues.QueueFull
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L13>`__)
 
@@ -235,7 +235,7 @@ Exceptions
 
 
 .. exception:: QueueShutDown
-               QueueShutDown(*args: object) -> None
+               QueueShutDown(*args: object) -> asyncio.queues.QueueShutDown
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/queues.pyi#L25>`__)
 

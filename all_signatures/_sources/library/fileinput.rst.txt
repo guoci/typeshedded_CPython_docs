@@ -57,9 +57,9 @@ The following function is the primary interface of this module:
 
 
 .. function:: input(files=None, inplace=False, backup='', *, mode='r', openhook=None, encoding=None, errors=None)
-              input(files: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['r'] = 'r', openhook: ((StrOrBytesPath, str) -> _HasReadlineAndFileno[str]) | None = None, encoding: str | None = None, errors: str | None = None) -> FileInput[str]
-              input(files: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['rb'], openhook: ((StrOrBytesPath, str) -> _HasReadlineAndFileno[bytes]) | None = None, encoding: None = None, errors: None = None) -> FileInput[bytes]
-              input(files: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: str, openhook: ((StrOrBytesPath, str) -> _HasReadlineAndFileno[typing.Any]) | None = None, encoding: str | None = None, errors: str | None = None) -> FileInput[typing.Any]
+              input(files: typing.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['r'] = 'r', openhook: ((StrOrBytesPath, str) -> fileinput._HasReadlineAndFileno[str]) | None = None, encoding: str | None = None, errors: str | None = None) -> fileinput.FileInput[str]
+              input(files: typing.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['rb'], openhook: ((StrOrBytesPath, str) -> fileinput._HasReadlineAndFileno[bytes]) | None = None, encoding: None = None, errors: None = None) -> fileinput.FileInput[bytes]
+              input(files: typing.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: str, openhook: ((StrOrBytesPath, str) -> fileinput._HasReadlineAndFileno[typing.Any]) | None = None, encoding: str | None = None, errors: str | None = None) -> fileinput.FileInput[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fileinput.pyi#L36>`__)
 
@@ -171,9 +171,9 @@ available for subclassing as well:
 
 
 .. class:: FileInput(files=None, inplace=False, backup='', *, mode='r', openhook=None, encoding=None, errors=None)
-           FileInput(files: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['r'] = 'r', openhook: ((StrOrBytesPath, str) -> _HasReadlineAndFileno[str]) | None = None, encoding: str | None = None, errors: str | None = None) -> None
-           FileInput(files: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['rb'], openhook: ((StrOrBytesPath, str) -> _HasReadlineAndFileno[bytes]) | None = None, encoding: None = None, errors: None = None) -> None
-           FileInput(files: collections.abc.Iterable[StrOrBytesPath] | PathLike[bytes] | PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: str, openhook: ((StrOrBytesPath, str) -> _HasReadlineAndFileno[typing.Any]) | None = None, encoding: str | None = None, errors: str | None = None) -> None
+           FileInput(files: typing.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['r'] = 'r', openhook: ((StrOrBytesPath, str) -> fileinput._HasReadlineAndFileno[str]) | None = None, encoding: str | None = None, errors: str | None = None) -> fileinput.FileInput
+           FileInput(files: typing.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['rb'], openhook: ((StrOrBytesPath, str) -> fileinput._HasReadlineAndFileno[bytes]) | None = None, encoding: None = None, errors: None = None) -> fileinput.FileInput
+           FileInput(files: typing.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: str, openhook: ((StrOrBytesPath, str) -> fileinput._HasReadlineAndFileno[typing.Any]) | None = None, encoding: str | None = None, errors: str | None = None) -> fileinput.FileInput
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fileinput.pyi#L108>`__)
 
@@ -230,7 +230,7 @@ when standard input is read.
 The two following opening hooks are provided by this module:
 
 .. function:: hook_compressed(filename, mode, *, encoding=None, errors=None)
-              hook_compressed(filename: StrOrBytesPath, mode: str, *, encoding: str | None = None, errors: str | None = None) -> IO[typing.Any]
+              hook_compressed(filename: StrOrBytesPath, mode: str, *, encoding: str | None = None, errors: str | None = None) -> typing.IO[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fileinput.pyi#L203>`__)
 
@@ -249,7 +249,7 @@ The two following opening hooks are provided by this module:
 
 
 .. function:: hook_encoded(encoding, errors=None)
-              hook_encoded(encoding: str, errors: str | None = None) -> (StrOrBytesPath, str) -> IO[typing.Any]
+              hook_encoded(encoding: str, errors: str | None = None) -> (StrOrBytesPath, str) -> typing.IO[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/fileinput.pyi#L212>`__)
 

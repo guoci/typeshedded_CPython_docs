@@ -12,7 +12,7 @@ This module provides utilities for the import system, in particular package
 support.
 
 .. class:: ModuleInfo(module_finder, name, ispkg)
-           ModuleInfo(module_finder: MetaPathFinderProtocol | PathEntryFinderProtocol, name: str, ispkg: bool) -> None
+           ModuleInfo(module_finder: _typeshed.importlib.MetaPathFinderProtocol | _typeshed.importlib.PathEntryFinderProtocol, name: str, ispkg: bool) -> pkgutil.ModuleInfo
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pkgutil.pyi#L25>`__)
 
@@ -57,7 +57,7 @@ support.
 
 
 .. function:: get_importer(path_item)
-              get_importer(path_item: StrOrBytesPath) -> PathEntryFinderProtocol | None
+              get_importer(path_item: StrOrBytesPath) -> _typeshed.importlib.PathEntryFinderProtocol | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pkgutil.pyi#L51>`__)
 
@@ -75,7 +75,7 @@ support.
 
 
 .. function:: iter_importers(fullname='')
-              iter_importers(fullname: str = '') -> collections.abc.Iterator[MetaPathFinderProtocol | PathEntryFinderProtocol]
+              iter_importers(fullname: str = '') -> typing.Iterator[_typeshed.importlib.MetaPathFinderProtocol | _typeshed.importlib.PathEntryFinderProtocol]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pkgutil.pyi#L52>`__)
 
@@ -96,7 +96,7 @@ support.
 
 
 .. function:: iter_modules(path=None, prefix='')
-              iter_modules(path: collections.abc.Iterable[StrOrBytesPath] | None = None, prefix: str = '') -> collections.abc.Iterator[ModuleInfo]
+              iter_modules(path: typing.Iterable[StrOrBytesPath] | None = None, prefix: str = '') -> typing.Iterator[pkgutil.ModuleInfo]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pkgutil.pyi#L53>`__)
 
@@ -120,7 +120,7 @@ support.
 
 
 .. function:: walk_packages(path=None, prefix='', onerror=None)
-              walk_packages(path: collections.abc.Iterable[StrOrBytesPath] | None = None, prefix: str = '', onerror: ((str) -> object) | None = None) -> collections.abc.Iterator[ModuleInfo]
+              walk_packages(path: typing.Iterable[StrOrBytesPath] | None = None, prefix: str = '', onerror: ((str) -> object) | None = None) -> typing.Iterator[pkgutil.ModuleInfo]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pkgutil.pyi#L55>`__)
 

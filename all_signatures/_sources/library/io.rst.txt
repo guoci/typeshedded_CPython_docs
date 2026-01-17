@@ -178,13 +178,13 @@ High-level Module Interface
 
 
 .. function:: open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
-              open(file: FileDescriptorOrPath, mode: OpenTextMode = 'r', buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> TextIOWrapper[_WrappedBuffer]
-              open(file: FileDescriptorOrPath, mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> FileIO
-              open(file: FileDescriptorOrPath, mode: OpenBinaryModeUpdating, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BufferedRandom
-              open(file: FileDescriptorOrPath, mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BufferedWriter
-              open(file: FileDescriptorOrPath, mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BufferedReader[_BufferedReaderStream]
-              open(file: FileDescriptorOrPath, mode: OpenBinaryMode, buffering: int = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BinaryIO
-              open(file: FileDescriptorOrPath, mode: str, buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> IO[typing.Any]
+              open(file: FileDescriptorOrPath, mode: OpenTextMode = 'r', buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(file: FileDescriptorOrPath, mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.FileIO
+              open(file: FileDescriptorOrPath, mode: OpenBinaryModeUpdating, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.BufferedRandom
+              open(file: FileDescriptorOrPath, mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.BufferedWriter
+              open(file: FileDescriptorOrPath, mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.BufferedReader[_io._BufferedReaderStream]
+              open(file: FileDescriptorOrPath, mode: OpenBinaryMode, buffering: int = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> typing.BinaryIO
+              open(file: FileDescriptorOrPath, mode: str, buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> typing.IO[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L19>`__)
 
@@ -198,7 +198,7 @@ High-level Module Interface
 
 
 .. function:: open_code(path)
-              open_code(path: str) -> IO[bytes]
+              open_code(path: str) -> typing.IO[bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L21>`__)
 
@@ -252,7 +252,7 @@ High-level Module Interface
 
 
 .. exception:: BlockingIOError
-               BlockingIOError(*args: object) -> None
+               BlockingIOError(*args: object) -> BlockingIOError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L23>`__)
 
@@ -261,7 +261,7 @@ High-level Module Interface
 
 
 .. exception:: UnsupportedOperation
-               UnsupportedOperation(*args: object) -> None
+               UnsupportedOperation(*args: object) -> io.UnsupportedOperation
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/io.pyi#L62>`__)
 
@@ -343,7 +343,7 @@ I/O Base Classes
 ^^^^^^^^^^^^^^^^
 
 .. class:: IOBase
-           IOBase() -> None
+           IOBase() -> io.IOBase
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/io.pyi#L63>`__)
 
@@ -395,7 +395,7 @@ I/O Base Classes
       only the first call, however, will have an effect.
 
    .. attribute:: closed
-      :type: closed(self: IOBase) -> bool
+      :type: closed(self: io.IOBase) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L51>`__)
 
@@ -525,7 +525,7 @@ I/O Base Classes
       :meth:`!write` and :meth:`truncate` will raise :exc:`OSError`.
 
    .. method:: writelines(lines, /)
-               writelines(lines: collections.abc.Iterable[Buffer], /) -> None
+               writelines(lines: typing.Iterable[_collections_abc.Buffer], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L47>`__)
 
@@ -544,7 +544,7 @@ I/O Base Classes
 
 
 .. class:: RawIOBase
-           RawIOBase() -> None
+           RawIOBase() -> io.RawIOBase
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/io.pyi#L64>`__)
 
@@ -584,7 +584,7 @@ I/O Base Classes
       calls to the stream if necessary.
 
    .. method:: readinto(b, /)
-               readinto(buffer: Buffer, /) -> int | typing.Any
+               readinto(buffer: _collections_abc.Buffer, /) -> int | typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L86>`__)
 
@@ -595,7 +595,7 @@ I/O Base Classes
       are available, ``None`` is returned.
 
    .. method:: write(b, /)
-               write(b: Buffer, /) -> int | typing.Any
+               write(b: _collections_abc.Buffer, /) -> int | typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L87>`__)
 
@@ -611,7 +611,7 @@ I/O Base Classes
 
 
 .. class:: BufferedIOBase
-           BufferedIOBase() -> None
+           BufferedIOBase() -> io.BufferedIOBase
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/io.pyi#L65>`__)
 
@@ -644,7 +644,7 @@ I/O Base Classes
       :class:`BufferedIOBase` API and may not exist on some implementations.
 
    .. method:: detach()
-               detach() -> RawIOBase
+               detach() -> io.RawIOBase
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L91>`__)
 
@@ -703,7 +703,7 @@ I/O Base Classes
          available. :mod:`io` implementations return ``None``.
 
    .. method:: readinto(b, /)
-               readinto(buffer: Buffer, /) -> int
+               readinto(buffer: _collections_abc.Buffer, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L92>`__)
 
@@ -718,7 +718,7 @@ I/O Base Classes
       blocking-mode, and has no data available at the moment.
 
    .. method:: readinto1(b, /)
-               readinto1(buffer: Buffer, /) -> int
+               readinto1(buffer: _collections_abc.Buffer, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L94>`__)
 
@@ -733,7 +733,7 @@ I/O Base Classes
       .. versionadded:: 3.5
 
    .. method:: write(b, /)
-               write(buffer: Buffer, /) -> int
+               write(buffer: _collections_abc.Buffer, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L93>`__)
 
@@ -756,7 +756,7 @@ Raw File I/O
 ^^^^^^^^^^^^
 
 .. class:: FileIO(name, mode='r', closefd=True, opener=None)
-           FileIO(file: FileDescriptorOrPath, mode: str = 'r', closefd: bool = True, opener: ((str, int) -> int) | None = None) -> None
+           FileIO(file: FileDescriptorOrPath, mode: str = 'r', closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.FileIO
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L99>`__)
 
@@ -829,7 +829,7 @@ Buffered I/O streams provide a higher-level interface to an I/O device
 than raw I/O does.
 
 .. class:: BytesIO(initial_bytes=b'')
-           BytesIO(initial_bytes: Buffer = b'') -> None
+           BytesIO(initial_bytes: _collections_abc.Buffer = b'') -> _io.BytesIO
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L114>`__)
 
@@ -886,7 +886,7 @@ than raw I/O does.
          The *size* argument is now optional.
 
    .. method:: readinto1(b, /)
-               readinto1(buffer: Buffer, /) -> int
+               readinto1(buffer: _collections_abc.Buffer, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L94>`__)
 
@@ -895,7 +895,7 @@ than raw I/O does.
       .. versionadded:: 3.5
 
 .. class:: BufferedReader(raw, buffer_size=DEFAULT_BUFFER_SIZE)
-           BufferedReader(raw: _BufferedReaderStreamT, buffer_size: int = 131072) -> None
+           BufferedReader(raw: _BufferedReaderStreamT, buffer_size: int = 131072) -> _io.BufferedReader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L155>`__)
 
@@ -941,7 +941,7 @@ than raw I/O does.
          The *size* argument is now optional.
 
 .. class:: BufferedWriter(raw, buffer_size=DEFAULT_BUFFER_SIZE)
-           BufferedWriter(raw: RawIOBase, buffer_size: int = 131072) -> None
+           BufferedWriter(raw: io.RawIOBase, buffer_size: int = 131072) -> _io.BufferedWriter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L167>`__)
 
@@ -974,7 +974,7 @@ than raw I/O does.
       :exc:`BlockingIOError` should be raised if the raw stream blocks.
 
    .. method:: write(b, /)
-               write(buffer: Buffer, /) -> int
+               write(buffer: _collections_abc.Buffer, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L174>`__)
 
@@ -985,7 +985,7 @@ than raw I/O does.
 
 
 .. class:: BufferedRandom(raw, buffer_size=DEFAULT_BUFFER_SIZE)
-           BufferedRandom(raw: RawIOBase, buffer_size: int = 131072) -> None
+           BufferedRandom(raw: io.RawIOBase, buffer_size: int = 131072) -> _io.BufferedRandom
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L179>`__)
 
@@ -1003,7 +1003,7 @@ than raw I/O does.
 
 
 .. class:: BufferedRWPair(reader, writer, buffer_size=DEFAULT_BUFFER_SIZE, /)
-           BufferedRWPair(reader: _BufferedReaderStreamT, writer: RawIOBase, buffer_size: int = 131072, /) -> None
+           BufferedRWPair(reader: _BufferedReaderStreamT, writer: io.RawIOBase, buffer_size: int = 131072, /) -> _io.BufferedRWPair
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L193>`__)
 
@@ -1030,7 +1030,7 @@ Text I/O
 ^^^^^^^^
 
 .. class:: TextIOBase
-           TextIOBase() -> None
+           TextIOBase() -> io.TextIOBase
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/io.pyi#L66>`__)
 
@@ -1072,7 +1072,7 @@ Text I/O
       in some implementations.
 
    .. method:: detach()
-               detach() -> BinaryIO
+               detach() -> typing.BinaryIO
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L207>`__)
 
@@ -1150,7 +1150,7 @@ Text I/O
 
 .. class:: TextIOWrapper(buffer, encoding=None, errors=None, newline=None, \
                          line_buffering=False, write_through=False)
-           TextIOWrapper(buffer: _BufferT_co, encoding: str | None = None, errors: str | None = None, newline: str | None = None, line_buffering: bool = False, write_through: bool = False) -> None
+           TextIOWrapper(buffer: _BufferT_co, encoding: str | None = None, errors: str | None = None, newline: str | None = None, line_buffering: bool = False, write_through: bool = False) -> _io.TextIOWrapper
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L240>`__)
 
@@ -1226,14 +1226,14 @@ Text I/O
    addition to those from :class:`TextIOBase` and :class:`IOBase`:
 
    .. attribute:: line_buffering
-      :type: line_buffering[_BufferT_co](self: TextIOWrapper[_BufferT_co]) -> bool
+      :type: line_buffering[_BufferT_co](self: _io.TextIOWrapper[_BufferT_co]) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L254>`__)
 
       Whether line buffering is enabled.
 
    .. attribute:: write_through
-      :type: write_through[_BufferT_co](self: TextIOWrapper[_BufferT_co]) -> bool
+      :type: write_through[_BufferT_co](self: _io.TextIOWrapper[_BufferT_co]) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L256>`__)
 
@@ -1302,7 +1302,7 @@ Text I/O
 
 
 .. class:: StringIO(initial_value='', newline='\n')
-           StringIO(initial_value: str | None = '', newline: str | None = '\n') -> None
+           StringIO(initial_value: str | None = '', newline: str | None = '\n') -> _io.StringIO
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L275>`__)
 
@@ -1358,7 +1358,7 @@ Text I/O
    single: universal newlines; io.IncrementalNewlineDecoder class
 
 .. class:: IncrementalNewlineDecoder
-           IncrementalNewlineDecoder(decoder: IncrementalDecoder | None, translate: bool, errors: str = 'strict') -> None
+           IncrementalNewlineDecoder(decoder: codecs.IncrementalDecoder | None, translate: bool, errors: str = 'strict') -> _io.IncrementalNewlineDecoder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_io.pyi#L288>`__)
 
@@ -1374,7 +1374,7 @@ arguments for simple stream reading or writing operations. They are decorated
 with :deco:`typing.runtime_checkable`.
 
 .. class:: Reader[T]
-           Reader() -> None
+           Reader() -> io.Reader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/io.pyi#L69>`__)
 
@@ -1401,7 +1401,7 @@ with :deco:`typing.runtime_checkable`.
          assert isinstance(data, str)
 
 .. class:: Writer[T]
-           Writer() -> None
+           Writer() -> io.Writer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/io.pyi#L73>`__)
 

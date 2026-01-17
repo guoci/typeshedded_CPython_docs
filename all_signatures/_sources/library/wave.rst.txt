@@ -24,8 +24,8 @@ The :mod:`wave` module defines the following function and exception:
 
 
 .. function:: open(file, mode=None)
-              open(f: _File, mode: typing.Literal['r', 'rb']) -> Wave_read
-              open(f: _File, mode: typing.Literal['w', 'wb']) -> Wave_write
+              open(f: _File, mode: typing.Literal['r', 'rb']) -> wave.Wave_read
+              open(f: _File, mode: typing.Literal['w', 'wb']) -> wave.Wave_write
               open(f: _File, mode: str | None = None) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L86>`__)
@@ -63,7 +63,7 @@ The :mod:`wave` module defines the following function and exception:
       and :term:`bytes-like objects <bytes-like object>`.
 
 .. exception:: Error
-               Error(*args: object) -> None
+               Error(*args: object) -> wave.Error
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L10>`__)
 
@@ -77,7 +77,7 @@ Wave_read Objects
 -----------------
 
 .. class:: Wave_read
-           Wave_read(f: _File) -> None
+           Wave_read(f: _File) -> wave.Wave_read
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L22>`__)
 
@@ -145,7 +145,7 @@ Wave_read Objects
 
 
    .. method:: getparams()
-               getparams() -> _wave_params
+               getparams() -> wave._wave_params
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L37>`__)
 
@@ -196,7 +196,7 @@ Wave_write Objects
 ------------------
 
 .. class:: Wave_write
-           Wave_write(f: _File) -> None
+           Wave_write(f: _File) -> wave.Wave_write
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L50>`__)
 
@@ -280,7 +280,7 @@ Wave_write Objects
 
 
    .. method:: setparams(tuple)
-               setparams(params: _wave_params | tuple[int, int, int, int, str, str]) -> None
+               setparams(params: wave._wave_params | tuple[int, int, int, int, str, str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L66>`__)
 
@@ -299,7 +299,7 @@ Wave_write Objects
 
 
    .. method:: writeframesraw(data)
-               writeframesraw(data: Buffer) -> None
+               writeframesraw(data: _collections_abc.Buffer) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L81>`__)
 
@@ -310,7 +310,7 @@ Wave_write Objects
 
 
    .. method:: writeframes(data)
-               writeframes(data: Buffer) -> None
+               writeframes(data: _collections_abc.Buffer) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wave.pyi#L82>`__)
 

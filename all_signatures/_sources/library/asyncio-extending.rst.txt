@@ -47,7 +47,7 @@ for the sake of getting a complex and highly optimized code for free.
 For this purpose the following, *private* constructors are listed:
 
 .. method:: Future.__init__(*, loop=None)
-            Future.__init__[_T](*, loop: AbstractEventLoop | None = None) -> None
+            Future.__init__[_T](*, loop: asyncio.events.AbstractEventLoop | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L24>`__)
 
@@ -56,7 +56,7 @@ For this purpose the following, *private* constructors are listed:
    *loop* is an optional event loop instance.
 
 .. method:: Task.__init__(coro, *, loop=None, name=None, context=None)
-            Task.__init__[_T_co](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, loop: AbstractEventLoop | None = None, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = False) -> None
+            Task.__init__[_T_co](coro: typing.Coroutine[typing.Any, typing.Any, _T_co], *, loop: asyncio.events.AbstractEventLoop | None = None, name: str | None = None, context: _contextvars.Context | None = None, eager_start: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L56>`__)
 
@@ -78,7 +78,7 @@ A third party task implementation should call the following functions to keep a 
 visible by :func:`asyncio.all_tasks` and :func:`asyncio.current_task`:
 
 .. function:: _register_task(task)
-              _register_task(task: Task[typing.Any]) -> None
+              _register_task(task: _asyncio.Task[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L101>`__)
 
@@ -87,7 +87,7 @@ visible by :func:`asyncio.all_tasks` and :func:`asyncio.current_task`:
    Call the function from a task constructor.
 
 .. function:: _unregister_task(task)
-              _unregister_task(task: Task[typing.Any]) -> None
+              _unregister_task(task: _asyncio.Task[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L102>`__)
 
@@ -96,7 +96,7 @@ visible by :func:`asyncio.all_tasks` and :func:`asyncio.current_task`:
    The function should be called when a task is about to finish.
 
 .. function:: _enter_task(loop, task)
-              _enter_task(loop: AbstractEventLoop, task: Task[typing.Any]) -> None
+              _enter_task(loop: asyncio.events.AbstractEventLoop, task: _asyncio.Task[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L103>`__)
 
@@ -106,7 +106,7 @@ visible by :func:`asyncio.all_tasks` and :func:`asyncio.current_task`:
    (:meth:`coroutine.send` or :meth:`coroutine.throw`).
 
 .. function:: _leave_task(loop, task)
-              _leave_task(loop: AbstractEventLoop, task: Task[typing.Any]) -> None
+              _leave_task(loop: asyncio.events.AbstractEventLoop, task: _asyncio.Task[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L104>`__)
 

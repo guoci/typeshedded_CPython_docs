@@ -34,7 +34,7 @@ in :mod:`logging` itself) and defining handlers which are declared either in
 :mod:`logging` or :mod:`logging.handlers`.
 
 .. function:: dictConfig(config)
-              dictConfig(config: dict[str, typing.Any] | _DictConfigArgs) -> None
+              dictConfig(config: dict[str, typing.Any] | logging.config._DictConfigArgs) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/config.pyi#L66>`__)
 
@@ -81,7 +81,7 @@ in :mod:`logging` itself) and defining handlers which are declared either in
    .. versionadded:: 3.2
 
 .. function:: fileConfig(fname, defaults=None, disable_existing_loggers=True, encoding=None)
-              fileConfig(fname: IO[str] | PathLike[bytes] | PathLike[str] | RawConfigParser | bytes | str, defaults: collections.abc.Mapping[str, str] | None = None, disable_existing_loggers: bool = True, encoding: str | None = None) -> None
+              fileConfig(fname: typing.IO[str] | os.PathLike[bytes] | os.PathLike[str] | configparser.RawConfigParser | bytes | str, defaults: typing.Mapping[str, str] | None = None, disable_existing_loggers: bool = True, encoding: str | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/config.pyi#L69>`__)
 
@@ -141,7 +141,7 @@ in :mod:`logging` itself) and defining handlers which are declared either in
        doesn't exist or is invalid or empty.
 
 .. function:: listen(port=DEFAULT_LOGGING_CONFIG_PORT, verify=None)
-              listen(port: int = 9030, verify: ((bytes) -> bytes | None) | None = None) -> Thread
+              listen(port: int = 9030, verify: ((bytes) -> bytes | None) | None = None) -> threading.Thread
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/config.pyi#L84>`__)
 

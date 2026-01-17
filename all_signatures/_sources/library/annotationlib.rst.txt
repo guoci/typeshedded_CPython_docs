@@ -121,7 +121,7 @@ Classes
 -------
 
 .. class:: Format
-           Format(value: int) -> Format
+           Format(value: int) -> annotationlib.Format
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L23>`__)
 
@@ -131,7 +131,7 @@ Classes
    module, as well as to :attr:`~object.__annotate__` functions.
 
    .. attribute:: VALUE
-      :type: typing.Literal[Format.VALUE]
+      :type: typing.Literal[annotationlib.Format.VALUE]
       :value: 1
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L24>`__)
@@ -139,7 +139,7 @@ Classes
       Values are the result of evaluating the annotation expressions.
 
    .. attribute:: VALUE_WITH_FAKE_GLOBALS
-      :type: typing.Literal[Format.VALUE_WITH_FAKE_GLOBALS]
+      :type: typing.Literal[annotationlib.Format.VALUE_WITH_FAKE_GLOBALS]
       :value: 2
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L25>`__)
@@ -153,7 +153,7 @@ Classes
       the functions in this module.
 
    .. attribute:: FORWARDREF
-      :type: typing.Literal[Format.FORWARDREF]
+      :type: typing.Literal[annotationlib.Format.FORWARDREF]
       :value: 3
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L26>`__)
@@ -164,7 +164,7 @@ Classes
       proxy objects.
 
    .. attribute:: STRING
-      :type: typing.Literal[Format.STRING]
+      :type: typing.Literal[annotationlib.Format.STRING]
       :value: 4
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L27>`__)
@@ -178,7 +178,7 @@ Classes
    .. versionadded:: 3.14
 
 .. class:: ForwardRef
-           ForwardRef(arg: str, *, module: str | None = None, owner: object = None, is_argument: bool = True, is_class: bool = False) -> None
+           ForwardRef(arg: str, *, module: str | None = None, owner: object = None, is_argument: bool = True, is_class: bool = False) -> annotationlib.ForwardRef
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L30>`__)
 
@@ -190,7 +190,7 @@ Classes
    when a class is referenced before it is defined.
 
    .. attribute:: __forward_arg__
-      :type: __forward_arg__(self: ForwardRef) -> str
+      :type: __forward_arg__(self: annotationlib.ForwardRef) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L91>`__)
 
@@ -199,9 +199,9 @@ Classes
       to the original source.
 
    .. method:: evaluate(*, owner=None, globals=None, locals=None, type_params=None, format=Format.VALUE)
-               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[Format.STRING]) -> str
-               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[Format.FORWARDREF]) -> ForwardRef | typing.Any
-               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: Format = Format.VALUE) -> typing.Any
+               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[annotationlib.Format.STRING]) -> str
+               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> annotationlib.ForwardRef | typing.Any
+               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: annotationlib.Format = Format.VALUE) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L52>`__)
 
@@ -253,7 +253,7 @@ Functions
 ---------
 
 .. function:: annotations_to_string(annotations)
-              annotations_to_string(annotations: SupportsItems[str, object]) -> dict[str, str]
+              annotations_to_string(annotations: _typeshed.SupportsItems[str, object]) -> dict[str, str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L146>`__)
 
@@ -277,9 +277,9 @@ Functions
    .. versionadded:: 3.14
 
 .. function:: call_annotate_function(annotate, format, *, owner=None)
-              call_annotate_function(annotate: (Format) -> dict[str, typing.Any], format: typing.Literal[Format.STRING], *, owner: object = None) -> dict[str, str]
-              call_annotate_function(annotate: (Format) -> dict[str, typing.Any], format: typing.Literal[Format.FORWARDREF], *, owner: object = None) -> dict[str, ForwardRef | typing.Any]
-              call_annotate_function(annotate: (Format) -> dict[str, typing.Any], format: Format, *, owner: object = None) -> dict[str, typing.Any]
+              call_annotate_function(annotate: (annotationlib.Format) -> dict[str, typing.Any], format: typing.Literal[annotationlib.Format.STRING], *, owner: object = None) -> dict[str, str]
+              call_annotate_function(annotate: (annotationlib.Format) -> dict[str, typing.Any], format: typing.Literal[annotationlib.Format.FORWARDREF], *, owner: object = None) -> dict[str, annotationlib.ForwardRef | typing.Any]
+              call_annotate_function(annotate: (annotationlib.Format) -> dict[str, typing.Any], format: annotationlib.Format, *, owner: object = None) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L108>`__)
 
@@ -310,9 +310,9 @@ Functions
    .. versionadded:: 3.14
 
 .. function:: call_evaluate_function(evaluate, format, *, owner=None)
-              call_evaluate_function(evaluate: (Format) -> typing.Any, format: typing.Literal[Format.STRING], *, owner: object = None) -> str
-              call_evaluate_function(evaluate: (Format) -> typing.Any, format: typing.Literal[Format.FORWARDREF], *, owner: object = None) -> ForwardRef | typing.Any
-              call_evaluate_function(evaluate: (Format) -> typing.Any, format: Format, *, owner: object = None) -> typing.Any
+              call_evaluate_function(evaluate: (annotationlib.Format) -> typing.Any, format: typing.Literal[annotationlib.Format.STRING], *, owner: object = None) -> str
+              call_evaluate_function(evaluate: (annotationlib.Format) -> typing.Any, format: typing.Literal[annotationlib.Format.FORWARDREF], *, owner: object = None) -> annotationlib.ForwardRef | typing.Any
+              call_evaluate_function(evaluate: (annotationlib.Format) -> typing.Any, format: annotationlib.Format, *, owner: object = None) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L100>`__)
 
@@ -356,7 +356,7 @@ Functions
    .. versionadded:: 3.14
 
 .. function:: get_annotate_from_class_namespace(namespace)
-              get_annotate_from_class_namespace(obj: collections.abc.Mapping[str, object]) -> ((Format) -> dict[str, typing.Any]) | None
+              get_annotate_from_class_namespace(obj: typing.Mapping[str, object]) -> ((annotationlib.Format) -> dict[str, typing.Any]) | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L117>`__)
 
@@ -369,9 +369,9 @@ Functions
    .. versionadded:: 3.14
 
 .. function:: get_annotations(obj, *, globals=None, locals=None, eval_str=False, format=Format.VALUE)
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[Format.STRING]) -> dict[str, str]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[Format.FORWARDREF]) -> dict[str, ForwardRef | typing.Any]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: Format = Format.VALUE) -> dict[str, typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.STRING]) -> dict[str, str]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/annotationlib.pyi#L119>`__)
 

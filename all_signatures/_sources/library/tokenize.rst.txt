@@ -37,7 +37,7 @@ Tokenizing Input
 The primary entry point is a :term:`generator`:
 
 .. function:: tokenize(readline)
-              tokenize(readline: () -> bytearray | bytes) -> collections.abc.Generator[TokenInfo, None, None]
+              tokenize(readline: () -> bytearray | bytes) -> typing.Generator[tokenize.TokenInfo, None, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tokenize.pyi#L154>`__)
 
@@ -70,7 +70,7 @@ The primary entry point is a :term:`generator`:
    UTF-8 BOM or encoding cookie, according to :pep:`263`.
 
 .. function:: generate_tokens(readline)
-              generate_tokens(readline: () -> str) -> collections.abc.Generator[TokenInfo, None, None]
+              generate_tokens(readline: () -> str) -> typing.Generator[tokenize.TokenInfo, None, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tokenize.pyi#L155>`__)
 
@@ -92,7 +92,7 @@ write back the modified script.
 
 
 .. function:: untokenize(iterable)
-              untokenize(iterable: collections.abc.Iterable[_Token]) -> str | typing.Any
+              untokenize(iterable: typing.Iterable[_Token]) -> str | typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tokenize.pyi#L152>`__)
 
@@ -114,7 +114,7 @@ write back the modified script.
 function it uses to do this is available:
 
 .. function:: detect_encoding(readline)
-              detect_encoding(readline: () -> bytearray | bytes) -> tuple[str, collections.abc.Sequence[bytes]]
+              detect_encoding(readline: () -> bytearray | bytes) -> tuple[str, typing.Sequence[bytes]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tokenize.pyi#L153>`__)
 
@@ -139,7 +139,7 @@ function it uses to do this is available:
 
 
 .. function:: open(filename)
-              open(filename: FileDescriptorOrPath) -> TextIO
+              open(filename: FileDescriptorOrPath) -> typing.TextIO
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tokenize.pyi#L156>`__)
 
@@ -149,7 +149,7 @@ function it uses to do this is available:
    .. versionadded:: 3.2
 
 .. exception:: TokenError
-               TokenError(*args: object) -> None
+               TokenError(*args: object) -> tokenize.TokenError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tokenize.pyi#L132>`__)
 

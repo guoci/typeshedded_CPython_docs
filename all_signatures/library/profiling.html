@@ -297,7 +297,7 @@ gecko, collapsed</p></td>
 <p>The statistical profiler (<a class="reference internal" href="profiling.sampling.html#module-profiling.sampling" title="profiling.sampling: Statistical sampling profiler for Python processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code></a>) is recommended for most
 performance analysis tasks. Use it the same way you would use
 <a class="reference internal" href="profiling.tracing.html#module-profiling.tracing" title="profiling.tracing: Deterministic tracing profiler for Python programs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.tracing</span></code></a>:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>One of the main strengths of the sampling profiler is its variety of output
@@ -341,30 +341,30 @@ documentation, see the dedicated pages for each profiler.</p>
 <h3>Statistical profiling<a class="headerlink" href="#statistical-profiling" title="Link to this heading">¶</a></h3>
 <p>To profile a script, use the <a class="reference internal" href="profiling.sampling.html#module-profiling.sampling" title="profiling.sampling: Statistical sampling profiler for Python processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code></a> module with the <code class="docutils literal notranslate"><span class="pre">run</span></code>
 command:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run script.py</span>
-<span class="go">python -m profiling.sampling run -m mypackage.module</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>mypackage.module
 </pre></div>
 </div>
 <p>This runs the script under the profiler and prints a summary of where time was
 spent. For an interactive flamegraph:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --flamegraph script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--flamegraph<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>To profile an already-running process, use the <code class="docutils literal notranslate"><span class="pre">attach</span></code> command with the
 process ID:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling attach 1234</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span><span class="m">1234</span>
 </pre></div>
 </div>
 <p>For custom settings, specify the sampling interval (in microseconds) and
 duration (in seconds):</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -i 50 -d 30 script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span><span class="m">50</span><span class="w"> </span>-d<span class="w"> </span><span class="m">30</span><span class="w"> </span>script.py
 </pre></div>
 </div>
 </section>
 <section id="deterministic-profiling">
 <h3>Deterministic profiling<a class="headerlink" href="#deterministic-profiling" title="Link to this heading">¶</a></h3>
 <p>To profile a script from the command line:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.tracing script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.tracing<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>To profile a piece of code programmatically:</p>

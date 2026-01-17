@@ -55,7 +55,7 @@ the :mod:`glob` module.)
 
 
 .. function:: abspath(path)
-              abspath(path: PathLike[AnyStr]) -> AnyStr
+              abspath(path: os.PathLike[AnyStr]) -> AnyStr
               abspath(path: AnyStr) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L85>`__)
@@ -70,7 +70,7 @@ the :mod:`glob` module.)
 
 
 .. function:: basename(path, /)
-              basename(p: PathLike[AnyStr]) -> AnyStr
+              basename(p: os.PathLike[AnyStr]) -> AnyStr
               basename(p: AnyOrLiteralStr) -> AnyOrLiteralStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L89>`__)
@@ -87,9 +87,9 @@ the :mod:`glob` module.)
 
 
 .. function:: commonpath(paths)
-              commonpath(paths: collections.abc.Iterable[LiteralString]) -> LiteralString
-              commonpath(paths: collections.abc.Iterable[StrPath]) -> str
-              commonpath(paths: collections.abc.Iterable[BytesPath]) -> bytes
+              commonpath(paths: typing.Iterable[typing.LiteralString]) -> typing.LiteralString
+              commonpath(paths: typing.Iterable[StrPath]) -> str
+              commonpath(paths: typing.Iterable[BytesPath]) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L113>`__)
 
@@ -109,11 +109,11 @@ the :mod:`glob` module.)
 
 
 .. function:: commonprefix(list, /)
-              commonprefix(m: collections.abc.Sequence[LiteralString]) -> LiteralString
-              commonprefix(m: collections.abc.Sequence[StrPath]) -> str
-              commonprefix(m: collections.abc.Sequence[BytesPath]) -> typing.Literal[''] | bytes
-              commonprefix(m: collections.abc.Sequence[list[SupportsRichComparisonT]]) -> collections.abc.Sequence[SupportsRichComparisonT]
-              commonprefix(m: collections.abc.Sequence[tuple[SupportsRichComparisonT, ...]]) -> collections.abc.Sequence[SupportsRichComparisonT]
+              commonprefix(m: typing.Sequence[typing.LiteralString]) -> typing.LiteralString
+              commonprefix(m: typing.Sequence[StrPath]) -> str
+              commonprefix(m: typing.Sequence[BytesPath]) -> typing.Literal[''] | bytes
+              commonprefix(m: typing.Sequence[list[SupportsRichComparisonT]]) -> typing.Sequence[SupportsRichComparisonT]
+              commonprefix(m: typing.Sequence[tuple[SupportsRichComparisonT, ...]]) -> typing.Sequence[SupportsRichComparisonT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/genericpath.pyi#L31>`__)
 
@@ -140,7 +140,7 @@ the :mod:`glob` module.)
 
 
 .. function:: dirname(path, /)
-              dirname(p: PathLike[AnyStr]) -> AnyStr
+              dirname(p: os.PathLike[AnyStr]) -> AnyStr
               dirname(p: AnyOrLiteralStr) -> AnyOrLiteralStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L93>`__)
@@ -187,7 +187,7 @@ the :mod:`glob` module.)
 .. index:: single: ~ (tilde); home directory expansion
 
 .. function:: expanduser(path)
-              expanduser(path: PathLike[AnyStr]) -> AnyStr
+              expanduser(path: os.PathLike[AnyStr]) -> AnyStr
               expanduser(path: AnyStr) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L97>`__)
@@ -221,7 +221,7 @@ the :mod:`glob` module.)
    single: % (percent); environment variables expansion (Windows)
 
 .. function:: expandvars(path)
-              expandvars(path: PathLike[AnyStr]) -> AnyStr
+              expandvars(path: os.PathLike[AnyStr]) -> AnyStr
               expandvars(path: AnyStr) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L101>`__)
@@ -426,7 +426,7 @@ the :mod:`glob` module.)
 
 
 .. function:: join(path, /, *paths)
-              join(a: LiteralString, /, *paths: LiteralString) -> LiteralString
+              join(a: typing.LiteralString, /, *paths: typing.LiteralString) -> typing.LiteralString
               join(a: StrPath, /, *paths: StrPath) -> str
               join(a: BytesPath, /, *paths: BytesPath) -> bytes
 
@@ -466,7 +466,7 @@ the :mod:`glob` module.)
 
 
 .. function:: normcase(path, /)
-              normcase(s: PathLike[AnyStr]) -> AnyStr
+              normcase(s: os.PathLike[AnyStr]) -> AnyStr
               normcase(s: AnyOrLiteralStr) -> AnyOrLiteralStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L105>`__)
@@ -480,7 +480,7 @@ the :mod:`glob` module.)
 
 
 .. function:: normpath(path)
-              normpath(path: PathLike[AnyStr]) -> AnyStr
+              normpath(path: os.PathLike[AnyStr]) -> AnyStr
               normpath(path: AnyOrLiteralStr) -> AnyOrLiteralStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L109>`__)
@@ -504,8 +504,8 @@ the :mod:`glob` module.)
 
 
 .. function:: realpath(path, /, *, strict=False)
-              realpath(filename: PathLike[AnyStr], *, strict: _AllowMissingType | bool = False) -> AnyStr
-              realpath(filename: AnyStr, *, strict: _AllowMissingType | bool = False) -> AnyStr
+              realpath(filename: os.PathLike[AnyStr], *, strict: genericpath._AllowMissingType | bool = False) -> AnyStr
+              realpath(filename: AnyStr, *, strict: genericpath._AllowMissingType | bool = False) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L129>`__)
 
@@ -565,7 +565,7 @@ the :mod:`glob` module.)
    .. versionadded:: 3.15
 
 .. data:: ALLOW_MISSING
-   :type: _AllowMissingType
+   :type: genericpath._AllowMissingType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/genericpath.pyi#L64>`__)
 
@@ -575,9 +575,9 @@ the :mod:`glob` module.)
 
 
 .. function:: relpath(path, start=os.curdir)
-              relpath(path: LiteralString, start: LiteralString | None = None) -> LiteralString
-              relpath(path: BytesPath, start: PathLike[bytes] | bytes | None = None) -> bytes
-              relpath(path: StrPath, start: PathLike[str] | str | None = None) -> str
+              relpath(path: typing.LiteralString, start: typing.LiteralString | None = None) -> typing.LiteralString
+              relpath(path: BytesPath, start: os.PathLike[bytes] | bytes | None = None) -> bytes
+              relpath(path: StrPath, start: os.PathLike[str] | str | None = None) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L133>`__)
 
@@ -627,7 +627,7 @@ the :mod:`glob` module.)
 
 
 .. function:: samestat(stat1, stat2, /)
-              samestat(s1: stat_result, s2: stat_result) -> bool
+              samestat(s1: os.stat_result, s2: os.stat_result) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/genericpath.pyi#L55>`__)
 
@@ -641,7 +641,7 @@ the :mod:`glob` module.)
 
 
 .. function:: split(path, /)
-              split(p: PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
+              split(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
               split(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L139>`__)
@@ -661,7 +661,7 @@ the :mod:`glob` module.)
 
 
 .. function:: splitdrive(path, /)
-              splitdrive(p: PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
+              splitdrive(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
               splitdrive(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L143>`__)
@@ -691,7 +691,7 @@ the :mod:`glob` module.)
 
 .. function:: splitroot(path, /)
               splitroot(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr, AnyOrLiteralStr]
-              splitroot(p: PathLike[AnyStr]) -> tuple[AnyStr, AnyStr, AnyStr]
+              splitroot(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr, AnyStr]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L158>`__)
 
@@ -727,7 +727,7 @@ the :mod:`glob` module.)
 
 
 .. function:: splitext(path, /)
-              splitext(p: PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
+              splitext(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
               splitext(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L147>`__)

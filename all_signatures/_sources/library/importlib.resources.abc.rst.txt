@@ -11,7 +11,7 @@
 .. versionadded:: 3.11
 
 .. class:: ResourceReader
-           ResourceReader() -> None
+           ResourceReader() -> importlib.resources.abc.ResourceReader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L11>`__)
 
@@ -50,7 +50,7 @@
        Use :class:`importlib.resources.abc.TraversableResources` instead.
 
     .. method:: open_resource(resource)
-                open_resource(resource: str) -> IO[bytes]
+                open_resource(resource: str) -> typing.IO[bytes]
        :abstractmethod:
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L13>`__)
@@ -85,7 +85,7 @@
           The argument *name* was renamed to *path*.
 
     .. method:: contents()
-                contents() -> collections.abc.Iterator[str]
+                contents() -> typing.Iterator[str]
        :abstractmethod:
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L19>`__)
@@ -108,7 +108,7 @@
 
 
 .. class:: Traversable
-           Traversable() -> None
+           Traversable() -> importlib.resources.abc.Traversable
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L22>`__)
 
@@ -119,14 +119,14 @@
     :meth:`importlib.resources.as_file`.
 
     .. attribute:: name
-       :type: name(self: Traversable) -> str
+       :type: name(self: importlib.resources.abc.Traversable) -> str
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L43>`__)
 
        Abstract. The base name of this object without any parent references.
 
     .. method:: iterdir()
-                iterdir() -> collections.abc.Iterator[Traversable]
+                iterdir() -> typing.Iterator[importlib.resources.abc.Traversable]
        :abstractmethod:
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L28>`__)
@@ -150,7 +150,7 @@
        Return ``True`` if self is a file.
 
     .. method:: joinpath(*pathsegments)
-                joinpath(*descendants: StrPath) -> Traversable
+                joinpath(*descendants: StrPath) -> importlib.resources.abc.Traversable
        :abstractmethod:
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L30>`__)
@@ -179,7 +179,7 @@
           Previously, only a single *child* argument was accepted.
 
     .. method:: __truediv__(child)
-                __truediv__(child: StrPath, /) -> Traversable
+                __truediv__(child: StrPath, /) -> importlib.resources.abc.Traversable
        :abstractmethod:
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L44>`__)
@@ -188,8 +188,8 @@
        Equivalent to ``joinpath(child)``.
 
     .. method:: open(mode='r', *args, **kwargs)
-                open(mode: typing.Literal['r'] = 'r', *, encoding: str | None = None, errors: str | None = None) -> IO[str]
-                open(mode: typing.Literal['rb']) -> IO[bytes]
+                open(mode: typing.Literal['r'] = 'r', *, encoding: str | None = None, errors: str | None = None) -> typing.IO[str]
+                open(mode: typing.Literal['rb']) -> typing.IO[bytes]
        :abstractmethod:
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L37>`__)
@@ -216,7 +216,7 @@
 
 
 .. class:: TraversableResources
-           TraversableResources() -> None
+           TraversableResources() -> importlib.resources.abc.TraversableResources
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L50>`__)
 
@@ -231,7 +231,7 @@
     implement this interface.
 
     .. method:: files()
-                files() -> Traversable
+                files() -> importlib.resources.abc.Traversable
        :abstractmethod:
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/abc.pyi#L52>`__)

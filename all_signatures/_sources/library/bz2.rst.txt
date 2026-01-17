@@ -32,13 +32,13 @@ The :mod:`bz2` module contains:
 ------------------------
 
 .. function:: open(filename, mode='rb', compresslevel=9, encoding=None, errors=None, newline=None)
-              open(filename: _ReadableFileobj, mode: _ReadBinaryMode = 'rb', compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> BZ2File
-              open(filename: _ReadableFileobj, mode: typing.Literal['rt'], compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> TextIOWrapper[_WrappedBuffer]
-              open(filename: _WritableFileobj, mode: _WriteBinaryMode, compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> BZ2File
-              open(filename: _WritableFileobj, mode: _WriteTextMode, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> TextIOWrapper[_WrappedBuffer]
-              open(filename: StrOrBytesPath, mode: typing.Literal['', 'a', 'ab', 'r', 'rb', 'w', 'wb', 'x', 'xb'] = 'rb', compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> BZ2File
-              open(filename: StrOrBytesPath, mode: typing.Literal['at', 'rt', 'wt', 'xt'], compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> TextIOWrapper[_WrappedBuffer]
-              open(filename: PathLike[bytes] | PathLike[str] | _ReadableFileobj | _WritableFileobj | bytes | str, mode: str, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> BZ2File | TextIOWrapper[_WrappedBuffer]
+              open(filename: bz2._ReadableFileobj, mode: _ReadBinaryMode = 'rb', compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> bz2.BZ2File
+              open(filename: bz2._ReadableFileobj, mode: typing.Literal['rt'], compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(filename: bz2._WritableFileobj, mode: _WriteBinaryMode, compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> bz2.BZ2File
+              open(filename: bz2._WritableFileobj, mode: _WriteTextMode, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(filename: StrOrBytesPath, mode: typing.Literal['', 'a', 'ab', 'r', 'rb', 'w', 'wb', 'x', 'xb'] = 'rb', compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> bz2.BZ2File
+              open(filename: StrOrBytesPath, mode: typing.Literal['at', 'rt', 'wt', 'xt'], compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(filename: os.PathLike[bytes] | os.PathLike[str] | bz2._ReadableFileobj | bz2._WritableFileobj | bytes | str, mode: str, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> bz2.BZ2File | _io.TextIOWrapper[_io._WrappedBuffer]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bz2.pyi#L38>`__)
 
@@ -75,9 +75,9 @@ The :mod:`bz2` module contains:
 
 
 .. class:: BZ2File(filename, mode='r', *, compresslevel=9)
-           BZ2File(filename: _WritableFileobj, mode: _WriteBinaryMode, *, compresslevel: int = 9) -> None
-           BZ2File(filename: _ReadableFileobj, mode: _ReadBinaryMode = 'r', *, compresslevel: int = 9) -> None
-           BZ2File(filename: StrOrBytesPath, mode: typing.Literal['', 'a', 'ab', 'r', 'rb', 'w', 'wb', 'x', 'xb'] = 'r', *, compresslevel: int = 9) -> None
+           BZ2File(filename: bz2._WritableFileobj, mode: _WriteBinaryMode, *, compresslevel: int = 9) -> bz2.BZ2File
+           BZ2File(filename: bz2._ReadableFileobj, mode: _ReadBinaryMode = 'r', *, compresslevel: int = 9) -> bz2.BZ2File
+           BZ2File(filename: StrOrBytesPath, mode: typing.Literal['', 'a', 'ab', 'r', 'rb', 'w', 'wb', 'x', 'xb'] = 'r', *, compresslevel: int = 9) -> bz2.BZ2File
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bz2.pyi#L101>`__)
 
@@ -175,7 +175,7 @@ The :mod:`bz2` module contains:
       .. versionadded:: 3.3
 
    .. method:: readinto(b)
-               readinto(b: Buffer) -> int
+               readinto(b: _collections_abc.Buffer) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bz2.pyi#L114>`__)
 
@@ -186,7 +186,7 @@ The :mod:`bz2` module contains:
       .. versionadded:: 3.3
 
    .. attribute:: mode
-      :type: mode(self: BZ2File) -> str
+      :type: mode(self: bz2.BZ2File) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L855>`__)
 
@@ -195,7 +195,7 @@ The :mod:`bz2` module contains:
       .. versionadded:: 3.13
 
    .. attribute:: name
-      :type: name(self: BZ2File) -> str | typing.Any
+      :type: name(self: bz2.BZ2File) -> str | typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L859>`__)
 
@@ -242,7 +242,7 @@ Incremental (de)compression
 ---------------------------
 
 .. class:: BZ2Compressor(compresslevel=9)
-           BZ2Compressor(compresslevel: int = 9, /) -> BZ2Compressor
+           BZ2Compressor(compresslevel: int = 9, /) -> _bz2.BZ2Compressor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bz2.pyi#L7>`__)
 
@@ -254,7 +254,7 @@ Incremental (de)compression
    default is ``9``.
 
    .. method:: compress(data)
-               compress(data: Buffer, /) -> bytes
+               compress(data: _collections_abc.Buffer, /) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bz2.pyi#L13>`__)
 
@@ -277,7 +277,7 @@ Incremental (de)compression
 
 
 .. class:: BZ2Decompressor()
-           BZ2Decompressor() -> None
+           BZ2Decompressor() -> _bz2.BZ2Decompressor
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bz2.pyi#L17>`__)
 
@@ -292,7 +292,7 @@ Incremental (de)compression
       you must use a new decompressor for each stream.
 
    .. method:: decompress(data, max_length=-1)
-               decompress(data: Buffer, max_length: int = -1) -> bytes
+               decompress(data: _collections_abc.Buffer, max_length: int = -1) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bz2.pyi#L18>`__)
 
@@ -322,7 +322,7 @@ Incremental (de)compression
          Added the *max_length* parameter.
 
    .. attribute:: eof
-      :type: eof(self: BZ2Decompressor) -> bool
+      :type: eof(self: _bz2.BZ2Decompressor) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bz2.pyi#L20>`__)
 
@@ -332,7 +332,7 @@ Incremental (de)compression
 
 
    .. attribute:: unused_data
-      :type: unused_data(self: BZ2Decompressor) -> bytes
+      :type: unused_data(self: _bz2.BZ2Decompressor) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bz2.pyi#L24>`__)
 
@@ -342,7 +342,7 @@ Incremental (de)compression
       reached, its value will be ``b''``.
 
    .. attribute:: needs_input
-      :type: needs_input(self: BZ2Decompressor) -> bool
+      :type: needs_input(self: _bz2.BZ2Decompressor) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bz2.pyi#L22>`__)
 
@@ -356,7 +356,7 @@ One-shot (de)compression
 ------------------------
 
 .. function:: compress(data, compresslevel=9)
-              compress(data: Buffer, compresslevel: int = 9) -> bytes
+              compress(data: _collections_abc.Buffer, compresslevel: int = 9) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bz2.pyi#L29>`__)
 
@@ -369,7 +369,7 @@ One-shot (de)compression
 
 
 .. function:: decompress(data)
-              decompress(data: Buffer) -> bytes
+              decompress(data: _collections_abc.Buffer) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bz2.pyi#L30>`__)
 

@@ -35,7 +35,7 @@ The module provides the following classes:
 
 .. class:: HTTPConnection(host, port=None[, timeout], source_address=None, \
                           blocksize=8192, max_response_headers=None)
-           HTTPConnection(host: str, port: int | None = None, timeout: float | None = ..., source_address: tuple[str, int] | None = None, blocksize: int = 8192) -> None
+           HTTPConnection(host: str, port: int | None = None, timeout: float | None = ..., source_address: tuple[str, int] | None = None, blocksize: int = 8192) -> http.client.HTTPConnection
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L171>`__)
 
@@ -78,7 +78,7 @@ The module provides the following classes:
 .. class:: HTTPSConnection(host, port=None, *[, timeout], \
                            source_address=None, context=None, \
                            blocksize=8192, max_response_headers=None)
-           HTTPSConnection(host: str, port: int | None = None, *, timeout: float | None = ..., source_address: tuple[str, int] | None = None, context: SSLContext | None = None, blocksize: int = 8192) -> None
+           HTTPSConnection(host: str, port: int | None = None, *, timeout: float | None = ..., source_address: tuple[str, int] | None = None, context: ssl.SSLContext | None = None, blocksize: int = 8192) -> http.client.HTTPSConnection
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L211>`__)
 
@@ -125,7 +125,7 @@ The module provides the following classes:
 
 
 .. class:: HTTPResponse(sock, debuglevel=0, method=None, url=None)
-           HTTPResponse(sock: socket, debuglevel: int = 0, method: str | None = None, url: str | None = None) -> None
+           HTTPResponse(sock: socket.socket, debuglevel: int = 0, method: str | None = None, url: str | None = None) -> http.client.HTTPResponse
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L129>`__)
 
@@ -139,8 +139,8 @@ The module provides the following classes:
 This module provides the following function:
 
 .. function:: parse_headers(fp)
-              parse_headers(fp: SupportsReadline[bytes], _class: () -> _MessageT) -> _MessageT
-              parse_headers(fp: SupportsReadline[bytes]) -> HTTPMessage
+              parse_headers(fp: _typeshed.SupportsReadline[bytes], _class: () -> _MessageT) -> _MessageT
+              parse_headers(fp: _typeshed.SupportsReadline[bytes]) -> http.client.HTTPMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L125>`__)
 
@@ -164,7 +164,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: HTTPException
-               HTTPException(*args: object) -> None
+               HTTPException(*args: object) -> http.client.HTTPException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L261>`__)
 
@@ -173,7 +173,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: NotConnected
-               NotConnected(*args: object) -> None
+               NotConnected(*args: object) -> http.client.NotConnected
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L265>`__)
 
@@ -181,7 +181,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: InvalidURL
-               InvalidURL(*args: object) -> None
+               InvalidURL(*args: object) -> http.client.InvalidURL
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L266>`__)
 
@@ -190,7 +190,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: UnknownProtocol
-               UnknownProtocol(version: str) -> None
+               UnknownProtocol(version: str) -> http.client.UnknownProtocol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L268>`__)
 
@@ -198,7 +198,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: UnknownTransferEncoding
-               UnknownTransferEncoding(*args: object) -> None
+               UnknownTransferEncoding(*args: object) -> http.client.UnknownTransferEncoding
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L271>`__)
 
@@ -206,7 +206,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: UnimplementedFileMode
-               UnimplementedFileMode(*args: object) -> None
+               UnimplementedFileMode(*args: object) -> http.client.UnimplementedFileMode
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L272>`__)
 
@@ -214,7 +214,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: IncompleteRead
-               IncompleteRead(partial: bytes, expected: int | None = None) -> None
+               IncompleteRead(partial: bytes, expected: int | None = None) -> http.client.IncompleteRead
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L274>`__)
 
@@ -222,7 +222,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: ImproperConnectionState
-               ImproperConnectionState(*args: object) -> None
+               ImproperConnectionState(*args: object) -> http.client.ImproperConnectionState
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L279>`__)
 
@@ -230,7 +230,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: CannotSendRequest
-               CannotSendRequest(*args: object) -> None
+               CannotSendRequest(*args: object) -> http.client.CannotSendRequest
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L280>`__)
 
@@ -238,7 +238,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: CannotSendHeader
-               CannotSendHeader(*args: object) -> None
+               CannotSendHeader(*args: object) -> http.client.CannotSendHeader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L281>`__)
 
@@ -246,7 +246,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: ResponseNotReady
-               ResponseNotReady(*args: object) -> None
+               ResponseNotReady(*args: object) -> http.client.ResponseNotReady
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L282>`__)
 
@@ -254,7 +254,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: BadStatusLine
-               BadStatusLine(line: str) -> None
+               BadStatusLine(line: str) -> http.client.BadStatusLine
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L284>`__)
 
@@ -263,7 +263,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: LineTooLong
-               LineTooLong(line_type: str) -> None
+               LineTooLong(line_type: str) -> http.client.LineTooLong
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L287>`__)
 
@@ -272,7 +272,7 @@ The following exceptions are raised as appropriate:
 
 
 .. exception:: RemoteDisconnected
-               RemoteDisconnected(line: str) -> None
+               RemoteDisconnected(line: str) -> http.client.RemoteDisconnected
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L290>`__)
 
@@ -324,7 +324,7 @@ HTTPConnection Objects
 
 .. method:: HTTPConnection.request(method, url, body=None, headers={}, *, \
             encode_chunked=False)
-            HTTPConnection.request(method: str, url: str, body: Buffer | collections.abc.Iterable[Buffer] | SupportsRead[bytes] | str | None = None, headers: collections.abc.Mapping[str, _HeaderValue] = ..., *, encode_chunked: bool = False) -> None
+            HTTPConnection.request(method: str, url: str, body: _collections_abc.Buffer | typing.Iterable[_collections_abc.Buffer] | _typeshed.SupportsRead[bytes] | str | None = None, headers: typing.Mapping[str, _HeaderValue] = ..., *, encode_chunked: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L189>`__)
 
@@ -403,7 +403,7 @@ HTTPConnection Objects
       objects.
 
 .. method:: HTTPConnection.getresponse()
-            HTTPConnection.getresponse() -> HTTPResponse
+            HTTPConnection.getresponse() -> http.client.HTTPResponse
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L198>`__)
 
@@ -434,7 +434,7 @@ HTTPConnection Objects
 
 
 .. method:: HTTPConnection.set_tunnel(host, port=None, headers=None)
-            HTTPConnection.set_tunnel(host: str, port: int | None = None, headers: collections.abc.Mapping[str, str] | None = None) -> None
+            HTTPConnection.set_tunnel(host: str, port: int | None = None, headers: typing.Mapping[str, str] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L203>`__)
 
@@ -475,7 +475,7 @@ HTTPConnection Objects
 
 
 .. method:: HTTPConnection.get_proxy_response_headers()
-            HTTPConnection.get_proxy_response_headers() -> HTTPMessage | None
+            HTTPConnection.get_proxy_response_headers() -> http.client.HTTPMessage | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L201>`__)
 
@@ -555,7 +555,7 @@ also send your request step by step, by using the four functions below.
 
 
 .. method:: HTTPConnection.endheaders(message_body=None, *, encode_chunked=False)
-            HTTPConnection.endheaders(message_body: Buffer | collections.abc.Iterable[Buffer] | SupportsRead[bytes] | None = None, *, encode_chunked: bool = False) -> None
+            HTTPConnection.endheaders(message_body: _collections_abc.Buffer | typing.Iterable[_collections_abc.Buffer] | _typeshed.SupportsRead[bytes] | None = None, *, encode_chunked: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L208>`__)
 
@@ -584,7 +584,7 @@ also send your request step by step, by using the four functions below.
 
 
 .. method:: HTTPConnection.send(data)
-            HTTPConnection.send(data: Buffer | collections.abc.Iterable[Buffer] | SupportsRead[bytes] | str) -> None
+            HTTPConnection.send(data: _collections_abc.Buffer | typing.Iterable[_collections_abc.Buffer] | _typeshed.SupportsRead[bytes] | str) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L209>`__)
 
@@ -618,7 +618,7 @@ statement.
    Reads and returns the response body, or up to the next *amt* bytes.
 
 .. method:: HTTPResponse.readinto(b)
-            HTTPResponse.readinto(b: Buffer) -> int
+            HTTPResponse.readinto(b: _collections_abc.Buffer) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L150>`__)
 
@@ -653,7 +653,7 @@ statement.
    Return the ``fileno`` of the underlying socket.
 
 .. attribute:: HTTPResponse.msg
-   :type: HTTPMessage
+   :type: http.client.HTTPMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L130>`__)
 
@@ -676,7 +676,7 @@ statement.
    URL of the resource retrieved, commonly used to determine if a redirect was followed.
 
 .. attribute:: HTTPResponse.headers
-   :type: HTTPMessage
+   :type: http.client.HTTPMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L131>`__)
 
@@ -720,7 +720,7 @@ statement.
       Deprecated in favor of :attr:`~HTTPResponse.url`.
 
 .. method:: HTTPResponse.info()
-            HTTPResponse.info() -> HTTPMessage
+            HTTPResponse.info() -> http.client.HTTPMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L164>`__)
 
@@ -818,7 +818,7 @@ HTTPMessage Objects
 -------------------
 
 .. class:: HTTPMessage(email.message.Message)
-           HTTPMessage(policy: Policy[typing.Any] = ...) -> None
+           HTTPMessage(policy: email._policybase.Policy[typing.Any] = ...) -> http.client.HTTPMessage
 
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/client.pyi#L121>`__)

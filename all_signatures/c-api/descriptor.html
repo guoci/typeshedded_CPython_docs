@@ -198,12 +198,6 @@
 <span id="id1"></span><h1>Descriptor Objects<a class="headerlink" href="#descriptor-objects" title="Link to this heading">¶</a></h1>
 <p>“Descriptors” are objects that describe some attribute of an object. They are
 found in the dictionary of type objects.</p>
-<dl class="c var">
-<dt class="sig sig-object c" id="c.PyProperty_Type">
-<a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyProperty_Type</span></span></span><a class="headerlink" href="#c.PyProperty_Type" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>The type object for the built-in descriptor types.</p>
-</dd></dl>
-
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyDescr_NewGetSet">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDescr_NewGetSet</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="structures.html#c.PyGetSetDef" title="PyGetSetDef"><span class="n"><span class="pre">PyGetSetDef</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">getset</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDescr_NewGetSet" title="Link to this definition">¶</a><br /></dt>
@@ -279,8 +273,26 @@ no error checking.</p>
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyWrapper_New</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="p"><span class="pre">*</span></span>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="p"><span class="pre">*</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyWrapper_New" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em></dd></dl>
 
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.PyDescr_COMMON">
+<span class="sig-name descname"><span class="n"><span class="pre">PyDescr_COMMON</span></span></span><a class="headerlink" href="#c.PyDescr_COMMON" title="Link to this definition">¶</a><br /></dt>
+<dd><p>This is a <a class="reference internal" href="../glossary.html#term-soft-deprecated"><span class="xref std std-term">soft deprecated</span></a> macro including the common fields for a
+descriptor object.</p>
+<p>This was included in Python’s C API by mistake; do not use it in extensions.
+For creating custom descriptor objects, create a class implementing the
+descriptor protocol (<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_descr_get" title="PyTypeObject.tp_descr_get"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_descr_get</span></code></a> and
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_descr_set" title="PyTypeObject.tp_descr_set"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_descr_set</span></code></a>).</p>
+</dd></dl>
+
 <section id="built-in-descriptors">
 <h2>Built-in descriptors<a class="headerlink" href="#built-in-descriptors" title="Link to this heading">¶</a></h2>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.PyProperty_Type">
+<a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyProperty_Type</span></span></span><a class="headerlink" href="#c.PyProperty_Type" title="Link to this definition">¶</a><br /></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>The type object for property objects. This is the same object as
+<a class="reference internal" href="../library/functions.html#property" title="property"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a> in the Python layer.</p>
+</dd></dl>
+
 <dl class="c var">
 <dt class="sig sig-object c" id="c.PySuper_Type">
 <a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject"><span class="n"><span class="pre">PyTypeObject</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PySuper_Type</span></span></span><a class="headerlink" href="#c.PySuper_Type" title="Link to this definition">¶</a><br /></dt>

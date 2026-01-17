@@ -38,7 +38,7 @@ Lock
 ====
 
 .. class:: Lock()
-           Lock() -> None
+           Lock() -> asyncio.locks.Lock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L32>`__)
 
@@ -71,7 +71,7 @@ Lock
       Removed the *loop* parameter.
 
    .. method:: acquire()
-               acquire() -> collections.abc.Coroutine[Unknown, Unknown, typing.Literal[True]]
+               acquire() -> typing.Coroutine[Unknown, Unknown, typing.Literal[True]]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L40>`__)
@@ -111,7 +111,7 @@ Event
 =====
 
 .. class:: Event()
-           Event() -> None
+           Event() -> asyncio.locks.Event
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L43>`__)
 
@@ -154,7 +154,7 @@ Event
       asyncio.run(main())
 
    .. method:: wait()
-               wait() -> collections.abc.Coroutine[Unknown, Unknown, typing.Literal[True]]
+               wait() -> typing.Coroutine[Unknown, Unknown, typing.Literal[True]]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L53>`__)
@@ -196,7 +196,7 @@ Condition
 =========
 
 .. class:: Condition(lock=None)
-           Condition(lock: Lock | None = None) -> None
+           Condition(lock: asyncio.locks.Lock | None = None) -> asyncio.locks.Condition
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L55>`__)
 
@@ -240,7 +240,7 @@ Condition
            cond.release()
 
    .. method:: acquire()
-               acquire() -> collections.abc.Coroutine[Unknown, Unknown, typing.Literal[True]]
+               acquire() -> typing.Coroutine[Unknown, Unknown, typing.Literal[True]]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L63>`__)
@@ -294,7 +294,7 @@ Condition
       raised.
 
    .. method:: wait()
-               wait() -> collections.abc.Coroutine[Unknown, Unknown, typing.Literal[True]]
+               wait() -> typing.Coroutine[Unknown, Unknown, typing.Literal[True]]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L65>`__)
@@ -315,7 +315,7 @@ Condition
       prefer to use :meth:`~Condition.wait_for` instead.
 
    .. method:: wait_for(predicate)
-               wait_for[_T](predicate: () -> _T) -> collections.abc.Coroutine[Unknown, Unknown, _T]
+               wait_for[_T](predicate: () -> _T) -> typing.Coroutine[Unknown, Unknown, _T]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L66>`__)
@@ -332,7 +332,7 @@ Semaphore
 =========
 
 .. class:: Semaphore(value=1)
-           Semaphore(value: int = 1) -> None
+           Semaphore(value: int = 1) -> asyncio.locks.Semaphore
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L70>`__)
 
@@ -372,7 +372,7 @@ Semaphore
            sem.release()
 
    .. method:: acquire()
-               acquire() -> collections.abc.Coroutine[Unknown, Unknown, typing.Literal[True]]
+               acquire() -> typing.Coroutine[Unknown, Unknown, typing.Literal[True]]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L79>`__)
@@ -406,7 +406,7 @@ BoundedSemaphore
 ================
 
 .. class:: BoundedSemaphore(value=1)
-           BoundedSemaphore(value: int = 1) -> None
+           BoundedSemaphore(value: int = 1) -> asyncio.locks.BoundedSemaphore
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L83>`__)
 
@@ -424,7 +424,7 @@ Barrier
 =======
 
 .. class:: Barrier(parties)
-           Barrier(parties: int) -> None
+           Barrier(parties: int) -> asyncio.locks.Barrier
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L92>`__)
 
@@ -476,7 +476,7 @@ Barrier
    .. versionadded:: 3.11
 
    .. method:: wait()
-               wait() -> collections.abc.Coroutine[Unknown, Unknown, int]
+               wait() -> typing.Coroutine[Unknown, Unknown, int]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L96>`__)
@@ -504,7 +504,7 @@ Barrier
       It could raise a :exc:`CancelledError` if a task is cancelled.
 
    .. method:: reset()
-               reset() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               reset() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L98>`__)
@@ -515,7 +515,7 @@ Barrier
       If a barrier is broken it may be better to just leave it and create a new one.
 
    .. method:: abort()
-               abort() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               abort() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L97>`__)
@@ -526,21 +526,21 @@ Barrier
       waiting tasks.
 
    .. attribute:: parties
-      :type: parties(self: Barrier) -> int
+      :type: parties(self: asyncio.locks.Barrier) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L100>`__)
 
       The number of tasks required to pass the barrier.
 
    .. attribute:: n_waiting
-      :type: n_waiting(self: Barrier) -> int
+      :type: n_waiting(self: asyncio.locks.Barrier) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L102>`__)
 
       The number of tasks currently waiting in the barrier while filling.
 
    .. attribute:: broken
-      :type: broken(self: Barrier) -> bool
+      :type: broken(self: asyncio.locks.Barrier) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/locks.pyi#L104>`__)
 
@@ -548,7 +548,7 @@ Barrier
 
 
 .. exception:: BrokenBarrierError
-               BrokenBarrierError(*args: object) -> None
+               BrokenBarrierError(*args: object) -> asyncio.exceptions.BrokenBarrierError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/exceptions.pyi#L44>`__)
 

@@ -20,7 +20,7 @@ Future Functions
 ================
 
 .. function:: isfuture(obj)
-              isfuture(obj: object) -> TypeIs[Future[typing.Any]]
+              isfuture(obj: object) -> typing.TypeIs[_asyncio.Future[typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/base_futures.pyi#L15>`__)
 
@@ -35,8 +35,8 @@ Future Functions
 
 
 .. function:: ensure_future(obj, *, loop=None)
-              ensure_future(coro_or_future: _FT, *, loop: AbstractEventLoop | None = None) -> _FT
-              ensure_future(coro_or_future: collections.abc.Awaitable[_T], *, loop: AbstractEventLoop | None = None) -> Task[_T]
+              ensure_future(coro_or_future: _FT, *, loop: asyncio.events.AbstractEventLoop | None = None) -> _FT
+              ensure_future(coro_or_future: typing.Awaitable[_T], *, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Task[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/tasks.pyi#L104>`__)
 
@@ -74,7 +74,7 @@ Future Functions
 
 
 .. function:: wrap_future(future, *, loop=None)
-              wrap_future[_T](future: _asyncio.Future[_T] | concurrent.futures._base.Future[_T], *, loop: AbstractEventLoop | None = None) -> _asyncio.Future[_T]
+              wrap_future[_T](future: _asyncio.Future[_T] | concurrent.futures._base.Future[_T], *, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Future[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/futures.pyi#L19>`__)
 
@@ -91,7 +91,7 @@ Future Object
 =============
 
 .. class:: Future(*, loop=None)
-           Future(*, loop: AbstractEventLoop | None = None) -> None
+           Future(*, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Future
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L14>`__)
 
@@ -151,7 +151,7 @@ Future Object
       already *done*.
 
    .. method:: set_exception(exception)
-               set_exception[_T](exception: BaseException | type[typing.Any], /) -> None
+               set_exception[_T](exception: BaseException | type[Any], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L37>`__)
 
@@ -185,7 +185,7 @@ Future Object
               fut.set_result(42)
 
    .. method:: add_done_callback(callback, *, context=None)
-               add_done_callback[_T](fn: (Future[_T]) -> object, /, *, context: Context | None = None) -> None
+               add_done_callback[_T](fn: (_asyncio.Future[_T]) -> object, /, *, context: _contextvars.Context | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L29>`__)
 
@@ -213,7 +213,7 @@ Future Object
          See :pep:`567` for more details.
 
    .. method:: remove_done_callback(callback)
-               remove_done_callback[_T](fn: (Future[_T]) -> object, /) -> int
+               remove_done_callback[_T](fn: (_asyncio.Future[_T]) -> object, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L35>`__)
 
@@ -253,7 +253,7 @@ Future Object
       :exc:`InvalidStateError` exception.
 
    .. method:: get_loop()
-               get_loop[_T]() -> AbstractEventLoop
+               get_loop[_T]() -> asyncio.events.AbstractEventLoop
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L26>`__)
 

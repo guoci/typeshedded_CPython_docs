@@ -14,7 +14,7 @@ or managing execution via the debugger.
 The following exception is defined:
 
 .. exception:: BdbQuit
-               BdbQuit(*args: object) -> None
+               BdbQuit(*args: object) -> bdb.BdbQuit
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L20>`__)
 
@@ -24,7 +24,7 @@ The following exception is defined:
 The :mod:`bdb` module also defines two classes:
 
 .. class:: Breakpoint(self, file, line, temporary=False, cond=None, funcname=None)
-           Breakpoint(file: str, line: int, temporary: bool = False, cond: str | None = None, funcname: str | None = None) -> None
+           Breakpoint(file: str, line: int, temporary: bool = False, cond: str | None = None, funcname: str | None = None) -> bdb.Breakpoint
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L100>`__)
 
@@ -88,7 +88,7 @@ The :mod:`bdb` module also defines two classes:
       .. versionadded:: 3.2
 
    .. method:: bpprint(out=None)
-               bpprint(out: IO[str] | None = None) -> None
+               bpprint(out: typing.IO[str] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L125>`__)
 
@@ -141,14 +141,14 @@ The :mod:`bdb` module also defines two classes:
       ``True`` if :class:`Breakpoint` is enabled.
 
    .. attribute:: bpbynumber
-      :type: list[Breakpoint | None]
+      :type: list[bdb.Breakpoint | None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L103>`__)
 
       Numeric index for a single instance of a :class:`Breakpoint`.
 
    .. attribute:: bplist
-      :type: dict[tuple[str, int], list[Breakpoint]]
+      :type: dict[tuple[str, int], list[bdb.Breakpoint]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L102>`__)
 
@@ -170,7 +170,7 @@ The :mod:`bdb` module also defines two classes:
       Count of the number of times a :class:`Breakpoint` has been hit.
 
 .. class:: Bdb(skip=None, backend='settrace')
-           Bdb(skip: collections.abc.Iterable[str] | None = None, backend: _Backend = 'settrace') -> None
+           Bdb(skip: typing.Iterable[str] | None = None, backend: _Backend = 'settrace') -> bdb.Bdb
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L22>`__)
 
@@ -245,7 +245,7 @@ The :mod:`bdb` module also defines two classes:
       :attr:`quitting <Bdb.set_quit>` attributes with values ready to start debugging.
 
    .. method:: trace_dispatch(frame, event, arg)
-               trace_dispatch(frame: FrameType, event: str, arg: typing.Any) -> (FrameType, str, typing.Any) -> Unknown | None
+               trace_dispatch(frame: types.FrameType, event: str, arg: typing.Any) -> (types.FrameType, str, typing.Any) -> Unknown | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L44>`__)
 
@@ -271,7 +271,7 @@ The :mod:`bdb` module also defines two classes:
       :ref:`types`.
 
    .. method:: dispatch_line(frame)
-               dispatch_line(frame: FrameType) -> (FrameType, str, typing.Any) -> Unknown | None
+               dispatch_line(frame: types.FrameType) -> (types.FrameType, str, typing.Any) -> Unknown | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L45>`__)
 
@@ -282,7 +282,7 @@ The :mod:`bdb` module also defines two classes:
       :meth:`trace_dispatch` method for further tracing in that scope.
 
    .. method:: dispatch_call(frame, arg)
-               dispatch_call(frame: FrameType, arg: None) -> (FrameType, str, typing.Any) -> Unknown | None
+               dispatch_call(frame: types.FrameType, arg: None) -> (types.FrameType, str, typing.Any) -> Unknown | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L46>`__)
 
@@ -293,7 +293,7 @@ The :mod:`bdb` module also defines two classes:
       :meth:`trace_dispatch` method for further tracing in that scope.
 
    .. method:: dispatch_return(frame, arg)
-               dispatch_return(frame: FrameType, arg: typing.Any) -> (FrameType, str, typing.Any) -> Unknown | None
+               dispatch_return(frame: types.FrameType, arg: typing.Any) -> (types.FrameType, str, typing.Any) -> Unknown | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L47>`__)
 
@@ -304,7 +304,7 @@ The :mod:`bdb` module also defines two classes:
       :meth:`trace_dispatch` method for further tracing in that scope.
 
    .. method:: dispatch_exception(frame, arg)
-               dispatch_exception(frame: FrameType, arg: tuple[type[BaseException], BaseException, TracebackType]) -> (FrameType, str, typing.Any) -> Unknown | None
+               dispatch_exception(frame: types.FrameType, arg: tuple[type[BaseException], BaseException, types.TracebackType]) -> (types.FrameType, str, typing.Any) -> Unknown | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L48>`__)
 
@@ -325,14 +325,14 @@ The :mod:`bdb` module also defines two classes:
       Return ``True`` if *module_name* matches any skip pattern.
 
    .. method:: stop_here(frame)
-               stop_here(frame: FrameType) -> bool
+               stop_here(frame: types.FrameType) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L53>`__)
 
       Return ``True`` if *frame* is below the starting frame in the stack.
 
    .. method:: break_here(frame)
-               break_here(frame: FrameType) -> bool
+               break_here(frame: types.FrameType) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L54>`__)
 
@@ -342,7 +342,7 @@ The :mod:`bdb` module also defines two classes:
       breakpoints based on information from :func:`effective`.
 
    .. method:: break_anywhere(frame)
-               break_anywhere(frame: FrameType) -> bool
+               break_anywhere(frame: types.FrameType) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L56>`__)
 
@@ -352,7 +352,7 @@ The :mod:`bdb` module also defines two classes:
    operation.
 
    .. method:: user_call(frame, argument_list)
-               user_call(frame: FrameType, argument_list: None) -> None
+               user_call(frame: types.FrameType, argument_list: None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L57>`__)
 
@@ -363,7 +363,7 @@ The :mod:`bdb` module also defines two classes:
       The argument is kept for backwards compatibility.
 
    .. method:: user_line(frame)
-               user_line(frame: FrameType) -> None
+               user_line(frame: types.FrameType) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L58>`__)
 
@@ -371,14 +371,14 @@ The :mod:`bdb` module also defines two classes:
       :meth:`break_here` returns ``True``.
 
    .. method:: user_return(frame, return_value)
-               user_return(frame: FrameType, return_value: typing.Any) -> None
+               user_return(frame: types.FrameType, return_value: typing.Any) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L59>`__)
 
       Called from :meth:`dispatch_return` when :meth:`stop_here` returns ``True``.
 
    .. method:: user_exception(frame, exc_info)
-               user_exception(frame: FrameType, exc_info: tuple[type[BaseException], BaseException, TracebackType]) -> None
+               user_exception(frame: types.FrameType, exc_info: tuple[type[BaseException], BaseException, types.TracebackType]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L60>`__)
 
@@ -406,21 +406,21 @@ The :mod:`bdb` module also defines two classes:
       Stop after one line of code.
 
    .. method:: set_next(frame)
-               set_next(frame: FrameType) -> None
+               set_next(frame: types.FrameType) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L69>`__)
 
       Stop on the next line in or below the given frame.
 
    .. method:: set_return(frame)
-               set_return(frame: FrameType) -> None
+               set_return(frame: types.FrameType) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L70>`__)
 
       Stop when returning from the given frame.
 
    .. method:: set_until(frame, lineno=None)
-               set_until(frame: FrameType, lineno: int | None = None) -> None
+               set_until(frame: types.FrameType, lineno: int | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L61>`__)
 
@@ -428,7 +428,7 @@ The :mod:`bdb` module also defines two classes:
       reached or when returning from current frame.
 
    .. method:: set_trace([frame])
-               set_trace(frame: FrameType | None = None) -> None
+               set_trace(frame: types.FrameType | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L71>`__)
 
@@ -480,7 +480,7 @@ The :mod:`bdb` module also defines two classes:
       return an error message.
 
    .. method:: clear_bpbynumber(arg)
-               clear_bpbynumber(arg: SupportsInt) -> str | None
+               clear_bpbynumber(arg: typing.SupportsInt) -> str | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L78>`__)
 
@@ -505,7 +505,7 @@ The :mod:`bdb` module also defines two classes:
       message.
 
    .. method:: get_bpbynumber(arg)
-               get_bpbynumber(arg: SupportsInt) -> Breakpoint
+               get_bpbynumber(arg: typing.SupportsInt) -> bdb.Breakpoint
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L81>`__)
 
@@ -524,7 +524,7 @@ The :mod:`bdb` module also defines two classes:
       Return ``True`` if there is a breakpoint for *lineno* in *filename*.
 
    .. method:: get_breaks(filename, lineno)
-               get_breaks(filename: str, lineno: int) -> list[Breakpoint]
+               get_breaks(filename: str, lineno: int) -> list[bdb.Breakpoint]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L83>`__)
 
@@ -578,7 +578,7 @@ The :mod:`bdb` module also defines two classes:
    structure representing a stack trace.
 
    .. method:: get_stack(f, t)
-               get_stack(f: FrameType | None, t: TracebackType | None) -> tuple[list[tuple[FrameType, int]], int]
+               get_stack(f: types.FrameType | None, t: types.TracebackType | None) -> tuple[list[tuple[types.FrameType, int]], int]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L86>`__)
 
@@ -588,7 +588,7 @@ The :mod:`bdb` module also defines two classes:
       of frames below the frame where the debugger was invoked.
 
    .. method:: format_stack_entry(frame_lineno, lprefix=': ')
-               format_stack_entry(frame_lineno: tuple[FrameType, int], lprefix: str = ': ') -> str
+               format_stack_entry(frame_lineno: tuple[types.FrameType, int], lprefix: str = ': ') -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L87>`__)
 
@@ -606,7 +606,7 @@ The :mod:`bdb` module also defines two classes:
    a :term:`statement`, given as a string.
 
    .. method:: run(cmd, globals=None, locals=None)
-               run(cmd: CodeType | str, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+               run(cmd: types.CodeType | str, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L88>`__)
 
@@ -614,7 +614,7 @@ The :mod:`bdb` module also defines two classes:
       defaults to :attr:`!__main__.__dict__`, *locals* defaults to *globals*.
 
    .. method:: runeval(expr, globals=None, locals=None)
-               runeval(expr: str, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+               runeval(expr: str, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L91>`__)
 
@@ -622,14 +622,14 @@ The :mod:`bdb` module also defines two classes:
       *locals* have the same meaning as in :meth:`run`.
 
    .. method:: runctx(cmd, globals, locals)
-               runctx(cmd: CodeType | str, globals: dict[str, typing.Any] | None, locals: collections.abc.Mapping[str, typing.Any] | None) -> None
+               runctx(cmd: types.CodeType | str, globals: dict[str, typing.Any] | None, locals: typing.Mapping[str, typing.Any] | None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L92>`__)
 
       For backwards compatibility.  Calls the :meth:`run` method.
 
    .. method:: runcall(func, /, *args, **kwds)
-               runcall[_P, _T](Bdb, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T | None
+               runcall[_P, _T](bdb.Bdb, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L93>`__)
 
@@ -639,7 +639,7 @@ The :mod:`bdb` module also defines two classes:
 Finally, the module defines the following functions:
 
 .. function:: checkfuncname(b, frame)
-              checkfuncname(b: Breakpoint, frame: FrameType) -> bool
+              checkfuncname(b: bdb.Breakpoint, frame: types.FrameType) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L128>`__)
 
@@ -654,7 +654,7 @@ Finally, the module defines the following functions:
    line.
 
 .. function:: effective(file, line, frame)
-              effective(file: str, line: int, frame: FrameType) -> tuple[Breakpoint, bool] | tuple[None, None]
+              effective(file: str, line: int, frame: types.FrameType) -> tuple[bdb.Breakpoint, bool] | tuple[None, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/bdb.pyi#L129>`__)
 

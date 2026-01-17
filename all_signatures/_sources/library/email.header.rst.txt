@@ -58,7 +58,7 @@ Here is the :class:`Header` class description:
 
 
 .. class:: Header(s=None, charset=None, maxlinelen=None, header_name=None, continuation_ws=' ', errors='strict')
-           Header(s: bytearray | bytes | str | None = None, charset: Charset | str | None = None, maxlinelen: int | None = None, header_name: str | None = None, continuation_ws: str = ' ', errors: str = 'strict') -> None
+           Header(s: bytearray | bytes | str | None = None, charset: email.charset.Charset | str | None = None, maxlinelen: int | None = None, header_name: str | None = None, continuation_ws: str = ' ', errors: str = 'strict') -> email.header.Header
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/header.pyi#L7>`__)
 
@@ -93,7 +93,7 @@ Here is the :class:`Header` class description:
 
 
    .. method:: append(s, charset=None, errors='strict')
-               append(s: bytearray | bytes | str, charset: Charset | str | None = None, errors: str = 'strict') -> None
+               append(s: bytearray | bytes | str, charset: email.charset.Charset | str | None = None, errors: str = 'strict') -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/header.pyi#L17>`__)
 
@@ -189,7 +189,7 @@ The :mod:`email.header` module also provides the following convenient functions.
 
 
 .. function:: decode_header(header)
-              decode_header(header: Header | str) -> list[tuple[typing.Any, typing.Any | None]]
+              decode_header(header: email.header.Header | str) -> list[tuple[typing.Any, typing.Any | None]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/header.pyi#L26>`__)
 
@@ -229,7 +229,7 @@ The :mod:`email.header` module also provides the following convenient functions.
 
 
 .. function:: make_header(decoded_seq, maxlinelen=None, header_name=None, continuation_ws=' ')
-              make_header(decoded_seq: collections.abc.Iterable[tuple[bytearray | bytes | str, str | None]], maxlinelen: int | None = None, header_name: str | None = None, continuation_ws: str = ' ') -> Header
+              make_header(decoded_seq: typing.Iterable[tuple[bytearray | bytes | str, str | None]], maxlinelen: int | None = None, header_name: str | None = None, continuation_ws: str = ' ') -> email.header.Header
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/header.pyi#L27>`__)
 

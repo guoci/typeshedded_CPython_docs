@@ -46,7 +46,7 @@ a new dictionary and running multiple :meth:`~dict.update` calls.
 The class can be used to simulate nested scopes and is useful in templating.
 
 .. class:: ChainMap(*maps)
-           ChainMap(*maps: collections.abc.MutableMapping[_KT, _VT]) -> None
+           ChainMap(*maps: typing.MutableMapping[_KT, _VT]) -> collections.ChainMap
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L448>`__)
 
@@ -79,7 +79,7 @@ The class can be used to simulate nested scopes and is useful in templating.
         always contain at least one mapping.
 
     .. method:: new_child(m=None, **kwargs)
-                new_child[_KT, _VT](m: collections.abc.MutableMapping[_KT, _VT] | None = None) -> ChainMap[_KT, _VT]
+                new_child[_KT, _VT](m: typing.MutableMapping[_KT, _VT] | None = None) -> collections.ChainMap[_KT, _VT]
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L451>`__)
 
@@ -99,7 +99,7 @@ The class can be used to simulate nested scopes and is useful in templating.
            Keyword arguments support was added.
 
     .. attribute:: parents
-       :type: parents[_KT, _VT](self: ChainMap[_KT, _VT]) -> ChainMap[_KT, _VT]
+       :type: parents[_KT, _VT](self: collections.ChainMap[_KT, _VT]) -> collections.ChainMap[_KT, _VT]
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L453>`__)
 
@@ -253,10 +253,10 @@ For example::
      ('you', 554),  ('a', 546), ('my', 514), ('hamlet', 471), ('in', 451)]
 
 .. class:: Counter([iterable-or-mapping])
-           Counter(iterable: None = None, /) -> None
-           Counter(iterable: None = None, /, **kwargs: int) -> None
-           Counter(mapping: SupportsKeysAndGetItem[_T, int], /) -> None
-           Counter(iterable: collections.abc.Iterable[_T], /) -> None
+           Counter(iterable: None = None, /) -> collections.Counter
+           Counter(iterable: None = None, /, **kwargs: int) -> collections.Counter
+           Counter(mapping: _typeshed.SupportsKeysAndGetItem[_T, int], /) -> collections.Counter
+           Counter(iterable: typing.Iterable[_T], /) -> collections.Counter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L274>`__)
 
@@ -299,7 +299,7 @@ For example::
     dictionaries:
 
     .. method:: elements()
-                elements[_T]() -> collections.abc.Iterator[_T]
+                elements[_T]() -> typing.Iterator[_T]
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L284>`__)
 
@@ -326,8 +326,8 @@ For example::
 
     .. method:: subtract([iterable-or-mapping])
                 subtract(iterable: None = None, /) -> None
-                subtract(mapping: collections.abc.Mapping[_T, int], /) -> None
-                subtract(iterable: collections.abc.Iterable[_T], /) -> None
+                subtract(mapping: typing.Mapping[_T, int], /) -> None
+                subtract(iterable: typing.Iterable[_T], /) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L289>`__)
 
@@ -360,15 +360,15 @@ For example::
     except for two which work differently for counters.
 
     .. method:: fromkeys(iterable)
-                fromkeys[_T](cls: type[Counter[_T]], iterable: typing.Any, v: int | None = None) -> NoReturn
+                fromkeys[_T](cls: type[collections.Counter[_T]], iterable: typing.Any, v: int | None = None) -> typing.NoReturn
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L287>`__)
 
         This class method is not implemented for :class:`Counter` objects.
 
     .. method:: update([iterable-or-mapping])
-                update(m: collections.abc.Mapping[_T, int], /, **kwargs: int) -> None
-                update(iterable: collections.abc.Iterable[_T], /, **kwargs: int) -> None
+                update(m: typing.Mapping[_T, int], /, **kwargs: int) -> None
+                update(iterable: typing.Iterable[_T], /, **kwargs: int) -> None
                 update(iterable: None = None, /, **kwargs: int) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L301>`__)
@@ -498,8 +498,8 @@ or subtracting from an empty counter.
 ----------------------
 
 .. class:: deque([iterable, [maxlen]])
-           deque(*, maxlen: int | None = None) -> None
-           deque(iterable: collections.abc.Iterable[_T], maxlen: int | None = None) -> None
+           deque(*, maxlen: int | None = None) -> collections.deque
+           deque(iterable: typing.Iterable[_T], maxlen: int | None = None) -> collections.deque
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L235>`__)
 
@@ -553,7 +553,7 @@ or subtracting from an empty counter.
 
 
     .. method:: copy()
-                copy[_T]() -> deque[_T]
+                copy[_T]() -> collections.deque[_T]
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L244>`__)
 
@@ -573,7 +573,7 @@ or subtracting from an empty counter.
 
 
     .. method:: extend(iterable)
-                extend[_T](iterable: collections.abc.Iterable[_T], /) -> None
+                extend[_T](iterable: typing.Iterable[_T], /) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L246>`__)
 
@@ -582,7 +582,7 @@ or subtracting from an empty counter.
 
 
     .. method:: extendleft(iterable)
-                extendleft[_T](iterable: collections.abc.Iterable[_T], /) -> None
+                extendleft[_T](iterable: typing.Iterable[_T], /) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L247>`__)
 
@@ -669,7 +669,7 @@ or subtracting from an empty counter.
     Deque objects also provide one read-only attribute:
 
     .. attribute:: maxlen
-       :type: maxlen[_T](self: deque[_T]) -> int | None
+       :type: maxlen[_T](self: collections.deque[_T]) -> int | None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L237>`__)
 
@@ -812,14 +812,14 @@ stack manipulations such as ``dup``, ``drop``, ``swap``, ``over``, ``pick``,
 ----------------------------
 
 .. class:: defaultdict(default_factory=None, /, [...])
-           defaultdict() -> None
-           defaultdict(**kwargs: _VT) -> None
-           defaultdict(default_factory: (() -> _VT) | None, /) -> None
-           defaultdict(default_factory: (() -> _VT) | None, /, **kwargs: _VT) -> None
-           defaultdict(default_factory: (() -> _VT) | None, map: SupportsKeysAndGetItem[_KT, _VT], /) -> None
-           defaultdict(default_factory: (() -> _VT) | None, map: SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> None
-           defaultdict(default_factory: (() -> _VT) | None, iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> None
-           defaultdict(default_factory: (() -> _VT) | None, iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
+           defaultdict() -> collections.defaultdict
+           defaultdict(**kwargs: _VT) -> collections.defaultdict
+           defaultdict(default_factory: (() -> _VT) | None, /) -> collections.defaultdict
+           defaultdict(default_factory: (() -> _VT) | None, /, **kwargs: _VT) -> collections.defaultdict
+           defaultdict(default_factory: (() -> _VT) | None, map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> collections.defaultdict
+           defaultdict(default_factory: (() -> _VT) | None, map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> collections.defaultdict
+           defaultdict(default_factory: (() -> _VT) | None, iterable: typing.Iterable[tuple[_KT, _VT]], /) -> collections.defaultdict
+           defaultdict(default_factory: (() -> _VT) | None, iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> collections.defaultdict
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L401>`__)
 
@@ -957,7 +957,7 @@ self-documenting code.  They can be used wherever regular tuples are used, and
 they add the ability to access fields by name instead of position index.
 
 .. function:: namedtuple(typename, field_names, *, rename=False, defaults=None, module=None)
-              namedtuple(typename: str, field_names: collections.abc.Iterable[str] | str, *, rename: bool = False, module: str | None = None, defaults: collections.abc.Iterable[typing.Any] | None = None) -> type[tuple[typing.Any, ...]]
+              namedtuple(typename: str, field_names: typing.Iterable[str] | str, *, rename: bool = False, module: str | None = None, defaults: typing.Iterable[typing.Any] | None = None) -> type[tuple[typing.Any, ...]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L36>`__)
 
@@ -1053,7 +1053,7 @@ three additional methods and two attributes.  To prevent conflicts with
 field names, the method and attribute names start with an underscore.
 
 .. classmethod:: somenamedtuple._make(iterable)
-                 somenamedtuple._make(cls: type[somenamedtuple], iterable: collections.abc.Iterable[typing.Any]) -> somenamedtuple
+                 somenamedtuple._make(cls: type[example.somenamedtuple], iterable: typing.Iterable[typing.Any]) -> example.somenamedtuple
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_typeshed/_type_checker_internals.pyi#L71>`__)
 
@@ -1090,7 +1090,7 @@ field names, the method and attribute names start with an underscore.
         ``OrderedDict(nt._asdict())``.
 
 .. method:: somenamedtuple._replace(**kwargs)
-            somenamedtuple._replace(**kwargs: typing.Any) -> somenamedtuple
+            somenamedtuple._replace(**kwargs: typing.Any) -> example.somenamedtuple
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_typeshed/_type_checker_internals.pyi#L73>`__)
 
@@ -1265,14 +1265,14 @@ Some differences from :class:`dict` still remain:
 
 
 .. class:: OrderedDict([items])
-           OrderedDict(/) -> None
-           OrderedDict(/, **kwargs: _VT) -> None
-           OrderedDict(map: SupportsKeysAndGetItem[_KT, _VT], /) -> None
-           OrderedDict(map: SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> None
-           OrderedDict(iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> None
-           OrderedDict(iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
-           OrderedDict(iterable: collections.abc.Iterable[list[str]], /) -> None
-           OrderedDict(iterable: collections.abc.Iterable[list[bytes]], /) -> None
+           OrderedDict(/) -> collections.OrderedDict
+           OrderedDict(/, **kwargs: _VT) -> collections.OrderedDict
+           OrderedDict(map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> collections.OrderedDict
+           OrderedDict(map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> collections.OrderedDict
+           OrderedDict(iterable: typing.Iterable[tuple[_KT, _VT]], /) -> collections.OrderedDict
+           OrderedDict(iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> collections.OrderedDict
+           OrderedDict(iterable: typing.Iterable[list[str]], /) -> collections.OrderedDict
+           OrderedDict(iterable: typing.Iterable[list[bytes]], /) -> collections.OrderedDict
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L361>`__)
 
@@ -1462,14 +1462,14 @@ to work with because the underlying dictionary is accessible as an
 attribute.
 
 .. class:: UserDict([initialdata])
-           UserDict(dict: None = None, /) -> None
-           UserDict(dict: None = None, /, **kwargs: _VT) -> None
-           UserDict(dict: SupportsKeysAndGetItem[_KT, _VT], /) -> None
-           UserDict(dict: SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> None
-           UserDict(iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> None
-           UserDict(iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
-           UserDict(iterable: collections.abc.Iterable[list[str]], /) -> None
-           UserDict(iterable: collections.abc.Iterable[list[bytes]], /) -> None
+           UserDict(dict: None = None, /) -> collections.UserDict
+           UserDict(dict: None = None, /, **kwargs: _VT) -> collections.UserDict
+           UserDict(dict: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> collections.UserDict
+           UserDict(dict: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> collections.UserDict
+           UserDict(iterable: typing.Iterable[tuple[_KT, _VT]], /) -> collections.UserDict
+           UserDict(iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> collections.UserDict
+           UserDict(iterable: typing.Iterable[list[str]], /) -> collections.UserDict
+           UserDict(iterable: typing.Iterable[list[bytes]], /) -> collections.UserDict
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L45>`__)
 
@@ -1505,8 +1505,8 @@ subclass directly from :class:`list`; however, this class can be easier
 to work with because the underlying list is accessible as an attribute.
 
 .. class:: UserList([list])
-           UserList(initlist: None = None) -> None
-           UserList(initlist: collections.abc.Iterable[_T]) -> None
+           UserList(initlist: None = None) -> collections.UserList
+           UserList(initlist: typing.Iterable[_T]) -> collections.UserList
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L115>`__)
 
@@ -1549,7 +1549,7 @@ to work with because the underlying string is accessible as an
 attribute.
 
 .. class:: UserString(seq)
-           UserString(seq: object) -> None
+           UserString(seq: object) -> collections.UserString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/collections/__init__.pyi#L162>`__)
 

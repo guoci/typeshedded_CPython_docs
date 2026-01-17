@@ -503,8 +503,8 @@ Functions
 ^^^^^^^^^
 
 .. function:: canonicalize(xml_data=None, *, out=None, from_file=None, **options)
-              canonicalize(xml_data: Buffer | str | None = None, *, out: None = None, from_file: PathLike[bytes] | PathLike[str] | SupportsRead[bytes] | SupportsRead[str] | bytes | int | str | None = None, with_comments: bool = False, strip_text: bool = False, rewrite_prefixes: bool = False, qname_aware_tags: collections.abc.Iterable[str] | None = None, qname_aware_attrs: collections.abc.Iterable[str] | None = None, exclude_attrs: collections.abc.Iterable[str] | None = None, exclude_tags: collections.abc.Iterable[str] | None = None) -> str
-              canonicalize(xml_data: Buffer | str | None = None, *, out: SupportsWrite[str], from_file: PathLike[bytes] | PathLike[str] | SupportsRead[bytes] | SupportsRead[str] | bytes | int | str | None = None, with_comments: bool = False, strip_text: bool = False, rewrite_prefixes: bool = False, qname_aware_tags: collections.abc.Iterable[str] | None = None, qname_aware_attrs: collections.abc.Iterable[str] | None = None, exclude_attrs: collections.abc.Iterable[str] | None = None, exclude_tags: collections.abc.Iterable[str] | None = None) -> None
+              canonicalize(xml_data: _collections_abc.Buffer | str | None = None, *, out: None = None, from_file: os.PathLike[bytes] | os.PathLike[str] | _typeshed.SupportsRead[bytes] | _typeshed.SupportsRead[str] | bytes | int | str | None = None, with_comments: bool = False, strip_text: bool = False, rewrite_prefixes: bool = False, qname_aware_tags: typing.Iterable[str] | None = None, qname_aware_attrs: typing.Iterable[str] | None = None, exclude_attrs: typing.Iterable[str] | None = None, exclude_tags: typing.Iterable[str] | None = None) -> str
+              canonicalize(xml_data: _collections_abc.Buffer | str | None = None, *, out: _typeshed.SupportsWrite[str], from_file: os.PathLike[bytes] | os.PathLike[str] | _typeshed.SupportsRead[bytes] | _typeshed.SupportsRead[str] | bytes | int | str | None = None, with_comments: bool = False, strip_text: bool = False, rewrite_prefixes: bool = False, qname_aware_tags: typing.Iterable[str] | None = None, qname_aware_attrs: typing.Iterable[str] | None = None, exclude_attrs: typing.Iterable[str] | None = None, exclude_tags: typing.Iterable[str] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L52>`__)
 
@@ -555,7 +555,7 @@ Functions
 
 
 .. function:: Comment(text=None)
-              Comment(text: str | None = None) -> Element[Unknown]
+              Comment(text: str | None = None) -> xml.etree.ElementTree.Element[Unknown]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L140>`__)
 
@@ -571,7 +571,7 @@ Functions
    the tree using one of the :class:`Element` methods.
 
 .. function:: dump(elem)
-              dump(elem: Element[typing.Any] | ElementTree[typing.Any]) -> None
+              dump(elem: xml.etree.ElementTree.Element[typing.Any] | xml.etree.ElementTree.ElementTree[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L248>`__)
 
@@ -589,7 +589,7 @@ Functions
 
 
 .. function:: fromstring(text, parser=None)
-              fromstring(text: Buffer | str, parser: XMLParser[Element[str]] | None = None) -> Element[str]
+              fromstring(text: _collections_abc.Buffer | str, parser: xml.etree.ElementTree.XMLParser[xml.etree.ElementTree.Element[str]] | None = None) -> xml.etree.ElementTree.Element[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L280>`__)
 
@@ -600,7 +600,7 @@ Functions
 
 
 .. function:: fromstringlist(sequence, parser=None)
-              fromstringlist(sequence: collections.abc.Sequence[Buffer | str], parser: XMLParser[Element[str]] | None = None) -> Element[str]
+              fromstringlist(sequence: typing.Sequence[_collections_abc.Buffer | str], parser: xml.etree.ElementTree.XMLParser[xml.etree.ElementTree.Element[str]] | None = None) -> xml.etree.ElementTree.Element[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L282>`__)
 
@@ -613,7 +613,7 @@ Functions
 
 
 .. function:: indent(tree, space="  ", level=0)
-              indent(tree: Element[typing.Any] | ElementTree[typing.Any], space: str = '  ', level: int = 0) -> None
+              indent(tree: xml.etree.ElementTree.Element[typing.Any] | xml.etree.ElementTree.ElementTree[typing.Any], space: str = '  ', level: int = 0) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L249>`__)
 
@@ -628,7 +628,7 @@ Functions
 
 
 .. function:: iselement(element)
-              iselement(element: object) -> TypeGuard[Element[str]]
+              iselement(element: object) -> typing.TypeGuard[xml.etree.ElementTree.Element[str]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L50>`__)
 
@@ -637,8 +637,8 @@ Functions
 
 
 .. function:: iterparse(source, events=None, parser=None)
-              iterparse(source: _FileRead, events: collections.abc.Sequence[str] | None = None) -> _IterParseIterator
-              iterparse(source: _FileRead, events: collections.abc.Sequence[str] | None = None, parser: XMLParser[Element[str]] | None = None) -> _IterParseIterator
+              iterparse(source: _FileRead, events: typing.Sequence[str] | None = None) -> xml.etree.ElementTree._IterParseIterator
+              iterparse(source: _FileRead, events: typing.Sequence[str] | None = None, parser: xml.etree.ElementTree.XMLParser[xml.etree.ElementTree.Element[str]] | None = None) -> xml.etree.ElementTree._IterParseIterator
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L262>`__)
 
@@ -688,7 +688,7 @@ Functions
 
 
 .. function:: parse(source, parser=None)
-              parse(source: _FileRead, parser: XMLParser[typing.Any] | None = None) -> ElementTree[Element[str]]
+              parse(source: _FileRead, parser: xml.etree.ElementTree.XMLParser[typing.Any] | None = None) -> xml.etree.ElementTree.ElementTree[xml.etree.ElementTree.Element[str]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L250>`__)
 
@@ -699,7 +699,7 @@ Functions
 
 
 .. function:: ProcessingInstruction(target, text=None)
-              ProcessingInstruction(target: str, text: str | None = None) -> Element[Unknown]
+              ProcessingInstruction(target: str, text: str | None = None) -> xml.etree.ElementTree.Element[Unknown]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L141>`__)
 
@@ -729,7 +729,7 @@ Functions
 
 
 .. function:: SubElement(parent, tag, attrib={}, **extra)
-              SubElement(parent: Element[typing.Any], tag: str, attrib: dict[str, str] = ..., **extra: str) -> Element[str]
+              SubElement(parent: xml.etree.ElementTree.Element[typing.Any], tag: str, attrib: dict[str, str] = ..., **extra: str) -> xml.etree.ElementTree.Element[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L139>`__)
 
@@ -746,9 +746,9 @@ Functions
 .. function:: tostring(element, encoding="us-ascii", method="xml", *, \
                        xml_declaration=None, default_namespace=None, \
                        short_empty_elements=True)
-              tostring(element: Element[typing.Any], encoding: None = None, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> bytes
-              tostring(element: Element[typing.Any], encoding: typing.Literal['unicode'], method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> str
-              tostring(element: Element[typing.Any], encoding: str, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> typing.Any
+              tostring(element: xml.etree.ElementTree.Element[typing.Any], encoding: None = None, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> bytes
+              tostring(element: xml.etree.ElementTree.Element[typing.Any], encoding: typing.Literal['unicode'], method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> str
+              tostring(element: xml.etree.ElementTree.Element[typing.Any], encoding: str, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L189>`__)
 
@@ -775,9 +775,9 @@ Functions
 .. function:: tostringlist(element, encoding="us-ascii", method="xml", *, \
                            xml_declaration=None, default_namespace=None, \
                            short_empty_elements=True)
-              tostringlist(element: Element[typing.Any], encoding: None = None, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> list[bytes]
-              tostringlist(element: Element[typing.Any], encoding: typing.Literal['unicode'], method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> list[str]
-              tostringlist(element: Element[typing.Any], encoding: str, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> list[typing.Any]
+              tostringlist(element: xml.etree.ElementTree.Element[typing.Any], encoding: None = None, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> list[bytes]
+              tostringlist(element: xml.etree.ElementTree.Element[typing.Any], encoding: typing.Literal['unicode'], method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> list[str]
+              tostringlist(element: xml.etree.ElementTree.Element[typing.Any], encoding: str, method: typing.Literal['c14n', 'html', 'text', 'xml'] | None = None, *, xml_declaration: bool | None = None, default_namespace: str | None = None, short_empty_elements: bool = True) -> list[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L219>`__)
 
@@ -805,7 +805,7 @@ Functions
 
 
 .. function:: XML(text, parser=None)
-              XML(text: Buffer | str, parser: XMLParser[Element[str]] | None = None) -> Element[str]
+              XML(text: _collections_abc.Buffer | str, parser: xml.etree.ElementTree.XMLParser[xml.etree.ElementTree.Element[str]] | None = None) -> xml.etree.ElementTree.Element[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L276>`__)
 
@@ -816,7 +816,7 @@ Functions
 
 
 .. function:: XMLID(text, parser=None)
-              XMLID(text: Buffer | str, parser: XMLParser[Element[str]] | None = None) -> tuple[Element[str], dict[str, Element[str]]]
+              XMLID(text: _collections_abc.Buffer | str, parser: xml.etree.ElementTree.XMLParser[xml.etree.ElementTree.Element[str]] | None = None) -> tuple[xml.etree.ElementTree.Element[str], dict[str, xml.etree.ElementTree.Element[str]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L277>`__)
 
@@ -898,7 +898,7 @@ Functions
 .. module:: xml.etree.ElementInclude
 
 .. function:: default_loader(href, parse, encoding=None)
-              default_loader(href: FileDescriptorOrPath, parse: typing.Literal['xml'], encoding: str | None = None) -> Element[str]
+              default_loader(href: FileDescriptorOrPath, parse: typing.Literal['xml'], encoding: str | None = None) -> xml.etree.ElementTree.Element[str]
               default_loader(href: FileDescriptorOrPath, parse: typing.Literal['text'], encoding: str | None = None) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementInclude.pyi#L22>`__)
@@ -913,7 +913,7 @@ Functions
 
 
 .. function:: include(elem, loader=None, base_url=None, max_depth=6)
-              include(elem: Element[str], loader: _Loader | None = None, base_url: str | None = None, max_depth: int | None = 6) -> None
+              include(elem: xml.etree.ElementTree.Element[str], loader: xml.etree.ElementInclude._Loader | None = None, base_url: str | None = None, max_depth: int | None = 6) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementInclude.pyi#L25>`__)
 
@@ -941,7 +941,7 @@ Element Objects
    :no-index:
 
 .. class:: Element(tag, attrib={}, **extra)
-           Element(tag: _Tag, attrib: dict[str, str] = ..., **extra: str) -> None
+           Element(tag: _Tag, attrib: dict[str, str] = ..., **extra: str) -> xml.etree.ElementTree.Element
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L88>`__)
 
@@ -1026,7 +1026,7 @@ Element Objects
 
 
    .. method:: items()
-               items[_Tag]() -> collections.abc.ItemsView[str, str]
+               items[_Tag]() -> typing.ItemsView[str, str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L108>`__)
 
@@ -1035,7 +1035,7 @@ Element Objects
 
 
    .. method:: keys()
-               keys[_Tag]() -> dict_keys[str, str]
+               keys[_Tag]() -> _collections_abc.dict_keys[str, str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L115>`__)
 
@@ -1054,7 +1054,7 @@ Element Objects
 
 
    .. method:: append(subelement)
-               append[_Tag](subelement: Element[typing.Any], /) -> None
+               append[_Tag](subelement: xml.etree.ElementTree.Element[typing.Any], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L94>`__)
 
@@ -1064,7 +1064,7 @@ Element Objects
 
 
    .. method:: extend(subelements)
-               extend[_Tag](elements: collections.abc.Iterable[Element[typing.Any]], /) -> None
+               extend[_Tag](elements: typing.Iterable[xml.etree.ElementTree.Element[typing.Any]], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L96>`__)
 
@@ -1075,7 +1075,7 @@ Element Objects
 
 
    .. method:: find(match, namespaces=None)
-               find[_Tag](path: str, namespaces: dict[str, str] | None = None) -> Element[str] | None
+               find[_Tag](path: str, namespaces: dict[str, str] | None = None) -> xml.etree.ElementTree.Element[str] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L97>`__)
 
@@ -1087,7 +1087,7 @@ Element Objects
 
 
    .. method:: findall(match, namespaces=None)
-               findall[_Tag](path: str, namespaces: dict[str, str] | None = None) -> list[Element[str]]
+               findall[_Tag](path: str, namespaces: dict[str, str] | None = None) -> list[xml.etree.ElementTree.Element[str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L98>`__)
 
@@ -1114,7 +1114,7 @@ Element Objects
 
 
    .. method:: insert(index, subelement)
-               insert[_Tag](index: int, subelement: Element[typing.Any], /) -> None
+               insert[_Tag](index: int, subelement: xml.etree.ElementTree.Element[typing.Any], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L107>`__)
 
@@ -1123,7 +1123,7 @@ Element Objects
 
 
    .. method:: iter(tag=None)
-               iter[_Tag](tag: str | None = None) -> collections.abc.Generator[Element[str], None, None]
+               iter[_Tag](tag: str | None = None) -> typing.Generator[xml.etree.ElementTree.Element[str], None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L109>`__)
 
@@ -1138,7 +1138,7 @@ Element Objects
 
    .. method:: iterfind(match, namespaces=None)
                iterfind(path: typing.Literal[''], namespaces: dict[str, str] | None = None) -> None
-               iterfind(path: str, namespaces: dict[str, str] | None = None) -> collections.abc.Generator[Element[str], None, None]
+               iterfind(path: str, namespaces: dict[str, str] | None = None) -> typing.Generator[xml.etree.ElementTree.Element[str], None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L111>`__)
 
@@ -1152,7 +1152,7 @@ Element Objects
 
 
    .. method:: itertext()
-               itertext[_Tag]() -> collections.abc.Generator[str, None, None]
+               itertext[_Tag]() -> typing.Generator[str, None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L114>`__)
 
@@ -1163,7 +1163,7 @@ Element Objects
 
 
    .. method:: makeelement(tag, attrib)
-               makeelement[_Tag, _OtherTag](tag: _OtherTag, attrib: dict[str, str], /) -> Element[_OtherTag]
+               makeelement[_Tag, _OtherTag](tag: _OtherTag, attrib: dict[str, str], /) -> xml.etree.ElementTree.Element[_OtherTag]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L117>`__)
 
@@ -1172,7 +1172,7 @@ Element Objects
 
 
    .. method:: remove(subelement)
-               remove[_Tag](subelement: Element[typing.Any], /) -> None
+               remove[_Tag](subelement: xml.etree.ElementTree.Element[typing.Any], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L118>`__)
 
@@ -1239,7 +1239,7 @@ ElementTree Objects
 
 
 .. class:: ElementTree(element=None, file=None)
-           ElementTree(element: Element[typing.Any] | None = None, file: PathLike[bytes] | PathLike[str] | SupportsRead[bytes] | SupportsRead[str] | bytes | int | str | None = None) -> None
+           ElementTree(element: xml.etree.ElementTree.Element[typing.Any] | None = None, file: os.PathLike[bytes] | os.PathLike[str] | _typeshed.SupportsRead[bytes] | _typeshed.SupportsRead[str] | bytes | int | str | None = None) -> xml.etree.ElementTree.ElementTree
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L157>`__)
 
@@ -1252,7 +1252,7 @@ ElementTree Objects
 
 
    .. method:: _setroot(element)
-               _setroot[_Root](element: Element[typing.Any]) -> None
+               _setroot[_Root](element: xml.etree.ElementTree.Element[typing.Any]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L160>`__)
 
@@ -1262,7 +1262,7 @@ ElementTree Objects
 
 
    .. method:: find(match, namespaces=None)
-               find[_Root](path: str, namespaces: dict[str, str] | None = None) -> Element[str] | None
+               find[_Root](path: str, namespaces: dict[str, str] | None = None) -> xml.etree.ElementTree.Element[str] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L163>`__)
 
@@ -1270,7 +1270,7 @@ ElementTree Objects
 
 
    .. method:: findall(match, namespaces=None)
-               findall[_Root](path: str, namespaces: dict[str, str] | None = None) -> list[Element[str]]
+               findall[_Root](path: str, namespaces: dict[str, str] | None = None) -> list[xml.etree.ElementTree.Element[str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L168>`__)
 
@@ -1295,7 +1295,7 @@ ElementTree Objects
 
 
    .. method:: iter(tag=None)
-               iter[_Root](tag: str | None = None) -> collections.abc.Generator[Element[str], None, None]
+               iter[_Root](tag: str | None = None) -> typing.Generator[xml.etree.ElementTree.Element[str], None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L162>`__)
 
@@ -1306,7 +1306,7 @@ ElementTree Objects
 
    .. method:: iterfind(match, namespaces=None)
                iterfind(path: typing.Literal[''], namespaces: dict[str, str] | None = None) -> None
-               iterfind(path: str, namespaces: dict[str, str] | None = None) -> collections.abc.Generator[Element[str], None, None]
+               iterfind(path: str, namespaces: dict[str, str] | None = None) -> typing.Generator[xml.etree.ElementTree.Element[str], None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L170>`__)
 
@@ -1316,7 +1316,7 @@ ElementTree Objects
 
 
    .. method:: parse(source, parser=None)
-               parse[_Root](source: _FileRead, parser: XMLParser[Element[str]] | None = None) -> Element[str]
+               parse[_Root](source: _FileRead, parser: xml.etree.ElementTree.XMLParser[xml.etree.ElementTree.Element[str]] | None = None) -> xml.etree.ElementTree.Element[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L161>`__)
 
@@ -1398,7 +1398,7 @@ QName Objects
 
 
 .. class:: QName(text_or_uri, tag=None)
-           QName(text_or_uri: str, tag: str | None = None) -> None
+           QName(text_or_uri: str, tag: str | None = None) -> xml.etree.ElementTree.QName
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L145>`__)
 
@@ -1419,7 +1419,7 @@ TreeBuilder Objects
 
 .. class:: TreeBuilder(element_factory=None, *, comment_factory=None, \
                        pi_factory=None, insert_comments=False, insert_pis=False)
-           TreeBuilder(element_factory: ((typing.Any, dict[typing.Any, typing.Any]) -> Element[str]) | None = None, *, comment_factory: ((str | None) -> Element[typing.Any]) | None = None, pi_factory: ((str, str | None) -> Element[typing.Any]) | None = None, insert_comments: bool = False, insert_pis: bool = False) -> None
+           TreeBuilder(element_factory: ((typing.Any, dict[typing.Any, typing.Any]) -> xml.etree.ElementTree.Element[str]) | None = None, *, comment_factory: ((str | None) -> xml.etree.ElementTree.Element[typing.Any]) | None = None, pi_factory: ((str, str | None) -> xml.etree.ElementTree.Element[typing.Any]) | None = None, insert_comments: bool = False, insert_pis: bool = False) -> xml.etree.ElementTree.TreeBuilder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L296>`__)
 
@@ -1440,7 +1440,7 @@ TreeBuilder Objects
    element (but not outside of it).
 
    .. method:: close()
-               close() -> Element[str]
+               close() -> xml.etree.ElementTree.Element[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L310>`__)
 
@@ -1458,7 +1458,7 @@ TreeBuilder Objects
 
 
    .. method:: end(tag)
-               end(tag: str, /) -> Element[str]
+               end(tag: str, /) -> xml.etree.ElementTree.Element[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L315>`__)
 
@@ -1467,7 +1467,7 @@ TreeBuilder Objects
 
 
    .. method:: start(tag, attrs)
-               start(tag: typing.Any, attrs: dict[typing.Any, typing.Any], /) -> Element[str]
+               start(tag: typing.Any, attrs: dict[typing.Any, typing.Any], /) -> xml.etree.ElementTree.Element[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L314>`__)
 
@@ -1476,7 +1476,7 @@ TreeBuilder Objects
 
 
    .. method:: comment(text)
-               comment(text: str | None, /) -> Element[typing.Any]
+               comment(text: str | None, /) -> xml.etree.ElementTree.Element[typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L317>`__)
 
@@ -1487,7 +1487,7 @@ TreeBuilder Objects
 
 
    .. method:: pi(target, text)
-               pi(target: str, text: str | None = None, /) -> Element[typing.Any]
+               pi(target: str, text: str | None = None, /) -> xml.etree.ElementTree.Element[typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L318>`__)
 
@@ -1530,7 +1530,7 @@ TreeBuilder Objects
              with_comments=False, strip_text=False, rewrite_prefixes=False, \
              qname_aware_tags=None, qname_aware_attrs=None, \
              exclude_attrs=None, exclude_tags=None)
-           C14NWriterTarget(write: (str) -> object, *, with_comments: bool = False, strip_text: bool = False, rewrite_prefixes: bool = False, qname_aware_tags: collections.abc.Iterable[str] | None = None, qname_aware_attrs: collections.abc.Iterable[str] | None = None, exclude_attrs: collections.abc.Iterable[str] | None = None, exclude_tags: collections.abc.Iterable[str] | None = None) -> None
+           C14NWriterTarget(write: (str) -> object, *, with_comments: bool = False, strip_text: bool = False, rewrite_prefixes: bool = False, qname_aware_tags: typing.Iterable[str] | None = None, qname_aware_attrs: typing.Iterable[str] | None = None, exclude_attrs: typing.Iterable[str] | None = None, exclude_tags: typing.Iterable[str] | None = None) -> xml.etree.ElementTree.C14NWriterTarget
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L320>`__)
 
@@ -1549,7 +1549,7 @@ XMLParser Objects
 
 
 .. class:: XMLParser(*, target=None, encoding=None)
-           XMLParser(*, target: _Target | None = None, encoding: str | None = None) -> None
+           XMLParser(*, target: xml.etree.ElementTree._Target | None = None, encoding: str | None = None) -> xml.etree.ElementTree.XMLParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L362>`__)
 
@@ -1577,7 +1577,7 @@ XMLParser Objects
 
 
    .. method:: feed(data)
-               feed[_E](data: Buffer | str, /) -> None
+               feed[_E](data: _collections_abc.Buffer | str, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L370>`__)
 
@@ -1651,7 +1651,7 @@ XMLPullParser Objects
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. class:: XMLPullParser(events=None)
-           XMLPullParser(events: collections.abc.Sequence[str] | None = None, *, _parser: XMLParser[_E] | None = None) -> None
+           XMLPullParser(events: typing.Sequence[str] | None = None, *, _parser: xml.etree.ElementTree.XMLParser[_E] | None = None) -> xml.etree.ElementTree.XMLPullParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L269>`__)
 
@@ -1665,7 +1665,7 @@ XMLPullParser Objects
    only ``"end"`` events are reported.
 
    .. method:: feed(data)
-               feed[_E](data: Buffer | str) -> None
+               feed[_E](data: _collections_abc.Buffer | str) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L271>`__)
 
@@ -1701,7 +1701,7 @@ XMLPullParser Objects
       read with :meth:`read_events`.
 
    .. method:: read_events()
-               read_events[_E]() -> collections.abc.Iterator[tuple[str] | tuple[str, tuple[str, str]] | tuple[str, _E] | tuple[str, None]]
+               read_events[_E]() -> typing.Iterator[tuple[str] | tuple[str, tuple[str, str]] | tuple[str, _E] | tuple[str, None]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L273>`__)
 
@@ -1743,10 +1743,10 @@ Exceptions
 ^^^^^^^^^^
 
 .. class:: ParseError
-           ParseError() -> None
-           ParseError(msg: object, /) -> None
-           ParseError(msg: str, info: tuple[str | None, int | None, int | None, str | None], /) -> None
-           ParseError(msg: str, info: tuple[str | None, int | None, int | None, str | None, int | None, int | None], /) -> None
+           ParseError() -> xml.etree.ElementTree.ParseError
+           ParseError(msg: object, /) -> xml.etree.ElementTree.ParseError
+           ParseError(msg: str, info: tuple[str | None, int | None, int | None, str | None], /) -> xml.etree.ElementTree.ParseError
+           ParseError(msg: str, info: tuple[str | None, int | None, int | None, str | None, int | None, int | None], /) -> xml.etree.ElementTree.ParseError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/etree/ElementTree.pyi#L45>`__)
 

@@ -36,7 +36,7 @@ The convenience functions are:
 
 
 .. function:: make_parser(parser_list=[])
-              make_parser(parser_list: collections.abc.Iterable[str] = ...) -> XMLReader
+              make_parser(parser_list: typing.Iterable[str] = ...) -> xml.sax.xmlreader.XMLReader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/__init__.pyi#L24>`__)
 
@@ -51,7 +51,7 @@ The convenience functions are:
 
 
 .. function:: parse(filename_or_stream, handler, error_handler=handler.ErrorHandler())
-              parse(source: _Source, handler: ContentHandler, errorHandler: ErrorHandler = ...) -> None
+              parse(source: _Source, handler: xml.sax.handler.ContentHandler, errorHandler: xml.sax.handler.ErrorHandler = ...) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/__init__.pyi#L25>`__)
 
@@ -65,7 +65,7 @@ The convenience functions are:
 
 
 .. function:: parseString(string, handler, error_handler=handler.ErrorHandler())
-              parseString(string: Buffer | str, handler: ContentHandler, errorHandler: ErrorHandler | None = ...) -> None
+              parseString(string: _collections_abc.Buffer | str, handler: xml.sax.handler.ContentHandler, errorHandler: xml.sax.handler.ErrorHandler | None = ...) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/__init__.pyi#L26>`__)
 
@@ -105,7 +105,7 @@ classes.
 
 
 .. exception:: SAXException(msg, exception=None)
-               SAXException(msg: str, exception: Exception | None = None) -> None
+               SAXException(msg: str, exception: Exception | None = None) -> xml.sax._exceptions.SAXException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/_exceptions.pyi#L4>`__)
 
@@ -125,7 +125,7 @@ classes.
 
 
 .. exception:: SAXParseException(msg, exception, locator)
-               SAXParseException(msg: str, exception: Exception | None, locator: Locator) -> None
+               SAXParseException(msg: str, exception: Exception | None, locator: xml.sax.xmlreader.Locator) -> xml.sax._exceptions.SAXParseException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/_exceptions.pyi#L10>`__)
 
@@ -138,7 +138,7 @@ classes.
 
 
 .. exception:: SAXNotRecognizedException(msg, exception=None)
-               SAXNotRecognizedException(msg: str, exception: Exception | None = None) -> None
+               SAXNotRecognizedException(msg: str, exception: Exception | None = None) -> xml.sax._exceptions.SAXNotRecognizedException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/_exceptions.pyi#L17>`__)
 
@@ -149,7 +149,7 @@ classes.
 
 
 .. exception:: SAXNotSupportedException(msg, exception=None)
-               SAXNotSupportedException(msg: str, exception: Exception | None = None) -> None
+               SAXNotSupportedException(msg: str, exception: Exception | None = None) -> xml.sax._exceptions.SAXNotSupportedException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xml/sax/_exceptions.pyi#L18>`__)
 

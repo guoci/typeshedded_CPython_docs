@@ -18,8 +18,8 @@ cannot be used with HMAC.
 
 
 .. function:: new(key, msg=None, digestmod)
-              new(key: bytearray | bytes, msg: Buffer | None, digestmod: _DigestMod) -> HMAC
-              new(key: bytearray | bytes, *, digestmod: _DigestMod) -> HMAC
+              new(key: bytearray | bytes, msg: _collections_abc.Buffer | None, digestmod: _DigestMod) -> hmac.HMAC
+              new(key: bytearray | bytes, *, digestmod: _DigestMod) -> hmac.HMAC
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/hmac.pyi#L18>`__)
 
@@ -40,7 +40,7 @@ cannot be used with HMAC.
 
 
 .. function:: digest(key, msg, digest)
-              digest(key: SizedBuffer, msg: Buffer, digest: _DigestMod) -> bytes
+              digest(key: _typeshed.SizedBuffer, msg: _collections_abc.Buffer, digest: _DigestMod) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/hmac.pyi#L34>`__)
 
@@ -58,14 +58,14 @@ cannot be used with HMAC.
 
 
 .. class:: HMAC
-           HMAC(key: bytearray | bytes, msg: Buffer | None = None, digestmod: _DigestMod = '') -> None
+           HMAC(key: bytearray | bytes, msg: _collections_abc.Buffer | None = None, digestmod: _DigestMod = '') -> hmac.HMAC
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/hmac.pyi#L22>`__)
 
    An HMAC object has the following methods:
 
 .. method:: HMAC.update(msg)
-            HMAC.update(msg: Buffer) -> None
+            HMAC.update(msg: _collections_abc.Buffer) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/hmac.pyi#L29>`__)
 
@@ -113,7 +113,7 @@ cannot be used with HMAC.
 
 
 .. method:: HMAC.copy()
-            HMAC.copy() -> HMAC
+            HMAC.copy() -> hmac.HMAC
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/hmac.pyi#L32>`__)
 
@@ -140,7 +140,7 @@ A hash object has the following attributes:
    .. versionadded:: 3.4
 
 .. attribute:: HMAC.name
-   :type: name(self: HMAC) -> str
+   :type: name(self: hmac.HMAC) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/hmac.pyi#L27>`__)
 
@@ -156,7 +156,7 @@ A hash object has the following attributes:
 This module also provides the following helper function:
 
 .. function:: compare_digest(a, b)
-              compare_digest(a: Buffer, b: Buffer, /) -> bool
+              compare_digest(a: _collections_abc.Buffer, b: _collections_abc.Buffer, /) -> bool
               compare_digest(a: AnyStr, b: AnyStr, /) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_hashlib.pyi#L59>`__)

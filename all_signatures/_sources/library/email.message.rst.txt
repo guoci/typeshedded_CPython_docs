@@ -51,7 +51,7 @@ message objects.
 
 
 .. class:: EmailMessage(policy=default)
-           EmailMessage(policy: Policy[typing.Any] | None = None) -> None
+           EmailMessage(policy: email._policybase.Policy[typing.Any] | None = None) -> email.message.EmailMessage
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L174>`__)
 
@@ -63,7 +63,7 @@ message objects.
    :mod:`~email.policy` documentation. [2]_
 
    .. method:: as_string(unixfrom=False, maxheaderlen=None, policy=None)
-               as_string(unixfrom: bool = False, maxheaderlen: int | None = None, policy: Policy[typing.Any] | None = None) -> str
+               as_string(unixfrom: bool = False, maxheaderlen: int | None = None, policy: email._policybase.Policy[typing.Any] | None = None) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L171>`__)
 
@@ -108,7 +108,7 @@ message objects.
 
 
    .. method:: as_bytes(unixfrom=False, policy=None)
-               as_bytes(unixfrom: bool = False, policy: Policy[typing.Any] | None = None) -> bytes
+               as_bytes(unixfrom: bool = False, policy: email._policybase.Policy[typing.Any] | None = None) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L136>`__)
 
@@ -578,7 +578,7 @@ message objects.
 
 
    .. method:: walk()
-               walk() -> collections.abc.Generator[EmailMessage, None, None]
+               walk() -> typing.Generator[email.message.EmailMessage, None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L133>`__)
 
@@ -642,7 +642,7 @@ message objects.
 
 
    .. method:: get_body(preferencelist=('related', 'html', 'plain'))
-               get_body(preferencelist: collections.abc.Sequence[str] = ...) -> MIMEPart[typing.Any, typing.Any] | None
+               get_body(preferencelist: typing.Sequence[str] = ...) -> email.message.MIMEPart[typing.Any, typing.Any] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L154>`__)
 
@@ -684,7 +684,7 @@ message objects.
 
 
    .. method:: iter_attachments()
-               iter_attachments() -> collections.abc.Iterator[EmailMessage]
+               iter_attachments() -> typing.Iterator[email.message.EmailMessage]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L159>`__)
 
@@ -703,7 +703,7 @@ message objects.
 
 
    .. method:: iter_parts()
-               iter_parts() -> collections.abc.Iterator[MIMEPart[typing.Any, typing.Any]]
+               iter_parts() -> typing.Iterator[email.message.MIMEPart[typing.Any, typing.Any]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L160>`__)
 
@@ -713,7 +713,7 @@ message objects.
 
 
    .. method:: get_content(*args, content_manager=None, **kw)
-               get_content(*args: typing.Any, *, content_manager: ContentManager | None = None, **kw: typing.Any) -> typing.Any
+               get_content(*args: typing.Any, *, content_manager: email.contentmanager.ContentManager | None = None, **kw: typing.Any) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L161>`__)
 
@@ -725,7 +725,7 @@ message objects.
 
 
    .. method:: set_content(*args, content_manager=None, **kw)
-               set_content(*args: typing.Any, *, content_manager: ContentManager | None = None, **kw: typing.Any) -> None
+               set_content(*args: typing.Any, *, content_manager: email.contentmanager.ContentManager | None = None, **kw: typing.Any) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L162>`__)
 
@@ -776,7 +776,7 @@ message objects.
 
 
    .. method:: add_related(*args, content_manager=None, **kw)
-               add_related(*args: typing.Any, *, content_manager: ContentManager | None = ..., **kw: typing.Any) -> None
+               add_related(*args: typing.Any, *, content_manager: email.contentmanager.ContentManager | None = ..., **kw: typing.Any) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L166>`__)
 
@@ -792,7 +792,7 @@ message objects.
 
 
    .. method:: add_alternative(*args, content_manager=None, **kw)
-               add_alternative(*args: typing.Any, *, content_manager: ContentManager | None = ..., **kw: typing.Any) -> None
+               add_alternative(*args: typing.Any, *, content_manager: email.contentmanager.ContentManager | None = ..., **kw: typing.Any) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L167>`__)
 
@@ -807,7 +807,7 @@ message objects.
 
 
    .. method:: add_attachment(*args, content_manager=None, **kw)
-               add_attachment(*args: typing.Any, *, content_manager: ContentManager | None = ..., **kw: typing.Any) -> None
+               add_attachment(*args: typing.Any, *, content_manager: email.contentmanager.ContentManager | None = ..., **kw: typing.Any) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L168>`__)
 
@@ -883,7 +883,7 @@ message objects.
 
 
    .. attribute:: defects
-      :type: list[MessageDefect]
+      :type: list[email.errors.MessageDefect]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L41>`__)
 
@@ -893,7 +893,7 @@ message objects.
 
 
 .. class:: MIMEPart(policy=default)
-           MIMEPart(policy: Policy[typing.Any] | None = None) -> None
+           MIMEPart(policy: email._policybase.Policy[typing.Any] | None = None) -> email.message.MIMEPart
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/message.pyi#L152>`__)
 

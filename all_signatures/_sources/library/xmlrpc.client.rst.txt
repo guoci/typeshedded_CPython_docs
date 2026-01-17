@@ -37,7 +37,7 @@ between conformable Python objects and XML on the wire.
 .. class:: ServerProxy(uri, transport=None, encoding=None, verbose=False, \
                        allow_none=False, use_datetime=False, \
                        use_builtin_types=False, *, headers=(), context=None)
-           ServerProxy(uri: str, transport: Transport | None = None, encoding: str | None = None, verbose: bool = False, allow_none: bool = False, use_datetime: bool = False, use_builtin_types: bool = False, *, headers: collections.abc.Iterable[tuple[str, str]] = ..., context: typing.Any | None = None) -> None
+           ServerProxy(uri: str, transport: xmlrpc.client.Transport | None = None, encoding: str | None = None, verbose: bool = False, allow_none: bool = False, use_datetime: bool = False, use_builtin_types: bool = False, *, headers: typing.Iterable[tuple[str, str]] = ..., context: typing.Any | None = None) -> xmlrpc.client.ServerProxy
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L263>`__)
 
@@ -255,7 +255,7 @@ DateTime Objects
 ----------------
 
 .. class:: DateTime
-           DateTime(value: datetime | int | str | struct_time | tuple[int, ...] = 0) -> None
+           DateTime(value: datetime.datetime | int | str | time.struct_time | tuple[int, ...] = 0) -> xmlrpc.client.DateTime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L77>`__)
 
@@ -274,7 +274,7 @@ DateTime Objects
 
 
    .. method:: encode(out)
-               encode(out: SupportsWrite[str]) -> None
+               encode(out: _typeshed.SupportsWrite[str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L89>`__)
 
@@ -318,7 +318,7 @@ Binary Objects
 --------------
 
 .. class:: Binary
-           Binary(data: bytearray | bytes | None = None) -> None
+           Binary(data: bytearray | bytes | None = None) -> xmlrpc.client.Binary
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L94>`__)
 
@@ -340,7 +340,7 @@ Binary Objects
 
 
    .. method:: decode(bytes)
-               decode(data: Buffer) -> None
+               decode(data: _collections_abc.Buffer) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L97>`__)
 
@@ -348,7 +348,7 @@ Binary Objects
 
 
    .. method:: encode(out)
-               encode(out: SupportsWrite[str]) -> None
+               encode(out: _typeshed.SupportsWrite[str]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L98>`__)
 
@@ -392,7 +392,7 @@ Fault Objects
 -------------
 
 .. class:: Fault
-           Fault(faultCode: int, faultString: str, **extra: typing.Any) -> None
+           Fault(faultCode: int, faultString: str, **extra: typing.Any) -> xmlrpc.client.Fault
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L66>`__)
 
@@ -451,7 +451,7 @@ ProtocolError Objects
 ---------------------
 
 .. class:: ProtocolError
-           ProtocolError(url: str, errcode: int, errmsg: str, headers: dict[str, str]) -> None
+           ProtocolError(url: str, errcode: int, errmsg: str, headers: dict[str, str]) -> xmlrpc.client.ProtocolError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L57>`__)
 
@@ -517,7 +517,7 @@ remote server into a single request [#]_.
 
 
 .. class:: MultiCall(server)
-           MultiCall(server: ServerProxy) -> None
+           MultiCall(server: xmlrpc.client.ServerProxy) -> xmlrpc.client.MultiCall
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L184>`__)
 
@@ -574,7 +574,7 @@ Convenience Functions
 ---------------------
 
 .. function:: dumps(params, methodname=None, methodresponse=None, encoding=None, allow_none=False)
-              dumps(params: Fault | tuple[_Marshallable, ...], methodname: str | None = None, methodresponse: bool | None = None, encoding: str | None = None, allow_none: bool = False) -> str
+              dumps(params: xmlrpc.client.Fault | tuple[_Marshallable, ...], methodname: str | None = None, methodresponse: bool | None = None, encoding: str | None = None, allow_none: bool = False) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L197>`__)
 
@@ -588,7 +588,7 @@ Convenience Functions
 
 
 .. function:: loads(data, use_datetime=False, use_builtin_types=False)
-              loads(data: Buffer | str, use_datetime: bool = False, use_builtin_types: bool = False) -> tuple[tuple[_Marshallable, ...], str | None]
+              loads(data: _collections_abc.Buffer | str, use_datetime: bool = False, use_builtin_types: bool = False) -> tuple[tuple[_Marshallable, ...], str | None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/xmlrpc/client.pyi#L204>`__)
 

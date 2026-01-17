@@ -308,7 +308,7 @@ Functions
 
 
 .. function:: get_object_traceback(obj)
-              get_object_traceback(obj: object) -> Traceback | None
+              get_object_traceback(obj: object) -> tracemalloc.Traceback | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L7>`__)
 
@@ -430,7 +430,7 @@ Functions
 
 
 .. function:: take_snapshot()
-              take_snapshot() -> Snapshot
+              take_snapshot() -> tracemalloc.Snapshot
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L8>`__)
 
@@ -453,7 +453,7 @@ DomainFilter
 ^^^^^^^^^^^^
 
 .. class:: DomainFilter(inclusive: bool, domain: int)
-           DomainFilter(inclusive: bool, domain: int) -> None
+           DomainFilter(inclusive: bool, domain: int) -> tracemalloc.DomainFilter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L14>`__)
 
@@ -473,7 +473,7 @@ DomainFilter
       in the address space :attr:`domain`.
 
    .. attribute:: domain
-      :type: domain(self: DomainFilter) -> int
+      :type: domain(self: tracemalloc.DomainFilter) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L16>`__)
 
@@ -484,7 +484,7 @@ Filter
 ^^^^^^
 
 .. class:: Filter(inclusive: bool, filename_pattern: str, lineno: int=None, all_frames: bool=False, domain: int=None)
-           Filter(inclusive: bool, filename_pattern: str, lineno: int | None = None, all_frames: bool = False, domain: int | None = None) -> None
+           Filter(inclusive: bool, filename_pattern: str, lineno: int | None = None, all_frames: bool = False, domain: int | None = None) -> tracemalloc.Filter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L19>`__)
 
@@ -542,7 +542,7 @@ Filter
       matches any line number.
 
    .. attribute:: filename_pattern
-      :type: filename_pattern(self: Filter) -> str
+      :type: filename_pattern(self: tracemalloc.Filter) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L23>`__)
 
@@ -565,7 +565,7 @@ Frame
 ^^^^^
 
 .. class:: Frame
-           Frame(frame: tuple[str, int]) -> None
+           Frame(frame: tuple[str, int]) -> tracemalloc.Frame
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L56>`__)
 
@@ -574,14 +574,14 @@ Frame
    The :class:`Traceback` class is a sequence of :class:`Frame` instances.
 
    .. attribute:: filename
-      :type: filename(self: Frame) -> str
+      :type: filename(self: tracemalloc.Frame) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L59>`__)
 
       Filename (``str``).
 
    .. attribute:: lineno
-      :type: lineno(self: Frame) -> int
+      :type: lineno(self: tracemalloc.Frame) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L61>`__)
 
@@ -592,7 +592,7 @@ Snapshot
 ^^^^^^^^
 
 .. class:: Snapshot
-           Snapshot(traces: collections.abc.Sequence[_TraceTuple], traceback_limit: int) -> None
+           Snapshot(traces: typing.Sequence[_TraceTuple], traceback_limit: int) -> tracemalloc.Snapshot
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L113>`__)
 
@@ -601,7 +601,7 @@ Snapshot
    The :func:`take_snapshot` function creates a snapshot instance.
 
    .. method:: compare_to(old_snapshot: Snapshot, key_type: str, cumulative: bool=False)
-               compare_to(old_snapshot: Snapshot, key_type: str, cumulative: bool = False) -> list[StatisticDiff]
+               compare_to(old_snapshot: tracemalloc.Snapshot, key_type: str, cumulative: bool = False) -> list[tracemalloc.StatisticDiff]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L115>`__)
 
@@ -628,7 +628,7 @@ Snapshot
 
 
    .. method:: filter_traces(filters)
-               filter_traces(filters: collections.abc.Sequence[DomainFilter | Filter]) -> Snapshot
+               filter_traces(filters: typing.Sequence[tracemalloc.DomainFilter | tracemalloc.Filter]) -> tracemalloc.Snapshot
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L117>`__)
 
@@ -646,7 +646,7 @@ Snapshot
 
 
    .. classmethod:: load(filename)
-                    load(filename: str) -> Snapshot
+                    load(filename: str) -> tracemalloc.Snapshot
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L119>`__)
 
@@ -656,7 +656,7 @@ Snapshot
 
 
    .. method:: statistics(key_type: str, cumulative: bool=False)
-               statistics(key_type: str, cumulative: bool = False) -> list[Statistic]
+               statistics(key_type: str, cumulative: bool = False) -> list[tracemalloc.Statistic]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L120>`__)
 
@@ -690,7 +690,7 @@ Snapshot
       result of the :func:`get_traceback_limit` when the snapshot was taken.
 
    .. attribute:: traces
-      :type: collections.abc.Sequence[Trace]
+      :type: typing.Sequence[tracemalloc.Trace]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L122>`__)
 
@@ -705,7 +705,7 @@ Statistic
 ^^^^^^^^^
 
 .. class:: Statistic
-           Statistic(traceback: Traceback, size: int, count: int) -> None
+           Statistic(traceback: tracemalloc.Traceback, size: int, count: int) -> tracemalloc.Statistic
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L34>`__)
 
@@ -730,7 +730,7 @@ Statistic
       Total size of memory blocks in bytes (``int``).
 
    .. attribute:: traceback
-      :type: Traceback
+      :type: tracemalloc.Traceback
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L38>`__)
 
@@ -742,7 +742,7 @@ StatisticDiff
 ^^^^^^^^^^^^^
 
 .. class:: StatisticDiff
-           StatisticDiff(traceback: Traceback, size: int, size_diff: int, count: int, count_diff: int) -> None
+           StatisticDiff(traceback: tracemalloc.Traceback, size: int, size_diff: int, count: int, count_diff: int) -> tracemalloc.StatisticDiff
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L43>`__)
 
@@ -787,7 +787,7 @@ StatisticDiff
       allocated in the new snapshot.
 
    .. attribute:: traceback
-      :type: Traceback
+      :type: tracemalloc.Traceback
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L49>`__)
 
@@ -799,7 +799,7 @@ Trace
 ^^^^^
 
 .. class:: Trace
-           Trace(trace: _TraceTuple) -> None
+           Trace(trace: _TraceTuple) -> tracemalloc.Trace
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L77>`__)
 
@@ -812,7 +812,7 @@ Trace
       Added the :attr:`domain` attribute.
 
    .. attribute:: domain
-      :type: domain(self: Trace) -> int
+      :type: domain(self: tracemalloc.Trace) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L80>`__)
 
@@ -822,14 +822,14 @@ Trace
       Python. C extensions can use other domains to trace other resources.
 
    .. attribute:: size
-      :type: size(self: Trace) -> int
+      :type: size(self: tracemalloc.Trace) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L82>`__)
 
       Size of the memory block in bytes (``int``).
 
    .. attribute:: traceback
-      :type: traceback(self: Trace) -> Traceback
+      :type: traceback(self: tracemalloc.Trace) -> tracemalloc.Traceback
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L84>`__)
 
@@ -841,7 +841,7 @@ Traceback
 ^^^^^^^^^
 
 .. class:: Traceback
-           Traceback(frames: collections.abc.Sequence[tuple[str, int]], total_nframe: int | None = None) -> None
+           Traceback(frames: typing.Sequence[tuple[str, int]], total_nframe: int | None = None) -> tracemalloc.Traceback
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L89>`__)
 
@@ -865,7 +865,7 @@ Traceback
       Frames are now sorted from the oldest to the most recent, instead of most recent to oldest.
 
    .. attribute:: total_nframe
-      :type: total_nframe(self: Traceback) -> int | None
+      :type: total_nframe(self: tracemalloc.Traceback) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tracemalloc.pyi#L92>`__)
 

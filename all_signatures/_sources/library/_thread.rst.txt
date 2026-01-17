@@ -29,7 +29,7 @@ threading API built on top of this module.
 This module defines the following constants and functions:
 
 .. exception:: error
-               error(*args: object) -> None
+               error(*args: object) -> RuntimeError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_thread.pyi#L12>`__)
 
@@ -40,7 +40,7 @@ This module defines the following constants and functions:
 
 
 .. data:: LockType
-   :type: (self: lock) -> None
+   :type: (self: _thread.lock) -> _thread.lock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_thread.pyi#L49>`__)
 
@@ -48,7 +48,7 @@ This module defines the following constants and functions:
 
 
 .. function:: start_new_thread(function, args[, kwargs])
-              start_new_thread(function: (**tuple[*_Ts]) -> object, args: tuple[*_Ts], /) -> int
+              start_new_thread(function: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, args: tuple[Unpack[_Ts]], /) -> int
               start_new_thread(function: (...) -> object, args: tuple[typing.Any, ...], kwargs: dict[str, typing.Any], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_thread.pyi#L65>`__)
@@ -74,7 +74,7 @@ This module defines the following constants and functions:
 
 
 .. function:: interrupt_main(signum=signal.SIGINT, /)
-              interrupt_main(signum: Signals = Signals.SIGINT, /) -> None
+              interrupt_main(signum: signal.Signals = Signals.SIGINT, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_thread.pyi#L76>`__)
 
@@ -99,7 +99,7 @@ This module defines the following constants and functions:
 
 
 .. function:: exit()
-              exit() -> NoReturn
+              exit() -> typing.NoReturn
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_thread.pyi#L81>`__)
 
@@ -116,7 +116,7 @@ This module defines the following constants and functions:
 
 
 .. function:: allocate_lock()
-              allocate_lock() -> lock
+              allocate_lock() -> _thread.lock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_thread.pyi#L83>`__)
 

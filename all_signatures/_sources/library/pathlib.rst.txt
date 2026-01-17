@@ -97,7 +97,7 @@ Exceptions
 ----------
 
 .. exception:: UnsupportedOperation
-               UnsupportedOperation(*args: object) -> None
+               UnsupportedOperation(*args: object) -> pathlib.UnsupportedOperation
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L366>`__)
 
@@ -117,7 +117,7 @@ access a filesystem.  There are three ways to access these classes, which
 we also call *flavours*:
 
 .. class:: PurePath(*pathsegments)
-           PurePath(*args: StrPath) -> None
+           PurePath(*args: StrPath) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L31>`__)
 
@@ -180,7 +180,7 @@ we also call *flavours*:
       Added support for the :class:`os.PathLike` interface.
 
 .. class:: PurePosixPath(*pathsegments)
-           PurePosixPath(*args: StrPath) -> None
+           PurePosixPath(*args: StrPath) -> pathlib.PurePosixPath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L145>`__)
 
@@ -193,7 +193,7 @@ we also call *flavours*:
    *pathsegments* is specified similarly to :class:`PurePath`.
 
 .. class:: PureWindowsPath(*pathsegments)
-           PureWindowsPath(*args: StrPath) -> None
+           PureWindowsPath(*args: StrPath) -> pathlib.PureWindowsPath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L148>`__)
 
@@ -297,7 +297,7 @@ To access the individual "parts" (components) of a path, use the following
 property:
 
 .. attribute:: PurePath.parts
-   :type: parts(self: PurePath) -> tuple[str, ...]
+   :type: parts(self: pathlib.PurePath) -> tuple[str, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L62>`__)
 
@@ -324,7 +324,7 @@ Methods and properties
 Pure paths provide the following methods and properties:
 
 .. attribute:: PurePath.parser
-   :type: ModuleType
+   :type: types.ModuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L58>`__)
 
@@ -334,7 +334,7 @@ Pure paths provide the following methods and properties:
    .. versionadded:: 3.13
 
 .. attribute:: PurePath.drive
-   :type: drive(self: PurePath) -> str
+   :type: drive(self: pathlib.PurePath) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L64>`__)
 
@@ -353,7 +353,7 @@ Pure paths provide the following methods and properties:
       '\\\\host\\share'
 
 .. attribute:: PurePath.root
-   :type: root(self: PurePath) -> str
+   :type: root(self: pathlib.PurePath) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L66>`__)
 
@@ -392,7 +392,7 @@ Pure paths provide the following methods and properties:
       shall be treated as a single slash."*
 
 .. attribute:: PurePath.anchor
-   :type: anchor(self: PurePath) -> str
+   :type: anchor(self: pathlib.PurePath) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L68>`__)
 
@@ -409,7 +409,7 @@ Pure paths provide the following methods and properties:
 
 
 .. attribute:: PurePath.parents
-   :type: parents(self: PurePath) -> collections.abc.Sequence[PurePath]
+   :type: parents(self: pathlib.PurePath) -> typing.Sequence[pathlib.PurePath]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L136>`__)
 
@@ -428,7 +428,7 @@ Pure paths provide the following methods and properties:
       The parents sequence now supports :term:`slices <slice>` and negative index values.
 
 .. attribute:: PurePath.parent
-   :type: parent(self: PurePath) -> PurePath
+   :type: parent(self: pathlib.PurePath) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L138>`__)
 
@@ -460,7 +460,7 @@ Pure paths provide the following methods and properties:
 
 
 .. attribute:: PurePath.name
-   :type: name(self: PurePath) -> str
+   :type: name(self: pathlib.PurePath) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L70>`__)
 
@@ -479,7 +479,7 @@ Pure paths provide the following methods and properties:
 
 
 .. attribute:: PurePath.suffix
-   :type: suffix(self: PurePath) -> str
+   :type: suffix(self: pathlib.PurePath) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L72>`__)
 
@@ -499,7 +499,7 @@ Pure paths provide the following methods and properties:
       A single dot ("``.``") is considered a valid suffix.
 
 .. attribute:: PurePath.suffixes
-   :type: suffixes(self: PurePath) -> list[str]
+   :type: suffixes(self: pathlib.PurePath) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L74>`__)
 
@@ -518,7 +518,7 @@ Pure paths provide the following methods and properties:
 
 
 .. attribute:: PurePath.stem
-   :type: stem(self: PurePath) -> str
+   :type: stem(self: pathlib.PurePath) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L76>`__)
 
@@ -597,7 +597,7 @@ Pure paths provide the following methods and properties:
       with *other*.
 
 .. method:: PurePath.joinpath(*pathsegments)
-            PurePath.joinpath(*other: StrPath) -> PurePath
+            PurePath.joinpath(*other: StrPath) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L134>`__)
 
@@ -674,7 +674,7 @@ Pure paths provide the following methods and properties:
 
 
 .. method:: PurePath.relative_to(other, walk_up=False)
-            PurePath.relative_to(other: StrPath, *, walk_up: bool = False) -> PurePath
+            PurePath.relative_to(other: StrPath, *, walk_up: bool = False) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L121>`__)
 
@@ -723,7 +723,7 @@ Pure paths provide the following methods and properties:
       they are joined with *other*.
 
 .. method:: PurePath.with_name(name)
-            PurePath.with_name(name: str) -> PurePath
+            PurePath.with_name(name: str) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L131>`__)
 
@@ -743,7 +743,7 @@ Pure paths provide the following methods and properties:
 
 
 .. method:: PurePath.with_stem(stem)
-            PurePath.with_stem(stem: str) -> PurePath
+            PurePath.with_stem(stem: str) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L132>`__)
 
@@ -770,7 +770,7 @@ Pure paths provide the following methods and properties:
 
 
 .. method:: PurePath.with_suffix(suffix)
-            PurePath.with_suffix(suffix: str) -> PurePath
+            PurePath.with_suffix(suffix: str) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L133>`__)
 
@@ -795,7 +795,7 @@ Pure paths provide the following methods and properties:
 
 
 .. method:: PurePath.with_segments(*pathsegments)
-            PurePath.with_segments(*args: StrPath) -> PurePath
+            PurePath.with_segments(*args: StrPath) -> pathlib.PurePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L143>`__)
 
@@ -832,7 +832,7 @@ operations provided by the latter, they also provide methods to do system
 calls on path objects.  There are three ways to instantiate concrete paths:
 
 .. class:: Path(*pathsegments)
-           Path(*args: StrPath) -> None
+           Path(*args: StrPath) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L151>`__)
 
@@ -846,7 +846,7 @@ calls on path objects.  There are three ways to instantiate concrete paths:
    *pathsegments* is specified similarly to :class:`PurePath`.
 
 .. class:: PosixPath(*pathsegments)
-           PosixPath(*args: StrPath) -> None
+           PosixPath(*args: StrPath) -> pathlib.PosixPath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L359>`__)
 
@@ -864,7 +864,7 @@ calls on path objects.  There are three ways to instantiate concrete paths:
 
 
 .. class:: WindowsPath(*pathsegments)
-           WindowsPath(*args: StrPath) -> None
+           WindowsPath(*args: StrPath) -> pathlib.WindowsPath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L362>`__)
 
@@ -915,7 +915,7 @@ conforming to :rfc:`8089`.
    :ref:`filesystem encodings <filesystem-encoding>`.
 
 .. classmethod:: Path.from_uri(uri)
-                 Path.from_uri(cls: type[Path], uri: str) -> Path
+                 Path.from_uri(cls: type[pathlib.Path], uri: str) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L175>`__)
 
@@ -982,7 +982,7 @@ Expanding and resolving paths
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. classmethod:: Path.home()
-                 Path.home(cls: type[Path]) -> Path
+                 Path.home(cls: type[pathlib.Path]) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L334>`__)
 
@@ -999,7 +999,7 @@ Expanding and resolving paths
 
 
 .. method:: Path.expanduser()
-            Path.expanduser() -> Path
+            Path.expanduser() -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L336>`__)
 
@@ -1017,7 +1017,7 @@ Expanding and resolving paths
 
 
 .. classmethod:: Path.cwd()
-                 Path.cwd(cls: type[Path]) -> Path
+                 Path.cwd(cls: type[pathlib.Path]) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L165>`__)
 
@@ -1029,7 +1029,7 @@ Expanding and resolving paths
 
 
 .. method:: Path.absolute()
-            Path.absolute() -> Path
+            Path.absolute() -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L335>`__)
 
@@ -1044,7 +1044,7 @@ Expanding and resolving paths
 
 
 .. method:: Path.resolve(strict=False)
-            Path.resolve(strict: bool = False) -> Path
+            Path.resolve(strict: bool = False) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L325>`__)
 
@@ -1078,7 +1078,7 @@ Expanding and resolving paths
 
 
 .. method:: Path.readlink()
-            Path.readlink() -> Path
+            Path.readlink() -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L316>`__)
 
@@ -1120,7 +1120,7 @@ Querying file type and status
 
 
 .. method:: Path.stat(*, follow_symlinks=True)
-            Path.stat(*, follow_symlinks: bool = True) -> stat_result
+            Path.stat(*, follow_symlinks: bool = True) -> os.stat_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L167>`__)
 
@@ -1143,7 +1143,7 @@ Querying file type and status
 
 
 .. method:: Path.lstat()
-            Path.lstat() -> stat_result
+            Path.lstat() -> os.stat_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L213>`__)
 
@@ -1322,7 +1322,7 @@ Querying file type and status
 
 
 .. attribute:: Path.info
-   :type: info(self: Path) -> PathInfo
+   :type: info(self: pathlib.Path) -> pathlib.types.PathInfo
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L218>`__)
 
@@ -1361,13 +1361,13 @@ Reading and writing files
 
 
 .. method:: Path.open(mode='r', buffering=-1, encoding=None, errors=None, newline=None)
-            Path.open(mode: OpenTextMode = 'r', buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> TextIOWrapper[_WrappedBuffer]
-            Path.open(mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: None = None, errors: None = None, newline: None = None) -> FileIO
-            Path.open(mode: OpenBinaryModeUpdating, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None) -> BufferedRandom
-            Path.open(mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None) -> BufferedWriter
-            Path.open(mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None) -> BufferedReader[_BufferedReaderStream]
-            Path.open(mode: OpenBinaryMode, buffering: int = -1, encoding: None = None, errors: None = None, newline: None = None) -> BinaryIO
-            Path.open(mode: str, buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> IO[typing.Any]
+            Path.open(mode: OpenTextMode = 'r', buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+            Path.open(mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: None = None, errors: None = None, newline: None = None) -> _io.FileIO
+            Path.open(mode: OpenBinaryModeUpdating, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None) -> _io.BufferedRandom
+            Path.open(mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None) -> _io.BufferedWriter
+            Path.open(mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None) -> _io.BufferedReader[_io._BufferedReaderStream]
+            Path.open(mode: OpenBinaryMode, buffering: int = -1, encoding: None = None, errors: None = None, newline: None = None) -> typing.BinaryIO
+            Path.open(mode: str, buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> typing.IO[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L240>`__)
 
@@ -1443,7 +1443,7 @@ Reading and writing files
 
 
 .. method:: Path.write_bytes(data)
-            Path.write_bytes(data: Buffer) -> int
+            Path.write_bytes(data: _collections_abc.Buffer) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L339>`__)
 
@@ -1465,7 +1465,7 @@ Reading directories
 ^^^^^^^^^^^^^^^^^^^
 
 .. method:: Path.iterdir()
-            Path.iterdir() -> collections.abc.Generator[Path, None, None]
+            Path.iterdir() -> typing.Generator[pathlib.Path, None, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L211>`__)
 
@@ -1493,7 +1493,7 @@ Reading directories
 
 
 .. method:: Path.glob(pattern, *, case_sensitive=None, recurse_symlinks=False)
-            Path.glob(pattern: str, *, case_sensitive: bool | None = None, recurse_symlinks: bool = False) -> collections.abc.Iterator[Path]
+            Path.glob(pattern: str, *, case_sensitive: bool | None = None, recurse_symlinks: bool = False) -> typing.Iterator[pathlib.Path]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L187>`__)
 
@@ -1545,7 +1545,7 @@ Reading directories
 
 
 .. method:: Path.rglob(pattern, *, case_sensitive=None, recurse_symlinks=False)
-            Path.rglob(pattern: str, *, case_sensitive: bool | None = None, recurse_symlinks: bool = False) -> collections.abc.Iterator[Path]
+            Path.rglob(pattern: str, *, case_sensitive: bool | None = None, recurse_symlinks: bool = False) -> typing.Iterator[pathlib.Path]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L188>`__)
 
@@ -1572,7 +1572,7 @@ Reading directories
 
 
 .. method:: Path.walk(top_down=True, on_error=None, follow_symlinks=False)
-            Path.walk(top_down: bool = True, on_error: ((OSError) -> object) | None = None, follow_symlinks: bool = False) -> collections.abc.Iterator[tuple[Path, list[str], list[str]]]
+            Path.walk(top_down: bool = True, on_error: ((OSError) -> object) | None = None, follow_symlinks: bool = False) -> typing.Iterator[tuple[pathlib.Path, list[str], list[str]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L353>`__)
 
@@ -1773,7 +1773,7 @@ Copying, moving and deleting
 
 .. method:: Path.copy(target, *, follow_symlinks=True, preserve_metadata=False)
             Path.copy(target: _PathT, *, follow_symlinks: bool = True, preserve_metadata: bool = False) -> _PathT
-            Path.copy(target: StrPath, *, follow_symlinks: bool = True, preserve_metadata: bool = False) -> Path
+            Path.copy(target: StrPath, *, follow_symlinks: bool = True, preserve_metadata: bool = False) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L232>`__)
 
@@ -1803,7 +1803,7 @@ Copying, moving and deleting
 .. method:: Path.copy_into(target_dir, *, follow_symlinks=True, \
                            preserve_metadata=False)
             Path.copy_into(target_dir: _PathT, *, follow_symlinks: bool = True, preserve_metadata: bool = False) -> _PathT
-            Path.copy_into(target_dir: StrPath, *, follow_symlinks: bool = True, preserve_metadata: bool = False) -> Path
+            Path.copy_into(target_dir: StrPath, *, follow_symlinks: bool = True, preserve_metadata: bool = False) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L228>`__)
 
@@ -1816,7 +1816,7 @@ Copying, moving and deleting
 
 
 .. method:: Path.rename(target)
-            Path.rename(target: StrPath) -> Path
+            Path.rename(target: StrPath) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L319>`__)
 
@@ -1846,7 +1846,7 @@ Copying, moving and deleting
 
 
 .. method:: Path.replace(target)
-            Path.replace(target: StrPath) -> Path
+            Path.replace(target: StrPath) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L320>`__)
 
@@ -1864,7 +1864,7 @@ Copying, moving and deleting
 
 .. method:: Path.move(target)
             Path.move(target: _PathT) -> _PathT
-            Path.move(target: StrPath) -> Path
+            Path.move(target: StrPath) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L224>`__)
 
@@ -1885,7 +1885,7 @@ Copying, moving and deleting
 
 .. method:: Path.move_into(target_dir)
             Path.move_into(target_dir: _PathT) -> _PathT
-            Path.move_into(target_dir: StrPath) -> Path
+            Path.move_into(target_dir: StrPath) -> pathlib.Path
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/__init__.pyi#L220>`__)
 
@@ -2186,7 +2186,7 @@ The :mod:`pathlib.types` module provides types for static type checking.
 
 
 .. class:: PathInfo()
-           PathInfo() -> None
+           PathInfo() -> pathlib.types.PathInfo
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pathlib/types.pyi#L4>`__)
 

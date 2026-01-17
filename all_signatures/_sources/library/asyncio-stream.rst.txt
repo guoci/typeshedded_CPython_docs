@@ -54,7 +54,7 @@ and work with streams:
                  server_hostname=None, ssl_handshake_timeout=None, \
                  ssl_shutdown_timeout=None, \
                  happy_eyeballs_delay=None, interleave=None)
-              open_connection(host: str | None = None, port: int | str | None = None, *, limit: int = 65536, ssl_handshake_timeout: float | None = None, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[StreamReader, StreamWriter]]
+              open_connection(host: str | None = None, port: int | str | None = None, *, limit: int = 65536, ssl_handshake_timeout: float | None = None, **kwds: typing.Any) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.streams.StreamReader, asyncio.streams.StreamWriter]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L32>`__)
@@ -99,7 +99,7 @@ and work with streams:
                  reuse_port=None, keep_alive=None, \
                  ssl_handshake_timeout=None, \
                  ssl_shutdown_timeout=None, start_serving=True)
-              start_server(client_connected_cb: (StreamReader, StreamWriter) -> collections.abc.Awaitable[None] | None, host: collections.abc.Sequence[str] | str | None = None, port: int | str | None = None, *, limit: int = 65536, ssl_handshake_timeout: float | None = None, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, Server]
+              start_server(client_connected_cb: (asyncio.streams.StreamReader, asyncio.streams.StreamWriter) -> typing.Awaitable[None] | None, host: typing.Sequence[str] | str | None = None, port: int | str | None = None, *, limit: int = 65536, ssl_handshake_timeout: float | None = None, **kwds: typing.Any) -> typing.Coroutine[Unknown, Unknown, asyncio.base_events.Server]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L40>`__)
@@ -146,7 +146,7 @@ and work with streams:
 .. function:: open_unix_connection(path=None, *, limit=None, \
                ssl=None, sock=None, server_hostname=None, \
                ssl_handshake_timeout=None, ssl_shutdown_timeout=None)
-              open_unix_connection(path: PathLike[str] | str | None = None, *, limit: int = 65536, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[StreamReader, StreamWriter]]
+              open_unix_connection(path: os.PathLike[str] | str | None = None, *, limit: int = 65536, **kwds: typing.Any) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.streams.StreamReader, asyncio.streams.StreamWriter]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L73>`__)
@@ -181,7 +181,7 @@ and work with streams:
                  *, limit=None, sock=None, backlog=100, ssl=None, \
                  ssl_handshake_timeout=None, \
                  ssl_shutdown_timeout=None, start_serving=True, cleanup_socket=True)
-              start_unix_server(client_connected_cb: (StreamReader, StreamWriter) -> collections.abc.Awaitable[None] | None, path: PathLike[str] | str | None = None, *, limit: int = 65536, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, Server]
+              start_unix_server(client_connected_cb: (asyncio.streams.StreamReader, asyncio.streams.StreamWriter) -> typing.Awaitable[None] | None, path: os.PathLike[str] | str | None = None, *, limit: int = 65536, **kwds: typing.Any) -> typing.Coroutine[Unknown, Unknown, asyncio.base_events.Server]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L76>`__)
@@ -222,7 +222,7 @@ StreamReader
 ============
 
 .. class:: StreamReader
-           StreamReader(limit: int = 65536, loop: AbstractEventLoop | None = None) -> None
+           StreamReader(limit: int = 65536, loop: asyncio.events.AbstractEventLoop | None = None) -> asyncio.streams.StreamReader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L142>`__)
 
@@ -242,7 +242,7 @@ StreamReader
       Acknowledge the EOF.
 
    .. method:: read(n=-1)
-               read(n: int = -1) -> collections.abc.Coroutine[Unknown, Unknown, bytes]
+               read(n: int = -1) -> typing.Coroutine[Unknown, Unknown, bytes]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L156>`__)
@@ -262,7 +262,7 @@ StreamReader
       ``bytes`` object.
 
    .. method:: readline()
-               readline() -> collections.abc.Coroutine[Unknown, Unknown, bytes]
+               readline() -> typing.Coroutine[Unknown, Unknown, bytes]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L150>`__)
@@ -277,7 +277,7 @@ StreamReader
       return an empty ``bytes`` object.
 
    .. method:: readexactly(n)
-               readexactly(n: int) -> collections.abc.Coroutine[Unknown, Unknown, bytes]
+               readexactly(n: int) -> typing.Coroutine[Unknown, Unknown, bytes]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L157>`__)
@@ -289,7 +289,7 @@ StreamReader
       attribute to get the partially read data.
 
    .. method:: readuntil(separator=b'\n')
-               readuntil(separator: _ReaduntilBuffer | tuple[_ReaduntilBuffer, ...] = b'\n') -> collections.abc.Coroutine[Unknown, Unknown, bytes]
+               readuntil(separator: asyncio.streams._ReaduntilBuffer | tuple[asyncio.streams._ReaduntilBuffer, ...] = b'\n') -> typing.Coroutine[Unknown, Unknown, bytes]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L152>`__)
@@ -335,7 +335,7 @@ StreamWriter
 ============
 
 .. class:: StreamWriter
-           StreamWriter(transport: WriteTransport, protocol: BaseProtocol, reader: StreamReader | None, loop: AbstractEventLoop) -> None
+           StreamWriter(transport: asyncio.transports.WriteTransport, protocol: asyncio.protocols.BaseProtocol, reader: asyncio.streams.StreamReader | None, loop: asyncio.events.AbstractEventLoop) -> asyncio.streams.StreamWriter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L104>`__)
 
@@ -365,7 +365,7 @@ StreamWriter
 
 
    .. method:: writelines(data)
-               writelines(data: collections.abc.Iterable[bytearray | bytes | memoryview[int]]) -> None
+               writelines(data: typing.Iterable[bytearray | bytes | memoryview[int]]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L115>`__)
 
@@ -409,7 +409,7 @@ StreamWriter
       data is flushed.
 
    .. attribute:: transport
-      :type: transport(self: StreamWriter) -> WriteTransport
+      :type: transport(self: asyncio.streams.StreamWriter) -> asyncio.transports.WriteTransport
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L113>`__)
 
@@ -424,7 +424,7 @@ StreamWriter
       :meth:`BaseTransport.get_extra_info` for details.
 
    .. method:: drain()
-               drain() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               drain() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L122>`__)
@@ -444,7 +444,7 @@ StreamWriter
 
    .. method:: start_tls(sslcontext, *, server_hostname=None, \
                          ssl_handshake_timeout=None, ssl_shutdown_timeout=None)
-               start_tls(sslcontext: SSLContext, *, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> collections.abc.Coroutine[Unknown, Unknown, None]
+               start_tls(sslcontext: ssl.SSLContext, *, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L124>`__)
@@ -483,7 +483,7 @@ StreamWriter
       .. versionadded:: 3.7
 
    .. method:: wait_closed()
-               wait_closed() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               wait_closed() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/streams.pyi#L120>`__)

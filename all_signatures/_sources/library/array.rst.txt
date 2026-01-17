@@ -83,12 +83,12 @@ The module defines the following type:
 
 
 .. class:: array(typecode[, initializer])
-           array(typecode: _IntTypeCode, initializer: collections.abc.Iterable[int] | bytearray | bytes = ..., /) -> array[int]
-           array(typecode: _FloatTypeCode, initializer: collections.abc.Iterable[float] | bytearray | bytes = ..., /) -> array[float]
-           array(typecode: typing.Literal['w'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array[str]
-           array(typecode: typing.Literal['u'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array[str]
-           array(typecode: str, initializer: collections.abc.Iterable[_T], /) -> array[_T]
-           array(typecode: str, initializer: bytearray | bytes = ..., /) -> array[_T]
+           array(typecode: _IntTypeCode, initializer: typing.Iterable[int] | bytearray | bytes = ..., /) -> array.array[int]
+           array(typecode: _FloatTypeCode, initializer: typing.Iterable[float] | bytearray | bytes = ..., /) -> array.array[float]
+           array(typecode: typing.Literal['w'], initializer: typing.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
+           array(typecode: typing.Literal['u'], initializer: typing.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
+           array(typecode: str, initializer: typing.Iterable[_T], /) -> array.array[_T]
+           array(typecode: str, initializer: bytearray | bytes = ..., /) -> array.array[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/array.pyi#L21>`__)
 
@@ -114,7 +114,7 @@ The module defines the following type:
 
 
    .. attribute:: typecode
-      :type: typecode[_T](self: array[_T]) -> _TypeCode
+      :type: typecode[_T](self: array.array[_T]) -> _TypeCode
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/array.pyi#L23>`__)
 
@@ -122,7 +122,7 @@ The module defines the following type:
 
 
    .. attribute:: itemsize
-      :type: itemsize[_T](self: array[_T]) -> int
+      :type: itemsize[_T](self: array.array[_T]) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/array.pyi#L25>`__)
 
@@ -179,7 +179,7 @@ The module defines the following type:
 
 
    .. method:: extend(iterable)
-               extend[_T](bb: collections.abc.Iterable[_T], /) -> None
+               extend[_T](bb: typing.Iterable[_T], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/array.pyi#L59>`__)
 
@@ -190,7 +190,7 @@ The module defines the following type:
 
 
    .. method:: frombytes(buffer)
-               frombytes[_T](buffer: Buffer, /) -> None
+               frombytes[_T](buffer: _collections_abc.Buffer, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/array.pyi#L60>`__)
 
@@ -203,7 +203,7 @@ The module defines the following type:
 
 
    .. method:: fromfile(f, n)
-               fromfile[_T](f: SupportsRead[bytes], n: int, /) -> None
+               fromfile[_T](f: _typeshed.SupportsRead[bytes], n: int, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/array.pyi#L61>`__)
 
@@ -306,7 +306,7 @@ The module defines the following type:
 
 
    .. method:: tofile(f)
-               tofile[_T](f: SupportsWrite[bytes], /) -> None
+               tofile[_T](f: _typeshed.SupportsWrite[bytes], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/array.pyi#L73>`__)
 

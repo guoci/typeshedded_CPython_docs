@@ -309,7 +309,7 @@ Exceptions
 ^^^^^^^^^^
 
 .. exception:: error
-               error(*args: object) -> None
+               error(*args: object) -> OSError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1083>`__)
 
@@ -320,7 +320,7 @@ Exceptions
 
 
 .. exception:: herror
-               herror(*args: object) -> None
+               herror(*args: object) -> socket.herror
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1085>`__)
 
@@ -336,7 +336,7 @@ Exceptions
       This class was made a subclass of :exc:`OSError`.
 
 .. exception:: gaierror
-               gaierror(*args: object) -> None
+               gaierror(*args: object) -> socket.gaierror
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1086>`__)
 
@@ -352,7 +352,7 @@ Exceptions
       This class was made a subclass of :exc:`OSError`.
 
 .. exception:: timeout
-               timeout(*args: object) -> None
+               timeout(*args: object) -> TimeoutError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1089>`__)
 
@@ -391,7 +391,7 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    depending on the system.
 
 .. data:: AF_UNSPEC
-   :type: typing.Literal[AddressFamily.AF_UNSPEC]
+   :type: typing.Literal[socket.AddressFamily.AF_UNSPEC]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1148>`__)
 
@@ -803,7 +803,7 @@ The AF_* and SOCK_* constants are now :class:`AddressFamily` and
    .. versionadded:: 3.14
 
 .. data:: AF_QIPCRTR
-   :type: typing.Literal[AddressFamily.AF_QIPCRTR]
+   :type: typing.Literal[socket.AddressFamily.AF_QIPCRTR]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1185>`__)
 
@@ -903,7 +903,7 @@ The following functions all create :ref:`socket objects <socket-objects>`.
 
 
 .. class:: socket(family=AF_INET, type=SOCK_STREAM, proto=0, fileno=None)
-           socket(family: AddressFamily | int = -1, type: SocketKind | int = -1, proto: int = -1, fileno: int | None = None) -> None
+           socket(family: socket.AddressFamily | int = -1, type: socket.SocketKind | int = -1, proto: int = -1, fileno: int | None = None) -> socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1317>`__)
 
@@ -966,7 +966,7 @@ The following functions all create :ref:`socket objects <socket-objects>`.
        The IPPROTO_MPTCP protocol was added.
 
 .. function:: socketpair([family[, type[, proto]]])
-              socketpair(family: AddressFamily | int | None = None, type: SocketKind | int = ..., proto: int = 0) -> tuple[socket, socket]
+              socketpair(family: socket.AddressFamily | int | None = None, type: socket.SocketKind | int = ..., proto: int = 0) -> tuple[socket.socket, socket.socket]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1411>`__)
 
@@ -989,7 +989,7 @@ The following functions all create :ref:`socket objects <socket-objects>`.
 
 
 .. function:: create_connection(address, timeout=GLOBAL_DEFAULT, source_address=None, *, all_errors=False)
-              create_connection(address: tuple[str | None, int], timeout: float | None = ..., source_address: Buffer | str | tuple[typing.Any, ...] | None = None, *, all_errors: bool = False) -> socket
+              create_connection(address: tuple[str | None, int], timeout: float | None = ..., source_address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None, *, all_errors: bool = False) -> socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1427>`__)
 
@@ -1023,7 +1023,7 @@ The following functions all create :ref:`socket objects <socket-objects>`.
 
 
 .. function:: create_server(address, *, family=AF_INET, backlog=None, reuse_port=False, dualstack_ipv6=False)
-              create_server(address: _Address, *, family: int = ..., backlog: int | None = None, reuse_port: bool = False, dualstack_ipv6: bool = False) -> socket
+              create_server(address: _Address, *, family: int = ..., backlog: int | None = None, reuse_port: bool = False, dualstack_ipv6: bool = False) -> socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1441>`__)
 
@@ -1074,7 +1074,7 @@ The following functions all create :ref:`socket objects <socket-objects>`.
    .. versionadded:: 3.8
 
 .. function:: fromfd(fd, family, type, proto=0)
-              fromfd(fd: SupportsIndex, family: AddressFamily | int, type: SocketKind | int, proto: int = 0) -> socket
+              fromfd(fd: typing.SupportsIndex, family: socket.AddressFamily | int, type: socket.SocketKind | int, proto: int = 0) -> socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1396>`__)
 
@@ -1104,7 +1104,7 @@ The following functions all create :ref:`socket objects <socket-objects>`.
 
 
 .. data:: SocketType
-   :type: (self: socket, family: int = ..., type: int = ..., proto: int = ..., fileno: SupportsIndex | None = None) -> None
+   :type: (self: _socket.socket, family: int = ..., type: int = ..., proto: int = ..., fileno: typing.SupportsIndex | None = None) -> _socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L811>`__)
 
@@ -1119,7 +1119,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: close(fd)
-              close(fd: SupportsIndex, /) -> None
+              close(fd: typing.SupportsIndex, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L815>`__)
 
@@ -1130,7 +1130,7 @@ The :mod:`socket` module also offers various network-related services:
    .. versionadded:: 3.7
 
 .. function:: getaddrinfo(host, port, family=AF_UNSPEC, type=0, proto=0, flags=0)
-              getaddrinfo(host: bytes | str | None, port: bytes | int | str | None, family: int = 0, type: int = 0, proto: int = 0, flags: int = 0) -> list[tuple[AddressFamily, SocketKind, int, str, tuple[int, bytes] | tuple[str, int] | tuple[str, int, int, int]]]
+              getaddrinfo(host: bytes | str | None, port: bytes | int | str | None, family: int = 0, type: int = 0, proto: int = 0, flags: int = 0) -> list[tuple[socket.AddressFamily, socket.SocketKind, int, str, tuple[int, bytes] | tuple[str, int] | tuple[str, int, int, int]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1446>`__)
 
@@ -1433,7 +1433,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: inet_ntoa(packed_ip)
-              inet_ntoa(packed_ip: Buffer, /) -> str
+              inet_ntoa(packed_ip: _collections_abc.Buffer, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L835>`__)
 
@@ -1476,7 +1476,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: inet_ntop(address_family, packed_ip)
-              inet_ntop(address_family: int, packed_ip: Buffer, /) -> str
+              inet_ntop(address_family: int, packed_ip: _collections_abc.Buffer, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L837>`__)
 
@@ -1664,7 +1664,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: send_fds(sock, buffers, fds[, flags[, address]])
-              send_fds(sock: socket, buffers: collections.abc.Iterable[Buffer], fds: collections.abc.Iterable[int], flags: object = 0, address: object = None) -> int
+              send_fds(sock: socket.socket, buffers: typing.Iterable[_collections_abc.Buffer], fds: typing.Iterable[int], flags: object = 0, address: object = None) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1399>`__)
 
@@ -1681,7 +1681,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: recv_fds(sock, bufsize, maxfds[, flags])
-              recv_fds(sock: socket, bufsize: int, maxfds: int, flags: int = 0) -> tuple[bytes, list[int], int, typing.Any]
+              recv_fds(sock: socket.socket, bufsize: int, maxfds: int, flags: int = 0) -> tuple[bytes, list[int], int, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1402>`__)
 
@@ -1716,7 +1716,7 @@ to sockets.
 
 
 .. method:: socket.accept()
-            socket.accept() -> tuple[socket, typing.Any]
+            socket.accept() -> tuple[socket.socket, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1325>`__)
 
@@ -1831,7 +1831,7 @@ to sockets.
 
 
 .. method:: socket.dup()
-            socket.dup() -> socket
+            socket.dup() -> socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1324>`__)
 
@@ -1968,12 +1968,12 @@ to sockets.
 
 .. method:: socket.makefile(mode='r', buffering=None, *, encoding=None, \
                             errors=None, newline=None)
-            socket.makefile(mode: typing.Literal['b', 'br', 'brw', 'bw', 'bwr', 'rb', 'rbw', 'rwb', 'wb', 'wbr', 'wrb'], buffering: typing.Literal[0], *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> SocketIO
-            socket.makefile(mode: typing.Literal['brw', 'bwr', 'rbw', 'rwb', 'wbr', 'wrb'], buffering: typing.Literal[-1, 1] | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> BufferedRWPair[_BufferedReaderStream]
-            socket.makefile(mode: typing.Literal['br', 'rb'], buffering: typing.Literal[-1, 1] | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> BufferedReader[_BufferedReaderStream]
-            socket.makefile(mode: typing.Literal['bw', 'wb'], buffering: typing.Literal[-1, 1] | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> BufferedWriter
-            socket.makefile(mode: typing.Literal['b', 'br', 'brw', 'bw', 'bwr', 'rb', 'rbw', 'rwb', 'wb', 'wbr', 'wrb'], buffering: int, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> IOBase
-            socket.makefile(mode: typing.Literal['', 'r', 'rw', 'w', 'wr'] = 'r', buffering: int | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> TextIOWrapper[_WrappedBuffer]
+            socket.makefile(mode: typing.Literal['b', 'br', 'brw', 'bw', 'bwr', 'rb', 'rbw', 'rwb', 'wb', 'wbr', 'wrb'], buffering: typing.Literal[0], *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> socket.SocketIO
+            socket.makefile(mode: typing.Literal['brw', 'bwr', 'rbw', 'rwb', 'wbr', 'wrb'], buffering: typing.Literal[-1, 1] | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.BufferedRWPair[_io._BufferedReaderStream]
+            socket.makefile(mode: typing.Literal['br', 'rb'], buffering: typing.Literal[-1, 1] | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.BufferedReader[_io._BufferedReaderStream]
+            socket.makefile(mode: typing.Literal['bw', 'wb'], buffering: typing.Literal[-1, 1] | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.BufferedWriter
+            socket.makefile(mode: typing.Literal['b', 'br', 'brw', 'bw', 'bwr', 'rb', 'rbw', 'rwb', 'wb', 'wbr', 'wrb'], buffering: int, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> io.IOBase
+            socket.makefile(mode: typing.Literal['', 'r', 'rw', 'w', 'wr'] = 'r', buffering: int | None = None, *, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1329>`__)
 
@@ -2115,7 +2115,7 @@ to sockets.
 
 
 .. method:: socket.recvmsg_into(buffers[, ancbufsize[, flags]])
-            socket.recvmsg_into(buffers: collections.abc.Iterable[Buffer], ancbufsize: int = 0, flags: int = 0, /) -> tuple[int, list[tuple[int, int, bytes]], int, typing.Any]
+            socket.recvmsg_into(buffers: typing.Iterable[_collections_abc.Buffer], ancbufsize: int = 0, flags: int = 0, /) -> tuple[int, list[tuple[int, int, bytes]], int, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L774>`__)
 
@@ -2157,7 +2157,7 @@ to sockets.
 
 
 .. method:: socket.recvfrom_into(buffer[, nbytes[, flags]])
-            socket.recvfrom_into(buffer: Buffer, nbytes: int = 0, flags: int = 0) -> tuple[int, typing.Any]
+            socket.recvfrom_into(buffer: _collections_abc.Buffer, nbytes: int = 0, flags: int = 0) -> tuple[int, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L778>`__)
 
@@ -2170,7 +2170,7 @@ to sockets.
 
 
 .. method:: socket.recv_into(buffer[, nbytes[, flags]])
-            socket.recv_into(buffer: Buffer, nbytes: int = 0, flags: int = 0) -> int
+            socket.recv_into(buffer: _collections_abc.Buffer, nbytes: int = 0, flags: int = 0) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L779>`__)
 
@@ -2182,7 +2182,7 @@ to sockets.
 
 
 .. method:: socket.send(bytes[, flags])
-            socket.send(data: Buffer, flags: int = 0, /) -> int
+            socket.send(data: _collections_abc.Buffer, flags: int = 0, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L780>`__)
 
@@ -2200,7 +2200,7 @@ to sockets.
 
 
 .. method:: socket.sendall(bytes[, flags])
-            socket.sendall(data: Buffer, flags: int = 0, /) -> None
+            socket.sendall(data: _collections_abc.Buffer, flags: int = 0, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L781>`__)
 
@@ -2223,8 +2223,8 @@ to sockets.
 
 .. method:: socket.sendto(bytes, address)
             socket.sendto(bytes, flags, address)
-            socket.sendto(data: Buffer, address: _Address, /) -> int
-            socket.sendto(data: Buffer, flags: int, address: _Address, /) -> int
+            socket.sendto(data: _collections_abc.Buffer, address: _Address, /) -> int
+            socket.sendto(data: _collections_abc.Buffer, flags: int, address: _Address, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L783>`__)
 
@@ -2243,7 +2243,7 @@ to sockets.
 
 
 .. method:: socket.sendmsg(buffers[, ancdata[, flags[, address]]])
-            socket.sendmsg(buffers: collections.abc.Iterable[Buffer], ancdata: collections.abc.Iterable[tuple[int, int, Buffer]] = ..., flags: int = 0, address: Buffer | str | tuple[typing.Any, ...] | None = None, /) -> int
+            socket.sendmsg(buffers: typing.Iterable[_collections_abc.Buffer], ancdata: typing.Iterable[tuple[int, int, _collections_abc.Buffer]] = ..., flags: int = 0, address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L787>`__)
 
@@ -2290,7 +2290,7 @@ to sockets.
       an :exc:`InterruptedError` exception (see :pep:`475` for the rationale).
 
 .. method:: socket.sendmsg_afalg([msg], *, op[, iv[, assoclen[, flags]]])
-            socket.sendmsg_afalg(msg: collections.abc.Iterable[Buffer] = ..., *, op: int, iv: typing.Any = ..., assoclen: int = ..., flags: int = 0) -> int
+            socket.sendmsg_afalg(msg: typing.Iterable[_collections_abc.Buffer] = ..., *, op: int, iv: typing.Any = ..., assoclen: int = ..., flags: int = 0) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L796>`__)
 
@@ -2302,7 +2302,7 @@ to sockets.
    .. versionadded:: 3.6
 
 .. method:: socket.sendfile(file, offset=0, count=None)
-            socket.sendfile(file: _SendableFile, offset: int = 0, count: int | None = None) -> int
+            socket.sendfile(file: socket._SendableFile, offset: int = 0, count: int | None = None) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1388>`__)
 
@@ -2374,7 +2374,7 @@ to sockets.
 
 .. method:: socket.setsockopt(level, optname, value: int | Buffer)
             socket.setsockopt(level, optname, None, optlen: int)
-            socket.setsockopt(level: int, optname: int, value: Buffer | int, /) -> None
+            socket.setsockopt(level: int, optname: int, value: _collections_abc.Buffer | int, /) -> None
             socket.setsockopt(level: int, optname: int, value: None, optlen: int, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L803>`__)
@@ -2435,7 +2435,7 @@ values given to the :class:`~socket.socket` constructor.
 
 
 .. attribute:: socket.family
-   :type: family(self: socket) -> AddressFamily
+   :type: family(self: socket.socket) -> socket.AddressFamily
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1390>`__)
 
@@ -2443,7 +2443,7 @@ values given to the :class:`~socket.socket` constructor.
 
 
 .. attribute:: socket.type
-   :type: type(self: socket) -> SocketKind
+   :type: type(self: socket.socket) -> socket.SocketKind
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socket.pyi#L1392>`__)
 
@@ -2451,7 +2451,7 @@ values given to the :class:`~socket.socket` constructor.
 
 
 .. attribute:: socket.proto
-   :type: proto(self: socket) -> int
+   :type: proto(self: socket.socket) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_socket.pyi#L741>`__)
 

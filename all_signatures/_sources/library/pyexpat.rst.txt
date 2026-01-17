@@ -47,7 +47,7 @@ This module provides one exception and one type object:
 
 
 .. exception:: error
-               error(*args: object) -> None
+               error(*args: object) -> xml.parsers.expat.ExpatError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/__init__.pyi#L14>`__)
 
@@ -55,7 +55,7 @@ This module provides one exception and one type object:
 
 
 .. data:: XMLParserType
-   :type: (self: XMLParserType) -> None
+   :type: (self: pyexpat.XMLParserType) -> pyexpat.XMLParserType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/__init__.pyi#L22>`__)
 
@@ -73,7 +73,7 @@ The :mod:`xml.parsers.expat` module contains two functions:
 
 
 .. function:: ParserCreate(encoding=None, namespace_separator=None)
-              ParserCreate(encoding: str | None = None, namespace_separator: str | None = None, intern: dict[str, typing.Any] | None = None) -> XMLParserType
+              ParserCreate(encoding: str | None = None, namespace_separator: str | None = None, intern: dict[str, typing.Any] | None = None) -> pyexpat.XMLParserType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/__init__.pyi#L84>`__)
 
@@ -143,7 +143,7 @@ XMLParser Objects
 
 
 .. method:: xmlparser.Parse(data[, isfinal])
-            xmlparser.Parse(data: Buffer | str, isfinal: bool = False, /) -> int
+            xmlparser.Parse(data: _collections_abc.Buffer | str, isfinal: bool = False, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/__init__.pyi#L23>`__)
 
@@ -155,7 +155,7 @@ XMLParser Objects
 
 
 .. method:: xmlparser.ParseFile(file)
-            xmlparser.ParseFile(file: SupportsRead[bytes], /) -> int
+            xmlparser.ParseFile(file: _typeshed.SupportsRead[bytes], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/__init__.pyi#L24>`__)
 
@@ -196,7 +196,7 @@ XMLParser Objects
 
 
 .. method:: xmlparser.ExternalEntityParserCreate(context[, encoding])
-            xmlparser.ExternalEntityParserCreate(context: str | None, encoding: str = ..., /) -> XMLParserType
+            xmlparser.ExternalEntityParserCreate(context: str | None, encoding: str = ..., /) -> pyexpat.XMLParserType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/__init__.pyi#L28>`__)
 
@@ -1050,13 +1050,13 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_ASYNC_ENTITY
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L9>`__)
 
 
 .. data:: XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L10>`__)
 
@@ -1065,7 +1065,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_BAD_CHAR_REF
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L11>`__)
 
@@ -1074,7 +1074,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_BINARY_ENTITY_REF
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L12>`__)
 
@@ -1083,7 +1083,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_DUPLICATE_ATTRIBUTE
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L14>`__)
 
@@ -1091,13 +1091,13 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_INCORRECT_ENCODING
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L20>`__)
 
 
 .. data:: XML_ERROR_INVALID_TOKEN
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L21>`__)
 
@@ -1106,7 +1106,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_JUNK_AFTER_DOC_ELEMENT
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L22>`__)
 
@@ -1114,7 +1114,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_MISPLACED_XML_PI
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L23>`__)
 
@@ -1122,7 +1122,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_NO_ELEMENTS
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L26>`__)
 
@@ -1131,7 +1131,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_NO_MEMORY
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L27>`__)
 
@@ -1139,7 +1139,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_PARAM_ENTITY_REF
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L28>`__)
 
@@ -1147,7 +1147,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_PARTIAL_CHAR
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L29>`__)
 
@@ -1155,7 +1155,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_RECURSIVE_ENTITY_REF
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L31>`__)
 
@@ -1164,7 +1164,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_SYNTAX
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L34>`__)
 
@@ -1172,7 +1172,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_TAG_MISMATCH
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L35>`__)
 
@@ -1180,7 +1180,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_UNCLOSED_TOKEN
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L39>`__)
 
@@ -1189,7 +1189,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_UNDEFINED_ENTITY
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L41>`__)
 
@@ -1197,7 +1197,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_UNKNOWN_ENCODING
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L43>`__)
 
@@ -1205,7 +1205,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_UNCLOSED_CDATA_SECTION
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L38>`__)
 
@@ -1213,13 +1213,13 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_EXTERNAL_ENTITY_HANDLING
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L16>`__)
 
 
 .. data:: XML_ERROR_NOT_STANDALONE
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L24>`__)
 
@@ -1229,19 +1229,19 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_UNEXPECTED_STATE
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L42>`__)
 
 
 .. data:: XML_ERROR_ENTITY_DECLARED_IN_PE
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L15>`__)
 
 
 .. data:: XML_ERROR_FEATURE_REQUIRES_XML_DTD
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L17>`__)
 
@@ -1251,7 +1251,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_CANT_CHANGE_FEATURE_ONCE_PARSING
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L13>`__)
 
@@ -1261,7 +1261,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_UNBOUND_PREFIX
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L37>`__)
 
@@ -1269,7 +1269,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_UNDECLARING_PREFIX
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L40>`__)
 
@@ -1278,7 +1278,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_INCOMPLETE_PE
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L19>`__)
 
@@ -1286,7 +1286,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_XML_DECL
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L44>`__)
 
@@ -1294,7 +1294,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_TEXT_DECL
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L36>`__)
 
@@ -1302,7 +1302,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_PUBLICID
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L30>`__)
 
@@ -1310,7 +1310,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_SUSPENDED
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L32>`__)
 
@@ -1319,7 +1319,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_NOT_SUSPENDED
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L25>`__)
 
@@ -1327,7 +1327,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_ABORTED
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L8>`__)
 
@@ -1335,7 +1335,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_FINISHED
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L18>`__)
 
@@ -1345,13 +1345,13 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_SUSPEND_PE
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L33>`__)
 
 
 .. data:: XML_ERROR_RESERVED_PREFIX_XML
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L46>`__)
 
@@ -1361,7 +1361,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_RESERVED_PREFIX_XMLNS
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L47>`__)
 
@@ -1369,7 +1369,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_RESERVED_NAMESPACE_URI
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L48>`__)
 
@@ -1378,7 +1378,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_INVALID_ARGUMENT
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L49>`__)
 
@@ -1386,7 +1386,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_NO_BUFFER
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L50>`__)
 
@@ -1394,7 +1394,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_AMPLIFICATION_LIMIT_BREACH
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L51>`__)
 
@@ -1403,7 +1403,7 @@ The ``errors`` module has the following attributes:
 
 
 .. data:: XML_ERROR_NOT_STARTED
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyexpat/errors.pyi#L53>`__)
 

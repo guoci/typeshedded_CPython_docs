@@ -22,7 +22,7 @@ Generating Symbol Tables
 ------------------------
 
 .. function:: symtable(code, filename, compile_type, *, module=None)
-              symtable(code: str, filename: str, compile_type: str) -> SymbolTable
+              symtable(code: str, filename: str, compile_type: str) -> symtable.SymbolTable
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L12>`__)
 
@@ -41,14 +41,14 @@ Examining Symbol Tables
 -----------------------
 
 .. class:: SymbolTableType
-           SymbolTableType(value: str) -> SymbolTableType
+           SymbolTableType(value: str) -> symtable.SymbolTableType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L17>`__)
 
    An enumeration indicating the type of a :class:`SymbolTable` object.
 
    .. attribute:: MODULE
-      :type: typing.Literal[SymbolTableType.MODULE]
+      :type: typing.Literal[symtable.SymbolTableType.MODULE]
       :value: "module"
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L18>`__)
@@ -56,7 +56,7 @@ Examining Symbol Tables
       Used for the symbol table of a module.
 
    .. attribute:: FUNCTION
-      :type: typing.Literal[SymbolTableType.FUNCTION]
+      :type: typing.Literal[symtable.SymbolTableType.FUNCTION]
       :value: "function"
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L19>`__)
@@ -64,7 +64,7 @@ Examining Symbol Tables
       Used for the symbol table of a function.
 
    .. attribute:: CLASS
-      :type: typing.Literal[SymbolTableType.CLASS]
+      :type: typing.Literal[symtable.SymbolTableType.CLASS]
       :value: "class"
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L20>`__)
@@ -75,7 +75,7 @@ Examining Symbol Tables
    :ref:`annotation scopes <annotation-scopes>`.
 
    .. attribute:: ANNOTATION
-      :type: typing.Literal[SymbolTableType.ANNOTATION]
+      :type: typing.Literal[symtable.SymbolTableType.ANNOTATION]
       :value: "annotation"
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L21>`__)
@@ -83,7 +83,7 @@ Examining Symbol Tables
       Used for annotations if ``from __future__ import annotations`` is active.
 
    .. attribute:: TYPE_ALIAS
-      :type: typing.Literal[SymbolTableType.TYPE_ALIAS]
+      :type: typing.Literal[symtable.SymbolTableType.TYPE_ALIAS]
       :value: "type alias"
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L22>`__)
@@ -91,7 +91,7 @@ Examining Symbol Tables
       Used for the symbol table of :keyword:`type` constructions.
 
    .. attribute:: TYPE_PARAMETERS
-      :type: typing.Literal[SymbolTableType.TYPE_PARAMETERS]
+      :type: typing.Literal[symtable.SymbolTableType.TYPE_PARAMETERS]
       :value: "type parameters"
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L23>`__)
@@ -100,7 +100,7 @@ Examining Symbol Tables
       or :ref:`generic classes <generic-classes>`.
 
    .. attribute:: TYPE_VARIABLE
-      :type: typing.Literal[SymbolTableType.TYPE_VARIABLE]
+      :type: typing.Literal[symtable.SymbolTableType.TYPE_VARIABLE]
       :value: "type variable"
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L24>`__)
@@ -113,14 +113,14 @@ Examining Symbol Tables
    .. versionadded:: 3.13
 
 .. class:: SymbolTable
-           SymbolTable(raw_table: typing.Any, filename: str) -> None
+           SymbolTable(raw_table: typing.Any, filename: str) -> symtable.SymbolTable
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L26>`__)
 
    A namespace table for a block.  The constructor is not public.
 
    .. method:: get_type()
-               get_type() -> SymbolTableType
+               get_type() -> symtable.SymbolTableType
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L29>`__)
 
@@ -188,7 +188,7 @@ Examining Symbol Tables
       be obtained with :meth:`get_children`.
 
    .. method:: get_identifiers()
-               get_identifiers() -> dict_keys[str, int]
+               get_identifiers() -> _collections_abc.dict_keys[str, int]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L39>`__)
 
@@ -196,21 +196,21 @@ Examining Symbol Tables
       See the :ref:`documentation of view objects <dict-views>`.
 
    .. method:: lookup(name)
-               lookup(name: str) -> Symbol
+               lookup(name: str) -> symtable.Symbol
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L40>`__)
 
       Lookup *name* in the table and return a :class:`Symbol` instance.
 
    .. method:: get_symbols()
-               get_symbols() -> list[Symbol]
+               get_symbols() -> list[symtable.Symbol]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L41>`__)
 
       Return a list of :class:`Symbol` instances for names in the table.
 
    .. method:: get_children()
-               get_children() -> list[SymbolTable]
+               get_children() -> list[symtable.SymbolTable]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L42>`__)
 
@@ -218,7 +218,7 @@ Examining Symbol Tables
 
 
 .. class:: Function
-           Function(raw_table: typing.Any, filename: str) -> None
+           Function(raw_table: typing.Any, filename: str) -> symtable.Function
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L44>`__)
 
@@ -263,7 +263,7 @@ Examining Symbol Tables
 
 
 .. class:: Class
-           Class(raw_table: typing.Any, filename: str) -> None
+           Class(raw_table: typing.Any, filename: str) -> symtable.Class
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L51>`__)
 
@@ -325,7 +325,7 @@ Examining Symbol Tables
 
 
 .. class:: Symbol
-           Symbol(name: str, flags: int, namespaces: collections.abc.Sequence[SymbolTable] | None = None, *, module_scope: bool = False) -> None
+           Symbol(name: str, flags: int, namespaces: typing.Sequence[symtable.SymbolTable] | None = None, *, module_scope: bool = False) -> symtable.Symbol
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L58>`__)
 
@@ -483,14 +483,14 @@ Examining Symbol Tables
       list, that does not introduce a new namespace.
 
    .. method:: get_namespaces()
-               get_namespaces() -> collections.abc.Sequence[SymbolTable]
+               get_namespaces() -> typing.Sequence[symtable.SymbolTable]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L84>`__)
 
       Return a list of namespaces bound to this name.
 
    .. method:: get_namespace()
-               get_namespace() -> SymbolTable
+               get_namespace() -> symtable.SymbolTable
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/symtable.pyi#L85>`__)
 

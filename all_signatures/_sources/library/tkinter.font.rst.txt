@@ -23,7 +23,7 @@ The different font weights and slants are:
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L10>`__)
 
 .. class:: Font(root=None, font=None, name=None, exists=False, **options)
-           Font(root: Misc | None = None, font: Font | Tcl_Obj | list[typing.Any] | str | tuple[str] | tuple[str, int, list[str] | tuple[str, ...]] | tuple[str, int, *tuple[str, ...]] | None = None, name: str | None = None, exists: bool = False, *, family: str = ..., size: int = ..., weight: typing.Literal['bold', 'normal'] = ..., slant: typing.Literal['italic', 'roman'] = ..., underline: bool = ..., overstrike: bool = ...) -> None
+           Font(root: tkinter.Misc | None = None, font: tkinter.font.Font | _tkinter.Tcl_Obj | list[typing.Any] | str | tuple[str] | tuple[str, int, list[str] | tuple[str, ...]] | tuple[str, int, Unpack[tuple[str, ...]]] | None = None, name: str | None = None, exists: bool = False, *, family: str = ..., size: int = ..., weight: typing.Literal['bold', 'normal'] = ..., slant: typing.Literal['italic', 'roman'] = ..., underline: bool = ..., overstrike: bool = ...) -> tkinter.font.Font
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L42>`__)
 
@@ -52,13 +52,13 @@ The different font weights and slants are:
        | *overstrike* - font strikeout (0 - none, 1 - strikeout)
 
    .. method:: actual(option=None, displayof=None)
-               actual(option: typing.Literal['family'], displayof: Misc | None = None) -> str
-               actual(option: typing.Literal['size'], displayof: Misc | None = None) -> int
-               actual(option: typing.Literal['weight'], displayof: Misc | None = None) -> typing.Literal['bold', 'normal']
-               actual(option: typing.Literal['slant'], displayof: Misc | None = None) -> typing.Literal['italic', 'roman']
-               actual(option: typing.Literal['overstrike', 'underline'], displayof: Misc | None = None) -> bool
-               actual(option: None, displayof: Misc | None = None) -> _FontDict
-               actual(*, displayof: Misc | None = None) -> _FontDict
+               actual(option: typing.Literal['family'], displayof: tkinter.Misc | None = None) -> str
+               actual(option: typing.Literal['size'], displayof: tkinter.Misc | None = None) -> int
+               actual(option: typing.Literal['weight'], displayof: tkinter.Misc | None = None) -> typing.Literal['bold', 'normal']
+               actual(option: typing.Literal['slant'], displayof: tkinter.Misc | None = None) -> typing.Literal['italic', 'roman']
+               actual(option: typing.Literal['overstrike', 'underline'], displayof: tkinter.Misc | None = None) -> bool
+               actual(option: None, displayof: tkinter.Misc | None = None) -> tkinter.font._FontDict
+               actual(*, displayof: tkinter.Misc | None = None) -> tkinter.font._FontDict
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L78>`__)
 
@@ -77,21 +77,21 @@ The different font weights and slants are:
       Retrieve an attribute of the font.
 
    .. method:: config(**options)
-               config(*, family: str = ..., size: int = ..., weight: typing.Literal['bold', 'normal'] = ..., slant: typing.Literal['italic', 'roman'] = ..., underline: bool = ..., overstrike: bool = ...) -> _FontDict | None
+               config(*, family: str = ..., size: int = ..., weight: typing.Literal['bold', 'normal'] = ..., slant: typing.Literal['italic', 'roman'] = ..., underline: bool = ..., overstrike: bool = ...) -> tkinter.font._FontDict | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L91>`__)
 
       Modify attributes of the font.
 
    .. method:: copy()
-               copy() -> Font
+               copy() -> tkinter.font.Font
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L102>`__)
 
       Return new instance of the current font.
 
    .. method:: measure(text, displayof=None)
-               measure(text: str, displayof: Misc | None = None) -> int
+               measure(text: str, displayof: tkinter.Misc | None = None) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L109>`__)
 
@@ -100,9 +100,9 @@ The different font weights and slants are:
       main application window is assumed.
 
    .. method:: metrics(*options, **kw)
-               metrics(option: typing.Literal['ascent', 'descent', 'linespace'], /, *, displayof: Misc | None = ...) -> int
-               metrics(option: typing.Literal['fixed'], /, *, displayof: Misc | None = ...) -> bool
-               metrics(*, displayof: Misc | None = ...) -> _MetricsDict
+               metrics(option: typing.Literal['ascent', 'descent', 'linespace'], /, *, displayof: tkinter.Misc | None = ...) -> int
+               metrics(option: typing.Literal['fixed'], /, *, displayof: tkinter.Misc | None = ...) -> bool
+               metrics(*, displayof: tkinter.Misc | None = ...) -> tkinter.font._MetricsDict
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L104>`__)
 
@@ -121,21 +121,21 @@ The different font weights and slants are:
       *fixed* - 1 if font is fixed-width else 0
 
 .. function:: families(root=None, displayof=None)
-              families(root: Misc | None = None, displayof: Misc | None = None) -> tuple[str, ...]
+              families(root: tkinter.Misc | None = None, displayof: tkinter.Misc | None = None) -> tuple[str, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L113>`__)
 
    Return the different font families.
 
 .. function:: names(root=None)
-              names(root: Misc | None = None) -> tuple[str, ...]
+              names(root: tkinter.Misc | None = None) -> tuple[str, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L114>`__)
 
    Return the names of defined fonts.
 
 .. function:: nametofont(name, root=None)
-              nametofont(name: str, root: Misc | None = None) -> Font
+              nametofont(name: str, root: tkinter.Misc | None = None) -> tkinter.font.Font
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/tkinter/font.pyi#L117>`__)
 

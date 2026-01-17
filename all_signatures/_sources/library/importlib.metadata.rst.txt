@@ -101,7 +101,7 @@ You can also get a :ref:`distribution's version number <version>`, list its
 
 
 .. exception:: PackageNotFoundError
-               PackageNotFoundError(*args: object, *, name: str | None = None, path: str | None = None) -> None
+               PackageNotFoundError(*args: object, *, name: str | None = None, path: str | None = None) -> importlib.metadata.PackageNotFoundError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L45>`__)
 
@@ -122,7 +122,7 @@ Entry points
 ------------
 
 .. function:: entry_points(**select_params)
-              entry_points(*, name: str = ..., value: str = ..., group: str = ..., module: str = ..., attr: str = ..., extras: list[str] = ...) -> EntryPoints
+              entry_points(*, name: str = ..., value: str = ..., group: str = ..., module: str = ..., attr: str = ..., extras: list[str] = ...) -> importlib.metadata.EntryPoints
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L303>`__)
 
@@ -136,7 +136,7 @@ Entry points
    instances do not currently compare equal, even if they have the same attributes)
 
 .. class:: EntryPoints
-           EntryPoints(iterable: collections.abc.Iterable[EntryPoint] = ..., /) -> EntryPoints
+           EntryPoints(iterable: typing.Iterable[importlib.metadata.EntryPoint] = ..., /) -> importlib.metadata.EntryPoints
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L123>`__)
 
@@ -147,7 +147,7 @@ Entry points
    point names.
 
 .. class:: EntryPoint
-           EntryPoint(name: str, value: str, group: str) -> None
+           EntryPoint(name: str, value: str, group: str) -> importlib.metadata.EntryPoint
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L63>`__)
 
@@ -231,7 +231,7 @@ Distribution metadata
 ---------------------
 
 .. function:: metadata(distribution_name)
-              metadata(distribution_name: str) -> PackageMetadata
+              metadata(distribution_name: str) -> importlib.metadata._meta.PackageMetadata
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L297>`__)
 
@@ -242,7 +242,7 @@ Distribution metadata
    package is not installed in the current Python environment.
 
 .. class:: PackageMetadata
-           PackageMetadata() -> None
+           PackageMetadata() -> importlib.metadata._meta.PackageMetadata
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/_meta.pyi#L11>`__)
 
@@ -310,7 +310,7 @@ Distribution files
 ------------------
 
 .. function:: files(distribution_name)
-              files(distribution_name: str) -> list[PackagePath] | None
+              files(distribution_name: str) -> list[importlib.metadata.PackagePath] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L319>`__)
 
@@ -325,7 +325,7 @@ Distribution files
    are missing.
 
 .. class:: PackagePath
-           PackagePath(*args: StrPath) -> None
+           PackagePath(*args: StrPath) -> importlib.metadata.PackagePath
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L200>`__)
 
@@ -404,7 +404,7 @@ Mapping import to distribution packages
 ---------------------------------------
 
 .. function:: packages_distributions()
-              packages_distributions() -> collections.abc.Mapping[str, list[str]]
+              packages_distributions() -> typing.Mapping[str, list[str]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L38>`__)
 
@@ -436,7 +436,7 @@ Distributions
 =============
 
 .. function:: distribution(distribution_name)
-              distribution(distribution_name: str) -> Distribution
+              distribution(distribution_name: str) -> importlib.metadata.Distribution
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L288>`__)
 
@@ -447,7 +447,7 @@ Distributions
    package is not installed in the current Python environment.
 
 .. class:: Distribution
-           Distribution() -> None
+           Distribution() -> importlib.metadata.Distribution
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L220>`__)
 
@@ -458,8 +458,8 @@ Distributions
    accordingly have the same attributes.
 
    .. method:: discover(cls, *, context=None, **kwargs)
-               discover(cls: type[Distribution], *, context: DistributionFinder.Context) -> collections.abc.Iterable[Distribution]
-               discover(cls: type[Distribution], *, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> collections.abc.Iterable[Distribution]
+               discover(cls: type[importlib.metadata.Distribution], *, context: importlib.metadata.DistributionFinder.Context) -> typing.Iterable[importlib.metadata.Distribution]
+               discover(cls: type[importlib.metadata.Distribution], *, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> typing.Iterable[importlib.metadata.Distribution]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L229>`__)
 
@@ -520,7 +520,7 @@ This metadata finder search defaults to ``sys.path``, but varies slightly in how
 - ``importlib.metadata`` will incidentally honor :py:class:`pathlib.Path` objects on ``sys.path`` even though such values will be ignored for imports.
 
 .. class:: DistributionFinder
-           DistributionFinder() -> None
+           DistributionFinder() -> importlib.metadata.DistributionFinder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L262>`__)
 
@@ -531,7 +531,7 @@ This metadata finder search defaults to ``sys.path``, but varies slightly in how
    supply metadata.
 
     .. class:: Context(**kwargs)
-               Context(*, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> None
+               Context(*, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> importlib.metadata.DistributionFinder.Context
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L263>`__)
 
@@ -570,8 +570,8 @@ This metadata finder search defaults to ``sys.path``, but varies slightly in how
 
 
 .. function:: distributions(**kwargs)
-              distributions(*, context: DistributionFinder.Context) -> collections.abc.Iterable[Distribution]
-              distributions(*, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> collections.abc.Iterable[Distribution]
+              distributions(*, context: importlib.metadata.DistributionFinder.Context) -> typing.Iterable[importlib.metadata.Distribution]
+              distributions(*, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> typing.Iterable[importlib.metadata.Distribution]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/metadata/__init__.pyi#L290>`__)
 

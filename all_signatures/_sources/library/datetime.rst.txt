@@ -100,7 +100,7 @@ The :mod:`!datetime` module exports the following constants:
    :const:`MAXYEAR` is 9999.
 
 .. data:: UTC
-   :type: timezone
+   :type: datetime.timezone
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L40>`__)
 
@@ -112,7 +112,7 @@ Available Types
 ---------------
 
 .. class:: date
-           date(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex) -> date
+           date(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex) -> datetime.date
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L55>`__)
@@ -123,7 +123,7 @@ Available Types
 
 
 .. class:: time
-           time(hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> time
+           time(hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.time
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L117>`__)
@@ -135,7 +135,7 @@ Available Types
 
 
 .. class:: datetime
-           datetime(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex, hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> datetime
+           datetime(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex, hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.datetime
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L246>`__)
@@ -146,7 +146,7 @@ Available Types
 
 
 .. class:: timedelta
-           timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> timedelta
+           timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> datetime.timedelta
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L197>`__)
@@ -156,7 +156,7 @@ Available Types
 
 
 .. class:: tzinfo
-           tzinfo() -> None
+           tzinfo() -> datetime.tzinfo
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L15>`__)
@@ -167,7 +167,7 @@ Available Types
    time).
 
 .. class:: timezone
-           timezone(offset: timedelta, name: str = ...) -> timezone
+           timezone(offset: datetime.timedelta, name: str = ...) -> datetime.timezone
    :noindex:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L28>`__)
@@ -233,7 +233,7 @@ A :class:`timedelta` object represents a duration, the difference between two
 :class:`.datetime` or :class:`date` instances.
 
 .. class:: timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
-           timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> timedelta
+           timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L197>`__)
 
@@ -311,7 +311,7 @@ A :class:`timedelta` object represents a duration, the difference between two
 Class attributes:
 
 .. attribute:: timedelta.min
-   :type: timedelta
+   :type: datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L198>`__)
 
@@ -319,7 +319,7 @@ Class attributes:
 
 
 .. attribute:: timedelta.max
-   :type: timedelta
+   :type: datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L199>`__)
 
@@ -328,7 +328,7 @@ Class attributes:
 
 
 .. attribute:: timedelta.resolution
-   :type: timedelta
+   :type: datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L200>`__)
 
@@ -342,7 +342,7 @@ Note that, because of normalization, ``timedelta.max`` is greater than ``-timede
 Instance attributes (read-only):
 
 .. attribute:: timedelta.days
-   :type: days(self: timedelta) -> int
+   :type: days(self: datetime.timedelta) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L212>`__)
 
@@ -350,7 +350,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: timedelta.seconds
-   :type: seconds(self: timedelta) -> int
+   :type: seconds(self: datetime.timedelta) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L214>`__)
 
@@ -372,7 +372,7 @@ Instance attributes (read-only):
          11235813.0
 
 .. attribute:: timedelta.microseconds
-   :type: microseconds(self: timedelta) -> int
+   :type: microseconds(self: datetime.timedelta) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L216>`__)
 
@@ -549,7 +549,7 @@ January 1 of year 1 is called day number 1, January 2 of year 1 is
 called day number 2, and so on. [#]_
 
 .. class:: date(year, month, day)
-           date(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex) -> date
+           date(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L55>`__)
 
@@ -566,7 +566,7 @@ called day number 2, and so on. [#]_
 Other constructors, all class methods:
 
 .. classmethod:: date.today()
-                 date.today(cls: type[date]) -> date
+                 date.today(cls: type[datetime.date]) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L63>`__)
 
@@ -575,7 +575,7 @@ Other constructors, all class methods:
    This is equivalent to ``date.fromtimestamp(time.time())``.
 
 .. classmethod:: date.fromtimestamp(timestamp)
-                 date.fromtimestamp(cls: type[date], timestamp: float, /) -> date
+                 date.fromtimestamp(cls: type[datetime.date], timestamp: float, /) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L61>`__)
 
@@ -600,7 +600,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: date.fromordinal(ordinal)
-                 date.fromordinal(cls: type[date], n: int, /) -> date
+                 date.fromordinal(cls: type[datetime.date], n: int, /) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L65>`__)
 
@@ -613,7 +613,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: date.fromisoformat(date_string)
-                 date.fromisoformat(cls: type[date], date_string: str, /) -> date
+                 date.fromisoformat(cls: type[datetime.date], date_string: str, /) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L67>`__)
 
@@ -641,7 +641,7 @@ Other constructors, all class methods:
       Previously, this method only supported the format ``YYYY-MM-DD``.
 
 .. classmethod:: date.fromisocalendar(year, week, day)
-                 date.fromisocalendar(cls: type[date], year: int, week: int, day: int) -> date
+                 date.fromisocalendar(cls: type[datetime.date], year: int, week: int, day: int) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L69>`__)
 
@@ -651,7 +651,7 @@ Other constructors, all class methods:
    .. versionadded:: 3.8
 
 .. classmethod:: date.strptime(date_string, format)
-                 date.strptime(cls: type[date], date_string: str, format: str, /) -> date
+                 date.strptime(cls: type[datetime.date], date_string: str, format: str, /) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L80>`__)
 
@@ -690,7 +690,7 @@ Other constructors, all class methods:
 Class attributes:
 
 .. attribute:: date.min
-   :type: date
+   :type: datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L56>`__)
 
@@ -698,7 +698,7 @@ Class attributes:
 
 
 .. attribute:: date.max
-   :type: date
+   :type: datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L57>`__)
 
@@ -706,7 +706,7 @@ Class attributes:
 
 
 .. attribute:: date.resolution
-   :type: timedelta
+   :type: datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L58>`__)
 
@@ -717,7 +717,7 @@ Class attributes:
 Instance attributes (read-only):
 
 .. attribute:: date.year
-   :type: year(self: date) -> int
+   :type: year(self: datetime.date) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L71>`__)
 
@@ -725,7 +725,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: date.month
-   :type: month(self: date) -> int
+   :type: month(self: datetime.date) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L73>`__)
 
@@ -733,7 +733,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: date.day
-   :type: day(self: date) -> int
+   :type: day(self: datetime.date) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L75>`__)
 
@@ -807,7 +807,7 @@ In Boolean contexts, all :class:`date` objects are considered to be true.
 Instance methods:
 
 .. method:: date.replace(year=self.year, month=self.month, day=self.day)
-            date.replace(year: SupportsIndex = ..., month: SupportsIndex = ..., day: SupportsIndex = ...) -> date
+            date.replace(year: typing.SupportsIndex = ..., month: typing.SupportsIndex = ..., day: typing.SupportsIndex = ...) -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L97>`__)
 
@@ -826,7 +826,7 @@ Instance methods:
 
 
 .. method:: date.timetuple()
-            date.timetuple() -> struct_time
+            date.timetuple() -> time.struct_time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L92>`__)
 
@@ -873,7 +873,7 @@ Instance methods:
 
 
 .. method:: date.isocalendar()
-            date.isocalendar() -> _IsoCalendarDate
+            date.isocalendar() -> datetime._IsoCalendarDate
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L114>`__)
 
@@ -1038,7 +1038,7 @@ calendar extended in both directions; like a :class:`.time` object,
 Constructor:
 
 .. class:: datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)
-           datetime(year: SupportsIndex, month: SupportsIndex, day: SupportsIndex, hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> datetime
+           datetime(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex, hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L246>`__)
 
@@ -1063,7 +1063,7 @@ Constructor:
 Other constructors, all class methods:
 
 .. classmethod:: datetime.today()
-                 datetime.today(cls: type[datetime]) -> datetime
+                 datetime.today(cls: type[datetime.datetime]) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L63>`__)
 
@@ -1079,7 +1079,7 @@ Other constructors, all class methods:
    ``tz`` parameter.
 
 .. classmethod:: datetime.now(tz=None)
-                 datetime.now(cls: type[datetime], tz: tzinfo | None = None) -> datetime
+                 datetime.now(cls: type[datetime.datetime], tz: datetime.tzinfo | None = None) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L288>`__)
 
@@ -1102,7 +1102,7 @@ Other constructors, all class methods:
       instant depending on the precision of the underlying clock.
 
 .. classmethod:: datetime.utcnow()
-                 datetime.utcnow(cls: type[datetime]) -> datetime
+                 datetime.utcnow(cls: type[datetime.datetime]) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L291>`__)
 
@@ -1125,7 +1125,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: datetime.fromtimestamp(timestamp, tz=None)
-                 datetime.fromtimestamp(cls: type[datetime], timestamp: float, tz: tzinfo | None = None) -> datetime
+                 datetime.fromtimestamp(cls: type[datetime.datetime], timestamp: float, tz: datetime.tzinfo | None = None) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L279>`__)
 
@@ -1163,7 +1163,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: datetime.utcfromtimestamp(timestamp)
-                 datetime.utcfromtimestamp(cls: type[datetime], t: float, /) -> datetime
+                 datetime.utcfromtimestamp(cls: type[datetime.datetime], t: float, /) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L286>`__)
 
@@ -1210,7 +1210,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: datetime.fromordinal(ordinal)
-                 datetime.fromordinal(cls: type[datetime], n: int, /) -> datetime
+                 datetime.fromordinal(cls: type[datetime.datetime], n: int, /) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L65>`__)
 
@@ -1221,7 +1221,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: datetime.combine(date, time, tzinfo=time.tzinfo)
-                 datetime.combine(cls: type[datetime], date: date, time: time, tzinfo: tzinfo | None = ...) -> datetime
+                 datetime.combine(cls: type[datetime.datetime], date: datetime.date, time: datetime.time, tzinfo: datetime.tzinfo | None = ...) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L293>`__)
 
@@ -1241,7 +1241,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: datetime.fromisoformat(date_string)
-                 datetime.fromisoformat(cls: type[datetime], date_string: str, /) -> datetime
+                 datetime.fromisoformat(cls: type[datetime.datetime], date_string: str, /) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L67>`__)
 
@@ -1287,7 +1287,7 @@ Other constructors, all class methods:
 
 
 .. classmethod:: datetime.fromisocalendar(year, week, day)
-                 datetime.fromisocalendar(cls: type[datetime], year: int, week: int, day: int) -> datetime
+                 datetime.fromisocalendar(cls: type[datetime.datetime], year: int, week: int, day: int) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L69>`__)
 
@@ -1299,7 +1299,7 @@ Other constructors, all class methods:
    .. versionadded:: 3.8
 
 .. classmethod:: datetime.strptime(date_string, format)
-                 datetime.strptime(cls: type[datetime], date_string: str, format: str, /) -> datetime
+                 datetime.strptime(cls: type[datetime.datetime], date_string: str, format: str, /) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L331>`__)
 
@@ -1338,7 +1338,7 @@ Other constructors, all class methods:
 Class attributes:
 
 .. attribute:: datetime.min
-   :type: datetime
+   :type: datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L247>`__)
 
@@ -1347,7 +1347,7 @@ Class attributes:
 
 
 .. attribute:: datetime.max
-   :type: datetime
+   :type: datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L248>`__)
 
@@ -1356,7 +1356,7 @@ Class attributes:
 
 
 .. attribute:: datetime.resolution
-   :type: timedelta
+   :type: datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L58>`__)
 
@@ -1367,7 +1367,7 @@ Class attributes:
 Instance attributes (read-only):
 
 .. attribute:: datetime.year
-   :type: year(self: datetime) -> int
+   :type: year(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L71>`__)
 
@@ -1375,7 +1375,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.month
-   :type: month(self: datetime) -> int
+   :type: month(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L73>`__)
 
@@ -1383,7 +1383,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.day
-   :type: day(self: datetime) -> int
+   :type: day(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L75>`__)
 
@@ -1391,7 +1391,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.hour
-   :type: hour(self: datetime) -> int
+   :type: hour(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L263>`__)
 
@@ -1399,7 +1399,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.minute
-   :type: minute(self: datetime) -> int
+   :type: minute(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L265>`__)
 
@@ -1407,7 +1407,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.second
-   :type: second(self: datetime) -> int
+   :type: second(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L267>`__)
 
@@ -1415,7 +1415,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.microsecond
-   :type: microsecond(self: datetime) -> int
+   :type: microsecond(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L269>`__)
 
@@ -1423,7 +1423,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.tzinfo
-   :type: tzinfo(self: datetime) -> tzinfo | None
+   :type: tzinfo(self: datetime.datetime) -> datetime.tzinfo | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L271>`__)
 
@@ -1432,7 +1432,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: datetime.fold
-   :type: fold(self: datetime) -> int
+   :type: fold(self: datetime.datetime) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L273>`__)
 
@@ -1537,7 +1537,7 @@ Supported operations:
 Instance methods:
 
 .. method:: datetime.date()
-            datetime.date() -> date
+            datetime.date() -> datetime.date
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L296>`__)
 
@@ -1545,7 +1545,7 @@ Instance methods:
 
 
 .. method:: datetime.time()
-            datetime.time() -> time
+            datetime.time() -> datetime.time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L297>`__)
 
@@ -1557,7 +1557,7 @@ Instance methods:
 
 
 .. method:: datetime.timetz()
-            datetime.timetz() -> time
+            datetime.timetz() -> datetime.time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L298>`__)
 
@@ -1569,7 +1569,7 @@ Instance methods:
 
 
 .. method:: datetime.replace(year=self.year, month=self.month, day=self.day, \
-            datetime.replace(year: SupportsIndex = ..., month: SupportsIndex = ..., day: SupportsIndex = ..., hour: SupportsIndex = ..., minute: SupportsIndex = ..., second: SupportsIndex = ..., microsecond: SupportsIndex = ..., tzinfo: tzinfo | None = ..., *, fold: int = ...) -> datetime
+            datetime.replace(year: typing.SupportsIndex = ..., month: typing.SupportsIndex = ..., day: typing.SupportsIndex = ..., hour: typing.SupportsIndex = ..., minute: typing.SupportsIndex = ..., second: typing.SupportsIndex = ..., microsecond: typing.SupportsIndex = ..., tzinfo: datetime.tzinfo | None = ..., *, fold: int = ...) -> datetime.datetime
    hour=self.hour, minute=self.minute, second=self.second, microsecond=self.microsecond, \
    tzinfo=self.tzinfo, *, fold=0)
 
@@ -1588,7 +1588,7 @@ Instance methods:
 
 
 .. method:: datetime.astimezone(tz=None)
-            datetime.astimezone(tz: tzinfo | None = None) -> datetime
+            datetime.astimezone(tz: datetime.tzinfo | None = None) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L328>`__)
 
@@ -1637,7 +1637,7 @@ Instance methods:
 
 
 .. method:: datetime.utcoffset()
-            datetime.utcoffset() -> timedelta | None
+            datetime.utcoffset() -> datetime.timedelta | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L332>`__)
 
@@ -1650,7 +1650,7 @@ Instance methods:
 
 
 .. method:: datetime.dst()
-            datetime.dst() -> timedelta | None
+            datetime.dst() -> datetime.timedelta | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L334>`__)
 
@@ -1673,7 +1673,7 @@ Instance methods:
 
 
 .. method:: datetime.timetuple()
-            datetime.timetuple() -> struct_time
+            datetime.timetuple() -> time.struct_time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L92>`__)
 
@@ -1695,7 +1695,7 @@ Instance methods:
 
 
 .. method:: datetime.utctimetuple()
-            datetime.utctimetuple() -> struct_time
+            datetime.utctimetuple() -> time.struct_time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L295>`__)
 
@@ -1792,7 +1792,7 @@ Instance methods:
 
 
 .. method:: datetime.isocalendar()
-            datetime.isocalendar() -> _IsoCalendarDate
+            datetime.isocalendar() -> datetime._IsoCalendarDate
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L114>`__)
 
@@ -2056,7 +2056,7 @@ A :class:`.time` object represents a (local) time of day, independent of any par
 day, and subject to adjustment via a :class:`tzinfo` object.
 
 .. class:: time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)
-           time(hour: SupportsIndex = 0, minute: SupportsIndex = 0, second: SupportsIndex = 0, microsecond: SupportsIndex = 0, tzinfo: tzinfo | None = None, *, fold: int = 0) -> time
+           time(hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L117>`__)
 
@@ -2077,7 +2077,7 @@ Class attributes:
 
 
 .. attribute:: time.min
-   :type: time
+   :type: datetime.time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L118>`__)
 
@@ -2085,7 +2085,7 @@ Class attributes:
 
 
 .. attribute:: time.max
-   :type: time
+   :type: datetime.time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L119>`__)
 
@@ -2093,7 +2093,7 @@ Class attributes:
 
 
 .. attribute:: time.resolution
-   :type: timedelta
+   :type: datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L120>`__)
 
@@ -2105,7 +2105,7 @@ Class attributes:
 Instance attributes (read-only):
 
 .. attribute:: time.hour
-   :type: hour(self: time) -> int
+   :type: hour(self: datetime.time) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L132>`__)
 
@@ -2113,7 +2113,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: time.minute
-   :type: minute(self: time) -> int
+   :type: minute(self: datetime.time) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L134>`__)
 
@@ -2121,7 +2121,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: time.second
-   :type: second(self: time) -> int
+   :type: second(self: datetime.time) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L136>`__)
 
@@ -2129,7 +2129,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: time.microsecond
-   :type: microsecond(self: time) -> int
+   :type: microsecond(self: datetime.time) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L138>`__)
 
@@ -2137,7 +2137,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: time.tzinfo
-   :type: tzinfo(self: time) -> tzinfo | None
+   :type: tzinfo(self: datetime.time) -> datetime.tzinfo | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L140>`__)
 
@@ -2146,7 +2146,7 @@ Instance attributes (read-only):
 
 
 .. attribute:: time.fold
-   :type: fold(self: time) -> int
+   :type: fold(self: datetime.time) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L142>`__)
 
@@ -2187,7 +2187,7 @@ In Boolean contexts, a :class:`.time` object is always considered to be true.
 Other constructors:
 
 .. classmethod:: time.fromisoformat(time_string)
-                 time.fromisoformat(cls: type[time], time_string: str, /) -> time
+                 time.fromisoformat(cls: type[datetime.time], time_string: str, /) -> datetime.time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L151>`__)
 
@@ -2230,7 +2230,7 @@ Other constructors:
       :meth:`time.isoformat`.
 
 .. classmethod:: time.strptime(date_string, format)
-                 time.strptime(cls: type[time], date_string: str, format: str, /) -> time
+                 time.strptime(cls: type[datetime.time], date_string: str, format: str, /) -> datetime.time
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L155>`__)
 
@@ -2252,7 +2252,7 @@ Other constructors:
 Instance methods:
 
 .. method:: time.replace(hour=self.hour, minute=self.minute, second=self.second, \
-            time.replace(hour: SupportsIndex = ..., minute: SupportsIndex = ..., second: SupportsIndex = ..., microsecond: SupportsIndex = ..., tzinfo: tzinfo | None = ..., *, fold: int = ...) -> time
+            time.replace(hour: typing.SupportsIndex = ..., minute: typing.SupportsIndex = ..., second: typing.SupportsIndex = ..., microsecond: typing.SupportsIndex = ..., tzinfo: datetime.tzinfo | None = ..., *, fold: int = ...) -> datetime.time
    microsecond=self.microsecond, tzinfo=self.tzinfo, *, fold=0)
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L182>`__)
@@ -2342,7 +2342,7 @@ Instance methods:
 
 
 .. method:: time.utcoffset()
-            time.utcoffset() -> timedelta | None
+            time.utcoffset() -> datetime.timedelta | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L166>`__)
 
@@ -2355,7 +2355,7 @@ Instance methods:
 
 
 .. method:: time.dst()
-            time.dst() -> timedelta | None
+            time.dst() -> datetime.timedelta | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L168>`__)
 
@@ -2412,7 +2412,7 @@ Examples of working with a :class:`.time` object::
 -----------------------
 
 .. class:: tzinfo()
-           tzinfo() -> None
+           tzinfo() -> datetime.tzinfo
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L15>`__)
 
@@ -2445,7 +2445,7 @@ Examples of working with a :class:`.time` object::
 
 
 .. method:: tzinfo.utcoffset(dt)
-            tzinfo.utcoffset(dt: datetime | None, /) -> timedelta | None
+            tzinfo.utcoffset(dt: datetime.datetime | None, /) -> datetime.timedelta | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L19>`__)
 
@@ -2474,7 +2474,7 @@ Examples of working with a :class:`.time` object::
 
 
 .. method:: tzinfo.dst(dt)
-            tzinfo.dst(dt: datetime | None, /) -> timedelta | None
+            tzinfo.dst(dt: datetime.datetime | None, /) -> datetime.timedelta | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L21>`__)
 
@@ -2531,7 +2531,7 @@ Examples of working with a :class:`.time` object::
 
 
 .. method:: tzinfo.tzname(dt)
-            tzinfo.tzname(dt: datetime | None, /) -> str | None
+            tzinfo.tzname(dt: datetime.datetime | None, /) -> str | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L17>`__)
 
@@ -2570,7 +2570,7 @@ There is one more :class:`tzinfo` method that a subclass may wish to override:
 
 
 .. method:: tzinfo.fromutc(dt)
-            tzinfo.fromutc(dt: datetime, /) -> datetime
+            tzinfo.fromutc(dt: datetime.datetime, /) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L22>`__)
 
@@ -2712,7 +2712,7 @@ where historical changes have been made to civil time.
 
 
 .. class:: timezone(offset[, name])
-           timezone(offset: timedelta, name: str = ...) -> timezone
+           timezone(offset: datetime.timedelta, name: str = ...) -> datetime.timezone
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L28>`__)
 
@@ -2731,7 +2731,7 @@ where historical changes have been made to civil time.
 
 
 .. method:: timezone.utcoffset(dt)
-            timezone.utcoffset(dt: datetime | None, /) -> timedelta
+            timezone.utcoffset(dt: datetime.datetime | None, /) -> datetime.timedelta
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L34>`__)
 
@@ -2745,7 +2745,7 @@ where historical changes have been made to civil time.
      The UTC offset is not restricted to a whole number of minutes.
 
 .. method:: timezone.tzname(dt)
-            timezone.tzname(dt: datetime | None, /) -> str
+            timezone.tzname(dt: datetime.datetime | None, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L33>`__)
 
@@ -2764,14 +2764,14 @@ where historical changes have been made to civil time.
 
 
 .. method:: timezone.dst(dt)
-            timezone.dst(dt: datetime | None, /) -> None
+            timezone.dst(dt: datetime.datetime | None, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L35>`__)
 
   Always returns ``None``.
 
 .. method:: timezone.fromutc(dt)
-            timezone.fromutc(dt: datetime, /) -> datetime
+            timezone.fromutc(dt: datetime.datetime, /) -> datetime.datetime
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L22>`__)
 
@@ -2781,7 +2781,7 @@ where historical changes have been made to civil time.
 Class attributes:
 
 .. attribute:: timezone.utc
-   :type: timezone
+   :type: datetime.timezone
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/datetime.pyi#L29>`__)
 

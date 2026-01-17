@@ -12,7 +12,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
 
 
 .. exception:: MessageError()
-               MessageError(*args: object) -> None
+               MessageError(*args: object) -> email.errors.MessageError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L3>`__)
 
@@ -22,7 +22,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
 
 
 .. exception:: MessageParseError()
-               MessageParseError(*args: object) -> None
+               MessageParseError(*args: object) -> email.errors.MessageParseError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L4>`__)
 
@@ -33,7 +33,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
 
 
 .. exception:: HeaderParseError()
-               HeaderParseError(*args: object) -> None
+               HeaderParseError(*args: object) -> email.errors.HeaderParseError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L5>`__)
 
@@ -48,7 +48,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
 
 
 .. exception:: BoundaryError()
-               BoundaryError(*args: object) -> None
+               BoundaryError(*args: object) -> email.errors.BoundaryError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L6>`__)
 
@@ -56,7 +56,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
 
 
 .. exception:: MultipartConversionError()
-               MultipartConversionError(*args: object) -> None
+               MultipartConversionError(*args: object) -> email.errors.MultipartConversionError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L7>`__)
 
@@ -69,7 +69,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
 
 
 .. exception:: HeaderWriteError()
-               HeaderWriteError(*args: object) -> None
+               HeaderWriteError(*args: object) -> email.errors.HeaderWriteError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L11>`__)
 
@@ -78,7 +78,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
 
 
 .. exception:: MessageDefect()
-               MessageDefect(line: str | None = None) -> None
+               MessageDefect(line: str | None = None) -> email.errors.MessageDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L13>`__)
 
@@ -86,7 +86,7 @@ The following exception classes are defined in the :mod:`email.errors` module:
    It is derived from :exc:`ValueError`.
 
 .. exception:: HeaderDefect()
-               HeaderDefect(line: str | None = None) -> None
+               HeaderDefect(line: str | None = None) -> email.errors.HeaderDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L31>`__)
 
@@ -102,7 +102,7 @@ object would have a defect, but the containing messages would not.
 All defect classes are subclassed from :class:`email.errors.MessageDefect`.
 
 .. exception:: NoBoundaryInMultipartDefect
-               NoBoundaryInMultipartDefect(line: str | None = None) -> None
+               NoBoundaryInMultipartDefect(line: str | None = None) -> email.errors.NoBoundaryInMultipartDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L16>`__)
 
@@ -110,7 +110,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    parameter.
 
 .. exception:: StartBoundaryNotFoundDefect
-               StartBoundaryNotFoundDefect(line: str | None = None) -> None
+               StartBoundaryNotFoundDefect(line: str | None = None) -> email.errors.StartBoundaryNotFoundDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L17>`__)
 
@@ -118,7 +118,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    never found.
 
 .. exception:: CloseBoundaryNotFoundDefect
-               CloseBoundaryNotFoundDefect(line: str | None = None) -> None
+               CloseBoundaryNotFoundDefect(line: str | None = None) -> email.errors.CloseBoundaryNotFoundDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L26>`__)
 
@@ -128,21 +128,21 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    .. versionadded:: 3.3
 
 .. exception:: FirstHeaderLineIsContinuationDefect
-               FirstHeaderLineIsContinuationDefect(line: str | None = None) -> None
+               FirstHeaderLineIsContinuationDefect(line: str | None = None) -> email.errors.FirstHeaderLineIsContinuationDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L18>`__)
 
    The message had a continuation line as its first header line.
 
 .. exception:: MisplacedEnvelopeHeaderDefect
-               MisplacedEnvelopeHeaderDefect(line: str | None = None) -> None
+               MisplacedEnvelopeHeaderDefect(line: str | None = None) -> email.errors.MisplacedEnvelopeHeaderDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L19>`__)
 
    A "Unix From" header was found in the middle of a header block.
 
 .. exception:: MissingHeaderBodySeparatorDefect
-               MissingHeaderBodySeparatorDefect(line: str | None = None) -> None
+               MissingHeaderBodySeparatorDefect(line: str | None = None) -> email.errors.MissingHeaderBodySeparatorDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L27>`__)
 
@@ -153,7 +153,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    .. versionadded:: 3.3
 
 .. exception:: MalformedHeaderDefect
-               MalformedHeaderDefect(line: str | None = None) -> None
+               MalformedHeaderDefect(line: str | None = None) -> email.errors.MissingHeaderBodySeparatorDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L29>`__)
 
@@ -163,7 +163,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
       This defect has not been used for several Python versions.
 
 .. exception:: MultipartInvariantViolationDefect
-               MultipartInvariantViolationDefect(line: str | None = None) -> None
+               MultipartInvariantViolationDefect(line: str | None = None) -> email.errors.MultipartInvariantViolationDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L20>`__)
 
@@ -173,7 +173,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    even though its content type claims to be :mimetype:`multipart`.
 
 .. exception:: InvalidBase64PaddingDefect
-               InvalidBase64PaddingDefect(line: str | None = None) -> None
+               InvalidBase64PaddingDefect(line: str | None = None) -> email.errors.InvalidBase64PaddingDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L23>`__)
 
@@ -182,7 +182,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    bytes may be invalid.
 
 .. exception:: InvalidBase64CharactersDefect
-               InvalidBase64CharactersDefect(line: str | None = None) -> None
+               InvalidBase64CharactersDefect(line: str | None = None) -> email.errors.InvalidBase64CharactersDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L24>`__)
 
@@ -191,7 +191,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    decoded bytes may be invalid.
 
 .. exception:: InvalidBase64LengthDefect
-               InvalidBase64LengthDefect(line: str | None = None) -> None
+               InvalidBase64LengthDefect(line: str | None = None) -> email.errors.InvalidBase64LengthDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L25>`__)
 
@@ -200,7 +200,7 @@ All defect classes are subclassed from :class:`email.errors.MessageDefect`.
    block was kept as-is.
 
 .. exception:: InvalidDateDefect
-               InvalidDateDefect(line: str | None = None) -> None
+               InvalidDateDefect(line: str | None = None) -> email.errors.InvalidDateDefect
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/errors.pyi#L42>`__)
 

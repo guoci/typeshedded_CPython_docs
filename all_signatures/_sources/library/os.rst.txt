@@ -49,7 +49,7 @@ Notes on the availability of these functions:
    that have the correct type, but are not accepted by the operating system.
 
 .. exception:: error
-               error(*args: object) -> None
+               error(*args: object) -> OSError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L514>`__)
 
@@ -57,7 +57,7 @@ Notes on the availability of these functions:
 
 
 .. data:: name
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L691>`__)
 
@@ -188,7 +188,7 @@ process and user.
 
 
 .. data:: environ
-   :type: _Environ[str]
+   :type: os._Environ[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L742>`__)
 
@@ -240,7 +240,7 @@ process and user.
 
 
 .. data:: environb
-   :type: _Environ[bytes]
+   :type: os._Environ[bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L744>`__)
 
@@ -328,7 +328,7 @@ process and user.
 .. function:: fspath(path)
               fspath(path: str) -> str
               fspath(path: bytes) -> bytes
-              fspath(path: PathLike[AnyStr]) -> AnyStr
+              fspath(path: os.PathLike[AnyStr]) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L954>`__)
 
@@ -343,7 +343,7 @@ process and user.
 
 
 .. class:: PathLike
-           PathLike() -> None
+           PathLike() -> os.PathLike
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L881>`__)
 
@@ -405,7 +405,7 @@ process and user.
 
 
 .. function:: get_exec_path(env=None)
-              get_exec_path(env: collections.abc.Mapping[str, str] | None = None) -> list[str]
+              get_exec_path(env: typing.Mapping[str, str] | None = None) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L959>`__)
 
@@ -723,7 +723,7 @@ process and user.
 
 
 .. function:: setgroups(groups, /)
-              setgroups(groups: collections.abc.Sequence[int], /) -> None
+              setgroups(groups: typing.Sequence[int], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1001>`__)
 
@@ -934,7 +934,7 @@ process and user.
 
 
 .. function:: uname()
-              uname() -> uname_result
+              uname() -> os.uname_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1013>`__)
 
@@ -1055,13 +1055,13 @@ These functions create new :term:`file objects <file object>`.  (See also
 
 
 .. function:: fdopen(fd, *args, **kwargs)
-              fdopen(fd: int, mode: OpenTextMode = 'r', buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> TextIOWrapper[_WrappedBuffer]
-              fdopen(fd: int, mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> FileIO
-              fdopen(fd: int, mode: OpenBinaryModeUpdating, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BufferedRandom
-              fdopen(fd: int, mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BufferedWriter
-              fdopen(fd: int, mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BufferedReader[_BufferedReaderStream]
-              fdopen(fd: int, mode: OpenBinaryMode, buffering: int = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> BinaryIO
-              fdopen(fd: int, mode: str, buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> IO[typing.Any]
+              fdopen(fd: int, mode: OpenTextMode = 'r', buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              fdopen(fd: int, mode: OpenBinaryMode, buffering: typing.Literal[0], encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.FileIO
+              fdopen(fd: int, mode: OpenBinaryModeUpdating, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.BufferedRandom
+              fdopen(fd: int, mode: OpenBinaryModeWriting, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.BufferedWriter
+              fdopen(fd: int, mode: OpenBinaryModeReading, buffering: typing.Literal[-1, 1] = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> _io.BufferedReader[_io._BufferedReaderStream]
+              fdopen(fd: int, mode: OpenBinaryMode, buffering: int = -1, encoding: None = None, errors: None = None, newline: None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> typing.BinaryIO
+              fdopen(fd: int, mode: str, buffering: int = -1, encoding: str | None = None, errors: str | None = None, newline: str | None = None, closefd: bool = True, opener: ((str, int) -> int) | None = None) -> typing.IO[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1035>`__)
 
@@ -1288,7 +1288,7 @@ as internal buffering of data.
 
 
 .. function:: fstat(fd)
-              fstat(fd: int) -> stat_result
+              fstat(fd: int) -> os.stat_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1116>`__)
 
@@ -1303,7 +1303,7 @@ as internal buffering of data.
 
 
 .. function:: fstatvfs(fd, /)
-              fstatvfs(fd: int, /) -> statvfs_result
+              fstatvfs(fd: int, /) -> os.statvfs_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1141>`__)
 
@@ -1760,7 +1760,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: preadv(fd, buffers, offset, flags=0, /)
-              preadv(fd: int, buffers: SupportsLenAndGetItem[Buffer], offset: int, flags: int = 0, /) -> int
+              preadv(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], offset: int, flags: int = 0, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1153>`__)
 
@@ -1863,7 +1863,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: pwrite(fd, str, offset, /)
-              pwrite(fd: int, buffer: Buffer, offset: int, /) -> int
+              pwrite(fd: int, buffer: _collections_abc.Buffer, offset: int, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1151>`__)
 
@@ -1878,7 +1878,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: pwritev(fd, buffers, offset, flags=0, /)
-              pwritev(fd: int, buffers: SupportsLenAndGetItem[Buffer], offset: int, flags: int = 0, /) -> int
+              pwritev(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], offset: int, flags: int = 0, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1154>`__)
 
@@ -1979,7 +1979,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: readinto(fd, buffer, /)
-              readinto(fd: int, buffer: Buffer, /) -> int
+              readinto(fd: int, buffer: _collections_abc.Buffer, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1180>`__)
 
@@ -2152,7 +2152,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    .. versionadded:: 3.10
 
 .. function:: readv(fd, buffers, /)
-              readv(fd: int, buffers: SupportsLenAndGetItem[Buffer], /) -> int
+              readv(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1176>`__)
 
@@ -2223,7 +2223,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: write(fd, str, /)
-              write(fd: int, data: Buffer, /) -> int
+              write(fd: int, data: _collections_abc.Buffer, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1206>`__)
 
@@ -2246,7 +2246,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: writev(fd, buffers, /)
-              writev(fd: int, buffers: SupportsLenAndGetItem[Buffer], /) -> int
+              writev(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1177>`__)
 
@@ -2273,7 +2273,7 @@ Querying the size of a terminal
 .. versionadded:: 3.3
 
 .. function:: get_terminal_size(fd=STDOUT_FILENO, /)
-              get_terminal_size(fd: int = ..., /) -> terminal_size
+              get_terminal_size(fd: int = ..., /) -> os.terminal_size
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1192>`__)
 
@@ -2293,21 +2293,21 @@ Querying the size of a terminal
    .. availability:: Unix, Windows.
 
 .. class:: terminal_size
-           terminal_size(sequence: collections.abc.Iterable[int], dict: dict[str, typing.Any] = ...) -> terminal_size
+           terminal_size(sequence: typing.Iterable[int], dict: dict[str, typing.Any] = ...) -> os.terminal_size
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1183>`__)
 
    A subclass of tuple, holding ``(columns, lines)`` of the terminal window size.
 
    .. attribute:: columns
-      :type: columns(self: terminal_size) -> int
+      :type: columns(self: os.terminal_size) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1188>`__)
 
       Width of the terminal window in characters.
 
    .. attribute:: lines
-      :type: lines(self: terminal_size) -> int
+      :type: lines(self: os.terminal_size) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1190>`__)
 
@@ -2759,7 +2759,7 @@ features:
 
 
 .. function:: listdir(path='.')
-              listdir(path: PathLike[str] | str | None = None) -> list[str]
+              listdir(path: os.PathLike[str] | str | None = None) -> list[str]
               listdir(path: BytesPath) -> list[bytes]
               listdir(path: int) -> list[str]
 
@@ -2864,7 +2864,7 @@ features:
 
 
 .. function:: lstat(path, *, dir_fd=None)
-              lstat(path: StrOrBytesPath, *, dir_fd: int | None = None) -> stat_result
+              lstat(path: StrOrBytesPath, *, dir_fd: int | None = None) -> os.stat_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1238>`__)
 
@@ -3302,9 +3302,9 @@ features:
 
 
 .. function:: scandir(path='.')
-              scandir(path: None = None) -> _ScandirIterator[str]
-              scandir(path: int) -> _ScandirIterator[str]
-              scandir(path: GenericPath) -> _ScandirIterator[AnyStr]
+              scandir(path: None = None) -> os._ScandirIterator[str]
+              scandir(path: int) -> os._ScandirIterator[str]
+              scandir(path: GenericPath) -> os._ScandirIterator[AnyStr]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1273>`__)
 
@@ -3390,7 +3390,7 @@ features:
 
 
 .. class:: DirEntry
-           DirEntry() -> None
+           DirEntry() -> os.DirEntry
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L893>`__)
 
@@ -3417,7 +3417,7 @@ features:
    Attributes and methods on a ``os.DirEntry`` instance are as follows:
 
    .. attribute:: name
-      :type: name[AnyStr](self: DirEntry[AnyStr]) -> AnyStr
+      :type: name[AnyStr](self: os.DirEntry[AnyStr]) -> AnyStr
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L898>`__)
 
@@ -3429,7 +3429,7 @@ features:
       :func:`~os.fsdecode` to decode byte filenames.
 
    .. attribute:: path
-      :type: path[AnyStr](self: DirEntry[AnyStr]) -> AnyStr
+      :type: path[AnyStr](self: os.DirEntry[AnyStr]) -> AnyStr
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L900>`__)
 
@@ -3536,7 +3536,7 @@ features:
       .. versionadded:: 3.12
 
    .. method:: stat(*, follow_symlinks=True)
-               stat[AnyStr](*, follow_symlinks: bool = True) -> stat_result
+               stat[AnyStr](*, follow_symlinks: bool = True) -> os.stat_result
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L905>`__)
 
@@ -3577,7 +3577,7 @@ features:
 
 
 .. function:: stat(path, *, dir_fd=None, follow_symlinks=True)
-              stat(path: FileDescriptorOrPath, *, dir_fd: int | None = None, follow_symlinks: bool = True) -> stat_result
+              stat(path: FileDescriptorOrPath, *, dir_fd: int | None = None, follow_symlinks: bool = True) -> os.stat_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1278>`__)
 
@@ -3638,7 +3638,7 @@ features:
 
 
 .. class:: stat_result
-           stat_result(sequence: collections.abc.Iterable[float], dict: dict[str, typing.Any] = ...) -> stat_result
+           stat_result(sequence: typing.Iterable[float], dict: dict[str, typing.Any] = ...) -> os.stat_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L794>`__)
 
@@ -3649,14 +3649,14 @@ features:
    Attributes:
 
    .. attribute:: st_mode
-      :type: st_mode(self: stat_result) -> int
+      :type: st_mode(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L809>`__)
 
       File mode: file type and file mode bits (permissions).
 
    .. attribute:: st_ino
-      :type: st_ino(self: stat_result) -> int
+      :type: st_ino(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L811>`__)
 
@@ -3669,35 +3669,35 @@ features:
         Windows
 
    .. attribute:: st_dev
-      :type: st_dev(self: stat_result) -> int
+      :type: st_dev(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L813>`__)
 
       Identifier of the device on which this file resides.
 
    .. attribute:: st_nlink
-      :type: st_nlink(self: stat_result) -> int
+      :type: st_nlink(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L815>`__)
 
       Number of hard links.
 
    .. attribute:: st_uid
-      :type: st_uid(self: stat_result) -> int
+      :type: st_uid(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L817>`__)
 
       User identifier of the file owner.
 
    .. attribute:: st_gid
-      :type: st_gid(self: stat_result) -> int
+      :type: st_gid(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L819>`__)
 
       Group identifier of the file owner.
 
    .. attribute:: st_size
-      :type: st_size(self: stat_result) -> int
+      :type: st_size(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L821>`__)
 
@@ -3708,21 +3708,21 @@ features:
    Timestamps:
 
    .. attribute:: st_atime
-      :type: st_atime(self: stat_result) -> float
+      :type: st_atime(self: os.stat_result) -> float
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L823>`__)
 
       Time of most recent access expressed in seconds.
 
    .. attribute:: st_mtime
-      :type: st_mtime(self: stat_result) -> float
+      :type: st_mtime(self: os.stat_result) -> float
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L825>`__)
 
       Time of most recent content modification expressed in seconds.
 
    .. attribute:: st_ctime
-      :type: st_ctime(self: stat_result) -> float
+      :type: st_ctime(self: os.stat_result) -> float
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L837>`__)
 
@@ -3734,7 +3734,7 @@ features:
          the time of the most recent metadata change, as for other platforms.
 
    .. attribute:: st_atime_ns
-      :type: st_atime_ns(self: stat_result) -> int
+      :type: st_atime_ns(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L840>`__)
 
@@ -3743,7 +3743,7 @@ features:
       .. versionadded:: 3.3
 
    .. attribute:: st_mtime_ns
-      :type: st_mtime_ns(self: stat_result) -> int
+      :type: st_mtime_ns(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L842>`__)
 
@@ -3753,7 +3753,7 @@ features:
       .. versionadded:: 3.3
 
    .. attribute:: st_ctime_ns
-      :type: st_ctime_ns(self: stat_result) -> int
+      :type: st_ctime_ns(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L845>`__)
 
@@ -3806,7 +3806,7 @@ features:
    available:
 
    .. attribute:: st_blocks
-      :type: st_blocks(self: stat_result) -> int
+      :type: st_blocks(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L858>`__)
 
@@ -3814,7 +3814,7 @@ features:
       This may be smaller than :attr:`st_size`/512 when the file has holes.
 
    .. attribute:: st_blksize
-      :type: st_blksize(self: stat_result) -> int
+      :type: st_blksize(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L860>`__)
 
@@ -3822,7 +3822,7 @@ features:
       smaller chunks may cause an inefficient read-modify-rewrite.
 
    .. attribute:: st_rdev
-      :type: st_rdev(self: stat_result) -> int
+      :type: st_rdev(self: os.stat_result) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L862>`__)
 
@@ -4278,7 +4278,7 @@ features:
 
 
 .. function:: statvfs(path)
-              statvfs(path: FileDescriptorOrPath) -> statvfs_result
+              statvfs(path: FileDescriptorOrPath) -> os.statvfs_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1281>`__)
 
@@ -4578,7 +4578,7 @@ features:
 
 
 .. function:: walk(top, topdown=True, onerror=None, followlinks=False)
-              walk[AnyStr](top: GenericPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, followlinks: bool = False) -> collections.abc.Iterator[tuple[AnyStr, list[AnyStr], list[AnyStr]]]
+              walk[AnyStr](top: GenericPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, followlinks: bool = False) -> typing.Iterator[tuple[AnyStr, list[AnyStr], list[AnyStr]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1303>`__)
 
@@ -4681,8 +4681,8 @@ features:
 
 
 .. function:: fwalk(top='.', topdown=True, onerror=None, *, follow_symlinks=False, dir_fd=None)
-              fwalk(top: StrPath = '.', topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterator[tuple[str, list[str], list[str], int]]
-              fwalk(top: BytesPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterator[tuple[bytes, list[bytes], list[bytes], int]]
+              fwalk(top: StrPath = '.', topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> typing.Iterator[tuple[str, list[str], list[str], int]]
+              fwalk(top: BytesPath, topdown: bool = True, onerror: ((OSError) -> object) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> typing.Iterator[tuple[bytes, list[bytes], list[bytes], int]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1309>`__)
 
@@ -5180,7 +5180,7 @@ These functions are all available on Linux only.
 
 
 .. function:: listxattr(path=None, *, follow_symlinks=True)
-              listxattr(path: PathLike[bytes] | PathLike[str] | bytes | int | str | None = None, *, follow_symlinks: bool = True) -> list[str]
+              listxattr(path: os.PathLike[bytes] | os.PathLike[str] | bytes | int | str | None = None, *, follow_symlinks: bool = True) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1328>`__)
 
@@ -5218,7 +5218,7 @@ These functions are all available on Linux only.
 
 
 .. function:: setxattr(path, attribute, value, flags=0, *, follow_symlinks=True)
-              setxattr(path: FileDescriptorOrPath, attribute: StrOrBytesPath, value: Buffer, flags: int = 0, *, follow_symlinks: bool = True) -> None
+              setxattr(path: FileDescriptorOrPath, attribute: StrOrBytesPath, value: _collections_abc.Buffer, flags: int = 0, *, follow_symlinks: bool = True) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1330>`__)
 
@@ -5289,7 +5289,7 @@ to be ignored.
 
 
 .. function:: abort()
-              abort() -> NoReturn
+              abort() -> typing.NoReturn
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1339>`__)
 
@@ -5398,7 +5398,7 @@ to be ignored.
       Accepts a :term:`path-like object`.
 
 .. function:: _exit(n)
-              _exit(status: int) -> NoReturn
+              _exit(status: int) -> typing.NoReturn
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1378>`__)
 
@@ -5775,7 +5775,7 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. function:: popen(cmd, mode='r', buffering=-1)
-              popen(cmd: str, mode: str = 'r', buffering: int = -1) -> _wrap_close
+              popen(cmd: str, mode: str = 'r', buffering: int = -1) -> os._wrap_close
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1412>`__)
 
@@ -5824,7 +5824,7 @@ written in Python, such as a mail server's external command delivery program.
 .. function:: posix_spawn(path, argv, env, *, file_actions=None, \
                           setpgroup=None, resetids=False, setsid=False, setsigmask=(), \
                           setsigdef=(), scheduler=None)
-              posix_spawn(path: StrOrBytesPath, argv: _ExecVArgs, env: collections.abc.Mapping[bytes, bytes | str] | collections.abc.Mapping[str, bytes | str] | None, /, *, file_actions: collections.abc.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: collections.abc.Iterable[int] = ..., setsigdef: collections.abc.Iterable[int] = ..., scheduler: tuple[typing.Any, sched_param] = ...) -> int
+              posix_spawn(path: StrOrBytesPath, argv: _ExecVArgs, env: typing.Mapping[bytes, bytes | str] | typing.Mapping[str, bytes | str] | None, /, *, file_actions: typing.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: typing.Iterable[int] = ..., setsigdef: typing.Iterable[int] = ..., scheduler: tuple[typing.Any, os.sched_param] = ...) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1535>`__)
 
@@ -5938,7 +5938,7 @@ written in Python, such as a mail server's external command delivery program.
 .. function:: posix_spawnp(path, argv, env, *, file_actions=None, \
                           setpgroup=None, resetids=False, setsid=False, setsigmask=(), \
                           setsigdef=(), scheduler=None)
-              posix_spawnp(path: StrOrBytesPath, argv: _ExecVArgs, env: collections.abc.Mapping[bytes, bytes | str] | collections.abc.Mapping[str, bytes | str] | None, /, *, file_actions: collections.abc.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: collections.abc.Iterable[int] = ..., setsigdef: collections.abc.Iterable[int] = ..., scheduler: tuple[typing.Any, sched_param] = ...) -> int
+              posix_spawnp(path: StrOrBytesPath, argv: _ExecVArgs, env: typing.Mapping[bytes, bytes | str] | typing.Mapping[str, bytes | str] | None, /, *, file_actions: typing.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: typing.Iterable[int] = ..., setsigdef: typing.Iterable[int] = ..., scheduler: tuple[typing.Any, os.sched_param] = ...) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1549>`__)
 
@@ -6199,7 +6199,7 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. function:: times()
-              times() -> times_result
+              times() -> os.times_result
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1468>`__)
 
@@ -6255,7 +6255,7 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. function:: waitid(idtype, id, options, /)
-              waitid(idtype: int, ident: int, options: int, /) -> waitid_result | None
+              waitid(idtype: int, ident: int, options: int, /) -> os.waitid_result | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1519>`__)
 
@@ -6335,7 +6335,7 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. function:: wait3(options)
-              wait3(options: int) -> tuple[int, int, struct_rusage]
+              wait3(options: int) -> tuple[int, int, resource.struct_rusage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1523>`__)
 
@@ -6353,7 +6353,7 @@ written in Python, such as a mail server's external command delivery program.
 
 
 .. function:: wait4(pid, options)
-              wait4(pid: int, options: int) -> tuple[int, int, struct_rusage]
+              wait4(pid: int, options: int) -> tuple[int, int, resource.struct_rusage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1524>`__)
 
@@ -6718,7 +6718,7 @@ operating system.
 
 
 .. class:: sched_param(sched_priority)
-           sched_param(sched_priority: int) -> sched_param
+           sched_param(sched_priority: int) -> os.sched_param
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1599>`__)
 
@@ -6729,7 +6729,7 @@ operating system.
    At the moment, there is only one possible parameter:
 
    .. attribute:: sched_priority
-      :type: sched_priority(self: sched_param) -> int
+      :type: sched_priority(self: os.sched_param) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1605>`__)
 
@@ -6755,7 +6755,7 @@ operating system.
 
 
 .. function:: sched_setscheduler(pid, policy, param, /)
-              sched_setscheduler(pid: int, policy: int, param: sched_param, /) -> None
+              sched_setscheduler(pid: int, policy: int, param: os.sched_param, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1611>`__)
 
@@ -6775,7 +6775,7 @@ operating system.
 
 
 .. function:: sched_setparam(pid, param, /)
-              sched_setparam(pid: int, param: sched_param, /) -> None
+              sched_setparam(pid: int, param: os.sched_param, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1614>`__)
 
@@ -6784,7 +6784,7 @@ operating system.
 
 
 .. function:: sched_getparam(pid, /)
-              sched_getparam(pid: int, /) -> sched_param
+              sched_getparam(pid: int, /) -> os.sched_param
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1615>`__)
 
@@ -6810,7 +6810,7 @@ operating system.
 
 
 .. function:: sched_setaffinity(pid, mask, /)
-              sched_setaffinity(pid: int, mask: collections.abc.Iterable[int], /) -> None
+              sched_setaffinity(pid: int, mask: typing.Iterable[int], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/os/__init__.pyi#L1616>`__)
 
@@ -6959,7 +6959,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: . (dot); in pathnames
 .. data:: curdir
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L74>`__)
 
@@ -6970,7 +6970,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: ..; in pathnames
 .. data:: pardir
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L75>`__)
 
@@ -6982,7 +6982,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 .. index:: single: / (slash); in pathnames
 .. index:: single: \ (backslash); in pathnames (Windows)
 .. data:: sep
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L76>`__)
 
@@ -6995,7 +6995,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: / (slash); in pathnames
 .. data:: altsep
-   :type: LiteralString | None
+   :type: typing.LiteralString | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L77>`__)
 
@@ -7007,7 +7007,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 .. index:: single: . (dot); in pathnames
 .. data:: extsep
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L78>`__)
 
@@ -7018,7 +7018,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 .. index:: single: : (colon); path separator (POSIX)
    single: ; (semicolon)
 .. data:: pathsep
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L79>`__)
 
@@ -7028,7 +7028,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 
 .. data:: defpath
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L80>`__)
 
@@ -7050,7 +7050,7 @@ Higher-level operations on pathnames are defined in the :mod:`os.path` module.
 
 
 .. data:: devnull
-   :type: LiteralString
+   :type: typing.LiteralString
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/posixpath.pyi#L81>`__)
 

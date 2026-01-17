@@ -948,7 +948,7 @@ and :ref:`doctest-simple-testfile`.
 
 
 .. function:: testfile(filename, module_relative=True, name=None, package=None, globs=None, verbose=None, report=True, optionflags=0, extraglobs=None, raise_on_error=False, parser=DocTestParser(), encoding=None)
-              testfile(filename: str, module_relative: bool = True, name: str | None = None, package: ModuleType | str | None = None, globs: dict[str, typing.Any] | None = None, verbose: bool | None = None, report: bool = True, optionflags: int = 0, extraglobs: dict[str, typing.Any] | None = None, raise_on_error: bool = False, parser: DocTestParser = ..., encoding: str | None = None) -> TestResults
+              testfile(filename: str, module_relative: bool = True, name: str | None = None, package: types.ModuleType | str | None = None, globs: dict[str, typing.Any] | None = None, verbose: bool | None = None, report: bool = True, optionflags: int = 0, extraglobs: dict[str, typing.Any] | None = None, raise_on_error: bool = False, parser: doctest.DocTestParser = ..., encoding: str | None = None) -> doctest.TestResults
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L194>`__)
 
@@ -1021,7 +1021,7 @@ and :ref:`doctest-simple-testfile`.
 
 
 .. function:: testmod(m=None, name=None, globs=None, verbose=None, report=True, optionflags=0, extraglobs=None, raise_on_error=False, exclude_empty=False)
-              testmod(m: ModuleType | None = None, name: str | None = None, globs: dict[str, typing.Any] | None = None, verbose: bool | None = None, report: bool = True, optionflags: int = 0, extraglobs: dict[str, typing.Any] | None = None, raise_on_error: bool = False, exclude_empty: bool = False) -> TestResults
+              testmod(m: types.ModuleType | None = None, name: str | None = None, globs: dict[str, typing.Any] | None = None, verbose: bool | None = None, report: bool = True, optionflags: int = 0, extraglobs: dict[str, typing.Any] | None = None, raise_on_error: bool = False, exclude_empty: bool = False) -> doctest.TestResults
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L183>`__)
 
@@ -1104,7 +1104,7 @@ from text files and modules with doctests:
 
 
 .. function:: DocFileSuite(*paths, module_relative=True, package=None, setUp=None, tearDown=None, globs=None, optionflags=0, parser=DocTestParser(), encoding=None)
-              DocFileSuite(*paths: str, **kw: typing.Any) -> _DocTestSuite
+              DocFileSuite(*paths: str, **kw: typing.Any) -> doctest._DocTestSuite
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L257>`__)
 
@@ -1182,7 +1182,7 @@ from text files and modules with doctests:
 
 
 .. function:: DocTestSuite(module=None, globs=None, extraglobs=None, test_finder=None, setUp=None, tearDown=None, optionflags=0, checker=None)
-              DocTestSuite(module: ModuleType | str | None = None, globs: dict[str, typing.Any] | None = None, extraglobs: dict[str, typing.Any] | None = None, test_finder: DocTestFinder | None = None, **options: typing.Any) -> _DocTestSuite
+              DocTestSuite(module: types.ModuleType | str | None = None, globs: dict[str, typing.Any] | None = None, extraglobs: dict[str, typing.Any] | None = None, test_finder: doctest.DocTestFinder | None = None, **options: typing.Any) -> doctest._DocTestSuite
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L238>`__)
 
@@ -1328,7 +1328,7 @@ DocTest Objects
 
 
 .. class:: DocTest(examples, globs, name, filename, lineno, docstring)
-           DocTest(examples: list[Example], globs: dict[str, typing.Any], name: str, filename: str | None, lineno: int | None, docstring: str | None) -> None
+           DocTest(examples: list[doctest.Example], globs: dict[str, typing.Any], name: str, filename: str | None, lineno: int | None, docstring: str | None) -> doctest.DocTest
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L103>`__)
 
@@ -1341,7 +1341,7 @@ DocTest Objects
 
 
    .. attribute:: examples
-      :type: list[Example]
+      :type: list[doctest.Example]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L104>`__)
 
@@ -1405,7 +1405,7 @@ Example Objects
 
 
 .. class:: Example(source, want, exc_msg=None, lineno=0, indent=0, options=None)
-           Example(source: str, want: str, exc_msg: str | None = None, lineno: int = 0, indent: int = 0, options: dict[int, bool] | None = None) -> None
+           Example(source: str, want: str, exc_msg: str | None = None, lineno: int = 0, indent: int = 0, options: dict[int, bool] | None = None) -> doctest.Example
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L84>`__)
 
@@ -1489,7 +1489,7 @@ DocTestFinder objects
 
 
 .. class:: DocTestFinder(verbose=False, parser=DocTestParser(), recurse=True, exclude_empty=True)
-           DocTestFinder(verbose: bool = False, parser: DocTestParser = ..., recurse: bool = True, exclude_empty: bool = True) -> None
+           DocTestFinder(verbose: bool = False, parser: doctest.DocTestParser = ..., recurse: bool = True, exclude_empty: bool = True) -> doctest.DocTestFinder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L128>`__)
 
@@ -1515,7 +1515,7 @@ DocTestFinder objects
 
 
    .. method:: find(obj[, name][, module][, globs][, extraglobs])
-               find(obj: object, name: str | None = None, module: ModuleType | bool | None = None, globs: dict[str, typing.Any] | None = None, extraglobs: dict[str, typing.Any] | None = None) -> list[DocTest]
+               find(obj: object, name: str | None = None, module: types.ModuleType | bool | None = None, globs: dict[str, typing.Any] | None = None, extraglobs: dict[str, typing.Any] | None = None) -> list[doctest.DocTest]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L132>`__)
 
@@ -1561,7 +1561,7 @@ DocTestParser objects
 
 
 .. class:: DocTestParser()
-           DocTestParser() -> None
+           DocTestParser() -> doctest.DocTestParser
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L123>`__)
 
@@ -1573,7 +1573,7 @@ DocTestParser objects
 
 
    .. method:: get_doctest(string, globs, name, filename, lineno)
-               get_doctest(string: str, globs: dict[str, typing.Any], name: str, filename: str | None, lineno: int | None) -> DocTest
+               get_doctest(string: str, globs: dict[str, typing.Any], name: str, filename: str | None, lineno: int | None) -> doctest.DocTest
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L125>`__)
 
@@ -1586,7 +1586,7 @@ DocTestParser objects
 
 
    .. method:: get_examples(string, name='<string>')
-               get_examples(string: str, name: str = '<string>') -> list[Example]
+               get_examples(string: str, name: str = '<string>') -> list[doctest.Example]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L126>`__)
 
@@ -1596,7 +1596,7 @@ DocTestParser objects
 
 
    .. method:: parse(string, name='<string>')
-               parse(string: str, name: str = '<string>') -> list[Example | str]
+               parse(string: str, name: str = '<string>') -> list[doctest.Example | str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L124>`__)
 
@@ -1611,7 +1611,7 @@ TestResults objects
 
 
 .. class:: TestResults(failed, attempted)
-           TestResults(failed: int, attempted: int) -> None
+           TestResults(failed: int, attempted: int) -> doctest.TestResults
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L51>`__)
 
@@ -1646,7 +1646,7 @@ DocTestRunner objects
 
 
 .. class:: DocTestRunner(checker=None, verbose=None, optionflags=0)
-           DocTestRunner(checker: OutputChecker | None = None, verbose: bool | None = None, optionflags: int = 0) -> None
+           DocTestRunner(checker: doctest.OutputChecker | None = None, verbose: bool | None = None, optionflags: int = 0) -> doctest.DocTestRunner
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L143>`__)
 
@@ -1703,7 +1703,7 @@ DocTestRunner objects
 
 
    .. method:: report_start(out, test, example)
-               report_start(out: (str) -> object, test: DocTest, example: Example) -> None
+               report_start(out: (str) -> object, test: doctest.DocTest, example: doctest.Example) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L153>`__)
 
@@ -1717,7 +1717,7 @@ DocTestRunner objects
 
 
    .. method:: report_success(out, test, example, got)
-               report_success(out: (str) -> object, test: DocTest, example: Example, got: str) -> None
+               report_success(out: (str) -> object, test: doctest.DocTest, example: doctest.Example, got: str) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L154>`__)
 
@@ -1731,7 +1731,7 @@ DocTestRunner objects
 
 
    .. method:: report_failure(out, test, example, got)
-               report_failure(out: (str) -> object, test: DocTest, example: Example, got: str) -> None
+               report_failure(out: (str) -> object, test: doctest.DocTest, example: doctest.Example, got: str) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L155>`__)
 
@@ -1745,7 +1745,7 @@ DocTestRunner objects
 
 
    .. method:: report_unexpected_exception(out, test, example, exc_info)
-               report_unexpected_exception(out: (str) -> object, test: DocTest, example: Example, exc_info: tuple[type[BaseException], BaseException, TracebackType]) -> None
+               report_unexpected_exception(out: (str) -> object, test: doctest.DocTest, example: doctest.Example, exc_info: tuple[type[BaseException], BaseException, types.TracebackType]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L156>`__)
 
@@ -1760,7 +1760,7 @@ DocTestRunner objects
 
 
    .. method:: run(test, compileflags=None, out=None, clear_globs=True)
-               run(test: DocTest, compileflags: int | None = None, out: ((str) -> object) | None = None, clear_globs: bool = True) -> TestResults
+               run(test: doctest.DocTest, compileflags: int | None = None, out: ((str) -> object) | None = None, clear_globs: bool = True) -> doctest.TestResults
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L157>`__)
 
@@ -1783,7 +1783,7 @@ DocTestRunner objects
 
 
    .. method:: summarize(verbose=None)
-               summarize(verbose: bool | None = None) -> TestResults
+               summarize(verbose: bool | None = None) -> doctest.TestResults
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L160>`__)
 
@@ -1827,7 +1827,7 @@ OutputChecker objects
 
 
 .. class:: OutputChecker()
-           OutputChecker() -> None
+           OutputChecker() -> doctest.OutputChecker
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L163>`__)
 
@@ -1853,7 +1853,7 @@ OutputChecker objects
 
 
    .. method:: output_difference(example, got, optionflags)
-               output_difference(example: Example, got: str, optionflags: int) -> str
+               output_difference(example: doctest.Example, got: str, optionflags: int) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L165>`__)
 
@@ -1970,7 +1970,7 @@ code under the debugger:
 
 
 .. function:: testsource(module, name)
-              testsource(module: ModuleType | str | None, name: str) -> str
+              testsource(module: types.ModuleType | str | None, name: str) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L259>`__)
 
@@ -1991,7 +1991,7 @@ code under the debugger:
 
 
 .. function:: debug(module, name, pm=False)
-              debug(module: ModuleType | str | None, name: str, pm: bool = False) -> None
+              debug(module: types.ModuleType | str | None, name: str, pm: bool = False) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L262>`__)
 
@@ -2038,7 +2038,7 @@ doctest!) for more details:
 
 
 .. class:: DebugRunner(checker=None, verbose=None, optionflags=0)
-           DebugRunner(checker: OutputChecker | None = None, verbose: bool | None = None, optionflags: int = 0) -> None
+           DebugRunner(checker: doctest.OutputChecker | None = None, verbose: bool | None = None, optionflags: int = 0) -> doctest.DebugRunner
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L179>`__)
 
@@ -2056,7 +2056,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. exception:: DocTestFailure(test, example, got)
-               DocTestFailure(test: DocTest, example: Example, got: str) -> None
+               DocTestFailure(test: doctest.DocTest, example: doctest.Example, got: str) -> doctest.DocTestFailure
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L167>`__)
 
@@ -2068,7 +2068,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: DocTestFailure.test
-   :type: DocTest
+   :type: doctest.DocTest
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L168>`__)
 
@@ -2076,7 +2076,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: DocTestFailure.example
-   :type: Example
+   :type: doctest.Example
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L169>`__)
 
@@ -2092,7 +2092,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. exception:: UnexpectedException(test, example, exc_info)
-               UnexpectedException(test: DocTest, example: Example, exc_info: tuple[type[BaseException], BaseException, TracebackType]) -> None
+               UnexpectedException(test: doctest.DocTest, example: doctest.Example, exc_info: tuple[type[BaseException], BaseException, types.TracebackType]) -> doctest.UnexpectedException
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L173>`__)
 
@@ -2104,7 +2104,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: UnexpectedException.test
-   :type: DocTest
+   :type: doctest.DocTest
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L174>`__)
 
@@ -2112,7 +2112,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: UnexpectedException.example
-   :type: Example
+   :type: doctest.Example
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L175>`__)
 
@@ -2120,7 +2120,7 @@ There are two exceptions that may be raised by :class:`DebugRunner` instances:
 
 
 .. attribute:: UnexpectedException.exc_info
-   :type: tuple[type[BaseException], BaseException, TracebackType]
+   :type: tuple[type[BaseException], BaseException, types.TracebackType]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/doctest.pyi#L176>`__)
 

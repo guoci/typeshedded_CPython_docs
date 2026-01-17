@@ -28,7 +28,7 @@ The module defines the following:
 
 
 .. exception:: error
-               error(*args: object) -> None
+               error(*args: object) -> OSError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/select.pyi#L42>`__)
 
@@ -58,8 +58,8 @@ The module defines the following:
       The new file descriptor is now non-inheritable.
 
 .. function:: epoll(sizehint=-1, flags=0)
-              epoll(sizehint: int = -1) -> epoll
-              epoll(sizehint: int = -1, flags: int = 0) -> epoll
+              epoll(sizehint: int = -1) -> select.epoll
+              epoll(sizehint: int = -1, flags: int = 0) -> select.epoll
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/select.pyi#L114>`__)
 
@@ -98,7 +98,7 @@ The module defines the following:
 
 
 .. function:: poll()
-              poll() -> None
+              poll() -> select.poll
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/select.pyi#L27>`__)
 
@@ -126,7 +126,7 @@ The module defines the following:
 
 
 .. function:: select(rlist, wlist, xlist, timeout=None)
-              select[_R, _W, _X](rlist: collections.abc.Iterable[_R], wlist: collections.abc.Iterable[_W], xlist: collections.abc.Iterable[_X], timeout: float | None = None, /) -> tuple[list[_R], list[_W], list[_X]]
+              select[_R, _W, _X](rlist: typing.Iterable[_R], wlist: typing.Iterable[_W], xlist: typing.Iterable[_X], timeout: float | None = None, /) -> tuple[list[_R], list[_W], list[_X]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/select.pyi#L38>`__)
 
@@ -376,7 +376,7 @@ Edge and Level Trigger Polling (epoll) Objects
 
 
 .. method:: epoll.fromfd(fd)
-            epoll.fromfd(cls: type[epoll], fd: FileDescriptorLike, /) -> epoll
+            epoll.fromfd(cls: type[select.epoll], fd: FileDescriptorLike, /) -> select.epoll
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/select.pyi#L139>`__)
 

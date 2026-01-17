@@ -1043,6 +1043,17 @@ docstring for the exception class.</p>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.8.</em><p>Return <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_name" title="PyTypeObject.tp_name"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_name</span></code></a> of the exception class <em>ob</em>.</p>
 </dd></dl>
 
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.PyException_HEAD">
+<span class="sig-name descname"><span class="n"><span class="pre">PyException_HEAD</span></span></span><a class="headerlink" href="#c.PyException_HEAD" title="Link to this definition">¶</a><br /></dt>
+<dd><p>This is a <a class="reference internal" href="../glossary.html#term-soft-deprecated"><span class="xref std std-term">soft deprecated</span></a> macro including the base fields for an
+exception object.</p>
+<p>This was included in Python’s C API by mistake and is not designed for use
+in extensions. For creating custom exception objects, use
+<a class="reference internal" href="#c.PyErr_NewException" title="PyErr_NewException"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_NewException()</span></code></a> or otherwise create a class inheriting from
+<a class="reference internal" href="#c.PyExc_BaseException" title="PyExc_BaseException"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_BaseException</span></code></a>.</p>
+</dd></dl>
+
 </section>
 <section id="exception-objects">
 <h2>Exception Objects<a class="headerlink" href="#exception-objects" title="Link to this heading">¶</a></h2>

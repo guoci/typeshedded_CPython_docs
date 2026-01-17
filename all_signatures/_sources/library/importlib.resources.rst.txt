@@ -61,8 +61,8 @@ for example, a package and its resources can be imported from a zip file using
     ``Union[str, ModuleType]``.
 
 .. function:: files(anchor: Optional[Anchor] = None)
-              files(anchor: ModuleType | str | None = None) -> importlib.resources.abc.Traversable
-              files(package: ModuleType | str | None = None) -> importlib.resources.abc.Traversable
+              files(anchor: types.ModuleType | str | None = None) -> importlib.resources.abc.Traversable
+              files(package: types.ModuleType | str | None = None) -> importlib.resources.abc.Traversable
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/_common.pyi#L22>`__)
 
@@ -91,7 +91,7 @@ for example, a package and its resources can be imported from a zip file using
        compatible interface on older Pythons.
 
 .. function:: as_file(traversable)
-              as_file(path: importlib.resources.abc.Traversable) -> AbstractContextManager[pathlib.Path, typing.Literal[False]]
+              as_file(path: importlib.resources.abc.Traversable) -> contextlib.AbstractContextManager[pathlib.Path, typing.Literal[False]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/_common.pyi#L42>`__)
 
@@ -149,7 +149,7 @@ For all the following functions:
                                     encoding='utf-8')
 
 .. function:: open_binary(anchor, *path_names)
-              open_binary(anchor: Anchor, *path_names: StrPath) -> BinaryIO
+              open_binary(anchor: Anchor, *path_names: StrPath) -> typing.BinaryIO
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/_functional.pyi#L14>`__)
 
@@ -170,8 +170,8 @@ For all the following functions:
 
 
 .. function:: open_text(anchor, *path_names, encoding='utf-8', errors='strict')
-              open_text(anchor: Anchor, *path_names: *tuple[StrPath], *, encoding: str | None = 'utf-8', errors: str | None = 'strict') -> TextIOWrapper[_WrappedBuffer]
-              open_text(anchor: Anchor, *path_names: StrPath, *, encoding: str | None, errors: str | None = 'strict') -> TextIOWrapper[_WrappedBuffer]
+              open_text(anchor: Anchor, *path_names: typing.Unpack[tuple[StrPath]], *, encoding: str | None = 'utf-8', errors: str | None = 'strict') -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open_text(anchor: Anchor, *path_names: StrPath, *, encoding: str | None, errors: str | None = 'strict') -> _io.TextIOWrapper[_io._WrappedBuffer]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/_functional.pyi#L16>`__)
 
@@ -217,7 +217,7 @@ For all the following functions:
 
 
 .. function:: read_text(anchor, *path_names, encoding='utf-8', errors='strict')
-              read_text(anchor: Anchor, *path_names: *tuple[StrPath], *, encoding: str | None = 'utf-8', errors: str | None = 'strict') -> str
+              read_text(anchor: Anchor, *path_names: typing.Unpack[tuple[StrPath]], *, encoding: str | None = 'utf-8', errors: str | None = 'strict') -> str
               read_text(anchor: Anchor, *path_names: StrPath, *, encoding: str | None, errors: str | None = 'strict') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/_functional.pyi#L23>`__)
@@ -243,7 +243,7 @@ For all the following functions:
 
 
 .. function:: path(anchor, *path_names)
-              path(anchor: Anchor, *path_names: StrPath) -> AbstractContextManager[pathlib.Path, typing.Literal[False]]
+              path(anchor: Anchor, *path_names: StrPath) -> contextlib.AbstractContextManager[pathlib.Path, typing.Literal[False]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/_functional.pyi#L28>`__)
 
@@ -292,7 +292,7 @@ For all the following functions:
 
 
 .. function:: contents(anchor, *path_names)
-              contents(anchor: Anchor, *path_names: StrPath) -> collections.abc.Iterator[str]
+              contents(anchor: Anchor, *path_names: StrPath) -> typing.Iterator[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/resources/_functional.pyi#L31>`__)
 

@@ -38,7 +38,7 @@ The :mod:`ipaddress` module provides factory functions to conveniently create
 IP addresses, networks and interfaces:
 
 .. function:: ip_address(address)
-              ip_address(address: _RawIPAddress) -> IPv4Address | IPv6Address
+              ip_address(address: _RawIPAddress) -> ipaddress.IPv4Address | ipaddress.IPv6Address
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L16>`__)
 
@@ -55,7 +55,7 @@ IP addresses, networks and interfaces:
 
 
 .. function:: ip_network(address, strict=True)
-              ip_network(address: IPv4Address | IPv4Interface | IPv4Network | IPv6Address | IPv6Interface | IPv6Network | bytes | int | str | tuple[_RawIPAddress] | tuple[_RawIPAddress, int], strict: bool = True) -> IPv4Network | IPv6Network
+              ip_network(address: ipaddress.IPv4Address | ipaddress.IPv4Interface | ipaddress.IPv4Network | ipaddress.IPv6Address | ipaddress.IPv6Interface | ipaddress.IPv6Network | bytes | int | str | tuple[_RawIPAddress] | tuple[_RawIPAddress, int], strict: bool = True) -> ipaddress.IPv4Network | ipaddress.IPv6Network
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L17>`__)
 
@@ -72,7 +72,7 @@ IP addresses, networks and interfaces:
 
 
 .. function:: ip_interface(address)
-              ip_interface(address: IPv4Address | IPv4Interface | IPv4Network | IPv6Address | IPv6Interface | IPv6Network | bytes | int | str | tuple[_RawIPAddress] | tuple[_RawIPAddress, int]) -> IPv4Interface | IPv6Interface
+              ip_interface(address: ipaddress.IPv4Address | ipaddress.IPv4Interface | ipaddress.IPv4Network | ipaddress.IPv6Address | ipaddress.IPv6Interface | ipaddress.IPv6Network | bytes | int | str | tuple[_RawIPAddress] | tuple[_RawIPAddress, int]) -> ipaddress.IPv4Interface | ipaddress.IPv6Interface
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L20>`__)
 
@@ -104,7 +104,7 @@ write code that handles both IP versions correctly.  Address objects are
 :term:`hashable`, so they can be used as keys in dictionaries.
 
 .. class:: IPv4Address(address)
-           IPv4Address(address: object) -> None
+           IPv4Address(address: object) -> ipaddress.IPv4Address
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L120>`__)
 
@@ -167,12 +167,12 @@ write code that handles both IP versions correctly.  Address objects are
          Made available on the class.
 
    .. attribute:: compressed
-      :type: compressed(self: IPv4Address) -> str
+      :type: compressed(self: ipaddress.IPv4Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L27>`__)
 
    .. attribute:: exploded
-      :type: exploded(self: IPv4Address) -> str
+      :type: exploded(self: ipaddress.IPv4Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L29>`__)
 
@@ -185,7 +185,7 @@ write code that handles both IP versions correctly.  Address objects are
       write display code that can handle both IPv4 and IPv6 addresses.
 
    .. attribute:: packed
-      :type: packed(self: IPv4Address) -> bytes
+      :type: packed(self: ipaddress.IPv4Address) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L138>`__)
 
@@ -194,7 +194,7 @@ write code that handles both IP versions correctly.  Address objects are
       for IPv4 and 16 bytes for IPv6.
 
    .. attribute:: reverse_pointer
-      :type: reverse_pointer(self: IPv4Address) -> str
+      :type: reverse_pointer(self: ipaddress.IPv4Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L31>`__)
 
@@ -211,7 +211,7 @@ write code that handles both IP versions correctly.  Address objects are
       .. versionadded:: 3.5
 
    .. attribute:: is_multicast
-      :type: is_multicast(self: IPv4Address) -> bool
+      :type: is_multicast(self: ipaddress.IPv4Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L130>`__)
 
@@ -219,7 +219,7 @@ write code that handles both IP versions correctly.  Address objects are
       :RFC:`3171` (for IPv4) or :RFC:`2373` (for IPv6).
 
    .. attribute:: is_private
-      :type: is_private(self: IPv4Address) -> bool
+      :type: is_private(self: ipaddress.IPv4Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L132>`__)
 
@@ -250,7 +250,7 @@ write code that handles both IP versions correctly.  Address objects are
            The exceptions are not considered private.
 
    .. attribute:: is_global
-      :type: is_global(self: IPv4Address) -> bool
+      :type: is_global(self: ipaddress.IPv4Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L124>`__)
 
@@ -274,7 +274,7 @@ write code that handles both IP versions correctly.  Address objects are
          Fixed some false positives and false negatives, see :attr:`is_private` for details.
 
    .. attribute:: is_unspecified
-      :type: is_unspecified(self: IPv4Address) -> bool
+      :type: is_unspecified(self: ipaddress.IPv4Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L136>`__)
 
@@ -282,7 +282,7 @@ write code that handles both IP versions correctly.  Address objects are
       or :RFC:`2373` (for IPv6).
 
    .. attribute:: is_reserved
-      :type: is_reserved(self: IPv4Address) -> bool
+      :type: is_reserved(self: ipaddress.IPv4Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L134>`__)
 
@@ -298,7 +298,7 @@ write code that handles both IP versions correctly.  Address objects are
          currently excluded from that list (see :attr:`~IPv6Address.is_site_local` & :rfc:`3879`).
 
    .. attribute:: is_loopback
-      :type: is_loopback(self: IPv4Address) -> bool
+      :type: is_loopback(self: ipaddress.IPv4Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L128>`__)
 
@@ -306,7 +306,7 @@ write code that handles both IP versions correctly.  Address objects are
       or :RFC:`2373` (for IPv6).
 
    .. attribute:: is_link_local
-      :type: is_link_local(self: IPv4Address) -> bool
+      :type: is_link_local(self: ipaddress.IPv4Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L126>`__)
 
@@ -314,7 +314,7 @@ write code that handles both IP versions correctly.  Address objects are
       :RFC:`3927`.
 
    .. attribute:: ipv6_mapped
-      :type: ipv6_mapped(self: IPv4Address) -> IPv6Address
+      :type: ipv6_mapped(self: ipaddress.IPv4Address) -> ipaddress.IPv6Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L141>`__)
 
@@ -358,7 +358,7 @@ write code that handles both IP versions correctly.  Address objects are
 
 
 .. class:: IPv6Address(address)
-           IPv6Address(address: object) -> None
+           IPv6Address(address: object) -> ipaddress.IPv6Address
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L173>`__)
 
@@ -390,7 +390,7 @@ write code that handles both IP versions correctly.  Address objects are
    IPv6Address('ff02::5678%1')
 
    .. attribute:: compressed
-      :type: compressed(self: IPv6Address) -> str
+      :type: compressed(self: ipaddress.IPv6Address) -> str
 
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L27>`__)
@@ -402,7 +402,7 @@ write code that handles both IP versions correctly.  Address objects are
    This is also the value returned by ``str(addr)`` for IPv6 addresses.
 
    .. attribute:: exploded
-      :type: exploded(self: IPv6Address) -> str
+      :type: exploded(self: ipaddress.IPv6Address) -> str
 
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L29>`__)
@@ -415,12 +415,12 @@ write code that handles both IP versions correctly.  Address objects are
    documentation of the :class:`IPv4Address` class:
 
    .. attribute:: packed
-      :type: packed(self: IPv6Address) -> bytes
+      :type: packed(self: ipaddress.IPv6Address) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L191>`__)
 
    .. attribute:: reverse_pointer
-      :type: reverse_pointer(self: IPv6Address) -> str
+      :type: reverse_pointer(self: ipaddress.IPv6Address) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L31>`__)
 
@@ -435,45 +435,45 @@ write code that handles both IP versions correctly.  Address objects are
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L166>`__)
 
    .. attribute:: is_multicast
-      :type: is_multicast(self: IPv6Address) -> bool
+      :type: is_multicast(self: ipaddress.IPv6Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L183>`__)
 
    .. attribute:: is_private
-      :type: is_private(self: IPv6Address) -> bool
+      :type: is_private(self: ipaddress.IPv6Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L185>`__)
 
    .. attribute:: is_global
-      :type: is_global(self: IPv6Address) -> bool
+      :type: is_global(self: ipaddress.IPv6Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L177>`__)
 
       .. versionadded:: 3.4
 
    .. attribute:: is_unspecified
-      :type: is_unspecified(self: IPv6Address) -> bool
+      :type: is_unspecified(self: ipaddress.IPv6Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L189>`__)
 
    .. attribute:: is_reserved
-      :type: is_reserved(self: IPv6Address) -> bool
+      :type: is_reserved(self: ipaddress.IPv6Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L187>`__)
 
    .. attribute:: is_loopback
-      :type: is_loopback(self: IPv6Address) -> bool
+      :type: is_loopback(self: ipaddress.IPv6Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L181>`__)
 
    .. attribute:: is_link_local
-      :type: is_link_local(self: IPv6Address) -> bool
+      :type: is_link_local(self: ipaddress.IPv6Address) -> bool
 
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L179>`__)
 
    .. attribute:: is_site_local
-      :type: is_site_local(self: IPv6Address) -> bool
+      :type: is_site_local(self: ipaddress.IPv6Address) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L195>`__)
 
@@ -483,7 +483,7 @@ write code that handles both IP versions correctly.  Address objects are
       space of unique local addresses as defined by :RFC:`4193`.
 
    .. attribute:: ipv4_mapped
-      :type: ipv4_mapped(self: IPv6Address) -> IPv4Address | None
+      :type: ipv4_mapped(self: ipaddress.IPv6Address) -> ipaddress.IPv4Address | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L193>`__)
 
@@ -492,7 +492,7 @@ write code that handles both IP versions correctly.  Address objects are
       For any other address, this property will be ``None``.
 
    .. attribute:: scope_id
-      :type: scope_id(self: IPv6Address) -> str | None
+      :type: scope_id(self: ipaddress.IPv6Address) -> str | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L201>`__)
 
@@ -501,7 +501,7 @@ write code that handles both IP versions correctly.  Address objects are
       as a string. When no scope zone is specified, this property will be ``None``.
 
    .. attribute:: sixtofour
-      :type: sixtofour(self: IPv6Address) -> IPv4Address | None
+      :type: sixtofour(self: ipaddress.IPv6Address) -> ipaddress.IPv4Address | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L197>`__)
 
@@ -511,7 +511,7 @@ write code that handles both IP versions correctly.  Address objects are
       be ``None``.
 
    .. attribute:: teredo
-      :type: teredo(self: IPv6Address) -> tuple[IPv4Address, IPv4Address] | None
+      :type: teredo(self: ipaddress.IPv6Address) -> tuple[ipaddress.IPv4Address, ipaddress.IPv4Address] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L199>`__)
 
@@ -627,7 +627,7 @@ Network objects are :term:`hashable`, so they can be used as keys in
 dictionaries.
 
 .. class:: IPv4Network(address, strict=True)
-           IPv4Network(address: object, strict: bool = True) -> None
+           IPv4Network(address: object, strict: bool = True) -> ipaddress.IPv4Network
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L143>`__)
 
@@ -689,32 +689,32 @@ dictionaries.
       :class:`IPv4Address`.
 
    .. attribute:: is_multicast
-      :type: is_multicast(self: IPv4Network) -> bool
+      :type: is_multicast(self: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L84>`__)
 
    .. attribute:: is_private
-      :type: is_private(self: IPv4Network) -> bool
+      :type: is_private(self: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L86>`__)
 
    .. attribute:: is_unspecified
-      :type: is_unspecified(self: IPv4Network) -> bool
+      :type: is_unspecified(self: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L90>`__)
 
    .. attribute:: is_reserved
-      :type: is_reserved(self: IPv4Network) -> bool
+      :type: is_reserved(self: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L88>`__)
 
    .. attribute:: is_loopback
-      :type: is_loopback(self: IPv4Network) -> bool
+      :type: is_loopback(self: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L82>`__)
 
    .. attribute:: is_link_local
-      :type: is_link_local(self: IPv4Network) -> bool
+      :type: is_link_local(self: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L80>`__)
 
@@ -722,7 +722,7 @@ dictionaries.
       for both the network address and the broadcast address.
 
    .. attribute:: network_address
-      :type: IPv4Address
+      :type: ipaddress.IPv4Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L55>`__)
 
@@ -730,7 +730,7 @@ dictionaries.
       prefix length together uniquely define a network.
 
    .. attribute:: broadcast_address
-      :type: broadcast_address(self: IPv4Network) -> IPv4Address
+      :type: broadcast_address(self: ipaddress.IPv4Network) -> ipaddress.IPv4Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L74>`__)
 
@@ -738,31 +738,31 @@ dictionaries.
       address should be received by every host on the network.
 
    .. attribute:: hostmask
-      :type: hostmask(self: IPv4Network) -> IPv4Address
+      :type: hostmask(self: ipaddress.IPv4Network) -> ipaddress.IPv4Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L107>`__)
 
       The host mask, as an :class:`IPv4Address` object.
 
    .. attribute:: netmask
-      :type: IPv4Address
+      :type: ipaddress.IPv4Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L56>`__)
 
       The net mask, as an :class:`IPv4Address` object.
 
    .. attribute:: with_prefixlen
-      :type: with_prefixlen(self: IPv4Network) -> str
+      :type: with_prefixlen(self: ipaddress.IPv4Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L105>`__)
 
    .. attribute:: compressed
-      :type: compressed(self: IPv4Network) -> str
+      :type: compressed(self: ipaddress.IPv4Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L27>`__)
 
    .. attribute:: exploded
-      :type: exploded(self: IPv4Network) -> str
+      :type: exploded(self: ipaddress.IPv4Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L29>`__)
 
@@ -774,7 +774,7 @@ dictionaries.
       ``exploded`` uses the exploded form the network address.
 
    .. attribute:: with_netmask
-      :type: with_netmask(self: IPv4Network) -> str
+      :type: with_netmask(self: ipaddress.IPv4Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L103>`__)
 
@@ -782,7 +782,7 @@ dictionaries.
       notation.
 
    .. attribute:: with_hostmask
-      :type: with_hostmask(self: IPv4Network) -> str
+      :type: with_hostmask(self: ipaddress.IPv4Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L101>`__)
 
@@ -790,21 +790,21 @@ dictionaries.
       notation.
 
    .. attribute:: num_addresses
-      :type: num_addresses(self: IPv4Network) -> int
+      :type: num_addresses(self: ipaddress.IPv4Network) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L92>`__)
 
       The total number of addresses in the network.
 
    .. attribute:: prefixlen
-      :type: prefixlen(self: IPv4Network) -> int
+      :type: prefixlen(self: ipaddress.IPv4Network) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L95>`__)
 
       Length of the network prefix, in bits.
 
    .. method:: hosts()
-               hosts() -> collections.abc.Iterator[IPv4Address]
+               hosts() -> typing.Iterator[ipaddress.IPv4Address]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L76>`__)
 
@@ -825,7 +825,7 @@ dictionaries.
          [IPv4Address('192.0.2.1')]
 
    .. method:: overlaps(other)
-               overlaps(other: _BaseNetwork[IPv4Address] | _BaseNetwork[IPv6Address]) -> bool
+               overlaps(other: ipaddress._BaseNetwork[ipaddress.IPv4Address] | ipaddress._BaseNetwork[ipaddress.IPv6Address]) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L93>`__)
 
@@ -833,7 +833,7 @@ dictionaries.
       *other* is wholly contained in this network.
 
    .. method:: address_exclude(network)
-               address_exclude(other: IPv4Network) -> collections.abc.Iterator[IPv4Network]
+               address_exclude(other: ipaddress.IPv4Network) -> typing.Iterator[ipaddress.IPv4Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L72>`__)
 
@@ -849,7 +849,7 @@ dictionaries.
           IPv4Network('192.0.2.2/31'), IPv4Network('192.0.2.0/32')]
 
    .. method:: subnets(prefixlen_diff=1, new_prefix=None)
-               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> collections.abc.Iterator[IPv4Network]
+               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> typing.Iterator[ipaddress.IPv4Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L98>`__)
 
@@ -877,7 +877,7 @@ dictionaries.
          [IPv4Network('192.0.2.0/25'), IPv4Network('192.0.2.128/25')]
 
    .. method:: supernet(prefixlen_diff=1, new_prefix=None)
-               supernet(prefixlen_diff: int = 1, new_prefix: int | None = None) -> IPv4Network
+               supernet(prefixlen_diff: int = 1, new_prefix: int | None = None) -> ipaddress.IPv4Network
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L99>`__)
 
@@ -896,7 +896,7 @@ dictionaries.
          IPv4Network('192.0.0.0/20')
 
    .. method:: subnet_of(other)
-               subnet_of(other: IPv4Network) -> bool
+               subnet_of(other: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L96>`__)
 
@@ -910,7 +910,7 @@ dictionaries.
       .. versionadded:: 3.7
 
    .. method:: supernet_of(other)
-               supernet_of(other: IPv4Network) -> bool
+               supernet_of(other: ipaddress.IPv4Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L97>`__)
 
@@ -924,7 +924,7 @@ dictionaries.
       .. versionadded:: 3.7
 
    .. method:: compare_networks(other)
-               compare_networks(other: IPv4Network) -> int
+               compare_networks(other: ipaddress.IPv4Network) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L75>`__)
 
@@ -944,7 +944,7 @@ dictionaries.
 
 
 .. class:: IPv6Network(address, strict=True)
-           IPv6Network(address: object, strict: bool = True) -> None
+           IPv6Network(address: object, strict: bool = True) -> ipaddress.IPv6Network
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L205>`__)
 
@@ -994,92 +994,92 @@ dictionaries.
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L166>`__)
 
    .. attribute:: is_multicast
-      :type: is_multicast(self: IPv6Network) -> bool
+      :type: is_multicast(self: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L84>`__)
 
    .. attribute:: is_private
-      :type: is_private(self: IPv6Network) -> bool
+      :type: is_private(self: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L86>`__)
 
    .. attribute:: is_unspecified
-      :type: is_unspecified(self: IPv6Network) -> bool
+      :type: is_unspecified(self: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L90>`__)
 
    .. attribute:: is_reserved
-      :type: is_reserved(self: IPv6Network) -> bool
+      :type: is_reserved(self: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L88>`__)
 
    .. attribute:: is_loopback
-      :type: is_loopback(self: IPv6Network) -> bool
+      :type: is_loopback(self: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L82>`__)
 
    .. attribute:: is_link_local
-      :type: is_link_local(self: IPv6Network) -> bool
+      :type: is_link_local(self: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L80>`__)
 
    .. attribute:: network_address
-      :type: IPv6Address
+      :type: ipaddress.IPv6Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L55>`__)
 
    .. attribute:: broadcast_address
-      :type: broadcast_address(self: IPv6Network) -> IPv6Address
+      :type: broadcast_address(self: ipaddress.IPv6Network) -> ipaddress.IPv6Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L74>`__)
 
    .. attribute:: hostmask
-      :type: hostmask(self: IPv6Network) -> IPv6Address
+      :type: hostmask(self: ipaddress.IPv6Network) -> ipaddress.IPv6Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L107>`__)
 
    .. attribute:: netmask
-      :type: IPv6Address
+      :type: ipaddress.IPv6Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L56>`__)
 
    .. attribute:: with_prefixlen
-      :type: with_prefixlen(self: IPv6Network) -> str
+      :type: with_prefixlen(self: ipaddress.IPv6Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L105>`__)
 
    .. attribute:: compressed
-      :type: compressed(self: IPv6Network) -> str
+      :type: compressed(self: ipaddress.IPv6Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L27>`__)
 
    .. attribute:: exploded
-      :type: exploded(self: IPv6Network) -> str
+      :type: exploded(self: ipaddress.IPv6Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L29>`__)
 
    .. attribute:: with_netmask
-      :type: with_netmask(self: IPv6Network) -> str
+      :type: with_netmask(self: ipaddress.IPv6Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L103>`__)
 
    .. attribute:: with_hostmask
-      :type: with_hostmask(self: IPv6Network) -> str
+      :type: with_hostmask(self: ipaddress.IPv6Network) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L101>`__)
 
    .. attribute:: num_addresses
-      :type: num_addresses(self: IPv6Network) -> int
+      :type: num_addresses(self: ipaddress.IPv6Network) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L92>`__)
 
    .. attribute:: prefixlen
-      :type: prefixlen(self: IPv6Network) -> int
+      :type: prefixlen(self: ipaddress.IPv6Network) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L95>`__)
 
    .. method:: hosts()
-               hosts() -> collections.abc.Iterator[IPv6Address]
+               hosts() -> typing.Iterator[ipaddress.IPv6Address]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L76>`__)
 
@@ -1091,37 +1091,37 @@ dictionaries.
       single host address.
 
    .. method:: overlaps(other)
-               overlaps(other: _BaseNetwork[IPv4Address] | _BaseNetwork[IPv6Address]) -> bool
+               overlaps(other: ipaddress._BaseNetwork[ipaddress.IPv4Address] | ipaddress._BaseNetwork[ipaddress.IPv6Address]) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L93>`__)
 
    .. method:: address_exclude(network)
-               address_exclude(other: IPv6Network) -> collections.abc.Iterator[IPv6Network]
+               address_exclude(other: ipaddress.IPv6Network) -> typing.Iterator[ipaddress.IPv6Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L72>`__)
 
    .. method:: subnets(prefixlen_diff=1, new_prefix=None)
-               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> collections.abc.Iterator[IPv6Network]
+               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> typing.Iterator[ipaddress.IPv6Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L98>`__)
 
    .. method:: supernet(prefixlen_diff=1, new_prefix=None)
-               supernet(prefixlen_diff: int = 1, new_prefix: int | None = None) -> IPv6Network
+               supernet(prefixlen_diff: int = 1, new_prefix: int | None = None) -> ipaddress.IPv6Network
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L99>`__)
 
    .. method:: subnet_of(other)
-               subnet_of(other: IPv6Network) -> bool
+               subnet_of(other: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L96>`__)
 
    .. method:: supernet_of(other)
-               supernet_of(other: IPv6Network) -> bool
+               supernet_of(other: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L97>`__)
 
    .. method:: compare_networks(other)
-               compare_networks(other: IPv6Network) -> int
+               compare_networks(other: ipaddress.IPv6Network) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L75>`__)
 
@@ -1129,7 +1129,7 @@ dictionaries.
       :class:`IPv4Network`.
 
    .. attribute:: is_site_local
-      :type: is_site_local(self: IPv6Network) -> bool
+      :type: is_site_local(self: ipaddress.IPv6Network) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L208>`__)
 
@@ -1203,7 +1203,7 @@ Interface objects are :term:`hashable`, so they can be used as keys in
 dictionaries.
 
 .. class:: IPv4Interface(address)
-           IPv4Interface(address: object) -> None
+           IPv4Interface(address: object) -> ipaddress.IPv4Interface
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L146>`__)
 
@@ -1216,7 +1216,7 @@ dictionaries.
    are available:
 
    .. attribute:: ip
-      :type: ip(self: IPv4Interface) -> IPv4Address
+      :type: ip(self: ipaddress.IPv4Interface) -> ipaddress.IPv4Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L154>`__)
 
@@ -1227,7 +1227,7 @@ dictionaries.
          IPv4Address('192.0.2.5')
 
    .. attribute:: network
-      :type: IPv4Network
+      :type: ipaddress.IPv4Network
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L148>`__)
 
@@ -1238,7 +1238,7 @@ dictionaries.
          IPv4Network('192.0.2.0/24')
 
    .. attribute:: with_prefixlen
-      :type: with_prefixlen(self: IPv4Interface) -> str
+      :type: with_prefixlen(self: ipaddress.IPv4Interface) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L160>`__)
 
@@ -1249,7 +1249,7 @@ dictionaries.
          '192.0.2.5/24'
 
    .. attribute:: with_netmask
-      :type: with_netmask(self: IPv4Interface) -> str
+      :type: with_netmask(self: ipaddress.IPv4Interface) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L158>`__)
 
@@ -1260,7 +1260,7 @@ dictionaries.
          '192.0.2.5/255.255.255.0'
 
    .. attribute:: with_hostmask
-      :type: with_hostmask(self: IPv4Interface) -> str
+      :type: with_hostmask(self: ipaddress.IPv4Interface) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L156>`__)
 
@@ -1272,7 +1272,7 @@ dictionaries.
 
 
 .. class:: IPv6Interface(address)
-           IPv6Interface(address: object) -> None
+           IPv6Interface(address: object) -> ipaddress.IPv6Interface
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L210>`__)
 
@@ -1285,27 +1285,27 @@ dictionaries.
    are available:
 
    .. attribute:: ip
-      :type: ip(self: IPv6Interface) -> IPv6Address
+      :type: ip(self: ipaddress.IPv6Interface) -> ipaddress.IPv6Address
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L218>`__)
 
    .. attribute:: network
-      :type: IPv6Network
+      :type: ipaddress.IPv6Network
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L212>`__)
 
    .. attribute:: with_prefixlen
-      :type: with_prefixlen(self: IPv6Interface) -> str
+      :type: with_prefixlen(self: ipaddress.IPv6Interface) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L224>`__)
 
    .. attribute:: with_netmask
-      :type: with_netmask(self: IPv6Interface) -> str
+      :type: with_netmask(self: ipaddress.IPv6Interface) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L222>`__)
 
    .. attribute:: with_hostmask
-      :type: with_hostmask(self: IPv6Interface) -> str
+      :type: with_hostmask(self: ipaddress.IPv6Interface) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L220>`__)
 
@@ -1370,9 +1370,9 @@ The module also provides the following module level functions:
 
 
 .. function:: summarize_address_range(first, last)
-              summarize_address_range(first: IPv4Address, last: IPv4Address) -> collections.abc.Iterator[IPv4Network]
-              summarize_address_range(first: IPv6Address, last: IPv6Address) -> collections.abc.Iterator[IPv6Network]
-              summarize_address_range(first: IPv4Address | IPv6Address, last: IPv4Address | IPv6Address) -> collections.abc.Iterator[IPv4Network] | collections.abc.Iterator[IPv6Network]
+              summarize_address_range(first: ipaddress.IPv4Address, last: ipaddress.IPv4Address) -> typing.Iterator[ipaddress.IPv4Network]
+              summarize_address_range(first: ipaddress.IPv6Address, last: ipaddress.IPv6Address) -> typing.Iterator[ipaddress.IPv6Network]
+              summarize_address_range(first: ipaddress.IPv4Address | ipaddress.IPv6Address, last: ipaddress.IPv4Address | ipaddress.IPv6Address) -> typing.Iterator[ipaddress.IPv4Network] | typing.Iterator[ipaddress.IPv6Network]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L231>`__)
 
@@ -1391,7 +1391,7 @@ The module also provides the following module level functions:
 
 
 .. function:: collapse_addresses(addresses)
-              collapse_addresses[_N](addresses: collections.abc.Iterable[_N]) -> collections.abc.Iterator[_N]
+              collapse_addresses[_N](addresses: typing.Iterable[_N]) -> typing.Iterator[_N]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L238>`__)
 
@@ -1408,8 +1408,8 @@ The module also provides the following module level functions:
 
 .. function:: get_mixed_type_key(obj)
               get_mixed_type_key(obj: _A) -> tuple[int, _A]
-              get_mixed_type_key(obj: IPv4Network) -> tuple[int, IPv4Address, IPv4Address]
-              get_mixed_type_key(obj: IPv6Network) -> tuple[int, IPv6Address, IPv6Address]
+              get_mixed_type_key(obj: ipaddress.IPv4Network) -> tuple[int, ipaddress.IPv4Address, ipaddress.IPv4Address]
+              get_mixed_type_key(obj: ipaddress.IPv6Network) -> tuple[int, ipaddress.IPv6Address, ipaddress.IPv6Address]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L240>`__)
 
@@ -1433,7 +1433,7 @@ To support more specific error reporting from class constructors, the
 module defines the following exceptions:
 
 .. exception:: AddressValueError(ValueError)
-               AddressValueError(*args: object) -> None
+               AddressValueError(*args: object) -> ipaddress.AddressValueError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L246>`__)
 
@@ -1441,7 +1441,7 @@ module defines the following exceptions:
 
 
 .. exception:: NetmaskValueError(ValueError)
-               NetmaskValueError(*args: object) -> None
+               NetmaskValueError(*args: object) -> ipaddress.NetmaskValueError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ipaddress.pyi#L247>`__)
 

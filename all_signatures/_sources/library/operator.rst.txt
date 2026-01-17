@@ -94,7 +94,7 @@ truth tests, identity tests, and boolean operations:
 
 
 .. function:: is_none(a)
-              is_none(a: object, /) -> TypeIs[None]
+              is_none(a: object, /) -> typing.TypeIs[None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_operator.pyi#L121>`__)
 
@@ -104,7 +104,7 @@ truth tests, identity tests, and boolean operations:
 
 
 .. function:: is_not_none(a)
-              is_not_none[_T](a: _T | None, /) -> TypeIs[_T]
+              is_not_none[_T](a: _T | None, /) -> typing.TypeIs[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_operator.pyi#L122>`__)
 
@@ -288,7 +288,7 @@ Operations which work with sequences (some of them with mappings too) include:
 
 
 .. function:: countOf(a, b)
-              countOf(a: collections.abc.Iterable[object], b: object, /) -> int
+              countOf(a: typing.Iterable[object], b: object, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_operator.pyi#L81>`__)
 
@@ -312,7 +312,7 @@ Operations which work with sequences (some of them with mappings too) include:
 
 
 .. function:: indexOf(a, b)
-              indexOf[_T](a: collections.abc.Iterable[_T], b: _T, /) -> int
+              indexOf[_T](a: typing.Iterable[_T], b: _T, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_operator.pyi#L92>`__)
 
@@ -359,11 +359,11 @@ expect a function argument.
 
 .. function:: attrgetter(attr)
               attrgetter(*attrs)
-              attrgetter(attr: str, /) -> attrgetter[typing.Any]
-              attrgetter(attr: str, attr2: str, /) -> attrgetter[tuple[typing.Any, typing.Any]]
-              attrgetter(attr: str, attr2: str, attr3: str, /) -> attrgetter[tuple[typing.Any, typing.Any, typing.Any]]
-              attrgetter(attr: str, attr2: str, attr3: str, attr4: str, /) -> attrgetter[tuple[typing.Any, typing.Any, typing.Any, typing.Any]]
-              attrgetter(attr: str, /, *attrs: str) -> attrgetter[tuple[typing.Any, ...]]
+              attrgetter(attr: str, /) -> operator.attrgetter[typing.Any]
+              attrgetter(attr: str, attr2: str, /) -> operator.attrgetter[tuple[typing.Any, typing.Any]]
+              attrgetter(attr: str, attr2: str, attr3: str, /) -> operator.attrgetter[tuple[typing.Any, typing.Any, typing.Any]]
+              attrgetter(attr: str, attr2: str, attr3: str, attr4: str, /) -> operator.attrgetter[tuple[typing.Any, typing.Any, typing.Any, typing.Any]]
+              attrgetter(attr: str, /, *attrs: str) -> operator.attrgetter[tuple[typing.Any, ...]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/operator.pyi#L184>`__)
 
@@ -401,8 +401,8 @@ expect a function argument.
 
 .. function:: itemgetter(item)
               itemgetter(*items)
-              itemgetter(item: _T, /) -> itemgetter[_T]
-              itemgetter(item1: _T1, item2: _T2, /, *items: *_Ts) -> itemgetter[tuple[_T1, _T2, *_Ts]]
+              itemgetter(item: _T, /) -> operator.itemgetter[_T]
+              itemgetter(item1: _T1, item2: _T2, /, *items: typing.Unpack[_Ts]) -> operator.itemgetter[tuple[_T1, _T2, Unpack[_Ts]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/operator.pyi#L198>`__)
 
@@ -453,7 +453,7 @@ expect a function argument.
 
 
 .. function:: methodcaller(name, /, *args, **kwargs)
-              methodcaller(name: str, /, *args: typing.Any, **kwargs: typing.Any) -> methodcaller
+              methodcaller(name: str, /, *args: typing.Any, **kwargs: typing.Any) -> operator.methodcaller
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/operator.pyi#L215>`__)
 

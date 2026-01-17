@@ -23,7 +23,7 @@ Dynamic Type Creation
 ---------------------
 
 .. function:: new_class(name, bases=(), kwds=None, exec_body=None)
-              new_class(name: str, bases: collections.abc.Iterable[object] = ..., kwds: dict[str, typing.Any] | None = None, exec_body: ((dict[str, typing.Any]) -> object) | None = None) -> type[typing.Any]
+              new_class(name: str, bases: typing.Iterable[object] = ..., kwds: dict[str, typing.Any] | None = None, exec_body: ((dict[str, typing.Any]) -> object) | None = None) -> type[Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L637>`__)
 
@@ -42,7 +42,7 @@ Dynamic Type Creation
    .. versionadded:: 3.3
 
 .. function:: prepare_class(name, bases=(), kwds=None)
-              prepare_class(name: str, bases: tuple[type[typing.Any], ...] = ..., kwds: dict[str, typing.Any] | None = None) -> tuple[type[typing.Any], dict[str, typing.Any], dict[str, typing.Any]]
+              prepare_class(name: str, bases: tuple[type[Any], ...] = ..., kwds: dict[str, typing.Any] | None = None) -> tuple[type[Any], dict[str, typing.Any], dict[str, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L644>`__)
 
@@ -76,7 +76,7 @@ Dynamic Type Creation
       Introduced the ``__prepare__`` namespace hook
 
 .. function:: resolve_bases(bases)
-              resolve_bases(bases: collections.abc.Iterable[object]) -> tuple[typing.Any, ...]
+              resolve_bases(bases: typing.Iterable[object]) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L643>`__)
 
@@ -92,7 +92,7 @@ Dynamic Type Creation
    .. versionadded:: 3.7
 
 .. function:: get_original_bases(cls, /)
-              get_original_bases(cls: type[typing.Any], /) -> tuple[typing.Any, ...]
+              get_original_bases(cls: type[Any], /) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L649>`__)
 
@@ -156,7 +156,7 @@ If you instantiate any of these types, note that signatures may vary between Pyt
 Standard names are defined for the following types:
 
 .. data:: NoneType
-   :type: (self: NoneType) -> None
+   :type: (self: types.NoneType) -> types.NoneType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L709>`__)
 
@@ -180,7 +180,7 @@ Standard names are defined for the following types:
 
 
 .. data:: GeneratorType
-   :type: (self: GeneratorType[_YieldT_co, _SendT_contra, _ReturnT_co]) -> None
+   :type: (self: types.GeneratorType[_YieldT_co, _SendT_contra, _ReturnT_co]) -> types.GeneratorType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L399>`__)
 
@@ -189,7 +189,7 @@ Standard names are defined for the following types:
 
 
 .. data:: CoroutineType
-   :type: (self: CoroutineType[_YieldT_co, _SendT_nd_contra, _ReturnT_nd_co]) -> None
+   :type: (self: types.CoroutineType[_YieldT_co, _SendT_nd_contra, _ReturnT_nd_co]) -> types.CoroutineType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L458>`__)
 
@@ -200,7 +200,7 @@ Standard names are defined for the following types:
 
 
 .. data:: AsyncGeneratorType
-   :type: (self: AsyncGeneratorType[_YieldT_co, _SendT_contra]) -> None
+   :type: (self: types.AsyncGeneratorType[_YieldT_co, _SendT_contra]) -> types.AsyncGeneratorType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L426>`__)
 
@@ -211,7 +211,7 @@ Standard names are defined for the following types:
 
 
 .. class:: CodeType(**kwargs)
-           CodeType(argcount: int, posonlyargcount: int, kwonlyargcount: int, nlocals: int, stacksize: int, flags: int, codestring: bytes, constants: tuple[object, ...], names: tuple[str, ...], varnames: tuple[str, ...], filename: str, name: str, qualname: str, firstlineno: int, linetable: bytes, exceptiontable: bytes, freevars: tuple[str, ...] = ..., cellvars: tuple[str, ...] = ..., /) -> CodeType
+           CodeType(argcount: int, posonlyargcount: int, kwonlyargcount: int, nlocals: int, stacksize: int, flags: int, codestring: bytes, constants: tuple[object, ...], names: tuple[str, ...], varnames: tuple[str, ...], filename: str, name: str, qualname: str, firstlineno: int, linetable: bytes, exceptiontable: bytes, freevars: tuple[str, ...] = ..., cellvars: tuple[str, ...] = ..., /) -> types.CodeType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L123>`__)
 
@@ -226,7 +226,7 @@ Standard names are defined for the following types:
    instantiation of code objects, and is not raised for normal compilation.
 
 .. data:: CellType
-   :type: (cls: type[CellType], contents: object = ..., /) -> CellType
+   :type: (cls: type[types.CellType], contents: object = ..., /) -> types.CellType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L389>`__)
 
@@ -237,7 +237,7 @@ Standard names are defined for the following types:
 
 
 .. data:: MethodType
-   :type: (cls: type[MethodType], func: (...) -> typing.Any, instance: object, /) -> MethodType
+   :type: (cls: type[types.MethodType], func: (...) -> typing.Any, instance: object, /) -> types.MethodType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L488>`__)
 
@@ -255,7 +255,7 @@ Standard names are defined for the following types:
 
 
 .. data:: WrapperDescriptorType
-   :type: (self: WrapperDescriptorType) -> None
+   :type: (self: types.WrapperDescriptorType) -> types.WrapperDescriptorType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L527>`__)
 
@@ -266,7 +266,7 @@ Standard names are defined for the following types:
 
 
 .. data:: MethodWrapperType
-   :type: (self: MethodWrapperType) -> None
+   :type: (self: types.MethodWrapperType) -> types.MethodWrapperType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L538>`__)
 
@@ -286,7 +286,7 @@ Standard names are defined for the following types:
 
 
 .. data:: MethodDescriptorType
-   :type: (self: MethodDescriptorType) -> None
+   :type: (self: types.MethodDescriptorType) -> types.MethodDescriptorType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L553>`__)
 
@@ -296,7 +296,7 @@ Standard names are defined for the following types:
 
 
 .. data:: ClassMethodDescriptorType
-   :type: (self: ClassMethodDescriptorType) -> None
+   :type: (self: types.ClassMethodDescriptorType) -> types.ClassMethodDescriptorType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L564>`__)
 
@@ -307,7 +307,7 @@ Standard names are defined for the following types:
 
 
 .. class:: ModuleType(name, doc=None)
-           ModuleType(name: str, doc: str | None = ...) -> None
+           ModuleType(name: str, doc: str | None = ...) -> types.ModuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L362>`__)
 
@@ -328,7 +328,7 @@ Standard names are defined for the following types:
          attributes are set appropriately.
 
 .. data:: EllipsisType
-   :type: (self: EllipsisType) -> None
+   :type: (self: types.EllipsisType) -> types.EllipsisType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L713>`__)
 
@@ -337,7 +337,7 @@ Standard names are defined for the following types:
    .. versionadded:: 3.10
 
 .. class:: GenericAlias(t_origin, t_args)
-           GenericAlias(origin: type[typing.Any], args: typing.Any, /) -> GenericAlias
+           GenericAlias(origin: type[Any], args: typing.Any, /) -> types.GenericAlias
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L683>`__)
 
@@ -369,7 +369,7 @@ Standard names are defined for the following types:
          Introducing the :class:`!types.GenericAlias` class
 
 .. class:: UnionType
-           UnionType() -> None
+           UnionType() -> types.UnionType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L719>`__)
 
@@ -382,7 +382,7 @@ Standard names are defined for the following types:
       This is now an alias for :class:`typing.Union`.
 
 .. class:: TracebackType(tb_next, tb_frame, tb_lasti, tb_lineno)
-           TracebackType(tb_next: TracebackType | None, tb_frame: FrameType, tb_lasti: int, tb_lineno: int) -> TracebackType
+           TracebackType(tb_next: types.TracebackType | None, tb_frame: types.FrameType, tb_lasti: int, tb_lineno: int) -> types.TracebackType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L575>`__)
 
@@ -394,7 +394,7 @@ Standard names are defined for the following types:
 
 
 .. data:: FrameType
-   :type: (self: FrameType) -> None
+   :type: (self: types.FrameType) -> types.FrameType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L587>`__)
 
@@ -413,7 +413,7 @@ Standard names are defined for the following types:
 
 
 .. data:: GetSetDescriptorType
-   :type: (self: GetSetDescriptorType) -> None
+   :type: (self: types.GetSetDescriptorType) -> types.GetSetDescriptorType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L614>`__)
 
@@ -425,7 +425,7 @@ Standard names are defined for the following types:
 
 
 .. data:: MemberDescriptorType
-   :type: (self: MemberDescriptorType) -> None
+   :type: (self: types.MemberDescriptorType) -> types.MemberDescriptorType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L626>`__)
 
@@ -444,7 +444,7 @@ Standard names are defined for the following types:
       ``GetSetDescriptorType``.
 
 .. class:: MappingProxyType(mapping)
-           MappingProxyType(mapping: SupportsKeysAndGetItem[_KT_co, _VT_co]) -> MappingProxyType[_KT_co, _VT_co]
+           MappingProxyType(mapping: _typeshed.SupportsKeysAndGetItem[_KT_co, _VT_co]) -> types.MappingProxyType[_KT_co, _VT_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L312>`__)
 
@@ -497,7 +497,7 @@ Standard names are defined for the following types:
       this method never raises a :exc:`KeyError`.
 
    .. method:: items()
-               items[_KT_co, _VT_co]() -> collections.abc.ItemsView[_KT_co, _VT_co]
+               items[_KT_co, _VT_co]() -> typing.ItemsView[_KT_co, _VT_co]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L322>`__)
 
@@ -505,14 +505,14 @@ Standard names are defined for the following types:
       pairs).
 
    .. method:: keys()
-               keys[_KT_co, _VT_co]() -> collections.abc.KeysView[_KT_co]
+               keys[_KT_co, _VT_co]() -> typing.KeysView[_KT_co]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L320>`__)
 
       Return a new view of the underlying mapping's keys.
 
    .. method:: values()
-               values[_KT_co, _VT_co]() -> collections.abc.ValuesView[_VT_co]
+               values[_KT_co, _VT_co]() -> typing.ValuesView[_VT_co]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L321>`__)
 
@@ -531,7 +531,7 @@ Standard names are defined for the following types:
       .. versionadded:: 3.12
 
 .. class:: CapsuleType
-           CapsuleType() -> None
+           CapsuleType() -> types.CapsuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L740>`__)
 
@@ -544,7 +544,7 @@ Additional Utility Classes and Functions
 ----------------------------------------
 
 .. class:: SimpleNamespace
-           SimpleNamespace(mapping_or_iterable: collections.abc.Iterable[tuple[str, typing.Any]] | collections.abc.Mapping[str, typing.Any] = ..., /, **kwargs: typing.Any) -> None
+           SimpleNamespace(mapping_or_iterable: typing.Iterable[tuple[str, typing.Any]] | typing.Mapping[str, typing.Any] = ..., /, **kwargs: typing.Any) -> types.SimpleNamespace
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L336>`__)
 
@@ -597,7 +597,7 @@ Additional Utility Classes and Functions
       Added support for an optional positional argument.
 
 .. function:: DynamicClassAttribute(fget=None, fset=None, fdel=None, doc=None)
-              DynamicClassAttribute(fget: ((typing.Any) -> typing.Any) | None = None, fset: ((typing.Any, typing.Any) -> object) | None = None, fdel: ((typing.Any) -> object) | None = None, doc: str | None = None) -> None
+              DynamicClassAttribute(fget: ((typing.Any) -> typing.Any) | None = None, fset: ((typing.Any, typing.Any) -> object) | None = None, fdel: ((typing.Any) -> object) | None = None, doc: str | None = None) -> types.DynamicClassAttribute
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L653>`__)
 
@@ -618,7 +618,7 @@ Coroutine Utility Functions
 ---------------------------
 
 .. function:: coroutine(gen_func)
-              coroutine(func: (ParamSpec(_P)) -> collections.abc.Generator[typing.Any, typing.Any, _R]) -> (ParamSpec(_P)) -> collections.abc.Awaitable[_R]
+              coroutine(func: (ParamSpec(_P)) -> typing.Generator[typing.Any, typing.Any, _R]) -> (ParamSpec(_P)) -> typing.Awaitable[_R]
               coroutine(func: _Fn) -> _Fn
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L679>`__)

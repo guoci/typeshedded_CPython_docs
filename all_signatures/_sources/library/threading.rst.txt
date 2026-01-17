@@ -126,7 +126,7 @@ This module defines the following functions:
 
 
 .. function:: current_thread()
-              current_thread() -> Thread
+              current_thread() -> threading.Thread
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L51>`__)
 
@@ -139,7 +139,7 @@ This module defines the following functions:
 
 
 .. function:: excepthook(args, /)
-              excepthook(_ExceptHookArgs) -> object
+              excepthook(_thread._ExceptHookArgs) -> object
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L175>`__)
 
@@ -175,7 +175,7 @@ This module defines the following functions:
    .. versionadded:: 3.8
 
 .. data:: __excepthook__
-   :type: (_ExceptHookArgs) -> object
+   :type: (_thread._ExceptHookArgs) -> object
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L177>`__)
 
@@ -221,7 +221,7 @@ This module defines the following functions:
 
 
 .. function:: enumerate()
-              enumerate() -> list[Thread]
+              enumerate() -> list[threading.Thread]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L55>`__)
 
@@ -233,7 +233,7 @@ This module defines the following functions:
 
 
 .. function:: main_thread()
-              main_thread() -> Thread
+              main_thread() -> threading.Thread
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L56>`__)
 
@@ -245,7 +245,7 @@ This module defines the following functions:
 
 
 .. function:: settrace(func)
-              settrace(func: ((FrameType, str, typing.Any) -> Unknown | None) | None) -> None
+              settrace(func: ((types.FrameType, str, typing.Any) -> Unknown | None) | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L57>`__)
 
@@ -256,7 +256,7 @@ This module defines the following functions:
    :meth:`~Thread.run` method is called.
 
 .. function:: settrace_all_threads(func)
-              settrace_all_threads(func: ((FrameType, str, typing.Any) -> Unknown | None) | None) -> None
+              settrace_all_threads(func: ((types.FrameType, str, typing.Any) -> Unknown | None) | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L62>`__)
 
@@ -269,7 +269,7 @@ This module defines the following functions:
    .. versionadded:: 3.12
 
 .. function:: gettrace()
-              gettrace() -> ((FrameType, str, typing.Any) -> Unknown | None) | None
+              gettrace() -> ((types.FrameType, str, typing.Any) -> Unknown | None) | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L65>`__)
 
@@ -283,7 +283,7 @@ This module defines the following functions:
 
 
 .. function:: setprofile(func)
-              setprofile(func: ((FrameType, str, typing.Any) -> object) | None) -> None
+              setprofile(func: ((types.FrameType, str, typing.Any) -> object) | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L58>`__)
 
@@ -294,7 +294,7 @@ This module defines the following functions:
    :meth:`~Thread.run` method is called.
 
 .. function:: setprofile_all_threads(func)
-              setprofile_all_threads(func: ((FrameType, str, typing.Any) -> object) | None) -> None
+              setprofile_all_threads(func: ((types.FrameType, str, typing.Any) -> object) | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L61>`__)
 
@@ -307,7 +307,7 @@ This module defines the following functions:
    .. versionadded:: 3.12
 
 .. function:: getprofile()
-              getprofile() -> ((FrameType, str, typing.Any) -> object) | None
+              getprofile() -> ((types.FrameType, str, typing.Any) -> object) | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L66>`__)
 
@@ -498,7 +498,7 @@ affects what we see::
 
 
 .. class:: local()
-           local() -> None
+           local() -> _thread._local
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L73>`__)
 
@@ -562,7 +562,7 @@ since it is impossible to detect the termination of alien threads.
 
 .. class:: Thread(group=None, target=None, name=None, args=(), kwargs={}, *, \
                   daemon=None, context=None)
-           Thread(group: None = None, target: ((...) -> object) | None = None, name: str | None = None, args: collections.abc.Iterable[typing.Any] = ..., kwargs: collections.abc.Mapping[str, typing.Any] | None = None, *, daemon: bool | None = None, context: ContextVar[typing.Any] | None = None) -> None
+           Thread(group: None = None, target: ((...) -> object) | None = None, name: str | None = None, args: typing.Iterable[typing.Any] = ..., kwargs: typing.Mapping[str, typing.Any] | None = None, *, daemon: bool | None = None, context: _contextvars.ContextVar[typing.Any] | None = None) -> threading.Thread
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L75>`__)
 
@@ -727,7 +727,7 @@ since it is impossible to detect the termination of alien threads.
       .. deprecated:: 3.10
 
    .. attribute:: ident
-      :type: ident(self: Thread) -> int | None
+      :type: ident(self: threading.Thread) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L78>`__)
 
@@ -738,7 +738,7 @@ since it is impossible to detect the termination of alien threads.
       thread has exited.
 
    .. attribute:: native_id
-      :type: native_id(self: Thread) -> int | None
+      :type: native_id(self: threading.Thread) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L108>`__)
 
@@ -827,7 +827,7 @@ All methods are executed atomically.
 
 
 .. class:: Lock()
-           Lock() -> None
+           Lock() -> _thread.lock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L123>`__)
 
@@ -936,7 +936,7 @@ call release as many times the lock has been acquired can lead to deadlock.
 
 
 .. class:: RLock()
-           RLock() -> None
+           RLock() -> _thread.RLock
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L137>`__)
 
@@ -1099,7 +1099,7 @@ item to the buffer only needs to wake up one consumer thread.
 
 
 .. class:: Condition(lock=None)
-           Condition(lock: RLock | _RLock | lock | None = None) -> None
+           Condition(lock: _thread.RLock | threading._RLock | _thread.lock | None = None) -> threading.Condition
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L139>`__)
 
@@ -1250,7 +1250,7 @@ Semaphores also support the :ref:`context management protocol <with-locks>`.
 
 
 .. class:: Semaphore(value=1)
-           Semaphore(value: int = 1) -> None
+           Semaphore(value: int = 1) -> threading.Semaphore
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L157>`__)
 
@@ -1312,7 +1312,7 @@ Semaphores also support the :ref:`context management protocol <with-locks>`.
 
 
 .. class:: BoundedSemaphore(value=1)
-           BoundedSemaphore(value: int = 1) -> None
+           BoundedSemaphore(value: int = 1) -> threading.BoundedSemaphore
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L165>`__)
 
@@ -1368,7 +1368,7 @@ method.  The :meth:`~Event.wait` method blocks until the flag is true.
 
 
 .. class:: Event()
-           Event() -> None
+           Event() -> threading.Event
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L167>`__)
 
@@ -1451,7 +1451,7 @@ For example::
 
 
 .. class:: Timer(interval, function, args=None, kwargs=None)
-           Timer(interval: float, function: (...) -> object, args: collections.abc.Iterable[typing.Any] | None = None, kwargs: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+           Timer(interval: float, function: (...) -> object, args: typing.Iterable[typing.Any] | None = None, kwargs: typing.Mapping[str, typing.Any] | None = None) -> threading.Timer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L180>`__)
 
@@ -1504,7 +1504,7 @@ As an example, here is a simple way to synchronize a client and server thread::
 
 
 .. class:: Barrier(parties, action=None, timeout=None)
-           Barrier(parties: int, action: (() -> None) | None = None, timeout: float | None = None) -> None
+           Barrier(parties: int, action: (() -> None) | None = None, timeout: float | None = None) -> threading.Barrier
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L196>`__)
 
@@ -1568,21 +1568,21 @@ As an example, here is a simple way to synchronize a client and server thread::
       awry.
 
    .. attribute:: parties
-      :type: parties(self: Barrier) -> int
+      :type: parties(self: threading.Barrier) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L198>`__)
 
       The number of threads required to pass the barrier.
 
    .. attribute:: n_waiting
-      :type: n_waiting(self: Barrier) -> int
+      :type: n_waiting(self: threading.Barrier) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L200>`__)
 
       The number of threads currently waiting in the barrier.
 
    .. attribute:: broken
-      :type: broken(self: Barrier) -> bool
+      :type: broken(self: threading.Barrier) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L202>`__)
 
@@ -1590,7 +1590,7 @@ As an example, here is a simple way to synchronize a client and server thread::
 
 
 .. exception:: BrokenBarrierError
-               BrokenBarrierError(*args: object) -> None
+               BrokenBarrierError(*args: object) -> threading.BrokenBarrierError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/threading.pyi#L208>`__)
 

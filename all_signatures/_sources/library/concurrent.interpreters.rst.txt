@@ -207,7 +207,7 @@ Reference
 This module defines the following functions:
 
 .. function:: list_all()
-              list_all() -> list[Interpreter]
+              list_all() -> list[concurrent.interpreters.Interpreter]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L46>`__)
 
@@ -215,7 +215,7 @@ This module defines the following functions:
    one for each existing interpreter.
 
 .. function:: get_current()
-              get_current() -> Interpreter
+              get_current() -> concurrent.interpreters.Interpreter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L47>`__)
 
@@ -223,7 +223,7 @@ This module defines the following functions:
    interpreter.
 
 .. function:: get_main()
-              get_main() -> Interpreter
+              get_main() -> concurrent.interpreters.Interpreter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L48>`__)
 
@@ -232,7 +232,7 @@ This module defines the following functions:
    or the script given at the command-line.  It is usually the only one.
 
 .. function:: create()
-              create() -> Interpreter
+              create() -> concurrent.interpreters.Interpreter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L45>`__)
 
@@ -240,7 +240,7 @@ This module defines the following functions:
    and return a :class:`Interpreter` object for it.
 
 .. function:: create_queue()
-              create_queue(maxsize: int = 0, *, unbounditems: _AnyUnbound = ...) -> Queue
+              create_queue(maxsize: int = 0, *, unbounditems: _AnyUnbound = ...) -> concurrent.interpreters._queues.Queue
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/_queues.pyi#L31>`__)
 
@@ -252,7 +252,7 @@ Interpreter objects
 ^^^^^^^^^^^^^^^^^^^
 
 .. class:: Interpreter(id)
-           Interpreter(id: int, /, _whence: typing.Literal[0, 1, 2, 3, 4, 5] | None = None, _ownsref: bool | None = None) -> Interpreter
+           Interpreter(id: int, /, _whence: typing.Literal[0, 1, 2, 3, 4, 5] | None = None, _ownsref: bool | None = None) -> concurrent.interpreters.Interpreter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L50>`__)
 
@@ -262,7 +262,7 @@ Interpreter objects
    Instead, use :func:`create` or one of the other module functions.
 
    .. attribute:: id
-      :type: id(self: Interpreter) -> int
+      :type: id(self: concurrent.interpreters.Interpreter) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L56>`__)
 
@@ -271,7 +271,7 @@ Interpreter objects
       The underlying interpreter's ID.
 
    .. attribute:: whence
-      :type: whence(self: Interpreter) -> typing.Literal['C-API', '_interpreters module', 'cross-interpreter C-API', 'legacy C-API', 'runtime init', 'unknown']
+      :type: whence(self: concurrent.interpreters.Interpreter) -> typing.Literal['C-API', '_interpreters module', 'cross-interpreter C-API', 'legacy C-API', 'runtime init', 'unknown']
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L58>`__)
 
@@ -305,14 +305,14 @@ Interpreter objects
       but most are copied via :mod:`pickle`.  See :ref:`interp-object-sharing`.
 
    .. method:: exec(code, /, dedent=True)
-               exec(code: (() -> object) | CodeType | str, /) -> None
+               exec(code: (() -> object) | types.CodeType | str, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L66>`__)
 
       Run the given source code in the interpreter (in the current thread).
 
    .. method:: call(callable, /, *args, **kwargs)
-               call[_P, _R](Interpreter, (ParamSpec(_P)) -> _R, ParamSpec(_P)) -> _R
+               call[_P, _R](concurrent.interpreters.Interpreter, (ParamSpec(_P)) -> _R, ParamSpec(_P)) -> _R
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L67>`__)
 
@@ -322,7 +322,7 @@ Interpreter objects
    .. _interp-call-in-thread:
 
    .. method:: call_in_thread(callable, /, *args, **kwargs)
-               call_in_thread[_P](Interpreter, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> Thread
+               call_in_thread[_P](concurrent.interpreters.Interpreter, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> threading.Thread
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L68>`__)
 
@@ -332,7 +332,7 @@ Exceptions
 ^^^^^^^^^^
 
 .. exception:: InterpreterError
-               InterpreterError(*args: object) -> None
+               InterpreterError(*args: object) -> _interpreters.InterpreterError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_interpreters.pyi#L11>`__)
 
@@ -340,7 +340,7 @@ Exceptions
    an interpreter-related error happens.
 
 .. exception:: InterpreterNotFoundError
-               InterpreterNotFoundError(*args: object) -> None
+               InterpreterNotFoundError(*args: object) -> _interpreters.InterpreterNotFoundError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_interpreters.pyi#L12>`__)
 
@@ -348,7 +348,7 @@ Exceptions
    the targeted interpreter no longer exists.
 
 .. exception:: ExecutionFailed
-               ExecutionFailed(excinfo: SimpleNamespace) -> None
+               ExecutionFailed(excinfo: types.SimpleNamespace) -> concurrent.interpreters.ExecutionFailed
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L40>`__)
 
@@ -356,7 +356,7 @@ Exceptions
    the running code raised an uncaught exception.
 
    .. attribute:: excinfo
-      :type: SimpleNamespace
+      :type: types.SimpleNamespace
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/__init__.pyi#L41>`__)
 
@@ -365,7 +365,7 @@ Exceptions
 .. XXX Document the excinfoattrs?
 
 .. exception:: NotShareableError
-               NotShareableError(*args: object) -> None
+               NotShareableError(*args: object) -> _interpreters.NotShareableError
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_interpreters.pyi#L13>`__)
 
@@ -377,7 +377,7 @@ Communicating Between Interpreters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. class:: Queue(id)
-           Queue(id: int, /) -> Queue
+           Queue(id: int, /) -> concurrent.interpreters._queues.Queue
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/_queues.pyi#L34>`__)
 
@@ -389,7 +389,7 @@ Communicating Between Interpreters
    but most are copied via :mod:`pickle`.  See :ref:`interp-object-sharing`.
 
    .. attribute:: id
-      :type: id(self: Queue) -> int
+      :type: id(self: concurrent.interpreters._queues.Queue) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/concurrent/interpreters/_queues.pyi#L40>`__)
 

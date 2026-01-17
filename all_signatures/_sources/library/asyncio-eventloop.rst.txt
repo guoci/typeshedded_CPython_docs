@@ -30,7 +30,7 @@ The following low-level functions can be used to get, set, or create
 an event loop:
 
 .. function:: get_running_loop()
-              get_running_loop() -> AbstractEventLoop
+              get_running_loop() -> asyncio.events.AbstractEventLoop
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L98>`__)
 
@@ -43,7 +43,7 @@ an event loop:
    .. versionadded:: 3.7
 
 .. function:: get_event_loop()
-              get_event_loop() -> AbstractEventLoop
+              get_event_loop() -> asyncio.events.AbstractEventLoop
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_asyncio.pyi#L97>`__)
 
@@ -76,14 +76,14 @@ an event loop:
       loop set by :func:`set_event_loop`.
 
 .. function:: set_event_loop(loop)
-              set_event_loop(loop: AbstractEventLoop | None) -> None
+              set_event_loop(loop: asyncio.events.AbstractEventLoop | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L673>`__)
 
    Set *loop* as the current event loop for the current OS thread.
 
 .. function:: new_event_loop()
-              new_event_loop() -> AbstractEventLoop
+              new_event_loop() -> asyncio.events.AbstractEventLoop
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L674>`__)
 
@@ -131,7 +131,7 @@ Running and stopping the loop
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. method:: loop.run_until_complete(future)
-            loop.run_until_complete[_T](future: collections.abc.Awaitable[_T]) -> _T
+            loop.run_until_complete[_T](future: typing.Awaitable[_T]) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L133>`__)
 
@@ -199,7 +199,7 @@ Running and stopping the loop
    should be called after the event loop is closed.
 
 .. method:: loop.shutdown_asyncgens()
-            loop.shutdown_asyncgens() -> collections.abc.Coroutine[Unknown, Unknown, None]
+            loop.shutdown_asyncgens() -> typing.Coroutine[Unknown, Unknown, None]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L143>`__)
@@ -224,7 +224,7 @@ Running and stopping the loop
    .. versionadded:: 3.6
 
 .. method:: loop.shutdown_default_executor(timeout=None)
-            loop.shutdown_default_executor() -> collections.abc.Coroutine[Unknown, Unknown, None]
+            loop.shutdown_default_executor() -> typing.Coroutine[Unknown, Unknown, None]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L613>`__)
@@ -258,7 +258,7 @@ Scheduling callbacks
 ^^^^^^^^^^^^^^^^^^^^
 
 .. method:: loop.call_soon(callback, *args, context=None)
-            loop.call_soon[_Ts](callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> Handle
+            loop.call_soon[_Ts](callback: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, *args: typing.Unpack[_Ts], *, context: _contextvars.Context | None = None) -> asyncio.events.Handle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L147>`__)
 
@@ -278,7 +278,7 @@ Scheduling callbacks
    Unlike :meth:`call_soon_threadsafe`, this method is not thread-safe.
 
 .. method:: loop.call_soon_threadsafe(callback, *args, context=None)
-            loop.call_soon_threadsafe[_Ts](callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> Handle
+            loop.call_soon_threadsafe[_Ts](callback: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, *args: typing.Unpack[_Ts], *, context: _contextvars.Context | None = None) -> asyncio.events.Handle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L190>`__)
 
@@ -327,7 +327,7 @@ clocks to track time.
 
 
 .. method:: loop.call_later(delay, callback, *args, context=None)
-            loop.call_later[_Ts](delay: float, callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> TimerHandle
+            loop.call_later[_Ts](delay: float, callback: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, *args: typing.Unpack[_Ts], *, context: _contextvars.Context | None = None) -> asyncio.events.TimerHandle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L151>`__)
 
@@ -365,7 +365,7 @@ clocks to track time.
       This has been fixed in Python 3.8.
 
 .. method:: loop.call_at(when, callback, *args, context=None)
-            loop.call_at[_Ts](when: float, callback: (**tuple[*_Ts]) -> object, *args: *_Ts, *, context: contextvars.Context | None = None) -> TimerHandle
+            loop.call_at[_Ts](when: float, callback: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, *args: typing.Unpack[_Ts], *, context: _contextvars.Context | None = None) -> asyncio.events.TimerHandle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L155>`__)
 
@@ -415,7 +415,7 @@ Creating Futures and Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. method:: loop.create_future()
-            loop.create_future() -> Future[typing.Any]
+            loop.create_future() -> _asyncio.Future[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L162>`__)
 
@@ -428,7 +428,7 @@ Creating Futures and Tasks
    .. versionadded:: 3.5.2
 
 .. method:: loop.create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
-            loop.create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool | None = None) -> Task[_T]
+            loop.create_task[_T](coro: typing.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: _contextvars.Context | None = None, eager_start: bool | None = None) -> _asyncio.Task[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L166>`__)
 
@@ -472,7 +472,7 @@ Creating Futures and Tasks
       All *kwargs* are now passed on. The *eager_start* parameter works with eager task factories.
 
 .. method:: loop.set_task_factory(factory)
-            loop.set_task_factory(factory: _TaskFactory | None) -> None
+            loop.set_task_factory(factory: asyncio.events._TaskFactory | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L184>`__)
 
@@ -496,7 +496,7 @@ Creating Futures and Tasks
          *name* and *context* are now unconditionally passed on to task factories again.
 
 .. method:: loop.get_task_factory()
-            loop.get_task_factory() -> _TaskFactory | None
+            loop.get_task_factory() -> asyncio.events._TaskFactory | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L186>`__)
 
@@ -514,8 +514,8 @@ Opening network connections
                  ssl_shutdown_timeout=None, \
                  happy_eyeballs_delay=None, interleave=None, \
                  all_errors=False)
-            loop.create_connection(protocol_factory: () -> _ProtocolT, host: str = ..., port: int = ..., *, ssl: _SSLContext = None, family: int = 0, proto: int = 0, flags: int = 0, sock: None = None, local_addr: tuple[str, int] | None = None, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, happy_eyeballs_delay: float | None = None, interleave: int | None = None) -> collections.abc.Coroutine[Unknown, Unknown, tuple[Transport, _ProtocolT]]
-            loop.create_connection(protocol_factory: () -> _ProtocolT, host: None = None, port: None = None, *, ssl: _SSLContext = None, family: int = 0, proto: int = 0, flags: int = 0, sock: socket, local_addr: None = None, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, happy_eyeballs_delay: float | None = None, interleave: int | None = None) -> collections.abc.Coroutine[Unknown, Unknown, tuple[Transport, _ProtocolT]]
+            loop.create_connection(protocol_factory: () -> _ProtocolT, host: str = ..., port: int = ..., *, ssl: _SSLContext = None, family: int = 0, proto: int = 0, flags: int = 0, sock: None = None, local_addr: tuple[str, int] | None = None, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, happy_eyeballs_delay: float | None = None, interleave: int | None = None) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.Transport, _ProtocolT]]
+            loop.create_connection(protocol_factory: () -> _ProtocolT, host: None = None, port: None = None, *, ssl: _SSLContext = None, family: int = 0, proto: int = 0, flags: int = 0, sock: socket.socket, local_addr: None = None, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, happy_eyeballs_delay: float | None = None, interleave: int | None = None) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.Transport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L214>`__)
@@ -669,7 +669,7 @@ Opening network connections
                family=0, proto=0, flags=0, \
                reuse_port=None, \
                allow_broadcast=None, sock=None)
-            loop.create_datagram_endpoint[_ProtocolT](protocol_factory: () -> _ProtocolT, local_addr: str | tuple[str, int] | None = None, remote_addr: str | tuple[str, int] | None = None, *, family: int = 0, proto: int = 0, flags: int = 0, reuse_address: bool | None = None, reuse_port: bool | None = None, allow_broadcast: bool | None = None, sock: socket | None = None) -> collections.abc.Coroutine[Unknown, Unknown, tuple[DatagramTransport, _ProtocolT]]
+            loop.create_datagram_endpoint[_ProtocolT](protocol_factory: () -> _ProtocolT, local_addr: str | tuple[str, int] | None = None, remote_addr: str | tuple[str, int] | None = None, *, family: int = 0, proto: int = 0, flags: int = 0, reuse_address: bool | None = None, reuse_port: bool | None = None, allow_broadcast: bool | None = None, sock: socket.socket | None = None) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.DatagramTransport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L512>`__)
@@ -763,7 +763,7 @@ Opening network connections
                path=None, *, ssl=None, sock=None, \
                server_hostname=None, ssl_handshake_timeout=None, \
                ssl_shutdown_timeout=None)
-            loop.create_unix_connection[_ProtocolT](protocol_factory: () -> _ProtocolT, path: str | None = None, *, ssl: _SSLContext = None, sock: socket | None = None, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> collections.abc.Coroutine[Unknown, Unknown, tuple[Transport, _ProtocolT]]
+            loop.create_unix_connection[_ProtocolT](protocol_factory: () -> _ProtocolT, path: str | None = None, *, ssl: _SSLContext = None, sock: socket.socket | None = None, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.Transport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L480>`__)
@@ -809,8 +809,8 @@ Creating network servers
                ssl_handshake_timeout=None, \
                ssl_shutdown_timeout=None, \
                start_serving=True)
-            loop.create_server(protocol_factory: () -> BaseProtocol, host: collections.abc.Sequence[str] | str | None = None, port: int = ..., *, family: int = AddressFamily.AF_UNSPEC, flags: int = AddressInfo.AI_PASSIVE, sock: None = None, backlog: int = 100, ssl: _SSLContext = None, reuse_address: bool | None = None, reuse_port: bool | None = None, keep_alive: bool | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, start_serving: bool = True) -> collections.abc.Coroutine[Unknown, Unknown, Server]
-            loop.create_server(protocol_factory: () -> BaseProtocol, host: None = None, port: None = None, *, family: int = AddressFamily.AF_UNSPEC, flags: int = AddressInfo.AI_PASSIVE, sock: socket = ..., backlog: int = 100, ssl: _SSLContext = None, reuse_address: bool | None = None, reuse_port: bool | None = None, keep_alive: bool | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, start_serving: bool = True) -> collections.abc.Coroutine[Unknown, Unknown, Server]
+            loop.create_server(protocol_factory: () -> asyncio.protocols.BaseProtocol, host: typing.Sequence[str] | str | None = None, port: int = ..., *, family: int = AddressFamily.AF_UNSPEC, flags: int = AddressInfo.AI_PASSIVE, sock: None = None, backlog: int = 100, ssl: _SSLContext = None, reuse_address: bool | None = None, reuse_port: bool | None = None, keep_alive: bool | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, start_serving: bool = True) -> typing.Coroutine[Unknown, Unknown, asyncio.base_events.Server]
+            loop.create_server(protocol_factory: () -> asyncio.protocols.BaseProtocol, host: None = None, port: None = None, *, family: int = AddressFamily.AF_UNSPEC, flags: int = AddressInfo.AI_PASSIVE, sock: socket.socket = ..., backlog: int = 100, ssl: _SSLContext = None, reuse_address: bool | None = None, reuse_port: bool | None = None, keep_alive: bool | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, start_serving: bool = True) -> typing.Coroutine[Unknown, Unknown, asyncio.base_events.Server]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L296>`__)
@@ -926,7 +926,7 @@ Creating network servers
                  ssl_handshake_timeout=None, \
                  ssl_shutdown_timeout=None, \
                  start_serving=True, cleanup_socket=True)
-            loop.create_unix_server(protocol_factory: () -> BaseProtocol, path: PathLike[str] | str | None = None, *, sock: socket | None = None, backlog: int = 100, ssl: _SSLContext = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, start_serving: bool = True) -> collections.abc.Coroutine[Unknown, Unknown, Server]
+            loop.create_unix_server(protocol_factory: () -> asyncio.protocols.BaseProtocol, path: os.PathLike[str] | str | None = None, *, sock: socket.socket | None = None, backlog: int = 100, ssl: _SSLContext = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None, start_serving: bool = True) -> typing.Coroutine[Unknown, Unknown, asyncio.base_events.Server]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L424>`__)
@@ -965,7 +965,7 @@ Creating network servers
 .. method:: loop.connect_accepted_socket(protocol_factory, \
                sock, *, ssl=None, ssl_handshake_timeout=None, \
                ssl_shutdown_timeout=None)
-            loop.connect_accepted_socket[_ProtocolT](protocol_factory: () -> _ProtocolT, sock: socket, *, ssl: _SSLContext = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> collections.abc.Coroutine[Unknown, Unknown, tuple[Transport, _ProtocolT]]
+            loop.connect_accepted_socket[_ProtocolT](protocol_factory: () -> _ProtocolT, sock: socket.socket, *, ssl: _SSLContext = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.Transport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L461>`__)
@@ -1018,7 +1018,7 @@ Transferring files
 
 .. method:: loop.sendfile(transport, file, \
                           offset=0, count=None, *, fallback=True)
-            loop.sendfile(transport: WriteTransport, file: IO[bytes], offset: int = 0, count: int | None = None, *, fallback: bool = True) -> collections.abc.Coroutine[Unknown, Unknown, int]
+            loop.sendfile(transport: asyncio.transports.WriteTransport, file: typing.IO[bytes], offset: int = 0, count: int | None = None, *, fallback: bool = True) -> typing.Coroutine[Unknown, Unknown, int]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L508>`__)
@@ -1054,7 +1054,7 @@ TLS Upgrade
                sslcontext, *, server_side=False, \
                server_hostname=None, ssl_handshake_timeout=None, \
                ssl_shutdown_timeout=None)
-            loop.start_tls(transport: WriteTransport, protocol: BaseProtocol, sslcontext: SSLContext, *, server_side: bool = False, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> collections.abc.Coroutine[Unknown, Unknown, Transport | None]
+            loop.start_tls(transport: asyncio.transports.WriteTransport, protocol: asyncio.protocols.BaseProtocol, sslcontext: ssl.SSLContext, *, server_side: bool = False, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> typing.Coroutine[Unknown, Unknown, asyncio.transports.Transport | None]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L413>`__)
@@ -1107,7 +1107,7 @@ Watching file descriptors
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. method:: loop.add_reader(fd, callback, *args)
-            loop.add_reader[_Ts](fd: FileDescriptorLike, callback: (**tuple[*_Ts]) -> typing.Any, *args: *_Ts) -> None
+            loop.add_reader[_Ts](fd: FileDescriptorLike, callback: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> typing.Any, *args: typing.Unpack[_Ts]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L569>`__)
 
@@ -1127,7 +1127,7 @@ Watching file descriptors
    ``True`` if *fd* was previously being monitored for reads.
 
 .. method:: loop.add_writer(fd, callback, *args)
-            loop.add_writer[_Ts](fd: FileDescriptorLike, callback: (**tuple[*_Ts]) -> typing.Any, *args: *_Ts) -> None
+            loop.add_writer[_Ts](fd: FileDescriptorLike, callback: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> typing.Any, *args: typing.Unpack[_Ts]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L573>`__)
 
@@ -1164,7 +1164,7 @@ working with :class:`~socket.socket` objects directly is more
 convenient.
 
 .. method:: loop.sock_recv(sock, nbytes)
-            loop.sock_recv(sock: socket, nbytes: int) -> collections.abc.Coroutine[Unknown, Unknown, bytes]
+            loop.sock_recv(sock: socket.socket, nbytes: int) -> typing.Coroutine[Unknown, Unknown, bytes]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L577>`__)
@@ -1182,7 +1182,7 @@ convenient.
       Since Python 3.7 this is an ``async def`` method.
 
 .. method:: loop.sock_recv_into(sock, buf)
-            loop.sock_recv_into(sock: socket, buf: Buffer) -> collections.abc.Coroutine[Unknown, Unknown, int]
+            loop.sock_recv_into(sock: socket.socket, buf: _collections_abc.Buffer) -> typing.Coroutine[Unknown, Unknown, int]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L579>`__)
@@ -1197,7 +1197,7 @@ convenient.
    .. versionadded:: 3.7
 
 .. method:: loop.sock_recvfrom(sock, bufsize)
-            loop.sock_recvfrom(sock: socket, bufsize: int) -> collections.abc.Coroutine[Unknown, Unknown, tuple[bytes, typing.Any]]
+            loop.sock_recvfrom(sock: socket.socket, bufsize: int) -> typing.Coroutine[Unknown, Unknown, tuple[bytes, typing.Any]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L588>`__)
@@ -1212,7 +1212,7 @@ convenient.
    .. versionadded:: 3.11
 
 .. method:: loop.sock_recvfrom_into(sock, buf, nbytes=0)
-            loop.sock_recvfrom_into(sock: socket, buf: Buffer, nbytes: int = 0) -> collections.abc.Coroutine[Unknown, Unknown, tuple[int, typing.Any]]
+            loop.sock_recvfrom_into(sock: socket.socket, buf: _collections_abc.Buffer, nbytes: int = 0) -> typing.Coroutine[Unknown, Unknown, tuple[int, typing.Any]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L590>`__)
@@ -1228,7 +1228,7 @@ convenient.
    .. versionadded:: 3.11
 
 .. method:: loop.sock_sendall(sock, data)
-            loop.sock_sendall(sock: socket, data: Buffer) -> collections.abc.Coroutine[Unknown, Unknown, None]
+            loop.sock_sendall(sock: socket.socket, data: _collections_abc.Buffer) -> typing.Coroutine[Unknown, Unknown, None]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L581>`__)
@@ -1250,7 +1250,7 @@ convenient.
       Since Python 3.7, this is an ``async def`` method.
 
 .. method:: loop.sock_sendto(sock, data, address)
-            loop.sock_sendto(sock: socket, data: Buffer, address: _Address) -> collections.abc.Coroutine[Unknown, Unknown, int]
+            loop.sock_sendto(sock: socket.socket, data: _collections_abc.Buffer, address: _Address) -> typing.Coroutine[Unknown, Unknown, int]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L592>`__)
@@ -1266,7 +1266,7 @@ convenient.
    .. versionadded:: 3.11
 
 .. method:: loop.sock_connect(sock, address)
-            loop.sock_connect(sock: socket, address: _Address) -> collections.abc.Coroutine[Unknown, Unknown, None]
+            loop.sock_connect(sock: socket.socket, address: _Address) -> typing.Coroutine[Unknown, Unknown, None]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L583>`__)
@@ -1291,7 +1291,7 @@ convenient.
 
 
 .. method:: loop.sock_accept(sock)
-            loop.sock_accept(sock: socket) -> collections.abc.Coroutine[Unknown, Unknown, tuple[socket, typing.Any]]
+            loop.sock_accept(sock: socket.socket) -> typing.Coroutine[Unknown, Unknown, tuple[socket.socket, typing.Any]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L585>`__)
@@ -1318,7 +1318,7 @@ convenient.
 
 .. method:: loop.sock_sendfile(sock, file, offset=0, count=None, \
                                *, fallback=True)
-            loop.sock_sendfile(sock: socket, file: IO[bytes], offset: int = 0, count: int | None = None, *, fallback: bool | None = None) -> collections.abc.Coroutine[Unknown, Unknown, int]
+            loop.sock_sendfile(sock: socket.socket, file: typing.IO[bytes], offset: int = 0, count: int | None = None, *, fallback: bool | None = None) -> typing.Coroutine[Unknown, Unknown, int]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L504>`__)
@@ -1357,7 +1357,7 @@ DNS
 
 .. method:: loop.getaddrinfo(host, port, *, family=0, \
                type=0, proto=0, flags=0)
-            loop.getaddrinfo(host: bytes | str | None, port: bytes | int | str | None, *, family: int = 0, type: int = 0, proto: int = 0, flags: int = 0) -> collections.abc.Coroutine[Unknown, Unknown, list[tuple[AddressFamily, SocketKind, int, str, tuple[str, int] | tuple[str, int, int, int]]]]
+            loop.getaddrinfo(host: bytes | str | None, port: bytes | int | str | None, *, family: int = 0, type: int = 0, proto: int = 0, flags: int = 0) -> typing.Coroutine[Unknown, Unknown, list[tuple[socket.AddressFamily, socket.SocketKind, int, str, tuple[str, int] | tuple[str, int, int, int]]]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L199>`__)
@@ -1365,7 +1365,7 @@ DNS
    Asynchronous version of :meth:`socket.getaddrinfo`.
 
 .. method:: loop.getnameinfo(sockaddr, flags=0)
-            loop.getnameinfo(sockaddr: tuple[str, int] | tuple[str, int, int, int], flags: int = 0) -> collections.abc.Coroutine[Unknown, Unknown, tuple[str, str]]
+            loop.getnameinfo(sockaddr: tuple[str, int] | tuple[str, int, int, int], flags: int = 0) -> typing.Coroutine[Unknown, Unknown, tuple[str, str]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L210>`__)
@@ -1391,7 +1391,7 @@ Working with pipes
 ^^^^^^^^^^^^^^^^^^
 
 .. method:: loop.connect_read_pipe(protocol_factory, pipe)
-            loop.connect_read_pipe[_ProtocolT](protocol_factory: () -> _ProtocolT, pipe: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[ReadTransport, _ProtocolT]]
+            loop.connect_read_pipe[_ProtocolT](protocol_factory: () -> _ProtocolT, pipe: typing.Any) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.ReadTransport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L528>`__)
@@ -1411,7 +1411,7 @@ Working with pipes
    non-blocking mode.
 
 .. method:: loop.connect_write_pipe(protocol_factory, pipe)
-            loop.connect_write_pipe[_ProtocolT](protocol_factory: () -> _ProtocolT, pipe: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[WriteTransport, _ProtocolT]]
+            loop.connect_write_pipe[_ProtocolT](protocol_factory: () -> _ProtocolT, pipe: typing.Any) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.WriteTransport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L532>`__)
@@ -1447,7 +1447,7 @@ Unix signals
 .. _loop_add_signal_handler:
 
 .. method:: loop.add_signal_handler(signum, callback, *args)
-            loop.add_signal_handler[_Ts](sig: int, callback: (**tuple[*_Ts]) -> object, *args: *_Ts) -> None
+            loop.add_signal_handler[_Ts](sig: int, callback: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> object, *args: typing.Unpack[_Ts]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L595>`__)
 
@@ -1488,7 +1488,7 @@ Executing code in thread or process pools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. awaitablemethod:: loop.run_in_executor(executor, func, *args)
-                     loop.run_in_executor[_Ts, _T](executor: Executor | None, func: (**tuple[*_Ts]) -> _T, *args: *_Ts) -> Future[_T]
+                     loop.run_in_executor[_Ts, _T](executor: concurrent.futures._base.Executor | None, func: (*typing.Unpack[tuple[Unpack[_Ts]]]) -> _T, *args: typing.Unpack[_Ts]) -> _asyncio.Future[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L194>`__)
 
@@ -1566,7 +1566,7 @@ Executing code in thread or process pools
       default.
 
 .. method:: loop.set_default_executor(executor)
-            loop.set_default_executor(executor: Executor) -> None
+            loop.set_default_executor(executor: concurrent.futures._base.Executor) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L196>`__)
 
@@ -1586,7 +1586,7 @@ Error Handling API
 Allows customizing how exceptions are handled in the event loop.
 
 .. method:: loop.set_exception_handler(handler)
-            loop.set_exception_handler(handler: ((AbstractEventLoop, dict[str, typing.Any]) -> object) | None) -> None
+            loop.set_exception_handler(handler: ((asyncio.events.AbstractEventLoop, dict[str, typing.Any]) -> object) | None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L600>`__)
 
@@ -1610,7 +1610,7 @@ Allows customizing how exceptions are handled in the event loop.
       of the task or handle where the exception originated.
 
 .. method:: loop.get_exception_handler()
-            loop.get_exception_handler() -> ((AbstractEventLoop, dict[str, typing.Any]) -> object) | None
+            loop.get_exception_handler() -> ((asyncio.events.AbstractEventLoop, dict[str, typing.Any]) -> object) | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L602>`__)
 
@@ -1724,7 +1724,7 @@ async/await code consider using the high-level
 .. method:: loop.subprocess_exec(protocol_factory, *args, \
              stdin=subprocess.PIPE, stdout=subprocess.PIPE, \
              stderr=subprocess.PIPE, **kwargs)
-            loop.subprocess_exec[_ProtocolT](protocol_factory: () -> _ProtocolT, program: typing.Any, *args: typing.Any, *, stdin: IO[typing.Any] | int | None = -1, stdout: IO[typing.Any] | int | None = -1, stderr: IO[typing.Any] | int | None = -1, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[False] = False, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, **kwargs: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[SubprocessTransport, _ProtocolT]]
+            loop.subprocess_exec[_ProtocolT](protocol_factory: () -> _ProtocolT, program: typing.Any, *args: typing.Any, *, stdin: typing.IO[typing.Any] | int | None = -1, stdout: typing.IO[typing.Any] | int | None = -1, stderr: typing.IO[typing.Any] | int | None = -1, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[False] = False, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, **kwargs: typing.Any) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.SubprocessTransport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L553>`__)
@@ -1813,7 +1813,7 @@ async/await code consider using the high-level
 .. method:: loop.subprocess_shell(protocol_factory, cmd, *, \
                stdin=subprocess.PIPE, stdout=subprocess.PIPE, \
                stderr=subprocess.PIPE, **kwargs)
-            loop.subprocess_shell[_ProtocolT](protocol_factory: () -> _ProtocolT, cmd: bytes | str, *, stdin: IO[typing.Any] | int | None = -1, stdout: IO[typing.Any] | int | None = -1, stderr: IO[typing.Any] | int | None = -1, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[True] = True, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, **kwargs: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[SubprocessTransport, _ProtocolT]]
+            loop.subprocess_shell[_ProtocolT](protocol_factory: () -> _ProtocolT, cmd: bytes | str, *, stdin: typing.IO[typing.Any] | int | None = -1, stdout: typing.IO[typing.Any] | int | None = -1, stderr: typing.IO[typing.Any] | int | None = -1, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[True] = True, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, **kwargs: typing.Any) -> typing.Coroutine[Unknown, Unknown, tuple[asyncio.transports.SubprocessTransport, _ProtocolT]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L536>`__)
@@ -1852,7 +1852,7 @@ Callback Handles
 ================
 
 .. class:: Handle
-           Handle(callback: (...) -> object, args: collections.abc.Sequence[typing.Any], loop: AbstractEventLoop, context: contextvars.Context | None = None) -> None
+           Handle(callback: (...) -> object, args: typing.Sequence[typing.Any], loop: asyncio.events.AbstractEventLoop, context: _contextvars.Context | None = None) -> asyncio.events.Handle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L75>`__)
 
@@ -1860,7 +1860,7 @@ Callback Handles
    :meth:`loop.call_soon_threadsafe`.
 
    .. method:: get_context()
-               get_context() -> contextvars.Context
+               get_context() -> _contextvars.Context
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L86>`__)
 
@@ -1887,7 +1887,7 @@ Callback Handles
       .. versionadded:: 3.7
 
 .. class:: TimerHandle
-           TimerHandle(when: float, callback: (...) -> object, args: collections.abc.Sequence[typing.Any], loop: AbstractEventLoop, context: contextvars.Context | None = None) -> None
+           TimerHandle(when: float, callback: (...) -> object, args: typing.Sequence[typing.Any], loop: asyncio.events.AbstractEventLoop, context: _contextvars.Context | None = None) -> asyncio.events.TimerHandle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L88>`__)
 
@@ -1919,7 +1919,7 @@ and :func:`start_unix_server` functions.
 Do not instantiate the :class:`Server` class directly.
 
 .. class:: Server
-           Server(loop: AbstractEventLoop, sockets: collections.abc.Iterable[socket], protocol_factory: () -> BaseProtocol, ssl_context: _SSLContext, backlog: int, ssl_handshake_timeout: float | None, ssl_shutdown_timeout: float | None = None) -> None
+           Server(loop: asyncio.events.AbstractEventLoop, sockets: typing.Iterable[socket.socket], protocol_factory: () -> asyncio.protocols.BaseProtocol, ssl_context: _SSLContext, backlog: int, ssl_handshake_timeout: float | None, ssl_shutdown_timeout: float | None = None) -> asyncio.base_events.Server
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/base_events.pyi#L28>`__)
 
@@ -1989,7 +1989,7 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.13
 
    .. method:: get_loop()
-               get_loop() -> AbstractEventLoop
+               get_loop() -> asyncio.events.AbstractEventLoop
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/base_events.pyi#L55>`__)
 
@@ -1998,7 +1998,7 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.7
 
    .. method:: start_serving()
-               start_serving() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               start_serving() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/base_events.pyi#L57>`__)
@@ -2018,7 +2018,7 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.7
 
    .. method:: serve_forever()
-               serve_forever() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               serve_forever() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/base_events.pyi#L58>`__)
@@ -2057,7 +2057,7 @@ Do not instantiate the :class:`Server` class directly.
       .. versionadded:: 3.7
 
    .. method:: wait_closed()
-               wait_closed() -> collections.abc.Coroutine[Unknown, Unknown, None]
+               wait_closed() -> typing.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/base_events.pyi#L62>`__)
@@ -2066,7 +2066,7 @@ Do not instantiate the :class:`Server` class directly.
       connections have finished.
 
    .. attribute:: sockets
-      :type: sockets(self: Server) -> tuple[socket, ...]
+      :type: sockets(self: asyncio.base_events.Server) -> tuple[socket.socket, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/base_events.pyi#L60>`__)
 
@@ -2092,7 +2092,7 @@ By default asyncio is configured to use :class:`EventLoop`.
 
 
 .. class:: SelectorEventLoop
-           SelectorEventLoop(selector: BaseSelector | None = None) -> None
+           SelectorEventLoop(selector: selectors.BaseSelector | None = None) -> asyncio.unix_events._UnixSelectorEventLoop
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/unix_events.pyi#L182>`__)
 
@@ -2128,7 +2128,7 @@ By default asyncio is configured to use :class:`EventLoop`.
       <https://learn.microsoft.com/windows/win32/fileio/i-o-completion-ports>`_.
 
 .. class:: EventLoop
-           EventLoop(selector: BaseSelector | None = None) -> None
+           EventLoop(selector: selectors.BaseSelector | None = None) -> asyncio.unix_events._UnixSelectorEventLoop
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/unix_events.pyi#L190>`__)
 
@@ -2140,7 +2140,7 @@ By default asyncio is configured to use :class:`EventLoop`.
    .. versionadded:: 3.13
 
 .. class:: AbstractEventLoop
-           AbstractEventLoop() -> None
+           AbstractEventLoop() -> asyncio.events.AbstractEventLoop
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/events.pyi#L128>`__)
 

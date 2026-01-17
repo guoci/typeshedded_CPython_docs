@@ -16,7 +16,7 @@ There are four basic concrete server classes:
 
 
 .. class:: TCPServer(server_address, RequestHandlerClass, bind_and_activate=True)
-           TCPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, TCPServer) -> BaseRequestHandler, bind_and_activate: bool = True) -> None
+           TCPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, socketserver.TCPServer) -> socketserver.BaseRequestHandler, bind_and_activate: bool = True) -> socketserver.TCPServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L67>`__)
 
@@ -31,7 +31,7 @@ There are four basic concrete server classes:
       The default queue size is now ``socket.SOMAXCONN`` for :class:`socketserver.TCPServer`.
 
 .. class:: UDPServer(server_address, RequestHandlerClass, bind_and_activate=True)
-           UDPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, UDPServer) -> BaseRequestHandler, bind_and_activate: bool = True) -> None
+           UDPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, socketserver.UDPServer) -> socketserver.BaseRequestHandler, bind_and_activate: bool = True) -> socketserver.UDPServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L86>`__)
 
@@ -227,7 +227,7 @@ Server Objects
 --------------
 
 .. class:: BaseServer(server_address, RequestHandlerClass)
-           BaseServer(server_address: _Address, RequestHandlerClass: (typing.Any, typing.Any, BaseServer) -> BaseRequestHandler) -> None
+           BaseServer(server_address: _Address, RequestHandlerClass: (typing.Any, typing.Any, socketserver.BaseServer) -> socketserver.BaseRequestHandler) -> socketserver.BaseServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L41>`__)
 
@@ -321,7 +321,7 @@ Server Objects
 
 
    .. attribute:: RequestHandlerClass
-      :type: (typing.Any, typing.Any, BaseServer) -> BaseRequestHandler
+      :type: (typing.Any, typing.Any, socketserver.BaseServer) -> socketserver.BaseRequestHandler
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L44>`__)
 
@@ -330,7 +330,7 @@ Server Objects
 
 
    .. attribute:: server_address
-      :type: Buffer | str | tuple[typing.Any, ...]
+      :type: _collections_abc.Buffer | str | tuple[typing.Any, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L42>`__)
 
@@ -342,7 +342,7 @@ Server Objects
 
 
    .. attribute:: socket
-      :type: socket
+      :type: socket.socket
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L69>`__)
 
@@ -500,7 +500,7 @@ Request Handler Objects
 -----------------------
 
 .. class:: BaseRequestHandler
-           BaseRequestHandler(request: _RequestType, client_address: typing.Any, server: BaseServer) -> None
+           BaseRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> socketserver.BaseRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L142>`__)
 
@@ -564,7 +564,7 @@ Request Handler Objects
 
 
    .. attribute:: server
-      :type: BaseServer
+      :type: socketserver.BaseServer
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L151>`__)
 
@@ -581,7 +581,7 @@ Request Handler Objects
    methods, and provide :attr:`rfile` and :attr:`wfile` attributes.
 
    .. attribute:: rfile
-      :type: BufferedIOBase
+      :type: io.BufferedIOBase
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L169>`__)
 
@@ -589,7 +589,7 @@ Request Handler Objects
       Support the :class:`io.BufferedIOBase` readable interface.
 
    .. attribute:: wfile
-      :type: BufferedIOBase
+      :type: io.BufferedIOBase
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L170>`__)
 

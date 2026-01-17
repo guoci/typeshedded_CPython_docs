@@ -517,7 +517,7 @@ class`. In addition, it provides a few more methods:
     .. versionadded:: 3.10
 
 .. method:: int.to_bytes(length=1, byteorder='big', *, signed=False)
-            int.to_bytes(length: SupportsIndex = 1, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> bytes
+            int.to_bytes(length: typing.SupportsIndex = 1, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L275>`__)
 
@@ -574,7 +574,7 @@ class`. In addition, it provides a few more methods:
        Added default argument values for ``length`` and ``byteorder``.
 
 .. classmethod:: int.from_bytes(bytes, byteorder='big', *, signed=False)
-                 int.from_bytes(cls: type[int], bytes: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> int
+                 int.from_bytes(cls: type[int], bytes: _collections_abc.Buffer | typing.Iterable[typing.SupportsIndex] | typing.SupportsBytes, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L279>`__)
 
@@ -652,7 +652,7 @@ The float type implements the :class:`numbers.Real` :term:`abstract base
 class`. float also has the following additional methods.
 
 .. classmethod:: float.from_number(x)
-                 float.from_number(cls: type[float], number: SupportsFloat | SupportsIndex | float, /) -> float
+                 float.from_number(cls: type[float], number: typing.SupportsFloat | typing.SupportsIndex | float, /) -> float
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L429>`__)
 
@@ -769,7 +769,7 @@ The :class:`!complex` type implements the :class:`numbers.Complex`
 :class:`!complex` also has the following additional methods.
 
 .. classmethod:: complex.from_number(x)
-                 complex.from_number(cls: type[complex], number: SupportsComplex | SupportsFloat | SupportsIndex | complex, /) -> complex
+                 complex.from_number(cls: type[complex], number: typing.SupportsComplex | typing.SupportsFloat | typing.SupportsIndex | complex, /) -> complex
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L469>`__)
 
@@ -941,7 +941,7 @@ support:
 .. XXX duplicated in reference/datamodel!
 
 .. method:: container.__iter__()
-            container.__iter__[_T_co]() -> collections.abc.Iterator[_T_co]
+            container.__iter__[_T_co]() -> typing.Iterator[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L529>`__)
 
@@ -959,7 +959,7 @@ methods, which together form the :dfn:`iterator protocol`:
 
 
 .. method:: iterator.__iter__()
-            iterator.__iter__[_T_co]() -> collections.abc.Iterator[_T_co]
+            iterator.__iter__[_T_co]() -> typing.Iterator[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L535>`__)
 
@@ -1390,7 +1390,7 @@ Mutable sequence types also support the following methods:
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L792>`__)
 
 .. method:: sequence.extend(iterable, /)
-            sequence.extend[_T](values: collections.abc.Iterable[_T]) -> None
+            sequence.extend[_T](values: typing.Iterable[_T]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L693>`__)
 
@@ -1477,8 +1477,8 @@ homogeneous items (where the precise degree of similarity will vary by
 application).
 
 .. class:: list(iterable=(), /)
-           list() -> None
-           list(iterable: collections.abc.Iterable[_T], /) -> None
+           list() -> list
+           list(iterable: typing.Iterable[_T], /) -> list
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1120>`__)
 
@@ -1669,7 +1669,7 @@ homogeneous data is needed (such as allowing storage in a :class:`set` or
 :class:`dict` instance).
 
 .. class:: tuple(iterable=(), /)
-           tuple(iterable: collections.abc.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
+           tuple(iterable: typing.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1043>`__)
 
@@ -1715,8 +1715,8 @@ loops.
 
 .. class:: range(stop, /)
            range(start, stop, step=1, /)
-           range(stop: SupportsIndex, /) -> range
-           range(start: SupportsIndex, stop: SupportsIndex, step: SupportsIndex = 1, /) -> range
+           range(stop: typing.SupportsIndex, /) -> range
+           range(start: typing.SupportsIndex, stop: typing.SupportsIndex, step: typing.SupportsIndex = 1, /) -> range
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1334>`__)
 
@@ -1992,7 +1992,7 @@ multiple fragments.
            str(object, encoding, errors='strict')
            str(object, *, errors)
            str(object: object = '') -> str
-           str(object: Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
+           str(object: _collections_abc.Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L480>`__)
 
@@ -2061,7 +2061,7 @@ other modules that provide various text related utilities (including regular
 expression support in the :mod:`re` module).
 
 .. method:: str.capitalize()
-            str.capitalize() -> LiteralString
+            str.capitalize() -> typing.LiteralString
             str.capitalize() -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L486>`__)
@@ -2075,7 +2075,7 @@ expression support in the :mod:`re` module).
       letter capitalized, instead of the full character.
 
 .. method:: str.casefold()
-            str.casefold() -> LiteralString
+            str.casefold() -> typing.LiteralString
             str.casefold() -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L490>`__)
@@ -2105,8 +2105,8 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.center(width, fillchar=' ', /)
-            str.center(width: SupportsIndex, fillchar: LiteralString = ' ', /) -> LiteralString
-            str.center(width: SupportsIndex, fillchar: str = ' ', /) -> str
+            str.center(width: typing.SupportsIndex, fillchar: typing.LiteralString = ' ', /) -> typing.LiteralString
+            str.center(width: typing.SupportsIndex, fillchar: str = ' ', /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L494>`__)
 
@@ -2123,7 +2123,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.count(sub[, start[, end]])
-            str.count(sub: str, start: SupportsIndex | None = None, end: SupportsIndex | None = None, /) -> int
+            str.count(sub: str, start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L497>`__)
 
@@ -2184,7 +2184,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.endswith(suffix[, start[, end]])
-            str.endswith(suffix: str | tuple[str, ...], start: SupportsIndex | None = None, end: SupportsIndex | None = None, /) -> bool
+            str.endswith(suffix: str | tuple[str, ...], start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L499>`__)
 
@@ -2207,8 +2207,8 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.expandtabs(tabsize=8)
-            str.expandtabs(tabsize: SupportsIndex = 8) -> LiteralString
-            str.expandtabs(tabsize: SupportsIndex = 8) -> str
+            str.expandtabs(tabsize: typing.SupportsIndex = 8) -> typing.LiteralString
+            str.expandtabs(tabsize: typing.SupportsIndex = 8) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L503>`__)
 
@@ -2235,7 +2235,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.find(sub[, start[, end]])
-            str.find(sub: str, start: SupportsIndex | None = None, end: SupportsIndex | None = None, /) -> int
+            str.find(sub: str, start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L506>`__)
 
@@ -2262,7 +2262,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.format(*args, **kwargs)
-            str.format(*args: LiteralString, **kwargs: LiteralString) -> LiteralString
+            str.format(*args: typing.LiteralString, **kwargs: typing.LiteralString) -> typing.LiteralString
             str.format(*args: object, **kwargs: object) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L508>`__)
@@ -2322,7 +2322,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.index(sub[, start[, end]])
-            str.index(sub: str, start: SupportsIndex | None = None, end: SupportsIndex | None = None, /) -> int
+            str.index(sub: str, start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L512>`__)
 
@@ -2579,8 +2579,8 @@ expression support in the :mod:`re` module).
 .. _meth-str-join:
 
 .. method:: str.join(iterable, /)
-            str.join(iterable: collections.abc.Iterable[LiteralString], /) -> LiteralString
-            str.join(iterable: collections.abc.Iterable[str], /) -> str
+            str.join(iterable: typing.Iterable[typing.LiteralString], /) -> typing.LiteralString
+            str.join(iterable: typing.Iterable[str], /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L526>`__)
 
@@ -2600,8 +2600,8 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.ljust(width, fillchar=' ', /)
-            str.ljust(width: SupportsIndex, fillchar: LiteralString = ' ', /) -> LiteralString
-            str.ljust(width: SupportsIndex, fillchar: str = ' ', /) -> str
+            str.ljust(width: typing.SupportsIndex, fillchar: typing.LiteralString = ' ', /) -> typing.LiteralString
+            str.ljust(width: typing.SupportsIndex, fillchar: str = ' ', /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L530>`__)
 
@@ -2624,7 +2624,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.lower()
-            str.lower() -> LiteralString
+            str.lower() -> typing.LiteralString
             str.lower() -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L534>`__)
@@ -2643,7 +2643,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.lstrip(chars=None, /)
-            str.lstrip(chars: LiteralString | None = None, /) -> LiteralString
+            str.lstrip(chars: typing.LiteralString | None = None, /) -> typing.LiteralString
             str.lstrip(chars: str | None = None, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L538>`__)
@@ -2689,7 +2689,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.partition(sep, /)
-            str.partition(sep: LiteralString, /) -> tuple[LiteralString, LiteralString, LiteralString]
+            str.partition(sep: typing.LiteralString, /) -> tuple[typing.LiteralString, typing.LiteralString, typing.LiteralString]
             str.partition(sep: str, /) -> tuple[str, str, str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L542>`__)
@@ -2701,7 +2701,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.removeprefix(prefix, /)
-            str.removeprefix(prefix: LiteralString, /) -> LiteralString
+            str.removeprefix(prefix: typing.LiteralString, /) -> typing.LiteralString
             str.removeprefix(prefix: str, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L561>`__)
@@ -2723,7 +2723,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.removesuffix(suffix, /)
-            str.removesuffix(suffix: LiteralString, /) -> LiteralString
+            str.removesuffix(suffix: typing.LiteralString, /) -> typing.LiteralString
             str.removesuffix(suffix: str, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L565>`__)
@@ -2745,8 +2745,8 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.replace(old, new, /, count=-1)
-            str.replace(old: LiteralString, new: LiteralString, /, count: SupportsIndex = -1) -> LiteralString
-            str.replace(old: str, new: str, /, count: SupportsIndex = -1) -> str
+            str.replace(old: typing.LiteralString, new: typing.LiteralString, /, count: typing.SupportsIndex = -1) -> typing.LiteralString
+            str.replace(old: str, new: str, /, count: typing.SupportsIndex = -1) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L547>`__)
 
@@ -2767,7 +2767,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.rfind(sub[, start[, end]])
-            str.rfind(sub: str, start: SupportsIndex | None = None, end: SupportsIndex | None = None, /) -> int
+            str.rfind(sub: str, start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L568>`__)
 
@@ -2787,7 +2787,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.rindex(sub[, start[, end]])
-            str.rindex(sub: str, start: SupportsIndex | None = None, end: SupportsIndex | None = None, /) -> int
+            str.rindex(sub: str, start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L569>`__)
 
@@ -2796,8 +2796,8 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.rjust(width, fillchar=' ', /)
-            str.rjust(width: SupportsIndex, fillchar: LiteralString = ' ', /) -> LiteralString
-            str.rjust(width: SupportsIndex, fillchar: str = ' ', /) -> str
+            str.rjust(width: typing.SupportsIndex, fillchar: typing.LiteralString = ' ', /) -> typing.LiteralString
+            str.rjust(width: typing.SupportsIndex, fillchar: str = ' ', /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L571>`__)
 
@@ -2807,7 +2807,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.rpartition(sep, /)
-            str.rpartition(sep: LiteralString, /) -> tuple[LiteralString, LiteralString, LiteralString]
+            str.rpartition(sep: typing.LiteralString, /) -> tuple[typing.LiteralString, typing.LiteralString, typing.LiteralString]
             str.rpartition(sep: str, /) -> tuple[str, str, str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L575>`__)
@@ -2819,8 +2819,8 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.rsplit(sep=None, maxsplit=-1)
-            str.rsplit(sep: LiteralString | None = None, maxsplit: SupportsIndex = -1) -> list[LiteralString]
-            str.rsplit(sep: str | None = None, maxsplit: SupportsIndex = -1) -> list[str]
+            str.rsplit(sep: typing.LiteralString | None = None, maxsplit: typing.SupportsIndex = -1) -> list[typing.LiteralString]
+            str.rsplit(sep: str | None = None, maxsplit: typing.SupportsIndex = -1) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L579>`__)
 
@@ -2832,7 +2832,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.rstrip(chars=None, /)
-            str.rstrip(chars: LiteralString | None = None, /) -> LiteralString
+            str.rstrip(chars: typing.LiteralString | None = None, /) -> typing.LiteralString
             str.rstrip(chars: str | None = None, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L583>`__)
@@ -2856,8 +2856,8 @@ expression support in the :mod:`re` module).
       'Monty'
 
 .. method:: str.split(sep=None, maxsplit=-1)
-            str.split(sep: LiteralString | None = None, maxsplit: SupportsIndex = -1) -> list[LiteralString]
-            str.split(sep: str | None = None, maxsplit: SupportsIndex = -1) -> list[str]
+            str.split(sep: typing.LiteralString | None = None, maxsplit: typing.SupportsIndex = -1) -> list[typing.LiteralString]
+            str.split(sep: str | None = None, maxsplit: typing.SupportsIndex = -1) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L587>`__)
 
@@ -2920,7 +2920,7 @@ expression support in the :mod:`re` module).
    single: universal newlines; str.splitlines method
 
 .. method:: str.splitlines(keepends=False)
-            str.splitlines(keepends: bool = False) -> list[LiteralString]
+            str.splitlines(keepends: bool = False) -> list[typing.LiteralString]
             str.splitlines(keepends: bool = False) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L591>`__)
@@ -2987,7 +2987,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.startswith(prefix[, start[, end]])
-            str.startswith(prefix: str | tuple[str, ...], start: SupportsIndex | None = None, end: SupportsIndex | None = None, /) -> bool
+            str.startswith(prefix: str | tuple[str, ...], start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L594>`__)
 
@@ -2998,7 +2998,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.strip(chars=None, /)
-            str.strip(chars: LiteralString | None = None, /) -> LiteralString
+            str.strip(chars: typing.LiteralString | None = None, /) -> typing.LiteralString
             str.strip(chars: str | None = None, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L598>`__)
@@ -3026,7 +3026,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.swapcase()
-            str.swapcase() -> LiteralString
+            str.swapcase() -> typing.LiteralString
             str.swapcase() -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L602>`__)
@@ -3037,7 +3037,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.title()
-            str.title() -> LiteralString
+            str.title() -> typing.LiteralString
             str.title() -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L606>`__)
@@ -3098,7 +3098,7 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.upper()
-            str.upper() -> LiteralString
+            str.upper() -> typing.LiteralString
             str.upper() -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L611>`__)
@@ -3115,8 +3115,8 @@ expression support in the :mod:`re` module).
 
 
 .. method:: str.zfill(width, /)
-            str.zfill(width: SupportsIndex, /) -> LiteralString
-            str.zfill(width: SupportsIndex, /) -> str
+            str.zfill(width: typing.SupportsIndex, /) -> typing.LiteralString
+            str.zfill(width: typing.SupportsIndex, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L615>`__)
 
@@ -3538,7 +3538,7 @@ data and are closely related to string objects in a variety of other ways.
 
 .. class:: bytes(source=b'')
            bytes(source, encoding, errors='strict')
-           bytes(o: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsBytes | SupportsIndex, /) -> bytes
+           bytes(o: _collections_abc.Buffer | typing.Iterable[typing.SupportsIndex] | typing.SupportsBytes | typing.SupportsIndex, /) -> bytes
            bytes(string: str, /, encoding: str, errors: str = 'strict') -> bytes
            bytes() -> bytes
 
@@ -3583,7 +3583,7 @@ data and are closely related to string objects in a variety of other ways.
    the bytes type has an additional class method to read data in that format:
 
    .. classmethod:: fromhex(string, /)
-                    fromhex(cls: type[bytes], string: Buffer | str, /) -> bytes
+                    fromhex(cls: type[bytes], string: _collections_abc.Buffer | str, /) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L736>`__)
 
@@ -3607,7 +3607,7 @@ data and are closely related to string objects in a variety of other ways.
 
    .. method:: hex(*, bytes_per_sep=1)
                hex(sep, bytes_per_sep=1)
-               hex(sep: bytes | str = ..., bytes_per_sep: SupportsIndex = 1) -> str
+               hex(sep: bytes | str = ..., bytes_per_sep: typing.SupportsIndex = 1) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L689>`__)
 
@@ -3660,9 +3660,9 @@ objects.
 
 .. class:: bytearray(source=b'')
            bytearray(source, encoding, errors='strict')
-           bytearray() -> None
-           bytearray(ints: Buffer | collections.abc.Iterable[SupportsIndex] | SupportsIndex, /) -> None
-           bytearray(string: str, /, encoding: str, errors: str = 'strict') -> None
+           bytearray() -> bytearray
+           bytearray(ints: _collections_abc.Buffer | typing.Iterable[typing.SupportsIndex] | typing.SupportsIndex, /) -> bytearray
+           bytearray(string: str, /, encoding: str, errors: str = 'strict') -> bytearray
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L769>`__)
 
@@ -3685,7 +3685,7 @@ objects.
    the bytearray type has an additional class method to read data in that format:
 
    .. classmethod:: fromhex(string, /)
-                    fromhex(cls: type[bytearray], string: Buffer | str, /) -> bytearray
+                    fromhex(cls: type[bytearray], string: _collections_abc.Buffer | str, /) -> bytearray
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L846>`__)
 
@@ -3709,7 +3709,7 @@ objects.
 
    .. method:: hex(*, bytes_per_sep=1)
                hex(sep, bytes_per_sep=1)
-               hex(sep: bytes | str = ..., bytes_per_sep: SupportsIndex = 1) -> str
+               hex(sep: bytes | str = ..., bytes_per_sep: typing.SupportsIndex = 1) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L796>`__)
 
@@ -4912,7 +4912,7 @@ of an object that supports the :ref:`buffer protocol <bufferobjects>` without
 copying.
 
 .. class:: memoryview(object)
-           memoryview(obj: Buffer) -> memoryview[_I]
+           memoryview(obj: _collections_abc.Buffer) -> memoryview[_I]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L891>`__)
 
@@ -5097,7 +5097,7 @@ copying.
 
    .. method:: hex(*, bytes_per_sep=1)
                hex(sep, bytes_per_sep=1)
-               hex[_I](sep: bytes | str = ..., bytes_per_sep: SupportsIndex = 1) -> str
+               hex[_I](sep: bytes | str = ..., bytes_per_sep: typing.SupportsIndex = 1) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L954>`__)
 
@@ -5303,7 +5303,7 @@ copying.
       .. versionadded:: 3.14
 
    .. method:: index(value, start=0, stop=sys.maxsize, /)
-               index[_I](value: object, start: SupportsIndex = 0, stop: SupportsIndex = ..., /) -> int
+               index[_I](value: object, start: typing.SupportsIndex = 0, stop: typing.SupportsIndex = ..., /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L958>`__)
 
@@ -5317,7 +5317,7 @@ copying.
    There are also several readonly attributes available:
 
    .. attribute:: obj
-      :type: obj[_I](self: memoryview[_I]) -> Buffer
+      :type: obj[_I](self: memoryview[_I]) -> _collections_abc.Buffer
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L907>`__)
 
@@ -5653,7 +5653,7 @@ The following table lists operations available for :class:`set` that do not
 apply to immutable instances of :class:`frozenset`:
 
 .. method:: set.update(*others)
-            set.update[_T](*s: collections.abc.Iterable[_T]) -> None
+            set.update[_T](*s: typing.Iterable[_T]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1277>`__)
 
@@ -5662,7 +5662,7 @@ apply to immutable instances of :class:`frozenset`:
    Update the set, adding elements from all others.
 
 .. method:: set.intersection_update(*others)
-            set.intersection_update[_T](*s: collections.abc.Iterable[typing.Any]) -> None
+            set.intersection_update[_T](*s: typing.Iterable[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1269>`__)
 
@@ -5671,7 +5671,7 @@ apply to immutable instances of :class:`frozenset`:
    Update the set, keeping only elements found in it and all others.
 
 .. method:: set.difference_update(*others)
-            set.difference_update[_T](*s: collections.abc.Iterable[typing.Any]) -> None
+            set.difference_update[_T](*s: typing.Iterable[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1266>`__)
 
@@ -5680,7 +5680,7 @@ apply to immutable instances of :class:`frozenset`:
    Update the set, removing elements found in others.
 
 .. method:: set.symmetric_difference_update(other, /)
-            set.symmetric_difference_update[_T](s: collections.abc.Iterable[_T], /) -> None
+            set.symmetric_difference_update[_T](s: typing.Iterable[_T], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1275>`__)
 
@@ -5766,14 +5766,14 @@ can be used interchangeably to index the same dictionary entry.
 .. class:: dict(**kwargs)
            dict(mapping, /, **kwargs)
            dict(iterable, /, **kwargs)
-           dict(/) -> None
-           dict(/, **kwargs: _VT) -> None
-           dict(map: SupportsKeysAndGetItem[_KT, _VT], /) -> None
-           dict(map: SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> None
-           dict(iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> None
-           dict(iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
-           dict(iterable: collections.abc.Iterable[list[str]], /) -> None
-           dict(iterable: collections.abc.Iterable[list[bytes]], /) -> None
+           dict(/) -> dict
+           dict(/, **kwargs: _VT) -> dict
+           dict(map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> dict
+           dict(map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> dict
+           dict(iterable: typing.Iterable[tuple[_KT, _VT]], /) -> dict
+           dict(iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> dict
+           dict(iterable: typing.Iterable[list[str]], /) -> dict
+           dict(iterable: typing.Iterable[list[bytes]], /) -> dict
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1175>`__)
 
@@ -5922,8 +5922,8 @@ can be used interchangeably to index the same dictionary entry.
       Return a shallow copy of the dictionary.
 
    .. classmethod:: fromkeys(iterable, value=None, /)
-                    fromkeys(cls: type[dict[_KT, _VT]], iterable: collections.abc.Iterable[_T], value: None = None, /) -> dict[_T, typing.Any | None]
-                    fromkeys(cls: type[dict[_KT, _VT]], iterable: collections.abc.Iterable[_T], value: _S, /) -> dict[_T, _S]
+                    fromkeys(cls: type[dict[_KT, _VT]], iterable: typing.Iterable[_T], value: None = None, /) -> dict[_T, typing.Any | None]
+                    fromkeys(cls: type[dict[_KT, _VT]], iterable: typing.Iterable[_T], value: _S, /) -> dict[_T, _S]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1217>`__)
 
@@ -5947,7 +5947,7 @@ can be used interchangeably to index the same dictionary entry.
       never raises a :exc:`KeyError`.
 
    .. method:: items()
-               items[_KT, _VT]() -> dict_items[_KT, _VT]
+               items[_KT, _VT]() -> _collections_abc.dict_items[_KT, _VT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1210>`__)
 
@@ -5955,7 +5955,7 @@ can be used interchangeably to index the same dictionary entry.
       See the :ref:`documentation of view objects <dict-views>`.
 
    .. method:: keys()
-               keys[_KT, _VT]() -> dict_keys[_KT, _VT]
+               keys[_KT, _VT]() -> _collections_abc.dict_keys[_KT, _VT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1208>`__)
 
@@ -6010,10 +6010,10 @@ can be used interchangeably to index the same dictionary entry.
    .. method:: update(**kwargs)
                update(mapping, /, **kwargs)
                update(iterable, /, **kwargs)
-               update(m: SupportsKeysAndGetItem[_KT, _VT], /) -> None
-               update(m: SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> None
-               update(m: collections.abc.Iterable[tuple[_KT, _VT]], /) -> None
-               update(m: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
+               update(m: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> None
+               update(m: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> None
+               update(m: typing.Iterable[tuple[_KT, _VT]], /) -> None
+               update(m: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
                update(**kwargs: _VT) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L832>`__)
@@ -6028,7 +6028,7 @@ can be used interchangeably to index the same dictionary entry.
       updated with those key/value pairs: ``d.update(red=1, blue=2)``.
 
    .. method:: values()
-               values[_KT, _VT]() -> dict_values[_KT, _VT]
+               values[_KT, _VT]() -> _collections_abc.dict_values[_KT, _VT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L1209>`__)
 
@@ -6225,7 +6225,7 @@ before the statement body is executed and exited when the statement ends:
 
 
 .. method:: contextmanager.__exit__(exc_type, exc_val, exc_tb)
-            contextmanager.__exit__(typ: type[BaseException] | None, value: BaseException | None, traceback: TracebackType | None) -> bool | None
+            contextmanager.__exit__(typ: type[BaseException] | None, value: BaseException | None, traceback: types.TracebackType | None) -> bool | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/contextlib.pyi#L85>`__)
 
@@ -6476,7 +6476,7 @@ Special Attributes of ``GenericAlias`` objects
 All parameterized generics implement special read-only attributes.
 
 .. attribute:: genericalias.__origin__
-   :type: __origin__(self: GenericAlias) -> TypeAliasType | type[typing.Any]
+   :type: __origin__(self: types.GenericAlias) -> typing.TypeAliasType | type[Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L685>`__)
 
@@ -6487,7 +6487,7 @@ All parameterized generics implement special read-only attributes.
 
 
 .. attribute:: genericalias.__args__
-   :type: __args__(self: GenericAlias) -> tuple[typing.Any, ...]
+   :type: __args__(self: types.GenericAlias) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L687>`__)
 
@@ -6500,7 +6500,7 @@ All parameterized generics implement special read-only attributes.
 
 
 .. attribute:: genericalias.__parameters__
-   :type: __parameters__(self: GenericAlias) -> tuple[typing.Any, ...]
+   :type: __parameters__(self: types.GenericAlias) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L689>`__)
 
@@ -6521,7 +6521,7 @@ All parameterized generics implement special read-only attributes.
 
 
 .. attribute:: genericalias.__unpacked__
-   :type: __unpacked__(self: GenericAlias) -> bool
+   :type: __unpacked__(self: types.GenericAlias) -> bool
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/types.pyi#L697>`__)
 

@@ -63,7 +63,7 @@ Creating Subprocesses
 
 .. function:: create_subprocess_exec(program, *args, stdin=None, \
                  stdout=None, stderr=None, limit=None, **kwds)
-              create_subprocess_exec(program: StrOrBytesPath, *args: StrOrBytesPath, *, stdin: IO[typing.Any] | int | None = None, stdout: IO[typing.Any] | int | None = None, stderr: IO[typing.Any] | int | None = None, limit: int = 65536, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[False] = False, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, executable: PathLike[bytes] | PathLike[str] | bytes | str | None = None, preexec_fn: (() -> typing.Any) | None = None, close_fds: bool = True, cwd: PathLike[bytes] | PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, startupinfo: typing.Any | None = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., group: int | str | None = None, extra_groups: collections.abc.Collection[int | str] | None = None, user: int | str | None = None, umask: int = -1, process_group: int | None = None, pipesize: int = -1) -> collections.abc.Coroutine[Unknown, Unknown, Process]
+              create_subprocess_exec(program: StrOrBytesPath, *args: StrOrBytesPath, *, stdin: typing.IO[typing.Any] | int | None = None, stdout: typing.IO[typing.Any] | int | None = None, stderr: typing.IO[typing.Any] | int | None = None, limit: int = 65536, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[False] = False, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, preexec_fn: (() -> typing.Any) | None = None, close_fds: bool = True, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: typing.Mapping[bytes, StrOrBytesPath] | typing.Mapping[str, StrOrBytesPath] | None = None, startupinfo: typing.Any | None = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: typing.Collection[int] = ..., group: int | str | None = None, extra_groups: typing.Collection[int | str] | None = None, user: int | str | None = None, umask: int = -1, process_group: int | None = None, pipesize: int = -1) -> typing.Coroutine[Unknown, Unknown, asyncio.subprocess.Process]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L71>`__)
@@ -88,7 +88,7 @@ Creating Subprocesses
 
 .. function:: create_subprocess_shell(cmd, stdin=None, \
                  stdout=None, stderr=None, limit=None, **kwds)
-              create_subprocess_shell(cmd: bytes | str, stdin: IO[typing.Any] | int | None = None, stdout: IO[typing.Any] | int | None = None, stderr: IO[typing.Any] | int | None = None, limit: int = 65536, *, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[True] = True, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, executable: PathLike[bytes] | PathLike[str] | bytes | str | None = None, preexec_fn: (() -> typing.Any) | None = None, close_fds: bool = True, cwd: PathLike[bytes] | PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, startupinfo: typing.Any | None = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., group: int | str | None = None, extra_groups: collections.abc.Collection[int | str] | None = None, user: int | str | None = None, umask: int = -1, process_group: int | None = None, pipesize: int = -1) -> collections.abc.Coroutine[Unknown, Unknown, Process]
+              create_subprocess_shell(cmd: bytes | str, stdin: typing.IO[typing.Any] | int | None = None, stdout: typing.IO[typing.Any] | int | None = None, stderr: typing.IO[typing.Any] | int | None = None, limit: int = 65536, *, universal_newlines: typing.Literal[False] = False, shell: typing.Literal[True] = True, bufsize: typing.Literal[0] = 0, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, preexec_fn: (() -> typing.Any) | None = None, close_fds: bool = True, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: typing.Mapping[bytes, StrOrBytesPath] | typing.Mapping[str, StrOrBytesPath] | None = None, startupinfo: typing.Any | None = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: typing.Collection[int] = ..., group: int | str | None = None, extra_groups: typing.Collection[int | str] | None = None, user: int | str | None = None, umask: int = -1, process_group: int | None = None, pipesize: int = -1) -> typing.Coroutine[Unknown, Unknown, asyncio.subprocess.Process]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L39>`__)
@@ -183,7 +183,7 @@ wrapper that allows communicating with subprocesses and watching for
 their completion.
 
 .. class:: asyncio.subprocess.Process
-           Process(transport: BaseTransport, protocol: BaseProtocol, loop: AbstractEventLoop) -> None
+           Process(transport: asyncio.transports.BaseTransport, protocol: asyncio.protocols.BaseProtocol, loop: asyncio.events.AbstractEventLoop) -> asyncio.subprocess.Process
    :module:
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L22>`__)
@@ -215,7 +215,7 @@ their completion.
    section.
 
    .. method:: wait()
-               wait() -> collections.abc.Coroutine[Unknown, Unknown, int]
+               wait() -> typing.Coroutine[Unknown, Unknown, int]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L32>`__)
@@ -233,7 +233,7 @@ their completion.
          to avoid this condition.
 
    .. method:: communicate(input=None)
-               communicate(input: bytearray | bytes | memoryview[int] | None = None) -> collections.abc.Coroutine[Unknown, Unknown, tuple[bytes, bytes]]
+               communicate(input: bytearray | bytes | memoryview[int] | None = None) -> typing.Coroutine[Unknown, Unknown, tuple[bytes, bytes]]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L36>`__)
@@ -308,7 +308,7 @@ their completion.
       On Windows this method is an alias for :meth:`terminate`.
 
    .. attribute:: stdin
-      :type: asyncio.StreamWriter | None
+      :type: asyncio.streams.StreamWriter | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L23>`__)
 
@@ -316,7 +316,7 @@ their completion.
       if the process was created with ``stdin=None``.
 
    .. attribute:: stdout
-      :type: asyncio.StreamReader | None
+      :type: asyncio.streams.StreamReader | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L24>`__)
 
@@ -324,7 +324,7 @@ their completion.
       if the process was created with ``stdout=None``.
 
    .. attribute:: stderr
-      :type: asyncio.StreamReader | None
+      :type: asyncio.streams.StreamReader | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L25>`__)
 
@@ -351,7 +351,7 @@ their completion.
       function, this attribute is the PID of the spawned shell.
 
    .. attribute:: returncode
-      :type: returncode(self: Process) -> int | None
+      :type: returncode(self: asyncio.subprocess.Process) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/asyncio/subprocess.pyi#L31>`__)
 

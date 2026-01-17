@@ -39,8 +39,8 @@ and :meth:`flush` methods).
 
 
 .. class:: StreamHandler(stream=None)
-           StreamHandler(stream: None = None) -> None
-           StreamHandler(stream: _StreamT) -> None
+           StreamHandler(stream: None = None) -> logging.StreamHandler
+           StreamHandler(stream: _StreamT) -> logging.StreamHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L602>`__)
 
@@ -50,7 +50,7 @@ and :meth:`flush` methods).
 
 
    .. method:: emit(record)
-               emit[_StreamT](record: LogRecord) -> None
+               emit[_StreamT](record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -110,7 +110,7 @@ sends logging output to a disk file.  It inherits the output functionality from
 
 
 .. class:: FileHandler(filename, mode='a', encoding=None, delay=False, errors=None)
-           FileHandler(filename: StrPath, mode: str = 'a', encoding: str | None = None, delay: bool = False, errors: str | None = None) -> None
+           FileHandler(filename: StrPath, mode: str = 'a', encoding: str | None = None, delay: bool = False, errors: str | None = None) -> logging.FileHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L613>`__)
 
@@ -136,7 +136,7 @@ sends logging output to a disk file.  It inherits the output functionality from
       Closes the file.
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -158,21 +158,21 @@ does not do any formatting or output. It is essentially a 'no-op' handler
 for use by library developers.
 
 .. class:: NullHandler()
-           NullHandler(level: _Level = 0) -> None
+           NullHandler(level: _Level = 0) -> logging.NullHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L624>`__)
 
    Returns a new instance of the :class:`NullHandler` class.
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
       This method does nothing.
 
    .. method:: handle(record)
-               handle(record: LogRecord) -> bool
+               handle(record: logging.LogRecord) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L260>`__)
 
@@ -216,7 +216,7 @@ for this value.
 
 
 .. class:: WatchedFileHandler(filename, mode='a', encoding=None, delay=False, errors=None)
-           WatchedFileHandler(filename: StrPath, mode: str = 'a', encoding: str | None = None, delay: bool = False, errors: str | None = None) -> None
+           WatchedFileHandler(filename: StrPath, mode: str = 'a', encoding: str | None = None, delay: bool = False, errors: str | None = None) -> logging.handlers.WatchedFileHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L24>`__)
 
@@ -247,7 +247,7 @@ for this value.
 
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -266,7 +266,7 @@ not need to instantiate this class, but it has attributes and methods you may
 need to override.
 
 .. class:: BaseRotatingHandler(filename, mode, encoding=None, delay=False, errors=None)
-           BaseRotatingHandler(filename: StrPath, mode: str, encoding: str | None = None, delay: bool = False, errors: str | None = None) -> None
+           BaseRotatingHandler(filename: StrPath, mode: str, encoding: str | None = None, delay: bool = False, errors: str | None = None) -> logging.handlers.BaseRotatingHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L33>`__)
 
@@ -373,7 +373,7 @@ module, supports rotation of disk log files.
 
 
 .. class:: RotatingFileHandler(filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=False, errors=None)
-           RotatingFileHandler(filename: StrPath, mode: str = 'a', maxBytes: int = 0, backupCount: int = 0, encoding: str | None = None, delay: bool = False, errors: str | None = None) -> None
+           RotatingFileHandler(filename: StrPath, mode: str = 'a', maxBytes: int = 0, backupCount: int = 0, encoding: str | None = None, delay: bool = False, errors: str | None = None) -> logging.handlers.RotatingFileHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L42>`__)
 
@@ -415,7 +415,7 @@ module, supports rotation of disk log files.
 
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -423,7 +423,7 @@ module, supports rotation of disk log files.
       previously.
 
    .. method:: shouldRollover(record)
-               shouldRollover(record: LogRecord) -> int
+               shouldRollover(record: logging.LogRecord) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L56>`__)
 
@@ -440,7 +440,7 @@ timed intervals.
 
 
 .. class:: TimedRotatingFileHandler(filename, when='h', interval=1, backupCount=0, encoding=None, delay=False, utc=False, atTime=None, errors=None)
-           TimedRotatingFileHandler(filename: StrPath, when: str = 'h', interval: int = 1, backupCount: int = 0, encoding: str | None = None, delay: bool = False, utc: bool = False, atTime: time | None = None, errors: str | None = None) -> None
+           TimedRotatingFileHandler(filename: StrPath, when: str = 'h', interval: int = 1, backupCount: int = 0, encoding: str | None = None, delay: bool = False, utc: bool = False, atTime: datetime.time | None = None, errors: str | None = None) -> logging.handlers.TimedRotatingFileHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L58>`__)
 
@@ -536,7 +536,7 @@ timed intervals.
       Does a rollover, as described above.
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -551,7 +551,7 @@ timed intervals.
       are the absolute paths of the oldest backup log files written by the handler.
 
    .. method:: shouldRollover(record)
-               shouldRollover(record: LogRecord) -> int
+               shouldRollover(record: logging.LogRecord) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L81>`__)
 
@@ -568,7 +568,7 @@ sends logging output to a network socket. The base class uses a TCP socket.
 
 
 .. class:: SocketHandler(host, port)
-           SocketHandler(host: str, port: int | None) -> None
+           SocketHandler(host: str, port: int | None) -> logging.handlers.SocketHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L85>`__)
 
@@ -588,7 +588,7 @@ sends logging output to a network socket. The base class uses a TCP socket.
 
 
    .. method:: emit()
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -601,7 +601,7 @@ sends logging output to a network socket. The base class uses a TCP socket.
 
 
    .. method:: handleError()
-               handleError(record: LogRecord) -> None
+               handleError(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L261>`__)
 
@@ -611,7 +611,7 @@ sends logging output to a network socket. The base class uses a TCP socket.
 
 
    .. method:: makeSocket()
-               makeSocket(timeout: float = 1) -> socket
+               makeSocket(timeout: float = 1) -> socket.socket
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L96>`__)
 
@@ -621,7 +621,7 @@ sends logging output to a network socket. The base class uses a TCP socket.
 
 
    .. method:: makePickle(record)
-               makePickle(record: LogRecord) -> bytes
+               makePickle(record: logging.LogRecord) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L97>`__)
 
@@ -641,7 +641,7 @@ sends logging output to a network socket. The base class uses a TCP socket.
 
 
    .. method:: send(packet)
-               send(s: Buffer) -> None
+               send(s: _collections_abc.Buffer) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L98>`__)
 
@@ -689,7 +689,7 @@ over UDP sockets.
 
 
 .. class:: DatagramHandler(host, port)
-           DatagramHandler(host: str, port: int | None) -> None
+           DatagramHandler(host: str, port: int | None) -> logging.handlers.DatagramHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L101>`__)
 
@@ -708,7 +708,7 @@ over UDP sockets.
       using the value in ``host`` - otherwise, a UDP socket is created.
 
    .. method:: emit()
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -720,7 +720,7 @@ over UDP sockets.
 
 
    .. method:: makeSocket()
-               makeSocket() -> socket
+               makeSocket() -> socket.socket
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L102>`__)
 
@@ -729,7 +729,7 @@ over UDP sockets.
 
 
    .. method:: send(s)
-               send(s: Buffer) -> None
+               send(s: _collections_abc.Buffer) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L98>`__)
 
@@ -747,7 +747,7 @@ supports sending logging messages to a remote or local Unix syslog.
 
 
 .. class:: SysLogHandler(address=('localhost', SYSLOG_UDP_PORT), facility=LOG_USER, socktype=socket.SOCK_DGRAM, timeout=None)
-           SysLogHandler(address: str | tuple[str, int] = ..., facility: int | str = 1, socktype: SocketKind | None = None, timeout: float | None = None) -> None
+           SysLogHandler(address: str | tuple[str, int] = ..., facility: int | str = 1, socktype: socket.SocketKind | None = None, timeout: float | None = None) -> logging.handlers.SysLogHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L104>`__)
 
@@ -810,7 +810,7 @@ supports sending logging messages to a remote or local Unix syslog.
       .. versionadded:: 3.11
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -946,7 +946,7 @@ extensions for Python installed.
 
 
 .. class:: NTEventLogHandler(appname, dllname=None, logtype='Application')
-           NTEventLogHandler(appname: str, dllname: str | None = None, logtype: str = 'Application') -> None
+           NTEventLogHandler(appname: str, dllname: str | None = None, logtype: str = 'Application') -> logging.handlers.NTEventLogHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L166>`__)
 
@@ -977,7 +977,7 @@ extensions for Python installed.
 
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -986,7 +986,7 @@ extensions for Python installed.
 
 
    .. method:: getEventCategory(record)
-               getEventCategory(record: LogRecord) -> int
+               getEventCategory(record: logging.LogRecord) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L168>`__)
 
@@ -995,7 +995,7 @@ extensions for Python installed.
 
 
    .. method:: getEventType(record)
-               getEventType(record: LogRecord) -> int
+               getEventType(record: logging.LogRecord) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L170>`__)
 
@@ -1009,7 +1009,7 @@ extensions for Python installed.
 
 
    .. method:: getMessageID(record)
-               getMessageID(record: LogRecord) -> int
+               getMessageID(record: logging.LogRecord) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L171>`__)
 
@@ -1029,7 +1029,7 @@ supports sending logging messages to an email address via SMTP.
 
 
 .. class:: SMTPHandler(mailhost, fromaddr, toaddrs, subject, credentials=None, secure=None, timeout=1.0)
-           SMTPHandler(mailhost: str | tuple[str, int], fromaddr: str, toaddrs: list[str] | str, subject: str, credentials: tuple[str, str] | None = None, secure: tuple[()] | tuple[str] | tuple[str, str] | None = None, timeout: float = ...) -> None
+           SMTPHandler(mailhost: str | tuple[str, int], fromaddr: str, toaddrs: list[str] | str, subject: str, credentials: tuple[str, str] | None = None, secure: tuple[()] | tuple[str] | tuple[str, str] | None = None, timeout: float = ...) -> logging.handlers.SMTPHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L173>`__)
 
@@ -1054,7 +1054,7 @@ supports sending logging messages to an email address via SMTP.
       Added the *timeout* parameter.
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -1062,7 +1062,7 @@ supports sending logging messages to an email address via SMTP.
 
 
    .. method:: getSubject(record)
-               getSubject(record: LogRecord) -> str
+               getSubject(record: logging.LogRecord) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L194>`__)
 
@@ -1087,7 +1087,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
 
 .. class:: BufferingHandler(capacity)
-           BufferingHandler(capacity: int) -> None
+           BufferingHandler(capacity: int) -> logging.handlers.BufferingHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L196>`__)
 
@@ -1096,7 +1096,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -1115,7 +1115,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
 
    .. method:: shouldFlush(record)
-               shouldFlush(record: LogRecord) -> bool
+               shouldFlush(record: logging.LogRecord) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L200>`__)
 
@@ -1124,7 +1124,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
 
 .. class:: MemoryHandler(capacity, flushLevel=ERROR, target=None, flushOnClose=True)
-           MemoryHandler(capacity: int, flushLevel: int = 40, target: Handler | None = None, flushOnClose: bool = True) -> None
+           MemoryHandler(capacity: int, flushLevel: int = 40, target: logging.Handler | None = None, flushOnClose: bool = True) -> logging.handlers.MemoryHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L202>`__)
 
@@ -1161,7 +1161,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
 
    .. method:: setTarget(target)
-               setTarget(target: Handler | None) -> None
+               setTarget(target: logging.Handler | None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L207>`__)
 
@@ -1169,7 +1169,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
 
    .. method:: shouldFlush(record)
-               shouldFlush(record: LogRecord) -> bool
+               shouldFlush(record: logging.LogRecord) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L200>`__)
 
@@ -1187,7 +1187,7 @@ supports sending logging messages to a web server, using either ``GET`` or
 
 
 .. class:: HTTPHandler(host, url, method='GET', secure=False, credentials=None, context=None)
-           HTTPHandler(host: str, url: str, method: str = 'GET', secure: bool = False, credentials: tuple[str, str] | None = None, context: SSLContext | None = None) -> None
+           HTTPHandler(host: str, url: str, method: str = 'GET', secure: bool = False, credentials: tuple[str, str] | None = None, context: ssl.SSLContext | None = None) -> logging.handlers.HTTPHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L209>`__)
 
@@ -1206,7 +1206,7 @@ supports sending logging messages to a web server, using either ``GET`` or
       The *context* parameter was added.
 
    .. method:: mapLogRecord(record)
-               mapLogRecord(record: LogRecord) -> dict[str, typing.Any]
+               mapLogRecord(record: logging.LogRecord) -> dict[str, typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L225>`__)
 
@@ -1217,7 +1217,7 @@ supports sending logging messages to a web server, using either ``GET`` or
       if more specific customization of what's sent to the server is required.
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -1254,7 +1254,7 @@ possible, while any potentially slow operations (such as sending an email via
 :class:`SMTPHandler`) are done on a separate thread.
 
 .. class:: QueueHandler(queue)
-           QueueHandler(queue: _QueueLike[typing.Any]) -> None
+           QueueHandler(queue: logging.handlers._QueueLike[typing.Any]) -> logging.handlers.QueueHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L233>`__)
 
@@ -1278,7 +1278,7 @@ possible, while any potentially slow operations (such as sending an email via
       it will cause a deadlock or infinite recursion.
 
    .. method:: emit(record)
-               emit(record: LogRecord) -> None
+               emit(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/__init__.pyi#L263>`__)
 
@@ -1290,7 +1290,7 @@ possible, while any potentially slow operations (such as sending an email via
       ``sys.stderr`` (if :data:`logging.raiseExceptions` is ``True``).
 
    .. method:: prepare(record)
-               prepare(record: LogRecord) -> typing.Any
+               prepare(record: logging.LogRecord) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L236>`__)
 
@@ -1324,7 +1324,7 @@ possible, while any potentially slow operations (such as sending an email via
          you use.)
 
    .. method:: enqueue(record)
-               enqueue(record: LogRecord) -> None
+               enqueue(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L237>`__)
 
@@ -1333,7 +1333,7 @@ possible, while any potentially slow operations (such as sending an email via
       timeout, or a customized queue implementation.
 
    .. attribute:: listener
-      :type: QueueListener | None
+      :type: logging.handlers.QueueListener | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L239>`__)
 
@@ -1366,7 +1366,7 @@ possible, while any potentially slow operations (such as sending an email via
 :class:`SMTPHandler`) are done on a separate thread.
 
 .. class:: QueueListener(queue, *handlers, respect_handler_level=False)
-           QueueListener(queue: _QueueLike[typing.Any], *handlers: Handler, *, respect_handler_level: bool = False) -> None
+           QueueListener(queue: logging.handlers._QueueLike[typing.Any], *handlers: logging.Handler, *, respect_handler_level: bool = False) -> logging.handlers.QueueListener
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L241>`__)
 
@@ -1397,7 +1397,7 @@ possible, while any potentially slow operations (such as sending an email via
       :class:`QueueListener` object.
 
    .. method:: dequeue(block)
-               dequeue(block: bool) -> LogRecord
+               dequeue(block: bool) -> logging.LogRecord
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L247>`__)
 
@@ -1408,7 +1408,7 @@ possible, while any potentially slow operations (such as sending an email via
       implementations.
 
    .. method:: prepare(record)
-               prepare(record: LogRecord) -> typing.Any
+               prepare(record: logging.LogRecord) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L248>`__)
 
@@ -1419,7 +1419,7 @@ possible, while any potentially slow operations (such as sending an email via
       manipulation of the record before passing it to the handlers.
 
    .. method:: handle(record)
-               handle(record: LogRecord) -> None
+               handle(record: logging.LogRecord) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/logging/handlers.pyi#L252>`__)
 

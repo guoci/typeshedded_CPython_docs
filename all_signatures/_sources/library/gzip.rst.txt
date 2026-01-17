@@ -29,10 +29,10 @@ The module defines the following items:
 
 
 .. function:: open(filename, mode='rb', compresslevel=6, encoding=None, errors=None, newline=None)
-              open(filename: PathLike[bytes] | PathLike[str] | _ReadableFileobj | bytes | str, mode: _ReadBinaryMode = 'rb', compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> GzipFile
-              open(filename: PathLike[bytes] | PathLike[str] | _WritableFileobj | bytes | str, mode: _WriteBinaryMode, compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> GzipFile
-              open(filename: PathLike[bytes] | PathLike[str] | _ReadableFileobj | _WritableFileobj | bytes | str, mode: _OpenTextMode, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> TextIOWrapper[_WrappedBuffer]
-              open(filename: PathLike[bytes] | PathLike[str] | _ReadableFileobj | _WritableFileobj | bytes | str, mode: str, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> GzipFile | TextIOWrapper[_WrappedBuffer]
+              open(filename: os.PathLike[bytes] | os.PathLike[str] | gzip._ReadableFileobj | bytes | str, mode: _ReadBinaryMode = 'rb', compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> gzip.GzipFile
+              open(filename: os.PathLike[bytes] | os.PathLike[str] | gzip._WritableFileobj | bytes | str, mode: _WriteBinaryMode, compresslevel: int = 9, encoding: None = None, errors: None = None, newline: None = None) -> gzip.GzipFile
+              open(filename: os.PathLike[bytes] | os.PathLike[str] | gzip._ReadableFileobj | gzip._WritableFileobj | bytes | str, mode: _OpenTextMode, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(filename: os.PathLike[bytes] | os.PathLike[str] | gzip._ReadableFileobj | gzip._WritableFileobj | bytes | str, mode: str, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> gzip.GzipFile | _io.TextIOWrapper[_io._WrappedBuffer]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/gzip.pyi#L47>`__)
 
@@ -73,7 +73,7 @@ The module defines the following items:
       tradeoff between speed and performance.
 
 .. exception:: BadGzipFile
-               BadGzipFile(*args: object) -> None
+               BadGzipFile(*args: object) -> gzip.BadGzipFile
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/gzip.pyi#L91>`__)
 
@@ -84,11 +84,11 @@ The module defines the following items:
    .. versionadded:: 3.8
 
 .. class:: GzipFile(filename=None, mode=None, compresslevel=6, fileobj=None, mtime=None)
-           GzipFile(filename: PathLike[bytes] | PathLike[str] | bytes | str | None, mode: _ReadBinaryMode, compresslevel: int = 9, fileobj: _ReadableFileobj | None = None, mtime: float | None = None) -> None
-           GzipFile(*, mode: _ReadBinaryMode, compresslevel: int = 9, fileobj: _ReadableFileobj | None = None, mtime: float | None = None) -> None
-           GzipFile(filename: PathLike[bytes] | PathLike[str] | bytes | str | None, mode: _WriteBinaryMode, compresslevel: int = 9, fileobj: _WritableFileobj | None = None, mtime: float | None = None) -> None
-           GzipFile(*, mode: _WriteBinaryMode, compresslevel: int = 9, fileobj: _WritableFileobj | None = None, mtime: float | None = None) -> None
-           GzipFile(filename: PathLike[bytes] | PathLike[str] | bytes | str | None = None, mode: str | None = None, compresslevel: int = 9, fileobj: _ReadableFileobj | _WritableFileobj | None = None, mtime: float | None = None) -> None
+           GzipFile(filename: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None, mode: _ReadBinaryMode, compresslevel: int = 9, fileobj: gzip._ReadableFileobj | None = None, mtime: float | None = None) -> gzip.GzipFile
+           GzipFile(*, mode: _ReadBinaryMode, compresslevel: int = 9, fileobj: gzip._ReadableFileobj | None = None, mtime: float | None = None) -> gzip.GzipFile
+           GzipFile(filename: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None, mode: _WriteBinaryMode, compresslevel: int = 9, fileobj: gzip._WritableFileobj | None = None, mtime: float | None = None) -> gzip.GzipFile
+           GzipFile(*, mode: _WriteBinaryMode, compresslevel: int = 9, fileobj: gzip._WritableFileobj | None = None, mtime: float | None = None) -> gzip.GzipFile
+           GzipFile(filename: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, mode: str | None = None, compresslevel: int = 9, fileobj: gzip._ReadableFileobj | gzip._WritableFileobj | None = None, mtime: float | None = None) -> gzip.GzipFile
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/gzip.pyi#L93>`__)
 
@@ -168,7 +168,7 @@ The module defines the following items:
          In previous versions it was an integer ``1`` or ``2``.
 
    .. attribute:: mtime
-      :type: mtime(self: GzipFile) -> int | None
+      :type: mtime(self: gzip.GzipFile) -> int | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/gzip.pyi#L150>`__)
 
@@ -223,7 +223,7 @@ The module defines the following items:
 
 
 .. function:: compress(data, compresslevel=6, *, mtime=0)
-              compress(data: SizedBuffer, compresslevel: int = 9, *, mtime: float = 0) -> bytes
+              compress(data: _typeshed.SizedBuffer, compresslevel: int = 9, *, mtime: float = 0) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/gzip.pyi#L171>`__)
 
@@ -255,7 +255,7 @@ The module defines the following items:
       tradeoff between speed and performance.
 
 .. function:: decompress(data)
-              decompress(data: Buffer) -> bytes
+              decompress(data: _collections_abc.Buffer) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/gzip.pyi#L176>`__)
 

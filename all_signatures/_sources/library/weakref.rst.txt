@@ -96,7 +96,7 @@ strings in the ``__slots__`` declaration.
 See :ref:`__slots__ documentation <slots>` for details.
 
 .. class:: ref(object[, callback])
-           ref(o: _T, callback: ((ReferenceType[_T]) -> typing.Any) | None = ..., /) -> ReferenceType[_T]
+           ref(o: _T, callback: ((weakref.ReferenceType[_T]) -> typing.Any) | None = ..., /) -> weakref.ReferenceType[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L64>`__)
 
@@ -142,7 +142,7 @@ See :ref:`__slots__ documentation <slots>` for details.
 
 
 .. function:: proxy(object[, callback])
-              proxy(object: _C, callback: ((_C) -> typing.Any) | None = None, /) -> CallableProxyType[_C]
+              proxy(object: _C, callback: ((_C) -> typing.Any) | None = None, /) -> weakref.CallableProxyType[_C]
               proxy(object: _T, callback: ((_T) -> typing.Any) | None = None, /) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_weakref.pyi#L13>`__)
@@ -181,8 +181,8 @@ See :ref:`__slots__ documentation <slots>` for details.
 
 
 .. class:: WeakKeyDictionary([dict])
-           WeakKeyDictionary(dict: None = None) -> None
-           WeakKeyDictionary(dict: collections.abc.Iterable[tuple[_KT, _VT]] | collections.abc.Mapping[_KT, _VT]) -> None
+           WeakKeyDictionary(dict: None = None) -> weakref.WeakKeyDictionary
+           WeakKeyDictionary(dict: typing.Iterable[tuple[_KT, _VT]] | typing.Mapping[_KT, _VT]) -> weakref.WeakKeyDictionary
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L140>`__)
 
@@ -228,7 +228,7 @@ than needed.
 
 
 .. method:: WeakKeyDictionary.keyrefs()
-            WeakKeyDictionary.keyrefs[_KT, _VT]() -> list[ReferenceType[_KT]]
+            WeakKeyDictionary.keyrefs[_KT, _VT]() -> list[weakref.ReferenceType[_KT]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L164>`__)
 
@@ -236,9 +236,9 @@ than needed.
 
 
 .. class:: WeakValueDictionary([dict])
-           WeakValueDictionary() -> None
-           WeakValueDictionary(other: collections.abc.Iterable[tuple[_KT, _VT]] | collections.abc.Mapping[_KT, _VT], /) -> None
-           WeakValueDictionary(other: collections.abc.Iterable[tuple[str, _VT]] | collections.abc.Mapping[str, _VT] = ..., /, **kwargs: _VT) -> None
+           WeakValueDictionary() -> weakref.WeakValueDictionary
+           WeakValueDictionary(other: typing.Iterable[tuple[_KT, _VT]] | typing.Mapping[_KT, _VT], /) -> weakref.WeakValueDictionary
+           WeakValueDictionary(other: typing.Iterable[tuple[str, _VT]] | typing.Mapping[str, _VT] = ..., /, **kwargs: _VT) -> weakref.WeakValueDictionary
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L76>`__)
 
@@ -253,7 +253,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
 
 
 .. method:: WeakValueDictionary.valuerefs()
-            WeakValueDictionary.valuerefs[_KT, _VT]() -> list[KeyedRef[_KT, _VT]]
+            WeakValueDictionary.valuerefs[_KT, _VT]() -> list[weakref.KeyedRef[_KT, _VT]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L112>`__)
 
@@ -261,8 +261,8 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
 
 
 .. class:: WeakSet([elements])
-           WeakSet(data: None = None) -> None
-           WeakSet(data: collections.abc.Iterable[_T]) -> None
+           WeakSet(data: None = None) -> _weakrefset.WeakSet
+           WeakSet(data: typing.Iterable[_T]) -> _weakrefset.WeakSet
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_weakrefset.pyi#L11>`__)
 
@@ -271,7 +271,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
 
 
 .. class:: WeakMethod(method[, callback])
-           WeakMethod(meth: _CallableT, callback: ((WeakMethod[_CallableT]) -> typing.Any) | None = None) -> WeakMethod[_CallableT]
+           WeakMethod(meth: _CallableT, callback: ((weakref.WeakMethod[_CallableT]) -> typing.Any) | None = None) -> weakref.WeakMethod[_CallableT]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L68>`__)
 
@@ -304,7 +304,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
    .. versionadded:: 3.4
 
 .. class:: finalize(obj, func, /, *args, **kwargs)
-           finalize(finalize[_P, _T], _T, (ParamSpec(_P)) -> typing.Any, ParamSpec(_P)) -> None
+           finalize(weakref.finalize[_P, _T], _T, (ParamSpec(_P)) -> typing.Any, ParamSpec(_P)) -> weakref.finalize
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L190>`__)
 
@@ -359,7 +359,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
       kwargs)``.  If *self* is dead then return :const:`None`.
 
    .. attribute:: alive
-      :type: alive[_P, _T](self: finalize[_P, _T]) -> bool
+      :type: alive[_P, _T](self: weakref.finalize[_P, _T]) -> bool
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L197>`__)
 
@@ -386,7 +386,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
 
 
 .. data:: ReferenceType
-   :type: (cls: type[ReferenceType[_T]], o: _T, callback: ((ReferenceType[_T]) -> typing.Any) | None = ..., /) -> ReferenceType[_T]
+   :type: (cls: type[weakref.ReferenceType[_T]], o: _T, callback: ((weakref.ReferenceType[_T]) -> typing.Any) | None = ..., /) -> weakref.ReferenceType[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L56>`__)
 
@@ -394,7 +394,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
 
 
 .. data:: ProxyType
-   :type: (self: ProxyType[_T]) -> None
+   :type: (self: weakref.ProxyType[_T]) -> weakref.ProxyType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L50>`__)
 
@@ -402,7 +402,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
 
 
 .. data:: CallableProxyType
-   :type: (self: CallableProxyType[_CallableT]) -> None
+   :type: (self: weakref.CallableProxyType[_CallableT]) -> weakref.CallableProxyType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L43>`__)
 
@@ -410,7 +410,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
 
 
 .. data:: ProxyTypes
-   :type: tuple[type[typing.Any], ...]
+   :type: tuple[type[Any], ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/weakref.pyi#L33>`__)
 

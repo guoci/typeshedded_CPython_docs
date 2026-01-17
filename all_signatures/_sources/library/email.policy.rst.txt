@@ -149,7 +149,7 @@ added matters.  To illustrate::
 
 
 .. class:: Policy(**kw)
-           Policy(*, max_line_length: int | None = 78, linesep: str = '\n', cte_type: str = '8bit', raise_on_defect: bool = False, mangle_from_: bool = ..., message_factory: _MessageFactory[_MessageT_co] | None = None, verify_generated_headers: bool = True) -> None
+           Policy(*, max_line_length: int | None = 78, linesep: str = '\n', cte_type: str = '8bit', raise_on_defect: bool = False, mangle_from_: bool = ..., message_factory: email._policybase._MessageFactory[_MessageT_co] | None = None, verify_generated_headers: bool = True) -> email._policybase.Policy
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/_policybase.pyi#L56>`__)
 
@@ -276,7 +276,7 @@ added matters.  To illustrate::
 
 
    .. method:: clone(**kw)
-               clone[_MessageT_co](*, max_line_length: int | None = ..., linesep: str = ..., cte_type: str = ..., raise_on_defect: bool = ..., mangle_from_: bool = ..., message_factory: _MessageFactory[_MessageT_co] | None = ..., verify_generated_headers: bool = ...) -> Policy[_MessageT_co]
+               clone[_MessageT_co](*, max_line_length: int | None = ..., linesep: str = ..., cte_type: str = ..., raise_on_defect: bool = ..., mangle_from_: bool = ..., message_factory: email._policybase._MessageFactory[_MessageT_co] | None = ..., verify_generated_headers: bool = ...) -> email._policybase.Policy[_MessageT_co]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/_policybase.pyi#L42>`__)
 
@@ -291,7 +291,7 @@ added matters.  To illustrate::
 
 
    .. method:: handle_defect(obj, defect)
-               handle_defect[_MessageT_co](obj: email.message.Message[typing.Any, typing.Any], defect: MessageDefect) -> None
+               handle_defect[_MessageT_co](obj: email.message.Message[typing.Any, typing.Any], defect: email.errors.MessageDefect) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/_policybase.pyi#L59>`__)
 
@@ -305,7 +305,7 @@ added matters.  To illustrate::
 
 
    .. method:: register_defect(obj, defect)
-               register_defect[_MessageT_co](obj: email.message.Message[typing.Any, typing.Any], defect: MessageDefect) -> None
+               register_defect[_MessageT_co](obj: email.message.Message[typing.Any, typing.Any], defect: email.errors.MessageDefect) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/_policybase.pyi#L60>`__)
 
@@ -435,8 +435,8 @@ added matters.  To illustrate::
 
 
 .. class:: EmailPolicy(**kw)
-           EmailPolicy(*, max_line_length: int | None = ..., linesep: str = ..., cte_type: str = ..., raise_on_defect: bool = ..., mangle_from_: bool = ..., message_factory: None = None, verify_generated_headers: bool = ..., utf8: bool = ..., refold_source: str = ..., header_factory: (str, str) -> str = ..., content_manager: ContentManager = ...) -> None
-           EmailPolicy(*, max_line_length: int | None = ..., linesep: str = ..., cte_type: str = ..., raise_on_defect: bool = ..., mangle_from_: bool = ..., message_factory: _MessageFactory[_MessageT] | None = ..., verify_generated_headers: bool = ..., utf8: bool = ..., refold_source: str = ..., header_factory: (str, str) -> str = ..., content_manager: ContentManager = ...) -> None
+           EmailPolicy(*, max_line_length: int | None = ..., linesep: str = ..., cte_type: str = ..., raise_on_defect: bool = ..., mangle_from_: bool = ..., message_factory: None = None, verify_generated_headers: bool = ..., utf8: bool = ..., refold_source: str = ..., header_factory: (str, str) -> str = ..., content_manager: email.contentmanager.ContentManager = ...) -> email.policy.EmailPolicy
+           EmailPolicy(*, max_line_length: int | None = ..., linesep: str = ..., cte_type: str = ..., raise_on_defect: bool = ..., mangle_from_: bool = ..., message_factory: email._policybase._MessageFactory[_MessageT] | None = ..., verify_generated_headers: bool = ..., utf8: bool = ..., refold_source: str = ..., header_factory: (str, str) -> str = ..., content_manager: email.contentmanager.ContentManager = ...) -> email.policy.EmailPolicy
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/policy.pyi#L10>`__)
 
@@ -508,7 +508,7 @@ added matters.  To illustrate::
 
 
    .. attribute:: content_manager
-      :type: ContentManager
+      :type: email.contentmanager.ContentManager
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/policy.pyi#L14>`__)
 
@@ -619,7 +619,7 @@ more closely to the RFCs relevant to their domains.
 
 
 .. data:: default
-   :type: EmailPolicy[EmailMessage]
+   :type: email.policy.EmailPolicy[email.message.EmailMessage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/policy.pyi#L71>`__)
 
@@ -629,7 +629,7 @@ more closely to the RFCs relevant to their domains.
 
 
 .. data:: SMTP
-   :type: EmailPolicy[EmailMessage]
+   :type: email.policy.EmailPolicy[email.message.EmailMessage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/policy.pyi#L72>`__)
 
@@ -639,7 +639,7 @@ more closely to the RFCs relevant to their domains.
 
 
 .. data:: SMTPUTF8
-   :type: EmailPolicy[EmailMessage]
+   :type: email.policy.EmailPolicy[email.message.EmailMessage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/policy.pyi#L73>`__)
 
@@ -651,7 +651,7 @@ more closely to the RFCs relevant to their domains.
 
 
 .. data:: HTTP
-   :type: EmailPolicy[EmailMessage]
+   :type: email.policy.EmailPolicy[email.message.EmailMessage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/policy.pyi#L74>`__)
 
@@ -660,7 +660,7 @@ more closely to the RFCs relevant to their domains.
 
 
 .. data:: strict
-   :type: EmailPolicy[EmailMessage]
+   :type: email.policy.EmailPolicy[email.message.EmailMessage]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/policy.pyi#L75>`__)
 
@@ -699,7 +699,7 @@ The header objects and their attributes are described in
 
 
 .. class:: Compat32(**kw)
-           Compat32(*, max_line_length: int | None = 78, linesep: str = '\n', cte_type: str = '8bit', raise_on_defect: bool = False, mangle_from_: bool = ..., message_factory: _MessageFactory[_MessageT_co] | None = None, verify_generated_headers: bool = True) -> None
+           Compat32(*, max_line_length: int | None = 78, linesep: str = '\n', cte_type: str = '8bit', raise_on_defect: bool = False, mangle_from_: bool = ..., message_factory: email._policybase._MessageFactory[_MessageT_co] | None = None, verify_generated_headers: bool = True) -> email._policybase.Compat32
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/_policybase.pyi#L73>`__)
 
@@ -745,7 +745,7 @@ The header objects and their attributes are described in
 
 
    .. method:: header_fetch_parse(name, value)
-               header_fetch_parse[_MessageT_co](name: str, value: str) -> Header | str
+               header_fetch_parse[_MessageT_co](name: str, value: str) -> email.header.Header | str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/_policybase.pyi#L76>`__)
 
@@ -779,7 +779,7 @@ The header objects and their attributes are described in
 
 
 .. data:: compat32
-   :type: Compat32[email.message.Message[str, str]]
+   :type: email._policybase.Compat32[email.message.Message[str, str]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/email/_policybase.pyi#L80>`__)
 

@@ -83,7 +83,7 @@ FTP objects
 
 .. class:: FTP(host='', user='', passwd='', acct='', timeout=None, \
                source_address=None, *, encoding='utf-8')
-           FTP(host: str = '', user: str = '', passwd: str = '', acct: str = '', timeout: float | None = ..., source_address: tuple[str, int] | None = None, *, encoding: str = 'utf-8') -> None
+           FTP(host: str = '', user: str = '', passwd: str = '', acct: str = '', timeout: float | None = ..., source_address: tuple[str, int] | None = None, *, encoding: str = 'utf-8') -> ftplib.FTP
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L26>`__)
 
@@ -316,7 +316,7 @@ FTP objects
 
 
    .. method:: FTP.storbinary(cmd, fp, blocksize=8192, callback=None, rest=None)
-               FTP.storbinary(cmd: str, fp: SupportsRead[bytes], blocksize: int = 8192, callback: ((bytes) -> object) | None = None, rest: int | str | None = None) -> str
+               FTP.storbinary(cmd: str, fp: _typeshed.SupportsRead[bytes], blocksize: int = 8192, callback: ((bytes) -> object) | None = None, rest: int | str | None = None) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L83>`__)
 
@@ -350,7 +350,7 @@ FTP objects
 
 
    .. method:: FTP.storlines(cmd, fp, callback=None)
-               FTP.storlines(cmd: str, fp: SupportsReadline[bytes], callback: ((bytes) -> object) | None = None) -> str
+               FTP.storlines(cmd: str, fp: _typeshed.SupportsReadline[bytes], callback: ((bytes) -> object) | None = None) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L92>`__)
 
@@ -362,7 +362,7 @@ FTP objects
 
 
    .. method:: FTP.transfercmd(cmd, rest=None)
-               FTP.transfercmd(cmd: str, rest: int | str | None = None) -> socket
+               FTP.transfercmd(cmd: str, rest: int | str | None = None) -> socket.socket
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L79>`__)
 
@@ -384,7 +384,7 @@ FTP objects
 
 
    .. method:: FTP.ntransfercmd(cmd, rest=None)
-               FTP.ntransfercmd(cmd: str, rest: int | str | None = None) -> tuple[socket, int | None]
+               FTP.ntransfercmd(cmd: str, rest: int | str | None = None) -> tuple[socket.socket, int | None]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L78>`__)
 
@@ -395,7 +395,7 @@ FTP objects
 
 
    .. method:: FTP.mlsd(path="", facts=[])
-               FTP.mlsd(path: str = '', facts: collections.abc.Iterable[str] = ...) -> collections.abc.Iterator[tuple[str, dict[str, str]]]
+               FTP.mlsd(path: str = '', facts: typing.Iterable[str] = ...) -> typing.Iterator[tuple[str, dict[str, str]]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L97>`__)
 
@@ -529,7 +529,7 @@ FTP_TLS objects
 
 .. class:: FTP_TLS(host='', user='', passwd='', acct='', *, context=None, \
                    timeout=None, source_address=None, encoding='utf-8')
-           FTP_TLS(host: str = '', user: str = '', passwd: str = '', acct: str = '', *, context: SSLContext | None = None, timeout: float | None = ..., source_address: tuple[str, int] | None = None, encoding: str = 'utf-8') -> None
+           FTP_TLS(host: str = '', user: str = '', passwd: str = '', acct: str = '', *, context: ssl.SSLContext | None = None, timeout: float | None = ..., source_address: tuple[str, int] | None = None, encoding: str = 'utf-8') -> ftplib.FTP_TLS
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L108>`__)
 
@@ -650,7 +650,7 @@ Module variables
 ^^^^^^^^^^^^^^^^
 
 .. exception:: error_reply
-               error_reply(*args: object) -> None
+               error_reply(*args: object) -> ftplib.error_reply
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L19>`__)
 
@@ -658,7 +658,7 @@ Module variables
 
 
 .. exception:: error_temp
-               error_temp(*args: object) -> None
+               error_temp(*args: object) -> ftplib.error_temp
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L20>`__)
 
@@ -667,7 +667,7 @@ Module variables
 
 
 .. exception:: error_perm
-               error_perm(*args: object) -> None
+               error_perm(*args: object) -> ftplib.error_perm
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L21>`__)
 
@@ -676,7 +676,7 @@ Module variables
 
 
 .. exception:: error_proto
-               error_proto(*args: object) -> None
+               error_proto(*args: object) -> ftplib.error_proto
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/ftplib.pyi#L22>`__)
 

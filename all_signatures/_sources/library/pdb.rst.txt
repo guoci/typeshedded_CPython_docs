@@ -165,7 +165,7 @@ The module defines the following functions; each enters the debugger in a
 slightly different way:
 
 .. function:: run(statement, globals=None, locals=None)
-              run(statement: str, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
+              run(statement: str, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pdb.pyi#L25>`__)
 
@@ -180,7 +180,7 @@ slightly different way:
 
 
 .. function:: runeval(expression, globals=None, locals=None)
-              runeval(expression: str, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> typing.Any
+              runeval(expression: str, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pdb.pyi#L26>`__)
 
@@ -201,7 +201,7 @@ slightly different way:
 
 
 .. function:: set_trace(*, header=None, commands=None)
-              set_trace(*, header: str | None = None, commands: collections.abc.Iterable[str] | None = None) -> None
+              set_trace(*, header: str | None = None, commands: typing.Iterable[str] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pdb.pyi#L33>`__)
 
@@ -225,7 +225,7 @@ slightly different way:
 
 
 .. awaitablefunction:: set_trace_async(*, header=None, commands=None)
-                       set_trace_async(*, header: str | None = None, commands: collections.abc.Iterable[str] | None = None) -> collections.abc.Coroutine[Unknown, Unknown, None]
+                       set_trace_async(*, header: str | None = None, commands: typing.Iterable[str] | None = None) -> typing.Coroutine[Unknown, Unknown, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pdb.pyi#L34>`__)
 
@@ -242,7 +242,7 @@ slightly different way:
    .. versionadded:: 3.14
 
 .. function:: post_mortem(t=None)
-              post_mortem(t: TracebackType | None = None) -> None
+              post_mortem(t: types.TracebackType | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pdb.pyi#L39>`__)
 
@@ -294,7 +294,7 @@ access further features, you have to do this yourself:
 
 .. class:: Pdb(completekey='tab', stdin=None, stdout=None, skip=None, \
                nosigint=False, readrc=True, mode=None, backend=None, colorize=False)
-           Pdb(completekey: str = 'tab', stdin: IO[str] | None = None, stdout: IO[str] | None = None, skip: collections.abc.Iterable[str] | None = None, nosigint: bool = False, readrc: bool = True, mode: typing.Literal['cli', 'inline'] | None = None, backend: typing.Literal['monitoring', 'settrace'] | None = None, colorize: bool = False) -> None
+           Pdb(completekey: str = 'tab', stdin: typing.IO[str] | None = None, stdout: typing.IO[str] | None = None, skip: typing.Iterable[str] | None = None, nosigint: bool = False, readrc: bool = True, mode: typing.Literal['cli', 'inline'] | None = None, backend: typing.Literal['monitoring', 'settrace'] | None = None, colorize: bool = False) -> pdb.Pdb
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pdb.pyi#L42>`__)
 

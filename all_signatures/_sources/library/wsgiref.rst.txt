@@ -173,7 +173,7 @@ also provides these miscellaneous utilities:
 
 
 .. class:: FileWrapper(filelike, blksize=8192)
-           FileWrapper(filelike: IO[bytes], blksize: int = 8192) -> None
+           FileWrapper(filelike: typing.IO[bytes], blksize: int = 8192) -> wsgiref.util.FileWrapper
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/util.pyi#L10>`__)
 
@@ -217,7 +217,7 @@ manipulation of WSGI response headers using a mapping-like interface.
 
 
 .. class:: Headers([headers])
-           Headers(headers: list[tuple[str, str]] | None = None) -> None
+           Headers(headers: list[tuple[str, str]] | None = None) -> wsgiref.headers.Headers
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/headers.pyi#L9>`__)
 
@@ -315,8 +315,8 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
 .. function:: make_server(host, port, app, server_class=WSGIServer, handler_class=WSGIRequestHandler)
-              make_server(host: str, port: int, app: (dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes], *, handler_class: type[WSGIRequestHandler] = ...) -> WSGIServer
-              make_server(host: str, port: int, app: (dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes], server_class: type[_S], handler_class: type[WSGIRequestHandler] = ...) -> _S
+              make_server(host: str, port: int, app: (dict[str, typing.Any], wsgiref.types.StartResponse) -> typing.Iterable[bytes], *, handler_class: type[wsgiref.simple_server.WSGIRequestHandler] = ...) -> wsgiref.simple_server.WSGIServer
+              make_server(host: str, port: int, app: (dict[str, typing.Any], wsgiref.types.StartResponse) -> typing.Iterable[bytes], server_class: type[_S], handler_class: type[wsgiref.simple_server.WSGIRequestHandler] = ...) -> _S
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/simple_server.pyi#L33>`__)
 
@@ -340,7 +340,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
 .. function:: demo_app(environ, start_response)
-              demo_app(environ: dict[str, typing.Any], start_response: StartResponse) -> list[bytes]
+              demo_app(environ: dict[str, typing.Any], start_response: wsgiref.types.StartResponse) -> list[bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/simple_server.pyi#L28>`__)
 
@@ -354,7 +354,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
 .. class:: WSGIServer(server_address, RequestHandlerClass)
-           WSGIServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, WSGIServer) -> BaseRequestHandler, bind_and_activate: bool = True) -> None
+           WSGIServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, wsgiref.simple_server.WSGIServer) -> socketserver.BaseRequestHandler, bind_and_activate: bool = True) -> wsgiref.simple_server.WSGIServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/simple_server.pyi#L16>`__)
 
@@ -372,7 +372,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
    .. method:: WSGIServer.set_app(application)
-               WSGIServer.set_app(application: ((dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]) | None) -> None
+               WSGIServer.set_app(application: ((dict[str, typing.Any], wsgiref.types.StartResponse) -> typing.Iterable[bytes]) | None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/simple_server.pyi#L21>`__)
 
@@ -381,7 +381,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
    .. method:: WSGIServer.get_app()
-               WSGIServer.get_app() -> ((dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]) | None
+               WSGIServer.get_app() -> ((dict[str, typing.Any], wsgiref.types.StartResponse) -> typing.Iterable[bytes]) | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/simple_server.pyi#L20>`__)
 
@@ -393,7 +393,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
 .. class:: WSGIRequestHandler(request, client_address, server)
-           WSGIRequestHandler(request: _RequestType, client_address: typing.Any, server: BaseServer) -> None
+           WSGIRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> wsgiref.simple_server.WSGIRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/simple_server.pyi#L23>`__)
 
@@ -422,7 +422,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 
    .. method:: WSGIRequestHandler.get_stderr()
-               WSGIRequestHandler.get_stderr() -> ErrorStream
+               WSGIRequestHandler.get_stderr() -> wsgiref.types.ErrorStream
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/simple_server.pyi#L26>`__)
 
@@ -464,7 +464,7 @@ Paste" library.
 
 
 .. function:: validator(application)
-              validator(application: (dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]) -> (dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]
+              validator(application: (dict[str, typing.Any], wsgiref.types.StartResponse) -> typing.Iterable[bytes]) -> (dict[str, typing.Any], wsgiref.types.StartResponse) -> typing.Iterable[bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/validate.pyi#L10>`__)
 
@@ -525,7 +525,7 @@ input, output, and error streams.
 
 
 .. class:: CGIHandler()
-           CGIHandler() -> None
+           CGIHandler() -> wsgiref.handlers.CGIHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L87>`__)
 
@@ -541,7 +541,7 @@ input, output, and error streams.
 
 
 .. class:: IISCGIHandler()
-           IISCGIHandler() -> None
+           IISCGIHandler() -> wsgiref.handlers.IISCGIHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L90>`__)
 
@@ -570,7 +570,7 @@ input, output, and error streams.
 
 
 .. class:: BaseCGIHandler(stdin, stdout, stderr, environ, multithread=True, multiprocess=False)
-           BaseCGIHandler(stdin: InputStream, stdout: IO[bytes], stderr: ErrorStream, environ: collections.abc.MutableMapping[str, str], multithread: bool = True, multiprocess: bool = False) -> None
+           BaseCGIHandler(stdin: wsgiref.types.InputStream, stdout: typing.IO[bytes], stderr: wsgiref.types.ErrorStream, environ: typing.MutableMapping[str, str], multithread: bool = True, multiprocess: bool = False) -> wsgiref.handlers.BaseCGIHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L85>`__)
 
@@ -588,7 +588,7 @@ input, output, and error streams.
 
 
 .. class:: SimpleHandler(stdin, stdout, stderr, environ, multithread=True, multiprocess=False)
-           SimpleHandler(stdin: InputStream, stdout: IO[bytes], stderr: ErrorStream, environ: collections.abc.MutableMapping[str, str], multithread: bool = True, multiprocess: bool = False) -> None
+           SimpleHandler(stdin: wsgiref.types.InputStream, stdout: typing.IO[bytes], stderr: wsgiref.types.ErrorStream, environ: typing.MutableMapping[str, str], multithread: bool = True, multiprocess: bool = False) -> wsgiref.handlers.SimpleHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L65>`__)
 
@@ -610,7 +610,7 @@ input, output, and error streams.
 
 
 .. class:: BaseHandler()
-           BaseHandler() -> None
+           BaseHandler() -> wsgiref.handlers.BaseHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L15>`__)
 
@@ -622,7 +622,7 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.run(app)
-               BaseHandler.run(application: (dict[str, typing.Any], StartResponse) -> collections.abc.Iterable[bytes]) -> None
+               BaseHandler.run(application: (dict[str, typing.Any], wsgiref.types.StartResponse) -> typing.Iterable[bytes]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L34>`__)
 
@@ -656,7 +656,7 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.get_stdin()
-               BaseHandler.get_stdin() -> InputStream
+               BaseHandler.get_stdin() -> wsgiref.types.InputStream
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L59>`__)
 
@@ -666,7 +666,7 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.get_stderr()
-               BaseHandler.get_stderr() -> ErrorStream
+               BaseHandler.get_stderr() -> wsgiref.types.ErrorStream
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L61>`__)
 
@@ -722,7 +722,7 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.os_environ
-      :type: collections.abc.MutableMapping[str, str]
+      :type: typing.MutableMapping[str, str]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L25>`__)
 
@@ -797,7 +797,7 @@ input, output, and error streams.
 
 
    .. method:: BaseHandler.error_output(environ, start_response)
-               BaseHandler.error_output(environ: dict[str, typing.Any], start_response: StartResponse) -> list[bytes]
+               BaseHandler.error_output(environ: dict[str, typing.Any], start_response: wsgiref.types.StartResponse) -> list[bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L53>`__)
 
@@ -853,7 +853,7 @@ input, output, and error streams.
 
 
    .. attribute:: BaseHandler.wsgi_file_wrapper
-      :type: (self: FileWrapper, filelike: IO[bytes], blksize: int = 8192) -> None
+      :type: (self: wsgiref.util.FileWrapper, filelike: typing.IO[bytes], blksize: int = 8192) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/handlers.pyi#L27>`__)
 
@@ -935,7 +935,7 @@ in :pep:`3333`.
 
 
 .. class:: StartResponse
-           StartResponse() -> None
+           StartResponse() -> wsgiref.types.StartResponse
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/types.pyi#L8>`__)
 
@@ -958,7 +958,7 @@ in :pep:`3333`.
    A type alias describing a WSGI application callable.
 
 .. class:: InputStream()
-           InputStream() -> None
+           InputStream() -> wsgiref.types.InputStream
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/types.pyi#L16>`__)
 
@@ -966,7 +966,7 @@ in :pep:`3333`.
    <3333#input-and-error-streams>`.
 
 .. class:: ErrorStream()
-           ErrorStream() -> None
+           ErrorStream() -> wsgiref.types.ErrorStream
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/types.pyi#L22>`__)
 
@@ -974,7 +974,7 @@ in :pep:`3333`.
    <3333#input-and-error-streams>`.
 
 .. class:: FileWrapper()
-           FileWrapper() -> None
+           FileWrapper() -> wsgiref.types.FileWrapper
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/wsgiref/types.pyi#L31>`__)
 

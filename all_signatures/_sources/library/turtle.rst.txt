@@ -975,7 +975,7 @@ Tell Turtle's state
 
 
 .. function:: towards(x, y=None)
-              towards(x: TNavigator | tuple[float, float], y: None = None) -> float
+              towards(x: turtle.TNavigator | tuple[float, float], y: None = None) -> float
               towards(x: float, y: float) -> float
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L620>`__)
@@ -1051,7 +1051,7 @@ Tell Turtle's state
 
 
 .. function:: distance(x, y=None)
-              distance(x: TNavigator | tuple[float, float], y: None = None) -> float
+              distance(x: turtle.TNavigator | tuple[float, float], y: None = None) -> float
               distance(x: float, y: float) -> float
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L616>`__)
@@ -1177,8 +1177,8 @@ Drawing state
 
 
 .. function:: pen(pen=None, **pendict)
-              pen() -> _PenState
-              pen(pen: _PenState | None = None, *, shown: bool = ..., pendown: bool = ..., pencolor: _Color = ..., fillcolor: _Color = ..., pensize: int = ..., speed: int = ..., resizemode: typing.Literal['auto', 'noresize', 'user'] = ..., stretchfactor: tuple[float, float] = ..., outline: int = ..., tilt: float = ...) -> None
+              pen() -> turtle._PenState
+              pen(pen: turtle._PenState | None = None, *, shown: bool = ..., pendown: bool = ..., pencolor: _Color = ..., fillcolor: _Color = ..., pensize: int = ..., speed: int = ..., resizemode: typing.Literal['auto', 'noresize', 'user'] = ..., stretchfactor: tuple[float, float] = ..., outline: int = ..., tilt: float = ...) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L679>`__)
 
@@ -1422,7 +1422,7 @@ Filling
       ...    turtle.pensize(3)
 
 .. function:: fill()
-              fill() -> _GeneratorContextManager[None, None, None]
+              fill() -> contextlib._GeneratorContextManager[None, None, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L755>`__)
 
@@ -1777,7 +1777,7 @@ Appearance
 
 
 .. function:: get_shapepoly()
-              get_shapepoly() -> collections.abc.Sequence[tuple[float, float]] | None
+              get_shapepoly() -> typing.Sequence[tuple[float, float]] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L733>`__)
 
@@ -1881,7 +1881,7 @@ Special Turtle methods
 
 
 .. function:: poly()
-              poly() -> _GeneratorContextManager[None, None, None]
+              poly() -> contextlib._GeneratorContextManager[None, None, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L769>`__)
 
@@ -1918,7 +1918,7 @@ Special Turtle methods
 
 
 .. function:: get_poly()
-              get_poly() -> collections.abc.Sequence[tuple[float, float]] | None
+              get_poly() -> typing.Sequence[tuple[float, float]] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L773>`__)
 
@@ -1940,7 +1940,7 @@ Special Turtle methods
 
 
 .. function:: clone()
-              clone() -> Turtle
+              clone() -> turtle.Turtle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L787>`__)
 
@@ -1972,7 +1972,7 @@ Special Turtle methods
 
 
 .. function:: getscreen()
-              getscreen() -> TurtleScreen
+              getscreen() -> turtle.TurtleScreen
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L774>`__)
 
@@ -2248,7 +2248,7 @@ Animation control
 -----------------
 
 .. function:: no_animation()
-              no_animation() -> _GeneratorContextManager[None, None, None]
+              no_animation() -> contextlib._GeneratorContextManager[None, None, None]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L557>`__)
 
@@ -2556,7 +2556,7 @@ Settings and special methods
 
 
 .. function:: getcanvas()
-              getcanvas() -> Canvas
+              getcanvas() -> tkinter.Canvas
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L562>`__)
 
@@ -2630,7 +2630,7 @@ Settings and special methods
 
 
 .. function:: turtles()
-              turtles() -> list[Turtle]
+              turtles() -> list[turtle.Turtle]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L539>`__)
 
@@ -2776,7 +2776,7 @@ Public classes
 
 
 .. class:: Turtle()
-           Turtle(shape: str = 'classic', undobuffersize: int = 1000, visible: bool = True) -> None
+           Turtle(shape: str = 'classic', undobuffersize: int = 1000, visible: bool = True) -> turtle.Turtle
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L509>`__)
 
@@ -2785,7 +2785,7 @@ Public classes
 
 
 .. class:: TurtleScreen(cv)
-           TurtleScreen(cv: Canvas, mode: typing.Literal['logo', 'standard', 'world'] = 'standard', colormode: float = ..., delay: int = 10) -> None
+           TurtleScreen(cv: tkinter.Canvas, mode: typing.Literal['logo', 'standard', 'world'] = 'standard', colormode: float = ..., delay: int = 10) -> turtle.TurtleScreen
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L229>`__)
 
@@ -2795,7 +2795,7 @@ Public classes
    above.
 
 .. class:: Screen()
-           Screen() -> _Screen
+           Screen() -> turtle._Screen
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L595>`__)
 
@@ -2803,7 +2803,7 @@ Public classes
 
 
 .. class:: ScrolledCanvas(master)
-           ScrolledCanvas(master: Misc | None, width: int = 500, height: int = 350, canvwidth: int = 600, canvheight: int = 500) -> None
+           ScrolledCanvas(master: tkinter.Misc | None, width: int = 500, height: int = 350, canvwidth: int = 600, canvheight: int = 500) -> turtle.ScrolledCanvas
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L196>`__)
 
@@ -2814,7 +2814,7 @@ Public classes
    playground for the turtles.
 
 .. class:: Shape(type_, data)
-           Shape(type_: typing.Literal['compound', 'image', 'polygon'], data: PhotoImage | collections.abc.Sequence[tuple[float, float]] | None = None) -> None
+           Shape(type_: typing.Literal['compound', 'image', 'polygon'], data: tkinter.PhotoImage | typing.Sequence[tuple[float, float]] | None = None) -> turtle.Shape
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L223>`__)
 
@@ -2834,7 +2834,7 @@ Public classes
    =========== ===========
 
    .. method:: addcomponent(poly, fill, outline=None)
-               addcomponent(poly: collections.abc.Sequence[tuple[float, float]], fill: _Color, outline: str | tuple[float, float, float] | None = None) -> None
+               addcomponent(poly: typing.Sequence[tuple[float, float]], fill: _Color, outline: str | tuple[float, float, float] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L227>`__)
 
@@ -2856,7 +2856,7 @@ Public classes
 
 
 .. class:: Vec2D(x, y)
-           Vec2D(x: float, y: float) -> Vec2D
+           Vec2D(x: float, y: float) -> turtle.Vec2D
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/turtle.pyi#L167>`__)
 

@@ -37,7 +37,7 @@ copying of data.
 
 
 .. class:: SharedMemory(name=None, create=False, size=0, *, track=True)
-           SharedMemory(name: str | None = None, create: bool = False, size: int = 0, *, track: bool = True) -> None
+           SharedMemory(name: str | None = None, create: bool = False, size: int = 0, *, track: bool = True) -> multiprocessing.shared_memory.SharedMemory
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/shared_memory.pyi#L11>`__)
 
@@ -122,21 +122,21 @@ copying of data.
       shared memory block is to close all handles.
 
    .. attribute:: buf
-      :type: buf(self: SharedMemory) -> memoryview[int] | None
+      :type: buf(self: multiprocessing.shared_memory.SharedMemory) -> memoryview[int] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/shared_memory.pyi#L18>`__)
 
       A memoryview of contents of the shared memory block.
 
    .. attribute:: name
-      :type: name(self: SharedMemory) -> str
+      :type: name(self: multiprocessing.shared_memory.SharedMemory) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/shared_memory.pyi#L20>`__)
 
       Read-only access to the unique name of the shared memory block.
 
    .. attribute:: size
-      :type: size(self: SharedMemory) -> int
+      :type: size(self: multiprocessing.shared_memory.SharedMemory) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/shared_memory.pyi#L22>`__)
 
@@ -221,7 +221,7 @@ same :class:`!numpy.ndarray` from two distinct Python shells:
 
 
 .. class:: SharedMemoryManager([address[, authkey]])
-           SharedMemoryManager(address: str | tuple[str, int] | None = None, authkey: bytes | None = None, serializer: str = 'pickle', ctx: BaseContext | None = None, *, shutdown_timeout: float = ...) -> None
+           SharedMemoryManager(address: str | tuple[str, int] | None = None, authkey: bytes | None = None, serializer: str = 'pickle', ctx: multiprocessing.context.BaseContext | None = None, *, shutdown_timeout: float = ...) -> multiprocessing.managers.SharedMemoryManager
    :module: multiprocessing.managers
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/managers.pyi#L349>`__)
@@ -251,7 +251,7 @@ same :class:`!numpy.ndarray` from two distinct Python shells:
    from other processes.
 
    .. method:: SharedMemory(size)
-               SharedMemory(size: int) -> SharedMemory
+               SharedMemory(size: int) -> multiprocessing.shared_memory.SharedMemory
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/managers.pyi#L351>`__)
 
@@ -259,7 +259,7 @@ same :class:`!numpy.ndarray` from two distinct Python shells:
       specified *size* in bytes.
 
    .. method:: ShareableList(sequence)
-               ShareableList[_SLT](sequence: collections.abc.Iterable[_SLT] | None) -> ShareableList[_SLT]
+               ShareableList[_SLT](sequence: typing.Iterable[_SLT] | None) -> multiprocessing.shared_memory.ShareableList[_SLT]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/managers.pyi#L352>`__)
 
@@ -311,8 +311,8 @@ finishes execution.
 
 
 .. class:: ShareableList(sequence=None, *, name=None)
-           ShareableList(sequence: None = None, *, name: str | None = None) -> None
-           ShareableList(sequence: collections.abc.Iterable[_SLT], *, name: str | None = None) -> None
+           ShareableList(sequence: None = None, *, name: str | None = None) -> multiprocessing.shared_memory.ShareableList
+           ShareableList(sequence: typing.Iterable[_SLT], *, name: str | None = None) -> multiprocessing.shared_memory.ShareableList
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/shared_memory.pyi#L27>`__)
 
@@ -387,7 +387,7 @@ finishes execution.
       Raise :exc:`ValueError` if *value* is not present.
 
    .. attribute:: format
-      :type: format[_SLT](self: ShareableList[_SLT]) -> str
+      :type: format[_SLT](self: multiprocessing.shared_memory.ShareableList[_SLT]) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/shared_memory.pyi#L38>`__)
 
@@ -395,7 +395,7 @@ finishes execution.
       all currently stored values.
 
    .. attribute:: shm
-      :type: SharedMemory
+      :type: multiprocessing.shared_memory.SharedMemory
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/multiprocessing/shared_memory.pyi#L28>`__)
 

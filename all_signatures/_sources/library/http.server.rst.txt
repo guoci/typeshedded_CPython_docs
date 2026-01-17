@@ -35,7 +35,7 @@ handler.  Code to create and run the server looks like this::
 
 
 .. class:: HTTPServer(server_address, RequestHandlerClass)
-           HTTPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, HTTPServer) -> BaseRequestHandler, bind_and_activate: bool = True) -> None
+           HTTPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, http.server.HTTPServer) -> socketserver.BaseRequestHandler, bind_and_activate: bool = True) -> http.server.HTTPServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/server.pyi#L26>`__)
 
@@ -45,7 +45,7 @@ handler.  Code to create and run the server looks like this::
    through the handler's :attr:`server` instance variable.
 
 .. class:: ThreadingHTTPServer(server_address, RequestHandlerClass)
-           ThreadingHTTPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, ThreadingHTTPServer) -> BaseRequestHandler, bind_and_activate: bool = True) -> None
+           ThreadingHTTPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: (typing.Any, typing.Any, http.server.ThreadingHTTPServer) -> socketserver.BaseRequestHandler, bind_and_activate: bool = True) -> http.server.ThreadingHTTPServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/server.pyi#L30>`__)
 
@@ -60,7 +60,7 @@ handler.  Code to create and run the server looks like this::
 .. class:: HTTPSServer(server_address, RequestHandlerClass,\
                        bind_and_activate=True, *, certfile, keyfile=None,\
                        password=None, alpn_protocols=None)
-           HTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: (typing.Any, typing.Any, HTTPSServer) -> BaseRequestHandler, bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: PathLike[bytes] | PathLike[str] | bytes | str | None = None, password: (() -> bytearray | bytes | str) | bytearray | bytes | str | None = None, alpn_protocols: collections.abc.Iterable[str] | None = None) -> None
+           HTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: (typing.Any, typing.Any, http.server.HTTPSServer) -> socketserver.BaseRequestHandler, bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, password: (() -> bytearray | bytes | str) | bytearray | bytes | str | None = None, alpn_protocols: typing.Iterable[str] | None = None) -> http.server.HTTPSServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/server.pyi#L44>`__)
 
@@ -92,7 +92,7 @@ handler.  Code to create and run the server looks like this::
 .. class:: ThreadingHTTPSServer(server_address, RequestHandlerClass,\
                                 bind_and_activate=True, *, certfile, keyfile=None,\
                                 password=None, alpn_protocols=None)
-           ThreadingHTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: (typing.Any, typing.Any, ThreadingHTTPSServer) -> BaseRequestHandler, bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: PathLike[bytes] | PathLike[str] | bytes | str | None = None, password: (() -> bytearray | bytes | str) | bytearray | bytes | str | None = None, alpn_protocols: collections.abc.Iterable[str] | None = None) -> None
+           ThreadingHTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: (typing.Any, typing.Any, http.server.ThreadingHTTPSServer) -> socketserver.BaseRequestHandler, bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, password: (() -> bytearray | bytes | str) | bytearray | bytes | str | None = None, alpn_protocols: typing.Iterable[str] | None = None) -> http.server.ThreadingHTTPSServer
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/server.pyi#L63>`__)
 
@@ -108,7 +108,7 @@ The :class:`HTTPServer`, :class:`ThreadingHTTPServer`, :class:`HTTPSServer` and
 instantiation, of which this module provides three different variants:
 
 .. class:: BaseHTTPRequestHandler(request, client_address, server)
-           BaseHTTPRequestHandler(request: _RequestType, client_address: typing.Any, server: BaseServer) -> None
+           BaseHTTPRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> http.server.BaseHTTPRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/server.pyi#L65>`__)
 
@@ -136,7 +136,7 @@ instantiation, of which this module provides three different variants:
       address.
 
    .. attribute:: server
-      :type: BaseServer
+      :type: socketserver.BaseServer
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L151>`__)
 
@@ -196,7 +196,7 @@ instantiation, of which this module provides three different variants:
       HTTP request provide a valid :rfc:`5322` style header.
 
    .. attribute:: rfile
-      :type: BufferedIOBase
+      :type: io.BufferedIOBase
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L163>`__)
 
@@ -204,7 +204,7 @@ instantiation, of which this module provides three different variants:
       the start of the optional input data.
 
    .. attribute:: wfile
-      :type: BufferedIOBase
+      :type: io.BufferedIOBase
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/socketserver.pyi#L164>`__)
 
@@ -276,7 +276,7 @@ instantiation, of which this module provides three different variants:
       :class:`http.client.HTTPMessage`.
 
    .. attribute:: responses
-      :type: collections.abc.Mapping[int, tuple[str, str]]
+      :type: typing.Mapping[int, tuple[str, str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/server.pyi#L79>`__)
 
@@ -476,7 +476,7 @@ instantiation, of which this module provides three different variants:
 
 
 .. class:: SimpleHTTPRequestHandler(request, client_address, server, directory=None)
-           SimpleHTTPRequestHandler(request: _RequestType, client_address: typing.Any, server: BaseServer, *, directory: PathLike[str] | str | None = None) -> None
+           SimpleHTTPRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer, *, directory: os.PathLike[str] | str | None = None) -> http.server.SimpleHTTPRequestHandler
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/http/server.pyi#L100>`__)
 

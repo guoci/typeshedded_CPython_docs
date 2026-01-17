@@ -22,7 +22,7 @@ The :mod:`shlex` module defines the following functions:
 
 
 .. function:: split(s, comments=False, posix=True)
-              split(s: _ShlexInstream | str, comments: bool = False, posix: bool = True) -> list[str]
+              split(s: shlex._ShlexInstream | str, comments: bool = False, posix: bool = True) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shlex.pyi#L17>`__)
 
@@ -38,7 +38,7 @@ The :mod:`shlex` module defines the following functions:
       reading :data:`sys.stdin`.
 
 .. function:: join(split_command)
-              join(split_command: collections.abc.Iterable[str]) -> str
+              join(split_command: typing.Iterable[str]) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shlex.pyi#L26>`__)
 
@@ -111,7 +111,7 @@ The :mod:`shlex` module defines the following class:
 
 
 .. class:: shlex(instream=None, infile=None, posix=False, punctuation_chars=False)
-           shlex(instream: _ShlexInstream | str | None = None, infile: str | None = None, posix: bool = False, punctuation_chars: bool | str = False) -> None
+           shlex(instream: shlex._ShlexInstream | str | None = None, infile: str | None = None, posix: bool = False, punctuation_chars: bool | str = False) -> shlex.shlex
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shlex.pyi#L30>`__)
 
@@ -187,7 +187,7 @@ A :class:`~shlex.shlex` instance has the following methods:
 
 
 .. method:: shlex.sourcehook(filename)
-            shlex.sourcehook(newfile: str) -> tuple[str, TextIOWrapper[_WrappedBuffer]] | None
+            shlex.sourcehook(newfile: str) -> tuple[str, _io.TextIOWrapper[_io._WrappedBuffer]] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shlex.pyi#L58>`__)
 
@@ -219,7 +219,7 @@ A :class:`~shlex.shlex` instance has the following methods:
 
 
 .. method:: shlex.push_source(newstream, newfile=None)
-            shlex.push_source(newstream: _ShlexInstream | str, newfile: str | None = None) -> None
+            shlex.push_source(newstream: shlex._ShlexInstream | str, newfile: str | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shlex.pyi#L59>`__)
 
@@ -346,7 +346,7 @@ variables which either control lexical analysis or can be used for debugging:
 
 
 .. attribute:: shlex.instream
-   :type: _ShlexInstream
+   :type: shlex._ShlexInstream
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shlex.pyi#L39>`__)
 
@@ -404,7 +404,7 @@ variables which either control lexical analysis or can be used for debugging:
 
 
 .. attribute:: shlex.punctuation_chars
-   :type: punctuation_chars(self: shlex) -> str
+   :type: punctuation_chars(self: shlex.shlex) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/shlex.pyi#L47>`__)
 

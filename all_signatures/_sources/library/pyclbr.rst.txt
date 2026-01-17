@@ -21,7 +21,7 @@ modules.
 
 
 .. function:: readmodule(module, path=None)
-              readmodule(module: str, path: collections.abc.Sequence[str] | None = None) -> dict[str, Class]
+              readmodule(module: str, path: typing.Sequence[str] | None = None) -> dict[str, pyclbr.Class]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L73>`__)
 
@@ -37,7 +37,7 @@ modules.
 
 
 .. function:: readmodule_ex(module, path=None)
-              readmodule_ex(module: str, path: collections.abc.Sequence[str] | None = None) -> dict[str, Class | Function | list[str]]
+              readmodule_ex(module: str, path: typing.Sequence[str] | None = None) -> dict[str, pyclbr.Class | pyclbr.Function | list[str]]
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L74>`__)
 
@@ -66,7 +66,7 @@ Function Objects
 ----------------
 
 .. class:: Function
-           Function(module: str, name: str, file: str, lineno: int, parent: Class | Function | None = None, is_async: bool = False, *, end_lineno: int | None = None) -> None
+           Function(module: str, name: str, file: str, lineno: int, parent: pyclbr.Class | pyclbr.Function | None = None, is_async: bool = False, *, end_lineno: int | None = None) -> pyclbr.Function
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L28>`__)
 
@@ -107,7 +107,7 @@ Function Objects
 
 
    .. attribute:: parent
-      :type: Class | Function | None
+      :type: pyclbr.Class | pyclbr.Function | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L32>`__)
 
@@ -117,7 +117,7 @@ Function Objects
 
 
    .. attribute:: children
-      :type: dict[str, Class | Function]
+      :type: dict[str, pyclbr.Class | pyclbr.Function]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L33>`__)
 
@@ -144,7 +144,7 @@ Class Objects
 -------------
 
 .. class:: Class
-           Class(module: str, name: str, super_: list[Class | str] | None, file: str, lineno: int, parent: Class | None = None, *, end_lineno: int | None = None) -> None
+           Class(module: str, name: str, super_: list[pyclbr.Class | str] | None, file: str, lineno: int, parent: pyclbr.Class | None = None, *, end_lineno: int | None = None) -> pyclbr.Class
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L50>`__)
 
@@ -186,7 +186,7 @@ Class Objects
 
 
    .. attribute:: parent
-      :type: Class | None
+      :type: pyclbr.Class | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L53>`__)
 
@@ -196,7 +196,7 @@ Class Objects
 
 
    .. attribute:: children
-      :type: dict[str, Class | Function]
+      :type: dict[str, pyclbr.Class | pyclbr.Function]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L54>`__)
 
@@ -207,7 +207,7 @@ Class Objects
 
 
    .. attribute:: super
-      :type: list[Class | str] | None
+      :type: list[pyclbr.Class | str] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/pyclbr.pyi#L51>`__)
 

@@ -344,35 +344,35 @@ and complete call graphs, use <a class="reference internal" href="profiling.trac
 <section id="quick-examples">
 <h2>Quick examples<a class="headerlink" href="#quick-examples" title="Link to this heading">¶</a></h2>
 <p>Profile a script and see the results immediately:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Profile a module with arguments:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -m mypackage.module arg1 arg2</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>mypackage.module<span class="w"> </span>arg1<span class="w"> </span>arg2
 </pre></div>
 </div>
 <p>Generate an interactive flame graph:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --flamegraph -o profile.html script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--flamegraph<span class="w"> </span>-o<span class="w"> </span>profile.html<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Attach to a running process by PID:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling attach 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
 <p>Use live mode for real-time monitoring (press <code class="docutils literal notranslate"><span class="pre">q</span></code> to quit):</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --live script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--live<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Profile for 60 seconds with a faster sampling rate:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -d 60 -r 20khz script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="m">60</span><span class="w"> </span>-r<span class="w"> </span>20khz<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Generate a line-by-line heatmap:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --heatmap script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--heatmap<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Enable opcode-level profiling to see which bytecode instructions are executing:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --opcodes --flamegraph script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--opcodes<span class="w"> </span>--flamegraph<span class="w"> </span>script.py
 </pre></div>
 </div>
 </section>
@@ -384,8 +384,8 @@ target process.</p>
 <h3>The <code class="docutils literal notranslate"><span class="pre">run</span></code> command<a class="headerlink" href="#the-run-command" title="Link to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">run</span></code> command launches a Python script or module and profiles it from
 startup:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run script.py</span>
-<span class="go">python -m profiling.sampling run -m mypackage.module</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>mypackage.module
 </pre></div>
 </div>
 <p>When profiling a script, the profiler starts the target in a subprocess, waits
@@ -393,7 +393,7 @@ for it to initialize, then begins collecting samples. The <code class="docutils 
 indicates that the target should be run as a module (equivalent to
 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span></code>). Arguments after the target are passed through to the
 profiled program:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run script.py --config settings.yaml</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>script.py<span class="w"> </span>--config<span class="w"> </span>settings.yaml
 </pre></div>
 </div>
 </section>
@@ -401,15 +401,15 @@ profiled program:</p>
 <h3>The <code class="docutils literal notranslate"><span class="pre">attach</span></code> command<a class="headerlink" href="#the-attach-command" title="Link to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">attach</span></code> command connects to an already-running Python process by its
 process ID:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling attach 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
 <p>This command is particularly valuable for investigating performance issues in
 production systems. The target process requires no modification and need not
 be restarted. The profiler attaches, collects samples for the specified
 duration, then detaches and produces output.</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling attach --live 12345</span>
-<span class="go">python -m profiling.sampling attach --flamegraph -d 30 -o profile.html 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span>--live<span class="w"> </span><span class="m">12345</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span>--flamegraph<span class="w"> </span>-d<span class="w"> </span><span class="m">30</span><span class="w"> </span>-o<span class="w"> </span>profile.html<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
 <p>On most systems, attaching to another process requires appropriate permissions.
@@ -418,25 +418,25 @@ See <a class="reference internal" href="#profiling-permissions"><span class="std
 <section id="the-replay-command">
 <span id="replay-command"></span><h3>The <code class="docutils literal notranslate"><span class="pre">replay</span></code> command<a class="headerlink" href="#the-replay-command" title="Link to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">replay</span></code> command converts binary profile files to other output formats:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling replay profile.bin</span>
-<span class="go">python -m profiling.sampling replay --flamegraph -o profile.html profile.bin</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>profile.bin
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>--flamegraph<span class="w"> </span>-o<span class="w"> </span>profile.html<span class="w"> </span>profile.bin
 </pre></div>
 </div>
 <p>This command is useful when you have captured profiling data in binary format
 and want to analyze it later or convert it to a visualization format. Binary
 profiles can be replayed multiple times to different formats without
 re-profiling.</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Convert<span class="w"> </span>binary<span class="w"> </span>to<span class="w"> </span>pstats<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>prints<span class="w"> </span>to<span class="w"> </span>stdout<span class="o">)</span>
-<span class="go">python -m profiling.sampling replay profile.bin</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert binary to pstats (default, prints to stdout)</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>profile.bin
 
-<span class="gp"># </span>Convert<span class="w"> </span>binary<span class="w"> </span>to<span class="w"> </span>flame<span class="w"> </span>graph
-<span class="go">python -m profiling.sampling replay --flamegraph -o output.html profile.bin</span>
+<span class="c1"># Convert binary to flame graph</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>--flamegraph<span class="w"> </span>-o<span class="w"> </span>output.html<span class="w"> </span>profile.bin
 
-<span class="gp"># </span>Convert<span class="w"> </span>binary<span class="w"> </span>to<span class="w"> </span>gecko<span class="w"> </span>format<span class="w"> </span><span class="k">for</span><span class="w"> </span>Firefox<span class="w"> </span>Profiler
-<span class="go">python -m profiling.sampling replay --gecko -o profile.json profile.bin</span>
+<span class="c1"># Convert binary to gecko format for Firefox Profiler</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>--gecko<span class="w"> </span>-o<span class="w"> </span>profile.json<span class="w"> </span>profile.bin
 
-<span class="gp"># </span>Convert<span class="w"> </span>binary<span class="w"> </span>to<span class="w"> </span>heatmap
-<span class="go">python -m profiling.sampling replay --heatmap -o my_heatmap profile.bin</span>
+<span class="c1"># Convert binary to heatmap</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>--heatmap<span class="w"> </span>-o<span class="w"> </span>my_heatmap<span class="w"> </span>profile.bin
 </pre></div>
 </div>
 </section>
@@ -474,7 +474,7 @@ target process’s memory. This typically requires one of:</p>
 </ul>
 <p>The default ptrace_scope of 1 restricts ptrace to parent processes only. To
 allow attaching to any process owned by the same user, set it to 0:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/proc/sys/kernel/yama/ptrace_scope
 </pre></div>
 </div>
 <p><strong>macOS</strong></p>
@@ -556,7 +556,7 @@ Together, these determine how many samples will be collected during a profiling
 session.</p>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-r"><code class="xref std std-option docutils literal notranslate"><span class="pre">--sampling-rate</span></code></a> option (<a class="reference internal" href="#cmdoption-profiling.sampling-r"><code class="xref std std-option docutils literal notranslate"><span class="pre">-r</span></code></a>) sets how frequently samples
 are collected. The default is 1 kHz (10,000 samples per second):</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -r 20khz script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-r<span class="w"> </span>20khz<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Higher rates capture more samples and provide finer-grained data at the
@@ -565,7 +565,7 @@ overhead but may miss short-lived functions. For most applications, the
 default rate provides a good balance between accuracy and overhead.</p>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-d"><code class="xref std std-option docutils literal notranslate"><span class="pre">--duration</span></code></a> option (<a class="reference internal" href="#cmdoption-profiling.sampling-d"><code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code></a>) sets how long to profile in seconds. By
 default, profiling continues until the target process exits or is interrupted:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -d 60 script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="m">60</span><span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Specifying a duration is useful when attaching to long-running processes or when
@@ -579,7 +579,7 @@ the default behavior of running to completion is usually what you want.</p>
 pools.</p>
 <p>By default, the profiler samples only the main thread. The <a class="reference internal" href="#cmdoption-profiling.sampling-a"><code class="xref std std-option docutils literal notranslate"><span class="pre">--all-threads</span></code></a>
 option (<a class="reference internal" href="#cmdoption-profiling.sampling-a"><code class="xref std std-option docutils literal notranslate"><span class="pre">-a</span></code></a>) enables sampling of all threads in the process:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -a script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-a<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Multi-thread profiling reveals how work is distributed across threads and can
@@ -602,8 +602,8 @@ stack read, resulting in reconstructed stacks that mix frames from different
 execution states or that never actually existed.</p>
 <p>For these cases, the <a class="reference internal" href="#cmdoption-profiling.sampling-blocking"><code class="xref std std-option docutils literal notranslate"><span class="pre">--blocking</span></code></a> option stops the target process during
 each sample:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --blocking script.py</span>
-<span class="go">python -m profiling.sampling attach --blocking 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--blocking<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span>--blocking<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
 <p>When blocking mode is enabled, the profiler suspends the target process,
@@ -634,7 +634,7 @@ execution that would otherwise be invisible.</p>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-native"><code class="xref std std-option docutils literal notranslate"><span class="pre">--native</span></code></a> option adds <code class="docutils literal notranslate"><span class="pre">&lt;native&gt;</span></code> frames to indicate when Python has
 called into C code (extension modules, built-in functions, or the interpreter
 itself):</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --native script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--native<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>These frames help distinguish time spent in Python code versus time spent in
@@ -643,7 +643,7 @@ in the Python function that made the call. This is useful when optimizing
 code that makes heavy use of C extensions like NumPy or database drivers.</p>
 <p>By default, the profiler includes <code class="docutils literal notranslate"><span class="pre">&lt;GC&gt;</span></code> frames when garbage collection is
 active. The <a class="reference internal" href="#cmdoption-profiling.sampling-no-gc"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-gc</span></code></a> option suppresses these frames:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --no-gc script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--no-gc<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>GC frames help identify programs where garbage collection consumes significant
@@ -655,7 +655,7 @@ allocation rates or using object pooling.</p>
 <h3>Opcode-aware profiling<a class="headerlink" href="#opcode-aware-profiling" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-opcodes"><code class="xref std std-option docutils literal notranslate"><span class="pre">--opcodes</span></code></a> option enables instruction-level profiling that captures
 which Python bytecode instructions are executing at each sample:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --opcodes --flamegraph script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--opcodes<span class="w"> </span>--flamegraph<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>This feature provides visibility into Python’s bytecode execution, including
@@ -690,7 +690,7 @@ unprecedented visibility into Python’s execution model.</p>
 <h3>Real-time statistics<a class="headerlink" href="#real-time-statistics" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-realtime-stats"><code class="xref std std-option docutils literal notranslate"><span class="pre">--realtime-stats</span></code></a> option displays sampling rate statistics during
 profiling:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --realtime-stats script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--realtime-stats<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>This shows the actual achieved sampling rate, which may be lower than requested
@@ -702,8 +702,8 @@ working correctly and that sufficient samples are being collected. See
 <h3>Subprocess profiling<a class="headerlink" href="#subprocess-profiling" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-subprocesses"><code class="xref std std-option docutils literal notranslate"><span class="pre">--subprocesses</span></code></a> option enables automatic profiling of subprocesses
 spawned by the target:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --subprocesses script.py</span>
-<span class="go">python -m profiling.sampling attach --subprocesses 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--subprocesses<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span>--subprocesses<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
 <p>When enabled, the profiler monitors the target process for child process
@@ -731,7 +731,7 @@ or other process spawning mechanisms.</p>
 </pre></div>
 </div>
 </div>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --subprocesses --flamegraph worker_pool.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--subprocesses<span class="w"> </span>--flamegraph<span class="w"> </span>worker_pool.py
 </pre></div>
 </div>
 <p>This produces separate flame graphs for the main process and each worker
@@ -798,7 +798,7 @@ exception handling.</p>
 <p>Wall-clock mode (<a class="reference internal" href="#cmdoption-profiling.sampling-mode"><code class="xref std std-option docutils literal notranslate"><span class="pre">--mode</span></code></a><code class="docutils literal notranslate"><span class="pre">=wall</span></code>) captures all samples regardless of what the
 thread is doing. This is the default mode and provides a complete picture of
 where time passes during program execution:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --mode=wall script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>wall<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>In wall-clock mode, samples are recorded whether the thread is actively
@@ -814,7 +814,7 @@ latency.</p>
 <h3>CPU mode<a class="headerlink" href="#cpu-mode" title="Link to this heading">¶</a></h3>
 <p>CPU mode (<a class="reference internal" href="#cmdoption-profiling.sampling-mode"><code class="xref std std-option docutils literal notranslate"><span class="pre">--mode</span></code></a><code class="docutils literal notranslate"><span class="pre">=cpu</span></code>) records samples only when the thread is actually
 executing on a CPU core:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --mode=cpu script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>cpu<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Samples taken while the thread is sleeping, blocked on I/O, or waiting for
@@ -849,8 +849,8 @@ connection pooling, or reducing wait time instead.</p>
     <span class="n">do_compute</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --mode=wall script.py  # do_sleep ~98%, do_compute ~1%</span>
-<span class="go">python -m profiling.sampling run --mode=cpu script.py   # do_sleep absent, do_compute dominates</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>wall<span class="w"> </span>script.py<span class="w">  </span><span class="c1"># do_sleep ~98%, do_compute ~1%</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>cpu<span class="w"> </span>script.py<span class="w">   </span><span class="c1"># do_sleep absent, do_compute dominates</span>
 </pre></div>
 </div>
 </section>
@@ -858,7 +858,7 @@ connection pooling, or reducing wait time instead.</p>
 <h3>GIL mode<a class="headerlink" href="#gil-mode" title="Link to this heading">¶</a></h3>
 <p>GIL mode (<a class="reference internal" href="#cmdoption-profiling.sampling-mode"><code class="xref std std-option docutils literal notranslate"><span class="pre">--mode</span></code></a><code class="docutils literal notranslate"><span class="pre">=gil</span></code>) records samples only when the thread holds Python’s
 global interpreter lock:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --mode=gil script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>gil<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>The GIL is held only while executing Python bytecode. When Python calls into
@@ -890,8 +890,8 @@ in C extensions or I/O.</p>
     <span class="n">python_work</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --mode=cpu script.py  # hash_work ~42%, python_work ~38%</span>
-<span class="go">python -m profiling.sampling run --mode=gil script.py  # hash_work ~5%, python_work ~60%</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>cpu<span class="w"> </span>script.py<span class="w">  </span><span class="c1"># hash_work ~42%, python_work ~38%</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>gil<span class="w"> </span>script.py<span class="w">  </span><span class="c1"># hash_work ~5%, python_work ~60%</span>
 </pre></div>
 </div>
 </section>
@@ -899,7 +899,7 @@ in C extensions or I/O.</p>
 <h3>Exception mode<a class="headerlink" href="#exception-mode" title="Link to this heading">¶</a></h3>
 <p>Exception mode (<code class="docutils literal notranslate"><span class="pre">--mode=exception</span></code>) records samples only when a thread has
 an active exception:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --mode=exception script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--mode<span class="o">=</span>exception<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>Samples are recorded in two situations: when an exception is being propagated
@@ -959,8 +959,8 @@ output goes to stdout, a file, or a directory depending on the format.</p>
 <h3>pstats format<a class="headerlink" href="#pstats-format" title="Link to this heading">¶</a></h3>
 <p>The pstats format (<a class="reference internal" href="#cmdoption-profiling.sampling-pstats"><code class="xref std std-option docutils literal notranslate"><span class="pre">--pstats</span></code></a>) produces a text table similar to what
 deterministic profilers generate. This is the default output format:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run script.py</span>
-<span class="go">python -m profiling.sampling run --pstats script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--pstats<span class="w"> </span>script.py
 </pre></div>
 </div>
 <figure class="align-center" id="id4">
@@ -972,11 +972,11 @@ function hotspots, sample counts, and timing estimates.</span><a class="headerli
 </figcaption>
 </figure>
 <p>Output appears on stdout by default:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">Profile Stats (Mode: wall):</span>
-<span class="go">     nsamples  sample%    tottime (ms)  cumul%   cumtime (ms)  filename:lineno(function)</span>
-<span class="go">       234/892    11.7%       234.00     44.6%       892.00    server.py:145(handle_request)</span>
-<span class="go">       156/156     7.8%       156.00      7.8%       156.00    &lt;built-in&gt;:0(socket.recv)</span>
-<span class="go">        98/421     4.9%        98.00     21.1%       421.00    parser.py:67(parse_message)</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Profile<span class="w"> </span>Stats<span class="w"> </span><span class="o">(</span>Mode:<span class="w"> </span>wall<span class="o">)</span>:
+<span class="w">     </span>nsamples<span class="w">  </span>sample%<span class="w">    </span>tottime<span class="w"> </span><span class="o">(</span>ms<span class="o">)</span><span class="w">  </span>cumul%<span class="w">   </span>cumtime<span class="w"> </span><span class="o">(</span>ms<span class="o">)</span><span class="w">  </span>filename:lineno<span class="o">(</span><span class="k">function</span><span class="o">)</span>
+<span class="w">       </span><span class="m">234</span>/892<span class="w">    </span><span class="m">11</span>.7%<span class="w">       </span><span class="m">234</span>.00<span class="w">     </span><span class="m">44</span>.6%<span class="w">       </span><span class="m">892</span>.00<span class="w">    </span>server.py:145<span class="o">(</span>handle_request<span class="o">)</span>
+<span class="w">       </span><span class="m">156</span>/156<span class="w">     </span><span class="m">7</span>.8%<span class="w">       </span><span class="m">156</span>.00<span class="w">      </span><span class="m">7</span>.8%<span class="w">       </span><span class="m">156</span>.00<span class="w">    </span>&lt;built-in&gt;:0<span class="o">(</span>socket.recv<span class="o">)</span>
+<span class="w">        </span><span class="m">98</span>/421<span class="w">     </span><span class="m">4</span>.9%<span class="w">        </span><span class="m">98</span>.00<span class="w">     </span><span class="m">21</span>.1%<span class="w">       </span><span class="m">421</span>.00<span class="w">    </span>parser.py:67<span class="o">(</span>parse_message<span class="o">)</span>
 </pre></div>
 </div>
 <p>The columns show sampling counts and estimated times:</p>
@@ -1010,18 +1010,18 @@ functions that appear deep in many call chains.</p></li>
 </ul>
 <p>Use <a class="reference internal" href="#cmdoption-profiling.sampling-no-summary"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-summary</span></code></a> to suppress both the legend and summary sections.</p>
 <p>To save pstats output to a binary file instead of stdout:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run -o profile.pstats script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-o<span class="w"> </span>profile.pstats<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>The pstats format supports several options for controlling the display.
 The <a class="reference internal" href="#cmdoption-profiling.sampling-sort"><code class="xref std std-option docutils literal notranslate"><span class="pre">--sort</span></code></a> option determines the column used for ordering results:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --sort=tottime script.py</span>
-<span class="go">python -m profiling.sampling run --sort=cumtime script.py</span>
-<span class="go">python -m profiling.sampling run --sort=nsamples script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--sort<span class="o">=</span>tottime<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--sort<span class="o">=</span>cumtime<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--sort<span class="o">=</span>nsamples<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-l"><code class="xref std std-option docutils literal notranslate"><span class="pre">--limit</span></code></a> option restricts output to the top N entries:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --limit=30 script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--limit<span class="o">=</span><span class="m">30</span><span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-no-summary"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-summary</span></code></a> option suppresses the header summary that precedes the
@@ -1031,7 +1031,7 @@ statistics table.</p>
 <h3>Collapsed stacks format<a class="headerlink" href="#collapsed-stacks-format" title="Link to this heading">¶</a></h3>
 <p>Collapsed stacks format (<a class="reference internal" href="#cmdoption-profiling.sampling-collapsed"><code class="xref std std-option docutils literal notranslate"><span class="pre">--collapsed</span></code></a>) produces one line per unique call
 stack, with a count of how many times that stack was sampled:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --collapsed script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--collapsed<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>The output looks like:</p>
@@ -1045,8 +1045,8 @@ stack from bottom to top, followed by a space and the sample count. This
 format is designed for compatibility with external flame graph tools,
 particularly Brendan Gregg’s <code class="docutils literal notranslate"><span class="pre">flamegraph.pl</span></code> script.</p>
 <p>To generate a flame graph from collapsed stacks:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --collapsed script.py &gt; stacks.txt</span>
-<span class="go">flamegraph.pl stacks.txt &gt; profile.svg</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--collapsed<span class="w"> </span>script.py<span class="w"> </span>&gt;<span class="w"> </span>stacks.txt
+flamegraph.pl<span class="w"> </span>stacks.txt<span class="w"> </span>&gt;<span class="w"> </span>profile.svg
 </pre></div>
 </div>
 <p>The resulting SVG can be viewed in any web browser and provides an interactive
@@ -1056,8 +1056,8 @@ visualization where you can click to zoom into specific call paths.</p>
 <h3>Flame graph format<a class="headerlink" href="#flame-graph-format" title="Link to this heading">¶</a></h3>
 <p>Flame graph format (<a class="reference internal" href="#cmdoption-profiling.sampling-flamegraph"><code class="xref std std-option docutils literal notranslate"><span class="pre">--flamegraph</span></code></a>) produces a self-contained HTML file with
 an interactive flame graph visualization:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --flamegraph script.py</span>
-<span class="go">python -m profiling.sampling run --flamegraph -o profile.html script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--flamegraph<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--flamegraph<span class="w"> </span>-o<span class="w"> </span>profile.html<span class="w"> </span>script.py
 </pre></div>
 </div>
 <figure class="align-center" id="id5">
@@ -1107,8 +1107,8 @@ or through their callees.</p>
 <h3>Gecko format<a class="headerlink" href="#gecko-format" title="Link to this heading">¶</a></h3>
 <p>Gecko format (<a class="reference internal" href="#cmdoption-profiling.sampling-gecko"><code class="xref std std-option docutils literal notranslate"><span class="pre">--gecko</span></code></a>) produces JSON output compatible with the Firefox
 Profiler:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --gecko script.py</span>
-<span class="go">python -m profiling.sampling run --gecko -o profile.json script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--gecko<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--gecko<span class="w"> </span>-o<span class="w"> </span>profile.json<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>The <a class="reference external" href="https://profiler.firefox.com">Firefox Profiler</a> is a sophisticated
@@ -1164,8 +1164,8 @@ like <code class="docutils literal notranslate"><span class="pre">BINARY_OP_ADD_
 <h3>Heatmap format<a class="headerlink" href="#heatmap-format" title="Link to this heading">¶</a></h3>
 <p>Heatmap format (<a class="reference internal" href="#cmdoption-profiling.sampling-heatmap"><code class="xref std std-option docutils literal notranslate"><span class="pre">--heatmap</span></code></a>) generates an interactive HTML visualization
 showing sample counts at the source line level:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --heatmap script.py</span>
-<span class="go">python -m profiling.sampling run --heatmap -o my_heatmap script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--heatmap<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--heatmap<span class="w"> </span>-o<span class="w"> </span>my_heatmap<span class="w"> </span>script.py
 </pre></div>
 </div>
 <figure class="align-center" id="id9">
@@ -1224,8 +1224,8 @@ interpretation of hierarchical visualizations.</p>
 <h3>Binary format<a class="headerlink" href="#binary-format" title="Link to this heading">¶</a></h3>
 <p>Binary format (<a class="reference internal" href="#cmdoption-profiling.sampling-binary"><code class="xref std std-option docutils literal notranslate"><span class="pre">--binary</span></code></a>) produces a compact binary file for efficient
 storage of profiling data:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --binary -o profile.bin script.py</span>
-<span class="go">python -m profiling.sampling attach --binary -o profile.bin 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--binary<span class="w"> </span>-o<span class="w"> </span>profile.bin<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span>--binary<span class="w"> </span>-o<span class="w"> </span>profile.bin<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-compression"><code class="xref std std-option docutils literal notranslate"><span class="pre">--compression</span></code></a> option controls data compression:</p>
@@ -1235,7 +1235,7 @@ compression</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zstd</span></code>: Force zstd compression (requires <a class="reference internal" href="compression.zstd.html#module-compression.zstd" title="compression.zstd: Low-level interface to compression and decompression routines in the zstd library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">compression.zstd</span></code></a> support)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">none</span></code>: Disable compression</p></li>
 </ul>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --binary --compression=zstd -o profile.bin script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--binary<span class="w"> </span>--compression<span class="o">=</span>zstd<span class="w"> </span>-o<span class="w"> </span>profile.bin<span class="w"> </span>script.py
 </pre></div>
 </div>
 <p>To analyze binary profiles, use the <a class="reference internal" href="#replay-command"><span class="std std-ref">The replay command</span></a> to convert them to
@@ -1259,13 +1259,13 @@ exploration, heatmap for line-level detail.</p></li>
 them to their preferred format.</p></li>
 </ul>
 <p>A typical workflow:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Capture<span class="w"> </span>profile<span class="w"> </span><span class="k">in</span><span class="w"> </span>production<span class="w"> </span>or<span class="w"> </span>during<span class="w"> </span>tests
-<span class="go">python -m profiling.sampling attach --binary -o profile.bin 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Capture profile in production or during tests</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span>--binary<span class="w"> </span>-o<span class="w"> </span>profile.bin<span class="w"> </span><span class="m">12345</span>
 
-<span class="gp"># </span>Later,<span class="w"> </span>analyze<span class="w"> </span>with<span class="w"> </span>different<span class="w"> </span>formats
-<span class="go">python -m profiling.sampling replay profile.bin</span>
-<span class="go">python -m profiling.sampling replay --flamegraph -o profile.html profile.bin</span>
-<span class="go">python -m profiling.sampling replay --heatmap -o heatmap profile.bin</span>
+<span class="c1"># Later, analyze with different formats</span>
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>profile.bin
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>--flamegraph<span class="w"> </span>-o<span class="w"> </span>profile.html<span class="w"> </span>profile.bin
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>replay<span class="w"> </span>--heatmap<span class="w"> </span>-o<span class="w"> </span>heatmap<span class="w"> </span>profile.bin
 </pre></div>
 </div>
 </section>
@@ -1273,8 +1273,8 @@ them to their preferred format.</p></li>
 <h2>Live mode<a class="headerlink" href="#live-mode" title="Link to this heading">¶</a></h2>
 <p>Live mode (<a class="reference internal" href="#cmdoption-profiling.sampling-live"><code class="xref std std-option docutils literal notranslate"><span class="pre">--live</span></code></a>) provides a terminal-based real-time view of profiling
 data, similar to the <code class="docutils literal notranslate"><span class="pre">top</span></code> command for system processes:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --live script.py</span>
-<span class="go">python -m profiling.sampling attach --live 12345</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--live<span class="w"> </span>script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>attach<span class="w"> </span>--live<span class="w"> </span><span class="m">12345</span>
 </pre></div>
 </div>
 <figure class="align-center" id="id11">
@@ -1363,7 +1363,7 @@ interface rather than producing file output.</p>
 <p>For programs using <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a>, the profiler offers async-aware mode
 (<a class="reference internal" href="#cmdoption-profiling.sampling-async-aware"><code class="xref std std-option docutils literal notranslate"><span class="pre">--async-aware</span></code></a>) that reconstructs call stacks based on the task structure
 rather than the raw Python frames:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --async-aware async_script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--async-aware<span class="w"> </span>async_script.py
 </pre></div>
 </div>
 <p>Standard profiling of async code can be confusing because the physical call
@@ -1384,7 +1384,7 @@ and presenting stacks that reflect the <code class="docutils literal notranslate
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --async-aware --flamegraph -o out.html script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--async-aware<span class="w"> </span>--flamegraph<span class="w"> </span>-o<span class="w"> </span>out.html<span class="w"> </span>script.py
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1396,8 +1396,8 @@ mode will not be able to capture task information.</p>
 <section id="async-modes">
 <h3>Async modes<a class="headerlink" href="#async-modes" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-async-mode"><code class="xref std std-option docutils literal notranslate"><span class="pre">--async-mode</span></code></a> option controls which tasks appear in the profile:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="go">python -m profiling.sampling run --async-aware --async-mode=running async_script.py</span>
-<span class="go">python -m profiling.sampling run --async-aware --async-mode=all async_script.py</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--async-aware<span class="w"> </span>--async-mode<span class="o">=</span>running<span class="w"> </span>async_script.py
+python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--async-aware<span class="w"> </span>--async-mode<span class="o">=</span>all<span class="w"> </span>async_script.py
 </pre></div>
 </div>
 <p>With <a class="reference internal" href="#cmdoption-profiling.sampling-async-mode"><code class="xref std std-option docutils literal notranslate"><span class="pre">--async-mode</span></code></a><code class="docutils literal notranslate"><span class="pre">=running</span></code> (the default), only the task currently executing

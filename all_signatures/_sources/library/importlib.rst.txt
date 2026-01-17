@@ -95,7 +95,7 @@ Functions
 ---------
 
 .. function:: __import__(name, globals=None, locals=None, fromlist=(), level=0)
-              __import__(name: str, globals: collections.abc.Mapping[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, fromlist: collections.abc.Sequence[str] | None = ..., level: int = 0) -> ModuleType
+              __import__(name: str, globals: typing.Mapping[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, fromlist: typing.Sequence[str] | None = ..., level: int = 0) -> types.ModuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L12>`__)
 
@@ -106,7 +106,7 @@ Functions
        instead of this function.
 
 .. function:: import_module(name, package=None)
-              import_module(name: str, package: str | None = None) -> ModuleType
+              import_module(name: str, package: str | None = None) -> types.ModuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/__init__.pyi#L10>`__)
 
@@ -155,7 +155,7 @@ Functions
       location after the same namespace was already imported are noticed.
 
 .. function:: reload(module)
-              reload(module: ModuleType) -> ModuleType
+              reload(module: types.ModuleType) -> types.ModuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/__init__.pyi#L17>`__)
 
@@ -256,7 +256,7 @@ ABC hierarchy::
 
 
 .. class:: MetaPathFinder
-           MetaPathFinder() -> None
+           MetaPathFinder() -> importlib.abc.MetaPathFinder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L73>`__)
 
@@ -268,7 +268,7 @@ ABC hierarchy::
       No longer a subclass of :class:`!Finder`.
 
    .. method:: find_spec(fullname, path, target=None)
-               find_spec(fullname: str, path: collections.abc.Sequence[str] | None, target: ModuleType | None = ..., /) -> ModuleSpec | None
+               find_spec(fullname: str, path: typing.Sequence[str] | None, target: types.ModuleType | None = ..., /) -> _frozen_importlib.ModuleSpec | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L80>`__)
 
@@ -298,7 +298,7 @@ ABC hierarchy::
 
 
 .. class:: PathEntryFinder
-           PathEntryFinder() -> None
+           PathEntryFinder() -> importlib.abc.PathEntryFinder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L84>`__)
 
@@ -313,7 +313,7 @@ ABC hierarchy::
       No longer a subclass of :class:`!Finder`.
 
    .. method:: find_spec(fullname, target=None)
-               find_spec(fullname: str, target: ModuleType | None = ...) -> ModuleSpec | None
+               find_spec(fullname: str, target: types.ModuleType | None = ...) -> _frozen_importlib.ModuleSpec | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L93>`__)
 
@@ -339,7 +339,7 @@ ABC hierarchy::
 
 
 .. class:: Loader
-           Loader() -> None
+           Loader() -> importlib._abc.Loader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/_abc.pyi#L8>`__)
 
@@ -357,7 +357,7 @@ ABC hierarchy::
       Removed the ``load_module()`` method.
 
     .. method:: create_module(spec)
-                create_module(spec: ModuleSpec) -> ModuleType | None
+                create_module(spec: _frozen_importlib.ModuleSpec) -> types.ModuleType | None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/_abc.pyi#L17>`__)
 
@@ -372,7 +372,7 @@ ABC hierarchy::
           :meth:`exec_module` is defined.
 
     .. method:: exec_module(module)
-                exec_module(module: ModuleType) -> None
+                exec_module(module: types.ModuleType) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/_abc.pyi#L20>`__)
 
@@ -388,7 +388,7 @@ ABC hierarchy::
 
 
 .. class:: ResourceLoader
-           ResourceLoader() -> None
+           ResourceLoader() -> importlib.abc.ResourceLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L44>`__)
 
@@ -424,7 +424,7 @@ ABC hierarchy::
 
 
 .. class:: InspectLoader
-           InspectLoader() -> None
+           InspectLoader() -> importlib.abc.InspectLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L48>`__)
 
@@ -432,7 +432,7 @@ ABC hierarchy::
     :pep:`302` protocol for loaders that inspect modules.
 
     .. method:: get_code(fullname)
-                get_code(fullname: str) -> CodeType | None
+                get_code(fullname: str) -> types.CodeType | None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L50>`__)
 
@@ -479,7 +479,7 @@ ABC hierarchy::
            Raises :exc:`ImportError` instead of :exc:`NotImplementedError`.
 
     .. staticmethod:: source_to_code(data, path='<string>', fullname=None)
-                      source_to_code(data: Buffer | Expression | Interactive | Module | str, path: PathLike[str] | bytes | str = '<string>') -> CodeType
+                      source_to_code(data: _collections_abc.Buffer | ast.Expression | ast.Interactive | ast.Module | str, path: os.PathLike[str] | bytes | str = '<string>') -> types.CodeType
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L55>`__)
 
@@ -507,7 +507,7 @@ ABC hierarchy::
 
 
     .. method:: exec_module(module)
-                exec_module(module: ModuleType) -> None
+                exec_module(module: types.ModuleType) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L53>`__)
 
@@ -517,7 +517,7 @@ ABC hierarchy::
 
 
 .. class:: ExecutionLoader
-           ExecutionLoader() -> None
+           ExecutionLoader() -> importlib.abc.ExecutionLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L59>`__)
 
@@ -544,7 +544,7 @@ ABC hierarchy::
 
 
 .. class:: FileLoader(fullname, path)
-           FileLoader(fullname: str, path: str) -> None
+           FileLoader(fullname: str, path: str) -> importlib.abc.FileLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L112>`__)
 
@@ -592,7 +592,7 @@ ABC hierarchy::
 
 
 .. class:: SourceLoader
-           SourceLoader() -> None
+           SourceLoader() -> importlib.abc.SourceLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L63>`__)
 
@@ -618,7 +618,7 @@ ABC hierarchy::
        Removed the ``load_module()`` method.
 
     .. method:: path_stats(path)
-                path_stats(path: str) -> collections.abc.Mapping[str, typing.Any]
+                path_stats(path: str) -> typing.Mapping[str, typing.Any]
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L68>`__)
 
@@ -670,14 +670,14 @@ ABC hierarchy::
            No longer raises :exc:`NotImplementedError` when called.
 
     .. method:: get_code(fullname)
-                get_code(fullname: str) -> CodeType | None
+                get_code(fullname: str) -> types.CodeType | None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L111>`__)
 
         Concrete implementation of :meth:`InspectLoader.get_code`.
 
     .. method:: exec_module(module)
-                exec_module(module: ModuleType) -> None
+                exec_module(module: types.ModuleType) -> None
 
        (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L100>`__)
 
@@ -957,7 +957,7 @@ find and load modules.
 
 
 .. class:: BuiltinImporter
-           BuiltinImporter() -> None
+           BuiltinImporter() -> _frozen_importlib.BuiltinImporter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L49>`__)
 
@@ -975,7 +975,7 @@ find and load modules.
 
 
 .. class:: FrozenImporter
-           FrozenImporter() -> None
+           FrozenImporter() -> _frozen_importlib.FrozenImporter
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L88>`__)
 
@@ -992,7 +992,7 @@ find and load modules.
 
 
 .. class:: WindowsRegistryFinder
-           WindowsRegistryFinder() -> None
+           WindowsRegistryFinder() -> _frozen_importlib_external.WindowsRegistryFinder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L49>`__)
 
@@ -1010,7 +1010,7 @@ find and load modules.
 
 
 .. class:: PathFinder
-           PathFinder() -> None
+           PathFinder() -> _frozen_importlib_external.PathFinder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L60>`__)
 
@@ -1021,7 +1021,7 @@ find and load modules.
    instantiation.
 
    .. classmethod:: find_spec(fullname, path=None, target=None)
-                    find_spec(cls: type[PathFinder], fullname: str, path: collections.abc.Sequence[str] | None = None, target: ModuleType | None = None) -> ModuleSpec | None
+                    find_spec(cls: type[_frozen_importlib_external.PathFinder], fullname: str, path: typing.Sequence[str] | None = None, target: types.ModuleType | None = None) -> _frozen_importlib.ModuleSpec | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L75>`__)
 
@@ -1063,7 +1063,7 @@ find and load modules.
 
 
 .. class:: FileFinder(path, *loader_details)
-           FileFinder(path: str, *loader_details: tuple[type[Loader], list[str]]) -> None
+           FileFinder(path: str, *loader_details: tuple[type[importlib._abc.Loader], list[str]]) -> _frozen_importlib_external.FileFinder
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L89>`__)
 
@@ -1098,7 +1098,7 @@ find and load modules.
       The path the finder will search in.
 
    .. method:: find_spec(fullname, target=None)
-               find_spec(fullname: str, target: ModuleType | None = ...) -> ModuleSpec | None
+               find_spec(fullname: str, target: types.ModuleType | None = ...) -> _frozen_importlib.ModuleSpec | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/abc.pyi#L93>`__)
 
@@ -1114,7 +1114,7 @@ find and load modules.
       Clear out the internal cache.
 
    .. classmethod:: path_hook(*loader_details)
-                    path_hook(cls: type[FileFinder], *loader_details: tuple[type[Loader], list[str]]) -> (str) -> PathEntryFinder
+                    path_hook(cls: type[_frozen_importlib_external.FileFinder], *loader_details: tuple[type[importlib._abc.Loader], list[str]]) -> (str) -> importlib.abc.PathEntryFinder
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L93>`__)
 
@@ -1158,7 +1158,7 @@ find and load modules.
 
 
 .. class:: SourceFileLoader(fullname, path)
-           SourceFileLoader(fullname: str, path: str) -> None
+           SourceFileLoader(fullname: str, path: str) -> _frozen_importlib_external.SourceFileLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L129>`__)
 
@@ -1193,14 +1193,14 @@ find and load modules.
       Return ``True`` if :attr:`path` appears to be for a package.
 
    .. method:: path_stats(path)
-               path_stats(path: str) -> collections.abc.Mapping[str, typing.Any]
+               path_stats(path: str) -> typing.Mapping[str, typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L131>`__)
 
       Concrete implementation of :meth:`importlib.abc.SourceLoader.path_stats`.
 
    .. method:: set_data(path, data)
-               set_data(path: str, data: Buffer, *, _mode: int = 438) -> None
+               set_data(path: str, data: _collections_abc.Buffer, *, _mode: int = 438) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L130>`__)
 
@@ -1208,7 +1208,7 @@ find and load modules.
 
 
 .. class:: SourcelessFileLoader(fullname, path)
-           SourcelessFileLoader(fullname: str, path: str) -> None
+           SourcelessFileLoader(fullname: str, path: str) -> _frozen_importlib_external.SourcelessFileLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L140>`__)
 
@@ -1247,7 +1247,7 @@ find and load modules.
       Determines if the module is a package based on :attr:`path`.
 
    .. method:: get_code(fullname)
-               get_code(fullname: str) -> CodeType | None
+               get_code(fullname: str) -> types.CodeType | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L141>`__)
 
@@ -1263,7 +1263,7 @@ find and load modules.
 
 
 .. class:: ExtensionFileLoader(fullname, path)
-           ExtensionFileLoader(name: str, path: str) -> None
+           ExtensionFileLoader(name: str, path: str) -> _frozen_importlib_external.ExtensionFileLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L144>`__)
 
@@ -1297,7 +1297,7 @@ find and load modules.
       Path to the extension module.
 
    .. method:: create_module(spec)
-               create_module(spec: ModuleSpec) -> ModuleType
+               create_module(spec: _frozen_importlib.ModuleSpec) -> types.ModuleType
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L148>`__)
 
@@ -1307,7 +1307,7 @@ find and load modules.
       .. versionadded:: 3.5
 
    .. method:: exec_module(module)
-               exec_module(module: ModuleType) -> None
+               exec_module(module: types.ModuleType) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L149>`__)
 
@@ -1348,7 +1348,7 @@ find and load modules.
 
 
 .. class:: NamespaceLoader(name, path, path_finder)
-           NamespaceLoader(name: str, path: collections.abc.MutableSequence[str], path_finder: (str, tuple[str, ...]) -> ModuleSpec) -> None
+           NamespaceLoader(name: str, path: typing.MutableSequence[str], path_finder: (str, tuple[str, ...]) -> _frozen_importlib.ModuleSpec) -> _frozen_importlib_external.NamespaceLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L155>`__)
 
@@ -1369,7 +1369,7 @@ find and load modules.
 
 
 .. class:: ModuleSpec(name, loader, *, origin=None, loader_state=None, is_package=None)
-           ModuleSpec(name: str, loader: Loader | None, *, origin: str | None = None, loader_state: typing.Any = None, is_package: bool | None = None) -> None
+           ModuleSpec(name: str, loader: importlib._abc.Loader | None, *, origin: str | None = None, loader_state: typing.Any = None, is_package: bool | None = None) -> _frozen_importlib.ModuleSpec
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L27>`__)
 
@@ -1394,7 +1394,7 @@ find and load modules.
       The :term:`finder` should always set this attribute to a non-empty string.
 
    .. attribute:: loader
-      :type: Loader | None
+      :type: importlib._abc.Loader | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L38>`__)
 
@@ -1448,7 +1448,7 @@ find and load modules.
       for modules that do not need compiled code stored.
 
    .. attribute:: parent
-      :type: parent(self: ModuleSpec) -> str | None
+      :type: parent(self: _frozen_importlib.ModuleSpec) -> str | None
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L44>`__)
 
@@ -1468,7 +1468,7 @@ find and load modules.
 
 
 .. class:: AppleFrameworkLoader(name, path)
-           AppleFrameworkLoader(name: str, path: str) -> None
+           AppleFrameworkLoader(name: str, path: str) -> _frozen_importlib_external.AppleFrameworkLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L206>`__)
 
@@ -1618,7 +1618,7 @@ an :term:`importer`.
       Accepts a :term:`path-like object`.
 
 .. function:: decode_source(source_bytes)
-              decode_source(source_bytes: Buffer) -> str
+              decode_source(source_bytes: _collections_abc.Buffer) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L37>`__)
 
@@ -1654,7 +1654,7 @@ an :term:`importer`.
       import attempts.
 
 .. function:: find_spec(name, package=None)
-              find_spec(name: str, package: str | None = None) -> ModuleSpec | None
+              find_spec(name: str, package: str | None = None) -> _frozen_importlib.ModuleSpec | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/util.pyi#L39>`__)
 
@@ -1678,7 +1678,7 @@ an :term:`importer`.
       :attr:`~module.__path__` attribute).
 
 .. function:: module_from_spec(spec)
-              module_from_spec(spec: ModuleSpec) -> ModuleType
+              module_from_spec(spec: _frozen_importlib.ModuleSpec) -> types.ModuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L22>`__)
 
@@ -1697,7 +1697,7 @@ an :term:`importer`.
    .. versionadded:: 3.5
 
 .. function:: spec_from_loader(name, loader, *, origin=None, is_package=None)
-              spec_from_loader(name: str, loader: LoaderProtocol | None, *, origin: str | None = None, is_package: bool | None = None) -> ModuleSpec | None
+              spec_from_loader(name: str, loader: _typeshed.importlib.LoaderProtocol | None, *, origin: str | None = None, is_package: bool | None = None) -> _frozen_importlib.ModuleSpec | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib.pyi#L19>`__)
 
@@ -1710,7 +1710,7 @@ an :term:`importer`.
    .. versionadded:: 3.4
 
 .. function:: spec_from_file_location(name, location, *, loader=None, submodule_search_locations=None)
-              spec_from_file_location(name: str, location: PathLike[bytes] | PathLike[str] | bytes | str | None = None, *, loader: LoaderProtocol | None = None, submodule_search_locations: list[str] | None = ...) -> ModuleSpec | None
+              spec_from_file_location(name: str, location: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, *, loader: _typeshed.importlib.LoaderProtocol | None = None, submodule_search_locations: list[str] | None = ...) -> _frozen_importlib.ModuleSpec | None
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_frozen_importlib_external.pyi#L38>`__)
 
@@ -1725,7 +1725,7 @@ an :term:`importer`.
       Accepts a :term:`path-like object`.
 
 .. function:: source_hash(source_bytes)
-              source_hash(source_bytes: Buffer) -> bytes
+              source_hash(source_bytes: _collections_abc.Buffer) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/util.pyi#L47>`__)
 
@@ -1736,7 +1736,7 @@ an :term:`importer`.
    .. versionadded:: 3.7
 
 .. function:: _incompatible_extension_module_restrictions(*, disable_check)
-              _incompatible_extension_module_restrictions(*, disable_check: bool) -> None
+              _incompatible_extension_module_restrictions(*, disable_check: bool) -> importlib.util._incompatible_extension_module_restrictions
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/util.pyi#L50>`__)
 
@@ -1763,7 +1763,7 @@ an :term:`importer`.
    .. versionadded:: 3.12
 
 .. class:: LazyLoader(loader)
-           LazyLoader(loader: Loader) -> None
+           LazyLoader(loader: importlib._abc.Loader) -> importlib.util.LazyLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/util.pyi#L41>`__)
 
@@ -1795,7 +1795,7 @@ an :term:`importer`.
       :class:`importlib.machinery.ExtensionFileLoader`.
 
    .. classmethod:: factory(loader)
-                    factory(cls: type[LazyLoader], loader: Loader) -> (...) -> LazyLoader
+                    factory(cls: type[importlib.util.LazyLoader], loader: importlib._abc.Loader) -> (...) -> importlib.util.LazyLoader
 
       (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/importlib/util.pyi#L44>`__)
 
