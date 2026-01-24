@@ -309,38 +309,70 @@ must be 0 and is ignored.  The <code class="docutils literal notranslate"><span 
 standard <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> format.</p>
 <p><em>flags</em> can be zero or more of the following values or-ed together:</p>
 <dl class="c macro">
-<dt class="sig sig-object c" id="c.PyOS_double_to_string.Py_DTSF_SIGN">
-<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_SIGN</span></span></span><a class="headerlink" href="#c.PyOS_double_to_string.Py_DTSF_SIGN" title="Link to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.Py_DTSF_SIGN">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_SIGN</span></span></span><a class="headerlink" href="#c.Py_DTSF_SIGN" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Always precede the returned string with a sign
 character, even if <em>val</em> is non-negative.</p>
 </dd></dl>
 
 <dl class="c macro">
-<dt class="sig sig-object c" id="c.PyOS_double_to_string.Py_DTSF_ADD_DOT_0">
-<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_ADD_DOT_0</span></span></span><a class="headerlink" href="#c.PyOS_double_to_string.Py_DTSF_ADD_DOT_0" title="Link to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.Py_DTSF_ADD_DOT_0">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_ADD_DOT_0</span></span></span><a class="headerlink" href="#c.Py_DTSF_ADD_DOT_0" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Ensure that the returned string will not look like an integer.</p>
 </dd></dl>
 
 <dl class="c macro">
-<dt class="sig sig-object c" id="c.PyOS_double_to_string.Py_DTSF_ALT">
-<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_ALT</span></span></span><a class="headerlink" href="#c.PyOS_double_to_string.Py_DTSF_ALT" title="Link to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.Py_DTSF_ALT">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_ALT</span></span></span><a class="headerlink" href="#c.Py_DTSF_ALT" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Apply “alternate” formatting rules.
 See the documentation for the <a class="reference internal" href="#c.PyOS_snprintf" title="PyOS_snprintf"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyOS_snprintf()</span></code></a> <code class="docutils literal notranslate"><span class="pre">'#'</span></code> specifier for
 details.</p>
 </dd></dl>
 
 <dl class="c macro">
-<dt class="sig sig-object c" id="c.PyOS_double_to_string.Py_DTSF_NO_NEG_0">
-<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_NO_NEG_0</span></span></span><a class="headerlink" href="#c.PyOS_double_to_string.Py_DTSF_NO_NEG_0" title="Link to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.Py_DTSF_NO_NEG_0">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_DTSF_NO_NEG_0</span></span></span><a class="headerlink" href="#c.Py_DTSF_NO_NEG_0" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Negative zero is converted to positive zero.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.11.</span></p>
 </div>
 </dd></dl>
 
-<p>If <em>ptype</em> is non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code>, then the value it points to will be set to one of
-<code class="docutils literal notranslate"><span class="pre">Py_DTST_FINITE</span></code>, <code class="docutils literal notranslate"><span class="pre">Py_DTST_INFINITE</span></code>, or <code class="docutils literal notranslate"><span class="pre">Py_DTST_NAN</span></code>, signifying that
-<em>val</em> is a finite number, an infinite number, or not a number, respectively.</p>
+<p>If <em>ptype</em> is non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code>, then the value it points to will be set to one
+of the following constants depending on the type of <em>val</em>:</p>
+<table class="docutils align-left">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>*ptype</em></p></th>
+<th class="head"><p>type of <em>val</em></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><dl class="c macro">
+<dt class="sig sig-object c" id="c.Py_DTST_FINITE">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_DTST_FINITE</span></span></span><a class="headerlink" href="#c.Py_DTST_FINITE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</td>
+<td><p>finite number</p></td>
+</tr>
+<tr class="row-odd"><td><dl class="c macro">
+<dt class="sig sig-object c" id="c.Py_DTST_INFINITE">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_DTST_INFINITE</span></span></span><a class="headerlink" href="#c.Py_DTST_INFINITE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</td>
+<td><p>infinite number</p></td>
+</tr>
+<tr class="row-even"><td><dl class="c macro">
+<dt class="sig sig-object c" id="c.Py_DTST_NAN">
+<span class="sig-name descname"><span class="n"><span class="pre">Py_DTST_NAN</span></span></span><a class="headerlink" href="#c.Py_DTST_NAN" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</td>
+<td><p>not a number</p></td>
+</tr>
+</tbody>
+</table>
 <p>The return value is a pointer to <em>buffer</em> with the converted string or
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the conversion failed. The caller is responsible for freeing the
 returned string by calling <a class="reference internal" href="memory.html#c.PyMem_Free" title="PyMem_Free"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_Free()</span></code></a>.</p>

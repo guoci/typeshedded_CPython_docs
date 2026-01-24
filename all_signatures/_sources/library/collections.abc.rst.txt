@@ -201,29 +201,29 @@ Collections Abstract Base Classes -- Detailed Descriptions
 
 
 .. class:: Container
-           Container() -> typing.Container
+           Container() -> typing.Container[_ContainerT_contra]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L644>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L646>`__)
 
    ABC for classes that provide the :meth:`~object.__contains__` method.
 
 .. class:: Hashable
            Hashable() -> typing.Hashable
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L519>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L519>`__)
 
    ABC for classes that provide the :meth:`~object.__hash__` method.
 
 .. class:: Sized
            Sized() -> typing.Sized
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L514>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L514>`__)
 
    ABC for classes that provide the :meth:`~object.__len__` method.
 
 .. class:: Callable
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L236>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L236>`__)
 
    ABC for classes that provide the :meth:`~object.__call__` method.
 
@@ -231,9 +231,9 @@ Collections Abstract Base Classes -- Detailed Descriptions
    :class:`!Callable` in type annotations.
 
 .. class:: Iterable
-           Iterable() -> typing.Iterable
+           Iterable() -> typing.Iterable[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L527>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L527>`__)
 
    ABC for classes that provide the :meth:`~container.__iter__` method.
 
@@ -245,27 +245,27 @@ Collections Abstract Base Classes -- Detailed Descriptions
    is to call ``iter(obj)``.
 
 .. class:: Collection
-           Collection() -> typing.Collection
+           Collection() -> typing.Collection[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L650>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L652>`__)
 
    ABC for sized iterable container classes.
 
    .. versionadded:: 3.6
 
 .. class:: Iterator
-           Iterator() -> typing.Iterator
+           Iterator() -> typing.Iterator[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L532>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L532>`__)
 
    ABC for classes that provide the :meth:`~iterator.__iter__` and
    :meth:`~iterator.__next__` methods.  See also the definition of
    :term:`iterator`.
 
 .. class:: Reversible
-           Reversible() -> typing.Reversible
+           Reversible() -> typing.Reversible[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L538>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L538>`__)
 
    ABC for iterable classes that also provide the :meth:`~object.__reversed__`
    method.
@@ -273,9 +273,9 @@ Collections Abstract Base Classes -- Detailed Descriptions
    .. versionadded:: 3.6
 
 .. class:: Generator
-           Generator() -> typing.Generator
+           Generator() -> typing.Generator[_YieldT_co, _SendT_contra, _ReturnT_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L547>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L547>`__)
 
    ABC for :term:`generator` classes that implement the protocol defined in
    :pep:`342` that extends :term:`iterators <iterator>` with the
@@ -291,7 +291,7 @@ Collections Abstract Base Classes -- Detailed Descriptions
            MutableSequence
            ByteString
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L655>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L658>`__)
 
    ABCs for read-only and mutable :term:`sequences <sequence>`.
 
@@ -308,7 +308,7 @@ Collections Abstract Base Classes -- Detailed Descriptions
    .. method:: index(value, start=0, stop=None)
                index((sub: _collections_abc.Buffer | typing.SupportsIndex, start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> int) | ((self: bytes, sub: _collections_abc.Buffer | typing.SupportsIndex, start: typing.SupportsIndex | None = None, end: typing.SupportsIndex | None = None, /) -> int) | ((self: memoryview[int], value: object, start: typing.SupportsIndex = 0, stop: typing.SupportsIndex = ..., /) -> int)
 
-      (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/builtins.pyi#L797>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L797>`__)
 
       Return first index of *value*.
 
@@ -342,14 +342,14 @@ Collections Abstract Base Classes -- Detailed Descriptions
 .. class:: Set
            MutableSet
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L699>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L702>`__)
 
    ABCs for read-only and mutable :ref:`sets <types-set>`.
 
 .. class:: Mapping
            MutableMapping
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L770>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L773>`__)
 
    ABCs for read-only and mutable :term:`mappings <mapping>`.
 
@@ -358,14 +358,14 @@ Collections Abstract Base Classes -- Detailed Descriptions
            KeysView
            ValuesView
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L729>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L732>`__)
 
    ABCs for mapping, items, keys, and values :term:`views <dictionary view>`.
 
 .. class:: Awaitable
-           Awaitable() -> typing.Awaitable
+           Awaitable() -> typing.Awaitable[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L579>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L579>`__)
 
    ABC for :term:`awaitable` objects, which can be used in :keyword:`await`
    expressions.  Custom implementations must provide the
@@ -384,9 +384,9 @@ Collections Abstract Base Classes -- Detailed Descriptions
    .. versionadded:: 3.5
 
 .. class:: Coroutine
-           Coroutine() -> typing.Coroutine
+           Coroutine() -> typing.Coroutine[_YieldT_co, _SendT_nd_contra, _ReturnT_nd_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L587>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L587>`__)
 
    ABC for :term:`coroutine` compatible classes.  These implement the
    following methods, defined in :ref:`coroutine-objects`:
@@ -410,9 +410,9 @@ Collections Abstract Base Classes -- Detailed Descriptions
    .. versionadded:: 3.5
 
 .. class:: AsyncIterable
-           AsyncIterable() -> typing.AsyncIterable
+           AsyncIterable() -> typing.AsyncIterable[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L616>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L616>`__)
 
    ABC for classes that provide an ``__aiter__`` method.  See also the
    definition of :term:`asynchronous iterable`.
@@ -420,9 +420,9 @@ Collections Abstract Base Classes -- Detailed Descriptions
    .. versionadded:: 3.5
 
 .. class:: AsyncIterator
-           AsyncIterator() -> typing.AsyncIterator
+           AsyncIterator() -> typing.AsyncIterator[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L621>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L621>`__)
 
    ABC for classes that provide ``__aiter__`` and ``__anext__``
    methods.  See also the definition of :term:`asynchronous iterator`.
@@ -430,9 +430,9 @@ Collections Abstract Base Classes -- Detailed Descriptions
    .. versionadded:: 3.5
 
 .. class:: AsyncGenerator
-           AsyncGenerator() -> typing.AsyncGenerator
+           AsyncGenerator() -> typing.AsyncGenerator[_YieldT_co, _SendT_contra]
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/typing.pyi#L627>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L627>`__)
 
    ABC for :term:`asynchronous generator` classes that implement the protocol
    defined in :pep:`525` and :pep:`492`.
@@ -445,7 +445,7 @@ Collections Abstract Base Classes -- Detailed Descriptions
 .. class:: Buffer
            Buffer() -> _collections_abc.Buffer
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_collections_abc.pyi#L102>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_collections_abc.pyi#L102>`__)
 
    ABC for classes that provide the :meth:`~object.__buffer__` method,
    implementing the :ref:`buffer protocol <bufferobjects>`. See :pep:`688`.

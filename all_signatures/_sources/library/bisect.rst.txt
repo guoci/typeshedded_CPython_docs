@@ -41,9 +41,9 @@ The following functions are provided:
 
 .. function:: bisect_left(a, x, lo=0, hi=len(a), *, key=None)
               bisect_left(a: _typeshed.SupportsLenAndGetItem[SupportsRichComparisonT], x: SupportsRichComparisonT, lo: int = 0, hi: int | None = None, *, key: None = None) -> int
-              bisect_left(a: _typeshed.SupportsLenAndGetItem[_T], x: SupportsRichComparisonT, lo: int = 0, hi: int | None = None, *, key: (_T) -> SupportsRichComparisonT) -> int
+              bisect_left(a: _typeshed.SupportsLenAndGetItem[_T], x: SupportsRichComparisonT, lo: int = 0, hi: int | None = None, *, key: collections.abc.Callable[[_T], SupportsRichComparisonT]) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bisect.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_bisect.pyi#L10>`__)
 
    Locate the insertion point for *x* in *a* to maintain sorted order.
    The parameters *lo* and *hi* may be used to specify a subset of the list
@@ -71,7 +71,7 @@ The following functions are provided:
 .. function:: bisect_right(a, x, lo=0, hi=len(a), *, key=None)
               bisect(a, x, lo=0, hi=len(a), *, key=None)
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bisect.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_bisect.pyi#L28>`__)
 
    Similar to :py:func:`~bisect.bisect_left`, but returns an insertion point which comes
    after (to the right of) any existing entries of *x* in *a*.
@@ -86,9 +86,9 @@ The following functions are provided:
 
 .. function:: insort_left(a, x, lo=0, hi=len(a), *, key=None)
               insort_left(a: typing.MutableSequence[SupportsRichComparisonT], x: SupportsRichComparisonT, lo: int = 0, hi: int | None = None, *, key: None = None) -> None
-              insort_left(a: typing.MutableSequence[_T], x: _T, lo: int = 0, hi: int | None = None, *, key: (_T) -> SupportsRichComparisonT) -> None
+              insort_left(a: typing.MutableSequence[_T], x: _T, lo: int = 0, hi: int | None = None, *, key: collections.abc.Callable[[_T], SupportsRichComparisonT]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bisect.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_bisect.pyi#L46>`__)
 
    Insert *x* in *a* in sorted order.
 
@@ -109,7 +109,7 @@ The following functions are provided:
 .. function:: insort_right(a, x, lo=0, hi=len(a), *, key=None)
               insort(a, x, lo=0, hi=len(a), *, key=None)
 
-   (`typeshed <https://github.com/python/typeshed/blob/dabb619/stdlib/_bisect.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_bisect.pyi#L59>`__)
 
    Similar to :py:func:`~bisect.insort_left`, but inserting *x* in *a* after any existing
    entries of *x*.

@@ -146,6 +146,7 @@
 <li><a class="reference internal" href="#types">types</a></li>
 <li><a class="reference internal" href="#unicodedata">unicodedata</a></li>
 <li><a class="reference internal" href="#unittest">unittest</a></li>
+<li><a class="reference internal" href="#urllib-parse">urllib.parse</a></li>
 <li><a class="reference internal" href="#venv">venv</a></li>
 <li><a class="reference internal" href="#warnings">warnings</a></li>
 <li><a class="reference internal" href="#xml-parsers-expat">xml.parsers.expat</a></li>
@@ -991,6 +992,11 @@ and <em>strictlimits</em> which restricts the search to within the specified ran
 This method allows for searching for all matches of a pattern
 using Tcl’s <code class="docutils literal notranslate"><span class="pre">-all</span></code> and <code class="docutils literal notranslate"><span class="pre">-overlap</span></code> options.
 (Contributed by Rihaan Meher in <a class="reference external" href="https://github.com/python/cpython/issues/130848">gh-130848</a>)</p></li>
+<li><p>Added new methods <code class="xref py py-meth docutils literal notranslate"><span class="pre">pack_content()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">place_content()</span></code> and
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">grid_content()</span></code> which use Tk commands with new names (introduced
+in Tk 8.6) instead of <code class="xref py py-meth docutils literal notranslate"><span class="pre">*_slaves()</span></code> methods which use Tk commands
+with outdated names.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/143754">gh-143754</a>)</p></li>
 </ul>
 </section>
 <section id="types">
@@ -1026,6 +1032,18 @@ of the character which are related to the above algorithm.
 <li><p><a class="reference internal" href="../library/unittest.html#unittest.TestCase.assertLogs" title="unittest.TestCase.assertLogs"><code class="xref py py-func docutils literal notranslate"><span class="pre">unittest.TestCase.assertLogs()</span></code></a> will now accept a formatter
 to control how messages are formatted.
 (Contributed by Garry Cairns in <a class="reference external" href="https://github.com/python/cpython/issues/134567">gh-134567</a>.)</p></li>
+</ul>
+</section>
+<section id="urllib-parse">
+<h3>urllib.parse<a class="headerlink" href="#urllib-parse" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add the <em>missing_as_none</em> parameter to <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlparse" title="urllib.parse.urlparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlparse()</span></code></a>,
+<a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlsplit" title="urllib.parse.urlsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlsplit()</span></code></a> and <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urldefrag" title="urllib.parse.urldefrag"><code class="xref py py-func docutils literal notranslate"><span class="pre">urldefrag()</span></code></a> functions.
+Add the <em>keep_empty</em> parameter to <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlunparse" title="urllib.parse.urlunparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlunparse()</span></code></a> and
+<a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlunsplit" title="urllib.parse.urlunsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlunsplit()</span></code></a> functions.
+This allows to distinguish between empty and not defined URI components
+and preserve empty components.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/67041">gh-67041</a>.)</p></li>
 </ul>
 </section>
 <section id="venv">
@@ -1312,6 +1330,16 @@ Use <a class="reference internal" href="../library/zipimport.html#zipimport.zipi
 <section id="new-deprecations">
 <h3>New deprecations<a class="headerlink" href="#new-deprecations" title="Link to this heading">¶</a></h3>
 <ul>
+<li><p><a class="reference internal" href="../library/base64.html#module-base64" title="base64: RFC 4648: Base16, Base32, Base64 Data Encodings; Base85 and Ascii85"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code></a>:</p>
+<ul class="simple">
+<li><p>Accepting the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> characters with an alternative alphabet in
+<a class="reference internal" href="../library/base64.html#base64.b64decode" title="base64.b64decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">b64decode()</span></code></a> and <a class="reference internal" href="../library/base64.html#base64.urlsafe_b64decode" title="base64.urlsafe_b64decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlsafe_b64decode()</span></code></a> is now
+deprecated.
+In future Python versions they will be errors in the strict mode and
+discarded in the non-strict mode.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/125346">gh-125346</a>.)</p></li>
+</ul>
+</li>
 <li><p>CLI:</p>
 <ul>
 <li><p>Deprecate <a class="reference internal" href="../using/cmdline.html#cmdoption-b"><code class="xref std std-option docutils literal notranslate"><span class="pre">-b</span></code></a> and <code class="xref std std-option docutils literal notranslate"><span class="pre">-bb</span></code> command-line options
@@ -2063,6 +2091,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#types">types</a></li>
 <li><a class="reference internal" href="#unicodedata">unicodedata</a></li>
 <li><a class="reference internal" href="#unittest">unittest</a></li>
+<li><a class="reference internal" href="#urllib-parse">urllib.parse</a></li>
 <li><a class="reference internal" href="#venv">venv</a></li>
 <li><a class="reference internal" href="#warnings">warnings</a></li>
 <li><a class="reference internal" href="#xml-parsers-expat">xml.parsers.expat</a></li>

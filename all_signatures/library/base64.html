@@ -241,7 +241,7 @@ POST request.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L31">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L31">typeshed</a>)</p>
 <p>Encode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em> using Base64 and return the encoded
 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p>Optional <em>altchars</em> must be a <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> of length 2 which
@@ -271,7 +271,7 @@ If <em>wrapcol</em> is zero (default), do not insert any newlines.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L32">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L32">typeshed</a>)</p>
 <p>Decode the Base64 encoded <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string
 <em>s</em> and return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p>Optional <em>altchars</em> must be a <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string
@@ -279,13 +279,18 @@ of length 2 which specifies the alternative alphabet used instead of the
 <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> characters.</p>
 <p>A <a class="reference internal" href="binascii.html#binascii.Error" title="binascii.Error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">binascii.Error</span></code></a> exception is raised
 if <em>s</em> is incorrectly padded.</p>
-<p>If <em>validate</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code> (the default), characters that are neither
+<p>If <em>validate</em> is false (the default), characters that are neither
 in the normal base-64 alphabet nor the alternative alphabet are
-discarded prior to the padding check.  If <em>validate</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>,
-these non-alphabet characters in the input result in a
-<a class="reference internal" href="binascii.html#binascii.Error" title="binascii.Error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">binascii.Error</span></code></a>.</p>
+discarded prior to the padding check, but the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> characters
+keep their meaning if they are not in <em>altchars</em> (they will be discarded
+in future Python versions).
+If <em>validate</em> is true, these non-alphabet characters in the input
+result in a <a class="reference internal" href="binascii.html#binascii.Error" title="binascii.Error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">binascii.Error</span></code></a>.</p>
 <p>For more information about the strict base64 check, see <a class="reference internal" href="binascii.html#binascii.a2b_base64" title="binascii.a2b_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">binascii.a2b_base64()</span></code></a></p>
-<p>May assert or raise a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if the length of <em>altchars</em> is not 2.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.15.0a5 (unreleased): </span>Accepting the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> characters with an alternative alphabet
+is now deprecated.</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -293,7 +298,7 @@ these non-alphabet characters in the input result in a
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">standard_b64encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.standard_b64encode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">standard_b64encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L33">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L33">typeshed</a>)</p>
 <p>Encode <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em> using the standard Base64 alphabet
 and return the encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </dd></dl>
@@ -303,7 +308,7 @@ and return the encoded <a class="reference internal" href="stdtypes.html#bytes" 
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">standard_b64decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.standard_b64decode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">standard_b64decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L34">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L34">typeshed</a>)</p>
 <p>Decode <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string <em>s</em> using the standard
 Base64 alphabet and return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </dd></dl>
@@ -313,7 +318,7 @@ Base64 alphabet and return the decoded <a class="reference internal" href="stdty
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">urlsafe_b64encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.urlsafe_b64encode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">urlsafe_b64encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L35">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L35">typeshed</a>)</p>
 <p>Encode <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em> using the
 URL- and filesystem-safe alphabet, which
 substitutes <code class="docutils literal notranslate"><span class="pre">-</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">_</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/</span></code> in the
@@ -326,12 +331,15 @@ can still contain <code class="docutils literal notranslate"><span class="pre">=
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">urlsafe_b64decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.urlsafe_b64decode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">urlsafe_b64decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L36">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L36">typeshed</a>)</p>
 <p>Decode <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string <em>s</em>
 using the URL- and filesystem-safe
 alphabet, which substitutes <code class="docutils literal notranslate"><span class="pre">-</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">_</span></code> instead of
 <code class="docutils literal notranslate"><span class="pre">/</span></code> in the standard Base64 alphabet, and return the decoded
 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.15.0a5 (unreleased): </span>Accepting the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> characters is now deprecated.</p>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -339,7 +347,7 @@ alphabet, which substitutes <code class="docutils literal notranslate"><span cla
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b32encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.b32encode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b32encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L37">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L37">typeshed</a>)</p>
 <p>Encode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em> using Base32 and return the
 encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </dd></dl>
@@ -357,7 +365,7 @@ encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L38">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L38">typeshed</a>)</p>
 <p>Decode the Base32 encoded <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string <em>s</em> and
 return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p>Optional <em>casefold</em> is a flag specifying
@@ -379,7 +387,7 @@ input.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b32hexencode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.b32hexencode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b32hexencode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L43">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L43">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#base64.b32encode" title="base64.b32encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">b32encode()</span></code></a> but uses the Extended Hex Alphabet, as defined in
 <span class="target" id="index-7"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc4648.html"><strong>RFC 4648</strong></a>.</p>
 <div class="versionadded">
@@ -392,7 +400,7 @@ input.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b32hexdecode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">casefold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.b32hexdecode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b32hexdecode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">casefold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L44">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L44">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#base64.b32decode" title="base64.b32decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">b32decode()</span></code></a> but uses the Extended Hex Alphabet, as defined in
 <span class="target" id="index-8"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc4648.html"><strong>RFC 4648</strong></a>.</p>
 <p>This version does not allow the digit 0 (zero) to the letter O (oh) and digit
@@ -409,7 +417,7 @@ interchangeable.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b16encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.b16encode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b16encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L39">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L39">typeshed</a>)</p>
 <p>Encode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em> using Base16 and return the
 encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </dd></dl>
@@ -419,7 +427,7 @@ encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b16decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">casefold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.b16decode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b16decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">casefold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L40">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L40">typeshed</a>)</p>
 <p>Decode the Base16 encoded <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string <em>s</em> and
 return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p>Optional <em>casefold</em> is a flag specifying whether a
@@ -462,7 +470,7 @@ implementation used by the software you intend to work with.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L46">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L46">typeshed</a>)</p>
 <p>Encode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>b</em> using Ascii85 and return the
 encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p><em>foldspaces</em> is an optional flag that uses the special short sequence ‘y’
@@ -495,7 +503,7 @@ and <code class="docutils literal notranslate"><span class="pre">~&gt;</span></c
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L49">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L49">typeshed</a>)</p>
 <p>Decode the Ascii85 encoded <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string <em>b</em> and
 return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p><em>foldspaces</em> is a flag that specifies whether the ‘y’ short sequence
@@ -503,8 +511,7 @@ should be accepted as shorthand for 4 consecutive spaces (ASCII 0x20).
 This feature is not supported by the “standard” Ascii85 encoding.</p>
 <p><em>adobe</em> controls whether the input sequence is in Adobe Ascii85 format
 (i.e. is framed with &lt;~ and ~&gt;).</p>
-<p><em>ignorechars</em> should be a <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string
-containing characters to ignore
+<p><em>ignorechars</em> should be a byte string containing characters to ignore
 from the input. This should only contain whitespace characters, and by
 default contains all whitespace characters in ASCII.</p>
 <div class="versionadded">
@@ -517,7 +524,7 @@ default contains all whitespace characters in ASCII.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b85encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.b85encode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b85encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L52">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L52">typeshed</a>)</p>
 <p>Encode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>b</em> using base85 (as used in e.g.
 git-style binary diffs) and return the encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <p>If <em>pad</em> is true, the input is padded with <code class="docutils literal notranslate"><span class="pre">b'\0'</span></code> so its length is a
@@ -532,7 +539,7 @@ multiple of 4 bytes before encoding.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b85decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.b85decode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">b85decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L53">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L53">typeshed</a>)</p>
 <p>Decode the base85-encoded <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string <em>b</em> and
 return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.  Padding is implicitly removed, if
 necessary.</p>
@@ -546,7 +553,7 @@ necessary.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">z85encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.z85encode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">z85encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L60">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L60">typeshed</a>)</p>
 <p>Encode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em> using Z85 (as used in ZeroMQ)
 and return the encoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.  See <a class="reference external" href="https://rfc.zeromq.org/spec/32/">Z85  specification</a> for more information.</p>
 <p>If <em>pad</em> is true, the input is padded with <code class="docutils literal notranslate"><span class="pre">b'\0'</span></code> so its length is a
@@ -564,7 +571,7 @@ multiple of 4 bytes before encoding.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">z85decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.z85decode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">z85decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L61">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L61">typeshed</a>)</p>
 <p>Decode the Z85-encoded <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> or ASCII string <em>s</em> and
 return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.  See <a class="reference external" href="https://rfc.zeromq.org/spec/32/">Z85  specification</a> for more information.</p>
 <div class="versionadded">
@@ -580,7 +587,7 @@ return the decoded <a class="reference internal" href="stdtypes.html#bytes" titl
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.decode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.IO" title="typing.IO"><span class="pre">IO</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.IO" title="typing.IO"><span class="pre">IO</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L54">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L54">typeshed</a>)</p>
 <p>Decode the contents of the binary <em>input</em> file and write the resulting binary
 data to the <em>output</em> file. <em>input</em> and <em>output</em> must be <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file objects</span></a>. <em>input</em> will be read until <code class="docutils literal notranslate"><span class="pre">input.readline()</span></code> returns an
 empty bytes object.</p>
@@ -591,7 +598,7 @@ empty bytes object.</p>
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">decodebytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.decodebytes" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">decodebytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L57">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L57">typeshed</a>)</p>
 <p>Decode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em>, which must contain one or more
 lines of base64 encoded data, and return the decoded <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 <div class="versionadded">
@@ -604,7 +611,7 @@ lines of base64 encoded data, and return the decoded <a class="reference interna
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.encode" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.IO" title="typing.IO"><span class="pre">IO</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.IO" title="typing.IO"><span class="pre">IO</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L55">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L55">typeshed</a>)</p>
 <p>Encode the contents of the binary <em>input</em> file and write the resulting base64
 encoded data to the <em>output</em> file. <em>input</em> and <em>output</em> must be <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file
 objects</span></a>. <em>input</em> will be read until <code class="docutils literal notranslate"><span class="pre">input.read()</span></code> returns
@@ -618,7 +625,7 @@ always ends with a newline, as per <span class="target" id="index-9"></span><a c
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">encodebytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base64.encodebytes" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">base64.</span></span><span class="sig-name descname"><span class="pre">encodebytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_collections_abc.Buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/dabb619/stdlib/base64.pyi#L56">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/35b688e/stdlib/base64.pyi#L56">typeshed</a>)</p>
 <p>Encode the <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> <em>s</em>, which can contain arbitrary binary
 data, and return <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> containing the base64-encoded data, with newlines
 (<code class="docutils literal notranslate"><span class="pre">b'\n'</span></code>) inserted after every 76 bytes of output, and ensuring that
