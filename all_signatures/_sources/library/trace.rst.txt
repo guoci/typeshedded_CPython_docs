@@ -141,7 +141,7 @@ Programmatic Interface
 
 .. class:: Trace(count=1, trace=1, countfuncs=0, countcallers=0, ignoremods=(),\
                  ignoredirs=(), infile=None, outfile=None, timing=False)
-           Trace(count: int = 1, trace: int = 1, countfuncs: int = 0, countcallers: int = 0, ignoremods: typing.Sequence[str] = ..., ignoredirs: typing.Sequence[str] = ..., infile: os.PathLike[str] | str | None = None, outfile: os.PathLike[str] | str | None = None, timing: bool = False) -> trace.Trace
+           Trace(count: int = 1, trace: int = 1, countfuncs: int = 0, countcallers: int = 0, ignoremods: collections.abc.Sequence[str] = ..., ignoredirs: collections.abc.Sequence[str] = ..., infile: os.PathLike[str] | str | None = None, outfile: os.PathLike[str] | str | None = None, timing: bool = False) -> trace.Trace
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/trace.pyi#L51>`__)
 
@@ -166,7 +166,7 @@ Programmatic Interface
       suitable for passing into :func:`exec`.
 
    .. method:: runctx(cmd, globals=None, locals=None)
-               runctx(cmd: types.CodeType | str, globals: typing.Mapping[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None) -> None
+               runctx(cmd: types.CodeType | str, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/trace.pyi#L75>`__)
 
@@ -176,7 +176,7 @@ Programmatic Interface
       dictionaries.
 
    .. method:: runfunc(func, /, *args, **kwds)
-               runfunc[_P, _T](trace.Trace, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+               runfunc[_P, _T](trace.Trace, collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> _T
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/trace.pyi#L78>`__)
 

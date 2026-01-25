@@ -156,10 +156,10 @@ install themselves in the built-in namespace as the function :func:`!_`.
 
 
 .. function:: find(domain, localedir=None, languages=None, all=False)
-              find(domain: str, localedir: os.PathLike[str] | str | None = None, languages: typing.Iterable[str] | None = None, all: typing.Literal[False] = False) -> str | None
-              find(domain: str, localedir: os.PathLike[str] | str | None = None, languages: typing.Iterable[str] | None = None, *, all: typing.Literal[True]) -> list[str]
-              find(domain: str, localedir: os.PathLike[str] | str | None, languages: typing.Iterable[str] | None, all: typing.Literal[True]) -> list[str]
-              find(domain: str, localedir: os.PathLike[str] | str | None = None, languages: typing.Iterable[str] | None = None, all: bool = False) -> typing.Any
+              find(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, all: typing.Literal[False] = False) -> str | None
+              find(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, *, all: typing.Literal[True]) -> list[str]
+              find(domain: str, localedir: os.PathLike[str] | str | None, languages: collections.abc.Iterable[str] | None, all: typing.Literal[True]) -> list[str]
+              find(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, all: bool = False) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/gettext.pyi#L65>`__)
 
@@ -188,10 +188,10 @@ install themselves in the built-in namespace as the function :func:`!_`.
 
 
 .. function:: translation(domain, localedir=None, languages=None, class_=None, fallback=False)
-              translation(domain: str, localedir: os.PathLike[str] | str | None = None, languages: typing.Iterable[str] | None = None, class_: None = None, fallback: typing.Literal[False] = False) -> gettext.GNUTranslations
-              translation(domain: str, localedir: os.PathLike[str] | str | None = None, languages: typing.Iterable[str] | None = None, *, class_: collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], _NullTranslationsT], fallback: typing.Literal[False] = False) -> _NullTranslationsT
-              translation(domain: str, localedir: os.PathLike[str] | str | None, languages: typing.Iterable[str] | None, class_: collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], _NullTranslationsT], fallback: typing.Literal[False] = False) -> _NullTranslationsT
-              translation(domain: str, localedir: os.PathLike[str] | str | None = None, languages: typing.Iterable[str] | None = None, class_: (collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], gettext.NullTranslations]) | None = None, fallback: bool = False) -> gettext.NullTranslations
+              translation(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, class_: None = None, fallback: typing.Literal[False] = False) -> gettext.GNUTranslations
+              translation(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, *, class_: collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], _NullTranslationsT], fallback: typing.Literal[False] = False) -> _NullTranslationsT
+              translation(domain: str, localedir: os.PathLike[str] | str | None, languages: collections.abc.Iterable[str] | None, class_: collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], _NullTranslationsT], fallback: typing.Literal[False] = False) -> _NullTranslationsT
+              translation(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, class_: (collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], gettext.NullTranslations]) | None = None, fallback: bool = False) -> gettext.NullTranslations
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/gettext.pyi#L81>`__)
 
@@ -218,7 +218,7 @@ install themselves in the built-in namespace as the function :func:`!_`.
       *codeset* parameter is removed.
 
 .. function:: install(domain, localedir=None, *, names=None)
-              install(domain: str, localedir: os.PathLike[str] | str | None = None, *, names: typing.Container[str] | None = None) -> None
+              install(domain: str, localedir: os.PathLike[str] | str | None = None, *, names: collections.abc.Container[str] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/gettext.pyi#L113>`__)
 
@@ -342,7 +342,7 @@ are the methods of :class:`!NullTranslations`:
 
 
    .. method:: install(names=None)
-               install(names: typing.Container[str] | None = None) -> None
+               install(names: collections.abc.Container[str] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/gettext.pyi#L56>`__)
 

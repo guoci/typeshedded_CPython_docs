@@ -83,11 +83,11 @@ The module defines the following type:
 
 
 .. class:: array(typecode[, initializer])
-           array(typecode: _IntTypeCode, initializer: typing.Iterable[int] | bytearray | bytes = ..., /) -> array.array[int]
-           array(typecode: _FloatTypeCode, initializer: typing.Iterable[float] | bytearray | bytes = ..., /) -> array.array[float]
-           array(typecode: typing.Literal['w'], initializer: typing.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
-           array(typecode: typing.Literal['u'], initializer: typing.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
-           array(typecode: str, initializer: typing.Iterable[_T], /) -> array.array[_T]
+           array(typecode: _IntTypeCode, initializer: collections.abc.Iterable[int] | bytearray | bytes = ..., /) -> array.array[int]
+           array(typecode: _FloatTypeCode, initializer: collections.abc.Iterable[float] | bytearray | bytes = ..., /) -> array.array[float]
+           array(typecode: typing.Literal['w'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
+           array(typecode: typing.Literal['u'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
+           array(typecode: str, initializer: collections.abc.Iterable[_T], /) -> array.array[_T]
            array(typecode: str, initializer: bytearray | bytes = ..., /) -> array.array[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/array.pyi#L21>`__)
@@ -179,7 +179,7 @@ The module defines the following type:
 
 
    .. method:: extend(iterable)
-               extend[_T: (int, float, str)](bb: typing.Iterable[_T], /) -> None
+               extend[_T: (int, float, str)](bb: collections.abc.Iterable[_T], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/array.pyi#L59>`__)
 
@@ -190,7 +190,7 @@ The module defines the following type:
 
 
    .. method:: frombytes(buffer)
-               frombytes[_T: (int, float, str)](buffer: _collections_abc.Buffer, /) -> None
+               frombytes[_T: (int, float, str)](buffer: collections.abc.Buffer, /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/array.pyi#L60>`__)
 

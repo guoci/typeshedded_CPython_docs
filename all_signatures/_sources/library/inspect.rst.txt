@@ -447,8 +447,8 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isgeneratorfunction(object)
-              isgeneratorfunction(obj: collections.abc.Callable[[...], typing.Generator[typing.Any, typing.Any, typing.Any]]) -> bool
-              isgeneratorfunction(obj: (ParamSpec(_P)) -> typing.Any) -> typing.TypeGuard[(ParamSpec(_P)) -> types.GeneratorType[typing.Any, typing.Any, typing.Any]]
+              isgeneratorfunction(obj: collections.abc.Callable[[...], collections.abc.Generator[typing.Any, typing.Any, typing.Any]]) -> bool
+              isgeneratorfunction(obj: collections.abc.Callable[[typing.ParamSpec(_P)], typing.Any]) -> typing.TypeGuard[collections.abc.Callable[[typing.ParamSpec(_P)], types.GeneratorType[typing.Any, typing.Any, typing.Any]]]
               isgeneratorfunction(obj: object) -> typing.TypeGuard[collections.abc.Callable[[...], types.GeneratorType[typing.Any, typing.Any, typing.Any]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L221>`__)
@@ -472,9 +472,9 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: iscoroutinefunction(object)
-              iscoroutinefunction(obj: collections.abc.Callable[[...], typing.Coroutine[typing.Any, typing.Any, typing.Any]]) -> bool
-              iscoroutinefunction(obj: (ParamSpec(_P)) -> typing.Awaitable[_T]) -> typing.TypeGuard[(ParamSpec(_P)) -> types.CoroutineType[typing.Any, typing.Any, _T]]
-              iscoroutinefunction(obj: (ParamSpec(_P)) -> object) -> typing.TypeGuard[(ParamSpec(_P)) -> types.CoroutineType[typing.Any, typing.Any, typing.Any]]
+              iscoroutinefunction(obj: collections.abc.Callable[[...], collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]]) -> bool
+              iscoroutinefunction(obj: collections.abc.Callable[[typing.ParamSpec(_P)], collections.abc.Awaitable[_T]]) -> typing.TypeGuard[collections.abc.Callable[[typing.ParamSpec(_P)], types.CoroutineType[typing.Any, typing.Any, _T]]]
+              iscoroutinefunction(obj: collections.abc.Callable[[typing.ParamSpec(_P)], object]) -> typing.TypeGuard[collections.abc.Callable[[typing.ParamSpec(_P)], types.CoroutineType[typing.Any, typing.Any, typing.Any]]]
               iscoroutinefunction(obj: object) -> typing.TypeGuard[collections.abc.Callable[[...], types.CoroutineType[typing.Any, typing.Any, typing.Any]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L227>`__)
@@ -529,7 +529,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isawaitable(object)
-              isawaitable(object: object) -> typing.TypeIs[typing.Awaitable[typing.Any]]
+              isawaitable(object: object) -> typing.TypeIs[collections.abc.Awaitable[typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L236>`__)
 
@@ -555,8 +555,8 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
 
 .. function:: isasyncgenfunction(object)
-              isasyncgenfunction(obj: collections.abc.Callable[[...], typing.AsyncGenerator[typing.Any, typing.Any]]) -> bool
-              isasyncgenfunction(obj: (ParamSpec(_P)) -> typing.Any) -> typing.TypeGuard[(ParamSpec(_P)) -> types.AsyncGeneratorType[typing.Any, typing.Any]]
+              isasyncgenfunction(obj: collections.abc.Callable[[...], collections.abc.AsyncGenerator[typing.Any, typing.Any]]) -> bool
+              isasyncgenfunction(obj: collections.abc.Callable[[typing.ParamSpec(_P)], typing.Any]) -> typing.TypeGuard[collections.abc.Callable[[typing.ParamSpec(_P)], types.AsyncGeneratorType[typing.Any, typing.Any]]]
               isasyncgenfunction(obj: object) -> typing.TypeGuard[collections.abc.Callable[[...], types.AsyncGeneratorType[typing.Any, typing.Any]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L238>`__)
@@ -861,7 +861,7 @@ use the :func:`!signature`
 function.
 
 .. function:: signature(callable, *, follow_wrapped=True, globals=None, locals=None, eval_str=False, annotation_format=Format.VALUE)
-              signature(obj: collections.abc.Callable[[...], typing.Any], *, follow_wrapped: bool = True, globals: typing.Mapping[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
+              signature(obj: collections.abc.Callable[[...], typing.Any], *, follow_wrapped: bool = True, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L312>`__)
 
@@ -938,7 +938,7 @@ function.
 
 
 .. class:: Signature(parameters=None, *, return_annotation=Signature.empty)
-           Signature(parameters: typing.Sequence[inspect.Parameter] | None = None, *, return_annotation: typing.Any = ..., __validate_parameters__: bool = True) -> inspect.Signature
+           Signature(parameters: collections.abc.Sequence[inspect.Parameter] | None = None, *, return_annotation: typing.Any = ..., __validate_parameters__: bool = True) -> inspect.Signature
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L338>`__)
 
@@ -1011,7 +1011,7 @@ function.
       passed arguments do not match the signature.
 
    .. method:: Signature.replace(*[, parameters][, return_annotation])
-               Signature.replace(*, parameters: typing.Sequence[inspect.Parameter] | type[inspect._void] | None = ..., return_annotation: typing.Any = ...) -> inspect.Signature
+               Signature.replace(*, parameters: collections.abc.Sequence[inspect.Parameter] | type[inspect._void] | None = ..., return_annotation: typing.Any = ...) -> inspect.Signature
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L350>`__)
 
@@ -1060,7 +1060,7 @@ function.
          The *unquote_annotations* parameter was added.
 
    .. classmethod:: Signature.from_callable(obj, *, follow_wrapped=True, globals=None, locals=None, eval_str=False)
-                    Signature.from_callable(cls: type[inspect.Signature], obj: collections.abc.Callable[[...], typing.Any], *, follow_wrapped: bool = True, globals: typing.Mapping[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
+                    Signature.from_callable(cls: type[inspect.Signature], obj: collections.abc.Callable[[...], typing.Any], *, follow_wrapped: bool = True, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L354>`__)
 
@@ -1430,7 +1430,7 @@ Classes and functions
 
 
 .. function:: formatargvalues(args[, varargs, varkw, locals, formatarg, formatvarargs, formatvarkw, formatvalue])
-              formatargvalues(args: list[str], varargs: str | None, varkw: str | None, locals: typing.Mapping[str, typing.Any] | None, formatarg: (collections.abc.Callable[[str], str]) | None = ..., formatvarargs: (collections.abc.Callable[[str], str]) | None = ..., formatvarkw: (collections.abc.Callable[[str], str]) | None = ..., formatvalue: (collections.abc.Callable[[typing.Any], str]) | None = ...) -> str
+              formatargvalues(args: list[str], varargs: str | None, varkw: str | None, locals: collections.abc.Mapping[str, typing.Any] | None, formatarg: (collections.abc.Callable[[str], str]) | None = ..., formatvarargs: (collections.abc.Callable[[str], str]) | None = ..., formatvarkw: (collections.abc.Callable[[str], str]) | None = ..., formatvalue: (collections.abc.Callable[[typing.Any], str]) | None = ...) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L539>`__)
 
@@ -1454,7 +1454,7 @@ Classes and functions
 
 
 .. function:: getcallargs(func, /, *args, **kwds)
-              getcallargs[_P]((ParamSpec(_P)) -> typing.Any, ParamSpec(_P)) -> dict[str, typing.Any]
+              getcallargs[_P](collections.abc.Callable[[typing.ParamSpec(_P)], typing.Any], typing.ParamSpec(_P)) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L551>`__)
 
@@ -1528,9 +1528,9 @@ Classes and functions
 
 
 .. function:: get_annotations(obj, *, globals=None, locals=None, eval_str=False, format=annotationlib.Format.VALUE)
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.STRING]) -> dict[str, str]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.STRING]) -> dict[str, str]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/annotationlib.pyi#L119>`__)
 
@@ -1887,7 +1887,7 @@ terminated. :func:`getgeneratorstate` allows the current state of a
 generator to be determined easily.
 
 .. function:: getgeneratorstate(generator)
-              getgeneratorstate(generator: typing.Generator[typing.Any, typing.Any, typing.Any]) -> typing.Literal['GEN_CLOSED', 'GEN_CREATED', 'GEN_RUNNING', 'GEN_SUSPENDED']
+              getgeneratorstate(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> typing.Literal['GEN_CLOSED', 'GEN_CREATED', 'GEN_RUNNING', 'GEN_SUSPENDED']
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L679>`__)
 
@@ -1903,7 +1903,7 @@ generator to be determined easily.
    .. versionadded:: 3.2
 
 .. function:: getcoroutinestate(coroutine)
-              getcoroutinestate(coroutine: typing.Coroutine[typing.Any, typing.Any, typing.Any]) -> typing.Literal['CORO_CLOSED', 'CORO_CREATED', 'CORO_RUNNING', 'CORO_SUSPENDED']
+              getcoroutinestate(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> typing.Literal['CORO_CLOSED', 'CORO_CREATED', 'CORO_RUNNING', 'CORO_SUSPENDED']
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L688>`__)
 
@@ -1922,7 +1922,7 @@ generator to be determined easily.
    .. versionadded:: 3.5
 
 .. function:: getasyncgenstate(agen)
-              getasyncgenstate(agen: typing.AsyncGenerator[typing.Any, typing.Any]) -> typing.Literal['AGEN_CLOSED', 'AGEN_CREATED', 'AGEN_RUNNING', 'AGEN_SUSPENDED']
+              getasyncgenstate(agen: collections.abc.AsyncGenerator[typing.Any, typing.Any]) -> typing.Literal['AGEN_CLOSED', 'AGEN_CREATED', 'AGEN_RUNNING', 'AGEN_SUSPENDED']
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L414>`__)
 
@@ -1946,7 +1946,7 @@ mostly useful for testing purposes, to ensure that internal state is being
 updated as expected:
 
 .. function:: getgeneratorlocals(generator)
-              getgeneratorlocals(generator: typing.Generator[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
+              getgeneratorlocals(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L691>`__)
 
@@ -1969,7 +1969,7 @@ updated as expected:
    .. versionadded:: 3.3
 
 .. function:: getcoroutinelocals(coroutine)
-              getcoroutinelocals(coroutine: typing.Coroutine[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
+              getcoroutinelocals(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/inspect.pyi#L692>`__)
 

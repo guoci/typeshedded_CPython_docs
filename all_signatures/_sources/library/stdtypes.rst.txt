@@ -574,7 +574,7 @@ class`. In addition, it provides a few more methods:
        Added default argument values for ``length`` and ``byteorder``.
 
 .. classmethod:: int.from_bytes(bytes, byteorder='big', *, signed=False)
-                 int.from_bytes(cls: type[int], bytes: _collections_abc.Buffer | typing.Iterable[typing.SupportsIndex] | typing.SupportsBytes, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> int
+                 int.from_bytes(cls: type[int], bytes: collections.abc.Buffer | collections.abc.Iterable[typing.SupportsIndex] | typing.SupportsBytes, byteorder: typing.Literal['big', 'little'] = 'big', *, signed: bool = False) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L279>`__)
 
@@ -941,7 +941,7 @@ support:
 .. XXX duplicated in reference/datamodel!
 
 .. method:: container.__iter__()
-            container.__iter__[_T_co]() -> typing.Iterator[_T_co]
+            container.__iter__[_T_co]() -> collections.abc.Iterator[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L529>`__)
 
@@ -959,7 +959,7 @@ methods, which together form the :dfn:`iterator protocol`:
 
 
 .. method:: iterator.__iter__()
-            iterator.__iter__[_T_co]() -> typing.Iterator[_T_co]
+            iterator.__iter__[_T_co]() -> collections.abc.Iterator[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L535>`__)
 
@@ -1390,7 +1390,7 @@ Mutable sequence types also support the following methods:
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L792>`__)
 
 .. method:: sequence.extend(iterable, /)
-            sequence.extend[_T](values: typing.Iterable[_T]) -> None
+            sequence.extend[_T](values: collections.abc.Iterable[_T]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L696>`__)
 
@@ -1478,7 +1478,7 @@ application).
 
 .. class:: list(iterable=(), /)
            list() -> list[_T]
-           list(iterable: typing.Iterable[_T], /) -> list[_T]
+           list(iterable: collections.abc.Iterable[_T], /) -> list[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1120>`__)
 
@@ -1669,7 +1669,7 @@ homogeneous data is needed (such as allowing storage in a :class:`set` or
 :class:`dict` instance).
 
 .. class:: tuple(iterable=(), /)
-           tuple(iterable: typing.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
+           tuple(iterable: collections.abc.Iterable[_T_co] = ..., /) -> tuple[_T_co, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1043>`__)
 
@@ -1992,7 +1992,7 @@ multiple fragments.
            str(object, encoding, errors='strict')
            str(object, *, errors)
            str(object: object = '') -> str
-           str(object: _collections_abc.Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
+           str(object: collections.abc.Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L480>`__)
 
@@ -2579,8 +2579,8 @@ expression support in the :mod:`re` module).
 .. _meth-str-join:
 
 .. method:: str.join(iterable, /)
-            str.join(iterable: typing.Iterable[typing.LiteralString], /) -> typing.LiteralString
-            str.join(iterable: typing.Iterable[str], /) -> str
+            str.join(iterable: collections.abc.Iterable[typing.LiteralString], /) -> typing.LiteralString
+            str.join(iterable: collections.abc.Iterable[str], /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L526>`__)
 
@@ -3551,7 +3551,7 @@ data and are closely related to string objects in a variety of other ways.
 
 .. class:: bytes(source=b'')
            bytes(source, encoding, errors='strict')
-           bytes(o: _collections_abc.Buffer | typing.Iterable[typing.SupportsIndex] | typing.SupportsBytes | typing.SupportsIndex, /) -> bytes
+           bytes(o: collections.abc.Buffer | collections.abc.Iterable[typing.SupportsIndex] | typing.SupportsBytes | typing.SupportsIndex, /) -> bytes
            bytes(string: str, /, encoding: str, errors: str = 'strict') -> bytes
            bytes() -> bytes
 
@@ -3596,7 +3596,7 @@ data and are closely related to string objects in a variety of other ways.
    the bytes type has an additional class method to read data in that format:
 
    .. classmethod:: fromhex(string, /)
-                    fromhex(cls: type[bytes], string: _collections_abc.Buffer | str, /) -> bytes
+                    fromhex(cls: type[bytes], string: collections.abc.Buffer | str, /) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L736>`__)
 
@@ -3674,7 +3674,7 @@ objects.
 .. class:: bytearray(source=b'')
            bytearray(source, encoding, errors='strict')
            bytearray() -> bytearray
-           bytearray(ints: _collections_abc.Buffer | typing.Iterable[typing.SupportsIndex] | typing.SupportsIndex, /) -> bytearray
+           bytearray(ints: collections.abc.Buffer | collections.abc.Iterable[typing.SupportsIndex] | typing.SupportsIndex, /) -> bytearray
            bytearray(string: str, /, encoding: str, errors: str = 'strict') -> bytearray
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L769>`__)
@@ -3698,7 +3698,7 @@ objects.
    the bytearray type has an additional class method to read data in that format:
 
    .. classmethod:: fromhex(string, /)
-                    fromhex(cls: type[bytearray], string: _collections_abc.Buffer | str, /) -> bytearray
+                    fromhex(cls: type[bytearray], string: collections.abc.Buffer | str, /) -> bytearray
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L846>`__)
 
@@ -4925,7 +4925,7 @@ of an object that supports the :ref:`buffer protocol <bufferobjects>` without
 copying.
 
 .. class:: memoryview(object)
-           memoryview(obj: _collections_abc.Buffer) -> memoryview[_I]
+           memoryview(obj: collections.abc.Buffer) -> memoryview[_I]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L891>`__)
 
@@ -5330,7 +5330,7 @@ copying.
    There are also several readonly attributes available:
 
    .. attribute:: obj
-      :type: obj[_I = int](self: memoryview[_I]) -> _collections_abc.Buffer
+      :type: obj[_I = int](self: memoryview[_I]) -> collections.abc.Buffer
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L907>`__)
 
@@ -5666,7 +5666,7 @@ The following table lists operations available for :class:`set` that do not
 apply to immutable instances of :class:`frozenset`:
 
 .. method:: set.update(*others)
-            set.update[_T](*s: typing.Iterable[_T]) -> None
+            set.update[_T](*s: collections.abc.Iterable[_T]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1277>`__)
 
@@ -5675,7 +5675,7 @@ apply to immutable instances of :class:`frozenset`:
    Update the set, adding elements from all others.
 
 .. method:: set.intersection_update(*others)
-            set.intersection_update[_T](*s: typing.Iterable[typing.Any]) -> None
+            set.intersection_update[_T](*s: collections.abc.Iterable[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1269>`__)
 
@@ -5684,7 +5684,7 @@ apply to immutable instances of :class:`frozenset`:
    Update the set, keeping only elements found in it and all others.
 
 .. method:: set.difference_update(*others)
-            set.difference_update[_T](*s: typing.Iterable[typing.Any]) -> None
+            set.difference_update[_T](*s: collections.abc.Iterable[typing.Any]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1266>`__)
 
@@ -5693,7 +5693,7 @@ apply to immutable instances of :class:`frozenset`:
    Update the set, removing elements found in others.
 
 .. method:: set.symmetric_difference_update(other, /)
-            set.symmetric_difference_update[_T](s: typing.Iterable[_T], /) -> None
+            set.symmetric_difference_update[_T](s: collections.abc.Iterable[_T], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1275>`__)
 
@@ -5783,10 +5783,10 @@ can be used interchangeably to index the same dictionary entry.
            dict(/, **kwargs: _VT) -> dict[str, _VT]
            dict(map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> dict[_KT, _VT]
            dict(map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> dict[str, _VT]
-           dict(iterable: typing.Iterable[tuple[_KT, _VT]], /) -> dict[_KT, _VT]
-           dict(iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> dict[str, _VT]
-           dict(iterable: typing.Iterable[list[str]], /) -> dict[str, str]
-           dict(iterable: typing.Iterable[list[bytes]], /) -> dict[bytes, bytes]
+           dict(iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> dict[_KT, _VT]
+           dict(iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> dict[str, _VT]
+           dict(iterable: collections.abc.Iterable[list[str]], /) -> dict[str, str]
+           dict(iterable: collections.abc.Iterable[list[bytes]], /) -> dict[bytes, bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1175>`__)
 
@@ -5935,8 +5935,8 @@ can be used interchangeably to index the same dictionary entry.
       Return a shallow copy of the dictionary.
 
    .. classmethod:: fromkeys(iterable, value=None, /)
-                    fromkeys(cls: type[dict[_KT, _VT]], iterable: typing.Iterable[_T], value: None = None, /) -> dict[_T, typing.Any | None]
-                    fromkeys(cls: type[dict[_KT, _VT]], iterable: typing.Iterable[_T], value: _S, /) -> dict[_T, _S]
+                    fromkeys(cls: type[dict[_KT, _VT]], iterable: collections.abc.Iterable[_T], value: None = None, /) -> dict[_T, typing.Any | None]
+                    fromkeys(cls: type[dict[_KT, _VT]], iterable: collections.abc.Iterable[_T], value: _S, /) -> dict[_T, _S]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1217>`__)
 
@@ -5960,7 +5960,7 @@ can be used interchangeably to index the same dictionary entry.
       never raises a :exc:`KeyError`.
 
    .. method:: items()
-               items[_KT, _VT]() -> _collections_abc.dict_items[_KT, _VT]
+               items[_KT, _VT]() -> collections.abc.dict_items[_KT, _VT]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1210>`__)
 
@@ -5968,7 +5968,7 @@ can be used interchangeably to index the same dictionary entry.
       See the :ref:`documentation of view objects <dict-views>`.
 
    .. method:: keys()
-               keys[_KT, _VT]() -> _collections_abc.dict_keys[_KT, _VT]
+               keys[_KT, _VT]() -> collections.abc.dict_keys[_KT, _VT]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1208>`__)
 
@@ -6025,8 +6025,8 @@ can be used interchangeably to index the same dictionary entry.
                update(iterable, /, **kwargs)
                update(m: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> None
                update(m: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> None
-               update(m: typing.Iterable[tuple[_KT, _VT]], /) -> None
-               update(m: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
+               update(m: collections.abc.Iterable[tuple[_KT, _VT]], /) -> None
+               update(m: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> None
                update(**kwargs: _VT) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L835>`__)
@@ -6041,7 +6041,7 @@ can be used interchangeably to index the same dictionary entry.
       updated with those key/value pairs: ``d.update(red=1, blue=2)``.
 
    .. method:: values()
-               values[_KT, _VT]() -> _collections_abc.dict_values[_KT, _VT]
+               values[_KT, _VT]() -> collections.abc.dict_values[_KT, _VT]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/builtins.pyi#L1209>`__)
 

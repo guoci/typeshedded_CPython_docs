@@ -280,8 +280,8 @@ methods :meth:`tkinter.Widget.cget` and :meth:`tkinter.Widget.configure`.
 
 
    .. method:: instate(statespec, callback=None, *args, **kw)
-               instate(statespec: typing.Sequence[str], callback: None = None) -> bool
-               instate(tkinter.ttk.Widget, typing.Sequence[str], (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> typing.Literal[False] | _T
+               instate(statespec: collections.abc.Sequence[str], callback: None = None) -> bool
+               instate(tkinter.ttk.Widget, collections.abc.Sequence[str], collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> typing.Literal[False] | _T
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/tkinter/ttk.pyi#L210>`__)
 
@@ -292,7 +292,7 @@ methods :meth:`tkinter.Widget.cget` and :meth:`tkinter.Widget.configure`.
 
 
    .. method:: state(statespec=None)
-               state(statespec: typing.Sequence[str] | None = None) -> tuple[str, ...]
+               state(statespec: collections.abc.Sequence[str] | None = None) -> tuple[str, ...]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/tkinter/ttk.pyi#L215>`__)
 
@@ -1532,7 +1532,7 @@ option. If you don't know the class name of a widget, use the method
 
    .. method:: map(style, query_opt=None, **kw)
                map(style: str, query_opt: str) -> tuple[Unpack[tuple[str, ...], typing.Any]]
-               map(style: str, query_opt: None = None, **kw: typing.Iterable[tuple[Unpack[tuple[str, ...], typing.Any]]]) -> dict[str, tuple[Unpack[tuple[str, ...], typing.Any]]]
+               map(style: str, query_opt: None = None, **kw: collections.abc.Iterable[tuple[Unpack[tuple[str, ...], typing.Any]]]) -> dict[str, tuple[Unpack[tuple[str, ...], typing.Any]]]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/tkinter/ttk.pyi#L130>`__)
 
@@ -1568,7 +1568,7 @@ option. If you don't know the class name of a widget, use the method
 
 
    .. method:: lookup(style, option, state=None, default=None)
-               lookup(style: str, option: str, state: typing.Iterable[str] | None = None, default: typing.Any | None = None) -> typing.Any
+               lookup(style: str, option: str, state: collections.abc.Iterable[str] | None = None, default: typing.Any | None = None) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/tkinter/ttk.pyi#L133>`__)
 

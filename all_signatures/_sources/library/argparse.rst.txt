@@ -75,7 +75,7 @@ ArgumentParser objects
                           argument_default=None, conflict_handler='error', \
                           add_help=True, allow_abbrev=True, exit_on_error=True, \
                           *, suggest_on_error=True, color=True)
-           ArgumentParser(prog: str | None = None, usage: str | None = None, description: str | None = None, epilog: str | None = None, parents: typing.Sequence[argparse.ArgumentParser] = ..., formatter_class: argparse._FormatterClass = ..., prefix_chars: str = '-', fromfile_prefix_chars: str | None = None, argument_default: typing.Any = None, conflict_handler: str = 'error', add_help: bool = True, allow_abbrev: bool = True, exit_on_error: bool = True, *, suggest_on_error: bool = False, color: bool = True) -> argparse.ArgumentParser
+           ArgumentParser(prog: str | None = None, usage: str | None = None, description: str | None = None, epilog: str | None = None, parents: collections.abc.Sequence[argparse.ArgumentParser] = ..., formatter_class: argparse._FormatterClass = ..., prefix_chars: str = '-', fromfile_prefix_chars: str | None = None, argument_default: typing.Any = None, conflict_handler: str = 'error', add_help: bool = True, allow_abbrev: bool = True, exit_on_error: bool = True, *, suggest_on_error: bool = False, color: bool = True) -> argparse.ArgumentParser
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L144>`__)
 
@@ -679,7 +679,7 @@ The add_argument() method
 .. method:: ArgumentParser.add_argument(name or flags..., *, [action], [nargs], \
                            [const], [default], [type], [choices], [required], \
                            [help], [metavar], [dest], [deprecated])
-            ArgumentParser.add_argument[_T](*name_or_flags: str, *, action: str | type[argparse.Action] = ..., nargs: int | str | None = None, const: typing.Any = ..., default: typing.Any = ..., type: _ActionType = ..., choices: typing.Iterable[_T] | None = ..., required: bool = ..., help: str | None = ..., metavar: str | tuple[str, ...] | None = ..., dest: str | None = ..., version: str = ..., **kwargs: typing.Any) -> argparse.Action
+            ArgumentParser.add_argument[_T](*name_or_flags: str, *, action: str | type[argparse.Action] = ..., nargs: int | str | None = None, const: typing.Any = ..., default: typing.Any = ..., type: _ActionType = ..., choices: collections.abc.Iterable[_T] | None = ..., required: bool = ..., help: str | None = ..., metavar: str | tuple[str, ...] | None = ..., dest: str | None = ..., version: str = ..., **kwargs: typing.Any) -> argparse.Action
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L73>`__)
 
@@ -1421,7 +1421,7 @@ this API may be passed as the ``action`` parameter to
 .. class:: Action(option_strings, dest, nargs=None, const=None, default=None, \
                   type=None, choices=None, required=False, help=None, \
                   metavar=None)
-           Action(option_strings: typing.Sequence[str], dest: str, nargs: int | str | None = None, const: _T | None = None, default: str | _T | None = None, type: (collections.abc.Callable[[str], _T]) | argparse.FileType | None = None, choices: typing.Iterable[_T] | None = None, required: bool = False, help: str | None = None, metavar: str | tuple[str, ...] | None = None, deprecated: bool = False) -> argparse.Action
+           Action(option_strings: collections.abc.Sequence[str], dest: str, nargs: int | str | None = None, const: _T | None = None, default: str | _T | None = None, type: (collections.abc.Callable[[str], _T]) | argparse.FileType | None = None, choices: collections.abc.Iterable[_T] | None = None, required: bool = False, help: str | None = None, metavar: str | tuple[str, ...] | None = None, deprecated: bool = False) -> argparse.Action
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L356>`__)
 
@@ -1438,7 +1438,7 @@ this API may be passed as the ``action`` parameter to
    are defined is to call :meth:`!Action.__init__`.
 
    .. method:: __call__(parser, namespace, values, option_string=None)
-               __call__(parser: argparse.ArgumentParser, namespace: argparse.Namespace, values: typing.Sequence[typing.Any] | str | None, option_string: str | None = None) -> None
+               __call__(parser: argparse.ArgumentParser, namespace: argparse.Namespace, values: collections.abc.Sequence[typing.Any] | str | None, option_string: str | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L397>`__)
 
@@ -1472,7 +1472,7 @@ this API may be passed as the ``action`` parameter to
       If such method is not provided, a sensible default will be used.
 
 .. class:: BooleanOptionalAction
-           BooleanOptionalAction(option_strings: typing.Sequence[str], dest: str, default: bool | None = None, required: bool = False, help: str | None = None, deprecated: bool = False) -> argparse.BooleanOptionalAction
+           BooleanOptionalAction(option_strings: collections.abc.Sequence[str], dest: str, default: bool | None = None, required: bool = False, help: str | None = None, deprecated: bool = False) -> argparse.BooleanOptionalAction
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L403>`__)
 
@@ -1504,8 +1504,8 @@ The parse_args() method
 -----------------------
 
 .. method:: ArgumentParser.parse_args(args=None, namespace=None)
-            ArgumentParser.parse_args(args: typing.Sequence[str] | None = None, namespace: None = None) -> argparse.Namespace
-            ArgumentParser.parse_args(args: typing.Sequence[str] | None, namespace: _N) -> _N
+            ArgumentParser.parse_args(args: collections.abc.Sequence[str] | None = None, namespace: None = None) -> argparse.Namespace
+            ArgumentParser.parse_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> _N
             ArgumentParser.parse_args(*, namespace: _N) -> _N
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L203>`__)
@@ -2233,8 +2233,8 @@ Partial parsing
 ^^^^^^^^^^^^^^^
 
 .. method:: ArgumentParser.parse_known_args(args=None, namespace=None)
-            ArgumentParser.parse_known_args(args: typing.Sequence[str] | None = None, namespace: None = None) -> tuple[argparse.Namespace, list[str]]
-            ArgumentParser.parse_known_args(args: typing.Sequence[str] | None, namespace: _N) -> tuple[_N, list[str]]
+            ArgumentParser.parse_known_args(args: collections.abc.Sequence[str] | None = None, namespace: None = None) -> tuple[argparse.Namespace, list[str]]
+            ArgumentParser.parse_known_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> tuple[_N, list[str]]
             ArgumentParser.parse_known_args(*, namespace: _N) -> tuple[_N, list[str]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L242>`__)
@@ -2320,15 +2320,15 @@ Intermixed parsing
 ^^^^^^^^^^^^^^^^^^
 
 .. method:: ArgumentParser.parse_intermixed_args(args=None, namespace=None)
-            ArgumentParser.parse_intermixed_args(args: typing.Sequence[str] | None = None, namespace: None = None) -> argparse.Namespace
-            ArgumentParser.parse_intermixed_args(args: typing.Sequence[str] | None, namespace: _N) -> _N
+            ArgumentParser.parse_intermixed_args(args: collections.abc.Sequence[str] | None = None, namespace: None = None) -> argparse.Namespace
+            ArgumentParser.parse_intermixed_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> _N
             ArgumentParser.parse_intermixed_args(*, namespace: _N) -> _N
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L251>`__)
 
 .. method:: ArgumentParser.parse_known_intermixed_args(args=None, namespace=None)
-            ArgumentParser.parse_known_intermixed_args(args: typing.Sequence[str] | None = None, namespace: None = None) -> tuple[argparse.Namespace, list[str]]
-            ArgumentParser.parse_known_intermixed_args(args: typing.Sequence[str] | None, namespace: _N) -> tuple[_N, list[str]]
+            ArgumentParser.parse_known_intermixed_args(args: collections.abc.Sequence[str] | None = None, namespace: None = None) -> tuple[argparse.Namespace, list[str]]
+            ArgumentParser.parse_known_intermixed_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> tuple[_N, list[str]]
             ArgumentParser.parse_known_intermixed_args(*, namespace: _N) -> tuple[_N, list[str]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/argparse.pyi#L257>`__)

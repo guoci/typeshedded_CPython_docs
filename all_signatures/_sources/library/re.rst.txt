@@ -950,7 +950,7 @@ Functions
 
 .. function:: search(pattern, string, flags=0)
               search(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> re.Match[str] | None
-              search(pattern: re.Pattern[bytes] | bytes, string: _collections_abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
+              search(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L257>`__)
 
@@ -966,7 +966,7 @@ Functions
 
 .. function:: match(pattern, string, flags=0)
               match(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> re.Match[str] | None
-              match(pattern: re.Pattern[bytes] | bytes, string: _collections_abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
+              match(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L261>`__)
 
@@ -988,7 +988,7 @@ Functions
 
 .. function:: fullmatch(pattern, string, flags=0)
               fullmatch(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> re.Match[str] | None
-              fullmatch(pattern: re.Pattern[bytes] | bytes, string: _collections_abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
+              fullmatch(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L265>`__)
 
@@ -1005,7 +1005,7 @@ Functions
 
 .. function:: split(pattern, string, maxsplit=0, flags=0)
               split(pattern: re.Pattern[str] | str, string: str, maxsplit: int = 0, flags: _FlagsType = 0) -> list[str | typing.Any]
-              split(pattern: re.Pattern[bytes] | bytes, string: _collections_abc.Buffer, maxsplit: int = 0, flags: _FlagsType = 0) -> list[bytes | typing.Any]
+              split(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, maxsplit: int = 0, flags: _FlagsType = 0) -> list[bytes | typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L269>`__)
 
@@ -1064,7 +1064,7 @@ Functions
 
 .. function:: findall(pattern, string, flags=0)
               findall(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> list[typing.Any]
-              findall(pattern: re.Pattern[bytes] | bytes, string: _collections_abc.Buffer, flags: _FlagsType = 0) -> list[typing.Any]
+              findall(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> list[typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L275>`__)
 
@@ -1093,8 +1093,8 @@ Functions
 
 
 .. function:: finditer(pattern, string, flags=0)
-              finditer(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> typing.Iterator[re.Match[str]]
-              finditer(pattern: re.Pattern[bytes] | bytes, string: _collections_abc.Buffer, flags: _FlagsType = 0) -> typing.Iterator[re.Match[bytes]]
+              finditer(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> collections.abc.Iterator[re.Match[str]]
+              finditer(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> collections.abc.Iterator[re.Match[bytes]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L279>`__)
 
@@ -1113,7 +1113,7 @@ Functions
 
 .. function:: sub(pattern, repl, string, count=0, flags=0)
               sub(pattern: re.Pattern[str] | str, repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0, flags: _FlagsType = 0) -> str
-              sub(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], _collections_abc.Buffer]) | _collections_abc.Buffer, string: _collections_abc.Buffer, count: int = 0, flags: _FlagsType = 0) -> bytes
+              sub(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0, flags: _FlagsType = 0) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L283>`__)
 
@@ -1201,7 +1201,7 @@ Functions
 
 .. function:: subn(pattern, repl, string, count=0, flags=0)
               subn(pattern: re.Pattern[str] | str, repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0, flags: _FlagsType = 0) -> tuple[str, int]
-              subn(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], _collections_abc.Buffer]) | _collections_abc.Buffer, string: _collections_abc.Buffer, count: int = 0, flags: _FlagsType = 0) -> tuple[bytes, int]
+              subn(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0, flags: _FlagsType = 0) -> tuple[bytes, int]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L295>`__)
 
@@ -1333,7 +1333,7 @@ Regular Expression Objects
 
 .. method:: Pattern.search(string[, pos[, endpos]])
             Pattern.search(string: str, pos: int = 0, endpos: int = ...) -> re.Match[str] | None
-            Pattern.search(string: _collections_abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
+            Pattern.search(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
             Pattern.search(string: AnyStr, pos: int = 0, endpos: int = ...) -> re.Match[AnyStr] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L131>`__)
@@ -1364,7 +1364,7 @@ Regular Expression Objects
 
 .. method:: Pattern.match(string[, pos[, endpos]])
             Pattern.match(string: str, pos: int = 0, endpos: int = ...) -> re.Match[str] | None
-            Pattern.match(string: _collections_abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
+            Pattern.match(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
             Pattern.match(string: AnyStr, pos: int = 0, endpos: int = ...) -> re.Match[AnyStr] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L137>`__)
@@ -1388,7 +1388,7 @@ Regular Expression Objects
 
 .. method:: Pattern.fullmatch(string[, pos[, endpos]])
             Pattern.fullmatch(string: str, pos: int = 0, endpos: int = ...) -> re.Match[str] | None
-            Pattern.fullmatch(string: _collections_abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
+            Pattern.fullmatch(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
             Pattern.fullmatch(string: AnyStr, pos: int = 0, endpos: int = ...) -> re.Match[AnyStr] | None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L143>`__)
@@ -1411,7 +1411,7 @@ Regular Expression Objects
 
 .. method:: Pattern.split(string, maxsplit=0)
             Pattern.split(string: str, maxsplit: int = 0) -> list[str | typing.Any]
-            Pattern.split(string: _collections_abc.Buffer, maxsplit: int = 0) -> list[bytes | typing.Any]
+            Pattern.split(string: collections.abc.Buffer, maxsplit: int = 0) -> list[bytes | typing.Any]
             Pattern.split(string: AnyStr, maxsplit: int = 0) -> list[AnyStr | typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L151>`__)
@@ -1421,7 +1421,7 @@ Regular Expression Objects
 
 .. method:: Pattern.findall(string[, pos[, endpos]])
             Pattern.findall(string: str, pos: int = 0, endpos: int = ...) -> list[typing.Any]
-            Pattern.findall(string: _collections_abc.Buffer, pos: int = 0, endpos: int = ...) -> list[typing.Any]
+            Pattern.findall(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> list[typing.Any]
             Pattern.findall(string: AnyStr, pos: int = 0, endpos: int = ...) -> list[AnyStr]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L158>`__)
@@ -1432,9 +1432,9 @@ Regular Expression Objects
 
 
 .. method:: Pattern.finditer(string[, pos[, endpos]])
-            Pattern.finditer(string: str, pos: int = 0, endpos: int = ...) -> typing.Iterator[re.Match[str]]
-            Pattern.finditer(string: _collections_abc.Buffer, pos: int = 0, endpos: int = ...) -> typing.Iterator[re.Match[bytes]]
-            Pattern.finditer(string: AnyStr, pos: int = 0, endpos: int = ...) -> typing.Iterator[re.Match[AnyStr]]
+            Pattern.finditer(string: str, pos: int = 0, endpos: int = ...) -> collections.abc.Iterator[re.Match[str]]
+            Pattern.finditer(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> collections.abc.Iterator[re.Match[bytes]]
+            Pattern.finditer(string: AnyStr, pos: int = 0, endpos: int = ...) -> collections.abc.Iterator[re.Match[AnyStr]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L164>`__)
 
@@ -1445,7 +1445,7 @@ Regular Expression Objects
 
 .. method:: Pattern.sub(repl, string, count=0)
             Pattern.sub(repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0) -> str
-            Pattern.sub(repl: (collections.abc.Callable[[re.Match[bytes]], _collections_abc.Buffer]) | _collections_abc.Buffer, string: _collections_abc.Buffer, count: int = 0) -> bytes
+            Pattern.sub(repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0) -> bytes
             Pattern.sub(repl: (collections.abc.Callable[[re.Match[AnyStr]], AnyStr]) | AnyStr, string: AnyStr, count: int = 0) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L172>`__)
@@ -1455,7 +1455,7 @@ Regular Expression Objects
 
 .. method:: Pattern.subn(repl, string, count=0)
             Pattern.subn(repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0) -> tuple[str, int]
-            Pattern.subn(repl: (collections.abc.Callable[[re.Match[bytes]], _collections_abc.Buffer]) | _collections_abc.Buffer, string: _collections_abc.Buffer, count: int = 0) -> tuple[bytes, int]
+            Pattern.subn(repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0) -> tuple[bytes, int]
             Pattern.subn(repl: (collections.abc.Callable[[re.Match[AnyStr]], AnyStr]) | AnyStr, string: AnyStr, count: int = 0) -> tuple[AnyStr, int]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L183>`__)
@@ -1482,7 +1482,7 @@ Regular Expression Objects
 
 
 .. attribute:: Pattern.groupindex
-   :type: groupindex[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> typing.Mapping[str, int]
+   :type: groupindex[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> collections.abc.Mapping[str, int]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L125>`__)
 
@@ -1531,7 +1531,7 @@ when there is no match, you can test whether there was a match with a simple
 
 .. method:: Match.expand(template)
             Match.expand(template: str) -> str
-            Match.expand(template: _collections_abc.Buffer) -> bytes
+            Match.expand(template: collections.abc.Buffer) -> bytes
             Match.expand(template: AnyStr) -> AnyStr
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/re.pyi#L82>`__)

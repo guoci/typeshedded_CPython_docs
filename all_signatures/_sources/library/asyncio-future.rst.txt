@@ -36,7 +36,7 @@ Future Functions
 
 .. function:: ensure_future(obj, *, loop=None)
               ensure_future(coro_or_future: _FT, *, loop: asyncio.events.AbstractEventLoop | None = None) -> _FT
-              ensure_future(coro_or_future: typing.Awaitable[_T], *, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Task[_T]
+              ensure_future(coro_or_future: collections.abc.Awaitable[_T], *, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Task[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L104>`__)
 
@@ -185,7 +185,7 @@ Future Object
               fut.set_result(42)
 
    .. method:: add_done_callback(callback, *, context=None)
-               add_done_callback[_T](fn: collections.abc.Callable[[_asyncio.Future[_T]], object], /, *, context: _contextvars.Context | None = None) -> None
+               add_done_callback[_T](fn: collections.abc.Callable[[_asyncio.Future[_T]], object], /, *, context: contextvars.Context | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_asyncio.pyi#L29>`__)
 

@@ -1138,7 +1138,7 @@ Test cases
 
    .. method:: assertWarns(warning, callable, *args, **kwds)
                assertWarns(warning, *, msg=None)
-               assertWarns(unittest.case.TestCase, tuple[type[Warning], ...] | type[Warning], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               assertWarns(unittest.case.TestCase, tuple[type[Warning], ...] | type[Warning], collections.abc.Callable[[typing.ParamSpec(_P)], object], typing.ParamSpec(_P)) -> None
                assertWarns(expected_warning: tuple[type[Warning], ...] | type[Warning], *, msg: typing.Any = ...) -> unittest.case._AssertWarnsContext
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L144>`__)
@@ -1183,7 +1183,7 @@ Test cases
 
    .. method:: assertWarnsRegex(warning, regex, callable, *args, **kwds)
                assertWarnsRegex(warning, regex, *, msg=None)
-               assertWarnsRegex(unittest.case.TestCase, tuple[type[Warning], ...] | type[Warning], re.Pattern[str] | str, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               assertWarnsRegex(unittest.case.TestCase, tuple[type[Warning], ...] | type[Warning], re.Pattern[str] | str, collections.abc.Callable[[typing.ParamSpec(_P)], object], typing.ParamSpec(_P)) -> None
                assertWarnsRegex(expected_warning: tuple[type[Warning], ...] | type[Warning], expected_regex: re.Pattern[str] | str, *, msg: typing.Any = ...) -> unittest.case._AssertWarnsContext
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L156>`__)
@@ -1393,7 +1393,7 @@ Test cases
 
 
    .. method:: assertCountEqual(first, second, msg=None)
-               assertCountEqual(first: typing.Iterable[typing.Any], second: typing.Iterable[typing.Any], msg: typing.Any = None) -> None
+               assertCountEqual(first: collections.abc.Iterable[typing.Any], second: collections.abc.Iterable[typing.Any], msg: typing.Any = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L226>`__)
 
@@ -1524,7 +1524,7 @@ Test cases
 
 
    .. method:: assertSequenceEqual(first, second, msg=None, seq_type=None)
-               assertSequenceEqual(seq1: typing.Sequence[typing.Any], seq2: typing.Sequence[typing.Any], msg: typing.Any = None, seq_type: type[typing.Sequence[typing.Any]] | None = None) -> None
+               assertSequenceEqual(seq1: collections.abc.Sequence[typing.Any], seq2: collections.abc.Sequence[typing.Any], msg: typing.Any = None, seq_type: type[collections.abc.Sequence[typing.Any]] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L229>`__)
 
@@ -1555,7 +1555,7 @@ Test cases
 
 
    .. method:: assertSetEqual(first, second, msg=None)
-               assertSetEqual(set1: typing.AbstractSet[object], set2: typing.AbstractSet[object], msg: typing.Any = None) -> None
+               assertSetEqual(set1: collections.abc.Set[object], set2: collections.abc.Set[object], msg: typing.Any = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L234>`__)
 
@@ -1570,7 +1570,7 @@ Test cases
 
 
    .. method:: assertDictEqual(first, second, msg=None)
-               assertDictEqual(d1: typing.Mapping[typing.Any, object], d2: typing.Mapping[typing.Any, object], msg: typing.Any = None) -> None
+               assertDictEqual(d1: collections.abc.Mapping[typing.Any, object], d2: collections.abc.Mapping[typing.Any, object], msg: typing.Any = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L237>`__)
 
@@ -1701,7 +1701,7 @@ Test cases
 
 
    .. method:: addCleanup(function, /, *args, **kwargs)
-               addCleanup[_P](unittest.case.TestCase, (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+               addCleanup[_P](unittest.case.TestCase, collections.abc.Callable[[typing.ParamSpec(_P)], object], typing.ParamSpec(_P)) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L243>`__)
 
@@ -1750,7 +1750,7 @@ Test cases
 
 
    .. classmethod:: addClassCleanup(function, /, *args, **kwargs)
-                    addClassCleanup[_P](type[unittest.case.TestCase], (ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+                    addClassCleanup[_P](type[unittest.case.TestCase], collections.abc.Callable[[typing.ParamSpec(_P)], object], typing.ParamSpec(_P)) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L250>`__)
 
@@ -1820,7 +1820,7 @@ Test cases
       .. versionadded:: 3.13
 
    .. method:: asyncSetUp()
-               asyncSetUp() -> typing.Coroutine[Unknown, Unknown, None]
+               asyncSetUp() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/async_case.pyi#L19>`__)
@@ -1832,7 +1832,7 @@ Test cases
       does nothing.
 
    .. method:: asyncTearDown()
-               asyncTearDown() -> typing.Coroutine[Unknown, Unknown, None]
+               asyncTearDown() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/async_case.pyi#L20>`__)
@@ -1848,14 +1848,14 @@ Test cases
       The default implementation does nothing.
 
    .. method:: addAsyncCleanup(function, /, *args, **kwargs)
-               addAsyncCleanup[_P](unittest.async_case.IsolatedAsyncioTestCase, (ParamSpec(_P)) -> typing.Awaitable[object], ParamSpec(_P)) -> None
+               addAsyncCleanup[_P](unittest.async_case.IsolatedAsyncioTestCase, collections.abc.Callable[[typing.ParamSpec(_P)], collections.abc.Awaitable[object]], typing.ParamSpec(_P)) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/async_case.pyi#L21>`__)
 
       This method accepts a coroutine that can be used as a cleanup function.
 
    .. method:: enterAsyncContext(cm)
-               enterAsyncContext[_T](cm: contextlib.AbstractAsyncContextManager[_T, bool | None]) -> typing.Coroutine[Unknown, Unknown, _T]
+               enterAsyncContext[_T](cm: contextlib.AbstractAsyncContextManager[_T, bool | None]) -> collections.abc.Coroutine[Unknown, Unknown, _T]
       :async:
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/async_case.pyi#L23>`__)
@@ -1938,7 +1938,7 @@ Grouping tests
 ~~~~~~~~~~~~~~
 
 .. class:: TestSuite(tests=())
-           TestSuite(tests: typing.Iterable[_TestType] = ...) -> unittest.suite.TestSuite
+           TestSuite(tests: collections.abc.Iterable[_TestType] = ...) -> unittest.suite.TestSuite
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/suite.pyi#L23>`__)
 
@@ -1966,7 +1966,7 @@ Grouping tests
 
 
    .. method:: TestSuite.addTests(tests)
-               TestSuite.addTests(tests: typing.Iterable[_TestType]) -> None
+               TestSuite.addTests(tests: collections.abc.Iterable[_TestType]) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/suite.pyi#L15>`__)
 
@@ -2010,7 +2010,7 @@ Grouping tests
 
 
    .. method:: __iter__()
-               __iter__() -> typing.Iterator[_TestType]
+               __iter__() -> collections.abc.Iterator[_TestType]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/suite.pyi#L19>`__)
 
@@ -2156,7 +2156,7 @@ Loading and running tests
 
 
    .. method:: loadTestsFromNames(names, module=None)
-               loadTestsFromNames(names: typing.Sequence[str], module: types.ModuleType | None = None) -> unittest.suite.TestSuite
+               loadTestsFromNames(names: collections.abc.Sequence[str], module: types.ModuleType | None = None) -> unittest.suite.TestSuite
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/loader.pyi#L28>`__)
 
@@ -2166,7 +2166,7 @@ Loading and running tests
 
 
    .. method:: getTestCaseNames(testCaseClass)
-               getTestCaseNames(testCaseClass: type[unittest.case.TestCase]) -> typing.Sequence[str]
+               getTestCaseNames(testCaseClass: type[unittest.case.TestCase]) -> collections.abc.Sequence[str]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/loader.pyi#L29>`__)
 
@@ -2679,7 +2679,7 @@ Loading and running tests
 .. function:: main(module='__main__', defaultTest=None, argv=None, testRunner=None, \
                    testLoader=unittest.defaultTestLoader, exit=True, verbosity=1, \
                    failfast=None, catchbreak=None, buffer=None, warnings=None)
-              main(module: types.ModuleType | str | None = '__main__', defaultTest: typing.Iterable[str] | str | None = None, argv: list[str] | None = None, testRunner: unittest.main._TestRunner | type[unittest.main._TestRunner] | None = None, testLoader: unittest.loader.TestLoader = ..., exit: bool = True, verbosity: int = 1, failfast: bool | None = None, catchbreak: bool | None = None, buffer: bool | None = None, warnings: str | None = None, *, tb_locals: bool = False, durations: list[tuple[str, float]] | None = None) -> unittest.main.TestProgram
+              main(module: types.ModuleType | str | None = '__main__', defaultTest: collections.abc.Iterable[str] | str | None = None, argv: list[str] | None = None, testRunner: unittest.main._TestRunner | type[unittest.main._TestRunner] | None = None, testLoader: unittest.loader.TestLoader = ..., exit: bool = True, verbosity: int = 1, failfast: bool | None = None, catchbreak: bool | None = None, buffer: bool | None = None, warnings: str | None = None, *, tb_locals: bool = False, durations: list[tuple[str, float]] | None = None) -> unittest.main.TestProgram
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/main.pyi#L77>`__)
 
@@ -2902,7 +2902,7 @@ To add cleanup code that must be run even in the case of an exception, use
 
 
 .. function:: addModuleCleanup(function, /, *args, **kwargs)
-              addModuleCleanup[_P]((ParamSpec(_P)) -> object, ParamSpec(_P)) -> None
+              addModuleCleanup[_P](collections.abc.Callable[[typing.ParamSpec(_P)], object], typing.ParamSpec(_P)) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/case.pyi#L45>`__)
 
@@ -3010,7 +3010,7 @@ handling functionality within test frameworks.
 
 .. function:: removeHandler(function=None)
               removeHandler(method: None = None) -> None
-              removeHandler(method: (ParamSpec(_P)) -> _T) -> (ParamSpec(_P)) -> _T
+              removeHandler(method: collections.abc.Callable[[typing.ParamSpec(_P)], _T]) -> collections.abc.Callable[[typing.ParamSpec(_P)], _T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/unittest/signals.pyi#L13>`__)
 

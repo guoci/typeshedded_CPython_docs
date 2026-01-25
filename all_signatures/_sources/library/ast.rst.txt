@@ -2464,14 +2464,14 @@ and classes for traversing abstract syntax trees:
 
 .. function:: parse(source, filename='<unknown>', mode='exec', *, type_comments=False, feature_version=None, optimize=-1, module=None)
               parse(source: _T, filename: os.PathLike[typing.Any] | bytes | str = '<unknown>', mode: typing.Literal['eval', 'exec', 'func_type', 'single'] = 'exec', *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> _T
-              parse(source: _collections_abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str = '<unknown>', mode: typing.Literal['exec'] = 'exec', *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Module
-              parse(source: _collections_abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str, mode: typing.Literal['eval'], *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Expression
-              parse(source: _collections_abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str, mode: typing.Literal['func_type'], *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.FunctionType
-              parse(source: _collections_abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str, mode: typing.Literal['single'], *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Interactive
-              parse(source: _collections_abc.Buffer | str, *, mode: typing.Literal['eval'], type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Expression
-              parse(source: _collections_abc.Buffer | str, *, mode: typing.Literal['func_type'], type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.FunctionType
-              parse(source: _collections_abc.Buffer | str, *, mode: typing.Literal['single'], type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Interactive
-              parse(source: _collections_abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str = '<unknown>', mode: str = 'exec', *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.mod
+              parse(source: collections.abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str = '<unknown>', mode: typing.Literal['exec'] = 'exec', *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Module
+              parse(source: collections.abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str, mode: typing.Literal['eval'], *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Expression
+              parse(source: collections.abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str, mode: typing.Literal['func_type'], *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.FunctionType
+              parse(source: collections.abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str, mode: typing.Literal['single'], *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Interactive
+              parse(source: collections.abc.Buffer | str, *, mode: typing.Literal['eval'], type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Expression
+              parse(source: collections.abc.Buffer | str, *, mode: typing.Literal['func_type'], type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.FunctionType
+              parse(source: collections.abc.Buffer | str, *, mode: typing.Literal['single'], type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.Interactive
+              parse(source: collections.abc.Buffer | str, filename: os.PathLike[typing.Any] | bytes | str = '<unknown>', mode: str = 'exec', *, type_comments: bool = False, feature_version: int | tuple[int, int] | None = None, optimize: typing.Literal[-1, 0, 1, 2] = -1) -> ast.mod
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ast.pyi#L1748>`__)
 
@@ -2659,7 +2659,7 @@ and classes for traversing abstract syntax trees:
 
 
 .. function:: iter_fields(node)
-              iter_fields(node: ast.AST) -> typing.Iterator[tuple[str, typing.Any]]
+              iter_fields(node: ast.AST) -> collections.abc.Iterator[tuple[str, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ast.pyi#L1935>`__)
 
@@ -2668,7 +2668,7 @@ and classes for traversing abstract syntax trees:
 
 
 .. function:: iter_child_nodes(node)
-              iter_child_nodes(node: ast.AST) -> typing.Iterator[ast.AST]
+              iter_child_nodes(node: ast.AST) -> collections.abc.Iterator[ast.AST]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ast.pyi#L1936>`__)
 
@@ -2677,7 +2677,7 @@ and classes for traversing abstract syntax trees:
 
 
 .. function:: walk(node)
-              walk(node: ast.AST) -> typing.Iterator[ast.AST]
+              walk(node: ast.AST) -> collections.abc.Iterator[ast.AST]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ast.pyi#L1939>`__)
 

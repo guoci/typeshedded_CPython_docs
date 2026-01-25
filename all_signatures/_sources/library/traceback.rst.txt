@@ -184,7 +184,7 @@ Module-Level Functions
 
 
 .. function:: print_list(extracted_list, file=None)
-              print_list(extracted_list: typing.Iterable[traceback.FrameSummary | tuple[str, int, str, str | None]], file: _typeshed.SupportsWrite[str] | None = None) -> None
+              print_list(extracted_list: collections.abc.Iterable[traceback.FrameSummary | tuple[str, int, str, str | None]], file: _typeshed.SupportsWrite[str] | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L87>`__)
 
@@ -194,7 +194,7 @@ Module-Level Functions
 
 
 .. function:: format_list(extracted_list)
-              format_list(extracted_list: typing.Iterable[traceback.FrameSummary | tuple[str, int, str, str | None]]) -> list[str]
+              format_list(extracted_list: collections.abc.Iterable[traceback.FrameSummary | tuple[str, int, str, str | None]]) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L86>`__)
 
@@ -297,7 +297,7 @@ Module-Level Functions
    .. versionadded:: 3.4
 
 .. function:: walk_stack(f)
-              walk_stack(f: types.FrameType | None) -> typing.Iterator[tuple[types.FrameType, int]]
+              walk_stack(f: types.FrameType | None) -> collections.abc.Iterator[tuple[types.FrameType, int]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L108>`__)
 
@@ -314,7 +314,7 @@ Module-Level Functions
       stack when ``walk_stack`` is called.
 
 .. function:: walk_tb(tb)
-              walk_tb(tb: types.TracebackType | None) -> typing.Iterator[tuple[types.FrameType, int]]
+              walk_tb(tb: types.TracebackType | None) -> collections.abc.Iterator[tuple[types.FrameType, int]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L109>`__)
 
@@ -514,7 +514,7 @@ the module-level functions described above.
       .. versionadded:: 3.11
 
    .. method:: format(*, chain=True)
-               format(*, chain: bool = True, _ctx: traceback._ExceptionPrintContext | None = None) -> typing.Generator[str, None, None]
+               format(*, chain: bool = True, _ctx: traceback._ExceptionPrintContext | None = None) -> collections.abc.Generator[str, None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L235>`__)
 
@@ -528,7 +528,7 @@ the module-level functions described above.
       is a wrapper around this method which just prints the lines to a file.
 
    .. method::  format_exception_only(*, show_group=False)
-                format_exception_only(*, show_group: bool = False, _depth: int = 0) -> typing.Generator[str, None, None]
+                format_exception_only(*, show_group: bool = False, _depth: int = 0) -> collections.abc.Generator[str, None, None]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L240>`__)
 
@@ -563,12 +563,12 @@ the module-level functions described above.
 
 .. class:: StackSummary
            StackSummary() -> traceback.StackSummary
-           StackSummary(iterable: typing.Iterable[traceback.FrameSummary], /) -> traceback.StackSummary
+           StackSummary(iterable: collections.abc.Iterable[traceback.FrameSummary], /) -> traceback.StackSummary
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L316>`__)
 
    .. classmethod:: extract(frame_gen, *, limit=None, lookup_lines=True, capture_locals=False)
-                    extract(cls: type[traceback.StackSummary], frame_gen: typing.Iterable[tuple[types.FrameType, int]], *, limit: int | None = None, lookup_lines: bool = True, capture_locals: bool = False) -> traceback.StackSummary
+                    extract(cls: type[traceback.StackSummary], frame_gen: collections.abc.Iterable[tuple[types.FrameType, int]], *, limit: int | None = None, lookup_lines: bool = True, capture_locals: bool = False) -> traceback.StackSummary
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L318>`__)
 
@@ -589,7 +589,7 @@ the module-level functions described above.
          *capture_locals* is ``True``) are no longer propagated to the caller.
 
    .. classmethod:: from_list(a_list)
-                    from_list(cls: type[traceback.StackSummary], a_list: typing.Iterable[traceback.FrameSummary | tuple[str, int, str, str | None]]) -> traceback.StackSummary
+                    from_list(cls: type[traceback.StackSummary], a_list: collections.abc.Iterable[traceback.FrameSummary | tuple[str, int, str, str | None]]) -> traceback.StackSummary
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L327>`__)
 
@@ -641,7 +641,7 @@ in a :ref:`traceback <traceback-objects>`.
 .. class:: FrameSummary(filename, lineno, name, *,\
                         lookup_line=True, locals=None,\
                         line=None, end_lineno=None, colno=None, end_colno=None)
-           FrameSummary(filename: str, lineno: int | None, name: str, *, lookup_line: bool = True, locals: typing.Mapping[str, str] | None = None, line: str | None = None, end_lineno: int | None = None, colno: int | None = None, end_colno: int | None = None) -> traceback.FrameSummary
+           FrameSummary(filename: str, lineno: int | None, name: str, *, lookup_line: bool = True, locals: collections.abc.Mapping[str, str] | None = None, line: str | None = None, end_lineno: int | None = None, colno: int | None = None, end_colno: int | None = None) -> traceback.FrameSummary
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/traceback.pyi#L247>`__)
 

@@ -40,7 +40,7 @@ Executor Objects
    should not be used directly, but through its concrete subclasses.
 
    .. method:: submit(fn, /, *args, **kwargs)
-               submit[_P, _T](concurrent.futures._base.Executor, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> concurrent.futures._base.Future[_T]
+               submit[_P, _T](concurrent.futures._base.Executor, collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> concurrent.futures._base.Future[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/concurrent/futures/_base.pyi#L55>`__)
 
@@ -53,7 +53,7 @@ Executor Objects
              print(future.result())
 
    .. method:: map(fn, *iterables, timeout=None, chunksize=1, buffersize=None)
-               map[_T](fn: collections.abc.Callable[[...], _T], *iterables: typing.Iterable[typing.Any], *, timeout: float | None = None, chunksize: int = 1, buffersize: int | None = None) -> typing.Iterator[_T]
+               map[_T](fn: collections.abc.Callable[[...], _T], *iterables: collections.abc.Iterable[typing.Any], *, timeout: float | None = None, chunksize: int = 1, buffersize: int | None = None) -> collections.abc.Iterator[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/concurrent/futures/_base.pyi#L57>`__)
 
@@ -682,7 +682,7 @@ Module Functions
 ----------------
 
 .. function:: wait(fs, timeout=None, return_when=ALL_COMPLETED)
-              wait[_T](fs: typing.Iterable[concurrent.futures._base.Future[_T]], timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> concurrent.futures._base.DoneAndNotDoneFutures[_T]
+              wait[_T](fs: collections.abc.Iterable[concurrent.futures._base.Future[_T]], timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> concurrent.futures._base.DoneAndNotDoneFutures[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/concurrent/futures/_base.pyi#L93>`__)
 
@@ -719,7 +719,7 @@ Module Functions
         - The function will return when all futures finish or are cancelled.
 
 .. function:: as_completed(fs, timeout=None)
-              as_completed[_T](fs: typing.Iterable[concurrent.futures._base._AsCompletedFuture[_T]], timeout: float | None = None) -> typing.Iterator[concurrent.futures._base.Future[_T]]
+              as_completed[_T](fs: collections.abc.Iterable[concurrent.futures._base._AsCompletedFuture[_T]], timeout: float | None = None) -> collections.abc.Iterator[concurrent.futures._base.Future[_T]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/concurrent/futures/_base.pyi#L87>`__)
 

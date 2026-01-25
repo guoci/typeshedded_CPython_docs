@@ -170,7 +170,7 @@ The :mod:`bdb` module also defines two classes:
       Count of the number of times a :class:`Breakpoint` has been hit.
 
 .. class:: Bdb(skip=None, backend='settrace')
-           Bdb(skip: typing.Iterable[str] | None = None, backend: _Backend = 'settrace') -> bdb.Bdb
+           Bdb(skip: collections.abc.Iterable[str] | None = None, backend: _Backend = 'settrace') -> bdb.Bdb
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/bdb.pyi#L22>`__)
 
@@ -606,7 +606,7 @@ The :mod:`bdb` module also defines two classes:
    a :term:`statement`, given as a string.
 
    .. method:: run(cmd, globals=None, locals=None)
-               run(cmd: types.CodeType | str, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None) -> None
+               run(cmd: types.CodeType | str, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/bdb.pyi#L88>`__)
 
@@ -614,7 +614,7 @@ The :mod:`bdb` module also defines two classes:
       defaults to :attr:`!__main__.__dict__`, *locals* defaults to *globals*.
 
    .. method:: runeval(expr, globals=None, locals=None)
-               runeval(expr: str, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None) -> None
+               runeval(expr: str, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/bdb.pyi#L91>`__)
 
@@ -622,14 +622,14 @@ The :mod:`bdb` module also defines two classes:
       *locals* have the same meaning as in :meth:`run`.
 
    .. method:: runctx(cmd, globals, locals)
-               runctx(cmd: types.CodeType | str, globals: dict[str, typing.Any] | None, locals: typing.Mapping[str, typing.Any] | None) -> None
+               runctx(cmd: types.CodeType | str, globals: dict[str, typing.Any] | None, locals: collections.abc.Mapping[str, typing.Any] | None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/bdb.pyi#L92>`__)
 
       For backwards compatibility.  Calls the :meth:`run` method.
 
    .. method:: runcall(func, /, *args, **kwds)
-               runcall[_P, _T](bdb.Bdb, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T | None
+               runcall[_P, _T](bdb.Bdb, collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> _T | None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/bdb.pyi#L93>`__)
 

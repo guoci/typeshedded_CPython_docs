@@ -272,7 +272,7 @@ Directory and files operations
 .. function:: copytree(src, dst, symlinks=False, ignore=None, \
               copy_function=copy2, ignore_dangling_symlinks=False, \
               dirs_exist_ok=False)
-              copytree[_StrPathT: PathLike[str] | str](src: StrPath, dst: _StrPathT, symlinks: bool = False, ignore: (collections.abc.Callable[[StrPath, list[str]], typing.Iterable[str]]) | (collections.abc.Callable[[str, list[str]], typing.Iterable[str]]) | None = None, copy_function: collections.abc.Callable[[str, str], object] = ..., ignore_dangling_symlinks: bool = False, dirs_exist_ok: bool = False) -> _StrPathT
+              copytree[_StrPathT: PathLike[str] | str](src: StrPath, dst: _StrPathT, symlinks: bool = False, ignore: (collections.abc.Callable[[StrPath, list[str]], collections.abc.Iterable[str]]) | (collections.abc.Callable[[str, list[str]], collections.abc.Iterable[str]]) | None = None, copy_function: collections.abc.Callable[[str, str], object] = ..., ignore_dangling_symlinks: bool = False, dirs_exist_ok: bool = False) -> _StrPathT
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/shutil.pyi#L69>`__)
 
@@ -754,7 +754,7 @@ provided.  They rely on the :mod:`zipfile` and :mod:`tarfile` modules.
 
 
 .. function:: register_archive_format(name, function, [extra_args, [description]])
-              register_archive_format(name: str, function: collections.abc.Callable[[...], object], extra_args: typing.Sequence[list[typing.Any] | tuple[str, typing.Any]], description: str = '') -> None
+              register_archive_format(name: str, function: collections.abc.Callable[[...], object], extra_args: collections.abc.Sequence[list[typing.Any] | tuple[str, typing.Any]], description: str = '') -> None
               register_archive_format(name: str, function: collections.abc.Callable[[str, str], object], extra_args: None = None, description: str = '') -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/shutil.pyi#L211>`__)
@@ -836,7 +836,7 @@ provided.  They rely on the :mod:`zipfile` and :mod:`tarfile` modules.
       Added the *filter* argument.
 
 .. function:: register_unpack_format(name, extensions, function[, extra_args[, description]])
-              register_unpack_format(name: str, extensions: list[str], function: collections.abc.Callable[[...], object], extra_args: typing.Sequence[tuple[str, typing.Any]], description: str = '') -> None
+              register_unpack_format(name: str, extensions: list[str], function: collections.abc.Callable[[...], object], extra_args: collections.abc.Sequence[tuple[str, typing.Any]], description: str = '') -> None
               register_unpack_format(name: str, extensions: list[str], function: collections.abc.Callable[[str, str], object], extra_args: None = None, description: str = '') -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/shutil.pyi#L223>`__)

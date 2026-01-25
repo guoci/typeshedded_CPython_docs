@@ -23,7 +23,7 @@ Dynamic Type Creation
 ---------------------
 
 .. function:: new_class(name, bases=(), kwds=None, exec_body=None)
-              new_class(name: str, bases: typing.Iterable[object] = ..., kwds: dict[str, typing.Any] | None = None, exec_body: (collections.abc.Callable[[dict[str, typing.Any]], object]) | None = None) -> type[Any]
+              new_class(name: str, bases: collections.abc.Iterable[object] = ..., kwds: dict[str, typing.Any] | None = None, exec_body: (collections.abc.Callable[[dict[str, typing.Any]], object]) | None = None) -> type[Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/types.pyi#L637>`__)
 
@@ -76,7 +76,7 @@ Dynamic Type Creation
       Introduced the ``__prepare__`` namespace hook
 
 .. function:: resolve_bases(bases)
-              resolve_bases(bases: typing.Iterable[object]) -> tuple[typing.Any, ...]
+              resolve_bases(bases: collections.abc.Iterable[object]) -> tuple[typing.Any, ...]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/types.pyi#L643>`__)
 
@@ -497,7 +497,7 @@ Standard names are defined for the following types:
       this method never raises a :exc:`KeyError`.
 
    .. method:: items()
-               items[_KT_co, _VT_co]() -> typing.ItemsView[_KT_co, _VT_co]
+               items[_KT_co, _VT_co]() -> collections.abc.ItemsView[_KT_co, _VT_co]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/types.pyi#L322>`__)
 
@@ -505,14 +505,14 @@ Standard names are defined for the following types:
       pairs).
 
    .. method:: keys()
-               keys[_KT_co, _VT_co]() -> typing.KeysView[_KT_co]
+               keys[_KT_co, _VT_co]() -> collections.abc.KeysView[_KT_co]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/types.pyi#L320>`__)
 
       Return a new view of the underlying mapping's keys.
 
    .. method:: values()
-               values[_KT_co, _VT_co]() -> typing.ValuesView[_VT_co]
+               values[_KT_co, _VT_co]() -> collections.abc.ValuesView[_VT_co]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/types.pyi#L321>`__)
 
@@ -544,7 +544,7 @@ Additional Utility Classes and Functions
 ----------------------------------------
 
 .. class:: SimpleNamespace
-           SimpleNamespace(mapping_or_iterable: typing.Iterable[tuple[str, typing.Any]] | typing.Mapping[str, typing.Any] = ..., /, **kwargs: typing.Any) -> types.SimpleNamespace
+           SimpleNamespace(mapping_or_iterable: collections.abc.Iterable[tuple[str, typing.Any]] | collections.abc.Mapping[str, typing.Any] = ..., /, **kwargs: typing.Any) -> types.SimpleNamespace
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/types.pyi#L336>`__)
 
@@ -618,7 +618,7 @@ Coroutine Utility Functions
 ---------------------------
 
 .. function:: coroutine(gen_func)
-              coroutine(func: (ParamSpec(_P)) -> typing.Generator[typing.Any, typing.Any, _R]) -> (ParamSpec(_P)) -> typing.Awaitable[_R]
+              coroutine(func: collections.abc.Callable[[typing.ParamSpec(_P)], collections.abc.Generator[typing.Any, typing.Any, _R]]) -> collections.abc.Callable[[typing.ParamSpec(_P)], collections.abc.Awaitable[_R]]
               coroutine(func: _Fn) -> _Fn
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/types.pyi#L679>`__)

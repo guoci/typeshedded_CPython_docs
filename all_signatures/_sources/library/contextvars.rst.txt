@@ -27,8 +27,8 @@ Context Variables
 -----------------
 
 .. class:: ContextVar(name, [*, default])
-           ContextVar(name: str) -> _contextvars.ContextVar[_T]
-           ContextVar(name: str, *, default: _T) -> _contextvars.ContextVar[_T]
+           ContextVar(name: str) -> contextvars.ContextVar[_T]
+           ContextVar(name: str, *, default: _T) -> contextvars.ContextVar[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L12>`__)
 
@@ -49,7 +49,7 @@ Context Variables
    from being properly garbage collected.
 
    .. attribute:: ContextVar.name
-      :type: name[_T](self: _contextvars.ContextVar[_T]) -> str
+      :type: name[_T](self: contextvars.ContextVar[_T]) -> str
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L19>`__)
 
@@ -78,7 +78,7 @@ Context Variables
       * raise a :exc:`LookupError`.
 
    .. method:: set(value)
-               set[_T](value: _T, /) -> _contextvars.Token[_T]
+               set[_T](value: _T, /) -> contextvars.Token[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L26>`__)
 
@@ -93,7 +93,7 @@ Context Variables
       :meth:`ContextVar.reset` method.
 
    .. method:: reset(token)
-               reset[_T](token: _contextvars.Token[_T], /) -> None
+               reset[_T](token: contextvars.Token[_T], /) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L27>`__)
 
@@ -113,7 +113,7 @@ Context Variables
 
 
 .. class:: Token
-           Token() -> _contextvars.Token[_T]
+           Token() -> contextvars.Token[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L31>`__)
 
@@ -138,7 +138,7 @@ Context Variables
       Added support for usage as a context manager.
 
    .. attribute:: Token.var
-      :type: var[_T](self: _contextvars.Token[_T]) -> _contextvars.ContextVar[_T]
+      :type: var[_T](self: contextvars.Token[_T]) -> contextvars.ContextVar[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L33>`__)
 
@@ -146,7 +146,7 @@ Context Variables
       that created the token.
 
    .. attribute:: Token.old_value
-      :type: old_value[_T](self: _contextvars.Token[_T]) -> typing.Any
+      :type: old_value[_T](self: contextvars.Token[_T]) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L35>`__)
 
@@ -167,7 +167,7 @@ Manual Context Management
 -------------------------
 
 .. function:: copy_context()
-              copy_context() -> _contextvars.Context
+              copy_context() -> contextvars.Context
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L45>`__)
 
@@ -185,7 +185,7 @@ Manual Context Management
 
 
 .. class:: Context()
-           Context() -> _contextvars.Context
+           Context() -> contextvars.Context
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L50>`__)
 
@@ -228,7 +228,7 @@ Manual Context Management
    Context implements the :class:`collections.abc.Mapping` interface.
 
    .. method:: run(callable, *args, **kwargs)
-               run[_P, _T](_contextvars.Context, (ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+               run[_P, _T](contextvars.Context, collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> _T
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L58>`__)
 
@@ -283,7 +283,7 @@ Manual Context Management
          spam
 
    .. method:: copy()
-               copy() -> _contextvars.Context
+               copy() -> contextvars.Context
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L59>`__)
 
@@ -301,9 +301,9 @@ Manual Context Management
       :exc:`KeyError` is raised.
 
    .. method:: get(var, [default])
-               get(key: _contextvars.ContextVar[_T], default: None = None, /) -> _T | None
-               get(key: _contextvars.ContextVar[_T], default: _T, /) -> _T
-               get(key: _contextvars.ContextVar[_T], default: _D, /) -> _D | _T
+               get(key: contextvars.ContextVar[_T], default: None = None, /) -> _T | None
+               get(key: contextvars.ContextVar[_T], default: _T, /) -> _T
+               get(key: contextvars.ContextVar[_T], default: _D, /) -> _D | _T
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_contextvars.pyi#L53>`__)
 
@@ -321,14 +321,14 @@ Manual Context Management
       Return the number of variables set in the context object.
 
    .. method:: keys()
-               keys() -> typing.KeysView[_contextvars.ContextVar[typing.Any]]
+               keys() -> collections.abc.KeysView[contextvars.ContextVar[typing.Any]]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L786>`__)
 
       Return a list of all variables in the context object.
 
    .. method:: values()
-               values() -> typing.ValuesView[typing.Any]
+               values() -> collections.abc.ValuesView[typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L787>`__)
 
@@ -336,7 +336,7 @@ Manual Context Management
 
 
    .. method:: items()
-               items() -> typing.ItemsView[_contextvars.ContextVar[typing.Any], typing.Any]
+               items() -> collections.abc.ItemsView[contextvars.ContextVar[typing.Any], typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L785>`__)
 

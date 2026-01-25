@@ -804,7 +804,7 @@ dictionaries.
       Length of the network prefix, in bits.
 
    .. method:: hosts()
-               hosts() -> typing.Iterator[ipaddress.IPv4Address]
+               hosts() -> collections.abc.Iterator[ipaddress.IPv4Address]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L76>`__)
 
@@ -833,7 +833,7 @@ dictionaries.
       *other* is wholly contained in this network.
 
    .. method:: address_exclude(network)
-               address_exclude(other: ipaddress.IPv4Network) -> typing.Iterator[ipaddress.IPv4Network]
+               address_exclude(other: ipaddress.IPv4Network) -> collections.abc.Iterator[ipaddress.IPv4Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L72>`__)
 
@@ -849,7 +849,7 @@ dictionaries.
           IPv4Network('192.0.2.2/31'), IPv4Network('192.0.2.0/32')]
 
    .. method:: subnets(prefixlen_diff=1, new_prefix=None)
-               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> typing.Iterator[ipaddress.IPv4Network]
+               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> collections.abc.Iterator[ipaddress.IPv4Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L98>`__)
 
@@ -1079,7 +1079,7 @@ dictionaries.
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L95>`__)
 
    .. method:: hosts()
-               hosts() -> typing.Iterator[ipaddress.IPv6Address]
+               hosts() -> collections.abc.Iterator[ipaddress.IPv6Address]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L76>`__)
 
@@ -1096,12 +1096,12 @@ dictionaries.
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L93>`__)
 
    .. method:: address_exclude(network)
-               address_exclude(other: ipaddress.IPv6Network) -> typing.Iterator[ipaddress.IPv6Network]
+               address_exclude(other: ipaddress.IPv6Network) -> collections.abc.Iterator[ipaddress.IPv6Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L72>`__)
 
    .. method:: subnets(prefixlen_diff=1, new_prefix=None)
-               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> typing.Iterator[ipaddress.IPv6Network]
+               subnets(prefixlen_diff: int = 1, new_prefix: int | None = None) -> collections.abc.Iterator[ipaddress.IPv6Network]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L98>`__)
 
@@ -1370,9 +1370,9 @@ The module also provides the following module level functions:
 
 
 .. function:: summarize_address_range(first, last)
-              summarize_address_range(first: ipaddress.IPv4Address, last: ipaddress.IPv4Address) -> typing.Iterator[ipaddress.IPv4Network]
-              summarize_address_range(first: ipaddress.IPv6Address, last: ipaddress.IPv6Address) -> typing.Iterator[ipaddress.IPv6Network]
-              summarize_address_range(first: ipaddress.IPv4Address | ipaddress.IPv6Address, last: ipaddress.IPv4Address | ipaddress.IPv6Address) -> typing.Iterator[ipaddress.IPv4Network] | typing.Iterator[ipaddress.IPv6Network]
+              summarize_address_range(first: ipaddress.IPv4Address, last: ipaddress.IPv4Address) -> collections.abc.Iterator[ipaddress.IPv4Network]
+              summarize_address_range(first: ipaddress.IPv6Address, last: ipaddress.IPv6Address) -> collections.abc.Iterator[ipaddress.IPv6Network]
+              summarize_address_range(first: ipaddress.IPv4Address | ipaddress.IPv6Address, last: ipaddress.IPv4Address | ipaddress.IPv6Address) -> collections.abc.Iterator[ipaddress.IPv4Network] | collections.abc.Iterator[ipaddress.IPv6Network]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L231>`__)
 
@@ -1391,7 +1391,7 @@ The module also provides the following module level functions:
 
 
 .. function:: collapse_addresses(addresses)
-              collapse_addresses[_N: (IPv4Network, IPv6Network)](addresses: typing.Iterable[_N]) -> typing.Iterator[_N]
+              collapse_addresses[_N: (IPv4Network, IPv6Network)](addresses: collections.abc.Iterable[_N]) -> collections.abc.Iterator[_N]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ipaddress.pyi#L238>`__)
 

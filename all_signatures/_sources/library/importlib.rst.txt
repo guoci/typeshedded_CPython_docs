@@ -95,7 +95,7 @@ Functions
 ---------
 
 .. function:: __import__(name, globals=None, locals=None, fromlist=(), level=0)
-              __import__(name: str, globals: typing.Mapping[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, fromlist: typing.Sequence[str] | None = ..., level: int = 0) -> types.ModuleType
+              __import__(name: str, globals: collections.abc.Mapping[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, fromlist: collections.abc.Sequence[str] | None = ..., level: int = 0) -> types.ModuleType
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_frozen_importlib.pyi#L12>`__)
 
@@ -268,7 +268,7 @@ ABC hierarchy::
       No longer a subclass of :class:`!Finder`.
 
    .. method:: find_spec(fullname, path, target=None)
-               find_spec(fullname: str, path: typing.Sequence[str] | None, target: types.ModuleType | None = ..., /) -> _frozen_importlib.ModuleSpec | None
+               find_spec(fullname: str, path: collections.abc.Sequence[str] | None, target: types.ModuleType | None = ..., /) -> _frozen_importlib.ModuleSpec | None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/importlib/abc.pyi#L80>`__)
 
@@ -479,7 +479,7 @@ ABC hierarchy::
            Raises :exc:`ImportError` instead of :exc:`NotImplementedError`.
 
     .. staticmethod:: source_to_code(data, path='<string>', fullname=None)
-                      source_to_code(data: _collections_abc.Buffer | ast.Expression | ast.Interactive | ast.Module | str, path: os.PathLike[str] | bytes | str = '<string>') -> types.CodeType
+                      source_to_code(data: collections.abc.Buffer | ast.Expression | ast.Interactive | ast.Module | str, path: os.PathLike[str] | bytes | str = '<string>') -> types.CodeType
 
        (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/importlib/abc.pyi#L55>`__)
 
@@ -618,7 +618,7 @@ ABC hierarchy::
        Removed the ``load_module()`` method.
 
     .. method:: path_stats(path)
-                path_stats(path: str) -> typing.Mapping[str, typing.Any]
+                path_stats(path: str) -> collections.abc.Mapping[str, typing.Any]
 
        (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/importlib/abc.pyi#L68>`__)
 
@@ -855,7 +855,7 @@ find and load modules.
    instantiation.
 
    .. classmethod:: find_spec(fullname, path=None, target=None)
-                    find_spec(cls: type[_frozen_importlib_external.PathFinder], fullname: str, path: typing.Sequence[str] | None = None, target: types.ModuleType | None = None) -> _frozen_importlib.ModuleSpec | None
+                    find_spec(cls: type[_frozen_importlib_external.PathFinder], fullname: str, path: collections.abc.Sequence[str] | None = None, target: types.ModuleType | None = None) -> _frozen_importlib.ModuleSpec | None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_frozen_importlib_external.pyi#L75>`__)
 
@@ -1027,14 +1027,14 @@ find and load modules.
       Return ``True`` if :attr:`path` appears to be for a package.
 
    .. method:: path_stats(path)
-               path_stats(path: str) -> typing.Mapping[str, typing.Any]
+               path_stats(path: str) -> collections.abc.Mapping[str, typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_frozen_importlib_external.pyi#L131>`__)
 
       Concrete implementation of :meth:`importlib.abc.SourceLoader.path_stats`.
 
    .. method:: set_data(path, data)
-               set_data(path: str, data: _collections_abc.Buffer, *, _mode: int = 438) -> None
+               set_data(path: str, data: collections.abc.Buffer, *, _mode: int = 438) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_frozen_importlib_external.pyi#L130>`__)
 
@@ -1182,7 +1182,7 @@ find and load modules.
 
 
 .. class:: NamespaceLoader(name, path, path_finder)
-           NamespaceLoader(name: str, path: typing.MutableSequence[str], path_finder: collections.abc.Callable[[str, tuple[str, ...]], _frozen_importlib.ModuleSpec]) -> _frozen_importlib_external.NamespaceLoader
+           NamespaceLoader(name: str, path: collections.abc.MutableSequence[str], path_finder: collections.abc.Callable[[str, tuple[str, ...]], _frozen_importlib.ModuleSpec]) -> _frozen_importlib_external.NamespaceLoader
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_frozen_importlib_external.pyi#L155>`__)
 
@@ -1452,7 +1452,7 @@ an :term:`importer`.
       Accepts a :term:`path-like object`.
 
 .. function:: decode_source(source_bytes)
-              decode_source(source_bytes: _collections_abc.Buffer) -> str
+              decode_source(source_bytes: collections.abc.Buffer) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_frozen_importlib_external.pyi#L37>`__)
 
@@ -1559,7 +1559,7 @@ an :term:`importer`.
       Accepts a :term:`path-like object`.
 
 .. function:: source_hash(source_bytes)
-              source_hash(source_bytes: _collections_abc.Buffer) -> bytes
+              source_hash(source_bytes: collections.abc.Buffer) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/importlib/util.pyi#L47>`__)
 

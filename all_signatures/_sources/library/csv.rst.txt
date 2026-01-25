@@ -54,7 +54,7 @@ The :mod:`csv` module defines the following functions:
    single: universal newlines; csv.reader function
 
 .. function:: reader(csvfile, /, dialect='excel', **fmtparams)
-              reader(iterable: typing.Iterable[str], /, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> _csv.Reader
+              reader(iterable: collections.abc.Iterable[str], /, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> _csv.Reader
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_csv.pyi#L108>`__)
 
@@ -171,8 +171,8 @@ The :mod:`csv` module defines the following classes:
 
 .. class:: DictReader(f, fieldnames=None, restkey=None, restval=None, \
                       dialect='excel', *args, **kwds)
-           DictReader(f: typing.Iterable[str], fieldnames: typing.Sequence[_T], restkey: _T | None = None, restval: str | typing.Any | None = None, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictReader[_T]
-           DictReader(f: typing.Iterable[str], fieldnames: typing.Sequence[str] | None = None, restkey: str | None = None, restval: str | None = None, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictReader[str]
+           DictReader(f: collections.abc.Iterable[str], fieldnames: collections.abc.Sequence[_T], restkey: _T | None = None, restval: str | typing.Any | None = None, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictReader[_T]
+           DictReader(f: collections.abc.Iterable[str], fieldnames: collections.abc.Sequence[str] | None = None, restkey: str | None = None, restval: str | None = None, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictReader[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/csv.pyi#L76>`__)
 
@@ -221,7 +221,7 @@ The :mod:`csv` module defines the following classes:
 
 .. class:: DictWriter(f, fieldnames, restval='', extrasaction='raise', \
                       dialect='excel', *args, **kwds)
-           DictWriter(f: _typeshed.SupportsWrite[str], fieldnames: typing.Collection[_T], restval: typing.Any | None = '', extrasaction: typing.Literal['ignore', 'raise'] = 'raise', dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictWriter[_T]
+           DictWriter(f: _typeshed.SupportsWrite[str], fieldnames: collections.abc.Collection[_T], restval: typing.Any | None = '', extrasaction: typing.Literal['ignore', 'raise'] = 'raise', dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictWriter[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/csv.pyi#L124>`__)
 
@@ -635,7 +635,7 @@ read CSV files (assuming they support complex numbers at all).
 
 
 .. method:: csvwriter.writerow(row, /)
-            csvwriter.writerow(row: typing.Iterable[typing.Any], /) -> typing.Any
+            csvwriter.writerow(row: collections.abc.Iterable[typing.Any], /) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_csv.pyi#L66>`__)
 
@@ -647,7 +647,7 @@ read CSV files (assuming they support complex numbers at all).
       Added support of arbitrary iterables.
 
 .. method:: csvwriter.writerows(rows, /)
-            csvwriter.writerows(rows: typing.Iterable[typing.Iterable[typing.Any]], /) -> None
+            csvwriter.writerows(rows: collections.abc.Iterable[collections.abc.Iterable[typing.Any]], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_csv.pyi#L67>`__)
 

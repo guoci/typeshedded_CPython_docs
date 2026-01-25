@@ -622,7 +622,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: putp(str)
-              putp(string: _collections_abc.Buffer, /) -> None
+              putp(string: collections.abc.Buffer, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_curses.pyi#L336>`__)
 
@@ -838,7 +838,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: tparm(str[, ...])
-              tparm(str: _collections_abc.Buffer, i1: int = 0, i2: int = 0, i3: int = 0, i4: int = 0, i5: int = 0, i6: int = 0, i7: int = 0, i8: int = 0, i9: int = 0, /) -> bytes
+              tparm(str: collections.abc.Buffer, i1: int = 0, i2: int = 0, i3: int = 0, i4: int = 0, i5: int = 0, i6: int = 0, i7: int = 0, i8: int = 0, i9: int = 0, /) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_curses.pyi#L355>`__)
 
@@ -941,7 +941,7 @@ The module :mod:`curses` defines the following functions:
 
 
 .. function:: wrapper(func, /, *args, **kwargs)
-              wrapper[_P, _T]((_curses.window, ParamSpec(_P)) -> _T, ParamSpec(_P)) -> _T
+              wrapper[_P, _T](collections.abc.Callable[[_curses.window, typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/curses/__init__.pyi#L25>`__)
 

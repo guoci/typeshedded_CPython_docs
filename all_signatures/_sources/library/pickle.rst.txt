@@ -256,7 +256,7 @@ process more convenient:
       The *buffer_callback* argument was added.
 
 .. function:: load(file, *, fix_imports=True, encoding="ASCII", errors="strict", buffers=None)
-              load(file: _pickle._ReadableFileobj, *, fix_imports: bool = True, encoding: str = 'ASCII', errors: str = 'strict', buffers: typing.Iterable[typing.Any] | None = ...) -> typing.Any
+              load(file: _pickle._ReadableFileobj, *, fix_imports: bool = True, encoding: str = 'ASCII', errors: str = 'strict', buffers: collections.abc.Iterable[typing.Any] | None = ...) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_pickle.pyi#L33>`__)
 
@@ -275,7 +275,7 @@ process more convenient:
       The *buffers* argument was added.
 
 .. function:: loads(data, /, *, fix_imports=True, encoding="ASCII", errors="strict", buffers=None)
-              loads(data: _collections_abc.Buffer, /, *, fix_imports: bool = True, encoding: str = 'ASCII', errors: str = 'strict', buffers: typing.Iterable[typing.Any] | None = ...) -> typing.Any
+              loads(data: collections.abc.Buffer, /, *, fix_imports: bool = True, encoding: str = 'ASCII', errors: str = 'strict', buffers: collections.abc.Iterable[typing.Any] | None = ...) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_pickle.pyi#L41>`__)
 
@@ -393,7 +393,7 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
          of :class:`!Pickler`.
 
    .. attribute:: dispatch_table
-      :type: typing.Mapping[type[Any], collections.abc.Callable[[typing.Any], _ReducedType]]
+      :type: collections.abc.Mapping[type[Any], collections.abc.Callable[[typing.Any], _ReducedType]]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_pickle.pyi#L63>`__)
 
@@ -460,7 +460,7 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
 
 
 .. class:: Unpickler(file, *, fix_imports=True, encoding="ASCII", errors="strict", buffers=None)
-           Unpickler(file: _pickle._ReadableFileobj, *, fix_imports: bool = True, encoding: str = 'ASCII', errors: str = 'strict', buffers: typing.Iterable[typing.Any] | None = ...) -> _pickle.Unpickler
+           Unpickler(file: _pickle._ReadableFileobj, *, fix_imports: bool = True, encoding: str = 'ASCII', errors: str = 'strict', buffers: collections.abc.Iterable[typing.Any] | None = ...) -> _pickle.Unpickler
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_pickle.pyi#L89>`__)
 
@@ -544,7 +544,7 @@ The :mod:`pickle` module exports three classes, :class:`Pickler`,
       .. audit-event:: pickle.find_class module,name pickle.Unpickler.find_class
 
 .. class:: PickleBuffer(buffer)
-           PickleBuffer(buffer: _collections_abc.Buffer) -> pickle.PickleBuffer
+           PickleBuffer(buffer: collections.abc.Buffer) -> pickle.PickleBuffer
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/pickle.pyi#L111>`__)
 

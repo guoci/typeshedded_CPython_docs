@@ -993,7 +993,7 @@ The following functions all create :ref:`socket objects <socket-objects>`.
 
 
 .. function:: create_connection(address, timeout=GLOBAL_DEFAULT, source_address=None, *, all_errors=False)
-              create_connection(address: tuple[str | None, int], timeout: float | None = ..., source_address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None, *, all_errors: bool = False) -> socket.socket
+              create_connection(address: tuple[str | None, int], timeout: float | None = ..., source_address: collections.abc.Buffer | str | tuple[typing.Any, ...] | None = None, *, all_errors: bool = False) -> socket.socket
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/socket.pyi#L1429>`__)
 
@@ -1437,7 +1437,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: inet_ntoa(packed_ip)
-              inet_ntoa(packed_ip: _collections_abc.Buffer, /) -> str
+              inet_ntoa(packed_ip: collections.abc.Buffer, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L835>`__)
 
@@ -1480,7 +1480,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: inet_ntop(address_family, packed_ip)
-              inet_ntop(address_family: int, packed_ip: _collections_abc.Buffer, /) -> str
+              inet_ntop(address_family: int, packed_ip: collections.abc.Buffer, /) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L837>`__)
 
@@ -1668,7 +1668,7 @@ The :mod:`socket` module also offers various network-related services:
 
 
 .. function:: send_fds(sock, buffers, fds[, flags[, address]])
-              send_fds(sock: socket.socket, buffers: typing.Iterable[_collections_abc.Buffer], fds: typing.Iterable[int], flags: object = 0, address: object = None) -> int
+              send_fds(sock: socket.socket, buffers: collections.abc.Iterable[collections.abc.Buffer], fds: collections.abc.Iterable[int], flags: object = 0, address: object = None) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/socket.pyi#L1401>`__)
 
@@ -2119,7 +2119,7 @@ to sockets.
 
 
 .. method:: socket.recvmsg_into(buffers[, ancbufsize[, flags]])
-            socket.recvmsg_into(buffers: typing.Iterable[_collections_abc.Buffer], ancbufsize: int = 0, flags: int = 0, /) -> tuple[int, list[tuple[int, int, bytes]], int, typing.Any]
+            socket.recvmsg_into(buffers: collections.abc.Iterable[collections.abc.Buffer], ancbufsize: int = 0, flags: int = 0, /) -> tuple[int, list[tuple[int, int, bytes]], int, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L774>`__)
 
@@ -2161,7 +2161,7 @@ to sockets.
 
 
 .. method:: socket.recvfrom_into(buffer[, nbytes[, flags]])
-            socket.recvfrom_into(buffer: _collections_abc.Buffer, nbytes: int = 0, flags: int = 0) -> tuple[int, typing.Any]
+            socket.recvfrom_into(buffer: collections.abc.Buffer, nbytes: int = 0, flags: int = 0) -> tuple[int, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L778>`__)
 
@@ -2174,7 +2174,7 @@ to sockets.
 
 
 .. method:: socket.recv_into(buffer[, nbytes[, flags]])
-            socket.recv_into(buffer: _collections_abc.Buffer, nbytes: int = 0, flags: int = 0) -> int
+            socket.recv_into(buffer: collections.abc.Buffer, nbytes: int = 0, flags: int = 0) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L779>`__)
 
@@ -2186,7 +2186,7 @@ to sockets.
 
 
 .. method:: socket.send(bytes[, flags])
-            socket.send(data: _collections_abc.Buffer, flags: int = 0, /) -> int
+            socket.send(data: collections.abc.Buffer, flags: int = 0, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L780>`__)
 
@@ -2204,7 +2204,7 @@ to sockets.
 
 
 .. method:: socket.sendall(bytes[, flags])
-            socket.sendall(data: _collections_abc.Buffer, flags: int = 0, /) -> None
+            socket.sendall(data: collections.abc.Buffer, flags: int = 0, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L781>`__)
 
@@ -2227,8 +2227,8 @@ to sockets.
 
 .. method:: socket.sendto(bytes, address)
             socket.sendto(bytes, flags, address)
-            socket.sendto(data: _collections_abc.Buffer, address: _Address, /) -> int
-            socket.sendto(data: _collections_abc.Buffer, flags: int, address: _Address, /) -> int
+            socket.sendto(data: collections.abc.Buffer, address: _Address, /) -> int
+            socket.sendto(data: collections.abc.Buffer, flags: int, address: _Address, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L783>`__)
 
@@ -2247,7 +2247,7 @@ to sockets.
 
 
 .. method:: socket.sendmsg(buffers[, ancdata[, flags[, address]]])
-            socket.sendmsg(buffers: typing.Iterable[_collections_abc.Buffer], ancdata: typing.Iterable[tuple[int, int, _collections_abc.Buffer]] = ..., flags: int = 0, address: _collections_abc.Buffer | str | tuple[typing.Any, ...] | None = None, /) -> int
+            socket.sendmsg(buffers: collections.abc.Iterable[collections.abc.Buffer], ancdata: collections.abc.Iterable[tuple[int, int, collections.abc.Buffer]] = ..., flags: int = 0, address: collections.abc.Buffer | str | tuple[typing.Any, ...] | None = None, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L787>`__)
 
@@ -2294,7 +2294,7 @@ to sockets.
       an :exc:`InterruptedError` exception (see :pep:`475` for the rationale).
 
 .. method:: socket.sendmsg_afalg([msg], *, op[, iv[, assoclen[, flags]]])
-            socket.sendmsg_afalg(msg: typing.Iterable[_collections_abc.Buffer] = ..., *, op: int, iv: typing.Any = ..., assoclen: int = ..., flags: int = 0) -> int
+            socket.sendmsg_afalg(msg: collections.abc.Iterable[collections.abc.Buffer] = ..., *, op: int, iv: typing.Any = ..., assoclen: int = ..., flags: int = 0) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L796>`__)
 
@@ -2378,7 +2378,7 @@ to sockets.
 
 .. method:: socket.setsockopt(level, optname, value: int | Buffer)
             socket.setsockopt(level, optname, None, optlen: int)
-            socket.setsockopt(level: int, optname: int, value: _collections_abc.Buffer | int, /) -> None
+            socket.setsockopt(level: int, optname: int, value: collections.abc.Buffer | int, /) -> None
             socket.setsockopt(level: int, optname: int, value: None, optlen: int, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_socket.pyi#L803>`__)

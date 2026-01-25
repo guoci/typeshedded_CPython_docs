@@ -405,7 +405,7 @@ process and user.
 
 
 .. function:: get_exec_path(env=None)
-              get_exec_path(env: typing.Mapping[str, str] | None = None) -> list[str]
+              get_exec_path(env: collections.abc.Mapping[str, str] | None = None) -> list[str]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L959>`__)
 
@@ -723,7 +723,7 @@ process and user.
 
 
 .. function:: setgroups(groups, /)
-              setgroups(groups: typing.Sequence[int], /) -> None
+              setgroups(groups: collections.abc.Sequence[int], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1001>`__)
 
@@ -1760,7 +1760,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: preadv(fd, buffers, offset, flags=0, /)
-              preadv(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], offset: int, flags: int = 0, /) -> int
+              preadv(fd: int, buffers: _typeshed.SupportsLenAndGetItem[collections.abc.Buffer], offset: int, flags: int = 0, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1153>`__)
 
@@ -1863,7 +1863,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: pwrite(fd, str, offset, /)
-              pwrite(fd: int, buffer: _collections_abc.Buffer, offset: int, /) -> int
+              pwrite(fd: int, buffer: collections.abc.Buffer, offset: int, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1151>`__)
 
@@ -1878,7 +1878,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: pwritev(fd, buffers, offset, flags=0, /)
-              pwritev(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], offset: int, flags: int = 0, /) -> int
+              pwritev(fd: int, buffers: _typeshed.SupportsLenAndGetItem[collections.abc.Buffer], offset: int, flags: int = 0, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1154>`__)
 
@@ -1979,7 +1979,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: readinto(fd, buffer, /)
-              readinto(fd: int, buffer: _collections_abc.Buffer, /) -> int
+              readinto(fd: int, buffer: collections.abc.Buffer, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1180>`__)
 
@@ -2152,7 +2152,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    .. versionadded:: 3.10
 
 .. function:: readv(fd, buffers, /)
-              readv(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], /) -> int
+              readv(fd: int, buffers: _typeshed.SupportsLenAndGetItem[collections.abc.Buffer], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1176>`__)
 
@@ -2223,7 +2223,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: write(fd, str, /)
-              write(fd: int, data: _collections_abc.Buffer, /) -> int
+              write(fd: int, data: collections.abc.Buffer, /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1206>`__)
 
@@ -2246,7 +2246,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
 
 .. function:: writev(fd, buffers, /)
-              writev(fd: int, buffers: _typeshed.SupportsLenAndGetItem[_collections_abc.Buffer], /) -> int
+              writev(fd: int, buffers: _typeshed.SupportsLenAndGetItem[collections.abc.Buffer], /) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1177>`__)
 
@@ -2293,7 +2293,7 @@ Querying the size of a terminal
    .. availability:: Unix, Windows.
 
 .. class:: terminal_size
-           terminal_size(sequence: typing.Iterable[int], dict: dict[str, typing.Any] = ...) -> os.terminal_size
+           terminal_size(sequence: collections.abc.Iterable[int], dict: dict[str, typing.Any] = ...) -> os.terminal_size
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1183>`__)
 
@@ -3638,7 +3638,7 @@ features:
 
 
 .. class:: stat_result
-           stat_result(sequence: typing.Iterable[float], dict: dict[str, typing.Any] = ...) -> os.stat_result
+           stat_result(sequence: collections.abc.Iterable[float], dict: dict[str, typing.Any] = ...) -> os.stat_result
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L794>`__)
 
@@ -4578,7 +4578,7 @@ features:
 
 
 .. function:: walk(top, topdown=True, onerror=None, followlinks=False)
-              walk[AnyStr: (str, bytes)](top: GenericPath, topdown: bool = True, onerror: (collections.abc.Callable[[OSError], object]) | None = None, followlinks: bool = False) -> typing.Iterator[tuple[AnyStr, list[AnyStr], list[AnyStr]]]
+              walk[AnyStr: (str, bytes)](top: GenericPath, topdown: bool = True, onerror: (collections.abc.Callable[[OSError], object]) | None = None, followlinks: bool = False) -> collections.abc.Iterator[tuple[AnyStr, list[AnyStr], list[AnyStr]]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1303>`__)
 
@@ -4681,8 +4681,8 @@ features:
 
 
 .. function:: fwalk(top='.', topdown=True, onerror=None, *, follow_symlinks=False, dir_fd=None)
-              fwalk(top: StrPath = '.', topdown: bool = True, onerror: (collections.abc.Callable[[OSError], object]) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> typing.Iterator[tuple[str, list[str], list[str], int]]
-              fwalk(top: BytesPath, topdown: bool = True, onerror: (collections.abc.Callable[[OSError], object]) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> typing.Iterator[tuple[bytes, list[bytes], list[bytes], int]]
+              fwalk(top: StrPath = '.', topdown: bool = True, onerror: (collections.abc.Callable[[OSError], object]) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterator[tuple[str, list[str], list[str], int]]
+              fwalk(top: BytesPath, topdown: bool = True, onerror: (collections.abc.Callable[[OSError], object]) | None = None, *, follow_symlinks: bool = False, dir_fd: int | None = None) -> collections.abc.Iterator[tuple[bytes, list[bytes], list[bytes], int]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1309>`__)
 
@@ -5218,7 +5218,7 @@ These functions are all available on Linux only.
 
 
 .. function:: setxattr(path, attribute, value, flags=0, *, follow_symlinks=True)
-              setxattr(path: FileDescriptorOrPath, attribute: StrOrBytesPath, value: _collections_abc.Buffer, flags: int = 0, *, follow_symlinks: bool = True) -> None
+              setxattr(path: FileDescriptorOrPath, attribute: StrOrBytesPath, value: collections.abc.Buffer, flags: int = 0, *, follow_symlinks: bool = True) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1330>`__)
 
@@ -5824,7 +5824,7 @@ written in Python, such as a mail server's external command delivery program.
 .. function:: posix_spawn(path, argv, env, *, file_actions=None, \
                           setpgroup=None, resetids=False, setsid=False, setsigmask=(), \
                           setsigdef=(), scheduler=None)
-              posix_spawn(path: StrOrBytesPath, argv: _ExecVArgs, env: typing.Mapping[bytes, bytes | str] | typing.Mapping[str, bytes | str] | None, /, *, file_actions: typing.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: typing.Iterable[int] = ..., setsigdef: typing.Iterable[int] = ..., scheduler: tuple[typing.Any, os.sched_param] = ...) -> int
+              posix_spawn(path: StrOrBytesPath, argv: _ExecVArgs, env: collections.abc.Mapping[bytes, bytes | str] | collections.abc.Mapping[str, bytes | str] | None, /, *, file_actions: collections.abc.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: collections.abc.Iterable[int] = ..., setsigdef: collections.abc.Iterable[int] = ..., scheduler: tuple[typing.Any, os.sched_param] = ...) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1535>`__)
 
@@ -5938,7 +5938,7 @@ written in Python, such as a mail server's external command delivery program.
 .. function:: posix_spawnp(path, argv, env, *, file_actions=None, \
                           setpgroup=None, resetids=False, setsid=False, setsigmask=(), \
                           setsigdef=(), scheduler=None)
-              posix_spawnp(path: StrOrBytesPath, argv: _ExecVArgs, env: typing.Mapping[bytes, bytes | str] | typing.Mapping[str, bytes | str] | None, /, *, file_actions: typing.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: typing.Iterable[int] = ..., setsigdef: typing.Iterable[int] = ..., scheduler: tuple[typing.Any, os.sched_param] = ...) -> int
+              posix_spawnp(path: StrOrBytesPath, argv: _ExecVArgs, env: collections.abc.Mapping[bytes, bytes | str] | collections.abc.Mapping[str, bytes | str] | None, /, *, file_actions: collections.abc.Sequence[tuple[typing.Any, ...]] | None = ..., setpgroup: int = ..., resetids: bool = False, setsid: bool = False, setsigmask: collections.abc.Iterable[int] = ..., setsigdef: collections.abc.Iterable[int] = ..., scheduler: tuple[typing.Any, os.sched_param] = ...) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1549>`__)
 
@@ -6810,7 +6810,7 @@ operating system.
 
 
 .. function:: sched_setaffinity(pid, mask, /)
-              sched_setaffinity(pid: int, mask: typing.Iterable[int], /) -> None
+              sched_setaffinity(pid: int, mask: collections.abc.Iterable[int], /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/os/__init__.pyi#L1616>`__)
 

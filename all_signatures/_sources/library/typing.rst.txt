@@ -2504,7 +2504,7 @@ Their intended purpose is to be building blocks for creating and declaring
 types.
 
 .. class:: NamedTuple
-           NamedTuple(typename: str, fields: typing.Iterable[tuple[str, typing.Any]], /) -> typing.NamedTuple
+           NamedTuple(typename: str, fields: collections.abc.Iterable[tuple[str, typing.Any]], /) -> typing.NamedTuple
            NamedTuple(typename: str, fields: None = None, /, **kwargs: typing.Any) -> typing.NamedTuple
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L1007>`__)
@@ -3402,7 +3402,7 @@ Functions and decorators
 
 
 .. function:: get_overloads(func)
-              get_overloads(func: collections.abc.Callable[[...], object]) -> typing.Sequence[collections.abc.Callable[[...], object]]
+              get_overloads(func: collections.abc.Callable[[...], object]) -> collections.abc.Sequence[collections.abc.Callable[[...], object]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L993>`__)
 
@@ -3559,7 +3559,7 @@ Introspection helpers
 ---------------------
 
 .. function:: get_type_hints(obj, globalns=None, localns=None, include_extras=False)
-              get_type_hints(obj: _get_type_hints_obj_allowed_types, globalns: dict[str, typing.Any] | None = None, localns: typing.Mapping[str, typing.Any] | None = None, include_extras: bool = False, *, format: annotationlib.Format | None = None) -> dict[str, typing.Any]
+              get_type_hints(obj: _get_type_hints_obj_allowed_types, globalns: dict[str, typing.Any] | None = None, localns: collections.abc.Mapping[str, typing.Any] | None = None, include_extras: bool = False, *, format: annotationlib.Format | None = None) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L952>`__)
 
@@ -3754,7 +3754,7 @@ Introspection helpers
       been evaluated, the evaluated value is no longer cached.
 
 .. function:: evaluate_forward_ref(forward_ref, *, owner=None, globals=None, locals=None, type_params=None, format=annotationlib.Format.VALUE)
-              evaluate_forward_ref(forward_ref: annotationlib.ForwardRef, *, owner: object = None, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.TypeVar, typing.ParamSpec, typing.TypeVarTuple] | None = None, format: annotationlib.Format | None = None) -> typing.Any
+              evaluate_forward_ref(forward_ref: annotationlib.ForwardRef, *, owner: object = None, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.TypeVar, typing.ParamSpec, typing.TypeVarTuple] | None = None, format: annotationlib.Format | None = None) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L1068>`__)
 
@@ -3867,10 +3867,10 @@ Aliases to built-in types
            Dict(/, **kwargs: _VT) -> dict[str, _VT]
            Dict(map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> dict[_KT, _VT]
            Dict(map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> dict[str, _VT]
-           Dict(iterable: typing.Iterable[tuple[_KT, _VT]], /) -> dict[_KT, _VT]
-           Dict(iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> dict[str, _VT]
-           Dict(iterable: typing.Iterable[list[str]], /) -> dict[str, str]
-           Dict(iterable: typing.Iterable[list[bytes]], /) -> dict[bytes, bytes]
+           Dict(iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> dict[_KT, _VT]
+           Dict(iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> dict[str, _VT]
+           Dict(iterable: collections.abc.Iterable[list[str]], /) -> dict[str, str]
+           Dict(iterable: collections.abc.Iterable[list[bytes]], /) -> dict[bytes, bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L431>`__)
 
@@ -3886,7 +3886,7 @@ Aliases to built-in types
 
 .. class:: List(list, MutableSequence[T])
            List() -> list[_T]
-           List(iterable: typing.Iterable[_T], /) -> list[_T]
+           List(iterable: collections.abc.Iterable[_T], /) -> list[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L430>`__)
 
@@ -3903,7 +3903,7 @@ Aliases to built-in types
 
 .. class:: Set(set, MutableSet[T])
            Set() -> set[_T]
-           Set(iterable: typing.Iterable[_T], /) -> set[_T]
+           Set(iterable: collections.abc.Iterable[_T], /) -> set[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L433>`__)
 
@@ -3919,7 +3919,7 @@ Aliases to built-in types
 
 .. class:: FrozenSet(frozenset, AbstractSet[T_co])
            FrozenSet() -> frozenset[_T_co]
-           FrozenSet(iterable: typing.Iterable[_T_co], /) -> frozenset[_T_co]
+           FrozenSet(iterable: collections.abc.Iterable[_T_co], /) -> frozenset[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L434>`__)
 
@@ -3970,8 +3970,8 @@ Aliases to types in :mod:`collections`
            DefaultDict(default_factory: (collections.abc.Callable[[], _VT]) | None, /, **kwargs: _VT) -> collections.defaultdict[str, _VT]
            DefaultDict(default_factory: (collections.abc.Callable[[], _VT]) | None, map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> collections.defaultdict[_KT, _VT]
            DefaultDict(default_factory: (collections.abc.Callable[[], _VT]) | None, map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> collections.defaultdict[str, _VT]
-           DefaultDict(default_factory: (collections.abc.Callable[[], _VT]) | None, iterable: typing.Iterable[tuple[_KT, _VT]], /) -> collections.defaultdict[_KT, _VT]
-           DefaultDict(default_factory: (collections.abc.Callable[[], _VT]) | None, iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> collections.defaultdict[str, _VT]
+           DefaultDict(default_factory: (collections.abc.Callable[[], _VT]) | None, iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> collections.defaultdict[_KT, _VT]
+           DefaultDict(default_factory: (collections.abc.Callable[[], _VT]) | None, iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> collections.defaultdict[str, _VT]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L432>`__)
 
@@ -3988,10 +3988,10 @@ Aliases to types in :mod:`collections`
            OrderedDict(/, **kwargs: _VT) -> dict[str, _VT]
            OrderedDict(map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> collections.OrderedDict[_KT, _VT]
            OrderedDict(map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> dict[str, _VT]
-           OrderedDict(iterable: typing.Iterable[tuple[_KT, _VT]], /) -> collections.OrderedDict[_KT, _VT]
-           OrderedDict(iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> dict[str, _VT]
-           OrderedDict(iterable: typing.Iterable[list[str]], /) -> dict[str, str]
-           OrderedDict(iterable: typing.Iterable[list[bytes]], /) -> dict[bytes, bytes]
+           OrderedDict(iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> collections.OrderedDict[_KT, _VT]
+           OrderedDict(iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> dict[str, _VT]
+           OrderedDict(iterable: collections.abc.Iterable[list[str]], /) -> dict[str, str]
+           OrderedDict(iterable: collections.abc.Iterable[list[bytes]], /) -> dict[bytes, bytes]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L439>`__)
 
@@ -4004,7 +4004,7 @@ Aliases to types in :mod:`collections`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: ChainMap(collections.ChainMap, MutableMapping[KT, VT])
-           ChainMap(*maps: typing.MutableMapping[_KT, _VT]) -> collections.ChainMap[_KT, _VT]
+           ChainMap(*maps: collections.abc.MutableMapping[_KT, _VT]) -> collections.ChainMap[_KT, _VT]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L437>`__)
 
@@ -4020,7 +4020,7 @@ Aliases to types in :mod:`collections`
            Counter(iterable: None = None, /) -> collections.Counter[_T]
            Counter(iterable: None = None, /, **kwargs: int) -> collections.Counter[str]
            Counter(mapping: _typeshed.SupportsKeysAndGetItem[_T, int], /) -> collections.Counter[_T]
-           Counter(iterable: typing.Iterable[_T], /) -> collections.Counter[_T]
+           Counter(iterable: collections.abc.Iterable[_T], /) -> collections.Counter[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L435>`__)
 
@@ -4034,7 +4034,7 @@ Aliases to types in :mod:`collections`
 
 .. class:: Deque(deque, MutableSequence[T])
            Deque(*, maxlen: int | None = None) -> collections.deque[_T]
-           Deque(iterable: typing.Iterable[_T], maxlen: int | None = None) -> collections.deque[_T]
+           Deque(iterable: collections.abc.Iterable[_T], maxlen: int | None = None) -> collections.deque[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L436>`__)
 
@@ -4070,7 +4070,7 @@ Aliases to other concrete types
 
 .. class:: Text
            Text(object: object = '') -> str
-           Text(object: _collections_abc.Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
+           Text(object: collections.abc.Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L845>`__)
 
@@ -4101,7 +4101,7 @@ Aliases to container ABCs in :mod:`collections.abc`
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. class:: AbstractSet(Collection[T_co])
-           AbstractSet() -> typing.AbstractSet[_T_co]
+           AbstractSet() -> collections.abc.Set[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L702>`__)
 
@@ -4137,7 +4137,7 @@ Aliases to container ABCs in :mod:`collections.abc`
    .. deprecated-removed:: 3.9 3.17
 
 .. class:: Collection(Sized, Iterable[T_co], Container[T_co])
-           Collection() -> typing.Collection[_T_co]
+           Collection() -> collections.abc.Collection[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L652>`__)
 
@@ -4150,7 +4150,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: Container(Generic[T_co])
-           Container() -> typing.Container[_ContainerT_contra]
+           Container() -> collections.abc.Container[_ContainerT_contra]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L646>`__)
 
@@ -4161,7 +4161,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: ItemsView(MappingView, AbstractSet[tuple[KT_co, VT_co]])
-           ItemsView(mapping: _typeshed.SupportsGetItemViewable[_KT_co, _VT_co]) -> typing.ItemsView[_KT_co, _VT_co]
+           ItemsView(mapping: _typeshed.SupportsGetItemViewable[_KT_co, _VT_co]) -> collections.abc.ItemsView[_KT_co, _VT_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L737>`__)
 
@@ -4172,7 +4172,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: KeysView(MappingView, AbstractSet[KT_co])
-           KeysView(mapping: _typeshed.Viewable[_KT_co]) -> typing.KeysView[_KT_co]
+           KeysView(mapping: _typeshed.Viewable[_KT_co]) -> collections.abc.KeysView[_KT_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L750>`__)
 
@@ -4183,7 +4183,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: Mapping(Collection[KT], Generic[KT, VT_co])
-           Mapping() -> typing.Mapping[_KT, _VT_co]
+           Mapping() -> collections.abc.Mapping[_KT, _VT_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L773>`__)
 
@@ -4194,7 +4194,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: MappingView(Sized)
-           MappingView(mapping: typing.Sized) -> typing.MappingView
+           MappingView(mapping: collections.abc.Sized) -> collections.abc.MappingView
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L732>`__)
 
@@ -4205,7 +4205,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: MutableMapping(Mapping[KT, VT])
-           MutableMapping() -> typing.MutableMapping[_KT, _VT]
+           MutableMapping() -> collections.abc.MutableMapping[_KT, _VT]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L791>`__)
 
@@ -4217,7 +4217,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: MutableSequence(Sequence[T])
-           MutableSequence() -> typing.MutableSequence[_T]
+           MutableSequence() -> collections.abc.MutableSequence[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L672>`__)
 
@@ -4229,7 +4229,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: MutableSet(AbstractSet[T])
-           MutableSet() -> typing.MutableSet[_T]
+           MutableSet() -> collections.abc.MutableSet[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L718>`__)
 
@@ -4240,7 +4240,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: Sequence(Reversible[T_co], Collection[T_co])
-           Sequence() -> typing.Sequence[_T_co]
+           Sequence() -> collections.abc.Sequence[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L658>`__)
 
@@ -4251,7 +4251,7 @@ Aliases to container ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: ValuesView(MappingView, Collection[_VT_co])
-           ValuesView(mapping: _typeshed.SupportsGetItemViewable[typing.Any, _VT_co]) -> typing.ValuesView[_VT_co]
+           ValuesView(mapping: _typeshed.SupportsGetItemViewable[typing.Any, _VT_co]) -> collections.abc.ValuesView[_VT_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L763>`__)
 
@@ -4267,7 +4267,7 @@ Aliases to asynchronous ABCs in :mod:`collections.abc`
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. class:: Coroutine(Awaitable[ReturnType], Generic[YieldType, SendType, ReturnType])
-           Coroutine() -> typing.Coroutine[_YieldT_co, _SendT_nd_contra, _ReturnT_nd_co]
+           Coroutine() -> collections.abc.Coroutine[_YieldT_co, _SendT_nd_contra, _ReturnT_nd_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L587>`__)
 
@@ -4284,7 +4284,7 @@ Aliases to asynchronous ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: AsyncGenerator(AsyncIterator[YieldType], Generic[YieldType, SendType])
-           AsyncGenerator() -> typing.AsyncGenerator[_YieldT_co, _SendT_contra]
+           AsyncGenerator() -> collections.abc.AsyncGenerator[_YieldT_co, _SendT_contra]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L627>`__)
 
@@ -4305,7 +4305,7 @@ Aliases to asynchronous ABCs in :mod:`collections.abc`
       The ``SendType`` parameter now has a default.
 
 .. class:: AsyncIterable(Generic[T_co])
-           AsyncIterable() -> typing.AsyncIterable[_T_co]
+           AsyncIterable() -> collections.abc.AsyncIterable[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L616>`__)
 
@@ -4318,7 +4318,7 @@ Aliases to asynchronous ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: AsyncIterator(AsyncIterable[T_co])
-           AsyncIterator() -> typing.AsyncIterator[_T_co]
+           AsyncIterator() -> collections.abc.AsyncIterator[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L621>`__)
 
@@ -4331,7 +4331,7 @@ Aliases to asynchronous ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: Awaitable(Generic[T_co])
-           Awaitable() -> typing.Awaitable[_T_co]
+           Awaitable() -> collections.abc.Awaitable[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L579>`__)
 
@@ -4349,7 +4349,7 @@ Aliases to other ABCs in :mod:`collections.abc`
 """""""""""""""""""""""""""""""""""""""""""""""
 
 .. class:: Iterable(Generic[T_co])
-           Iterable() -> typing.Iterable[_T_co]
+           Iterable() -> collections.abc.Iterable[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L527>`__)
 
@@ -4360,7 +4360,7 @@ Aliases to other ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: Iterator(Iterable[T_co])
-           Iterator() -> typing.Iterator[_T_co]
+           Iterator() -> collections.abc.Iterator[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L532>`__)
 
@@ -4388,7 +4388,7 @@ Aliases to other ABCs in :mod:`collections.abc`
       See :pep:`612` for more details.
 
 .. class:: Generator(Iterator[YieldType], Generic[YieldType, SendType, ReturnType])
-           Generator() -> typing.Generator[_YieldT_co, _SendT_contra, _ReturnT_co]
+           Generator() -> collections.abc.Generator[_YieldT_co, _SendT_contra, _ReturnT_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L547>`__)
 
@@ -4406,7 +4406,7 @@ Aliases to other ABCs in :mod:`collections.abc`
       Default values for the send and return types were added.
 
 .. class:: Hashable
-           Hashable() -> typing.Hashable
+           Hashable() -> collections.abc.Hashable
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L519>`__)
 
@@ -4416,7 +4416,7 @@ Aliases to other ABCs in :mod:`collections.abc`
       Use :class:`collections.abc.Hashable` directly instead.
 
 .. class:: Reversible(Iterable[T_co])
-           Reversible() -> typing.Reversible[_T_co]
+           Reversible() -> collections.abc.Reversible[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L538>`__)
 
@@ -4427,7 +4427,7 @@ Aliases to other ABCs in :mod:`collections.abc`
       See :pep:`585` and :ref:`types-genericalias`.
 
 .. class:: Sized
-           Sized() -> typing.Sized
+           Sized() -> collections.abc.Sized
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/typing.pyi#L514>`__)
 

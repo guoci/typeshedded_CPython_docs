@@ -60,7 +60,7 @@ handler.  Code to create and run the server looks like this::
 .. class:: HTTPSServer(server_address, RequestHandlerClass,\
                        bind_and_activate=True, *, certfile, keyfile=None,\
                        password=None, alpn_protocols=None)
-           HTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, http.server.HTTPSServer], socketserver.BaseRequestHandler], bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, password: (collections.abc.Callable[[], bytearray | bytes | str]) | bytearray | bytes | str | None = None, alpn_protocols: typing.Iterable[str] | None = None) -> http.server.HTTPSServer
+           HTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, http.server.HTTPSServer], socketserver.BaseRequestHandler], bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, password: (collections.abc.Callable[[], bytearray | bytes | str]) | bytearray | bytes | str | None = None, alpn_protocols: collections.abc.Iterable[str] | None = None) -> http.server.HTTPSServer
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/http/server.pyi#L44>`__)
 
@@ -92,7 +92,7 @@ handler.  Code to create and run the server looks like this::
 .. class:: ThreadingHTTPSServer(server_address, RequestHandlerClass,\
                                 bind_and_activate=True, *, certfile, keyfile=None,\
                                 password=None, alpn_protocols=None)
-           ThreadingHTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, http.server.ThreadingHTTPSServer], socketserver.BaseRequestHandler], bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, password: (collections.abc.Callable[[], bytearray | bytes | str]) | bytearray | bytes | str | None = None, alpn_protocols: typing.Iterable[str] | None = None) -> http.server.ThreadingHTTPSServer
+           ThreadingHTTPSServer(server_address: tuple[bytearray | bytes | str, int], RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, http.server.ThreadingHTTPSServer], socketserver.BaseRequestHandler], bind_and_activate: bool = True, *, certfile: StrOrBytesPath, keyfile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, password: (collections.abc.Callable[[], bytearray | bytes | str]) | bytearray | bytes | str | None = None, alpn_protocols: collections.abc.Iterable[str] | None = None) -> http.server.ThreadingHTTPSServer
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/http/server.pyi#L63>`__)
 
@@ -276,7 +276,7 @@ instantiation, of which this module provides three different variants:
       :class:`http.client.HTTPMessage`.
 
    .. attribute:: responses
-      :type: typing.Mapping[int, tuple[str, str]]
+      :type: collections.abc.Mapping[int, tuple[str, str]]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/http/server.pyi#L79>`__)
 

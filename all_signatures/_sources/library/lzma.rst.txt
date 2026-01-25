@@ -39,11 +39,11 @@ Reading and writing compressed files
 ------------------------------------
 
 .. function:: open(filename, mode="rb", *, format=None, check=-1, preset=None, filters=None, encoding=None, errors=None, newline=None)
-              open(filename: _PathOrFile, mode: typing.Literal['r', 'rb'] = 'rb', *, format: int | None = None, check: typing.Literal[-1] = -1, preset: None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None, encoding: None = None, errors: None = None, newline: None = None) -> lzma.LZMAFile
-              open(filename: _PathOrFile, mode: _OpenBinaryWritingMode, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None, encoding: None = None, errors: None = None, newline: None = None) -> lzma.LZMAFile
-              open(filename: StrOrBytesPath, mode: typing.Literal['rt'], *, format: int | None = None, check: typing.Literal[-1] = -1, preset: None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
-              open(filename: StrOrBytesPath, mode: _OpenTextWritingMode, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
-              open(filename: _PathOrFile, mode: str, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> lzma.LZMAFile | _io.TextIOWrapper[_io._WrappedBuffer]
+              open(filename: _PathOrFile, mode: typing.Literal['r', 'rb'] = 'rb', *, format: int | None = None, check: typing.Literal[-1] = -1, preset: None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None, encoding: None = None, errors: None = None, newline: None = None) -> lzma.LZMAFile
+              open(filename: _PathOrFile, mode: _OpenBinaryWritingMode, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None, encoding: None = None, errors: None = None, newline: None = None) -> lzma.LZMAFile
+              open(filename: StrOrBytesPath, mode: typing.Literal['rt'], *, format: int | None = None, check: typing.Literal[-1] = -1, preset: None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(filename: StrOrBytesPath, mode: _OpenTextWritingMode, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(filename: _PathOrFile, mode: str, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> lzma.LZMAFile | _io.TextIOWrapper[_io._WrappedBuffer]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/lzma.pyi#L111>`__)
 
@@ -82,7 +82,7 @@ Reading and writing compressed files
 
 
 .. class:: LZMAFile(filename=None, mode="r", *, format=None, check=-1, preset=None, filters=None)
-           LZMAFile(filename: typing.IO[bytes] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, mode: str = 'r', *, format: int | None = None, check: int = -1, preset: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None) -> lzma.LZMAFile
+           LZMAFile(filename: typing.IO[bytes] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, mode: str = 'r', *, format: int | None = None, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> lzma.LZMAFile
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/lzma.pyi#L91>`__)
 
@@ -170,7 +170,7 @@ Compressing and decompressing data in memory
 --------------------------------------------
 
 .. class:: LZMACompressor(format=FORMAT_XZ, check=-1, preset=None, filters=None)
-           LZMACompressor(format: int = 1, check: int = -1, preset: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None) -> _lzma.LZMACompressor
+           LZMACompressor(format: int = 1, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> _lzma.LZMACompressor
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_lzma.pyi#L56>`__)
 
@@ -235,7 +235,7 @@ Compressing and decompressing data in memory
    See :ref:`filter-chain-specs` for details.
 
    .. method:: compress(data)
-               compress(data: _collections_abc.Buffer, /) -> bytes
+               compress(data: collections.abc.Buffer, /) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_lzma.pyi#L66>`__)
 
@@ -257,7 +257,7 @@ Compressing and decompressing data in memory
 
 
 .. class:: LZMADecompressor(format=FORMAT_AUTO, memlimit=None, filters=None)
-           LZMADecompressor(format: int = 0, memlimit: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None) -> _lzma.LZMADecompressor
+           LZMADecompressor(format: int = 0, memlimit: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> _lzma.LZMADecompressor
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_lzma.pyi#L39>`__)
 
@@ -289,7 +289,7 @@ Compressing and decompressing data in memory
       create a new decompressor for each stream.
 
    .. method:: decompress(data, max_length=-1)
-               decompress(data: _collections_abc.Buffer, max_length: int = -1) -> bytes
+               decompress(data: collections.abc.Buffer, max_length: int = -1) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_lzma.pyi#L45>`__)
 
@@ -354,7 +354,7 @@ Compressing and decompressing data in memory
       .. versionadded:: 3.5
 
 .. function:: compress(data, format=FORMAT_XZ, check=-1, preset=None, filters=None)
-              compress(data: _collections_abc.Buffer, format: int = 1, check: int = -1, preset: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None) -> bytes
+              compress(data: collections.abc.Buffer, format: int = 1, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/lzma.pyi#L175>`__)
 
@@ -366,7 +366,7 @@ Compressing and decompressing data in memory
 
 
 .. function:: decompress(data, format=FORMAT_AUTO, memlimit=None, filters=None)
-              decompress(data: _collections_abc.Buffer, format: int = 0, memlimit: int | None = None, filters: typing.Sequence[typing.Mapping[str, typing.Any]] | None = None) -> bytes
+              decompress(data: collections.abc.Buffer, format: int = 0, memlimit: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/lzma.pyi#L178>`__)
 

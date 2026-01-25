@@ -497,8 +497,8 @@ The :mod:`functools` module defines the following functions:
 
 
 .. function:: reduce(function, iterable, /[, initial])
-              reduce(function: collections.abc.Callable[[_T, _S], _T], iterable: typing.Iterable[_S], /, initial: _T) -> _T
-              reduce(function: collections.abc.Callable[[_T, _T], _T], iterable: typing.Iterable[_T], /) -> _T
+              reduce(function: collections.abc.Callable[[_T, _S], _T], iterable: collections.abc.Iterable[_S], /, initial: _T) -> _T
+              reduce(function: collections.abc.Callable[[_T, _T], _T], iterable: collections.abc.Iterable[_T], /) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/functools.pyi#L36>`__)
 
@@ -775,7 +775,7 @@ The :mod:`functools` module defines the following functions:
 
 
 .. function:: update_wrapper(wrapper, wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
-              update_wrapper[_PWrapper, _RWrapper, _PWrapped, _RWrapped](wrapper: (ParamSpec(_PWrapper)) -> _RWrapper, wrapped: (ParamSpec(_PWrapped)) -> _RWrapped, assigned: typing.Iterable[str] = ..., updated: typing.Iterable[str] = ...) -> functools._Wrapped[_PWrapped, _RWrapped, _PWrapper, _RWrapper]
+              update_wrapper[_PWrapper, _RWrapper, _PWrapped, _RWrapped](wrapper: collections.abc.Callable[[typing.ParamSpec(_PWrapper)], _RWrapper], wrapped: collections.abc.Callable[[typing.ParamSpec(_PWrapped)], _RWrapped], assigned: collections.abc.Iterable[str] = ..., updated: collections.abc.Iterable[str] = ...) -> functools._Wrapped[_PWrapped, _RWrapped, _PWrapper, _RWrapper]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/functools.pyi#L113>`__)
 
@@ -823,7 +823,7 @@ The :mod:`functools` module defines the following functions:
 
 
 .. decorator:: wraps(wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
-               wraps[_PWrapped, _RWrapped](wrapped: (ParamSpec(_PWrapped)) -> _RWrapped, assigned: typing.Iterable[str] = ..., updated: typing.Iterable[str] = ...) -> functools._Wrapper[_PWrapped, _RWrapped]
+               wraps[_PWrapped, _RWrapped](wrapped: collections.abc.Callable[[typing.ParamSpec(_PWrapped)], _RWrapped], assigned: collections.abc.Iterable[str] = ..., updated: collections.abc.Iterable[str] = ...) -> functools._Wrapper[_PWrapped, _RWrapped]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/functools.pyi#L119>`__)
 

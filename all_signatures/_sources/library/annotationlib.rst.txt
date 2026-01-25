@@ -199,9 +199,9 @@ Classes
       to the original source.
 
    .. method:: evaluate(*, owner=None, globals=None, locals=None, type_params=None, format=Format.VALUE)
-               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[annotationlib.Format.STRING]) -> str
-               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> annotationlib.ForwardRef | typing.Any
-               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: typing.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: annotationlib.Format = Format.VALUE) -> typing.Any
+               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[annotationlib.Format.STRING]) -> str
+               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> annotationlib.ForwardRef | typing.Any
+               evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: annotationlib.Format = Format.VALUE) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/annotationlib.pyi#L52>`__)
 
@@ -356,7 +356,7 @@ Functions
    .. versionadded:: 3.14
 
 .. function:: get_annotate_from_class_namespace(namespace)
-              get_annotate_from_class_namespace(obj: typing.Mapping[str, object]) -> (collections.abc.Callable[[annotationlib.Format], dict[str, typing.Any]]) | None
+              get_annotate_from_class_namespace(obj: collections.abc.Mapping[str, object]) -> (collections.abc.Callable[[annotationlib.Format], dict[str, typing.Any]]) | None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/annotationlib.pyi#L117>`__)
 
@@ -369,9 +369,9 @@ Functions
    .. versionadded:: 3.14
 
 .. function:: get_annotations(obj, *, globals=None, locals=None, eval_str=False, format=Format.VALUE)
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.STRING]) -> dict[str, str]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
-              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: typing.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.STRING]) -> dict[str, str]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
+              get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/annotationlib.pyi#L119>`__)
 

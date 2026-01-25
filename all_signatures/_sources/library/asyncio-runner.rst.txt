@@ -23,7 +23,7 @@ Running an asyncio Program
 ==========================
 
 .. function:: run(coro, *, debug=None, loop_factory=None)
-              run[_T](main: typing.Coroutine[typing.Any, typing.Any, _T], *, debug: bool | None = None, loop_factory: (collections.abc.Callable[[], asyncio.events.AbstractEventLoop]) | None = None) -> _T
+              run[_T](main: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, debug: bool | None = None, loop_factory: (collections.abc.Callable[[], asyncio.events.AbstractEventLoop]) | None = None) -> _T
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/runners.pyi#L31>`__)
 
@@ -121,7 +121,7 @@ Runner context manager
    .. versionadded:: 3.11
 
    .. method:: run(coro, *, context=None)
-               run[_T](coro: typing.Awaitable[_T], *, context: _contextvars.Context | None = None) -> _T
+               run[_T](coro: collections.abc.Awaitable[_T], *, context: contextvars.Context | None = None) -> _T
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/runners.pyi#L26>`__)
 

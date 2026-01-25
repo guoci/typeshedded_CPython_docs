@@ -128,7 +128,7 @@ purposes.
 
 .. function:: create_default_context(purpose=Purpose.SERVER_AUTH, *,\
                                      cafile=None, capath=None, cadata=None)
-              create_default_context(purpose: ssl.Purpose = Purpose.SERVER_AUTH, *, cafile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, capath: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, cadata: _collections_abc.Buffer | str | None = None) -> ssl.SSLContext
+              create_default_context(purpose: ssl.Purpose = Purpose.SERVER_AUTH, *, cafile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, capath: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, cadata: collections.abc.Buffer | str | None = None) -> ssl.SSLContext
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ssl.pyi#L443>`__)
 
@@ -404,7 +404,7 @@ Random generation
    to increase the randomness of the pseudo-random number generator.
 
 .. function:: RAND_add(bytes, entropy, /)
-              RAND_add(string: _collections_abc.Buffer | str, entropy: float, /) -> None
+              RAND_add(string: collections.abc.Buffer | str, entropy: float, /) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_ssl.pyi#L50>`__)
 
@@ -481,7 +481,7 @@ Certificate handling
       The *timeout* parameter was added.
 
 .. function:: DER_cert_to_PEM_cert(der_cert_bytes)
-              DER_cert_to_PEM_cert(der_cert_bytes: _collections_abc.Buffer) -> str
+              DER_cert_to_PEM_cert(der_cert_bytes: collections.abc.Buffer) -> str
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ssl.pyi#L347>`__)
 
@@ -1439,7 +1439,7 @@ SSL sockets also have the following additional methods and attributes:
       Use :meth:`~SSLSocket.recv` instead of :meth:`~SSLSocket.read`.
 
 .. method:: SSLSocket.write(data)
-            SSLSocket.write(data: _collections_abc.Buffer) -> int
+            SSLSocket.write(data: collections.abc.Buffer) -> int
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ssl.pyi#L297>`__)
 
@@ -1966,7 +1966,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.4
 
 .. method:: SSLContext.load_verify_locations(cafile=None, capath=None, cadata=None)
-            SSLContext.load_verify_locations(cafile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, capath: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, cadata: _collections_abc.Buffer | str | None = None) -> None
+            SSLContext.load_verify_locations(cafile: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, capath: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, cadata: collections.abc.Buffer | str | None = None) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ssl.pyi#L400>`__)
 
@@ -2163,7 +2163,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.15
 
 .. method:: SSLContext.set_alpn_protocols(alpn_protocols)
-            SSLContext.set_alpn_protocols(alpn_protocols: typing.Iterable[str]) -> None
+            SSLContext.set_alpn_protocols(alpn_protocols: collections.abc.Iterable[str]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ssl.pyi#L415>`__)
 
@@ -2180,7 +2180,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.5
 
 .. method:: SSLContext.set_npn_protocols(npn_protocols)
-            SSLContext.set_npn_protocols(npn_protocols: typing.Iterable[str]) -> None
+            SSLContext.set_npn_protocols(npn_protocols: collections.abc.Iterable[str]) -> None
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/ssl.pyi#L418>`__)
 
@@ -3240,7 +3240,7 @@ purpose.  It wraps an OpenSSL memory BIO (Basic IO) object:
       negative, all bytes are returned.
 
    .. method:: MemoryBIO.write(buf, /)
-               MemoryBIO.write(b: _collections_abc.Buffer, /) -> int
+               MemoryBIO.write(b: collections.abc.Buffer, /) -> int
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_ssl.pyi#L120>`__)
 

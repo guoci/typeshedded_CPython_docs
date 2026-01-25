@@ -53,10 +53,10 @@ Reading and writing compressed files
 
 .. function:: open(file, /, mode='rb', *, level=None, options=None, \
                    zstd_dict=None, encoding=None, errors=None, newline=None)
-              open(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryRead | bytes | str, /, mode: _ReadBinaryMode = 'rb', *, level: None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> compression.zstd._zstdfile.ZstdFile
-              open(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryWrite | bytes | str, /, mode: _WriteBinaryMode, *, level: int | None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> compression.zstd._zstdfile.ZstdFile
-              open(file: os.PathLike[bytes] | os.PathLike[str] | _io._WrappedBuffer | bytes | str, /, mode: typing.Literal['rt'], *, level: None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
-              open(file: os.PathLike[bytes] | os.PathLike[str] | _io._WrappedBuffer | bytes | str, /, mode: _WriteTextMode, *, level: int | None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryRead | bytes | str, /, mode: _ReadBinaryMode = 'rb', *, level: None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> compression.zstd._zstdfile.ZstdFile
+              open(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryWrite | bytes | str, /, mode: _WriteBinaryMode, *, level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> compression.zstd._zstdfile.ZstdFile
+              open(file: os.PathLike[bytes] | os.PathLike[str] | _io._WrappedBuffer | bytes | str, /, mode: typing.Literal['rt'], *, level: None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
+              open(file: os.PathLike[bytes] | os.PathLike[str] | _io._WrappedBuffer | bytes | str, /, mode: _WriteTextMode, *, level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/compression/zstd/_zstdfile.pyi#L67>`__)
 
@@ -100,8 +100,8 @@ Reading and writing compressed files
 
 .. class:: ZstdFile(file, /, mode='rb', *, level=None, options=None, \
                     zstd_dict=None)
-           ZstdFile(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryRead | bytes | str, /, mode: _ReadBinaryMode = 'r', *, level: None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> compression.zstd._zstdfile.ZstdFile
-           ZstdFile(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryWrite | bytes | str, /, mode: _WriteBinaryMode, *, level: int | None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> compression.zstd._zstdfile.ZstdFile
+           ZstdFile(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryRead | bytes | str, /, mode: _ReadBinaryMode = 'r', *, level: None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> compression.zstd._zstdfile.ZstdFile
+           ZstdFile(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryWrite | bytes | str, /, mode: _WriteBinaryMode, *, level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> compression.zstd._zstdfile.ZstdFile
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/compression/zstd/_zstdfile.pyi#L26>`__)
 
@@ -178,7 +178,7 @@ Compressing and decompressing data in memory
 --------------------------------------------
 
 .. function:: compress(data, level=None, options=None, zstd_dict=None)
-              compress(data: _collections_abc.Buffer, level: int | None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> bytes
+              compress(data: collections.abc.Buffer, level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/compression/zstd/__init__.pyi#L46>`__)
 
@@ -204,7 +204,7 @@ Compressing and decompressing data in memory
 
 
 .. function:: decompress(data, zstd_dict=None, options=None)
-              decompress(data: _collections_abc.Buffer, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, options: typing.Mapping[int, int] | None = None) -> bytes
+              decompress(data: collections.abc.Buffer, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, options: collections.abc.Mapping[int, int] | None = None) -> bytes
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/compression/zstd/__init__.pyi#L52>`__)
 
@@ -225,7 +225,7 @@ Compressing and decompressing data in memory
 
 
 .. class:: ZstdCompressor(level=None, options=None, zstd_dict=None)
-           ZstdCompressor(level: int | None = None, options: typing.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> _zstd.ZstdCompressor
+           ZstdCompressor(level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> _zstd.ZstdCompressor
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_zstd.pyi#L44>`__)
 
@@ -254,7 +254,7 @@ Compressing and decompressing data in memory
 
 
    .. method:: compress(data, mode=ZstdCompressor.CONTINUE)
-               compress(/, data: _collections_abc.Buffer, mode: typing.Literal[0, 1, 2] = 0) -> bytes
+               compress(/, data: collections.abc.Buffer, mode: typing.Literal[0, 1, 2] = 0) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_zstd.pyi#L54>`__)
 
@@ -350,7 +350,7 @@ Compressing and decompressing data in memory
 
 
 .. class:: ZstdDecompressor(zstd_dict=None, options=None)
-           ZstdDecompressor(zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, options: typing.Mapping[int, int] | None = None) -> _zstd.ZstdDecompressor
+           ZstdDecompressor(zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, options: collections.abc.Mapping[int, int] | None = None) -> _zstd.ZstdDecompressor
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_zstd.pyi#L63>`__)
 
@@ -377,7 +377,7 @@ Compressing and decompressing data in memory
       :term:`file object`, or multiple :class:`!ZstdDecompressor` instances.
 
    .. method:: decompress(data, max_length=-1)
-               decompress(/, data: _collections_abc.Buffer, max_length: int = -1) -> bytes
+               decompress(/, data: collections.abc.Buffer, max_length: int = -1) -> bytes
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_zstd.pyi#L67>`__)
 
@@ -433,7 +433,7 @@ Zstandard dictionaries
 
 
 .. function:: train_dict(samples, dict_size)
-              train_dict(samples: typing.Iterable[_collections_abc.Buffer], dict_size: int) -> _zstd.ZstdDict
+              train_dict(samples: collections.abc.Iterable[collections.abc.Buffer], dict_size: int) -> _zstd.ZstdDict
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/compression/zstd/__init__.pyi#L44>`__)
 
@@ -456,7 +456,7 @@ Zstandard dictionaries
 
 
 .. function:: finalize_dict(zstd_dict, /, samples, dict_size, level)
-              finalize_dict(zstd_dict: _zstd.ZstdDict, /, samples: typing.Iterable[_collections_abc.Buffer], dict_size: int, level: int) -> _zstd.ZstdDict
+              finalize_dict(zstd_dict: _zstd.ZstdDict, /, samples: collections.abc.Iterable[collections.abc.Buffer], dict_size: int, level: int) -> _zstd.ZstdDict
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/compression/zstd/__init__.pyi#L45>`__)
 
@@ -995,7 +995,7 @@ Miscellaneous
 -------------
 
 .. function:: get_frame_info(frame_buffer)
-              get_frame_info(frame_buffer: _collections_abc.Buffer) -> compression.zstd.FrameInfo
+              get_frame_info(frame_buffer: collections.abc.Buffer) -> compression.zstd.FrameInfo
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/compression/zstd/__init__.pyi#L43>`__)
 

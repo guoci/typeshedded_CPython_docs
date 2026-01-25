@@ -239,7 +239,7 @@ Creating Tasks
 -----------------------------------------------
 
 .. function:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
-              create_task[_T](coro: typing.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: _contextvars.Context | None = None, eager_start: bool | None = None) -> _asyncio.Task[_T]
+              create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool | None = None) -> _asyncio.Task[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L417>`__)
 
@@ -346,7 +346,7 @@ and reliable way to wait for all tasks in the group to finish.
    .. versionadded:: 3.11
 
    .. method:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
-               create_task[_T](coro: typing.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: _contextvars.Context | None = None, eager_start: bool | None = None) -> _asyncio.Task[_T]
+               create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool | None = None) -> _asyncio.Task[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/taskgroups.pyi#L26>`__)
 
@@ -487,8 +487,8 @@ Sleeping
 ========
 
 .. function:: sleep(delay, result=None)
-              sleep(delay: float) -> typing.Coroutine[Unknown, Unknown, None]
-              sleep(delay: float, result: _T) -> typing.Coroutine[Unknown, Unknown, _T]
+              sleep(delay: float) -> collections.abc.Coroutine[Unknown, Unknown, None]
+              sleep(delay: float, result: _T) -> collections.abc.Coroutine[Unknown, Unknown, _T]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L358>`__)
@@ -654,7 +654,7 @@ Eager Task Factory
 ==================
 
 .. function:: eager_task_factory(loop, coro, *, name=None, context=None)
-              eager_task_factory[_T_co](loop: asyncio.events.AbstractEventLoop | None, coro: typing.Coroutine[typing.Any, typing.Any, _T_co], *, name: str | None = None, context: _contextvars.Context | None = None, eager_start: bool = True) -> _asyncio.Task[_T_co]
+              eager_task_factory[_T_co](loop: asyncio.events.AbstractEventLoop | None, coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = True) -> _asyncio.Task[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L433>`__)
 
@@ -878,7 +878,7 @@ Timeouts
    .. versionadded:: 3.11
 
 .. function:: wait_for(aw, timeout)
-              wait_for[_T](fut: _FutureLike, timeout: float | None) -> typing.Coroutine[Unknown, Unknown, _T]
+              wait_for[_T](fut: _FutureLike, timeout: float | None) -> collections.abc.Coroutine[Unknown, Unknown, _T]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L361>`__)
@@ -942,8 +942,8 @@ Waiting Primitives
 ==================
 
 .. function:: wait(aws, *, timeout=None, return_when=ALL_COMPLETED)
-              wait(fs: typing.Iterable[_FT], *, timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> typing.Coroutine[Unknown, Unknown, tuple[set[_FT], set[_FT]]]
-              wait(fs: typing.Iterable[_asyncio.Task[_T]], *, timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> typing.Coroutine[Unknown, Unknown, tuple[set[_asyncio.Task[_T]], set[_asyncio.Task[_T]]]]
+              wait(fs: collections.abc.Iterable[_FT], *, timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> collections.abc.Coroutine[Unknown, Unknown, tuple[set[_FT], set[_FT]]]
+              wait(fs: collections.abc.Iterable[_asyncio.Task[_T]], *, timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> collections.abc.Coroutine[Unknown, Unknown, tuple[set[_asyncio.Task[_T]], set[_asyncio.Task[_T]]]]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L373>`__)
@@ -1001,7 +1001,7 @@ Waiting Primitives
 
 
 .. function:: as_completed(aws, *, timeout=None)
-              as_completed[_T](fs: typing.Iterable[_FutureLike], *, timeout: float | None = None) -> asyncio.tasks._SyncAndAsyncIterator[_asyncio.Future[_T]]
+              as_completed[_T](fs: collections.abc.Iterable[_FutureLike], *, timeout: float | None = None) -> asyncio.tasks._SyncAndAsyncIterator[_asyncio.Future[_T]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L93>`__)
 
@@ -1069,7 +1069,7 @@ Running in Threads
 ==================
 
 .. function:: to_thread(func, /, *args, **kwargs)
-              to_thread[_P, _R]((ParamSpec(_P)) -> _R, ParamSpec(_P)) -> typing.Coroutine[Unknown, Unknown, _R]
+              to_thread[_P, _R](collections.abc.Callable[[typing.ParamSpec(_P)], _R], typing.ParamSpec(_P)) -> collections.abc.Coroutine[Unknown, Unknown, _R]
    :async:
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/threads.pyi#L10>`__)
@@ -1132,7 +1132,7 @@ Scheduling From Other Threads
 =============================
 
 .. function:: run_coroutine_threadsafe(coro, loop)
-              run_coroutine_threadsafe[_T](coro: typing.Coroutine[typing.Any, typing.Any, _T], loop: asyncio.events.AbstractEventLoop) -> concurrent.futures._base.Future[_T]
+              run_coroutine_threadsafe[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], loop: asyncio.events.AbstractEventLoop) -> concurrent.futures._base.Future[_T]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/tasks.pyi#L353>`__)
 
@@ -1254,7 +1254,7 @@ Introspection
 
 
 .. function:: iscoroutine(obj)
-              iscoroutine(obj: object) -> typing.TypeIs[typing.Coroutine[typing.Any, typing.Any, typing.Any]]
+              iscoroutine(obj: object) -> typing.TypeIs[collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/asyncio/coroutines.pyi#L20>`__)
 
@@ -1268,7 +1268,7 @@ Task Object
 ===========
 
 .. class:: Task(coro, *, loop=None, name=None, context=None, eager_start=False)
-           Task(coro: typing.Coroutine[typing.Any, typing.Any, _T_co], *, loop: asyncio.events.AbstractEventLoop | None = None, name: str | None = None, context: _contextvars.Context | None = None, eager_start: bool = False) -> _asyncio.Task[_T_co]
+           Task(coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, loop: asyncio.events.AbstractEventLoop | None = None, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = False) -> _asyncio.Task[_T_co]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_asyncio.pyi#L54>`__)
 
@@ -1378,7 +1378,7 @@ Task Object
       :exc:`InvalidStateError` exception.
 
    .. method:: add_done_callback(callback, *, context=None)
-               add_done_callback[_T_co](fn: collections.abc.Callable[[_asyncio.Task[_T_co]], object], /, *, context: _contextvars.Context | None = None) -> None
+               add_done_callback[_T_co](fn: collections.abc.Callable[[_asyncio.Task[_T_co]], object], /, *, context: contextvars.Context | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_asyncio.pyi#L29>`__)
 
@@ -1441,7 +1441,7 @@ Task Object
       is written; by default output is written to :data:`sys.stdout`.
 
    .. method:: get_coro()
-               get_coro[_T_co]() -> typing.Coroutine[typing.Any, typing.Any, _T_co] | None
+               get_coro[_T_co]() -> collections.abc.Coroutine[typing.Any, typing.Any, _T_co] | None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_asyncio.pyi#L80>`__)
 
@@ -1459,7 +1459,7 @@ Task Object
          Newly added eager task execution means result may be ``None``.
 
    .. method:: get_context()
-               get_context[_T_co]() -> _contextvars.Context
+               get_context[_T_co]() -> contextvars.Context
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/_asyncio.pyi#L87>`__)
 

@@ -542,7 +542,7 @@ or creating these objects.
 
 .. class:: Process(group=None, target=None, name=None, args=(), kwargs={}, \
                    *, daemon=None)
-           Process(group: None = None, target: (collections.abc.Callable[[...], object]) | None = None, name: str | None = None, args: typing.Iterable[typing.Any] = ..., kwargs: typing.Mapping[str, typing.Any] = ..., *, daemon: bool | None = None) -> multiprocessing.context.Process
+           Process(group: None = None, target: (collections.abc.Callable[[...], object]) | None = None, name: str | None = None, args: collections.abc.Iterable[typing.Any] = ..., kwargs: collections.abc.Mapping[str, typing.Any] = ..., *, daemon: bool | None = None) -> multiprocessing.context.Process
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/context.pyi#L158>`__)
 
@@ -1508,7 +1508,7 @@ Connection objects are usually created using
       using :func:`multiprocessing.connection.wait`.
 
    .. method:: send_bytes(buffer[, offset[, size]])
-               send_bytes[_SendT_contra = Any, _RecvT_co = Any](buf: _collections_abc.Buffer, offset: int = 0, size: int | None = None) -> None
+               send_bytes[_SendT_contra = Any, _RecvT_co = Any](buf: collections.abc.Buffer, offset: int = 0, size: int | None = None) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/connection.pyi#L28>`__)
 
@@ -1934,11 +1934,11 @@ inherited by child processes.
    Note that *lock* is a keyword-only argument.
 
 .. function:: Array(typecode_or_type, size_or_initializer, *, lock=True)
-              Array(typecode_or_type: type[_ctypes._SimpleCData[_T]], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[False]) -> multiprocessing.sharedctypes.SynchronizedArray[_T]
-              Array(typecode_or_type: type[ctypes.c_char], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True) -> multiprocessing.sharedctypes.SynchronizedString
-              Array(typecode_or_type: type[_ctypes._SimpleCData[_T]], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True) -> multiprocessing.sharedctypes.SynchronizedArray[_T]
-              Array(typecode_or_type: str, size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True) -> multiprocessing.sharedctypes.SynchronizedArray[typing.Any]
-              Array(typecode_or_type: str | type[_ctypes._CData], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock | bool = True) -> typing.Any
+              Array(typecode_or_type: type[_ctypes._SimpleCData[_T]], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[False]) -> multiprocessing.sharedctypes.SynchronizedArray[_T]
+              Array(typecode_or_type: type[ctypes.c_char], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True) -> multiprocessing.sharedctypes.SynchronizedString
+              Array(typecode_or_type: type[_ctypes._SimpleCData[_T]], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True) -> multiprocessing.sharedctypes.SynchronizedArray[_T]
+              Array(typecode_or_type: str, size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True) -> multiprocessing.sharedctypes.SynchronizedArray[typing.Any]
+              Array(typecode_or_type: str | type[_ctypes._CData], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock | bool = True) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/__init__.pyi#L70>`__)
 
@@ -1987,8 +1987,8 @@ processes.
    cause a crash.
 
 .. function:: RawArray(typecode_or_type, size_or_initializer)
-              RawArray(typecode_or_type: type[_CT], size_or_initializer: typing.Sequence[typing.Any] | int) -> _ctypes.Array[_CT]
-              RawArray(typecode_or_type: str, size_or_initializer: typing.Sequence[typing.Any] | int) -> typing.Any
+              RawArray(typecode_or_type: type[_CT], size_or_initializer: collections.abc.Sequence[typing.Any] | int) -> _ctypes.Array[_CT]
+              RawArray(typecode_or_type: str, size_or_initializer: collections.abc.Sequence[typing.Any] | int) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/sharedctypes.pyi#L20>`__)
 
@@ -2026,11 +2026,11 @@ processes.
    documentation for :mod:`ctypes`.
 
 .. function:: Array(typecode_or_type, size_or_initializer, *, lock=True, ctx=None)
-              Array(typecode_or_type: type[_CT], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[False], ctx: multiprocessing.context.BaseContext | None = None) -> _CT
-              Array(typecode_or_type: type[ctypes.c_char], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True, ctx: multiprocessing.context.BaseContext | None = None) -> multiprocessing.sharedctypes.SynchronizedString
-              Array(typecode_or_type: type[_ctypes._SimpleCData[_T]], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True, ctx: multiprocessing.context.BaseContext | None = None) -> multiprocessing.sharedctypes.SynchronizedArray[_T]
-              Array(typecode_or_type: str, size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True, ctx: multiprocessing.context.BaseContext | None = None) -> multiprocessing.sharedctypes.SynchronizedArray[typing.Any]
-              Array(typecode_or_type: str | type[_ctypes._CData], size_or_initializer: typing.Sequence[typing.Any] | int, *, lock: multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock | bool = True, ctx: multiprocessing.context.BaseContext | None = None) -> typing.Any
+              Array(typecode_or_type: type[_CT], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[False], ctx: multiprocessing.context.BaseContext | None = None) -> _CT
+              Array(typecode_or_type: type[ctypes.c_char], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True, ctx: multiprocessing.context.BaseContext | None = None) -> multiprocessing.sharedctypes.SynchronizedString
+              Array(typecode_or_type: type[_ctypes._SimpleCData[_T]], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True, ctx: multiprocessing.context.BaseContext | None = None) -> multiprocessing.sharedctypes.SynchronizedArray[_T]
+              Array(typecode_or_type: str, size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: typing.Literal[True] | multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock = True, ctx: multiprocessing.context.BaseContext | None = None) -> multiprocessing.sharedctypes.SynchronizedArray[typing.Any]
+              Array(typecode_or_type: str | type[_ctypes._CData], size_or_initializer: collections.abc.Sequence[typing.Any] | int, *, lock: multiprocessing.synchronize.Lock | multiprocessing.synchronize.RLock | bool = True, ctx: multiprocessing.context.BaseContext | None = None) -> typing.Any
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/sharedctypes.pyi#L38>`__)
 
@@ -2237,7 +2237,7 @@ their parent process exits.  The manager classes are defined in the
       Added the *shutdown_timeout* parameter.
 
    .. method:: start([initializer[, initargs]])
-               start(initializer: (collections.abc.Callable[[...], object]) | None = None, initargs: typing.Iterable[typing.Any] = ...) -> None
+               start(initializer: (collections.abc.Callable[[...], object]) | None = None, initargs: collections.abc.Iterable[typing.Any] = ...) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/managers.pyi#L271>`__)
 
@@ -2272,7 +2272,7 @@ their parent process exits.  The manager classes are defined in the
       >>> m.connect()
 
    .. method:: shutdown()
-               shutdown(wr: object = None, _finalizer_registry: typing.MutableMapping[typing.Any, typing.Any] = ..., sub_debug: collections.abc.Callable[[...], object] = ..., getpid: collections.abc.Callable[[], int] = ...) -> typing.Any
+               shutdown(wr: object = None, _finalizer_registry: collections.abc.MutableMapping[typing.Any, typing.Any] = ..., sub_debug: collections.abc.Callable[[...], object] = ..., getpid: collections.abc.Callable[[], int] = ...) -> typing.Any
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/managers.pyi#L272>`__)
 
@@ -2282,7 +2282,7 @@ their parent process exits.  The manager classes are defined in the
       This can be called multiple times.
 
    .. method:: register(typeid[, callable[, proxytype[, exposed[, method_to_typeid[, create_method]]]]])
-               register(cls: type[multiprocessing.managers.BaseManager], typeid: str, callable: (collections.abc.Callable[[...], object]) | None = None, proxytype: typing.Any = None, exposed: typing.Sequence[str] | None = None, method_to_typeid: typing.Mapping[str, str] | None = None, create_method: bool = True) -> None
+               register(cls: type[multiprocessing.managers.BaseManager], typeid: str, callable: (collections.abc.Callable[[...], object]) | None = None, proxytype: typing.Any = None, exposed: collections.abc.Sequence[str] | None = None, method_to_typeid: collections.abc.Mapping[str, str] | None = None, create_method: bool = True) -> None
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/managers.pyi#L277>`__)
 
@@ -2429,7 +2429,7 @@ their parent process exits.  The manager classes are defined in the
       it.
 
    .. method:: Array(typecode, sequence)
-               Array[_T](typecode: typing.Any, sequence: typing.Sequence[_T]) -> typing.Sequence[_T]
+               Array[_T](typecode: typing.Any, sequence: collections.abc.Sequence[_T]) -> collections.abc.Sequence[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/managers.pyi#L312>`__)
 
@@ -2450,10 +2450,10 @@ their parent process exits.  The manager classes are defined in the
                dict(**kwargs: _VT) -> multiprocessing.managers.DictProxy[str, _VT]
                dict(map: _typeshed.SupportsKeysAndGetItem[_KT, _VT], /) -> multiprocessing.managers.DictProxy[_KT, _VT]
                dict(map: _typeshed.SupportsKeysAndGetItem[str, _VT], /, **kwargs: _VT) -> multiprocessing.managers.DictProxy[str, _VT]
-               dict(iterable: typing.Iterable[tuple[_KT, _VT]], /) -> multiprocessing.managers.DictProxy[_KT, _VT]
-               dict(iterable: typing.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> multiprocessing.managers.DictProxy[str, _VT]
-               dict(iterable: typing.Iterable[list[str]], /) -> multiprocessing.managers.DictProxy[str, str]
-               dict(iterable: typing.Iterable[list[bytes]], /) -> multiprocessing.managers.DictProxy[bytes, bytes]
+               dict(iterable: collections.abc.Iterable[tuple[_KT, _VT]], /) -> multiprocessing.managers.DictProxy[_KT, _VT]
+               dict(iterable: collections.abc.Iterable[tuple[str, _VT]], /, **kwargs: _VT) -> multiprocessing.managers.DictProxy[str, _VT]
+               dict(iterable: collections.abc.Iterable[list[str]], /) -> multiprocessing.managers.DictProxy[str, str]
+               dict(iterable: collections.abc.Iterable[list[bytes]], /) -> multiprocessing.managers.DictProxy[bytes, bytes]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/managers.pyi#L316>`__)
 
@@ -2461,7 +2461,7 @@ their parent process exits.  The manager classes are defined in the
 
    .. method:: list()
                list(sequence)
-               list(iterable: typing.Iterable[_T], /) -> multiprocessing.managers.ListProxy[_T]
+               list(iterable: collections.abc.Iterable[_T], /) -> multiprocessing.managers.ListProxy[_T]
                list() -> multiprocessing.managers.ListProxy[typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/managers.pyi#L333>`__)
@@ -2471,7 +2471,7 @@ their parent process exits.  The manager classes are defined in the
    .. method:: set()
                set(sequence)
                set(mapping)
-               set(iterable: typing.Iterable[_T], /) -> multiprocessing.managers.SetProxy[_T]
+               set(iterable: collections.abc.Iterable[_T], /) -> multiprocessing.managers.SetProxy[_T]
                set() -> multiprocessing.managers.SetProxy[typing.Any]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/managers.pyi#L338>`__)
@@ -2783,7 +2783,7 @@ One can create a pool of processes which will carry out tasks submitted to it
 with the :class:`Pool` class.
 
 .. class:: Pool([processes[, initializer[, initargs[, maxtasksperchild [, context]]]]])
-           Pool(processes: int | None = None, initializer: (collections.abc.Callable[[...], object]) | None = None, initargs: typing.Iterable[typing.Any] = ..., maxtasksperchild: int | None = None, context: typing.Any | None = None) -> multiprocessing.pool.Pool
+           Pool(processes: int | None = None, initializer: (collections.abc.Callable[[...], object]) | None = None, initargs: collections.abc.Iterable[typing.Any] = ..., maxtasksperchild: int | None = None, context: typing.Any | None = None) -> multiprocessing.pool.Pool
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L43>`__)
 
@@ -2844,7 +2844,7 @@ with the :class:`Pool` class.
       argument to the :class:`Pool` exposes this ability to the end user.
 
    .. method:: apply(func[, args[, kwds]])
-               apply[_T](func: collections.abc.Callable[[...], _T], args: typing.Iterable[typing.Any] = ..., kwds: typing.Mapping[str, typing.Any] = ...) -> _T
+               apply[_T](func: collections.abc.Callable[[...], _T], args: collections.abc.Iterable[typing.Any] = ..., kwds: collections.abc.Mapping[str, typing.Any] = ...) -> _T
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L54>`__)
 
@@ -2854,7 +2854,7 @@ with the :class:`Pool` class.
       is only executed in one of the workers of the pool.
 
    .. method:: apply_async(func[, args[, kwds[, callback[, error_callback]]]])
-               apply_async[_T](func: collections.abc.Callable[[...], _T], args: typing.Iterable[typing.Any] = ..., kwds: typing.Mapping[str, typing.Any] = ..., callback: (collections.abc.Callable[[_T], object]) | None = None, error_callback: (collections.abc.Callable[[BaseException], object]) | None = None) -> multiprocessing.pool.ApplyResult[_T]
+               apply_async[_T](func: collections.abc.Callable[[...], _T], args: collections.abc.Iterable[typing.Any] = ..., kwds: collections.abc.Mapping[str, typing.Any] = ..., callback: (collections.abc.Callable[[_T], object]) | None = None, error_callback: (collections.abc.Callable[[BaseException], object]) | None = None) -> multiprocessing.pool.ApplyResult[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L55>`__)
 
@@ -2874,7 +2874,7 @@ with the :class:`Pool` class.
       handles the results will get blocked.
 
    .. method:: map(func, iterable[, chunksize])
-               map[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: typing.Iterable[_S], chunksize: int | None = None) -> list[_T]
+               map[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: collections.abc.Iterable[_S], chunksize: int | None = None) -> list[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L63>`__)
 
@@ -2891,7 +2891,7 @@ with the :class:`Pool` class.
       option for better efficiency.
 
    .. method:: map_async(func, iterable[, chunksize[, callback[, error_callback]]])
-               map_async[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: typing.Iterable[_S], chunksize: int | None = None, callback: (collections.abc.Callable[[list[_T]], object]) | None = None, error_callback: (collections.abc.Callable[[BaseException], object]) | None = None) -> multiprocessing.pool.MapResult[_T]
+               map_async[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: collections.abc.Iterable[_S], chunksize: int | None = None, callback: (collections.abc.Callable[[list[_T]], object]) | None = None, error_callback: (collections.abc.Callable[[BaseException], object]) | None = None) -> multiprocessing.pool.MapResult[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L64>`__)
 
@@ -2911,7 +2911,7 @@ with the :class:`Pool` class.
       handles the results will get blocked.
 
    .. method:: imap(func, iterable[, chunksize])
-               imap[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: typing.Iterable[_S], chunksize: int | None = 1) -> multiprocessing.pool.IMapIterator[_T]
+               imap[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: collections.abc.Iterable[_S], chunksize: int | None = 1) -> multiprocessing.pool.IMapIterator[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L72>`__)
 
@@ -2928,7 +2928,7 @@ with the :class:`Pool` class.
       result cannot be returned within *timeout* seconds.
 
    .. method:: imap_unordered(func, iterable[, chunksize])
-               imap_unordered[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: typing.Iterable[_S], chunksize: int | None = 1) -> multiprocessing.pool.IMapIterator[_T]
+               imap_unordered[_S, _T](func: collections.abc.Callable[[_S], _T], iterable: collections.abc.Iterable[_S], chunksize: int | None = 1) -> multiprocessing.pool.IMapIterator[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L73>`__)
 
@@ -2937,7 +2937,7 @@ with the :class:`Pool` class.
       only one worker process is the order guaranteed to be "correct".)
 
    .. method:: starmap(func, iterable[, chunksize])
-               starmap[_T](func: collections.abc.Callable[[...], _T], iterable: typing.Iterable[typing.Iterable[typing.Any]], chunksize: int | None = None) -> list[_T]
+               starmap[_T](func: collections.abc.Callable[[...], _T], iterable: collections.abc.Iterable[collections.abc.Iterable[typing.Any]], chunksize: int | None = None) -> list[_T]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L74>`__)
 
@@ -2951,7 +2951,7 @@ with the :class:`Pool` class.
       .. versionadded:: 3.3
 
    .. method:: starmap_async(func, iterable[, chunksize[, callback[, error_callback]]])
-               starmap_async[_T](func: collections.abc.Callable[[...], _T], iterable: typing.Iterable[typing.Iterable[typing.Any]], chunksize: int | None = None, callback: (collections.abc.Callable[[list[_T]], object]) | None = None, error_callback: (collections.abc.Callable[[BaseException], object]) | None = None) -> multiprocessing.pool.ApplyResult[list[_T]]
+               starmap_async[_T](func: collections.abc.Callable[[...], _T], iterable: collections.abc.Iterable[collections.abc.Iterable[typing.Any]], chunksize: int | None = None, callback: (collections.abc.Callable[[list[_T]], object]) | None = None, error_callback: (collections.abc.Callable[[BaseException], object]) | None = None) -> multiprocessing.pool.ApplyResult[list[_T]]
 
       (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L75>`__)
 
@@ -3200,7 +3200,7 @@ multiple connections at the same time.
       listener object, and :meth:`~contextmanager.__exit__` calls :meth:`close`.
 
 .. function:: wait(object_list, timeout=None)
-              wait[_SendT_contra = Any, _RecvT_co = Any](object_list: typing.Iterable[multiprocessing.connection.Connection[_SendT_contra, _RecvT_co] | int | socket.socket], timeout: float | None = None) -> list[multiprocessing.connection.Connection[_SendT_contra, _RecvT_co] | int | socket.socket]
+              wait[_SendT_contra = Any, _RecvT_co = Any](object_list: collections.abc.Iterable[multiprocessing.connection.Connection[_SendT_contra, _RecvT_co] | int | socket.socket], timeout: float | None = None) -> list[multiprocessing.connection.Connection[_SendT_contra, _RecvT_co] | int | socket.socket]
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/connection.pyi#L68>`__)
 
@@ -3430,7 +3430,7 @@ worker threads rather than worker processes.
 
 
 .. class:: ThreadPool([processes[, initializer[, initargs]]])
-           ThreadPool(processes: int | None = None, initializer: (collections.abc.Callable[[...], object]) | None = None, initargs: typing.Iterable[typing.Any] = ...) -> multiprocessing.pool.ThreadPool
+           ThreadPool(processes: int | None = None, initializer: (collections.abc.Callable[[...], object]) | None = None, initargs: collections.abc.Iterable[typing.Any] = ...) -> multiprocessing.pool.ThreadPool
 
    (`typeshed <https://github.com/python/typeshed/blob/35b688e/stdlib/multiprocessing/pool.pyi#L92>`__)
 
