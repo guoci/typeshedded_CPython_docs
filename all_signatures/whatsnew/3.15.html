@@ -139,6 +139,7 @@
 <li><a class="reference internal" href="#socket">socket</a></li>
 <li><a class="reference internal" href="#sqlite3">sqlite3</a></li>
 <li><a class="reference internal" href="#ssl">ssl</a></li>
+<li><a class="reference internal" href="#symtable">symtable</a></li>
 <li><a class="reference internal" href="#sys">sys</a></li>
 <li><a class="reference internal" href="#tarfile">tarfile</a></li>
 <li><a class="reference internal" href="#timeit">timeit</a></li>
@@ -646,6 +647,8 @@ inline code when color output is enabled.
 (Contributed by Hauke Dämpfling in <a class="reference external" href="https://github.com/python/cpython/issues/143103">gh-143103</a>.)</p></li>
 <li><p>Added the <em>wrapcol</em> parameter in <a class="reference internal" href="../library/base64.html#base64.b64encode" title="base64.b64encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">b64encode()</span></code></a>.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/143214">gh-143214</a>.)</p></li>
+<li><p>Added the <em>ignorechars</em> parameter in <a class="reference internal" href="../library/base64.html#base64.b64decode" title="base64.b64decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">b64decode()</span></code></a>.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/144001">gh-144001</a>.)</p></li>
 </ul>
 </section>
 <section id="binascii">
@@ -653,6 +656,8 @@ inline code when color output is enabled.
 <ul class="simple">
 <li><p>Added the <em>wrapcol</em> parameter in <a class="reference internal" href="../library/binascii.html#binascii.b2a_base64" title="binascii.b2a_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_base64()</span></code></a>.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/143214">gh-143214</a>.)</p></li>
+<li><p>Added the <em>ignorechars</em> parameter in <a class="reference internal" href="../library/binascii.html#binascii.a2b_base64" title="binascii.a2b_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_base64()</span></code></a>.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/144001">gh-144001</a>.)</p></li>
 </ul>
 </section>
 <section id="calendar">
@@ -801,8 +806,10 @@ but included in the language code.
 <section id="mimetypes">
 <h3>mimetypes<a class="headerlink" href="#mimetypes" title="Link to this heading">¶</a></h3>
 <ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">application/dicom</span></code> MIME type for <code class="docutils literal notranslate"><span class="pre">.dcm</span></code> extension. (Contributed by Benedikt Johannes in <a class="reference external" href="https://github.com/python/cpython/issues/144217">gh-144217</a>.)</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">application/node</span></code> MIME type for <code class="docutils literal notranslate"><span class="pre">.cjs</span></code> extension. (Contributed by John Franey in <a class="reference external" href="https://github.com/python/cpython/issues/140937">gh-140937</a>.)</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">application/toml</span></code>. (Contributed by Gil Forcada in <a class="reference external" href="https://github.com/python/cpython/issues/139959">gh-139959</a>.)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">image/jxl</span></code>. (Contributed by Foolbar in <a class="reference external" href="https://github.com/python/cpython/issues/144213">gh-144213</a>.)</p></li>
 <li><p>Rename <code class="docutils literal notranslate"><span class="pre">application/x-texinfo</span></code> to <code class="docutils literal notranslate"><span class="pre">application/texinfo</span></code>.
 (Contributed by Charlie Lin in <a class="reference external" href="https://github.com/python/cpython/issues/140165">gh-140165</a>.)</p></li>
 <li><p>Changed the MIME type for <code class="docutils literal notranslate"><span class="pre">.ai</span></code> files to <code class="docutils literal notranslate"><span class="pre">application/pdf</span></code>.
@@ -936,6 +943,13 @@ connection. This call requires OpenSSL 3.5 or later.</p></li>
 <div><p>(Contributed by Ron Frederick in <a class="reference external" href="https://github.com/python/cpython/issues/138252">gh-138252</a>.)</p>
 </div></blockquote>
 </li>
+</ul>
+</section>
+<section id="symtable">
+<h3>symtable<a class="headerlink" href="#symtable" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add <a class="reference internal" href="../library/symtable.html#symtable.Function.get_cells" title="symtable.Function.get_cells"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symtable.Function.get_cells()</span></code></a> and <a class="reference internal" href="../library/symtable.html#symtable.Symbol.is_cell" title="symtable.Symbol.is_cell"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symtable.Symbol.is_cell()</span></code></a> methods.
+(Contributed by Yashp002 in <a class="reference external" href="https://github.com/python/cpython/issues/143504">gh-143504</a>.)</p></li>
 </ul>
 </section>
 <section id="sys">
@@ -2084,6 +2098,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#socket">socket</a></li>
 <li><a class="reference internal" href="#sqlite3">sqlite3</a></li>
 <li><a class="reference internal" href="#ssl">ssl</a></li>
+<li><a class="reference internal" href="#symtable">symtable</a></li>
 <li><a class="reference internal" href="#sys">sys</a></li>
 <li><a class="reference internal" href="#tarfile">tarfile</a></li>
 <li><a class="reference internal" href="#timeit">timeit</a></li>
