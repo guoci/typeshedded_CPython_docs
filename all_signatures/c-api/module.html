@@ -617,9 +617,9 @@ module state.</p>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyModule_GetStateSize">
-<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyModule_GetStateSize</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="p"><span class="pre">*</span></span>, <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">result</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyModule_GetStateSize" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.15.</em><p>Set <em>*result</em> to the size of the module’s state, as specified using
-<a class="reference internal" href="#c.Py_mod_state_size" title="Py_mod_state_size"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_mod_state_size</span></code></a> (or <a class="reference internal" href="#c.PyModuleDef.m_size" title="PyModuleDef.m_size"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyModuleDef.m_size</span></code></a>),
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyModule_GetStateSize</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">module</span></span>, <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">result</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyModule_GetStateSize" title="Link to this definition">¶</a><br /></dt>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.15.</em><p>Set <em>*result</em> to the size of <em>module</em>’s state, as specified
+using <a class="reference internal" href="#c.Py_mod_state_size" title="Py_mod_state_size"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_mod_state_size</span></code></a> (or <a class="reference internal" href="#c.PyModuleDef.m_size" title="PyModuleDef.m_size"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyModuleDef.m_size</span></code></a>),
 and return 0.</p>
 <p>On error, set <em>*result</em> to -1, and return -1 with an exception set.</p>
 <div class="versionadded">
@@ -777,7 +777,7 @@ This means that <code class="xref c c-macro docutils literal notranslate"><span 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyModule_GetToken">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyModule_GetToken</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">module</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">result</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyModule_GetToken" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.15.</em><p>Set <em>*result</em> to the module’s token and return 0.</p>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.15.</em><p>Set <em>*result</em> to the module token for <em>module</em> and return 0.</p>
 <p>On error, set <em>*result</em> to NULL, and return -1 with an exception set.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.15.</span></p>
@@ -821,7 +821,7 @@ In particular, it may be heap-allocated.</p>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyModule_Exec">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyModule_Exec</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">module</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyModule_Exec" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.15.</em><p>Execute the <a class="reference internal" href="#c.Py_mod_exec" title="Py_mod_exec"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_exec</span></code></a> slot(s) of the given <em>module</em>.</p>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.15.</em><p>Execute the <a class="reference internal" href="#c.Py_mod_exec" title="Py_mod_exec"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_exec</span></code></a> slot(s) of <em>module</em>.</p>
 <p>On success, return 0.
 On error, return -1 with an exception set.</p>
 <p>For clarity: If <em>module</em> has no slots, for example if it uses
@@ -1219,6 +1219,8 @@ to outlive the module object).</p>
 This function is called automatically when creating a module from
 <code class="docutils literal notranslate"><span class="pre">PyModuleDef</span></code> (such as when using <a class="reference internal" href="extension-modules.html#multi-phase-initialization"><span class="std std-ref">Multi-phase initialization</span></a>,
 <code class="docutils literal notranslate"><span class="pre">PyModule_Create</span></code>, or <code class="docutils literal notranslate"><span class="pre">PyModule_FromDefAndSpec</span></code>).</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success.
+Return <code class="docutils literal notranslate"><span class="pre">-1</span></code> with an exception set on error.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.5.</span></p>
 </div>
