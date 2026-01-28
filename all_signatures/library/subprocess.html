@@ -1577,13 +1577,28 @@ Use <a class="reference internal" href="#subprocess.Popen.communicate" title="su
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> parameter is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, then (on POSIX) the
-function is implemented using a busy loop (non-blocking call and short
-sleeps). Use the <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> module for an asynchronous wait: see
+<p>When <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> and the platform supports it, an
+efficient event-driven mechanism is used to wait for process termination:</p>
+<ul class="simple">
+<li><p>Linux &gt;= 5.3 uses <a class="reference internal" href="os.html#os.pidfd_open" title="os.pidfd_open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.pidfd_open()</span></code></a> + <a class="reference internal" href="select.html#select.poll" title="select.poll"><code class="xref py py-func docutils literal notranslate"><span class="pre">select.poll()</span></code></a></p></li>
+<li><p>macOS and other BSD variants use <a class="reference internal" href="select.html#select.kqueue" title="select.kqueue"><code class="xref py py-func docutils literal notranslate"><span class="pre">select.kqueue()</span></code></a> +
+<code class="docutils literal notranslate"><span class="pre">KQ_FILTER_PROC</span></code> + <code class="docutils literal notranslate"><span class="pre">KQ_NOTE_EXIT</span></code></p></li>
+<li><p>Windows uses <code class="docutils literal notranslate"><span class="pre">WaitForSingleObject</span></code></p></li>
+</ul>
+<p>If none of these mechanisms are available, the function falls back to a
+busy loop (non-blocking call and short sleeps).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> module for an asynchronous wait: see
 <a class="reference internal" href="asyncio-subprocess.html#asyncio.create_subprocess_exec" title="asyncio.create_subprocess_exec"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.create_subprocess_exec</span></code></a>.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.3: </span><em>timeout</em> was added.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15: </span>if <em>timeout</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, use efficient event-driven implementation
+on Linux &gt;= 5.3 and macOS / BSD.</p>
 </div>
 </dd></dl>
 

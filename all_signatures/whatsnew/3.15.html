@@ -139,6 +139,7 @@
 <li><a class="reference internal" href="#socket">socket</a></li>
 <li><a class="reference internal" href="#sqlite3">sqlite3</a></li>
 <li><a class="reference internal" href="#ssl">ssl</a></li>
+<li><a class="reference internal" href="#subprocess">subprocess</a></li>
 <li><a class="reference internal" href="#symtable">symtable</a></li>
 <li><a class="reference internal" href="#sys">sys</a></li>
 <li><a class="reference internal" href="#tarfile">tarfile</a></li>
@@ -942,6 +943,23 @@ connection. This call requires OpenSSL 3.5 or later.</p></li>
 <blockquote>
 <div><p>(Contributed by Ron Frederick in <a class="reference external" href="https://github.com/python/cpython/issues/138252">gh-138252</a>.)</p>
 </div></blockquote>
+</li>
+</ul>
+</section>
+<section id="subprocess">
+<h3>subprocess<a class="headerlink" href="#subprocess" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p><a class="reference internal" href="../library/subprocess.html#subprocess.Popen.wait" title="subprocess.Popen.wait"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subprocess.Popen.wait()</span></code></a>: when <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> and the
+platform supports it, an efficient event-driven mechanism is used to wait for
+process termination:</p>
+<ul class="simple">
+<li><p>Linux &gt;= 5.3 uses <a class="reference internal" href="../library/os.html#os.pidfd_open" title="os.pidfd_open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.pidfd_open()</span></code></a> + <a class="reference internal" href="../library/select.html#select.poll" title="select.poll"><code class="xref py py-func docutils literal notranslate"><span class="pre">select.poll()</span></code></a>.</p></li>
+<li><p>macOS and other BSD variants use <a class="reference internal" href="../library/select.html#select.kqueue" title="select.kqueue"><code class="xref py py-func docutils literal notranslate"><span class="pre">select.kqueue()</span></code></a> + <code class="docutils literal notranslate"><span class="pre">KQ_FILTER_PROC</span></code> + <code class="docutils literal notranslate"><span class="pre">KQ_NOTE_EXIT</span></code>.</p></li>
+<li><p>Windows keeps using <code class="docutils literal notranslate"><span class="pre">WaitForSingleObject</span></code> (unchanged).</p></li>
+</ul>
+<p>If none of these mechanisms are available, the function falls back to the
+traditional busy loop (non-blocking call and short sleeps).
+(Contributed by Giampaolo Rodola in <a class="reference external" href="https://github.com/python/cpython/issues/83069">gh-83069</a>).</p>
 </li>
 </ul>
 </section>
@@ -2098,6 +2116,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#socket">socket</a></li>
 <li><a class="reference internal" href="#sqlite3">sqlite3</a></li>
 <li><a class="reference internal" href="#ssl">ssl</a></li>
+<li><a class="reference internal" href="#subprocess">subprocess</a></li>
 <li><a class="reference internal" href="#symtable">symtable</a></li>
 <li><a class="reference internal" href="#sys">sys</a></li>
 <li><a class="reference internal" href="#tarfile">tarfile</a></li>
