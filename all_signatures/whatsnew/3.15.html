@@ -2021,6 +2021,11 @@ distributors to pass a <a class="reference external" href="https://www.json.org/
 configuration file containing custom error messages for <a class="reference internal" href="../glossary.html#term-standard-library"><span class="xref std std-term">standard library</span></a>
 modules that are missing or packaged separately.
 (Contributed by Stan Ulbrych and Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/139707">gh-139707</a>.)</p></li>
+<li><p>The new configure option <a class="reference internal" href="../using/configure.html#cmdoption-with-pymalloc-hugepages"><code class="xref std std-option docutils literal notranslate"><span class="pre">--with-pymalloc-hugepages</span></code></a> enables huge
+page support for <a class="reference internal" href="../c-api/memory.html#pymalloc"><span class="std std-ref">pymalloc</span></a> arenas. When enabled, arena size
+increases to 2 MiB and allocation uses <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code> (Linux) or
+<code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages.
+On Windows, use <code class="docutils literal notranslate"><span class="pre">build.bat</span> <span class="pre">--pymalloc-hugepages</span></code>.</p></li>
 <li><p>Annotating anonymous mmap usage is now supported if Linux kernel supports
 <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/PR_SET_VMA(2const)">PR_SET_VMA_ANON_NAME</a></em> (Linux 5.17 or newer).
 Annotations are visible in <code class="docutils literal notranslate"><span class="pre">/proc/&lt;pid&gt;/maps</span></code> if the kernel supports the feature

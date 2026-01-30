@@ -1180,6 +1180,22 @@ calling convention. For example, Clang 19 and newer supports this feature.</p>
 </dd></dl>
 
 <dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-with-pymalloc-hugepages">
+<span class="sig-name descname"><span class="pre">--with-pymalloc-hugepages</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-with-pymalloc-hugepages" title="Link to this definition">¶</a></dt>
+<dd><p>Enable huge page support for <a class="reference internal" href="../c-api/memory.html#pymalloc"><span class="std std-ref">pymalloc</span></a> arenas (disabled by
+default). When enabled, the arena size on 64-bit platforms is increased to
+2 MiB and arena allocation uses <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code> (Linux) or
+<code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages.</p>
+<p>The configure script checks that the platform supports <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code>
+and emits a warning if it is not available.</p>
+<p>On Windows, use the <code class="docutils literal notranslate"><span class="pre">--pymalloc-hugepages</span></code> flag with <code class="docutils literal notranslate"><span class="pre">build.bat</span></code> or
+set the <code class="docutils literal notranslate"><span class="pre">UsePymallocHugepages</span></code> MSBuild property.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
+</div>
+</dd></dl>
+
+<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-without-doc-strings">
 <span class="sig-name descname"><span class="pre">--without-doc-strings</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-without-doc-strings" title="Link to this definition">¶</a></dt>
 <dd><p>Disable static documentation strings to reduce the memory footprint (enabled
