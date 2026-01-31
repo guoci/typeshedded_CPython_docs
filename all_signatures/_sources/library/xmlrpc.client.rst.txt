@@ -39,7 +39,7 @@ between conformable Python objects and XML on the wire.
                        use_builtin_types=False, *, headers=(), context=None)
            ServerProxy(uri: str, transport: xmlrpc.client.Transport | None = None, encoding: str | None = None, verbose: bool = False, allow_none: bool = False, use_datetime: bool = False, use_builtin_types: bool = False, *, headers: collections.abc.Iterable[tuple[str, str]] = ..., context: typing.Any | None = None) -> xmlrpc.client.ServerProxy
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L263>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L263>`__)
 
    A :class:`ServerProxy` instance is an object that manages communication with a
    remote XML-RPC server.  The required first argument is a URI (Uniform Resource
@@ -257,7 +257,7 @@ DateTime Objects
 .. class:: DateTime
            DateTime(value: datetime.datetime | int | str | time.struct_time | tuple[int, ...] = 0) -> xmlrpc.client.DateTime
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L77>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L77>`__)
 
    This class may be initialized with seconds since the epoch, a time
    tuple, an ISO 8601 time/date string, or a :class:`datetime.datetime`
@@ -268,7 +268,7 @@ DateTime Objects
    .. method:: decode(string)
                decode(data: typing.Any) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L88>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L88>`__)
 
       Accept a string as the instance's new time value.
 
@@ -276,7 +276,7 @@ DateTime Objects
    .. method:: encode(out)
                encode(out: _typeshed.SupportsWrite[str]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L89>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L89>`__)
 
       Write the XML-RPC encoding of this :class:`DateTime` item to the *out* stream
       object.
@@ -320,7 +320,7 @@ Binary Objects
 .. class:: Binary
            Binary(data: bytearray | bytes | None = None) -> xmlrpc.client.Binary
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L94>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L94>`__)
 
    This class may be initialized from bytes data (which may include NULs). The
    primary access to the content of a :class:`Binary` object is provided by an
@@ -330,7 +330,7 @@ Binary Objects
    .. attribute:: data
       :type: bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L95>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L95>`__)
 
       The binary data encapsulated by the :class:`Binary` instance.  The data is
       provided as a :class:`bytes` object.
@@ -342,7 +342,7 @@ Binary Objects
    .. method:: decode(bytes)
                decode(data: collections.abc.Buffer) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L97>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L97>`__)
 
       Accept a base64 :class:`bytes` object and decode it as the instance's new data.
 
@@ -350,7 +350,7 @@ Binary Objects
    .. method:: encode(out)
                encode(out: _typeshed.SupportsWrite[str]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L98>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L98>`__)
 
       Write the XML-RPC base 64 encoding of this binary item to the *out* stream object.
 
@@ -394,7 +394,7 @@ Fault Objects
 .. class:: Fault
            Fault(faultCode: int, faultString: str, **extra: typing.Any) -> xmlrpc.client.Fault
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L66>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L66>`__)
 
    A :class:`Fault` object encapsulates the content of an XML-RPC fault tag. Fault
    objects have the following attributes:
@@ -403,7 +403,7 @@ Fault Objects
    .. attribute:: faultCode
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L67>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L67>`__)
 
       An int indicating the fault type.
 
@@ -411,7 +411,7 @@ Fault Objects
    .. attribute:: faultString
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L68>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L68>`__)
 
       A string containing a diagnostic message associated with the fault.
 
@@ -453,7 +453,7 @@ ProtocolError Objects
 .. class:: ProtocolError
            ProtocolError(url: str, errcode: int, errmsg: str, headers: dict[str, str]) -> xmlrpc.client.ProtocolError
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L57>`__)
 
    A :class:`ProtocolError` object describes a protocol error in the underlying
    transport layer (such as a 404 'not found' error if the server named by the URI
@@ -463,7 +463,7 @@ ProtocolError Objects
    .. attribute:: url
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L58>`__)
 
       The URI or URL that triggered the error.
 
@@ -471,7 +471,7 @@ ProtocolError Objects
    .. attribute:: errcode
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L59>`__)
 
       The error code.
 
@@ -479,7 +479,7 @@ ProtocolError Objects
    .. attribute:: errmsg
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L60>`__)
 
       The error message or diagnostic string.
 
@@ -487,7 +487,7 @@ ProtocolError Objects
    .. attribute:: headers
       :type: dict[str, str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L61>`__)
 
       A dict containing the headers of the HTTP/HTTPS request that triggered the
       error.
@@ -519,7 +519,7 @@ remote server into a single request [#]_.
 .. class:: MultiCall(server)
            MultiCall(server: xmlrpc.client.ServerProxy) -> xmlrpc.client.MultiCall
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L184>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L184>`__)
 
    Create an object used to boxcar method calls. *server* is the eventual target of
    the call. Calls can be made to the result object, but they will immediately
@@ -576,7 +576,7 @@ Convenience Functions
 .. function:: dumps(params, methodname=None, methodresponse=None, encoding=None, allow_none=False)
               dumps(params: xmlrpc.client.Fault | tuple[_Marshallable, ...], methodname: str | None = None, methodresponse: bool | None = None, encoding: str | None = None, allow_none: bool = False) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L197>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L197>`__)
 
    Convert *params* into an XML-RPC request, or into a response if *methodresponse*
    is true. *params* can be either a tuple of arguments or an instance of the
@@ -590,7 +590,7 @@ Convenience Functions
 .. function:: loads(data, use_datetime=False, use_builtin_types=False)
               loads(data: collections.abc.Buffer | str, use_datetime: bool = False, use_builtin_types: bool = False) -> tuple[tuple[_Marshallable, ...], str | None]
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/xmlrpc/client.pyi#L204>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/xmlrpc/client.pyi#L204>`__)
 
    Convert an XML-RPC request or response into Python objects, a ``(params,
    methodname)``.  *params* is a tuple of argument; *methodname* is a string, or

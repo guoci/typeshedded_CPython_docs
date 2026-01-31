@@ -416,17 +416,19 @@ called “displays”, each of them in two flavors:</p>
 </ul>
 <p id="index-12">Common syntax elements for comprehensions are:</p>
 <pre class="highlight">
-<strong id="grammar-token-python-grammar-comprehension">comprehension</strong>: <a class="reference internal" href="#grammar-token-python-grammar-assignment_expression"><code class="xref docutils literal notranslate"><span class="pre">assignment_expression</span></code></a> <a class="reference internal" href="#grammar-token-python-grammar-comp_for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a>
+<strong id="grammar-token-python-grammar-comprehension">comprehension</strong>: <a class="reference internal" href="#grammar-token-python-grammar-flexible_expression"><code class="xref docutils literal notranslate"><span class="pre">flexible_expression</span></code></a> <a class="reference internal" href="#grammar-token-python-grammar-comp_for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a>
 <strong id="grammar-token-python-grammar-comp_for">comp_for</strong>:      [<span class="sx">&quot;async&quot;</span>] <span class="sx">&quot;for&quot;</span> <a class="reference internal" href="simple_stmts.html#grammar-token-python-grammar-target_list"><code class="xref docutils literal notranslate"><span class="pre">target_list</span></code></a> <span class="sx">&quot;in&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-or_test"><code class="xref docutils literal notranslate"><span class="pre">or_test</span></code></a> [<a class="reference internal" href="#grammar-token-python-grammar-comp_iter"><code class="xref docutils literal notranslate"><span class="pre">comp_iter</span></code></a>]
 <strong id="grammar-token-python-grammar-comp_iter">comp_iter</strong>:     <a class="reference internal" href="#grammar-token-python-grammar-comp_for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a> | <a class="reference internal" href="#grammar-token-python-grammar-comp_if"><code class="xref docutils literal notranslate"><span class="pre">comp_if</span></code></a>
 <strong id="grammar-token-python-grammar-comp_if">comp_if</strong>:       <span class="sx">&quot;if&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-or_test"><code class="xref docutils literal notranslate"><span class="pre">or_test</span></code></a> [<a class="reference internal" href="#grammar-token-python-grammar-comp_iter"><code class="xref docutils literal notranslate"><span class="pre">comp_iter</span></code></a>]
 </pre>
 <p>The comprehension consists of a single expression followed by at least one
-<code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> clause and zero or more <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> or <code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code> clauses.
-In this case, the elements of the new container are those that would be produced
-by considering each of the <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> or <code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code> clauses a block,
-nesting from left to right, and evaluating the expression to produce an element
-each time the innermost block is reached.</p>
+<code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> clause and zero or more <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> or <code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code>
+clauses.  In this case, the elements of the new container are those that would
+be produced by considering each of the <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> or <code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code>
+clauses a block, nesting from left to right, and evaluating the expression to
+produce an element each time the innermost block is reached.  If the expression
+is starred, the result will instead be unpacked to produce zero or more
+elements.</p>
 <p>However, aside from the iterable expression in the leftmost <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> clause,
 the comprehension is executed in a separate implicitly nested scope. This ensures
 that names assigned to in the target list don’t “leak” into the enclosing scope.</p>
@@ -461,6 +463,9 @@ See also <span class="target" id="index-14"></span><a class="pep reference exter
 <p><span class="versionmodified changed">Changed in version 3.11: </span>Asynchronous comprehensions are now allowed inside comprehensions in
 asynchronous functions. Outer comprehensions implicitly become
 asynchronous.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a5 (unreleased): </span>Unpacking with the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator is now allowed in the expression.</p>
 </div>
 </section>
 <section id="list-displays">
@@ -498,8 +503,8 @@ enclosed in curly braces:</p>
 <pre class="highlight">
 <strong id="grammar-token-python-grammar-dict_display">dict_display</strong>:       <span class="sx">&quot;{&quot;</span> [<a class="reference internal" href="#grammar-token-python-grammar-dict_item_list"><code class="xref docutils literal notranslate"><span class="pre">dict_item_list</span></code></a> | <a class="reference internal" href="#grammar-token-python-grammar-dict_comprehension"><code class="xref docutils literal notranslate"><span class="pre">dict_comprehension</span></code></a>] <span class="sx">&quot;}&quot;</span>
 <strong id="grammar-token-python-grammar-dict_item_list">dict_item_list</strong>:     <a class="reference internal" href="#grammar-token-python-grammar-dict_item"><code class="xref docutils literal notranslate"><span class="pre">dict_item</span></code></a> (<span class="sx">&quot;,&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-dict_item"><code class="xref docutils literal notranslate"><span class="pre">dict_item</span></code></a>)* [<span class="sx">&quot;,&quot;</span>]
+<strong id="grammar-token-python-grammar-dict_comprehension">dict_comprehension</strong>: <a class="reference internal" href="#grammar-token-python-grammar-dict_item"><code class="xref docutils literal notranslate"><span class="pre">dict_item</span></code></a> <a class="reference internal" href="#grammar-token-python-grammar-comp_for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a>
 <strong id="grammar-token-python-grammar-dict_item">dict_item</strong>:          <a class="reference internal" href="#grammar-token-python-grammar-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> <span class="sx">&quot;:&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> | <span class="sx">&quot;**&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-or_expr"><code class="xref docutils literal notranslate"><span class="pre">or_expr</span></code></a>
-<strong id="grammar-token-python-grammar-dict_comprehension">dict_comprehension</strong>: <a class="reference internal" href="#grammar-token-python-grammar-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> <span class="sx">&quot;:&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> <a class="reference internal" href="#grammar-token-python-grammar-comp_for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a>
 </pre>
 <p>A dictionary display yields a new dictionary object.</p>
 <p>If a comma-separated sequence of dict items is given, they are evaluated
@@ -514,10 +519,20 @@ earlier dict items and earlier dictionary unpackings.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.5: </span>Unpacking into dictionary displays, originally proposed by <span class="target" id="index-19"></span><a class="pep reference external" href="https://peps.python.org/pep-0448/"><strong>PEP 448</strong></a>.</p>
 </div>
-<p>A dict comprehension, in contrast to list and set comprehensions, needs two
-expressions separated with a colon followed by the usual “for” and “if” clauses.
-When the comprehension is run, the resulting key and value elements are inserted
-in the new dictionary in the order they are produced.</p>
+<p>A dict comprehension may take one of two forms:</p>
+<ul class="simple">
+<li><p>The first form  uses two expressions separated with a colon followed by the
+usual “for” and “if” clauses.  When the comprehension is run, the resulting
+key and value elements are inserted in the new dictionary in the order they
+are produced.</p></li>
+<li><p>The second form uses a single expression prefixed by the <code class="docutils literal notranslate"><span class="pre">**</span></code> dictionary
+unpacking operator followed by the usual “for” and “if” clauses.  When the
+comprehension is evaluated, the expression is evaluated and then unpacked,
+inserting zero or more key/value pairs into the new dictionary.</p></li>
+</ul>
+<p>Both forms of dictionary comprehension retain the property that if the same key
+is specified multiple times, the associated value in the resulting dictionary
+will be the last one specified.</p>
 <p id="index-20">Restrictions on the types of the key values are listed earlier in section
 <a class="reference internal" href="datamodel.html#types"><span class="std std-ref">The standard type hierarchy</span></a>.  (To summarize, the key type should be <a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a>, which excludes
 all mutable objects.)  Clashes between duplicate keys are not detected; the last
@@ -529,12 +544,15 @@ and value was not well-defined.  In CPython, the value was evaluated before
 the key.  Starting with 3.8, the key is evaluated before the value, as
 proposed by <span class="target" id="index-21"></span><a class="pep reference external" href="https://peps.python.org/pep-0572/"><strong>PEP 572</strong></a>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a5 (unreleased): </span>Unpacking with the <code class="docutils literal notranslate"><span class="pre">**</span></code> operator is now allowed in dictionary comprehensions.</p>
+</div>
 </section>
 <section id="generator-expressions">
 <span id="genexpr"></span><h3><span class="section-number">6.2.8. </span>Generator expressions<a class="headerlink" href="#generator-expressions" title="Link to this heading">¶</a></h3>
 <p id="index-22">A generator expression is a compact generator notation in parentheses:</p>
 <pre class="highlight">
-<strong id="grammar-token-python-grammar-generator_expression">generator_expression</strong>: <span class="sx">&quot;(&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-expression"><code class="xref docutils literal notranslate"><span class="pre">expression</span></code></a> <a class="reference internal" href="#grammar-token-python-grammar-comp_for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a> <span class="sx">&quot;)&quot;</span>
+<strong id="grammar-token-python-grammar-generator_expression">generator_expression</strong>: <span class="sx">&quot;(&quot;</span> <a class="reference internal" href="#grammar-token-python-grammar-flexible_expression"><code class="xref docutils literal notranslate"><span class="pre">flexible_expression</span></code></a> <a class="reference internal" href="#grammar-token-python-grammar-comp_for"><code class="xref docutils literal notranslate"><span class="pre">comp_for</span></code></a> <span class="sx">&quot;)&quot;</span>
 </pre>
 <p>A generator expression yields a new generator object.  Its syntax is the same as
 for comprehensions, except that it is enclosed in parentheses instead of

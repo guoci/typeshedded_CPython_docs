@@ -426,7 +426,7 @@ Available Functions
               warn(message: str, category: type[Warning] | None = None, stacklevel: int = 1, source: typing.Any | None = None, *, skip_file_prefixes: tuple[str, ...] = ...) -> None
               warn(message: Warning, category: typing.Any = None, stacklevel: int = 1, source: typing.Any | None = None, *, skip_file_prefixes: tuple[str, ...] = ...) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_warnings.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_warnings.pyi#L10>`__)
 
    Issue a warning, or maybe ignore it or raise an exception.  The *category*
    argument, if given, must be a :ref:`warning category class <warning-categories>`; it
@@ -485,7 +485,7 @@ Available Functions
               warn_explicit(message: str, category: type[Warning], filename: str, lineno: int, module: str | None = ..., registry: dict[str | tuple[str, type[Warning], int], int] | None = None, module_globals: dict[str, typing.Any] | None = None, source: typing.Any | None = None) -> None
               warn_explicit(message: Warning, category: typing.Any, filename: str, lineno: int, module: str | None = None, registry: dict[str | tuple[str, type[Warning], int], int] | None = None, module_globals: dict[str, typing.Any] | None = None, source: typing.Any | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_warnings.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_warnings.pyi#L35>`__)
 
    This is a low-level interface to the functionality of :func:`warn`, passing in
    explicitly the message, category, filename and line number, and optionally
@@ -529,7 +529,7 @@ Available Functions
 .. function:: showwarning(message, category, filename, lineno, file=None, line=None)
               showwarning(message: Warning | str, category: type[Warning], filename: str, lineno: int, file: typing.TextIO | None = None, line: str | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/warnings.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/warnings.pyi#L32>`__)
 
    Write a warning to a file.  The default implementation calls
    ``formatwarning(message, category, filename, lineno, line)`` and writes the
@@ -543,7 +543,7 @@ Available Functions
 .. function:: formatwarning(message, category, filename, lineno, line=None)
               formatwarning(message: Warning | str, category: type[Warning], filename: str, lineno: int, line: str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/warnings.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/warnings.pyi#L40>`__)
 
    Format a warning the standard way.  This returns a string which may contain
    embedded newlines and ends in a newline.  *line* is a line of source code to
@@ -555,7 +555,7 @@ Available Functions
 .. function:: filterwarnings(action, message='', category=Warning, module='', lineno=0, append=False)
               filterwarnings(action: _ActionKind, message: str = '', category: type[Warning] = ..., module: str = '', lineno: int = 0, append: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/warnings.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/warnings.pyi#L43>`__)
 
    Insert an entry into the list of :ref:`warnings filter specifications
    <warning-filter>`.  The entry is inserted at the front by default; if
@@ -570,7 +570,7 @@ Available Functions
 .. function:: simplefilter(action, category=Warning, lineno=0, append=False)
               simplefilter(action: _ActionKind, category: type[Warning] = ..., lineno: int = 0, append: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/warnings.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/warnings.pyi#L46>`__)
 
    Insert a simple entry into the list of :ref:`warnings filter specifications
    <warning-filter>`.  The meaning of the function parameters is as for
@@ -582,7 +582,7 @@ Available Functions
 .. function:: resetwarnings()
               resetwarnings() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/warnings.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/warnings.pyi#L47>`__)
 
    Reset the warnings filter.  This discards the effect of all previous calls to
    :func:`filterwarnings`, including that of the :option:`-W` command line options
@@ -592,7 +592,7 @@ Available Functions
 .. decorator:: deprecated(msg, *, category=DeprecationWarning, stacklevel=1)
                deprecated(message: typing.LiteralString, /, *, category: type[Warning] | None = ..., stacklevel: int = 1) -> warnings.deprecated
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/warnings.pyi#L121>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/warnings.pyi#L121>`__)
 
    Decorator to indicate that a class, function or overload is deprecated.
 
@@ -650,7 +650,7 @@ Available Context Managers
            catch_warnings(*, record: typing.Literal[True], module: types.ModuleType | None = None, action: typing.Literal['always', 'default', 'error', 'ignore', 'module', 'once'] | None = None, category: type[Warning] = ..., lineno: int = 0, append: bool = False) -> warnings.catch_warnings[list[warnings.WarningMessage]]
            catch_warnings(*, record: bool, module: types.ModuleType | None = None, action: typing.Literal['always', 'default', 'error', 'ignore', 'module', 'once'] | None = None, category: type[Warning] = ..., lineno: int = 0, append: bool = False) -> warnings.catch_warnings[_W_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/warnings.pyi#L70>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/warnings.pyi#L70>`__)
 
     A context manager that copies and, upon exit, restores the warnings filter
     and the :func:`showwarning` function.

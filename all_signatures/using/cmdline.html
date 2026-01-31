@@ -1303,6 +1303,28 @@ It now has no effect if set to an empty string.</p>
 </dd></dl>
 
 <dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PYTHON_PYMALLOC_HUGEPAGES">
+<span class="sig-name descname"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></span><a class="headerlink" href="#envvar-PYTHON_PYMALLOC_HUGEPAGES" title="Link to this definition">¶</a></dt>
+<dd><p>If set to a non-zero integer, enable huge page support for
+<a class="reference internal" href="../c-api/memory.html#pymalloc"><span class="std std-ref">pymalloc</span></a> arenas.  Set to <code class="docutils literal notranslate"><span class="pre">0</span></code> or unset to disable.
+Python must be compiled with <a class="reference internal" href="configure.html#cmdoption-with-pymalloc-hugepages"><code class="xref std std-option docutils literal notranslate"><span class="pre">--with-pymalloc-hugepages</span></code></a> for this
+variable to have any effect.</p>
+<p>When enabled, arena allocation uses <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code> (Linux) or
+<code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages if
+huge pages are not available.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On Linux, if the huge-page pool is exhausted, page faults — including
+copy-on-write faults triggered by <a class="reference internal" href="../library/os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a> — deliver <code class="docutils literal notranslate"><span class="pre">SIGBUS</span></code>
+and kill the process.  Only enable this in environments where the
+huge-page pool is properly sized and fork-safety is not a concern.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a5 (unreleased).</span></p>
+</div>
+</dd></dl>
+
+<dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-PYTHONLEGACYWINDOWSFSENCODING">
 <span class="sig-name descname"><span class="pre">PYTHONLEGACYWINDOWSFSENCODING</span></span><a class="headerlink" href="#envvar-PYTHONLEGACYWINDOWSFSENCODING" title="Link to this definition">¶</a></dt>
 <dd><p>If set to a non-empty string, the default <a class="reference internal" href="../glossary.html#term-filesystem-encoding-and-error-handler"><span class="xref std std-term">filesystem encoding and

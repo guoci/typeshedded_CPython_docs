@@ -104,6 +104,7 @@
 <li><a class="reference internal" href="#new-features">New features</a><ul>
 <li><a class="reference internal" href="#pep-799-a-dedicated-profiling-package"><strong>PEP 799</strong>: A dedicated profiling package</a></li>
 <li><a class="reference internal" href="#tachyon-high-frequency-statistical-sampling-profiler">Tachyon: High frequency statistical sampling profiler</a></li>
+<li><a class="reference internal" href="#pep-798-unpacking-in-comprehensions"><strong>PEP 798</strong>: Unpacking in Comprehensions</a></li>
 <li><a class="reference internal" href="#improved-error-messages">Improved error messages</a></li>
 </ul>
 </li>
@@ -310,8 +311,9 @@ so it’s worth checking back even after reading earlier versions.</p>
 profiling tools</span></a></p></li>
 <li><p><span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0799/"><strong>PEP 799</strong></a>: <a class="reference internal" href="#whatsnew315-sampling-profiler"><span class="std std-ref">Tachyon: High frequency statistical sampling profiler
 profiling tools</span></a></p></li>
-<li><p><span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0686/"><strong>PEP 686</strong></a>: <a class="reference internal" href="#whatsnew315-utf8-default"><span class="std std-ref">Python now uses UTF-8 as the default encoding</span></a></p></li>
-<li><p><span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0782/"><strong>PEP 782</strong></a>: <a class="reference internal" href="#whatsnew315-pep782"><span class="std std-ref">A new PyBytesWriter C API to create a Python bytes object</span></a></p></li>
+<li><p><span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0798/"><strong>PEP 798</strong></a>: <a class="reference internal" href="#whatsnew315-unpacking-in-comprehensions"><span class="std std-ref">Unpacking in Comprehensions</span></a></p></li>
+<li><p><span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0686/"><strong>PEP 686</strong></a>: <a class="reference internal" href="#whatsnew315-utf8-default"><span class="std std-ref">Python now uses UTF-8 as the default encoding</span></a></p></li>
+<li><p><span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0782/"><strong>PEP 782</strong></a>: <a class="reference internal" href="#whatsnew315-pep782"><span class="std std-ref">A new PyBytesWriter C API to create a Python bytes object</span></a></p></li>
 <li><p><a class="reference internal" href="#whatsnew315-jit"><span class="std std-ref">The JIT compiler has been significantly upgraded</span></a></p></li>
 <li><p><a class="reference internal" href="#whatsnew315-improved-error-messages"><span class="std std-ref">Improved error messages</span></a></p></li>
 </ul>
@@ -319,7 +321,7 @@ profiling tools</span></a></p></li>
 <section id="new-features">
 <h2>New features<a class="headerlink" href="#new-features" title="Link to this heading">¶</a></h2>
 <section id="pep-799-a-dedicated-profiling-package">
-<span id="whatsnew315-profiling-package"></span><h3><span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0799/"><strong>PEP 799</strong></a>: A dedicated profiling package<a class="headerlink" href="#pep-799-a-dedicated-profiling-package" title="Link to this heading">¶</a></h3>
+<span id="whatsnew315-profiling-package"></span><h3><span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0799/"><strong>PEP 799</strong></a>: A dedicated profiling package<a class="headerlink" href="#pep-799-a-dedicated-profiling-package" title="Link to this heading">¶</a></h3>
 <p>A new <a class="reference internal" href="../library/profiling.html#module-profiling" title="profiling: Python profiling tools for performance analysis."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a> module has been added to organize Python’s built-in
 profiling tools under a single, coherent namespace. This module contains:</p>
 <ul class="simple">
@@ -331,7 +333,7 @@ profiling tools under a single, coherent namespace. This module contains:</p>
 The <a class="reference internal" href="../library/profile.html#module-profile" title="profile: Pure Python profiler (deprecated). (deprecated)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">profile</span></code></a> module is deprecated and will be removed in Python 3.17.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0799/"><strong>PEP 799</strong></a> for further details.</p>
+<p><span class="target" id="index-6"></span><a class="pep reference external" href="https://peps.python.org/pep-0799/"><strong>PEP 799</strong></a> for further details.</p>
 </div>
 <p>(Contributed by Pablo Galindo and László Kiss Kollár in <a class="reference external" href="https://github.com/python/cpython/issues/138122">gh-138122</a>.)</p>
 </section>
@@ -411,6 +413,44 @@ specializations from the adaptive interpreter.</p></li>
 available output formats, profiling modes, and configuration options.</p>
 <p>(Contributed by Pablo Galindo and László Kiss Kollár in <a class="reference external" href="https://github.com/python/cpython/issues/135953">gh-135953</a> and <a class="reference external" href="https://github.com/python/cpython/issues/138122">gh-138122</a>.)</p>
 </section>
+<section id="pep-798-unpacking-in-comprehensions">
+<span id="whatsnew315-unpacking-in-comprehensions"></span><h3><span class="target" id="index-7"></span><a class="pep reference external" href="https://peps.python.org/pep-0798/"><strong>PEP 798</strong></a>: Unpacking in Comprehensions<a class="headerlink" href="#pep-798-unpacking-in-comprehensions" title="Link to this heading">¶</a></h3>
+<p>List, set, and dictionary comprehensions, as well as generator expressions, now
+support unpacking with <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code>.  This extends the unpacking syntax
+from <span class="target" id="index-8"></span><a class="pep reference external" href="https://peps.python.org/pep-0448/"><strong>PEP 448</strong></a> to comprehensions, providing a new syntax for combining an
+arbitrary number of iterables or dictionaries into a single flat structure.
+This new syntax is a direct alternative to nested comprehensions,
+<a class="reference internal" href="../library/itertools.html#itertools.chain" title="itertools.chain"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.chain()</span></code></a>, and <a class="reference internal" href="../library/itertools.html#itertools.chain.from_iterable" title="itertools.chain.from_iterable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">itertools.chain.from_iterable()</span></code></a>.  For
+example:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lists</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="o">*</span><span class="n">L</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">lists</span><span class="p">]</span>  <span class="c1"># equivalent to [x for L in lists for x in L]</span>
+<span class="go">[1, 2, 3, 4, 5]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sets</span> <span class="o">=</span> <span class="p">[{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="o">*</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sets</span><span class="p">}</span>  <span class="c1"># equivalent to {x for s in sets for x in s}</span>
+<span class="go">{1, 2, 3, 4}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dicts</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="o">**</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dicts</span><span class="p">}</span>  <span class="c1"># equivalent to {k: v for d in dicts for k,v in d.items()}</span>
+<span class="go">{&#39;a&#39;: 3, &#39;b&#39;: 2}</span>
+</pre></div>
+</div>
+<p>Generator expressions can similarly use unpacking to yield values from multiple
+iterables:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">L</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">lists</span><span class="p">)</span>  <span class="c1"># equivalent to (x for L in lists for x in L)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 4, 5]</span>
+</pre></div>
+</div>
+<p>This change also extends to asynchronous generator expressions, such that, for
+example, <code class="docutils literal notranslate"><span class="pre">(*a</span> <span class="pre">async</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">agen())</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">async</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span>
+<span class="pre">agen()</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">a)</span></code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><span class="target" id="index-9"></span><a class="pep reference external" href="https://peps.python.org/pep-0798/"><strong>PEP 798</strong></a> for further details.</p>
+</div>
+<p>(Contributed by Adam Hartz in <a class="reference external" href="https://github.com/python/cpython/issues/143055">gh-143055</a>.)</p>
+</section>
 <section id="improved-error-messages">
 <span id="whatsnew315-improved-error-messages"></span><h3>Improved error messages<a class="headerlink" href="#improved-error-messages" title="Link to this heading">¶</a></h3>
 <ul>
@@ -464,11 +504,11 @@ can be used to identify code that may be affected by this change.
 The special <code class="docutils literal notranslate"><span class="pre">encoding='locale'</span></code> argument uses the current locale
 encoding, and has been supported since Python 3.10.</p>
 <p>To retain the previous behaviour, Python’s UTF-8 mode may be disabled with
-the <span class="target" id="index-6"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONUTF8"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONUTF8=0</span></code></a> environment variable or the
+the <span class="target" id="index-10"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONUTF8"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONUTF8=0</span></code></a> environment variable or the
 <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span> <span class="pre">utf8=0</span></code></a> command-line option.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><span class="target" id="index-7"></span><a class="pep reference external" href="https://peps.python.org/pep-0686/"><strong>PEP 686</strong></a> for further details.</p>
+<p><span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0686/"><strong>PEP 686</strong></a> for further details.</p>
 </div>
 <p>(Contributed by Adam Turner in <a class="reference external" href="https://github.com/python/cpython/issues/133711">gh-133711</a>; PEP 686 written by Inada Naoki.)</p>
 </li>
@@ -503,7 +543,7 @@ single descriptor instance per interpreter, shared across all types that
 need them.
 This speeds up class creation, and helps avoid reference cycles.
 (Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/135228">gh-135228</a>.)</p></li>
-<li><p>The <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> option and the <span class="target" id="index-8"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONWARNINGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONWARNINGS</span></code></a> environment variable
+<li><p>The <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> option and the <span class="target" id="index-12"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONWARNINGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONWARNINGS</span></code></a> environment variable
 can now specify regular expressions instead of literal strings to match
 the warning message and the module name, if the corresponding field starts
 and ends with a forward slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>).
@@ -621,7 +661,7 @@ making it a <a class="reference internal" href="../glossary.html#term-generic-ty
 <section id="math-integer">
 <h3>math.integer<a class="headerlink" href="#math-integer" title="Link to this heading">¶</a></h3>
 <p>This module provides access to the mathematical functions for integer
-arguments (<span class="target" id="index-9"></span><a class="pep reference external" href="https://peps.python.org/pep-0791/"><strong>PEP 791</strong></a>).
+arguments (<span class="target" id="index-13"></span><a class="pep reference external" href="https://peps.python.org/pep-0791/"><strong>PEP 791</strong></a>).
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/81313">gh-81313</a>.)</p>
 </section>
 </section>
@@ -847,7 +887,7 @@ glibc versions 2.28 and later.
 <a class="reference internal" href="../library/os.path.html#os.path.ALLOW_MISSING" title="os.path.ALLOW_MISSING"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.path.ALLOW_MISSING</span></code></a>.
 If used, errors other than <a class="reference internal" href="../library/exceptions.html#FileNotFoundError" title="FileNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a> will be re-raised;
 the resulting path can be missing but it will be free of symlinks.
-(Contributed by Petr Viktorin for <span class="target" id="index-10"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4517"><strong>CVE 2025-4517</strong></a>.)</p></li>
+(Contributed by Petr Viktorin for <span class="target" id="index-14"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4517"><strong>CVE 2025-4517</strong></a>.)</p></li>
 </ul>
 </section>
 <section id="resource">
@@ -982,21 +1022,21 @@ traditional busy loop (non-blocking call and short sleeps).
 <ul class="simple">
 <li><p><a class="reference internal" href="../library/tarfile.html#tarfile.data_filter" title="tarfile.data_filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">data_filter()</span></code></a> now normalizes symbolic link targets in order to
 avoid path traversal attacks.
-(Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/127987">gh-127987</a> and <span class="target" id="index-11"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4138"><strong>CVE 2025-4138</strong></a>.)</p></li>
+(Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/127987">gh-127987</a> and <span class="target" id="index-15"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4138"><strong>CVE 2025-4138</strong></a>.)</p></li>
 <li><p><a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.extractall" title="tarfile.TarFile.extractall"><code class="xref py py-func docutils literal notranslate"><span class="pre">extractall()</span></code></a> now skips fixing up directory attributes
 when a directory was removed or replaced by another kind of file.
-(Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/127987">gh-127987</a> and <span class="target" id="index-12"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2024-12718"><strong>CVE 2024-12718</strong></a>.)</p></li>
+(Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/127987">gh-127987</a> and <span class="target" id="index-16"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2024-12718"><strong>CVE 2024-12718</strong></a>.)</p></li>
 <li><p><a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.extract" title="tarfile.TarFile.extract"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract()</span></code></a> and <a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.extractall" title="tarfile.TarFile.extractall"><code class="xref py py-func docutils literal notranslate"><span class="pre">extractall()</span></code></a>
 now (re-)apply the extraction filter when substituting a link (hard or
 symbolic) with a copy of another archive member, and when fixing up
 directory attributes.
 The former raises a new exception, <a class="reference internal" href="../library/tarfile.html#tarfile.LinkFallbackError" title="tarfile.LinkFallbackError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">LinkFallbackError</span></code></a>.
-(Contributed by Petr Viktorin for <span class="target" id="index-13"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4330"><strong>CVE 2025-4330</strong></a> and <span class="target" id="index-14"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2024-12718"><strong>CVE 2024-12718</strong></a>.)</p></li>
+(Contributed by Petr Viktorin for <span class="target" id="index-17"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4330"><strong>CVE 2025-4330</strong></a> and <span class="target" id="index-18"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2024-12718"><strong>CVE 2024-12718</strong></a>.)</p></li>
 <li><p><a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.extract" title="tarfile.TarFile.extract"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract()</span></code></a> and <a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.extractall" title="tarfile.TarFile.extractall"><code class="xref py py-func docutils literal notranslate"><span class="pre">extractall()</span></code></a>
 no longer extract rejected members when
 <a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.errorlevel" title="tarfile.TarFile.errorlevel"><code class="xref py py-func docutils literal notranslate"><span class="pre">errorlevel()</span></code></a> is zero.
 (Contributed by Matt Prodani and Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/112887">gh-112887</a>
-and <span class="target" id="index-15"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4435"><strong>CVE 2025-4435</strong></a>.)</p></li>
+and <span class="target" id="index-19"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4435"><strong>CVE 2025-4435</strong></a>.)</p></li>
 <li><p><a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.extract" title="tarfile.TarFile.extract"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract()</span></code></a> and <a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.extractall" title="tarfile.TarFile.extractall"><code class="xref py py-func docutils literal notranslate"><span class="pre">extractall()</span></code></a>
 now replace slashes by backslashes in symlink targets on Windows to prevent
 creation of corrupted links.
@@ -1037,7 +1077,7 @@ with outdated names.
 <li><p>Expose the write-through <a class="reference internal" href="../library/functions.html#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> proxy type
 as <a class="reference internal" href="../library/types.html#types.FrameLocalsProxyType" title="types.FrameLocalsProxyType"><code class="xref py py-data docutils literal notranslate"><span class="pre">types.FrameLocalsProxyType</span></code></a>.
 This represents the type of the <a class="reference internal" href="../reference/datamodel.html#frame.f_locals" title="frame.f_locals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">frame.f_locals</span></code></a> attribute,
-as described in <span class="target" id="index-16"></span><a class="pep reference external" href="https://peps.python.org/pep-0667/"><strong>PEP 667</strong></a>.</p></li>
+as described in <span class="target" id="index-20"></span><a class="pep reference external" href="https://peps.python.org/pep-0667/"><strong>PEP 667</strong></a>.</p></li>
 </ul>
 </section>
 <section id="unicodedata">
@@ -1534,7 +1574,7 @@ has been deprecated since Python 3.14.</p></li>
 <ul class="simple">
 <li><p>The <a class="reference internal" href="../library/sys.html#sys._enablelegacywindowsfsencoding" title="sys._enablelegacywindowsfsencoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">_enablelegacywindowsfsencoding()</span></code></a> function
 has been deprecated since Python 3.13.
-Use the <span class="target" id="index-17"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONLEGACYWINDOWSFSENCODING"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONLEGACYWINDOWSFSENCODING</span></code></a> environment variable instead.</p></li>
+Use the <span class="target" id="index-21"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONLEGACYWINDOWSFSENCODING"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONLEGACYWINDOWSFSENCODING</span></code></a> environment variable instead.</p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="../library/sysconfig.html#module-sysconfig" title="sysconfig: Python's configuration information"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a>:</p>
@@ -1570,7 +1610,7 @@ instance of <code class="xref py py-class docutils literal notranslate"><span cl
 about the object. Other common buffer types such as <a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a>
 were also never understood as subtypes of <code class="xref py py-class docutils literal notranslate"><span class="pre">ByteString</span></code> (either at
 runtime or by static type checkers).</p>
-<p>See <span class="target" id="index-18"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
+<p>See <span class="target" id="index-22"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
 (Contributed by Shantanu Jain in <a class="reference external" href="https://github.com/python/cpython/issues/91896">gh-91896</a>.)</p>
 </li>
 </ul>
@@ -1603,7 +1643,7 @@ instance of <code class="xref py py-class docutils literal notranslate"><span cl
 about the object. Other common buffer types such as <a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a>
 were also never understood as subtypes of <code class="xref py py-class docutils literal notranslate"><span class="pre">ByteString</span></code> (either at
 runtime or by static type checkers).</p>
-<p>See <span class="target" id="index-19"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
+<p>See <span class="target" id="index-23"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
 (Contributed by Shantanu Jain in <a class="reference external" href="https://github.com/python/cpython/issues/91896">gh-91896</a>.)</p>
 </li>
 </ul>
@@ -1854,7 +1894,7 @@ and <a class="reference internal" href="../c-api/module.html#c.Py_mod_abi" title
 (Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/137210">gh-137210</a>.)</p></li>
 </ul>
 <ul id="whatsnew315-pep782">
-<li><p>Implement <span class="target" id="index-20"></span><a class="pep reference external" href="https://peps.python.org/pep-0782/"><strong>PEP 782</strong></a>, the <a class="reference internal" href="../c-api/bytes.html#pybyteswriter"><span class="std std-ref">PyBytesWriter API</span></a>.
+<li><p>Implement <span class="target" id="index-24"></span><a class="pep reference external" href="https://peps.python.org/pep-0782/"><strong>PEP 782</strong></a>, the <a class="reference internal" href="../c-api/bytes.html#pybyteswriter"><span class="std std-ref">PyBytesWriter API</span></a>.
 Add functions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../c-api/bytes.html#c.PyBytesWriter_Create" title="PyBytesWriter_Create"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyBytesWriter_Create()</span></code></a></p></li>
@@ -1963,7 +2003,7 @@ use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get
 (<a class="reference internal" href="../library/sys.html#sys.executable" title="sys.executable"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.executable</span></code></a>) instead.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPythonHome()</span></code>:
 use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;home&quot;)</span></code></a> or the
-<span class="target" id="index-21"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a> environment variable instead.</p></li>
+<span class="target" id="index-25"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a> environment variable instead.</p></li>
 </ul>
 <p>(Contributed by Bénédikt Tran in <a class="reference external" href="https://github.com/python/cpython/issues/133644">gh-133644</a>.)</p>
 </li>
@@ -2025,7 +2065,9 @@ modules that are missing or packaged separately.
 page support for <a class="reference internal" href="../c-api/memory.html#pymalloc"><span class="std std-ref">pymalloc</span></a> arenas. When enabled, arena size
 increases to 2 MiB and allocation uses <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code> (Linux) or
 <code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages.
-On Windows, use <code class="docutils literal notranslate"><span class="pre">build.bat</span> <span class="pre">--pymalloc-hugepages</span></code>.</p></li>
+On Windows, use <code class="docutils literal notranslate"><span class="pre">build.bat</span> <span class="pre">--pymalloc-hugepages</span></code>.
+At runtime, huge pages must be explicitly enabled by setting the
+<span class="target" id="index-26"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHON_PYMALLOC_HUGEPAGES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></code></a> environment variable to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
 <li><p>Annotating anonymous mmap usage is now supported if Linux kernel supports
 <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/PR_SET_VMA(2const)">PR_SET_VMA_ANON_NAME</a></em> (Linux 5.17 or newer).
 Annotations are visible in <code class="docutils literal notranslate"><span class="pre">/proc/&lt;pid&gt;/maps</span></code> if the kernel supports the feature
@@ -2086,6 +2128,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#new-features">New features</a><ul>
 <li><a class="reference internal" href="#pep-799-a-dedicated-profiling-package"><strong>PEP 799</strong>: A dedicated profiling package</a></li>
 <li><a class="reference internal" href="#tachyon-high-frequency-statistical-sampling-profiler">Tachyon: High frequency statistical sampling profiler</a></li>
+<li><a class="reference internal" href="#pep-798-unpacking-in-comprehensions"><strong>PEP 798</strong>: Unpacking in Comprehensions</a></li>
 <li><a class="reference internal" href="#improved-error-messages">Improved error messages</a></li>
 </ul>
 </li>

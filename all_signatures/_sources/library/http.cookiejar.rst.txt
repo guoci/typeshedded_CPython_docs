@@ -41,7 +41,7 @@ The module defines the following exception:
 .. exception:: LoadError
                LoadError(*args: object) -> http.cookiejar.LoadError
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L22>`__)
 
    Instances of :class:`FileCookieJar` raise this exception on failure to load
    cookies from a file.  :exc:`LoadError` is a subclass of :exc:`OSError`.
@@ -57,7 +57,7 @@ The following classes are provided:
 .. class:: CookieJar(policy=None)
            CookieJar(policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.CookieJar
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L24>`__)
 
    *policy* is an object implementing the :class:`CookiePolicy` interface.
 
@@ -70,7 +70,7 @@ The following classes are provided:
 .. class:: FileCookieJar(filename=None, delayload=None, policy=None)
            FileCookieJar(filename: os.PathLike[str] | str | None = None, delayload: bool = False, policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.FileCookieJar
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L44>`__)
 
    *policy* is an object implementing the :class:`CookiePolicy` interface.  For the
    other arguments, see the documentation for the corresponding attributes.
@@ -90,7 +90,7 @@ The following classes are provided:
 .. class:: CookiePolicy()
            CookiePolicy() -> http.cookiejar.CookiePolicy
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L59>`__)
 
    This class is responsible for deciding whether each cookie should be accepted
    from / returned to the server.
@@ -99,7 +99,7 @@ The following classes are provided:
 .. class:: DefaultCookiePolicy( blocked_domains=None, allowed_domains=None, netscape=True, rfc2965=False, rfc2109_as_netscape=None, hide_cookie2=False, strict_domain=False, strict_rfc2965_unverifiable=True, strict_ns_unverifiable=False, strict_ns_domain=DefaultCookiePolicy.DomainLiberal, strict_ns_set_initial_dollar=False, strict_ns_set_path=False, secure_protocols=("https", "wss") )
            DefaultCookiePolicy(blocked_domains: collections.abc.Sequence[str] | None = None, allowed_domains: collections.abc.Sequence[str] | None = None, netscape: bool = True, rfc2965: bool = False, rfc2109_as_netscape: bool | None = None, hide_cookie2: bool = False, strict_domain: bool = False, strict_rfc2965_unverifiable: bool = True, strict_ns_unverifiable: bool = False, strict_ns_domain: int = 0, strict_ns_set_initial_dollar: bool = False, strict_ns_set_path: bool = False, secure_protocols: collections.abc.Sequence[str] = ...) -> http.cookiejar.DefaultCookiePolicy
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L68>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L68>`__)
 
    Constructor arguments should be passed as keyword arguments only.
    *blocked_domains* is a sequence of domain names that we never accept cookies
@@ -124,7 +124,7 @@ The following classes are provided:
 .. class:: Cookie()
            Cookie(version: int | None, name: str, value: str | None, port: str | None, port_specified: bool, domain: str, domain_specified: bool, domain_initial_dot: bool, path: str, path_specified: bool, secure: bool, expires: int | None, discard: bool, comment: str | None, comment_url: str | None, rest: dict[str, str], rfc2109: bool = False) -> http.cookiejar.Cookie
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L116>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L116>`__)
 
    This class represents Netscape, :rfc:`2109` and :rfc:`2965` cookies.  It is not
    expected that users of :mod:`http.cookiejar` construct their own :class:`Cookie`
@@ -174,7 +174,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.add_cookie_header(request)
             CookieJar.add_cookie_header(request: urllib.request.Request) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L32>`__)
 
    Add correct :mailheader:`Cookie` header to *request*.
 
@@ -197,7 +197,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.extract_cookies(response, request)
             CookieJar.extract_cookies(response: http.client.HTTPResponse, request: urllib.request.Request) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L33>`__)
 
    Extract cookies from HTTP *response* and store them in the :class:`CookieJar`,
    where allowed by policy.
@@ -225,7 +225,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.set_policy(policy)
             CookieJar.set_policy(policy: http.cookiejar.CookiePolicy) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L34>`__)
 
    Set the :class:`CookiePolicy` instance to be used.
 
@@ -233,7 +233,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.make_cookies(response, request)
             CookieJar.make_cookies(response: http.client.HTTPResponse, request: urllib.request.Request) -> collections.abc.Sequence[http.cookiejar.Cookie]
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L35>`__)
 
    Return sequence of :class:`Cookie` objects extracted from *response* object.
 
@@ -244,7 +244,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.set_cookie_if_ok(cookie, request)
             CookieJar.set_cookie_if_ok(cookie: http.cookiejar.Cookie, request: urllib.request.Request) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L37>`__)
 
    Set a :class:`Cookie` if policy says it's OK to do so.
 
@@ -252,7 +252,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.set_cookie(cookie)
             CookieJar.set_cookie(cookie: http.cookiejar.Cookie) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L36>`__)
 
    Set a :class:`Cookie`, without checking with policy to see whether or not it
    should be set.
@@ -261,7 +261,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.clear([domain[, path[, name]]])
             CookieJar.clear(domain: str | None = None, path: str | None = None, name: str | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L38>`__)
 
    Clear some cookies.
 
@@ -277,7 +277,7 @@ contained :class:`Cookie` objects.
 .. method:: CookieJar.clear_session_cookies()
             CookieJar.clear_session_cookies() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L39>`__)
 
    Discard all session cookies.
 
@@ -295,7 +295,7 @@ contained :class:`Cookie` objects.
 .. method:: FileCookieJar.save(filename=None, ignore_discard=False, ignore_expires=False)
             FileCookieJar.save(filename: str | None = None, ignore_discard: bool = False, ignore_expires: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L48>`__)
 
    Save cookies to a file.
 
@@ -318,7 +318,7 @@ contained :class:`Cookie` objects.
 .. method:: FileCookieJar.load(filename=None, ignore_discard=False, ignore_expires=False)
             FileCookieJar.load(filename: str | None = None, ignore_discard: bool = False, ignore_expires: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L49>`__)
 
    Load cookies from a file.
 
@@ -337,7 +337,7 @@ contained :class:`Cookie` objects.
 .. method:: FileCookieJar.revert(filename=None, ignore_discard=False, ignore_expires=False)
             FileCookieJar.revert(filename: str | None = None, ignore_discard: bool = False, ignore_expires: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L50>`__)
 
    Clear all cookies and reload cookies from a saved file.
 
@@ -350,7 +350,7 @@ contained :class:`Cookie` objects.
 .. attribute:: FileCookieJar.filename
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L45>`__)
 
    Filename of default file in which to keep cookies.  This attribute may be
    assigned to.
@@ -359,7 +359,7 @@ contained :class:`Cookie` objects.
 .. attribute:: FileCookieJar.delayload
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L46>`__)
 
    If true, load cookies lazily from disk.  This attribute should not be assigned
    to.  This is only a hint, since this only affects performance, not behaviour
@@ -379,7 +379,7 @@ writing.
 .. class:: MozillaCookieJar(filename=None, delayload=None, policy=None)
            MozillaCookieJar(filename: os.PathLike[str] | str | None = None, delayload: bool = False, policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.MozillaCookieJar
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L52>`__)
 
    A :class:`FileCookieJar` that can load from and save cookies to disk in the
    Mozilla ``cookies.txt`` file format (which is also used by curl and the Lynx
@@ -403,7 +403,7 @@ writing.
 .. class:: LWPCookieJar(filename=None, delayload=None, policy=None)
            LWPCookieJar(filename: os.PathLike[str] | str | None = None, delayload: bool = False, policy: http.cookiejar.CookiePolicy | None = None) -> http.cookiejar.LWPCookieJar
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L56>`__)
 
    A :class:`FileCookieJar` that can load from and save cookies to disk in format
    compatible with the libwww-perl library's ``Set-Cookie3`` file format.  This is
@@ -425,7 +425,7 @@ methods:
 .. method:: CookiePolicy.set_ok(cookie, request)
             CookiePolicy.set_ok(cookie: http.cookiejar.Cookie, request: urllib.request.Request) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L63>`__)
 
    Return boolean value indicating whether cookie should be accepted from server.
 
@@ -437,7 +437,7 @@ methods:
 .. method:: CookiePolicy.return_ok(cookie, request)
             CookiePolicy.return_ok(cookie: http.cookiejar.Cookie, request: urllib.request.Request) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L64>`__)
 
    Return boolean value indicating whether cookie should be returned to server.
 
@@ -449,7 +449,7 @@ methods:
 .. method:: CookiePolicy.domain_return_ok(domain, request)
             CookiePolicy.domain_return_ok(domain: str, request: urllib.request.Request) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L65>`__)
 
    Return ``False`` if cookies should not be returned, given cookie domain.
 
@@ -476,7 +476,7 @@ methods:
 .. method:: CookiePolicy.path_return_ok(path, request)
             CookiePolicy.path_return_ok(path: str, request: urllib.request.Request) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L66>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L66>`__)
 
    Return ``False`` if cookies should not be returned, given cookie path.
 
@@ -491,7 +491,7 @@ be assigned to.
 .. attribute:: CookiePolicy.netscape
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L60>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L60>`__)
 
    Implement Netscape protocol.
 
@@ -499,7 +499,7 @@ be assigned to.
 .. attribute:: CookiePolicy.rfc2965
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L61>`__)
 
    Implement :rfc:`2965` protocol.
 
@@ -507,7 +507,7 @@ be assigned to.
 .. attribute:: CookiePolicy.hide_cookie2
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L62>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L62>`__)
 
    Don't add :mailheader:`Cookie2` header to requests (the presence of this header
    indicates to the server that we understand :rfc:`2965` cookies).
@@ -570,7 +570,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 .. method:: DefaultCookiePolicy.blocked_domains()
             DefaultCookiePolicy.blocked_domains() -> tuple[str, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L97>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L97>`__)
 
    Return the sequence of blocked domains (as a tuple).
 
@@ -578,7 +578,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 .. method:: DefaultCookiePolicy.set_blocked_domains(blocked_domains)
             DefaultCookiePolicy.set_blocked_domains(blocked_domains: collections.abc.Sequence[str]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L98>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L98>`__)
 
    Set the sequence of blocked domains.
 
@@ -586,7 +586,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 .. method:: DefaultCookiePolicy.is_blocked(domain)
             DefaultCookiePolicy.is_blocked(domain: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L99>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L99>`__)
 
    Return ``True`` if *domain* is on the blocklist for setting or receiving
    cookies.
@@ -595,7 +595,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 .. method:: DefaultCookiePolicy.allowed_domains()
             DefaultCookiePolicy.allowed_domains() -> tuple[str, ...] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L100>`__)
 
    Return :const:`None`, or the sequence of allowed domains (as a tuple).
 
@@ -603,7 +603,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 .. method:: DefaultCookiePolicy.set_allowed_domains(allowed_domains)
             DefaultCookiePolicy.set_allowed_domains(allowed_domains: collections.abc.Sequence[str] | None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L101>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L101>`__)
 
    Set the sequence of allowed domains, or :const:`None`.
 
@@ -611,7 +611,7 @@ and ``".168.1.2"``, 192.168.1.2 is blocked, but 193.168.1.2 is not.
 .. method:: DefaultCookiePolicy.is_not_allowed(domain)
             DefaultCookiePolicy.is_not_allowed(domain: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L102>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L102>`__)
 
    Return ``True`` if *domain* is not on the allowlist for setting or receiving
    cookies.
@@ -624,7 +624,7 @@ all be assigned to.
 .. attribute:: DefaultCookiePolicy.rfc2109_as_netscape
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L69>`__)
 
    If true, request that the :class:`CookieJar` instance downgrade :rfc:`2109` cookies
    (ie. cookies received in a :mailheader:`Set-Cookie` header with a version
@@ -639,7 +639,7 @@ General strictness switches:
 .. attribute:: DefaultCookiePolicy.strict_domain
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L70>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L70>`__)
 
    Don't allow sites to set two-component domains with country-code top-level
    domains like ``.co.uk``, ``.gov.uk``, ``.co.nz``.etc.  This is far from perfect
@@ -651,7 +651,7 @@ General strictness switches:
 .. attribute:: DefaultCookiePolicy.strict_rfc2965_unverifiable
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L71>`__)
 
    Follow :rfc:`2965` rules on unverifiable transactions (usually, an unverifiable
    transaction is one resulting from a redirect or a request for an image hosted on
@@ -664,7 +664,7 @@ Netscape protocol strictness switches:
 .. attribute:: DefaultCookiePolicy.strict_ns_unverifiable
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L72>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L72>`__)
 
    Apply :rfc:`2965` rules on unverifiable transactions even to Netscape cookies.
 
@@ -672,7 +672,7 @@ Netscape protocol strictness switches:
 .. attribute:: DefaultCookiePolicy.strict_ns_domain
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L73>`__)
 
    Flags indicating how strict to be with domain-matching rules for Netscape
    cookies.  See below for acceptable values.
@@ -681,7 +681,7 @@ Netscape protocol strictness switches:
 .. attribute:: DefaultCookiePolicy.strict_ns_set_initial_dollar
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L74>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L74>`__)
 
    Ignore cookies in Set-Cookie: headers that have names starting with ``'$'``.
 
@@ -689,7 +689,7 @@ Netscape protocol strictness switches:
 .. attribute:: DefaultCookiePolicy.strict_ns_set_path
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L75>`__)
 
    Don't allow setting cookies whose path doesn't path-match request URI.
 
@@ -701,7 +701,7 @@ both flags are set).
 .. attribute:: DefaultCookiePolicy.DomainStrictNoDots
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L76>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L76>`__)
 
    When setting cookies, the 'host prefix' must not contain a dot (eg.
    ``www.foo.bar.com`` can't set a cookie for ``.bar.com``, because ``www.foo``
@@ -711,7 +711,7 @@ both flags are set).
 .. attribute:: DefaultCookiePolicy.DomainStrictNonDomain
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L77>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L77>`__)
 
    Cookies that did not explicitly specify a ``domain`` cookie-attribute can only
    be returned to a domain equal to the domain that set the cookie (eg.
@@ -722,7 +722,7 @@ both flags are set).
 .. attribute:: DefaultCookiePolicy.DomainRFC2965Match
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L78>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L78>`__)
 
    When setting cookies, require a full :rfc:`2965` domain-match.
 
@@ -733,7 +733,7 @@ combinations of the above flags:
 .. attribute:: DefaultCookiePolicy.DomainLiberal
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L79>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L79>`__)
 
    Equivalent to 0 (ie. all of the above Netscape domain strictness flags switched
    off).
@@ -742,7 +742,7 @@ combinations of the above flags:
 .. attribute:: DefaultCookiePolicy.DomainStrict
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L80>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L80>`__)
 
    Equivalent to ``DomainStrictNoDots|DomainStrictNonDomain``.
 
@@ -766,7 +766,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.version
    :type: int | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L117>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L117>`__)
 
    Integer or :const:`None`.  Netscape cookies have :attr:`version` 0. :rfc:`2965` and
    :rfc:`2109` cookies have a ``version`` cookie-attribute of 1.  However, note that
@@ -777,7 +777,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.name
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L118>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L118>`__)
 
    Cookie name (a string).
 
@@ -785,7 +785,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.value
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L119>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L119>`__)
 
    Cookie value (a string), or :const:`None`.
 
@@ -793,7 +793,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.port
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L120>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L120>`__)
 
    String representing a port or a set of ports (eg. '80', or '80,8080'), or
    :const:`None`.
@@ -802,7 +802,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.domain
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L130>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L130>`__)
 
    Cookie domain (a string).
 
@@ -810,7 +810,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.path
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L121>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L121>`__)
 
    Cookie path (a string, eg. ``'/acme/rocket_launchers'``).
 
@@ -818,7 +818,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.secure
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L123>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L123>`__)
 
    ``True`` if cookie should only be returned over a secure connection.
 
@@ -826,7 +826,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.expires
    :type: int | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L124>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L124>`__)
 
    Integer expiry date in seconds since epoch, or :const:`None`.  See also the
    :meth:`is_expired` method.
@@ -835,7 +835,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.discard
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L125>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L125>`__)
 
    ``True`` if this is a session cookie.
 
@@ -843,7 +843,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.comment
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L126>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L126>`__)
 
    String comment from the server explaining the function of this cookie, or
    :const:`None`.
@@ -852,7 +852,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.comment_url
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L127>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L127>`__)
 
    URL linking to a comment from the server explaining the function of this cookie,
    or :const:`None`.
@@ -861,7 +861,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.rfc2109
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L128>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L128>`__)
 
    ``True`` if this cookie was received as an :rfc:`2109` cookie (ie. the cookie
    arrived in a :mailheader:`Set-Cookie` header, and the value of the Version
@@ -873,7 +873,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.port_specified
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L129>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L129>`__)
 
    ``True`` if a port or set of ports was explicitly specified by the server (in the
    :mailheader:`Set-Cookie` / :mailheader:`Set-Cookie2` header).
@@ -882,7 +882,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.domain_specified
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L131>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L131>`__)
 
    ``True`` if a domain was explicitly specified by the server.
 
@@ -890,7 +890,7 @@ internal consistency, so you should know what you're doing if you do that.
 .. attribute:: Cookie.domain_initial_dot
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L132>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L132>`__)
 
    ``True`` if the domain explicitly specified by the server began with a dot
    (``'.'``).
@@ -902,7 +902,7 @@ accessed using the following methods:
 .. method:: Cookie.has_nonstandard_attr(name)
             Cookie.has_nonstandard_attr(name: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L153>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L153>`__)
 
    Return ``True`` if cookie has the named cookie-attribute.
 
@@ -911,7 +911,7 @@ accessed using the following methods:
             Cookie.get_nonstandard_attr(name: str) -> str | None
             Cookie.get_nonstandard_attr(name: str, default: _T) -> str | _T
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L155>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L155>`__)
 
    If cookie has the named cookie-attribute, return its value. Otherwise, return
    *default*.
@@ -920,7 +920,7 @@ accessed using the following methods:
 .. method:: Cookie.set_nonstandard_attr(name, value)
             Cookie.set_nonstandard_attr(name: str, value: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L158>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L158>`__)
 
    Set the value of the named cookie-attribute.
 
@@ -930,7 +930,7 @@ The :class:`Cookie` class also defines the following method:
 .. method:: Cookie.is_expired(now=None)
             Cookie.is_expired(now: int | None = None) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/http/cookiejar.pyi#L159>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/http/cookiejar.pyi#L159>`__)
 
    ``True`` if cookie has passed the time at which the server requested it should
    expire.  If *now* is given (in seconds since the epoch), return whether the

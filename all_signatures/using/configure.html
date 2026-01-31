@@ -1186,6 +1186,11 @@ calling convention. For example, Clang 19 and newer supports this feature.</p>
 default). When enabled, the arena size on 64-bit platforms is increased to
 2 MiB and arena allocation uses <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code> (Linux) or
 <code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages.</p>
+<p>Even when compiled with this option, huge pages are <strong>not</strong> used at runtime
+unless the <span class="target" id="index-11"></span><a class="reference internal" href="cmdline.html#envvar-PYTHON_PYMALLOC_HUGEPAGES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></code></a> environment variable is set
+to <code class="docutils literal notranslate"><span class="pre">1</span></code>. This opt-in is required because huge pages carry risks on Linux:
+if the huge-page pool is exhausted, page faults (including copy-on-write
+faults after <a class="reference internal" href="../library/os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a>) deliver <code class="docutils literal notranslate"><span class="pre">SIGBUS</span></code> and kill the process.</p>
 <p>The configure script checks that the platform supports <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code>
 and emits a warning if it is not available.</p>
 <p>On Windows, use the <code class="docutils literal notranslate"><span class="pre">--pymalloc-hugepages</span></code> flag with <code class="docutils literal notranslate"><span class="pre">build.bat</span></code> or
@@ -1220,9 +1225,9 @@ by default). Documentation strings defined in Python are not affected.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-without-remote-debug">
 <span class="sig-name descname"><span class="pre">--without-remote-debug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-without-remote-debug" title="Link to this definition">¶</a></dt>
-<dd><p>Deactivate remote debugging support described in <span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0768/"><strong>PEP 768</strong></a> (enabled by default).
+<dd><p>Deactivate remote debugging support described in <span class="target" id="index-12"></span><a class="pep reference external" href="https://peps.python.org/pep-0768/"><strong>PEP 768</strong></a> (enabled by default).
 When this flag is provided the code that allows the interpreter to schedule the
-execution of a Python file in a separate process as described in <span class="target" id="index-12"></span><a class="pep reference external" href="https://peps.python.org/pep-0768/"><strong>PEP 768</strong></a> is
+execution of a Python file in a separate process as described in <span class="target" id="index-13"></span><a class="pep reference external" href="https://peps.python.org/pep-0768/"><strong>PEP 768</strong></a> is
 not compiled. This includes both the functionality to schedule code to be executed
 and the functionality to receive code to be executed.</p>
 <dl class="c macro">
@@ -1251,7 +1256,7 @@ in the <a class="reference internal" href="../library/warnings.html#module-warni
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">d</span></code> to <a class="reference internal" href="../library/sys.html#sys.abiflags" title="sys.abiflags"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.abiflags</span></code></a>.</p></li>
 <li><p>Add <code class="xref py py-func docutils literal notranslate"><span class="pre">sys.gettotalrefcount()</span></code> function.</p></li>
 <li><p>Add <a class="reference internal" href="cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span> <span class="pre">showrefcount</span></code></a> command line option.</p></li>
-<li><p>Add <a class="reference internal" href="cmdline.html#cmdoption-d"><code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code></a> command line option and <span class="target" id="index-13"></span><a class="reference internal" href="cmdline.html#envvar-PYTHONDEBUG"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDEBUG</span></code></a> environment
+<li><p>Add <a class="reference internal" href="cmdline.html#cmdoption-d"><code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code></a> command line option and <span class="target" id="index-14"></span><a class="reference internal" href="cmdline.html#envvar-PYTHONDEBUG"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDEBUG</span></code></a> environment
 variable to debug the parser.</p></li>
 <li><p>Add support for the <code class="docutils literal notranslate"><span class="pre">__lltrace__</span></code> variable: enable low-level tracing in the
 bytecode evaluation loop if the variable is defined.</p></li>
@@ -1301,9 +1306,9 @@ macro (disabled by default).</p>
 <ul class="simple">
 <li><p>Define the <code class="docutils literal notranslate"><span class="pre">Py_TRACE_REFS</span></code> macro.</p></li>
 <li><p>Add <a class="reference internal" href="../library/sys.html#sys.getobjects" title="sys.getobjects"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getobjects()</span></code></a> function.</p></li>
-<li><p>Add <span class="target" id="index-14"></span><a class="reference internal" href="cmdline.html#envvar-PYTHONDUMPREFS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDUMPREFS</span></code></a> environment variable.</p></li>
+<li><p>Add <span class="target" id="index-15"></span><a class="reference internal" href="cmdline.html#envvar-PYTHONDUMPREFS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDUMPREFS</span></code></a> environment variable.</p></li>
 </ul>
-<p>The <span class="target" id="index-15"></span><a class="reference internal" href="cmdline.html#envvar-PYTHONDUMPREFS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDUMPREFS</span></code></a> environment variable can be used to dump
+<p>The <span class="target" id="index-16"></span><a class="reference internal" href="cmdline.html#envvar-PYTHONDUMPREFS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDUMPREFS</span></code></a> environment variable can be used to dump
 objects and reference counts still alive at Python exit.</p>
 <p><a class="reference internal" href="../c-api/typeobj.html#static-types"><span class="std std-ref">Statically allocated objects</span></a> are not traced.</p>
 <div class="versionadded">
@@ -1319,7 +1324,7 @@ objects and reference counts still alive at Python exit.</p>
 <span class="sig-name descname"><span class="pre">--with-assertions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-with-assertions" title="Link to this definition">¶</a></dt>
 <dd><p>Build with C assertions enabled (default is no): <code class="docutils literal notranslate"><span class="pre">assert(...);</span></code> and
 <code class="docutils literal notranslate"><span class="pre">_PyObject_ASSERT(...);</span></code>.</p>
-<p>If set, the <code class="docutils literal notranslate"><span class="pre">NDEBUG</span></code> macro is not defined in the <span class="target" id="index-16"></span><a class="reference internal" href="#envvar-OPT"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">OPT</span></code></a> compiler
+<p>If set, the <code class="docutils literal notranslate"><span class="pre">NDEBUG</span></code> macro is not defined in the <span class="target" id="index-17"></span><a class="reference internal" href="#envvar-OPT"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">OPT</span></code></a> compiler
 variable.</p>
 <p>See also the <a class="reference internal" href="#cmdoption-with-pydebug"><code class="xref std std-option docutils literal notranslate"><span class="pre">--with-pydebug</span></code></a> option (<a class="reference internal" href="#debug-build"><span class="std std-ref">debug build</span></a>) which also enables assertions.</p>
 <div class="versionadded">
@@ -1900,7 +1905,7 @@ causing an <a class="reference internal" href="../library/exceptions.html#Import
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-CONFIGURE_CPPFLAGS">
 <span class="sig-name descname"><span class="pre">CONFIGURE_CPPFLAGS</span></span><a class="headerlink" href="#envvar-CONFIGURE_CPPFLAGS" title="Link to this definition">¶</a></dt>
-<dd><p>Value of <span class="target" id="index-17"></span><a class="reference internal" href="#envvar-CPPFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CPPFLAGS</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code> script.</p>
+<dd><p>Value of <span class="target" id="index-18"></span><a class="reference internal" href="#envvar-CPPFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CPPFLAGS</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code> script.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.6.</span></p>
 </div>
@@ -1911,7 +1916,7 @@ causing an <a class="reference internal" href="../library/exceptions.html#Import
 <span class="sig-name descname"><span class="pre">CPPFLAGS</span></span><a class="headerlink" href="#envvar-CPPFLAGS" title="Link to this definition">¶</a></dt>
 <dd><p>(Objective) C/C++ preprocessor flags, e.g. <code class="samp docutils literal notranslate"><span class="pre">-I</span><em><span class="pre">include_dir</span></em></code> if you have
 headers in a nonstandard directory <em>include_dir</em>.</p>
-<p>Both <span class="target" id="index-18"></span><a class="reference internal" href="#envvar-CPPFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CPPFLAGS</span></code></a> and <span class="target" id="index-19"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> need to contain the shell’s
+<p>Both <span class="target" id="index-19"></span><a class="reference internal" href="#envvar-CPPFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CPPFLAGS</span></code></a> and <span class="target" id="index-20"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> need to contain the shell’s
 value to be able to build extension modules using the
 directories specified in the environment variables.</p>
 </dd></dl>
@@ -1960,14 +1965,14 @@ directories specified in the environment variables.</p>
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-CFLAGS_NODIST">
 <span class="sig-name descname"><span class="pre">CFLAGS_NODIST</span></span><a class="headerlink" href="#envvar-CFLAGS_NODIST" title="Link to this definition">¶</a></dt>
-<dd><p><span class="target" id="index-20"></span><a class="reference internal" href="#envvar-CFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS_NODIST</span></code></a> is used for building the interpreter and stdlib C
+<dd><p><span class="target" id="index-21"></span><a class="reference internal" href="#envvar-CFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS_NODIST</span></code></a> is used for building the interpreter and stdlib C
 extensions.  Use it when a compiler flag should <em>not</em> be part of
-<span class="target" id="index-21"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> once Python is installed (<a class="reference external" href="https://github.com/python/cpython/issues/65320">gh-65320</a>).</p>
-<p>In particular, <span class="target" id="index-22"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> should not contain:</p>
+<span class="target" id="index-22"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> once Python is installed (<a class="reference external" href="https://github.com/python/cpython/issues/65320">gh-65320</a>).</p>
+<p>In particular, <span class="target" id="index-23"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> should not contain:</p>
 <ul class="simple">
 <li><p>the compiler flag <code class="docutils literal notranslate"><span class="pre">-I</span></code> (for setting the search path for include files).
 The <code class="docutils literal notranslate"><span class="pre">-I</span></code> flags are processed from left to right, and any flags in
-<span class="target" id="index-23"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> would take precedence over user- and package-supplied <code class="docutils literal notranslate"><span class="pre">-I</span></code>
+<span class="target" id="index-24"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> would take precedence over user- and package-supplied <code class="docutils literal notranslate"><span class="pre">-I</span></code>
 flags.</p></li>
 <li><p>hardening flags such as <code class="docutils literal notranslate"><span class="pre">-Werror</span></code> because distributions cannot control
 whether packages installed by users conform to such heightened
@@ -1997,7 +2002,7 @@ in <code class="docutils literal notranslate"><span class="pre">make</span> <spa
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-CONFIGURE_CFLAGS">
 <span class="sig-name descname"><span class="pre">CONFIGURE_CFLAGS</span></span><a class="headerlink" href="#envvar-CONFIGURE_CFLAGS" title="Link to this definition">¶</a></dt>
-<dd><p>Value of <span class="target" id="index-24"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code>
+<dd><p>Value of <span class="target" id="index-25"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code>
 script.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.2.</span></p>
@@ -2007,7 +2012,7 @@ script.</p>
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-CONFIGURE_CFLAGS_NODIST">
 <span class="sig-name descname"><span class="pre">CONFIGURE_CFLAGS_NODIST</span></span><a class="headerlink" href="#envvar-CONFIGURE_CFLAGS_NODIST" title="Link to this definition">¶</a></dt>
-<dd><p>Value of <span class="target" id="index-25"></span><a class="reference internal" href="#envvar-CFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS_NODIST</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code>
+<dd><p>Value of <span class="target" id="index-26"></span><a class="reference internal" href="#envvar-CFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS_NODIST</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code>
 script.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.5.</span></p>
@@ -2115,8 +2120,8 @@ module, like the <a class="reference internal" href="../library/posix.html#modul
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-CONFIGURE_LDFLAGS">
 <span class="sig-name descname"><span class="pre">CONFIGURE_LDFLAGS</span></span><a class="headerlink" href="#envvar-CONFIGURE_LDFLAGS" title="Link to this definition">¶</a></dt>
-<dd><p>Value of <span class="target" id="index-26"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code> script.</p>
-<p>Avoid assigning <span class="target" id="index-27"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a>, <span class="target" id="index-28"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a>, etc. so users can use
+<dd><p>Value of <span class="target" id="index-27"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code> script.</p>
+<p>Avoid assigning <span class="target" id="index-28"></span><a class="reference internal" href="#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a>, <span class="target" id="index-29"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a>, etc. so users can use
 them on the command line to append to these values without stomping the
 pre-set values.</p>
 <div class="versionadded">
@@ -2127,14 +2132,14 @@ pre-set values.</p>
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-LDFLAGS_NODIST">
 <span class="sig-name descname"><span class="pre">LDFLAGS_NODIST</span></span><a class="headerlink" href="#envvar-LDFLAGS_NODIST" title="Link to this definition">¶</a></dt>
-<dd><p><span class="target" id="index-29"></span><a class="reference internal" href="#envvar-LDFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS_NODIST</span></code></a> is used in the same manner as
-<span class="target" id="index-30"></span><a class="reference internal" href="#envvar-CFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS_NODIST</span></code></a>.  Use it when a linker flag should <em>not</em> be part of
-<span class="target" id="index-31"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> once Python is installed (<a class="reference external" href="https://github.com/python/cpython/issues/65320">gh-65320</a>).</p>
-<p>In particular, <span class="target" id="index-32"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> should not contain:</p>
+<dd><p><span class="target" id="index-30"></span><a class="reference internal" href="#envvar-LDFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS_NODIST</span></code></a> is used in the same manner as
+<span class="target" id="index-31"></span><a class="reference internal" href="#envvar-CFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS_NODIST</span></code></a>.  Use it when a linker flag should <em>not</em> be part of
+<span class="target" id="index-32"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> once Python is installed (<a class="reference external" href="https://github.com/python/cpython/issues/65320">gh-65320</a>).</p>
+<p>In particular, <span class="target" id="index-33"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> should not contain:</p>
 <ul class="simple">
 <li><p>the compiler flag <code class="docutils literal notranslate"><span class="pre">-L</span></code> (for setting the search path for libraries).
 The <code class="docutils literal notranslate"><span class="pre">-L</span></code> flags are processed from left to right, and any flags in
-<span class="target" id="index-33"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> would take precedence over user- and package-supplied <code class="docutils literal notranslate"><span class="pre">-L</span></code>
+<span class="target" id="index-34"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> would take precedence over user- and package-supplied <code class="docutils literal notranslate"><span class="pre">-L</span></code>
 flags.</p></li>
 </ul>
 </dd></dl>
@@ -2142,7 +2147,7 @@ flags.</p></li>
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-CONFIGURE_LDFLAGS_NODIST">
 <span class="sig-name descname"><span class="pre">CONFIGURE_LDFLAGS_NODIST</span></span><a class="headerlink" href="#envvar-CONFIGURE_LDFLAGS_NODIST" title="Link to this definition">¶</a></dt>
-<dd><p>Value of <span class="target" id="index-34"></span><a class="reference internal" href="#envvar-LDFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS_NODIST</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code>
+<dd><p>Value of <span class="target" id="index-35"></span><a class="reference internal" href="#envvar-LDFLAGS_NODIST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS_NODIST</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code>
 script.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.8.</span></p>
@@ -2154,7 +2159,7 @@ script.</p>
 <span class="sig-name descname"><span class="pre">LDFLAGS</span></span><a class="headerlink" href="#envvar-LDFLAGS" title="Link to this definition">¶</a></dt>
 <dd><p>Linker flags, e.g. <code class="samp docutils literal notranslate"><span class="pre">-L</span><em><span class="pre">lib_dir</span></em></code> if you have libraries in a nonstandard
 directory <em>lib_dir</em>.</p>
-<p>Both <span class="target" id="index-35"></span><a class="reference internal" href="#envvar-CPPFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CPPFLAGS</span></code></a> and <span class="target" id="index-36"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> need to contain the shell’s
+<p>Both <span class="target" id="index-36"></span><a class="reference internal" href="#envvar-CPPFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CPPFLAGS</span></code></a> and <span class="target" id="index-37"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> need to contain the shell’s
 value to be able to build extension modules using the
 directories specified in the environment variables.</p>
 </dd></dl>

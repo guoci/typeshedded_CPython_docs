@@ -744,9 +744,12 @@ Their behavior in these contexts is deliberately left unspecified.</p>
     <span class="o">|</span> <span class="nf">expression</span>
 
 <span class="nf">expression</span><span class="p">:</span>
-    <span class="o">|</span> <span class="nf">disjunction</span> <span class="k">&#39;if&#39;</span> <span class="nf">disjunction</span> <span class="k">&#39;else&#39;</span> <span class="nf">expression</span> 
+    <span class="o">|</span> <span class="nf">if_expression</span>
     <span class="o">|</span> <span class="nf">disjunction</span>
     <span class="o">|</span> <span class="nf">lambdef</span>
+
+<span class="nf">if_expression</span><span class="p">:</span>
+    <span class="o">|</span> <span class="nf">disjunction</span> <span class="k">&#39;if&#39;</span> <span class="nf">disjunction</span> <span class="k">&#39;else&#39;</span> <span class="nf">expression</span> 
 
 <span class="nf">yield_expr</span><span class="p">:</span>
     <span class="o">|</span> <span class="k">&#39;yield&#39;</span> <span class="k">&#39;from&#39;</span> <span class="nf">expression</span> 
@@ -763,9 +766,14 @@ Their behavior in these contexts is deliberately left unspecified.</p>
 
 <span class="nf">star_named_expressions</span><span class="p">:</span> &#39;,&#39;<span class="o">.</span><span class="nf">star_named_expression</span><span class="o">+</span> <span class="p">[</span>&#39;,&#39;<span class="p">]</span> 
 
+<span class="nf">star_named_expressions_sequence</span><span class="p">:</span> &#39;,&#39;<span class="o">.</span><span class="nf">star_named_expression_sequence</span><span class="o">+</span> <span class="p">[</span>&#39;,&#39;<span class="p">]</span> 
+
 <span class="nf">star_named_expression</span><span class="p">:</span>
     <span class="o">|</span> &#39;*&#39; <span class="nf">bitwise_or</span> 
     <span class="o">|</span> <span class="nf">named_expression</span>
+
+<span class="nf">star_named_expression_sequence</span><span class="p">:</span>
+    <span class="o">|</span> <span class="nf">star_named_expression</span>
 
 <span class="nf">assignment_expression</span><span class="p">:</span>
     <span class="o">|</span> NAME &#39;:=&#39; ~ <span class="nf">expression</span> 
@@ -894,9 +902,9 @@ Their behavior in these contexts is deliberately left unspecified.</p>
     <span class="o">|</span> <span class="k">&#39;None&#39;</span> 
     <span class="o">|</span> <span class="nf">strings</span>
     <span class="o">|</span> NUMBER
-    <span class="o">|</span> <span class="p">(</span><span class="nf">tuple</span> <span class="o">|</span> <span class="nf">group</span> <span class="o">|</span> <span class="nf">genexp</span><span class="p">)</span>
-    <span class="o">|</span> <span class="p">(</span><span class="nf">list</span> <span class="o">|</span> <span class="nf">listcomp</span><span class="p">)</span>
-    <span class="o">|</span> <span class="p">(</span><span class="nf">dict</span> <span class="o">|</span> <span class="nf">set</span> <span class="o">|</span> <span class="nf">dictcomp</span> <span class="o">|</span> <span class="nf">setcomp</span><span class="p">)</span>
+    <span class="o">|</span> <span class="p">(</span><span class="nf">genexp</span> <span class="o">|</span> <span class="nf">tuple</span> <span class="o">|</span> <span class="nf">group</span><span class="p">)</span>
+    <span class="o">|</span> <span class="p">(</span><span class="nf">listcomp</span> <span class="o">|</span> <span class="nf">list</span><span class="p">)</span>
+    <span class="o">|</span> <span class="p">(</span><span class="nf">dictcomp</span> <span class="o">|</span> <span class="nf">setcomp</span> <span class="o">|</span> <span class="nf">dict</span> <span class="o">|</span> <span class="nf">set</span><span class="p">)</span>
     <span class="o">|</span> &#39;...&#39; 
 
 <span class="nf">group</span><span class="p">:</span>
@@ -988,12 +996,12 @@ Their behavior in these contexts is deliberately left unspecified.</p>
     <span class="o">|</span> <span class="nf">tstring</span><span class="o">+</span> 
 
 <span class="nf">list</span><span class="p">:</span>
-    <span class="o">|</span> &#39;[&#39; <span class="p">[</span><span class="nf">star_named_expressions</span><span class="p">]</span> &#39;]&#39; 
+    <span class="o">|</span> &#39;[&#39; <span class="p">[</span><span class="nf">star_named_expressions_sequence</span><span class="p">]</span> &#39;]&#39; 
 
 <span class="nf">tuple</span><span class="p">:</span>
-    <span class="o">|</span> &#39;(&#39; <span class="p">[</span><span class="nf">star_named_expression</span> &#39;,&#39; <span class="p">[</span><span class="nf">star_named_expressions</span><span class="p">]</span>  <span class="p">]</span> &#39;)&#39; 
+    <span class="o">|</span> &#39;(&#39; <span class="p">[</span><span class="nf">star_named_expression_sequence</span> &#39;,&#39; <span class="p">[</span><span class="nf">star_named_expressions_sequence</span><span class="p">]</span>  <span class="p">]</span> &#39;)&#39; 
 
-<span class="nf">set</span><span class="p">:</span> &#39;{&#39; <span class="nf">star_named_expressions</span> &#39;}&#39; 
+<span class="nf">set</span><span class="p">:</span> &#39;{&#39; <span class="nf">star_named_expressions_sequence</span> &#39;}&#39; 
 
 <span class="c c-Singleline"># Dicts</span>
 <span class="c c-Singleline"># -----</span>
@@ -1020,16 +1028,17 @@ Their behavior in these contexts is deliberately left unspecified.</p>
     <span class="o">|</span> <span class="k">&#39;for&#39;</span> <span class="nf">star_targets</span> <span class="k">&#39;in&#39;</span> ~ <span class="nf">disjunction</span> <span class="p">(</span><span class="k">&#39;if&#39;</span> <span class="nf">disjunction</span> <span class="p">)</span><span class="o">*</span> 
 
 <span class="nf">listcomp</span><span class="p">:</span>
-    <span class="o">|</span> &#39;[&#39; <span class="nf">named_expression</span> <span class="nf">for_if_clauses</span> &#39;]&#39; 
+    <span class="o">|</span> &#39;[&#39; <span class="nf">star_named_expression</span> <span class="nf">for_if_clauses</span> &#39;]&#39; 
 
 <span class="nf">setcomp</span><span class="p">:</span>
-    <span class="o">|</span> &#39;{&#39; <span class="nf">named_expression</span> <span class="nf">for_if_clauses</span> &#39;}&#39; 
+    <span class="o">|</span> &#39;{&#39; <span class="nf">star_named_expression</span> <span class="nf">for_if_clauses</span> &#39;}&#39; 
 
 <span class="nf">genexp</span><span class="p">:</span>
-    <span class="o">|</span> &#39;(&#39; <span class="p">(</span> <span class="nf">assignment_expression</span> <span class="o">|</span> <span class="nf">expression</span> !&#39;:=&#39;<span class="p">)</span> <span class="nf">for_if_clauses</span> &#39;)&#39; 
+    <span class="o">|</span> &#39;(&#39; <span class="p">(</span> <span class="nf">assignment_expression</span> <span class="o">|</span> <span class="nf">expression</span> !&#39;:=&#39; <span class="o">|</span> <span class="nf">starred_expression</span> <span class="p">)</span> <span class="nf">for_if_clauses</span> &#39;)&#39; 
 
 <span class="nf">dictcomp</span><span class="p">:</span>
     <span class="o">|</span> &#39;{&#39; <span class="nf">kvpair</span> <span class="nf">for_if_clauses</span> &#39;}&#39; 
+    <span class="o">|</span> &#39;{&#39; &#39;**&#39; <span class="nf">expression</span> <span class="nf">for_if_clauses</span> &#39;}&#39; 
 
 <span class="c c-Singleline"># FUNCTION CALL ARGUMENTS</span>
 <span class="c c-Singleline"># =======================</span>

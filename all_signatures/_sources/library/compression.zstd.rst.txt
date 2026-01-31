@@ -42,7 +42,7 @@ Exceptions
 .. exception:: ZstdError
                ZstdError(*args: object) -> _zstd.ZstdError
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L90>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L90>`__)
 
    This exception is raised when an error occurs during compression or
    decompression, or while initializing the (de)compressor state.
@@ -58,7 +58,7 @@ Reading and writing compressed files
               open(file: os.PathLike[bytes] | os.PathLike[str] | _io._WrappedBuffer | bytes | str, /, mode: typing.Literal['rt'], *, level: None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
               open(file: os.PathLike[bytes] | os.PathLike[str] | _io._WrappedBuffer | bytes | str, /, mode: _WriteTextMode, *, level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/_zstdfile.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/_zstdfile.pyi#L67>`__)
 
    Open a Zstandard-compressed file in binary or text mode, returning a
    :term:`file object`.
@@ -103,7 +103,7 @@ Reading and writing compressed files
            ZstdFile(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryRead | bytes | str, /, mode: _ReadBinaryMode = 'r', *, level: None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> compression.zstd._zstdfile.ZstdFile
            ZstdFile(file: os.PathLike[bytes] | os.PathLike[str] | compression.zstd._zstdfile._FileBinaryWrite | bytes | str, /, mode: _WriteBinaryMode, *, level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> compression.zstd._zstdfile.ZstdFile
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/_zstdfile.pyi#L26>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/_zstdfile.pyi#L26>`__)
 
    Open a Zstandard-compressed file in binary mode.
 
@@ -147,7 +147,7 @@ Reading and writing compressed files
    .. method:: peek(size=-1)
                peek(size: int = -1) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/_zstdfile.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/_zstdfile.pyi#L60>`__)
 
       Return buffered data without advancing the file position. At least one
       byte of data will be returned, unless EOF has been reached. The exact
@@ -161,14 +161,14 @@ Reading and writing compressed files
    .. attribute:: mode
       :type: mode(self: compression.zstd._zstdfile.ZstdFile) -> typing.Literal['rb', 'wb']
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/_zstdfile.pyi#L64>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/_zstdfile.pyi#L64>`__)
 
       ``'rb'`` for reading and ``'wb'`` for writing.
 
    .. attribute:: name
       :type: name(self: compression.zstd._zstdfile.ZstdFile) -> bytes | str
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/_zstdfile.pyi#L62>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/_zstdfile.pyi#L62>`__)
 
       The name of the Zstandard file. Equivalent to the :attr:`~io.FileIO.name`
       attribute of the underlying :term:`file object`.
@@ -180,7 +180,7 @@ Compressing and decompressing data in memory
 .. function:: compress(data, level=None, options=None, zstd_dict=None)
               compress(data: collections.abc.Buffer, level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L46>`__)
 
    Compress *data* (a :term:`bytes-like object`), returning the compressed
    data as a :class:`bytes` object.
@@ -206,7 +206,7 @@ Compressing and decompressing data in memory
 .. function:: decompress(data, zstd_dict=None, options=None)
               decompress(data: collections.abc.Buffer, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, options: collections.abc.Mapping[int, int] | None = None) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L52>`__)
 
    Decompress *data* (a :term:`bytes-like object`), returning the uncompressed
    data as a :class:`bytes` object.
@@ -227,7 +227,7 @@ Compressing and decompressing data in memory
 .. class:: ZstdCompressor(level=None, options=None, zstd_dict=None)
            ZstdCompressor(level: int | None = None, options: collections.abc.Mapping[int, int] | None = None, zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None) -> _zstd.ZstdCompressor
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L44>`__)
 
    Create a compressor object, which can be used to compress data
    incrementally.
@@ -256,7 +256,7 @@ Compressing and decompressing data in memory
    .. method:: compress(data, mode=ZstdCompressor.CONTINUE)
                compress(/, data: collections.abc.Buffer, mode: typing.Literal[0, 1, 2] = 0) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L54>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L54>`__)
 
       Compress *data* (a :term:`bytes-like object`), returning a :class:`bytes`
       object with compressed data if possible, or otherwise an empty
@@ -278,7 +278,7 @@ Compressing and decompressing data in memory
    .. method:: flush(mode=ZstdCompressor.FLUSH_FRAME)
                flush(/, mode: typing.Literal[1, 2] = 2) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L57>`__)
 
       Finish the compression process, returning a :class:`bytes` object
       containing any data stored in the compressor's internal buffers.
@@ -289,7 +289,7 @@ Compressing and decompressing data in memory
    .. method:: set_pledged_input_size(size)
                set_pledged_input_size(size: int | None, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L58>`__)
 
       Specify the amount of uncompressed data *size* that will be provided for
       the next frame. *size* will be written into the frame header of the next
@@ -313,7 +313,7 @@ Compressing and decompressing data in memory
    .. attribute:: CONTINUE
       :type: typing.Literal[0]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L45>`__)
 
       Collect more data for compression, which may or may not generate output
       immediately. This mode optimizes the compression ratio by maximizing the
@@ -322,7 +322,7 @@ Compressing and decompressing data in memory
    .. attribute:: FLUSH_BLOCK
       :type: typing.Literal[1]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L46>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L46>`__)
 
       Complete and write a block to the data stream. The data returned so far
       can be immediately decompressed. Past data can still be referenced in
@@ -332,7 +332,7 @@ Compressing and decompressing data in memory
    .. attribute:: FLUSH_FRAME
       :type: typing.Literal[2]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L47>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L47>`__)
 
       Complete and write out a frame. Future data provided to
       :meth:`~.compress` will be written into a new frame and
@@ -341,7 +341,7 @@ Compressing and decompressing data in memory
    .. attribute:: last_mode
       :type: last_mode(self: _zstd.ZstdCompressor) -> typing.Literal[0, 1, 2]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L60>`__)
 
       The last mode passed to either :meth:`~.compress` or :meth:`~.flush`.
       The value can be one of :attr:`~.CONTINUE`, :attr:`~.FLUSH_BLOCK`, or
@@ -352,7 +352,7 @@ Compressing and decompressing data in memory
 .. class:: ZstdDecompressor(zstd_dict=None, options=None)
            ZstdDecompressor(zstd_dict: _zstd.ZstdDict | tuple[_zstd.ZstdDict, int] | None = None, options: collections.abc.Mapping[int, int] | None = None) -> _zstd.ZstdDecompressor
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L63>`__)
 
    Create a decompressor object, which can be used to decompress data
    incrementally.
@@ -379,7 +379,7 @@ Compressing and decompressing data in memory
    .. method:: decompress(data, max_length=-1)
                decompress(/, data: collections.abc.Buffer, max_length: int = -1) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L67>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L67>`__)
 
       Decompress *data* (a :term:`bytes-like object`), returning
       uncompressed data as bytes. Some of *data* may be buffered
@@ -406,14 +406,14 @@ Compressing and decompressing data in memory
    .. attribute:: eof
       :type: eof(self: _zstd.ZstdDecompressor) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L69>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L69>`__)
 
       ``True`` if the end-of-stream marker has been reached.
 
    .. attribute:: unused_data
       :type: unused_data(self: _zstd.ZstdDecompressor) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L73>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L73>`__)
 
       Data found after the end of the compressed stream.
 
@@ -422,7 +422,7 @@ Compressing and decompressing data in memory
    .. attribute:: needs_input
       :type: needs_input(self: _zstd.ZstdDecompressor) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L71>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L71>`__)
 
       ``False`` if the :meth:`.decompress` method can provide more
       decompressed data before requiring new compressed input.
@@ -435,7 +435,7 @@ Zstandard dictionaries
 .. function:: train_dict(samples, dict_size)
               train_dict(samples: collections.abc.Iterable[collections.abc.Buffer], dict_size: int) -> _zstd.ZstdDict
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L44>`__)
 
    Train a Zstandard dictionary, returning a :class:`ZstdDict` instance.
    Zstandard dictionaries enable more efficient compression of smaller sizes
@@ -458,7 +458,7 @@ Zstandard dictionaries
 .. function:: finalize_dict(zstd_dict, /, samples, dict_size, level)
               finalize_dict(zstd_dict: _zstd.ZstdDict, /, samples: collections.abc.Iterable[collections.abc.Buffer], dict_size: int, level: int) -> _zstd.ZstdDict
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L45>`__)
 
    An advanced function for converting a "raw content" Zstandard dictionary into
    a regular Zstandard dictionary. "Raw content" dictionaries are a sequence of
@@ -484,7 +484,7 @@ Zstandard dictionaries
 .. class:: ZstdDict(dict_content, /, *, is_raw=False)
            ZstdDict(dict_content: bytes, /, *, is_raw: bool = False) -> _zstd.ZstdDict
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L76>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L76>`__)
 
    A wrapper around Zstandard dictionaries. Dictionaries can be used to improve
    the compression of many small chunks of data. Use :func:`train_dict` if you
@@ -536,7 +536,7 @@ Zstandard dictionaries
     .. attribute:: dict_content
        :type: dict_content(self: _zstd.ZstdDict) -> bytes
 
-       (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L86>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L86>`__)
 
         The content of the Zstandard dictionary, a ``bytes`` object. It's the
         same as the *dict_content* argument in the ``__init__`` method. It can
@@ -545,7 +545,7 @@ Zstandard dictionaries
     .. attribute:: dict_id
        :type: dict_id(self: _zstd.ZstdDict) -> int
 
-       (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L88>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L88>`__)
 
         Identifier of the Zstandard dictionary, a non-negative int value.
 
@@ -564,14 +564,14 @@ Zstandard dictionaries
     .. attribute:: as_digested_dict
        :type: as_digested_dict(self: _zstd.ZstdDict) -> tuple[_zstd.ZstdDict, int]
 
-       (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L80>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L80>`__)
 
         Load as a digested dictionary.
 
     .. attribute:: as_undigested_dict
        :type: as_undigested_dict(self: _zstd.ZstdDict) -> tuple[_zstd.ZstdDict, int]
 
-       (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/_zstd.pyi#L84>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_zstd.pyi#L84>`__)
 
         Load as an undigested dictionary.
 
@@ -582,7 +582,7 @@ Advanced parameter control
 .. class:: CompressionParameter()
            CompressionParameter(value: int) -> compression.zstd.CompressionParameter
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L56>`__)
 
    An :class:`~enum.IntEnum` containing the advanced compression parameter
    keys that can be used when compressing data.
@@ -606,7 +606,7 @@ Advanced parameter control
    .. method:: bounds()
                bounds() -> tuple[int, int]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L76>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L76>`__)
 
       Return the tuple of int bounds, ``(lower, upper)``, of a compression
       parameter. This method should be called on the attribute you wish to
@@ -619,7 +619,7 @@ Advanced parameter control
    .. attribute:: compression_level
       :type: typing.Literal[compression.zstd.CompressionParameter.compression_level]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L57>`__)
 
       A high-level means of setting other compression parameters that affect
       the speed and ratio of compressing data.
@@ -634,7 +634,7 @@ Advanced parameter control
    .. attribute:: window_log
       :type: typing.Literal[compression.zstd.CompressionParameter.window_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L58>`__)
 
       Maximum allowed back-reference distance the compressor can use when
       compressing data, expressed as power of two, ``1 << window_log`` bytes.
@@ -646,7 +646,7 @@ Advanced parameter control
    .. attribute:: hash_log
       :type: typing.Literal[compression.zstd.CompressionParameter.hash_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L59>`__)
 
       Size of the initial probe table, as a power of two. The resulting memory
       usage is ``1 << (hash_log+2)`` bytes. Larger tables improve compression
@@ -658,7 +658,7 @@ Advanced parameter control
    .. attribute:: chain_log
       :type: typing.Literal[compression.zstd.CompressionParameter.chain_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L60>`__)
 
       Size of the multi-probe search table, as a power of two. The resulting
       memory usage is ``1 << (chain_log+2)`` bytes. Larger tables result in
@@ -672,7 +672,7 @@ Advanced parameter control
    .. attribute:: search_log
       :type: typing.Literal[compression.zstd.CompressionParameter.search_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L61>`__)
 
       Number of search attempts, as a power of two. More attempts result in
       better and slower compression. This parameter is useless for
@@ -683,7 +683,7 @@ Advanced parameter control
    .. attribute:: min_match
       :type: typing.Literal[compression.zstd.CompressionParameter.min_match]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L62>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L62>`__)
 
       Minimum size of searched matches. Larger values increase compression and
       decompression speed, but decrease ratio. Note that Zstandard can still
@@ -697,7 +697,7 @@ Advanced parameter control
    .. attribute:: target_length
       :type: typing.Literal[compression.zstd.CompressionParameter.target_length]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L63>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L63>`__)
 
       The impact of this field depends on the selected :class:`Strategy`.
 
@@ -715,7 +715,7 @@ Advanced parameter control
    .. attribute:: strategy
       :type: typing.Literal[compression.zstd.CompressionParameter.strategy]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L64>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L64>`__)
 
       The higher the value of selected strategy, the more complex the
       compression technique used by zstd, resulting in higher compression
@@ -726,7 +726,7 @@ Advanced parameter control
    .. attribute:: enable_long_distance_matching
       :type: typing.Literal[compression.zstd.CompressionParameter.enable_long_distance_matching]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L65>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L65>`__)
 
       Long distance matching can be used to improve compression for large
       inputs by finding large matches at greater distances. It increases memory
@@ -744,7 +744,7 @@ Advanced parameter control
    .. attribute:: ldm_hash_log
       :type: typing.Literal[compression.zstd.CompressionParameter.ldm_hash_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L66>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L66>`__)
 
       Size of the table for long distance matching, as a power of two. Larger
       values increase memory usage and compression ratio, but decrease
@@ -755,7 +755,7 @@ Advanced parameter control
    .. attribute:: ldm_min_match
       :type: typing.Literal[compression.zstd.CompressionParameter.ldm_min_match]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L67>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L67>`__)
 
       Minimum match size for long distance matcher. Larger or too small values
       can often decrease the compression ratio.
@@ -765,7 +765,7 @@ Advanced parameter control
    .. attribute:: ldm_bucket_size_log
       :type: typing.Literal[compression.zstd.CompressionParameter.ldm_bucket_size_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L68>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L68>`__)
 
       Log size of each bucket in the long distance matcher hash table for
       collision resolution. Larger values improve collision resolution but
@@ -776,7 +776,7 @@ Advanced parameter control
    .. attribute:: ldm_hash_rate_log
       :type: typing.Literal[compression.zstd.CompressionParameter.ldm_hash_rate_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L69>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L69>`__)
 
       Frequency of inserting/looking up entries into the long distance matcher
       hash table. Larger values improve compression speed. Deviating far from
@@ -787,7 +787,7 @@ Advanced parameter control
    .. attribute:: content_size_flag
       :type: typing.Literal[compression.zstd.CompressionParameter.content_size_flag]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L70>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L70>`__)
 
       Write the size of the data to be compressed into the Zstandard frame
       header when known prior to compressing.
@@ -813,7 +813,7 @@ Advanced parameter control
    .. attribute:: checksum_flag
       :type: typing.Literal[compression.zstd.CompressionParameter.checksum_flag]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L71>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L71>`__)
 
       A four-byte checksum using XXHash64 of the uncompressed content is
       written at the end of each frame. Zstandard's decompression code verifies
@@ -826,7 +826,7 @@ Advanced parameter control
    .. attribute:: dict_id_flag
       :type: typing.Literal[compression.zstd.CompressionParameter.dict_id_flag]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L72>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L72>`__)
 
       When compressing with a :class:`ZstdDict`, the dictionary's ID is written
       into the frame header.
@@ -837,7 +837,7 @@ Advanced parameter control
    .. attribute:: nb_workers
       :type: typing.Literal[compression.zstd.CompressionParameter.nb_workers]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L73>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L73>`__)
 
       Select how many threads will be spawned to compress in parallel. When
       :attr:`!nb_workers` > 0, enables multi-threaded compression, a value of
@@ -849,7 +849,7 @@ Advanced parameter control
    .. attribute:: job_size
       :type: typing.Literal[compression.zstd.CompressionParameter.job_size]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L74>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L74>`__)
 
       Size of a compression job, in bytes. This value is enforced only when
       :attr:`~CompressionParameter.nb_workers` >= 1. Each compression job is
@@ -861,7 +861,7 @@ Advanced parameter control
    .. attribute:: overlap_log
       :type: typing.Literal[compression.zstd.CompressionParameter.overlap_log]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L75>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L75>`__)
 
       Sets how much data is reloaded from previous jobs (threads) for new jobs
       to be used by the look behind window during compression. This value is
@@ -878,7 +878,7 @@ Advanced parameter control
 .. class:: DecompressionParameter()
            DecompressionParameter(value: int) -> compression.zstd.DecompressionParameter
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L79>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L79>`__)
 
    An :class:`~enum.IntEnum` containing the advanced decompression parameter
    keys that can be used when decompressing data. Parameters are optional; any
@@ -899,7 +899,7 @@ Advanced parameter control
    .. method:: bounds()
                bounds() -> tuple[int, int]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L81>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L81>`__)
 
       Return the tuple of int bounds, ``(lower, upper)``, of a decompression
       parameter. This method should be called on the attribute you wish to
@@ -910,7 +910,7 @@ Advanced parameter control
    .. attribute:: window_log_max
       :type: typing.Literal[compression.zstd.DecompressionParameter.window_log_max]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L80>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L80>`__)
 
       The base-two logarithm of the maximum size of the window used during
       decompression. This can be useful to limit the amount of memory used when
@@ -923,7 +923,7 @@ Advanced parameter control
 .. class:: Strategy()
            Strategy(value: int) -> compression.zstd.Strategy
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L84>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L84>`__)
 
    An :class:`~enum.IntEnum` containing strategies for compression.
    Higher-numbered strategies correspond to more complex and slower
@@ -941,54 +941,54 @@ Advanced parameter control
       :type: typing.Literal[compression.zstd.Strategy.fast]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L85>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L85>`__)
 
    .. attribute:: dfast
       :type: typing.Literal[compression.zstd.Strategy.dfast]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L86>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L86>`__)
 
    .. attribute:: greedy
       :type: typing.Literal[compression.zstd.Strategy.greedy]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L87>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L87>`__)
 
    .. attribute:: lazy
       :type: typing.Literal[compression.zstd.Strategy.lazy]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L88>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L88>`__)
 
    .. attribute:: lazy2
       :type: typing.Literal[compression.zstd.Strategy.lazy2]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L89>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L89>`__)
 
    .. attribute:: btlazy2
       :type: typing.Literal[compression.zstd.Strategy.btlazy2]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L90>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L90>`__)
 
    .. attribute:: btopt
       :type: typing.Literal[compression.zstd.Strategy.btopt]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L91>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L91>`__)
 
    .. attribute:: btultra
       :type: typing.Literal[compression.zstd.Strategy.btultra]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L92>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L92>`__)
 
    .. attribute:: btultra2
       :type: typing.Literal[compression.zstd.Strategy.btultra2]
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L93>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L93>`__)
 
 
 Miscellaneous
@@ -997,7 +997,7 @@ Miscellaneous
 .. function:: get_frame_info(frame_buffer)
               get_frame_info(frame_buffer: collections.abc.Buffer) -> compression.zstd.FrameInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L43>`__)
 
    Retrieve a :class:`FrameInfo` object containing metadata about a Zstandard
    frame. Frames contain metadata related to the compressed data they hold.
@@ -1006,21 +1006,21 @@ Miscellaneous
 .. class:: FrameInfo
            FrameInfo(decompressed_size: int, dictionary_id: int) -> compression.zstd.FrameInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L37>`__)
 
    Metadata related to a Zstandard frame.
 
    .. attribute:: decompressed_size
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L39>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L39>`__)
 
       The size of the decompressed contents of the frame.
 
    .. attribute:: dictionary_id
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L40>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L40>`__)
 
       An integer representing the Zstandard dictionary ID needed for
       decompressing the frame. ``0`` means the dictionary ID was not
@@ -1031,7 +1031,7 @@ Miscellaneous
 .. attribute:: COMPRESSION_LEVEL_DEFAULT
    :type: typing.Literal[3]
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L35>`__)
 
    The default compression level for Zstandard: ``3``.
 
@@ -1039,7 +1039,7 @@ Miscellaneous
 .. attribute:: zstd_version_info
    :type: tuple[int, int, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/31c195a/stdlib/compression/zstd/__init__.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/compression/zstd/__init__.pyi#L34>`__)
 
    Version number of the runtime zstd library as a tuple of integers
    (major, minor, release).
