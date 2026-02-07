@@ -29,7 +29,7 @@ from multiple threads, it is necessary to protect it with a lock.
 .. exception:: LZMAError
                LZMAError(*args: object) -> _lzma.LZMAError
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L69>`__)
 
    This exception is raised when an error occurs during compression or
    decompression, or while initializing the compressor/decompressor state.
@@ -45,7 +45,7 @@ Reading and writing compressed files
               open(filename: StrOrBytesPath, mode: _OpenTextWritingMode, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
               open(filename: _PathOrFile, mode: str, *, format: int | None = None, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> lzma.LZMAFile | _io.TextIOWrapper[_io._WrappedBuffer]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/lzma.pyi#L111>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/lzma.pyi#L111>`__)
 
    Open an LZMA-compressed file in binary or text mode, returning a :term:`file
    object`.
@@ -84,7 +84,7 @@ Reading and writing compressed files
 .. class:: LZMAFile(filename=None, mode="r", *, format=None, check=-1, preset=None, filters=None)
            LZMAFile(filename: typing.IO[bytes] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, mode: str = 'r', *, format: int | None = None, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> lzma.LZMAFile
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/lzma.pyi#L91>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/lzma.pyi#L91>`__)
 
    Open an LZMA-compressed file in binary mode.
 
@@ -124,7 +124,7 @@ Reading and writing compressed files
    .. method:: peek(size=-1)
                peek(size: int = -1) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/lzma.pyi#L103>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/lzma.pyi#L103>`__)
 
       Return buffered data without advancing the file position. At least one
       byte of data will be returned, unless EOF has been reached. The exact
@@ -138,7 +138,7 @@ Reading and writing compressed files
    .. attribute:: mode
       :type: mode(self: lzma.LZMAFile) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/typing.pyi#L858>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/typing.pyi#L858>`__)
 
       ``'rb'`` for reading and ``'wb'`` for writing.
 
@@ -147,7 +147,7 @@ Reading and writing compressed files
    .. attribute:: name
       :type: name(self: lzma.LZMAFile) -> str | typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/typing.pyi#L862>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/typing.pyi#L862>`__)
 
       The lzma file name.  Equivalent to the :attr:`~io.FileIO.name`
       attribute of the underlying :term:`file object`.
@@ -172,7 +172,7 @@ Compressing and decompressing data in memory
 .. class:: LZMACompressor(format=FORMAT_XZ, check=-1, preset=None, filters=None)
            LZMACompressor(format: int = 1, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> _lzma.LZMACompressor
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L56>`__)
 
    Create a compressor object, which can be used to compress data incrementally.
 
@@ -237,7 +237,7 @@ Compressing and decompressing data in memory
    .. method:: compress(data)
                compress(data: collections.abc.Buffer, /) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L66>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L66>`__)
 
       Compress *data* (a :class:`bytes` object), returning a :class:`bytes`
       object containing compressed data for at least part of the input. Some of
@@ -248,7 +248,7 @@ Compressing and decompressing data in memory
    .. method:: flush()
                flush() -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L67>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L67>`__)
 
       Finish the compression process, returning a :class:`bytes` object
       containing any data stored in the compressor's internal buffers.
@@ -259,7 +259,7 @@ Compressing and decompressing data in memory
 .. class:: LZMADecompressor(format=FORMAT_AUTO, memlimit=None, filters=None)
            LZMADecompressor(format: int = 0, memlimit: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> _lzma.LZMADecompressor
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L39>`__)
 
    Create a decompressor object, which can be used to decompress data
    incrementally.
@@ -291,7 +291,7 @@ Compressing and decompressing data in memory
    .. method:: decompress(data, max_length=-1)
                decompress(data: collections.abc.Buffer, max_length: int = -1) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L45>`__)
 
       Decompress *data* (a :term:`bytes-like object`), returning
       uncompressed data as bytes. Some of *data* may be buffered
@@ -321,7 +321,7 @@ Compressing and decompressing data in memory
    .. attribute:: check
       :type: check(self: _lzma.LZMADecompressor) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L47>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L47>`__)
 
       The ID of the integrity check used by the input stream. This may be
       :const:`CHECK_UNKNOWN` until enough of the input has been decoded to
@@ -330,14 +330,14 @@ Compressing and decompressing data in memory
    .. attribute:: eof
       :type: eof(self: _lzma.LZMADecompressor) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L49>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L49>`__)
 
       ``True`` if the end-of-stream marker has been reached.
 
    .. attribute:: unused_data
       :type: unused_data(self: _lzma.LZMADecompressor) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L51>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L51>`__)
 
       Data found after the end of the compressed stream.
 
@@ -346,7 +346,7 @@ Compressing and decompressing data in memory
    .. attribute:: needs_input
       :type: needs_input(self: _lzma.LZMADecompressor) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L53>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L53>`__)
 
       ``False`` if the :meth:`.decompress` method can provide more
       decompressed data before requiring new uncompressed input.
@@ -356,7 +356,7 @@ Compressing and decompressing data in memory
 .. function:: compress(data, format=FORMAT_XZ, check=-1, preset=None, filters=None)
               compress(data: collections.abc.Buffer, format: int = 1, check: int = -1, preset: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/lzma.pyi#L175>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/lzma.pyi#L175>`__)
 
    Compress *data* (a :class:`bytes` object), returning the compressed data as a
    :class:`bytes` object.
@@ -368,7 +368,7 @@ Compressing and decompressing data in memory
 .. function:: decompress(data, format=FORMAT_AUTO, memlimit=None, filters=None)
               decompress(data: collections.abc.Buffer, format: int = 0, memlimit: int | None = None, filters: collections.abc.Sequence[collections.abc.Mapping[str, typing.Any]] | None = None) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/lzma.pyi#L178>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/lzma.pyi#L178>`__)
 
    Decompress *data* (a :class:`bytes` object), returning the uncompressed data
    as a :class:`bytes` object.
@@ -386,7 +386,7 @@ Miscellaneous
 .. function:: is_check_supported(check)
               is_check_supported(check_id: int, /) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_lzma.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_lzma.pyi#L71>`__)
 
    Return ``True`` if the given integrity check is supported on this system.
 

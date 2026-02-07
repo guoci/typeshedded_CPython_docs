@@ -2050,6 +2050,13 @@ since Python 3.3, use <a class="reference internal" href="../library/logging.htm
 <li><p><a class="reference internal" href="../library/mailbox.html#module-mailbox" title="mailbox: Manipulate mailboxes in various formats"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mailbox</span></code></a>: Use of StringIO input and text mode is deprecated, use
 BytesIO and binary mode instead.</p></li>
 <li><p><a class="reference internal" href="../library/os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a>: Calling <a class="reference internal" href="../library/os.html#os.register_at_fork" title="os.register_at_fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.register_at_fork()</span></code></a> in a multi-threaded process.</p></li>
+<li><p><a class="reference internal" href="../library/os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a>: <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a> is deprecated, use
+<a class="reference internal" href="../library/os.path.html#os.path.commonpath" title="os.path.commonpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonpath()</span></code></a> for path prefixes. The <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a>
+function is being deprecated due to having a misleading name and module.
+The function is not safe to use for path prefixes despite being included in a
+module about path manipulation, meaning it is easy to accidentally
+introduce path traversal vulnerabilities into Python programs by using this
+function.</p></li>
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">pydoc.ErrorDuringImport</span></code>: A tuple value for <em>exc_info</em> parameter is
 deprecated, use an exception instance.</p></li>
 <li><p><a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a>: More strict rules are now applied for numerical group references

@@ -35,7 +35,7 @@ Resource Locators. It supports the following URL schemes: ``file``, ``ftp``,
    macOS, it *may* be removed if CPython has been built with the
    :option:`--with-app-store-compliance` option.
 
-The :mod:`urllib.parse` module defines functions that fall into two broad
+The :mod:`!urllib.parse` module defines functions that fall into two broad
 categories: URL parsing and URL quoting. These are covered in detail in
 the following sections.
 
@@ -50,15 +50,16 @@ URL Parsing
 The URL parsing functions focus on splitting a URL string into its components,
 or on combining URL components into a URL string.
 
-.. function:: urlparse(urlstring, scheme=None, allow_fragments=True, *, missing_as_none=False)
-              urlparse(url: str, scheme: str = '', allow_fragments: bool = True) -> urllib.parse.ParseResult
-              urlparse(url: bytearray | bytes | None, scheme: typing.Literal[''] | bytearray | bytes | None = '', allow_fragments: bool = True) -> urllib.parse.ParseResultBytes
+.. function:: urlsplit(urlstring, scheme=None, allow_fragments=True, *, missing_as_none=False)
+              urlsplit(url: str, scheme: str = '', allow_fragments: bool = True) -> urllib.parse.SplitResult
+              urlsplit(url: bytes | None, scheme: typing.Literal[''] | bytes | None = '', allow_fragments: bool = True) -> urllib.parse.SplitResultBytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L170>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L176>`__)
 
-   Parse a URL into six components, returning a 6-item :term:`named tuple`.  This
-   corresponds to the general structure of a URL:
-   ``scheme://netloc/path;parameters?query#fragment``.
+   Parse a URL into five components, returning a 5-item :term:`named tuple`
+   :class:`SplitResult` or :class:`SplitResultBytes`.
+   This corresponds to the general structure of a URL:
+   ``scheme://netloc/path?query#fragment``.
    Each tuple item is a string, possibly empty, or ``None`` if
    *missing_as_none* is true.
    Not defined component are represented an empty string (by default) or
@@ -72,15 +73,15 @@ or on combining URL components into a URL string.
    .. doctest::
       :options: +NORMALIZE_WHITESPACE
 
-      >>> from urllib.parse import urlparse
-      >>> urlparse("scheme://netloc/path;parameters?query#fragment")
-      ParseResult(scheme='scheme', netloc='netloc', path='/path;parameters', params='',
+      >>> from urllib.parse import urlsplit
+      >>> urlsplit("scheme://netloc/path?query#fragment")
+      SplitResult(scheme='scheme', netloc='netloc', path='/path',
                   query='query', fragment='fragment')
-      >>> o = urlparse("http://docs.python.org:80/3/library/urllib.parse.html?"
+      >>> o = urlsplit("http://docs.python.org:80/3/library/urllib.parse.html?"
       ...              "highlight=params#url-parsing")
       >>> o
-      ParseResult(scheme='http', netloc='docs.python.org:80',
-                  path='/3/library/urllib.parse.html', params='',
+      SplitResult(scheme='http', netloc='docs.python.org:80',
+                  path='/3/library/urllib.parse.html',
                   query='highlight=params', fragment='url-parsing')
       >>> o.scheme
       'http'
@@ -92,14 +93,14 @@ or on combining URL components into a URL string.
       80
       >>> o._replace(fragment="").geturl()
       'http://docs.python.org:80/3/library/urllib.parse.html?highlight=params'
-      >>> urlparse("http://docs.python.org?")
-      ParseResult(scheme='http', netloc='docs.python.org',
-                  path='', params='', query='', fragment='')
-      >>> urlparse("http://docs.python.org?", missing_as_none=True)
-      ParseResult(scheme='http', netloc='docs.python.org',
-                  path='', params=None, query='', fragment=None)
+      >>> urlsplit("http://docs.python.org?")
+      SplitResult(scheme='http', netloc='docs.python.org', path='',
+                  query='', fragment='')
+      >>> urlsplit("http://docs.python.org?", missing_as_none=True)
+      SplitResult(scheme='http', netloc='docs.python.org', path='',
+                  query='', fragment=None)
 
-   Following the syntax specifications in :rfc:`1808`, urlparse recognizes
+   Following the syntax specifications in :rfc:`1808`, :func:`!urlsplit` recognizes
    a netloc only if it is properly introduced by '//'.  Otherwise the
    input is presumed to be a relative URL and thus to start with
    a path component.
@@ -107,19 +108,19 @@ or on combining URL components into a URL string.
    .. doctest::
       :options: +NORMALIZE_WHITESPACE
 
-      >>> from urllib.parse import urlparse
-      >>> urlparse('//www.cwi.nl:80/%7Eguido/Python.html')
-      ParseResult(scheme='', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html',
-                  params='', query='', fragment='')
-      >>> urlparse('www.cwi.nl/%7Eguido/Python.html')
-      ParseResult(scheme='', netloc='', path='www.cwi.nl/%7Eguido/Python.html',
-                  params='', query='', fragment='')
-      >>> urlparse('help/Python.html')
-      ParseResult(scheme='', netloc='', path='help/Python.html',
-                  params='', query='', fragment='')
-      >>> urlparse('help/Python.html', missing_as_none=True)
-      ParseResult(scheme=None, netloc=None, path='help/Python.html',
-                  params=None, query=None, fragment=None)
+      >>> from urllib.parse import urlsplit
+      >>> urlsplit('//www.cwi.nl:80/%7Eguido/Python.html')
+      SplitResult(scheme='', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html',
+                  query='', fragment='')
+      >>> urlsplit('www.cwi.nl/%7Eguido/Python.html')
+      SplitResult(scheme='', netloc='', path='www.cwi.nl/%7Eguido/Python.html',
+                  query='', fragment='')
+      >>> urlsplit('help/Python.html')
+      SplitResult(scheme='', netloc='', path='help/Python.html',
+                  query='', fragment='')
+      >>> urlsplit('help/Python.html', missing_as_none=True)
+      SplitResult(scheme=None, netloc=None, path='help/Python.html',
+                  query=None, fragment=None)
 
    The *scheme* argument gives the default addressing scheme, to be
    used only if the URL does not specify one.  It should be the same type
@@ -127,7 +128,7 @@ or on combining URL components into a URL string.
    always allowed, and is automatically converted to ``b''`` if appropriate.
 
    If the *allow_fragments* argument is false, fragment identifiers are not
-   recognized.  Instead, they are parsed as part of the path, parameters
+   recognized.  Instead, they are parsed as part of the path
    or query component, and :attr:`fragment` is set to ``None`` or the empty
    string (depending on the value of *missing_as_none*) in the return value.
 
@@ -144,12 +145,9 @@ or on combining URL components into a URL string.
    +------------------+-------+-------------------------+-------------------------------+
    | :attr:`path`     | 2     | Hierarchical path       | empty string                  |
    +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`params`   | 3     | Parameters for last     | ``None`` or empty string [1]_ |
-   |                  |       | path element            |                               |
+   | :attr:`query`    | 3     | Query component         | ``None`` or empty string [1]_ |
    +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`query`    | 4     | Query component         | ``None`` or empty string [1]_ |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`fragment` | 5     | Fragment identifier     | ``None`` or empty string [1]_ |
+   | :attr:`fragment` | 4     | Fragment identifier     | ``None`` or empty string [1]_ |
    +------------------+-------+-------------------------+-------------------------------+
    | :attr:`username` |       | User name               | ``None``                      |
    +------------------+-------+-------------------------+-------------------------------+
@@ -175,26 +173,30 @@ or on combining URL components into a URL string.
    ``#``, ``@``, or ``:`` will raise a :exc:`ValueError`. If the URL is
    decomposed before parsing, no error will be raised.
 
+   Following some of the `WHATWG spec`_ that updates :rfc:`3986`, leading C0
+   control and space characters are stripped from the URL. ``\n``,
+   ``\r`` and tab ``\t`` characters are removed from the URL at any position.
+
    As is the case with all named tuples, the subclass has a few additional methods
    and attributes that are particularly useful. One such method is :meth:`_replace`.
-   The :meth:`_replace` method will return a new ParseResult object replacing specified
-   fields with new values.
+   The :meth:`_replace` method will return a new :class:`SplitResult` object
+   replacing specified fields with new values.
 
    .. doctest::
       :options: +NORMALIZE_WHITESPACE
 
-      >>> from urllib.parse import urlparse
-      >>> u = urlparse('//www.cwi.nl:80/%7Eguido/Python.html')
+      >>> from urllib.parse import urlsplit
+      >>> u = urlsplit('//www.cwi.nl:80/%7Eguido/Python.html')
       >>> u
-      ParseResult(scheme='', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html',
-                  params='', query='', fragment='')
+      SplitResult(scheme='', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html',
+                  query='', fragment='')
       >>> u._replace(scheme='http')
-      ParseResult(scheme='http', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html',
-                  params='', query='', fragment='')
+      SplitResult(scheme='http', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html',
+                  query='', fragment='')
 
    .. warning::
 
-      :func:`urlparse` does not perform validation.  See :ref:`URL parsing
+      :func:`urlsplit` does not perform validation.  See :ref:`URL parsing
       security <url-parsing-security>` for details.
 
    .. versionchanged:: 3.2
@@ -213,14 +215,22 @@ or on combining URL components into a URL string.
       Characters that affect netloc parsing under NFKC normalization will
       now raise :exc:`ValueError`.
 
+   .. versionchanged:: 3.10
+      ASCII newline and tab characters are stripped from the URL.
+
+   .. versionchanged:: 3.12
+      Leading WHATWG C0 control and space characters are stripped from the URL.
+
    .. versionchanged:: next
       Added the *missing_as_none* parameter.
+
+.. _WHATWG spec: https://url.spec.whatwg.org/#concept-basic-url-parser
 
 
 .. function:: parse_qs(qs, keep_blank_values=False, strict_parsing=False, encoding='utf-8', errors='replace', max_num_fields=None, separator='&')
               parse_qs[AnyStr: (str, bytes)](qs: AnyStr | None, keep_blank_values: bool = False, strict_parsing: bool = False, encoding: str = 'utf-8', errors: str = 'replace', max_num_fields: int | None = None, separator: str = '&') -> dict[AnyStr, list[AnyStr]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L106>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L106>`__)
 
    Parse a query string given as a string argument (data of type
    :mimetype:`application/x-www-form-urlencoded`).  Data are returned as a
@@ -273,7 +283,7 @@ or on combining URL components into a URL string.
 .. function:: parse_qsl(qs, keep_blank_values=False, strict_parsing=False, encoding='utf-8', errors='replace', max_num_fields=None, separator='&')
               parse_qsl[AnyStr: (str, bytes)](qs: AnyStr | None, keep_blank_values: bool = False, strict_parsing: bool = False, encoding: str = 'utf-8', errors: str = 'replace', max_num_fields: int | None = None, separator: str = '&') -> list[tuple[AnyStr, AnyStr]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L115>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L115>`__)
 
    Parse a query string given as a string argument (data of type
    :mimetype:`application/x-www-form-urlencoded`).  Data are returned as a list of
@@ -316,125 +326,15 @@ or on combining URL components into a URL string.
       separator key, with ``&`` as the default separator.
 
 
-.. function:: urlunparse(parts)
-              urlunparse(parts, *, keep_empty)
-              urlunparse(components: collections.abc.Iterable[None]) -> typing.Literal[b'']
-              urlunparse(components: collections.abc.Iterable[AnyStr | None]) -> AnyStr
-
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L192>`__)
-
-   Construct a URL from a tuple as returned by ``urlparse()``. The *parts*
-   argument can be any six-item iterable.
-
-   This may result in a slightly different, but equivalent URL, if the
-   URL that was parsed originally had unnecessary delimiters (for example,
-   a ``?`` with an empty query; the RFC states that these are equivalent).
-
-   If *keep_empty* is true, empty strings are kept in the result (for example,
-   a ``?`` for an empty query), only ``None`` components are omitted.
-   This allows rebuilding a URL that was parsed with option
-   ``missing_as_none=True``.
-   By default, *keep_empty* is true if *parts* is the result of the
-   :func:`urlparse` call with ``missing_as_none=True``.
-
-   .. versionchanged:: next
-      Added the *keep_empty* parameter.
-
-
-.. function:: urlsplit(urlstring, scheme=None, allow_fragments=True, *, missing_as_none=False)
-              urlsplit(url: str, scheme: str = '', allow_fragments: bool = True) -> urllib.parse.SplitResult
-              urlsplit(url: bytes | None, scheme: typing.Literal[''] | bytes | None = '', allow_fragments: bool = True) -> urllib.parse.SplitResultBytes
-
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L176>`__)
-
-   This is similar to :func:`urlparse`, but does not split the params from the URL.
-   This should generally be used instead of :func:`urlparse` if the more recent URL
-   syntax allowing parameters to be applied to each segment of the *path* portion
-   of the URL (see :rfc:`2396`) is wanted.  A separate function is needed to
-   separate the path segments and parameters.  This function returns a 5-item
-   :term:`named tuple`::
-
-      (addressing scheme, network location, path, query, fragment identifier).
-
-   The return value is a :term:`named tuple`, its items can be accessed by index
-   or as named attributes:
-
-   +------------------+-------+-------------------------+-------------------------------+
-   | Attribute        | Index | Value                   | Value if not present          |
-   +==================+=======+=========================+===============================+
-   | :attr:`scheme`   | 0     | URL scheme specifier    | *scheme* parameter or         |
-   |                  |       |                         | empty string [1]_             |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`netloc`   | 1     | Network location part   | ``None`` or empty string [2]_ |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`path`     | 2     | Hierarchical path       | empty string                  |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`query`    | 3     | Query component         | ``None`` or empty string [2]_ |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`fragment` | 4     | Fragment identifier     | ``None`` or empty string [2]_ |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`username` |       | User name               | ``None``                      |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`password` |       | Password                | ``None``                      |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`hostname` |       | Host name (lower case)  | ``None``                      |
-   +------------------+-------+-------------------------+-------------------------------+
-   | :attr:`port`     |       | Port number as integer, | ``None``                      |
-   |                  |       | if present              |                               |
-   +------------------+-------+-------------------------+-------------------------------+
-
-   .. [2] Depending on the value of the *missing_as_none* argument.
-
-   Reading the :attr:`port` attribute will raise a :exc:`ValueError` if
-   an invalid port is specified in the URL.  See section
-   :ref:`urlparse-result-object` for more information on the result object.
-
-   Unmatched square brackets in the :attr:`netloc` attribute will raise a
-   :exc:`ValueError`.
-
-   Characters in the :attr:`netloc` attribute that decompose under NFKC
-   normalization (as used by the IDNA encoding) into any of ``/``, ``?``,
-   ``#``, ``@``, or ``:`` will raise a :exc:`ValueError`. If the URL is
-   decomposed before parsing, no error will be raised.
-
-   Following some of the `WHATWG spec`_ that updates RFC 3986, leading C0
-   control and space characters are stripped from the URL. ``\n``,
-   ``\r`` and tab ``\t`` characters are removed from the URL at any position.
-
-   .. warning::
-
-      :func:`urlsplit` does not perform validation.  See :ref:`URL parsing
-      security <url-parsing-security>` for details.
-
-   .. versionchanged:: 3.6
-      Out-of-range port numbers now raise :exc:`ValueError`, instead of
-      returning ``None``.
-
-   .. versionchanged:: 3.8
-      Characters that affect netloc parsing under NFKC normalization will
-      now raise :exc:`ValueError`.
-
-   .. versionchanged:: 3.10
-      ASCII newline and tab characters are stripped from the URL.
-
-   .. versionchanged:: 3.12
-      Leading WHATWG C0 control and space characters are stripped from the URL.
-
-   .. versionchanged:: next
-      Added the *missing_as_none* parameter.
-
-.. _WHATWG spec: https://url.spec.whatwg.org/#concept-basic-url-parser
-
 .. function:: urlunsplit(parts)
               urlunsplit(parts, *, keep_empty)
               urlunsplit(components: collections.abc.Iterable[None]) -> typing.Literal[b'']
               urlunsplit(components: collections.abc.Iterable[AnyStr | None]) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L198>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L198>`__)
 
-   Combine the elements of a tuple as returned by :func:`urlsplit` into a
-   complete URL as a string. The *parts* argument can be any five-item
-   iterable.
+   Construct a URL from a tuple as returned by :func:`urlsplit`. The *parts*
+   argument can be any five-item iterable.
 
    This may result in a slightly different, but equivalent URL, if the
    URL that was parsed originally had unnecessary delimiters (for example,
@@ -451,10 +351,56 @@ or on combining URL components into a URL string.
       Added the *keep_empty* parameter.
 
 
+.. function:: urlparse(urlstring, scheme=None, allow_fragments=True, *, missing_as_none=False)
+              urlparse(url: str, scheme: str = '', allow_fragments: bool = True) -> urllib.parse.ParseResult
+              urlparse(url: bytearray | bytes | None, scheme: typing.Literal[''] | bytearray | bytes | None = '', allow_fragments: bool = True) -> urllib.parse.ParseResultBytes
+
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L170>`__)
+
+   This is similar to :func:`urlsplit`, but additionally splits the *path*
+   component on *path* and *params*.
+   This function returns a 6-item :term:`named tuple` :class:`ParseResult`
+   or :class:`ParseResultBytes`.
+   Its items are the same as for the :func:`!urlsplit` result, except that
+   *params* is inserted at index 3, between *path* and *query*.
+
+   This function is based on obsoleted :rfc:`1738` and :rfc:`1808`, which
+   listed *params* as the main URL component.
+   The more recent URL syntax allows parameters to be applied to each segment
+   of the *path* portion of the URL (see :rfc:`3986`).
+   :func:`urlsplit` should generally be used instead of :func:`urlparse`.
+   A separate function is needed to separate the path segments and parameters.
+
+.. function:: urlunparse(parts)
+              urlunparse(parts, *, keep_empty)
+              urlunparse(components: collections.abc.Iterable[None]) -> typing.Literal[b'']
+              urlunparse(components: collections.abc.Iterable[AnyStr | None]) -> AnyStr
+
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L192>`__)
+
+   Combine the elements of a tuple as returned by :func:`urlparse` into a
+   complete URL as a string. The *parts* argument can be any six-item
+   iterable.
+
+   This may result in a slightly different, but equivalent URL, if the
+   URL that was parsed originally had unnecessary delimiters (for example,
+   a ``?`` with an empty query; the RFC states that these are equivalent).
+
+   If *keep_empty* is true, empty strings are kept in the result (for example,
+   a ``?`` for an empty query), only ``None`` components are omitted.
+   This allows rebuilding a URL that was parsed with option
+   ``missing_as_none=True``.
+   By default, *keep_empty* is true if *parts* is the result of the
+   :func:`urlparse` call with ``missing_as_none=True``.
+
+   .. versionchanged:: next
+      Added the *keep_empty* parameter.
+
+
 .. function:: urljoin(base, url, allow_fragments=True)
               urljoin[AnyStr: (str, bytes)](base: AnyStr, url: AnyStr | None, allow_fragments: bool = True) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L168>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L168>`__)
 
    Construct a full ("absolute") URL by combining a "base URL" (*base*) with
    another URL (*url*).  Informally, this uses components of the base URL, in
@@ -466,7 +412,7 @@ or on combining URL components into a URL string.
       'http://www.cwi.nl/%7Eguido/FAQ.html'
 
    The *allow_fragments* argument has the same meaning and default as for
-   :func:`urlparse`.
+   :func:`urlsplit`.
 
    .. note::
 
@@ -501,7 +447,7 @@ or on combining URL components into a URL string.
               urldefrag(url: str) -> urllib.parse.DefragResult
               urldefrag(url: bytearray | bytes | None) -> urllib.parse.DefragResultBytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L137>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L137>`__)
 
    If *url* contains a fragment identifier, return a modified version of *url*
    with no fragment identifier, and the fragment identifier as a separate
@@ -533,7 +479,7 @@ or on combining URL components into a URL string.
 .. function:: unwrap(url)
               unwrap(url: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L201>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L201>`__)
 
    Extract the url from a wrapped URL (that is, a string formatted as
    ``<URL:scheme://host/path>``, ``<scheme://host/path>``, ``URL:scheme://host/path``
@@ -619,7 +565,7 @@ individual URL quoting functions.
 Structured Parse Results
 ------------------------
 
-The result objects from the :func:`urlparse`, :func:`urlsplit`  and
+The result objects from the :func:`urlsplit`, :func:`urlparse`  and
 :func:`urldefrag` functions are subclasses of the :class:`tuple` type.
 These subclasses add the attributes listed in the documentation for
 those functions, the encoding and decoding support described in the
@@ -628,7 +574,7 @@ previous section, as well as an additional method:
 .. method:: urllib.parse.SplitResult.geturl()
             SplitResult.geturl() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L91>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L91>`__)
 
    Return the re-combined version of the original URL as a string. This may
    differ from the original URL in that the scheme may be normalized to lower
@@ -660,9 +606,9 @@ The following classes provide the implementations of the structured parse
 results when operating on :class:`str` objects:
 
 .. class:: DefragResult(url, fragment)
-           DefragResult(url: str, fragment: str) -> urllib.parse.DefragResult
+           DefragResult(*Unknown, **Unknown) -> urllib.parse.DefragResult
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L87>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L87>`__)
 
    Concrete class for :func:`urldefrag` results containing :class:`str`
    data. The :meth:`encode` method returns a :class:`DefragResultBytes`
@@ -671,18 +617,18 @@ results when operating on :class:`str` objects:
    .. versionadded:: 3.2
 
 .. class:: ParseResult(scheme, netloc, path, params, query, fragment)
-           ParseResult(scheme: str, netloc: str, path: str, params: str, query: str, fragment: str) -> urllib.parse.ParseResult
+           ParseResult(*Unknown, **Unknown) -> urllib.parse.ParseResult
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L93>`__)
 
    Concrete class for :func:`urlparse` results containing :class:`str`
    data. The :meth:`encode` method returns a :class:`ParseResultBytes`
    instance.
 
 .. class:: SplitResult(scheme, netloc, path, query, fragment)
-           SplitResult(scheme: str, netloc: str, path: str, query: str, fragment: str) -> urllib.parse.SplitResult
+           SplitResult(*Unknown, **Unknown) -> urllib.parse.SplitResult
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L90>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L90>`__)
 
    Concrete class for :func:`urlsplit` results containing :class:`str`
    data. The :meth:`encode` method returns a :class:`SplitResultBytes`
@@ -693,9 +639,9 @@ The following classes provide the implementations of the parse results when
 operating on :class:`bytes` or :class:`bytearray` objects:
 
 .. class:: DefragResultBytes(url, fragment)
-           DefragResultBytes(url: bytes, fragment: bytes) -> urllib.parse.DefragResultBytes
+           DefragResultBytes(*Unknown, **Unknown) -> urllib.parse.DefragResultBytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L97>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L97>`__)
 
    Concrete class for :func:`urldefrag` results containing :class:`bytes`
    data. The :meth:`decode` method returns a :class:`DefragResult`
@@ -704,9 +650,9 @@ operating on :class:`bytes` or :class:`bytearray` objects:
    .. versionadded:: 3.2
 
 .. class:: ParseResultBytes(scheme, netloc, path, params, query, fragment)
-           ParseResultBytes(scheme: bytes, netloc: bytes, path: bytes, params: bytes, query: bytes, fragment: bytes) -> urllib.parse.ParseResultBytes
+           ParseResultBytes(*Unknown, **Unknown) -> urllib.parse.ParseResultBytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L103>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L103>`__)
 
    Concrete class for :func:`urlparse` results containing :class:`bytes`
    data. The :meth:`decode` method returns a :class:`ParseResult`
@@ -715,9 +661,9 @@ operating on :class:`bytes` or :class:`bytearray` objects:
    .. versionadded:: 3.2
 
 .. class:: SplitResultBytes(scheme, netloc, path, query, fragment)
-           SplitResultBytes(scheme: bytes, netloc: bytes, path: bytes, query: bytes, fragment: bytes) -> urllib.parse.SplitResultBytes
+           SplitResultBytes(*Unknown, **Unknown) -> urllib.parse.SplitResultBytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L100>`__)
 
    Concrete class for :func:`urlsplit` results containing :class:`bytes`
    data. The :meth:`decode` method returns a :class:`SplitResult`
@@ -739,7 +685,7 @@ task isn't already covered by the URL parsing functions above.
               quote(string: str, safe: collections.abc.Iterable[int] | str = '/', encoding: str | None = None, errors: str | None = None) -> str
               quote(string: bytearray | bytes, safe: collections.abc.Iterable[int] | str = '/') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L125>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L125>`__)
 
    Replace special characters in *string* using the :samp:`%{xx}` escape. Letters,
    digits, and the characters ``'_.-~'`` are never quoted. By default, this
@@ -771,7 +717,7 @@ task isn't already covered by the URL parsing functions above.
               quote_plus(string: str, safe: collections.abc.Iterable[int] | str = '', encoding: str | None = None, errors: str | None = None) -> str
               quote_plus(string: bytearray | bytes, safe: collections.abc.Iterable[int] | str = '') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L130>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L130>`__)
 
    Like :func:`quote`, but also replace spaces with plus signs, as required for
    quoting HTML form values when building up a query string to go into a URL.
@@ -784,7 +730,7 @@ task isn't already covered by the URL parsing functions above.
 .. function:: quote_from_bytes(bytes, safe='/')
               quote_from_bytes(bs: bytearray | bytes, safe: collections.abc.Iterable[int] | str = '/') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L128>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L128>`__)
 
    Like :func:`quote`, but accepts a :class:`bytes` object rather than a
    :class:`str`, and does not perform string-to-bytes encoding.
@@ -796,7 +742,7 @@ task isn't already covered by the URL parsing functions above.
 .. function:: unquote(string, encoding='utf-8', errors='replace')
               unquote(string: bytes | str, encoding: str = 'utf-8', errors: str = 'replace') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L133>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L133>`__)
 
    Replace :samp:`%{xx}` escapes with their single-character equivalent.
    The optional *encoding* and *errors* parameters specify how to decode
@@ -820,7 +766,7 @@ task isn't already covered by the URL parsing functions above.
 .. function:: unquote_plus(string, encoding='utf-8', errors='replace')
               unquote_plus(string: str, encoding: str = 'utf-8', errors: str = 'replace') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L135>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L135>`__)
 
    Like :func:`unquote`, but also replace plus signs with spaces, as required
    for unquoting HTML form values.
@@ -833,7 +779,7 @@ task isn't already covered by the URL parsing functions above.
 .. function:: unquote_to_bytes(string)
               unquote_to_bytes(string: bytearray | bytes | str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L134>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L134>`__)
 
    Replace :samp:`%{xx}` escapes with their single-octet equivalent, and return a
    :class:`bytes` object.
@@ -850,7 +796,7 @@ task isn't already covered by the URL parsing functions above.
                         errors=None, quote_via=quote_plus)
               urlencode(query: _QueryType, doseq: bool = False, safe: bytes | str = '', encoding: str | None = None, errors: str | None = None, quote_via: urllib.parse._QuoteVia = ...) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/urllib/parse.pyi#L160>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/urllib/parse.pyi#L160>`__)
 
    Convert a mapping object or a sequence of two-element tuples, which may
    contain :class:`str` or :class:`bytes` objects, to a percent-encoded ASCII

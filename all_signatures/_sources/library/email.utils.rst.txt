@@ -8,13 +8,13 @@
 
 --------------
 
-There are a couple of useful utilities provided in the :mod:`email.utils`
+There are a couple of useful utilities provided in the :mod:`!email.utils`
 module:
 
 .. function:: localtime(dt=None)
               localtime(dt: datetime.datetime | None = None) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L53>`__)
 
    Return local time as an aware datetime object.  If called without
    arguments, return current time.  Otherwise *dt* argument should be a
@@ -30,7 +30,7 @@ module:
 .. function:: make_msgid(idstring=None, domain=None)
               make_msgid(idstring: str | None = None, domain: str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L65>`__)
 
    Returns a string suitable for an :rfc:`2822`\ -compliant
    :mailheader:`Message-ID` header.  Optional *idstring* if given, is a string
@@ -53,7 +53,7 @@ of the new API.
 .. function:: quote(str)
               quote(str: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L30>`__)
 
    Return a new string with backslashes in *str* replaced by two backslashes, and
    double quotes replaced by backslash-double quote.
@@ -62,7 +62,7 @@ of the new API.
 .. function:: unquote(str)
               unquote(str: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L31>`__)
 
    Return a new string which is an *unquoted* version of *str*. If *str* ends and
    begins with double quotes, they are stripped off.  Likewise if *str* ends and
@@ -72,7 +72,7 @@ of the new API.
 .. function:: parseaddr(address, *, strict=True)
               parseaddr(addr: list[str] | str, *, strict: bool = True) -> tuple[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L34>`__)
 
    Parse address -- which should be the value of some address-containing field such
    as :mailheader:`To` or :mailheader:`Cc` -- into its constituent *realname* and
@@ -88,7 +88,7 @@ of the new API.
 .. function:: formataddr(pair, charset='utf-8')
               formataddr(pair: tuple[str | None, str], charset: email.charset.Charset | str = 'utf-8') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L35>`__)
 
    The inverse of :meth:`parseaddr`, this takes a 2-tuple of the form ``(realname,
    email_address)`` and returns the string value suitable for a :mailheader:`To` or
@@ -107,7 +107,7 @@ of the new API.
 .. function:: getaddresses(fieldvalues, *, strict=True)
               getaddresses(fieldvalues: collections.abc.Iterable[str], *, strict: bool = True) -> list[tuple[str, str]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L38>`__)
 
    This method returns a list of 2-tuples of the form returned by ``parseaddr()``.
    *fieldvalues* is a sequence of header field values as might be returned by
@@ -133,7 +133,7 @@ of the new API.
               parsedate(data: None) -> None
               parsedate(data: str) -> tuple[int, int, int, int, int, int, int, int, int] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L40>`__)
 
    Attempts to parse a date according to the rules in :rfc:`2822`. however, some
    mailers don't follow that format as specified, so :func:`parsedate` tries to
@@ -148,7 +148,7 @@ of the new API.
               parsedate_tz(data: None) -> None
               parsedate_tz(data: str) -> tuple[int, int, int, int, int, int, int, int, int, int | None] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L44>`__)
 
    Performs the same function as :func:`parsedate`, but returns either ``None`` or
    a 10-tuple; the first 9 elements make up a tuple that can be passed directly to
@@ -161,7 +161,7 @@ of the new API.
 .. function:: parsedate_to_datetime(date)
               parsedate_to_datetime(data: str) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L47>`__)
 
    The inverse of :func:`format_datetime`.  Performs the same function as
    :func:`parsedate`, but on success returns a :mod:`~datetime.datetime`;
@@ -180,7 +180,7 @@ of the new API.
 .. function:: mktime_tz(tuple)
               mktime_tz(data: tuple[int, int, int, int, int, int, int, int, int, int | None]) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L48>`__)
 
    Turn a 10-tuple as returned by :func:`parsedate_tz` into a UTC
    timestamp (seconds since the Epoch).  If the timezone item in the
@@ -190,7 +190,7 @@ of the new API.
 .. function:: formatdate(timeval=None, localtime=False, usegmt=False)
               formatdate(timeval: float | None = None, localtime: bool = False, usegmt: bool = False) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L49>`__)
 
    Returns a date string as per :rfc:`2822`, e.g.::
 
@@ -214,7 +214,7 @@ of the new API.
 .. function:: format_datetime(dt, usegmt=False)
               format_datetime(dt: datetime.datetime, usegmt: bool = False) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L50>`__)
 
    Like ``formatdate``, but the input is a :mod:`datetime` instance.  If it is
    a naive datetime, it is assumed to be "UTC with no information about the
@@ -231,7 +231,7 @@ of the new API.
 .. function:: decode_rfc2231(s)
               decode_rfc2231(s: str) -> tuple[str | None, str | None, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L66>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L66>`__)
 
    Decode the string *s* according to :rfc:`2231`.
 
@@ -239,7 +239,7 @@ of the new API.
 .. function:: encode_rfc2231(s, charset=None, language=None)
               encode_rfc2231(s: str, charset: str | None = None, language: str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L67>`__)
 
    Encode the string *s* according to :rfc:`2231`.  Optional *charset* and
    *language*, if given is the character set name and language name to use.  If
@@ -250,7 +250,7 @@ of the new API.
 .. function:: collapse_rfc2231_value(value, errors='replace', fallback_charset='us-ascii')
               collapse_rfc2231_value(value: _ParamType, errors: str = 'replace', fallback_charset: str = 'us-ascii') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L68>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L68>`__)
 
    When a header parameter is encoded in :rfc:`2231` format,
    :meth:`Message.get_param <email.message.Message.get_param>` may return a
@@ -268,7 +268,7 @@ of the new API.
 .. function:: decode_params(params)
               decode_params(params: list[tuple[str, str]]) -> list[tuple[str, _ParamType]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/email/utils.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/email/utils.pyi#L69>`__)
 
    Decode parameters list according to :rfc:`2231`.  *params* is a sequence of
    2-tuples containing elements of the form ``(content-type, string-value)``.

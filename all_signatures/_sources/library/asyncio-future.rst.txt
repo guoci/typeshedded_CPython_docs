@@ -22,7 +22,7 @@ Future Functions
 .. function:: isfuture(obj)
               isfuture(obj: object) -> typing.TypeIs[_asyncio.Future[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/asyncio/base_futures.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/asyncio/base_futures.pyi#L15>`__)
 
    Return ``True`` if *obj* is either of:
 
@@ -38,7 +38,7 @@ Future Functions
               ensure_future(coro_or_future: _FT, *, loop: asyncio.events.AbstractEventLoop | None = None) -> _FT
               ensure_future(coro_or_future: collections.abc.Awaitable[_T], *, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Task[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/asyncio/tasks.pyi#L104>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/asyncio/tasks.pyi#L104>`__)
 
    Return:
 
@@ -76,7 +76,7 @@ Future Functions
 .. function:: wrap_future(future, *, loop=None)
               wrap_future[_T](future: _asyncio.Future[_T] | concurrent.futures._base.Future[_T], *, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Future[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/asyncio/futures.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/asyncio/futures.pyi#L19>`__)
 
    Wrap a :class:`concurrent.futures.Future` object in a
    :class:`asyncio.Future` object.
@@ -93,7 +93,7 @@ Future Object
 .. class:: Future(*, loop=None)
            Future(*, loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Future[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L14>`__)
 
    A Future represents an eventual result of an asynchronous
    operation.  Not thread-safe.
@@ -124,7 +124,7 @@ Future Object
    .. method:: result()
                result[_T]() -> _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L33>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L33>`__)
 
       Return the result of the Future.
 
@@ -143,7 +143,7 @@ Future Object
    .. method:: set_result(result)
                set_result[_T](result: _T, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L36>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L36>`__)
 
       Mark the Future as *done* and set its result.
 
@@ -153,7 +153,7 @@ Future Object
    .. method:: set_exception(exception)
                set_exception[_T](exception: BaseException | type[Any], /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L37>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L37>`__)
 
       Mark the Future as *done* and set an exception.
 
@@ -163,7 +163,7 @@ Future Object
    .. method:: done()
                done[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L32>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L32>`__)
 
       Return ``True`` if the Future is *done*.
 
@@ -174,7 +174,7 @@ Future Object
    .. method:: cancelled()
                cancelled[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L31>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L31>`__)
 
       Return ``True`` if the Future was *cancelled*.
 
@@ -187,7 +187,7 @@ Future Object
    .. method:: add_done_callback(callback, *, context=None)
                add_done_callback[_T](fn: collections.abc.Callable[[_asyncio.Future[_T]], object], /, *, context: contextvars.Context | None = None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L29>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L29>`__)
 
       Add a callback to be run when the Future is *done*.
 
@@ -215,7 +215,7 @@ Future Object
    .. method:: remove_done_callback(callback)
                remove_done_callback[_T](fn: collections.abc.Callable[[_asyncio.Future[_T]], object], /) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L35>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L35>`__)
 
       Remove *callback* from the callbacks list.
 
@@ -225,7 +225,7 @@ Future Object
    .. method:: cancel(msg=None)
                cancel[_T](msg: typing.Any | None = None) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L30>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L30>`__)
 
       Cancel the Future and schedule callbacks.
 
@@ -239,7 +239,7 @@ Future Object
    .. method:: exception()
                exception[_T]() -> BaseException | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L34>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L34>`__)
 
       Return the exception that was set on this Future.
 
@@ -255,7 +255,7 @@ Future Object
    .. method:: get_loop()
                get_loop[_T]() -> asyncio.events.AbstractEventLoop
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/_asyncio.pyi#L26>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_asyncio.pyi#L26>`__)
 
       Return the event loop the Future object is bound to.
 

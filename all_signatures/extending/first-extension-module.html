@@ -342,9 +342,11 @@ In this tutorial, we’ll use <a class="reference external" href="https://mesonb
 configuration.</p>
 </div>
 <p>Now, build install the <em>project in the current directory</em> (<code class="docutils literal notranslate"><span class="pre">.</span></code>) via <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>-v<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-v</span></code> (<code class="docutils literal notranslate"><span class="pre">--verbose</span></code>) option causes <code class="docutils literal notranslate"><span class="pre">pip</span></code> to show the output from
+the compiler, which is often useful during development.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you don’t have <code class="docutils literal notranslate"><span class="pre">pip</span></code> installed, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">ensurepip</span></code>,
@@ -585,41 +587,41 @@ So, we’ll need to <em>encode</em> the data, and we’ll use the UTF-8 encoding
 <a class="reference internal" href="../library/stdtypes.html#str.encode" title="str.encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a> uses by default,
 and the C API has special support for it.)</p>
 <p>The function to encode a Python string into a UTF-8 buffer is named
-<a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8" title="PyUnicode_AsUTF8"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8()</span></code></a> <a class="footnote-reference brackets" href="#why-pyunicodeasutf8" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.
+<a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8AndSize" title="PyUnicode_AsUTF8AndSize"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8AndSize()</span></code></a> <a class="footnote-reference brackets" href="#why-pyunicodeasutf8" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>.
 Call it like this:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span>
 <span class="nf">spam_system</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="hll"><span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="hll"><span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8AndSize</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
 </span><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="w">   </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyLong_FromLong</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
 <span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8" title="PyUnicode_AsUTF8"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8()</span></code></a> is successful, <em>command</em> will point to the
-resulting array of bytes.
+<p>If <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8AndSize" title="PyUnicode_AsUTF8AndSize"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8AndSize()</span></code></a> is successful, <em>command</em> will point to the
+resulting C string – a zero-terminated array of bytes <a class="footnote-reference brackets" href="#embedded-nul" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>.
 This buffer is managed by the <em>arg</em> object, which means we don’t need to free
 it, but we must follow some rules:</p>
 <ul class="simple">
 <li><p>We should only use the buffer inside the <code class="docutils literal notranslate"><span class="pre">spam_system</span></code> function.
-When <code class="docutils literal notranslate"><span class="pre">spam_system</span></code> returns, <em>arg</em> and the buffer it manages might be
+After <code class="docutils literal notranslate"><span class="pre">spam_system</span></code> returns, <em>arg</em> and the buffer it manages might be
 garbage-collected.</p></li>
 <li><p>We must not modify it. This is why we use <code class="docutils literal notranslate"><span class="pre">const</span></code>.</p></li>
 </ul>
-<p>If <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8" title="PyUnicode_AsUTF8"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8()</span></code></a> was <em>not</em> successful, it returns a <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
+<p>If <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8AndSize" title="PyUnicode_AsUTF8AndSize"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8AndSize()</span></code></a> was <em>not</em> successful, it returns a <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
 pointer.
 When calling <em>any</em> Python C API, we always need to handle such error cases.
 The way to do this in general is left for later chapters of this documentation.
 For now, be assured that we are already handling errors from
 <a class="reference internal" href="../c-api/long.html#c.PyLong_FromLong" title="PyLong_FromLong"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyLong_FromLong()</span></code></a> correctly.</p>
-<p>For the <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8" title="PyUnicode_AsUTF8"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8()</span></code></a> call, the correct way to handle errors is
-returning <code class="docutils literal notranslate"><span class="pre">NULL</span></code> from <code class="docutils literal notranslate"><span class="pre">spam_system</span></code>.
+<p>For the <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_AsUTF8AndSize" title="PyUnicode_AsUTF8AndSize"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsUTF8AndSize()</span></code></a> call, the correct way to handle
+errors is returning <code class="docutils literal notranslate"><span class="pre">NULL</span></code> from <code class="docutils literal notranslate"><span class="pre">spam_system</span></code>.
 Add an <code class="docutils literal notranslate"><span class="pre">if</span></code> block for this:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span>
 <span class="nf">spam_system</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8AndSize</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
 <span class="hll"><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span class="hll"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span><span class="hll"><span class="w">   </span><span class="p">}</span>
@@ -629,13 +631,22 @@ Add an <code class="docutils literal notranslate"><span class="pre">if</span></c
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>That’s it for the setup.
-Now, all that is left is calling the C library function <code class="xref c c-func docutils literal notranslate"><span class="pre">system()</span></code> with
+<p>To test that error handling works, compile again, restart Python so that
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">spam</span></code> picks up the new version of your module, and try passing
+a non-string value to your function:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">spam</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spam</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">   </span><span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">bad argument type for built-in operation</span>
+</pre></div>
+</div>
+<p>Now, all that is left is calling the C library function <code class="xref c c-func docutils literal notranslate"><span class="pre">system()</span></code> with
 the <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span></code> buffer, and using its result instead of the <code class="docutils literal notranslate"><span class="pre">3</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span>
 <span class="nf">spam_system</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8AndSize</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="w">   </span><span class="p">}</span>
@@ -655,17 +666,13 @@ system command:</p>
 <span class="go">0</span>
 </pre></div>
 </div>
-<p>You might also want to test error cases:</p>
+<p>You can also test with other commands, like <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">dir</span></code>, or one
+that doesn’t exist:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">spam</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">spam</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;nonexistent-command&#39;</span><span class="p">)</span>
 <span class="go">sh: line 1: nonexistent-command: command not found</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span>
 <span class="go">32512</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spam</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-<span class="w">   </span><span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">bad argument type for built-in operation</span>
 </pre></div>
 </div>
 </section>
@@ -685,7 +692,7 @@ and completed this tutorial!</p>
 <span class="k">static</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span>
 <span class="nf">spam_system</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="w">   </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyUnicode_AsUTF8AndSize</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="w">   </span><span class="p">}</span>
@@ -817,6 +824,18 @@ type.</p>
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
 <p>Here, <code class="docutils literal notranslate"><span class="pre">PyUnicode</span></code> refers to the original name of
 the Python <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> class: <code class="docutils literal notranslate"><span class="pre">unicode</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AndSize</span></code> part of the name refers to the fact that this function can
+also retrieve the size of the buffer, using an output argument.
+We don’t need this, so we set the second argument to NULL.</p>
+</aside>
+<aside class="footnote brackets" id="embedded-nul" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p>We’re ignoring the fact that Python strings can also
+contain NUL bytes, which terminate a C string.
+In other words, our function will treat <code class="docutils literal notranslate"><span class="pre">spam.system(&quot;foo\0bar&quot;)</span></code> as
+<code class="docutils literal notranslate"><span class="pre">spam.system(&quot;foo&quot;)</span></code>.
+This possibility can lead to security issues, so the real <code class="docutils literal notranslate"><span class="pre">os.system</span></code>
+function size checks for this case and raises an error.</p>
 </aside>
 </aside>
 </section>

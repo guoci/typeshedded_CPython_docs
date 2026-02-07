@@ -12,7 +12,7 @@ and :source:`Lib/concurrent/futures/interpreter.py`
 
 --------------
 
-The :mod:`concurrent.futures` module provides a high-level interface for
+The :mod:`!concurrent.futures` module provides a high-level interface for
 asynchronously executing callables.
 
 The asynchronous execution can be performed with threads, using
@@ -34,7 +34,7 @@ Executor Objects
 .. class:: Executor
            Executor() -> concurrent.futures._base.Executor
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L54>`__)
 
    An abstract class that provides methods to execute calls asynchronously.  It
    should not be used directly, but through its concrete subclasses.
@@ -42,7 +42,7 @@ Executor Objects
    .. method:: submit(fn, /, *args, **kwargs)
                submit[_P, _T](concurrent.futures._base.Executor, collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> concurrent.futures._base.Future[_T]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L55>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L55>`__)
 
       Schedules the callable, *fn*, to be executed as ``fn(*args, **kwargs)``
       and returns a :class:`Future` object representing the execution of the
@@ -55,7 +55,7 @@ Executor Objects
    .. method:: map(fn, *iterables, timeout=None, chunksize=1, buffersize=None)
                map[_T](fn: collections.abc.Callable[[...], _T], *iterables: collections.abc.Iterable[typing.Any], *, timeout: float | None = None, chunksize: int = 1, buffersize: int | None = None) -> collections.abc.Iterator[_T]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L57>`__)
 
       Similar to :func:`map(fn, *iterables) <map>` except:
 
@@ -94,7 +94,7 @@ Executor Objects
    .. method:: shutdown(wait=True, *, cancel_futures=False)
                shutdown(wait: bool = True, *, cancel_futures: bool = False) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L70>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L70>`__)
 
       Signal the executor that it should free any resources that it is using
       when the currently pending futures are done executing.  Calls to
@@ -176,7 +176,7 @@ And::
            ThreadPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', *, initializer: collections.abc.Callable[[*typing.Unpack[tuple[Unpack[_Ts]]]], object], initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.thread.ThreadPoolExecutor
            ThreadPoolExecutor(max_workers: int | None, thread_name_prefix: str, initializer: collections.abc.Callable[[*typing.Unpack[tuple[Unpack[_Ts]]]], object], initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.thread.ThreadPoolExecutor
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/thread.pyi#L83>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/thread.pyi#L83>`__)
 
    An :class:`Executor` subclass that uses a pool of at most *max_workers*
    threads to execute calls asynchronously.
@@ -316,7 +316,7 @@ the bytes over a shared :mod:`socket <socket>` or
            InterpreterPoolExecutor(max_workers: int | None = None, thread_name_prefix: str = '', *, initializer: collections.abc.Callable[[*typing.Unpack[tuple[Unpack[_Ts]]]], object], initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.interpreter.InterpreterPoolExecutor
            InterpreterPoolExecutor(max_workers: int | None, thread_name_prefix: str, initializer: collections.abc.Callable[[*typing.Unpack[tuple[Unpack[_Ts]]]], object], initargs: tuple[Unpack[_Ts]]) -> concurrent.futures.interpreter.InterpreterPoolExecutor
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/interpreter.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/interpreter.pyi#L42>`__)
 
    A :class:`ThreadPoolExecutor` subclass that executes calls asynchronously
    using a pool of at most *max_workers* threads.  Each thread runs
@@ -381,7 +381,7 @@ in a REPL or a lambda should not be expected to work.
            ProcessPoolExecutor(max_workers: int | None = None, mp_context: multiprocessing.context.BaseContext | None = None, *, initializer: collections.abc.Callable[[*typing.Unpack[tuple[Unpack[_Ts]]]], object], initargs: tuple[Unpack[_Ts]], max_tasks_per_child: int | None = None) -> concurrent.futures.process.ProcessPoolExecutor
            ProcessPoolExecutor(max_workers: int | None, mp_context: multiprocessing.context.BaseContext | None, initializer: collections.abc.Callable[[*typing.Unpack[tuple[Unpack[_Ts]]]], object], initargs: tuple[Unpack[_Ts]], *, max_tasks_per_child: int | None = None) -> concurrent.futures.process.ProcessPoolExecutor
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/process.pyi#L163>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/process.pyi#L163>`__)
 
    An :class:`Executor` subclass that executes calls asynchronously using a pool
    of at most *max_workers* processes.  If *max_workers* is ``None`` or not
@@ -454,7 +454,7 @@ in a REPL or a lambda should not be expected to work.
    .. method:: terminate_workers()
                terminate_workers() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/process.pyi#L242>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/process.pyi#L242>`__)
 
       Attempt to terminate all living worker processes immediately by calling
       :meth:`Process.terminate <multiprocessing.Process.terminate>` on each of them.
@@ -469,7 +469,7 @@ in a REPL or a lambda should not be expected to work.
    .. method:: kill_workers()
                kill_workers() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/process.pyi#L241>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/process.pyi#L241>`__)
 
       Attempt to kill all living worker processes immediately by calling
       :meth:`Process.kill <multiprocessing.Process.kill>` on each of them.
@@ -530,7 +530,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
 .. class:: Future
            Future() -> concurrent.futures._base.Future[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L36>`__)
 
    Encapsulates the asynchronous execution of a callable.  :class:`Future`
    instances are created by :meth:`Executor.submit` and should not be created
@@ -539,7 +539,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: cancel()
                cancel[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L42>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L42>`__)
 
       Attempt to cancel the call.  If the call is currently being executed or
       finished running and cannot be cancelled then the method will return
@@ -549,14 +549,14 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: cancelled()
                cancelled[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L43>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L43>`__)
 
       Return ``True`` if the call was successfully cancelled.
 
    .. method:: running()
                running[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L44>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L44>`__)
 
       Return ``True`` if the call is currently being executed and cannot be
       cancelled.
@@ -564,7 +564,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: done()
                done[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L45>`__)
 
       Return ``True`` if the call was successfully cancelled or finished
       running.
@@ -572,7 +572,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: result(timeout=None)
                result[_T](timeout: float | None = None) -> _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L47>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L47>`__)
 
       Return the value returned by the call. If the call hasn't yet completed
       then this method will wait up to *timeout* seconds.  If the call hasn't
@@ -589,7 +589,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: exception(timeout=None)
                exception[_T](timeout: float | None = None) -> BaseException | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L50>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L50>`__)
 
       Return the exception raised by the call.  If the call hasn't yet
       completed then this method will wait up to *timeout* seconds.  If the
@@ -606,7 +606,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: add_done_callback(fn)
                add_done_callback[_T](fn: collections.abc.Callable[[concurrent.futures._base.Future[_T]], object]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L46>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L46>`__)
 
       Attaches the callable *fn* to the future.  *fn* will be called, with the
       future as its only argument, when the future is cancelled or finishes
@@ -627,7 +627,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: set_running_or_notify_cancel()
                set_running_or_notify_cancel[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L48>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L48>`__)
 
       This method should only be called by :class:`Executor` implementations
       before executing the work associated with the :class:`Future` and by unit
@@ -649,7 +649,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: set_result(result)
                set_result[_T](result: _T) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L49>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L49>`__)
 
       Sets the result of the work associated with the :class:`Future` to
       *result*.
@@ -665,7 +665,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
    .. method:: set_exception(exception)
                set_exception[_T](exception: BaseException | None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L51>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L51>`__)
 
       Sets the result of the work associated with the :class:`Future` to the
       :class:`Exception` *exception*.
@@ -684,7 +684,7 @@ Module Functions
 .. function:: wait(fs, timeout=None, return_when=ALL_COMPLETED)
               wait[_T](fs: collections.abc.Iterable[concurrent.futures._base.Future[_T]], timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> concurrent.futures._base.DoneAndNotDoneFutures[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L93>`__)
 
    Wait for the :class:`Future` instances (possibly created by different
    :class:`Executor` instances) given by *fs* to complete. Duplicate futures
@@ -721,7 +721,7 @@ Module Functions
 .. function:: as_completed(fs, timeout=None)
               as_completed[_T](fs: collections.abc.Iterable[concurrent.futures._base._AsCompletedFuture[_T]], timeout: float | None = None) -> collections.abc.Iterator[concurrent.futures._base.Future[_T]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L87>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L87>`__)
 
    Returns an iterator over the :class:`Future` instances (possibly created by
    different :class:`Executor` instances) given by *fs* that yields futures as
@@ -749,14 +749,14 @@ Exception classes
 .. exception:: CancelledError
                CancelledError(*args: object) -> concurrent.futures._base.CancelledError
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L22>`__)
 
    Raised when a future is cancelled.
 
 .. exception:: TimeoutError
                TimeoutError(*args: object) -> TimeoutError
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/builtins.pyi#L2211>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/builtins.pyi#L2211>`__)
 
    A deprecated alias of :exc:`TimeoutError`,
    raised when a future operation exceeds the given timeout.
@@ -769,7 +769,7 @@ Exception classes
 .. exception:: BrokenExecutor
                BrokenExecutor(*args: object) -> concurrent.futures._base.BrokenExecutor
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L30>`__)
 
    Derived from :exc:`RuntimeError`, this exception class is raised
    when an executor is broken for some reason, and cannot be used
@@ -780,7 +780,7 @@ Exception classes
 .. exception:: InvalidStateError
                InvalidStateError(*args: object) -> concurrent.futures._base.InvalidStateError
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/_base.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/_base.pyi#L29>`__)
 
    Raised when an operation is performed on a future that is not allowed
    in the current state.
@@ -792,7 +792,7 @@ Exception classes
 .. exception:: BrokenThreadPool
                BrokenThreadPool(*args: object) -> concurrent.futures.thread.BrokenThreadPool
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/thread.pyi#L81>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/thread.pyi#L81>`__)
 
    Derived from :exc:`~concurrent.futures.BrokenExecutor`, this exception
    class is raised when one of the workers
@@ -806,7 +806,7 @@ Exception classes
 .. exception:: BrokenInterpreterPool
                BrokenInterpreterPool(*args: object) -> concurrent.futures.interpreter.BrokenInterpreterPool
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/interpreter.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/interpreter.pyi#L40>`__)
 
    Derived from :exc:`~concurrent.futures.thread.BrokenThreadPool`,
    this exception class is raised when one of the workers
@@ -820,7 +820,7 @@ Exception classes
 .. exception:: BrokenProcessPool
                BrokenProcessPool(*args: object) -> concurrent.futures.process.BrokenProcessPool
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/concurrent/futures/process.pyi#L161>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/concurrent/futures/process.pyi#L161>`__)
 
    Derived from :exc:`~concurrent.futures.BrokenExecutor` (formerly
    :exc:`RuntimeError`), this exception class is raised when one of the

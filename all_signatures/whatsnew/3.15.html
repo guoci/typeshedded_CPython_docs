@@ -121,6 +121,7 @@
 <li><a class="reference internal" href="#collections">collections</a></li>
 <li><a class="reference internal" href="#collections-abc">collections.abc</a></li>
 <li><a class="reference internal" href="#concurrent-futures">concurrent.futures</a></li>
+<li><a class="reference internal" href="#contextlib">contextlib</a></li>
 <li><a class="reference internal" href="#dataclasses">dataclasses</a></li>
 <li><a class="reference internal" href="#dbm">dbm</a></li>
 <li><a class="reference internal" href="#difflib">difflib</a></li>
@@ -135,6 +136,7 @@
 <li><a class="reference internal" href="#mmap">mmap</a></li>
 <li><a class="reference internal" href="#os">os</a></li>
 <li><a class="reference internal" href="#os-path">os.path</a></li>
+<li><a class="reference internal" href="#pickle">pickle</a></li>
 <li><a class="reference internal" href="#resource">resource</a></li>
 <li><a class="reference internal" href="#shelve">shelve</a></li>
 <li><a class="reference internal" href="#socket">socket</a></li>
@@ -146,6 +148,7 @@
 <li><a class="reference internal" href="#tarfile">tarfile</a></li>
 <li><a class="reference internal" href="#timeit">timeit</a></li>
 <li><a class="reference internal" href="#tkinter">tkinter</a></li>
+<li><a class="reference internal" href="#tomllib">tomllib</a></li>
 <li><a class="reference internal" href="#types">types</a></li>
 <li><a class="reference internal" href="#unicodedata">unicodedata</a></li>
 <li><a class="reference internal" href="#unittest">unittest</a></li>
@@ -694,7 +697,15 @@ inline code when color output is enabled.
 </section>
 <section id="binascii">
 <h3>binascii<a class="headerlink" href="#binascii" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Added functions for Ascii85, Base85, and Z85 encoding:</p>
 <ul class="simple">
+<li><p><a class="reference internal" href="../library/binascii.html#binascii.b2a_ascii85" title="binascii.b2a_ascii85"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_ascii85()</span></code></a> and <a class="reference internal" href="../library/binascii.html#binascii.a2b_ascii85" title="binascii.a2b_ascii85"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_ascii85()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../library/binascii.html#binascii.b2a_base85" title="binascii.b2a_base85"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_base85()</span></code></a> and <a class="reference internal" href="../library/binascii.html#binascii.a2b_base85" title="binascii.a2b_base85"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_base85()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../library/binascii.html#binascii.b2a_z85" title="binascii.b2a_z85"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_z85()</span></code></a> and <a class="reference internal" href="../library/binascii.html#binascii.a2b_z85" title="binascii.a2b_z85"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_z85()</span></code></a></p></li>
+</ul>
+<p>(Contributed by James Seo and Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/101178">gh-101178</a>.)</p>
+</li>
 <li><p>Added the <em>wrapcol</em> parameter in <a class="reference internal" href="../library/binascii.html#binascii.b2a_base64" title="binascii.b2a_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_base64()</span></code></a>.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/143214">gh-143214</a>.)</p></li>
 <li><p>Added the <em>ignorechars</em> parameter in <a class="reference internal" href="../library/binascii.html#binascii.a2b_base64" title="binascii.a2b_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_base64()</span></code></a>.
@@ -749,6 +760,16 @@ previously emitted if it was merely imported or accessed from the
 The resulting traceback will now tell you the PID and exit code of the
 terminated process.
 (Contributed by Jonathan Berg in <a class="reference external" href="https://github.com/python/cpython/issues/139486">gh-139486</a>.)</p></li>
+</ul>
+</section>
+<section id="contextlib">
+<h3>contextlib<a class="headerlink" href="#contextlib" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added support for arbitrary descriptors <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">__aenter__()</span></code>, and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code> in
+<a class="reference internal" href="../library/contextlib.html#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a> and <a class="reference internal" href="../library/contextlib.html#contextlib.AsyncExitStack" title="contextlib.AsyncExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">contextlib.AsyncExitStack</span></code></a>, for
+consistency with the <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> and <a class="reference internal" href="../reference/compound_stmts.html#async-with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code></a> statements.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/144386">gh-144386</a>.)</p></li>
 </ul>
 </section>
 <section id="dataclasses">
@@ -888,6 +909,13 @@ glibc versions 2.28 and later.
 If used, errors other than <a class="reference internal" href="../library/exceptions.html#FileNotFoundError" title="FileNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code></a> will be re-raised;
 the resulting path can be missing but it will be free of symlinks.
 (Contributed by Petr Viktorin for <span class="target" id="index-14"></span><a class="cve reference external" href="https://www.cve.org/CVERecord?id=CVE-2025-4517"><strong>CVE 2025-4517</strong></a>.)</p></li>
+</ul>
+</section>
+<section id="pickle">
+<h3>pickle<a class="headerlink" href="#pickle" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add support for pickling private methods and nested classes.
+(Contributed by Zackery Spytz and Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/77188">gh-77188</a>.)</p></li>
 </ul>
 </section>
 <section id="resource">
@@ -1071,6 +1099,45 @@ with outdated names.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/143754">gh-143754</a>)</p></li>
 </ul>
 </section>
+<section id="tomllib">
+<span id="whatsnew315-tomllib-1-1-0"></span><h3>tomllib<a class="headerlink" href="#tomllib" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>The <a class="reference internal" href="../library/tomllib.html#module-tomllib" title="tomllib: Parse TOML files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tomllib</span></code></a> module now supports TOML 1.1.0.
+This is a backwards compatible update, meaning that all valid TOML 1.0.0
+documents are parsed the same way.</p>
+<p>The changes, according to the <a class="reference external" href="https://github.com/toml-lang/toml/blob/main/CHANGELOG.md">official TOML changelog</a>, are:</p>
+<ul>
+<li><p>Allow newlines and trailing commas in inline tables.</p>
+<p>Previously an inline table had to be on a single line and couldn’t end
+with a trailing comma. This is now relaxed so that the following is valid:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>tbl = {
+   key      = &quot;a string&quot;,
+   moar-tbl =  {
+      key = 1,
+   },
+}
+</pre></div>
+</div>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">\xHH</span></code> notation to basic strings for codepoints under 255,
+and the <code class="docutils literal notranslate"><span class="pre">\e</span></code> escape for the escape character:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>null = &quot;null byte: \x00; letter a: \x61&quot;
+csi = &quot;\e[&quot;
+</pre></div>
+</div>
+</li>
+<li><p>Seconds in datetime and time values are now optional.
+The following are now valid:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dt = 2010-02-03 14:15
+t  = 14:15
+</pre></div>
+</div>
+</li>
+</ul>
+<p>(Contributed by Taneli Hukkinen in <a class="reference external" href="https://github.com/python/cpython/issues/142956">gh-142956</a>.)</p>
+</li>
+</ul>
+</section>
 <section id="types">
 <h3>types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -1109,10 +1176,10 @@ to control how messages are formatted.
 <section id="urllib-parse">
 <h3>urllib.parse<a class="headerlink" href="#urllib-parse" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Add the <em>missing_as_none</em> parameter to <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlparse" title="urllib.parse.urlparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlparse()</span></code></a>,
-<a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlsplit" title="urllib.parse.urlsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlsplit()</span></code></a> and <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urldefrag" title="urllib.parse.urldefrag"><code class="xref py py-func docutils literal notranslate"><span class="pre">urldefrag()</span></code></a> functions.
-Add the <em>keep_empty</em> parameter to <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlunparse" title="urllib.parse.urlunparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlunparse()</span></code></a> and
-<a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlunsplit" title="urllib.parse.urlunsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlunsplit()</span></code></a> functions.
+<li><p>Add the <em>missing_as_none</em> parameter to <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlsplit" title="urllib.parse.urlsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlsplit()</span></code></a>,
+<a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlparse" title="urllib.parse.urlparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlparse()</span></code></a> and <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urldefrag" title="urllib.parse.urldefrag"><code class="xref py py-func docutils literal notranslate"><span class="pre">urldefrag()</span></code></a> functions.
+Add the <em>keep_empty</em> parameter to <a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlunsplit" title="urllib.parse.urlunsplit"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlunsplit()</span></code></a> and
+<a class="reference internal" href="../library/urllib.parse.html#urllib.parse.urlunparse" title="urllib.parse.urlunparse"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlunparse()</span></code></a> functions.
 This allows to distinguish between empty and not defined URI components
 and preserve empty components.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/67041">gh-67041</a>.)</p></li>
@@ -1188,6 +1255,10 @@ Special thanks to the MSVC team including Hulon Jenkins.)</p></li>
 <li><p>CPython’s underlying base64 implementation now encodes 2x faster and decodes 3x
 faster thanks to simple CPU pipelining optimizations.
 (Contributed by Gregory P. Smith and Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/143262">gh-143262</a>.)</p></li>
+<li><p>Implementation for Ascii85, Base85, and Z85 encoding has been rewritten in C.
+Encoding and decoding is now two orders of magnitude faster and consumes
+two orders of magnitude less memory.
+(Contributed by James Seo and Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/101178">gh-101178</a>.)</p></li>
 </ul>
 </section>
 <section id="csv">
@@ -1803,6 +1874,13 @@ since Python 3.3, use <a class="reference internal" href="../library/logging.htm
 <li><p><a class="reference internal" href="../library/mailbox.html#module-mailbox" title="mailbox: Manipulate mailboxes in various formats"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mailbox</span></code></a>: Use of StringIO input and text mode is deprecated, use
 BytesIO and binary mode instead.</p></li>
 <li><p><a class="reference internal" href="../library/os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a>: Calling <a class="reference internal" href="../library/os.html#os.register_at_fork" title="os.register_at_fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.register_at_fork()</span></code></a> in a multi-threaded process.</p></li>
+<li><p><a class="reference internal" href="../library/os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a>: <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a> is deprecated, use
+<a class="reference internal" href="../library/os.path.html#os.path.commonpath" title="os.path.commonpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonpath()</span></code></a> for path prefixes. The <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a>
+function is being deprecated due to having a misleading name and module.
+The function is not safe to use for path prefixes despite being included in a
+module about path manipulation, meaning it is easy to accidentally
+introduce path traversal vulnerabilities into Python programs by using this
+function.</p></li>
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">pydoc.ErrorDuringImport</span></code>: A tuple value for <em>exc_info</em> parameter is
 deprecated, use an exception instance.</p></li>
 <li><p><a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a>: More strict rules are now applied for numerical group references
@@ -2145,6 +2223,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#collections">collections</a></li>
 <li><a class="reference internal" href="#collections-abc">collections.abc</a></li>
 <li><a class="reference internal" href="#concurrent-futures">concurrent.futures</a></li>
+<li><a class="reference internal" href="#contextlib">contextlib</a></li>
 <li><a class="reference internal" href="#dataclasses">dataclasses</a></li>
 <li><a class="reference internal" href="#dbm">dbm</a></li>
 <li><a class="reference internal" href="#difflib">difflib</a></li>
@@ -2159,6 +2238,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#mmap">mmap</a></li>
 <li><a class="reference internal" href="#os">os</a></li>
 <li><a class="reference internal" href="#os-path">os.path</a></li>
+<li><a class="reference internal" href="#pickle">pickle</a></li>
 <li><a class="reference internal" href="#resource">resource</a></li>
 <li><a class="reference internal" href="#shelve">shelve</a></li>
 <li><a class="reference internal" href="#socket">socket</a></li>
@@ -2170,6 +2250,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#tarfile">tarfile</a></li>
 <li><a class="reference internal" href="#timeit">timeit</a></li>
 <li><a class="reference internal" href="#tkinter">tkinter</a></li>
+<li><a class="reference internal" href="#tomllib">tomllib</a></li>
 <li><a class="reference internal" href="#types">types</a></li>
 <li><a class="reference internal" href="#unicodedata">unicodedata</a></li>
 <li><a class="reference internal" href="#unittest">unittest</a></li>

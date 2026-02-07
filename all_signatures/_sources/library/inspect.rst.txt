@@ -16,7 +16,7 @@
 
 --------------
 
-The :mod:`inspect` module provides several useful functions to help get
+The :mod:`!inspect` module provides several useful functions to help get
 information about live objects such as modules, classes, methods, functions,
 tracebacks, frame objects, and code objects.  For example, it can help you
 examine the contents of a class, retrieve the source code of a method, extract
@@ -262,6 +262,12 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 |                 |                   | ``yield from``, or        |
 |                 |                   | ``None``                  |
 +-----------------+-------------------+---------------------------+
+|                 | gi_state          | state of the generator,   |
+|                 |                   | one of ``GEN_CREATED``,   |
+|                 |                   | ``GEN_RUNNING``,          |
+|                 |                   | ``GEN_SUSPENDED``, or     |
+|                 |                   | ``GEN_CLOSED``            |
++-----------------+-------------------+---------------------------+
 | async generator | __name__          | name                      |
 +-----------------+-------------------+---------------------------+
 |                 | __qualname__      | qualified name            |
@@ -277,6 +283,13 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 |                 |                   | suspended?                |
 +-----------------+-------------------+---------------------------+
 |                 | ag_code           | code                      |
++-----------------+-------------------+---------------------------+
+|                 | ag_state          | state of the async        |
+|                 |                   | generator, one of         |
+|                 |                   | ``AGEN_CREATED``,         |
+|                 |                   | ``AGEN_RUNNING``,         |
+|                 |                   | ``AGEN_SUSPENDED``, or    |
+|                 |                   | ``AGEN_CLOSED``           |
 +-----------------+-------------------+---------------------------+
 | coroutine       | __name__          | name                      |
 +-----------------+-------------------+---------------------------+
@@ -297,6 +310,12 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 |                 | cr_origin         | where coroutine was       |
 |                 |                   | created, or ``None``. See |
 |                 |                   | |coroutine-origin-link|   |
++-----------------+-------------------+---------------------------+
+|                 | cr_state          | state of the coroutine,   |
+|                 |                   | one of ``CORO_CREATED``,  |
+|                 |                   | ``CORO_RUNNING``,         |
+|                 |                   | ``CORO_SUSPENDED``, or    |
+|                 |                   | ``CORO_CLOSED``           |
 +-----------------+-------------------+---------------------------+
 | builtin         | __doc__           | documentation string      |
 +-----------------+-------------------+---------------------------+
@@ -341,12 +360,17 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
    Add ``f_generator`` attribute to frames.
 
+.. versionchanged:: next
+
+   Add ``gi_state`` attribute to generators, ``cr_state`` attribute to
+   coroutines, and ``ag_state`` attribute to async generators.
+
 .. function:: getmembers(object[, predicate])
               getmembers(object: object, predicate: collections.abc.Callable[[typing.Any], typing.TypeGuard[_T]]) -> list[tuple[str, _T]]
               getmembers(object: object, predicate: collections.abc.Callable[[typing.Any], typing.TypeIs[_T]]) -> list[tuple[str, _T]]
               getmembers(object: object, predicate: (collections.abc.Callable[[typing.Any], bool]) | None = None) -> list[tuple[str, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L192>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L192>`__)
 
    Return all the members of an object in a list of ``(name, value)``
    pairs sorted by name. If the optional *predicate* argument—which will be
@@ -365,7 +389,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
               getmembers_static(object: object, predicate: collections.abc.Callable[[typing.Any], typing.TypeIs[_T]]) -> list[tuple[str, _T]]
               getmembers_static(object: object, predicate: (collections.abc.Callable[[typing.Any], bool]) | None = None) -> list[tuple[str, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L200>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L200>`__)
 
     Return all the members of an object in a list of ``(name, value)``
     pairs sorted by name without triggering dynamic lookup via the descriptor
@@ -386,7 +410,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: getmodulename(path)
               getmodulename(path: StrPath) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L206>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L206>`__)
 
    Return the name of the module named by the file *path*, without including the
    names of enclosing packages. The file extension is checked against all of
@@ -405,7 +429,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: ismodule(object)
               ismodule(object: object) -> typing.TypeIs[types.ModuleType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L207>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L207>`__)
 
    Return ``True`` if the object is a module.
 
@@ -413,7 +437,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isclass(object)
               isclass(object: object) -> typing.TypeIs[type[Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L208>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L208>`__)
 
    Return ``True`` if the object is a class, whether built-in or created in Python
    code.
@@ -422,7 +446,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: ismethod(object)
               ismethod(object: object) -> typing.TypeIs[types.MethodType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L209>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L209>`__)
 
    Return ``True`` if the object is a bound method written in Python.
 
@@ -430,7 +454,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: ispackage(object)
               ispackage(object: object) -> typing.TypeGuard[types.ModuleType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L213>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L213>`__)
 
    Return ``True`` if the object is a :term:`package`.
 
@@ -440,7 +464,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isfunction(object)
               isfunction(object: object) -> typing.TypeIs[types.FunctionType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L215>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L215>`__)
 
    Return ``True`` if the object is a Python function, which includes functions
    created by a :term:`lambda` expression.
@@ -451,7 +475,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
               isgeneratorfunction(obj: collections.abc.Callable[[typing.ParamSpec(_P)], typing.Any]) -> typing.TypeGuard[collections.abc.Callable[[typing.ParamSpec(_P)], types.GeneratorType[typing.Any, typing.Any, typing.Any]]]
               isgeneratorfunction(obj: object) -> typing.TypeGuard[collections.abc.Callable[[...], types.GeneratorType[typing.Any, typing.Any, typing.Any]]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L221>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L221>`__)
 
    Return ``True`` if the object is a Python generator function.
 
@@ -466,7 +490,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isgenerator(object)
               isgenerator(object: object) -> typing.TypeIs[types.GeneratorType[typing.Any, typing.Any, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L234>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L234>`__)
 
    Return ``True`` if the object is a generator.
 
@@ -477,7 +501,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
               iscoroutinefunction(obj: collections.abc.Callable[[typing.ParamSpec(_P)], object]) -> typing.TypeGuard[collections.abc.Callable[[typing.ParamSpec(_P)], types.CoroutineType[typing.Any, typing.Any, typing.Any]]]
               iscoroutinefunction(obj: object) -> typing.TypeGuard[collections.abc.Callable[[...], types.CoroutineType[typing.Any, typing.Any, typing.Any]]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L227>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L227>`__)
 
    Return ``True`` if the object is a :term:`coroutine function` (a function
    defined with an :keyword:`async def` syntax), a :func:`functools.partial`
@@ -502,7 +526,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: markcoroutinefunction(func)
               markcoroutinefunction[_F: (...) -> Any](func: _F) -> _F
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L218>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L218>`__)
 
    Decorator to mark a callable as a :term:`coroutine function` if it would not
    otherwise be detected by :func:`iscoroutinefunction`.
@@ -520,7 +544,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: iscoroutine(object)
               iscoroutine(object: object) -> typing.TypeIs[types.CoroutineType[typing.Any, typing.Any, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L235>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L235>`__)
 
    Return ``True`` if the object is a :term:`coroutine` created by an
    :keyword:`async def` function.
@@ -531,7 +555,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isawaitable(object)
               isawaitable(object: object) -> typing.TypeIs[collections.abc.Awaitable[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L236>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L236>`__)
 
    Return ``True`` if the object can be used in :keyword:`await` expression.
 
@@ -559,7 +583,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
               isasyncgenfunction(obj: collections.abc.Callable[[typing.ParamSpec(_P)], typing.Any]) -> typing.TypeGuard[collections.abc.Callable[[typing.ParamSpec(_P)], types.AsyncGeneratorType[typing.Any, typing.Any]]]
               isasyncgenfunction(obj: object) -> typing.TypeGuard[collections.abc.Callable[[...], types.AsyncGeneratorType[typing.Any, typing.Any]]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L238>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L238>`__)
 
    Return ``True`` if the object is an :term:`asynchronous generator` function,
    for example:
@@ -585,7 +609,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isasyncgen(object)
               isasyncgen(object: object) -> typing.TypeIs[types.AsyncGeneratorType[typing.Any, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L251>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L251>`__)
 
    Return ``True`` if the object is an :term:`asynchronous generator iterator`
    created by an :term:`asynchronous generator` function.
@@ -595,7 +619,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: istraceback(object)
               istraceback(object: object) -> typing.TypeIs[types.TracebackType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L252>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L252>`__)
 
    Return ``True`` if the object is a traceback.
 
@@ -603,7 +627,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isframe(object)
               isframe(object: object) -> typing.TypeIs[types.FrameType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L253>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L253>`__)
 
    Return ``True`` if the object is a frame.
 
@@ -611,7 +635,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: iscode(object)
               iscode(object: object) -> typing.TypeIs[types.CodeType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L254>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L254>`__)
 
    Return ``True`` if the object is a code.
 
@@ -619,7 +643,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isbuiltin(object)
               isbuiltin(object: object) -> typing.TypeIs[types.BuiltinFunctionType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L255>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L255>`__)
 
    Return ``True`` if the object is a built-in function or a bound built-in method.
 
@@ -627,7 +651,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: ismethodwrapper(object)
               ismethodwrapper(object: object) -> typing.TypeIs[types.MethodWrapperType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L258>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L258>`__)
 
    Return ``True`` if the type of object is a :class:`~types.MethodWrapperType`.
 
@@ -640,7 +664,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isroutine(object)
               isroutine(object: object) -> typing.TypeIs[types.BuiltinFunctionType | types.ClassMethodDescriptorType | types.FunctionType | types.MethodDescriptorType | types.MethodType | types.WrapperDescriptorType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L260>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L260>`__)
 
    Return ``True`` if the object is a user-defined or built-in function or method.
 
@@ -648,7 +672,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isabstract(object)
               isabstract(object: object) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L274>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L274>`__)
 
    Return ``True`` if the object is an abstract base class.
 
@@ -656,7 +680,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: ismethoddescriptor(object)
               ismethoddescriptor(object: object) -> typing.TypeIs[types.MethodDescriptorType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L272>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L272>`__)
 
    Return ``True`` if the object is a method descriptor, but not if
    :func:`ismethod`, :func:`isclass`, :func:`isfunction` or :func:`isbuiltin`
@@ -683,7 +707,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isdatadescriptor(object)
               isdatadescriptor(object: object) -> typing.TypeIs[inspect._SupportsDelete[typing.Any] | inspect._SupportsSet[typing.Any, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L276>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L276>`__)
 
    Return ``True`` if the object is a data descriptor.
 
@@ -699,7 +723,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: isgetsetdescriptor(object)
               isgetsetdescriptor(object: object) -> typing.TypeIs[types.GetSetDescriptorType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L275>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L275>`__)
 
    Return ``True`` if the object is a getset descriptor.
 
@@ -713,7 +737,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 .. function:: ismemberdescriptor(object)
               ismemberdescriptor(object: object) -> typing.TypeIs[types.MemberDescriptorType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L273>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L273>`__)
 
    Return ``True`` if the object is a member descriptor.
 
@@ -732,7 +756,7 @@ Retrieving source code
 .. function:: getdoc(object, *, inherit_class_doc=True, fallback_to_class_doc=True)
               getdoc(object: object) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L296>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L296>`__)
 
    Get the documentation string for an object, cleaned up with :func:`cleandoc`.
    If the documentation string for an object is not provided:
@@ -759,7 +783,7 @@ Retrieving source code
 .. function:: getcomments(object)
               getcomments(object: object) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L297>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L297>`__)
 
    Return in a single string any lines of comments immediately preceding the
    object's source code (for a class, function, or method), or at the top of the
@@ -771,7 +795,7 @@ Retrieving source code
 .. function:: getfile(object)
               getfile(object: _SourceObjectType) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L298>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L298>`__)
 
    Return the name of the (text or binary) file in which an object was defined.
    This will fail with a :exc:`TypeError` if the object is a built-in module,
@@ -781,7 +805,7 @@ Retrieving source code
 .. function:: getmodule(object)
               getmodule(object: object, _filename: str | None = None) -> types.ModuleType | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L299>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L299>`__)
 
    Try to guess which module an object was defined in. Return ``None``
    if the module cannot be determined.
@@ -790,7 +814,7 @@ Retrieving source code
 .. function:: getsourcefile(object)
               getsourcefile(object: _SourceObjectType) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L300>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L300>`__)
 
    Return the name of the Python source file in which an object was defined
    or ``None`` if no way can be identified to get the source.  This
@@ -801,7 +825,7 @@ Retrieving source code
 .. function:: getsourcelines(object)
               getsourcelines(object: _SourceObjectType) -> tuple[list[str], int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L301>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L301>`__)
 
    Return a list of source lines and starting line number for an object. The
    argument may be a module, class, method, function, traceback, frame, or code
@@ -820,7 +844,7 @@ Retrieving source code
 .. function:: getsource(object)
               getsource(object: _SourceObjectType) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L302>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L302>`__)
 
    Return the text of the source code for an object. The argument may be a module,
    class, method, function, traceback, frame, or code object.  The source code is
@@ -837,7 +861,7 @@ Retrieving source code
 .. function:: cleandoc(doc)
               cleandoc(doc: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L303>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L303>`__)
 
    Clean up indentation from docstrings that are indented to line up with blocks
    of code.
@@ -863,7 +887,7 @@ function.
 .. function:: signature(callable, *, follow_wrapped=True, globals=None, locals=None, eval_str=False, annotation_format=Format.VALUE)
               signature(obj: collections.abc.Callable[[...], typing.Any], *, follow_wrapped: bool = True, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L312>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L312>`__)
 
    Return a :class:`Signature` object for the given *callable*:
 
@@ -940,7 +964,7 @@ function.
 .. class:: Signature(parameters=None, *, return_annotation=Signature.empty)
            Signature(parameters: collections.abc.Sequence[inspect.Parameter] | None = None, *, return_annotation: typing.Any = ..., __validate_parameters__: bool = True) -> inspect.Signature
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L338>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L338>`__)
 
    A :class:`!Signature` object represents the call signature of a function
    and its return
@@ -965,14 +989,14 @@ function.
    .. attribute:: Signature.empty
       :type: (self: inspect._empty) -> inspect._empty
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L343>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L343>`__)
 
       A special class-level marker to specify absence of a return annotation.
 
    .. attribute:: Signature.parameters
       :type: parameters(self: inspect.Signature) -> types.MappingProxyType[str, inspect.Parameter]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L345>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L345>`__)
 
       An ordered mapping of parameters' names to the corresponding
       :class:`Parameter` objects.  Parameters appear in strict definition
@@ -986,7 +1010,7 @@ function.
    .. attribute:: Signature.return_annotation
       :type: return_annotation(self: inspect.Signature) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L347>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L347>`__)
 
       The "return" annotation for the callable.  If the callable has no "return"
       annotation, this attribute is set to :attr:`Signature.empty`.
@@ -994,7 +1018,7 @@ function.
    .. method:: Signature.bind(*args, **kwargs)
                Signature.bind(*args: typing.Any, **kwargs: typing.Any) -> inspect.BoundArguments
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L348>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L348>`__)
 
       Create a mapping from positional and keyword arguments to parameters.
       Returns :class:`BoundArguments` if ``*args`` and ``**kwargs`` match the
@@ -1003,7 +1027,7 @@ function.
    .. method:: Signature.bind_partial(*args, **kwargs)
                Signature.bind_partial(*args: typing.Any, **kwargs: typing.Any) -> inspect.BoundArguments
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L349>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L349>`__)
 
       Works the same way as :meth:`Signature.bind`, but allows the omission of
       some required arguments (mimics :func:`functools.partial` behavior.)
@@ -1013,7 +1037,7 @@ function.
    .. method:: Signature.replace(*[, parameters][, return_annotation])
                Signature.replace(*, parameters: collections.abc.Sequence[inspect.Parameter] | type[inspect._void] | None = ..., return_annotation: typing.Any = ...) -> inspect.Signature
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L350>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L350>`__)
 
       Create a new :class:`Signature` instance based on the instance
       :meth:`replace` was invoked on.
@@ -1039,7 +1063,7 @@ function.
    .. method:: format(*, max_width=None, quote_annotation_strings=True)
                format(*, max_width: int | None = None, quote_annotation_strings: bool = True) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L379>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L379>`__)
 
       Create a string representation of the :class:`Signature` object.
 
@@ -1062,7 +1086,7 @@ function.
    .. classmethod:: Signature.from_callable(obj, *, follow_wrapped=True, globals=None, locals=None, eval_str=False)
                     Signature.from_callable(cls: type[inspect.Signature], obj: collections.abc.Callable[[...], typing.Any], *, follow_wrapped: bool = True, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, eval_str: bool = False, annotation_format: annotationlib.Format = Format.VALUE) -> inspect.Signature
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L354>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L354>`__)
 
        Return a :class:`Signature` (or its subclass) object for a given callable
        *obj*.
@@ -1087,7 +1111,7 @@ function.
 .. class:: Parameter(name, kind, *, default=Parameter.empty, annotation=Parameter.empty)
            Parameter(name: str, kind: inspect._ParameterKind, *, default: typing.Any = ..., annotation: typing.Any = ...) -> inspect.Parameter
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L419>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L419>`__)
 
    :class:`!Parameter` objects are *immutable*.
    Instead of modifying a :class:`!Parameter` object,
@@ -1099,7 +1123,7 @@ function.
    .. attribute:: Parameter.empty
       :type: (self: inspect._empty) -> inspect._empty
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L422>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L422>`__)
 
       A special class-level marker to specify absence of default values and
       annotations.
@@ -1107,7 +1131,7 @@ function.
    .. attribute:: Parameter.name
       :type: name(self: inspect.Parameter) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L430>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L430>`__)
 
       The name of the parameter as a string.  The name must be a valid
       Python identifier.
@@ -1125,7 +1149,7 @@ function.
    .. attribute:: Parameter.default
       :type: default(self: inspect.Parameter) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L432>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L432>`__)
 
       The default value for the parameter.  If the parameter has no default
       value, this attribute is set to :attr:`Parameter.empty`.
@@ -1133,7 +1157,7 @@ function.
    .. attribute:: Parameter.annotation
       :type: annotation(self: inspect.Parameter) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L436>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L436>`__)
 
       The annotation for the parameter.  If the parameter has no annotation,
       this attribute is set to :attr:`Parameter.empty`.
@@ -1141,7 +1165,7 @@ function.
    .. attribute:: Parameter.kind
       :type: kind(self: inspect.Parameter) -> inspect._ParameterKind
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L434>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L434>`__)
 
       Describes how argument values are bound to the parameter.  The possible
       values are accessible via :class:`Parameter` (like ``Parameter.KEYWORD_ONLY``),
@@ -1195,7 +1219,7 @@ function.
    .. attribute:: Parameter.kind.description
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L406>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L406>`__)
 
       Describes an enum value of :attr:`Parameter.kind`.
 
@@ -1219,7 +1243,7 @@ function.
    .. method:: Parameter.replace(*[, name][, kind][, default][, annotation])
                Parameter.replace(*, name: str | type[inspect._void] = ..., kind: inspect._ParameterKind | type[inspect._void] = ..., default: typing.Any = ..., annotation: typing.Any = ...) -> inspect.Parameter
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L437>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L437>`__)
 
       Create a new :class:`Parameter` instance based on the instance replaced was invoked
       on.  To override a :class:`!Parameter` attribute, pass the corresponding
@@ -1250,7 +1274,7 @@ function.
 .. class:: BoundArguments
            BoundArguments(signature: inspect.Signature, arguments: collections.OrderedDict[str, typing.Any]) -> inspect.BoundArguments
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L451>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L451>`__)
 
    Result of a :meth:`Signature.bind` or :meth:`Signature.bind_partial` call.
    Holds the mapping of arguments to the function's parameters.
@@ -1258,7 +1282,7 @@ function.
    .. attribute:: BoundArguments.arguments
       :type: collections.OrderedDict[str, typing.Any]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L453>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L453>`__)
 
       A mutable mapping of parameters' names to arguments' values.
       Contains only explicitly bound arguments.  Changes in :attr:`arguments`
@@ -1281,7 +1305,7 @@ function.
    .. attribute:: BoundArguments.args
       :type: args(self: inspect.BoundArguments) -> tuple[typing.Any, ...]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L455>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L455>`__)
 
       A tuple of positional arguments values.  Dynamically computed from the
       :attr:`arguments` attribute.
@@ -1289,7 +1313,7 @@ function.
    .. attribute:: BoundArguments.kwargs
       :type: kwargs(self: inspect.BoundArguments) -> dict[str, typing.Any]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L457>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L457>`__)
 
       A dict of keyword arguments values.  Dynamically computed from the
       :attr:`arguments` attribute.  Arguments that can be passed positionally
@@ -1298,14 +1322,14 @@ function.
    .. attribute:: BoundArguments.signature
       :type: signature(self: inspect.BoundArguments) -> inspect.Signature
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L459>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L459>`__)
 
       A reference to the parent :class:`Signature` object.
 
    .. method:: BoundArguments.apply_defaults()
                BoundArguments.apply_defaults() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L461>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L461>`__)
 
       Set default values for missing arguments.
 
@@ -1352,7 +1376,7 @@ Classes and functions
 .. function:: getclasstree(classes, unique=False)
               getclasstree(classes: list[type[Any]], unique: bool = False) -> _ClassTreeItem
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L471>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L471>`__)
 
    Arrange the given list of classes into a hierarchy of nested lists. Where a
    nested list appears, it contains classes derived from the class whose entry
@@ -1366,7 +1390,7 @@ Classes and functions
 .. function:: getfullargspec(func)
               getfullargspec(func: object) -> inspect.FullArgSpec
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L501>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L501>`__)
 
    Get the names and default values of a Python function's parameters.  A
    :term:`named tuple` is returned:
@@ -1417,7 +1441,7 @@ Classes and functions
 .. function:: getargvalues(frame)
               getargvalues(frame: types.FrameType) -> inspect.ArgInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L509>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L509>`__)
 
    Get information about arguments passed into a particular frame.  A
    :term:`named tuple` ``ArgInfo(args, varargs, keywords, locals)`` is
@@ -1432,7 +1456,7 @@ Classes and functions
 .. function:: formatargvalues(args[, varargs, varkw, locals, formatarg, formatvarargs, formatvarkw, formatvalue])
               formatargvalues(args: list[str], varargs: str | None, varkw: str | None, locals: collections.abc.Mapping[str, typing.Any] | None, formatarg: (collections.abc.Callable[[str], str]) | None = ..., formatvarargs: (collections.abc.Callable[[str], str]) | None = ..., formatvarkw: (collections.abc.Callable[[str], str]) | None = ..., formatvalue: (collections.abc.Callable[[typing.Any], str]) | None = ...) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L539>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L539>`__)
 
    Format a pretty argument spec from the four values returned by
    :func:`getargvalues`.  The format\* arguments are the corresponding optional
@@ -1445,7 +1469,7 @@ Classes and functions
 .. function:: getmro(cls)
               getmro(cls: type[Any]) -> tuple[type[Any], ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L549>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L549>`__)
 
    Return a tuple of class cls's base classes, including cls, in method resolution
    order.  No class appears more than once in this tuple. Note that the method
@@ -1456,7 +1480,7 @@ Classes and functions
 .. function:: getcallargs(func, /, *args, **kwds)
               getcallargs[_P](collections.abc.Callable[[typing.ParamSpec(_P)], typing.Any], typing.ParamSpec(_P)) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L551>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L551>`__)
 
    Bind the *args* and *kwds* to the argument names of the Python function or
    method *func*, as if it was called with them. For bound methods, bind also the
@@ -1491,7 +1515,7 @@ Classes and functions
 .. function:: getclosurevars(func)
               getclosurevars(func: collections.abc.Callable[[...], typing.Any]) -> inspect.ClosureVars
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L559>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L559>`__)
 
    Get the mapping of external name references in a Python function or
    method *func* to their current values. A
@@ -1510,7 +1534,7 @@ Classes and functions
 .. function:: unwrap(func, *, stop=None)
               unwrap(func: collections.abc.Callable[[...], typing.Any], *, stop: (collections.abc.Callable[[collections.abc.Callable[[...], typing.Any]], typing.Any]) | None = None) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L560>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L560>`__)
 
    Get the object wrapped by *func*. It follows the chain of :attr:`__wrapped__`
    attributes returning the last object in the chain.
@@ -1532,7 +1556,7 @@ Classes and functions
               get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
               get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/annotationlib.pyi#L119>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/annotationlib.pyi#L119>`__)
 
    Compute the annotations dict for an object.
 
@@ -1562,21 +1586,21 @@ tuple-like operations on all attributes except ``positions``. This behavior
 is considered deprecated and may be removed in the future.
 
 .. class:: FrameInfo
-           FrameInfo(frame: types.FrameType, filename: str, lineno: int, function: str, code_context: list[str] | None, index: int | None) -> inspect.FrameInfo
+           FrameInfo(*Unknown, **Unknown) -> inspect.FrameInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L596>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L596>`__)
 
    .. attribute:: frame
       :type: types.FrameType
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L575>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L575>`__)
 
       The :ref:`frame object <frame-objects>` that the record corresponds to.
 
    .. attribute:: filename
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L576>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L576>`__)
 
       The file name associated with the code being executed by the frame this record
       corresponds to.
@@ -1584,7 +1608,7 @@ is considered deprecated and may be removed in the future.
    .. attribute:: lineno
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L577>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L577>`__)
 
       The line number of the current line associated with the code being
       executed by the frame this record corresponds to.
@@ -1592,14 +1616,14 @@ is considered deprecated and may be removed in the future.
    .. attribute:: function
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L578>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L578>`__)
 
       The function name that is being executed by the frame this record corresponds to.
 
    .. attribute:: code_context
       :type: list[str] | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L579>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L579>`__)
 
       A list of lines of context from the source code that's being executed by the frame
       this record corresponds to.
@@ -1607,14 +1631,14 @@ is considered deprecated and may be removed in the future.
    .. attribute:: index
       :type: int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L580>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L580>`__)
 
       The index of the current line being executed in the :attr:`code_context` list.
 
    .. attribute:: positions
       :type: dis.Positions | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L597>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L597>`__)
 
       A :class:`dis.Positions` object containing the start line number, end line
       number, start column offset, and end column offset associated with the
@@ -1629,14 +1653,14 @@ is considered deprecated and may be removed in the future.
 
 
 .. class:: Traceback
-           Traceback(filename: str, lineno: int, function: str, code_context: list[str] | None, index: int | None) -> inspect.Traceback
+           Traceback(*Unknown, **Unknown) -> inspect.Traceback
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L583>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L583>`__)
 
    .. attribute:: filename
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L568>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L568>`__)
 
       The file name associated with the code being executed by the frame this traceback
       corresponds to.
@@ -1644,7 +1668,7 @@ is considered deprecated and may be removed in the future.
    .. attribute:: lineno
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L569>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L569>`__)
 
       The line number of the current line associated with the code being
       executed by the frame this traceback corresponds to.
@@ -1652,14 +1676,14 @@ is considered deprecated and may be removed in the future.
    .. attribute:: function
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L570>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L570>`__)
 
       The function name that is being executed by the frame this traceback corresponds to.
 
    .. attribute:: code_context
       :type: list[str] | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L571>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L571>`__)
 
       A list of lines of context from the source code that's being executed by the frame
       this traceback corresponds to.
@@ -1667,14 +1691,14 @@ is considered deprecated and may be removed in the future.
    .. attribute:: index
       :type: int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L572>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L572>`__)
 
       The index of the current line being executed in the :attr:`code_context` list.
 
    .. attribute:: positions
       :type: dis.Positions | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L584>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L584>`__)
 
       A :class:`dis.Positions` object containing the start line number, end
       line number, start column offset, and end column offset associated with
@@ -1720,7 +1744,7 @@ line.
 .. function:: getframeinfo(frame, context=1)
               getframeinfo(frame: types.FrameType | types.TracebackType, context: int = 1) -> inspect.Traceback
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L656>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L656>`__)
 
    Get information about a frame or traceback object.  A :class:`Traceback` object
    is returned.
@@ -1731,7 +1755,7 @@ line.
 .. function:: getouterframes(frame, context=1)
               getouterframes(frame: typing.Any, context: int = 1) -> list[inspect.FrameInfo]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L657>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L657>`__)
 
    Get a list of :class:`FrameInfo` objects for a frame and all outer frames.
    These frames represent the calls that lead to the creation of *frame*. The
@@ -1749,7 +1773,7 @@ line.
 .. function:: getinnerframes(traceback, context=1)
               getinnerframes(tb: types.TracebackType, context: int = 1) -> list[inspect.FrameInfo]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L658>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L658>`__)
 
    Get a list of :class:`FrameInfo` objects for a traceback's frame and all
    inner frames.  These frames represent calls made as a consequence of *frame*.
@@ -1767,7 +1791,7 @@ line.
 .. function:: currentframe()
               currentframe() -> types.FrameType | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L660>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L660>`__)
 
    Return the frame object for the caller's stack frame.
 
@@ -1782,7 +1806,7 @@ line.
 .. function:: stack(context=1)
               stack(context: int = 1) -> list[inspect.FrameInfo]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L661>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L661>`__)
 
    Return a list of :class:`FrameInfo` objects for the caller's stack.  The
    first entry in the returned list represents the caller; the last entry
@@ -1799,7 +1823,7 @@ line.
 .. function:: trace(context=1)
               trace(context: int = 1) -> list[inspect.FrameInfo]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L662>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L662>`__)
 
    Return a list of :class:`FrameInfo` objects for the stack between the current
    frame and the frame in which an exception currently being handled was raised
@@ -1830,7 +1854,7 @@ but avoids executing code when it fetches attributes.
 .. function:: getattr_static(obj, attr, default=None)
               getattr_static(obj: object, attr: str, default: typing.Any | None = ...) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L668>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L668>`__)
 
    Retrieve attributes without triggering dynamic lookup via the
    descriptor protocol, :meth:`~object.__getattr__`
@@ -1889,7 +1913,7 @@ generator to be determined easily.
 .. function:: getgeneratorstate(generator)
               getgeneratorstate(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> typing.Literal['GEN_CLOSED', 'GEN_CREATED', 'GEN_RUNNING', 'GEN_SUSPENDED']
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L679>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L679>`__)
 
    Get current state of a generator-iterator.
 
@@ -1905,7 +1929,7 @@ generator to be determined easily.
 .. function:: getcoroutinestate(coroutine)
               getcoroutinestate(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> typing.Literal['CORO_CLOSED', 'CORO_CREATED', 'CORO_RUNNING', 'CORO_SUSPENDED']
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L688>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L688>`__)
 
    Get current state of a coroutine object.  The function is intended to be
    used with coroutine objects created by :keyword:`async def` functions, but
@@ -1924,7 +1948,7 @@ generator to be determined easily.
 .. function:: getasyncgenstate(agen)
               getasyncgenstate(agen: collections.abc.AsyncGenerator[typing.Any, typing.Any]) -> typing.Literal['AGEN_CLOSED', 'AGEN_CREATED', 'AGEN_RUNNING', 'AGEN_SUSPENDED']
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L414>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L414>`__)
 
    Get current state of an asynchronous generator object.  The function is
    intended to be used with asynchronous iterator objects created by
@@ -1948,7 +1972,7 @@ updated as expected:
 .. function:: getgeneratorlocals(generator)
               getgeneratorlocals(generator: collections.abc.Generator[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L691>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L691>`__)
 
    Get the mapping of live local variables in *generator* to their current
    values.  A dictionary is returned that maps from variable names to values.
@@ -1971,7 +1995,7 @@ updated as expected:
 .. function:: getcoroutinelocals(coroutine)
               getcoroutinelocals(coroutine: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L692>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L692>`__)
 
    This function is analogous to :func:`~inspect.getgeneratorlocals`, but
    works for coroutine objects created by :keyword:`async def` functions.
@@ -1981,7 +2005,7 @@ updated as expected:
 .. function:: getasyncgenlocals(agen)
               getasyncgenlocals(agen: types.AsyncGeneratorType[typing.Any, typing.Any]) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L417>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L417>`__)
 
    This function is analogous to :func:`~inspect.getgeneratorlocals`, but
    works for asynchronous generator objects created by :keyword:`async def`
@@ -2001,14 +2025,14 @@ which is a bitmap of the following flags:
 .. data:: CO_OPTIMIZED
    :type: typing.Literal[1]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L169>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L169>`__)
 
    The code object is optimized, using fast locals.
 
 .. data:: CO_NEWLOCALS
    :type: typing.Literal[2]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L170>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L170>`__)
 
    If set, a new dict will be created for the frame's :attr:`~frame.f_locals`
    when the code object is executed.
@@ -2016,28 +2040,28 @@ which is a bitmap of the following flags:
 .. data:: CO_VARARGS
    :type: typing.Literal[4]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L171>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L171>`__)
 
    The code object has a variable positional parameter (``*args``-like).
 
 .. data:: CO_VARKEYWORDS
    :type: typing.Literal[8]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L172>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L172>`__)
 
    The code object has a variable keyword parameter (``**kwargs``-like).
 
 .. data:: CO_NESTED
    :type: typing.Literal[16]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L173>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L173>`__)
 
    The flag is set when the code object is a nested function.
 
 .. data:: CO_GENERATOR
    :type: typing.Literal[32]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L174>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L174>`__)
 
    The flag is set when the code object is a generator function, i.e.
    a generator object is returned when the code object is executed.
@@ -2045,7 +2069,7 @@ which is a bitmap of the following flags:
 .. data:: CO_COROUTINE
    :type: typing.Literal[128]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L176>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L176>`__)
 
    The flag is set when the code object is a coroutine function.
    When the code object is executed it returns a coroutine object.
@@ -2056,7 +2080,7 @@ which is a bitmap of the following flags:
 .. data:: CO_ITERABLE_COROUTINE
    :type: typing.Literal[256]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L177>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L177>`__)
 
    The flag is used to transform generators into generator-based
    coroutines.  Generator objects with this flag can be used in
@@ -2068,7 +2092,7 @@ which is a bitmap of the following flags:
 .. data:: CO_ASYNC_GENERATOR
    :type: typing.Literal[512]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L178>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L178>`__)
 
    The flag is set when the code object is an asynchronous generator
    function.  When the code object is executed it returns an
@@ -2079,7 +2103,7 @@ which is a bitmap of the following flags:
 .. data:: CO_HAS_DOCSTRING
    :type: typing.Literal[67108864]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L181>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L181>`__)
 
    The flag is set when there is a docstring for the code object in
    the source code. If set, it will be the first item in
@@ -2090,7 +2114,7 @@ which is a bitmap of the following flags:
 .. data:: CO_METHOD
    :type: typing.Literal[134217728]
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L182>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L182>`__)
 
    The flag is set when the code object is a function defined in class
    scope.
@@ -2101,7 +2125,7 @@ which is a bitmap of the following flags:
    The flags are specific to CPython, and may not be defined in other
    Python implementations.  Furthermore, the flags are an implementation
    detail, and can be removed or deprecated in future Python releases.
-   It's recommended to use public APIs from the :mod:`inspect` module
+   It's recommended to use public APIs from the :mod:`!inspect` module
    for any introspection needs.
 
 
@@ -2111,7 +2135,7 @@ Buffer flags
 .. class:: BufferFlags
            BufferFlags(value: int) -> inspect.BufferFlags
 
-   (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L709>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L709>`__)
 
    This is an :class:`enum.IntFlag` that represents the flags that
    can be passed to the :meth:`~object.__buffer__` method of objects
@@ -2122,98 +2146,98 @@ Buffer flags
    .. attribute:: BufferFlags.SIMPLE
       :type: typing.Literal[inspect.BufferFlags.SIMPLE]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L710>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L710>`__)
 
    .. attribute:: BufferFlags.WRITABLE
       :type: typing.Literal[inspect.BufferFlags.WRITABLE]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L711>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L711>`__)
 
    .. attribute:: BufferFlags.FORMAT
       :type: typing.Literal[inspect.BufferFlags.FORMAT]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L712>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L712>`__)
 
    .. attribute:: BufferFlags.ND
       :type: typing.Literal[inspect.BufferFlags.ND]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L713>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L713>`__)
 
    .. attribute:: BufferFlags.STRIDES
       :type: typing.Literal[inspect.BufferFlags.STRIDES]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L714>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L714>`__)
 
    .. attribute:: BufferFlags.C_CONTIGUOUS
       :type: typing.Literal[inspect.BufferFlags.C_CONTIGUOUS]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L715>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L715>`__)
 
    .. attribute:: BufferFlags.F_CONTIGUOUS
       :type: typing.Literal[inspect.BufferFlags.F_CONTIGUOUS]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L716>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L716>`__)
 
    .. attribute:: BufferFlags.ANY_CONTIGUOUS
       :type: typing.Literal[inspect.BufferFlags.ANY_CONTIGUOUS]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L717>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L717>`__)
 
    .. attribute:: BufferFlags.INDIRECT
       :type: typing.Literal[inspect.BufferFlags.INDIRECT]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L718>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L718>`__)
 
    .. attribute:: BufferFlags.CONTIG
       :type: typing.Literal[inspect.BufferFlags.CONTIG]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L719>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L719>`__)
 
    .. attribute:: BufferFlags.CONTIG_RO
       :type: typing.Literal[inspect.BufferFlags.CONTIG_RO]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L720>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L720>`__)
 
    .. attribute:: BufferFlags.STRIDED
       :type: typing.Literal[inspect.BufferFlags.STRIDED]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L721>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L721>`__)
 
    .. attribute:: BufferFlags.STRIDED_RO
       :type: typing.Literal[inspect.BufferFlags.STRIDED_RO]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L722>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L722>`__)
 
    .. attribute:: BufferFlags.RECORDS
       :type: typing.Literal[inspect.BufferFlags.RECORDS]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L723>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L723>`__)
 
    .. attribute:: BufferFlags.RECORDS_RO
       :type: typing.Literal[inspect.BufferFlags.RECORDS_RO]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L724>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L724>`__)
 
    .. attribute:: BufferFlags.FULL
       :type: typing.Literal[inspect.BufferFlags.FULL]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L725>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L725>`__)
 
    .. attribute:: BufferFlags.FULL_RO
       :type: typing.Literal[inspect.BufferFlags.FULL_RO]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L726>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L726>`__)
 
    .. attribute:: BufferFlags.READ
       :type: typing.Literal[inspect.BufferFlags.READ]
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L727>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L727>`__)
 
    .. attribute:: BufferFlags.WRITE
       :type: typing.Literal[inspect.BufferFlags.WRITE]
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/fa659b1/stdlib/inspect.pyi#L728>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/inspect.pyi#L728>`__)
 
    .. versionadded:: 3.12
 
@@ -2222,7 +2246,7 @@ Buffer flags
 Command-line interface
 ----------------------
 
-The :mod:`inspect` module also provides a basic introspection capability
+The :mod:`!inspect` module also provides a basic introspection capability
 from the command line.
 
 .. program:: inspect
