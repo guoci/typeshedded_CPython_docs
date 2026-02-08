@@ -53,7 +53,7 @@ The module defines the following exception and functions:
 .. exception:: error
                error(*args: object) -> struct.error
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/struct.pyi#L5>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/struct.pyi#L5>`__)
 
    Exception raised on various occasions; argument is a string describing what
    is wrong.
@@ -62,7 +62,7 @@ The module defines the following exception and functions:
 .. function:: pack(format, v1, v2, ...)
               pack(fmt: bytes | str, /, *v: typing.Any) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L6>`__)
 
    Return a bytes object containing the values *v1*, *v2*, ... packed according
    to the format string *format*.  The arguments must match the values required by
@@ -72,7 +72,7 @@ The module defines the following exception and functions:
 .. function:: pack_into(format, buffer, offset, v1, v2, ...)
               pack_into(fmt: bytes | str, buffer: collections.abc.Buffer, offset: int, /, *v: typing.Any) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L7>`__)
 
    Pack the values *v1*, *v2*, ... according to the format string *format* and
    write the packed bytes into the writable buffer *buffer* starting at
@@ -82,7 +82,7 @@ The module defines the following exception and functions:
 .. function:: unpack(format, buffer)
               unpack(format: bytes | str, buffer: collections.abc.Buffer, /) -> tuple[typing.Any, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L8>`__)
 
    Unpack from the buffer *buffer* (presumably packed by ``pack(format, ...)``)
    according to the format string *format*.  The result is a tuple even if it
@@ -93,7 +93,7 @@ The module defines the following exception and functions:
 .. function:: unpack_from(format, /, buffer, offset=0)
               unpack_from(format: bytes | str, /, buffer: collections.abc.Buffer, offset: int = 0) -> tuple[typing.Any, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L9>`__)
 
    Unpack from *buffer* starting at position *offset*, according to the format
    string *format*.  The result is a tuple even if it contains exactly one
@@ -104,7 +104,7 @@ The module defines the following exception and functions:
 .. function:: iter_unpack(format, buffer)
               iter_unpack(format: bytes | str, buffer: collections.abc.Buffer, /) -> collections.abc.Iterator[tuple[typing.Any, ...]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L10>`__)
 
    Iteratively unpack from the buffer *buffer* according to the format
    string *format*.  This function returns an iterator which will read
@@ -120,7 +120,7 @@ The module defines the following exception and functions:
 .. function:: calcsize(format)
               calcsize(format: bytes | str, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L11>`__)
 
    Return the size of the struct (and hence of the bytes object produced by
    ``pack(format, ...)``) corresponding to the format string *format*.
@@ -598,7 +598,7 @@ The :mod:`!struct` module also defines the following type:
 .. class:: Struct(format)
            Struct(format: bytes | str) -> _struct.Struct
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L13>`__)
 
    Return a new Struct object which writes and reads binary data according to
    the format string *format*.  Creating a ``Struct`` object once and calling its
@@ -617,7 +617,7 @@ The :mod:`!struct` module also defines the following type:
    .. method:: pack(v1, v2, ...)
                pack(*v: typing.Any) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L19>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L19>`__)
 
       Identical to the :func:`pack` function, using the compiled format.
       (``len(result)`` will equal :attr:`size`.)
@@ -626,7 +626,7 @@ The :mod:`!struct` module also defines the following type:
    .. method:: pack_into(buffer, offset, v1, v2, ...)
                pack_into(buffer: collections.abc.Buffer, offset: int, *v: typing.Any) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L20>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L20>`__)
 
       Identical to the :func:`pack_into` function, using the compiled format.
 
@@ -634,7 +634,7 @@ The :mod:`!struct` module also defines the following type:
    .. method:: unpack(buffer)
                unpack(buffer: collections.abc.Buffer, /) -> tuple[typing.Any, ...]
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L21>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L21>`__)
 
       Identical to the :func:`unpack` function, using the compiled format.
       The buffer's size in bytes must equal :attr:`size`.
@@ -643,7 +643,7 @@ The :mod:`!struct` module also defines the following type:
    .. method:: unpack_from(buffer, offset=0)
                unpack_from(buffer: collections.abc.Buffer, offset: int = 0) -> tuple[typing.Any, ...]
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L22>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L22>`__)
 
       Identical to the :func:`unpack_from` function, using the compiled format.
       The buffer's size in bytes, starting at position *offset*, must be at least
@@ -653,7 +653,7 @@ The :mod:`!struct` module also defines the following type:
    .. method:: iter_unpack(buffer)
                iter_unpack(buffer: collections.abc.Buffer, /) -> collections.abc.Iterator[tuple[typing.Any, ...]]
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L23>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L23>`__)
 
       Identical to the :func:`iter_unpack` function, using the compiled format.
       The buffer's size in bytes must be a multiple of :attr:`size`.
@@ -663,7 +663,7 @@ The :mod:`!struct` module also defines the following type:
    .. attribute:: format
       :type: format(self: _struct.Struct) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L15>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L15>`__)
 
       The format string used to construct this Struct object.
 
@@ -673,7 +673,7 @@ The :mod:`!struct` module also defines the following type:
    .. attribute:: size
       :type: size(self: _struct.Struct) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_struct.pyi#L17>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_struct.pyi#L17>`__)
 
       The calculated size of the struct (and hence of the bytes object produced
       by the :meth:`pack` method) corresponding to :attr:`format`.

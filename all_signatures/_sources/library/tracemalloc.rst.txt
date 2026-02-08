@@ -300,7 +300,7 @@ Functions
 .. function:: clear_traces()
               clear_traces() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L6>`__)
 
    Clear traces of memory blocks allocated by Python.
 
@@ -310,7 +310,7 @@ Functions
 .. function:: get_object_traceback(obj)
               get_object_traceback(obj: object) -> tracemalloc.Traceback | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L7>`__)
 
    Get the traceback where the Python object *obj* was allocated.
    Return a :class:`Traceback` instance, or ``None`` if the :mod:`!tracemalloc`
@@ -323,7 +323,7 @@ Functions
 .. function:: get_traceback_limit()
               get_traceback_limit() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L7>`__)
 
    Get the maximum number of frames stored in the traceback of a trace.
 
@@ -336,7 +336,7 @@ Functions
 .. function:: get_traced_memory()
               get_traced_memory() -> tuple[int, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L8>`__)
 
    Get the current size and peak size of memory blocks traced by the
    :mod:`!tracemalloc` module as a tuple: ``(current: int, peak: int)``.
@@ -345,7 +345,7 @@ Functions
 .. function:: reset_peak()
               reset_peak() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L11>`__)
 
    Set the peak size of memory blocks traced by the :mod:`!tracemalloc` module
    to the current size.
@@ -366,7 +366,7 @@ Functions
 .. function:: get_tracemalloc_memory()
               get_tracemalloc_memory() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L9>`__)
 
    Get the memory usage in bytes of the :mod:`!tracemalloc` module used to store
    traces of memory blocks.
@@ -376,7 +376,7 @@ Functions
 .. function:: is_tracing()
               is_tracing() -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L10>`__)
 
     ``True`` if the :mod:`!tracemalloc` module is tracing Python memory
     allocations, ``False`` otherwise.
@@ -387,7 +387,7 @@ Functions
 .. function:: start(nframe: int=1)
               start(nframe: int = 1, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L12>`__)
 
    Start tracing Python memory allocations: install hooks on Python memory
    allocators. Collected tracebacks of traces will be limited to *nframe*
@@ -416,7 +416,7 @@ Functions
 .. function:: stop()
               stop() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/_tracemalloc.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_tracemalloc.pyi#L13>`__)
 
    Stop tracing Python memory allocations: uninstall hooks on Python memory
    allocators. Also clears all previously collected traces of memory blocks
@@ -432,7 +432,7 @@ Functions
 .. function:: take_snapshot()
               take_snapshot() -> tracemalloc.Snapshot
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L8>`__)
 
    Take a snapshot of traces of memory blocks allocated by Python. Return a new
    :class:`Snapshot` instance.
@@ -455,7 +455,7 @@ DomainFilter
 .. class:: DomainFilter(inclusive: bool, domain: int)
            DomainFilter(inclusive: bool, domain: int) -> tracemalloc.DomainFilter
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L14>`__)
 
    Filter traces of memory blocks by their address space (domain).
 
@@ -464,7 +464,7 @@ DomainFilter
    .. attribute:: inclusive
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L11>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L11>`__)
 
       If *inclusive* is ``True`` (include), match memory blocks allocated
       in the address space :attr:`domain`.
@@ -475,7 +475,7 @@ DomainFilter
    .. attribute:: domain
       :type: domain(self: tracemalloc.DomainFilter) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L16>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L16>`__)
 
       Address space of a memory block (``int``). Read-only property.
 
@@ -486,7 +486,7 @@ Filter
 .. class:: Filter(inclusive: bool, filename_pattern: str, lineno: int=None, all_frames: bool=False, domain: int=None)
            Filter(inclusive: bool, filename_pattern: str, lineno: int | None = None, all_frames: bool = False, domain: int | None = None) -> tracemalloc.Filter
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L19>`__)
 
    Filter on traces of memory blocks.
 
@@ -513,7 +513,7 @@ Filter
    .. attribute:: domain
       :type: int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L20>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L20>`__)
 
       Address space of a memory block (``int`` or ``None``).
 
@@ -523,7 +523,7 @@ Filter
    .. attribute:: inclusive
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L11>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L11>`__)
 
       If *inclusive* is ``True`` (include), only match memory blocks allocated
       in a file with a name matching :attr:`filename_pattern` at line number
@@ -536,7 +536,7 @@ Filter
    .. attribute:: lineno
       :type: int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L21>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L21>`__)
 
       Line number (``int``) of the filter. If *lineno* is ``None``, the filter
       matches any line number.
@@ -544,14 +544,14 @@ Filter
    .. attribute:: filename_pattern
       :type: filename_pattern(self: tracemalloc.Filter) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L23>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L23>`__)
 
       Filename pattern of the filter (``str``). Read-only property.
 
    .. attribute:: all_frames
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L24>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L24>`__)
 
       If *all_frames* is ``True``, all frames of the traceback are checked. If
       *all_frames* is ``False``, only the most recent frame is checked.
@@ -567,7 +567,7 @@ Frame
 .. class:: Frame
            Frame(frame: tuple[str, int]) -> tracemalloc.Frame
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L56>`__)
 
    Frame of a traceback.
 
@@ -576,14 +576,14 @@ Frame
    .. attribute:: filename
       :type: filename(self: tracemalloc.Frame) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L59>`__)
 
       Filename (``str``).
 
    .. attribute:: lineno
       :type: lineno(self: tracemalloc.Frame) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L61>`__)
 
       Line number (``int``).
 
@@ -594,7 +594,7 @@ Snapshot
 .. class:: Snapshot
            Snapshot(traces: collections.abc.Sequence[_TraceTuple], traceback_limit: int) -> tracemalloc.Snapshot
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L113>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L113>`__)
 
    Snapshot of traces of memory blocks allocated by Python.
 
@@ -603,7 +603,7 @@ Snapshot
    .. method:: compare_to(old_snapshot: Snapshot, key_type: str, cumulative: bool=False)
                compare_to(old_snapshot: tracemalloc.Snapshot, key_type: str, cumulative: bool = False) -> list[tracemalloc.StatisticDiff]
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L115>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L115>`__)
 
       Compute the differences with an old snapshot. Get statistics as a sorted
       list of :class:`StatisticDiff` instances grouped by *key_type*.
@@ -620,7 +620,7 @@ Snapshot
    .. method:: dump(filename)
                dump(filename: str) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L116>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L116>`__)
 
       Write the snapshot into a file.
 
@@ -630,7 +630,7 @@ Snapshot
    .. method:: filter_traces(filters)
                filter_traces(filters: collections.abc.Sequence[tracemalloc.DomainFilter | tracemalloc.Filter]) -> tracemalloc.Snapshot
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L117>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L117>`__)
 
       Create a new :class:`Snapshot` instance with a filtered :attr:`traces`
       sequence, *filters* is a list of :class:`DomainFilter` and
@@ -648,7 +648,7 @@ Snapshot
    .. classmethod:: load(filename)
                     load(filename: str) -> tracemalloc.Snapshot
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L119>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L119>`__)
 
       Load a snapshot from a file.
 
@@ -658,7 +658,7 @@ Snapshot
    .. method:: statistics(key_type: str, cumulative: bool=False)
                statistics(key_type: str, cumulative: bool = False) -> list[tracemalloc.Statistic]
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L120>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L120>`__)
 
       Get statistics as a sorted list of :class:`Statistic` instances grouped
       by *key_type*:
@@ -684,7 +684,7 @@ Snapshot
    .. attribute:: traceback_limit
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L121>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L121>`__)
 
       Maximum number of frames stored in the traceback of :attr:`traces`:
       result of the :func:`get_traceback_limit` when the snapshot was taken.
@@ -692,7 +692,7 @@ Snapshot
    .. attribute:: traces
       :type: collections.abc.Sequence[tracemalloc.Trace]
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L122>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L122>`__)
 
       Traces of all memory blocks allocated by Python: sequence of
       :class:`Trace` instances.
@@ -707,7 +707,7 @@ Statistic
 .. class:: Statistic
            Statistic(traceback: tracemalloc.Traceback, size: int, count: int) -> tracemalloc.Statistic
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L34>`__)
 
    Statistic on memory allocations.
 
@@ -718,21 +718,21 @@ Statistic
    .. attribute:: count
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L36>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L36>`__)
 
       Number of memory blocks (``int``).
 
    .. attribute:: size
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L37>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L37>`__)
 
       Total size of memory blocks in bytes (``int``).
 
    .. attribute:: traceback
       :type: tracemalloc.Traceback
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L38>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L38>`__)
 
       Traceback where the memory block was allocated, :class:`Traceback`
       instance.
@@ -744,7 +744,7 @@ StatisticDiff
 .. class:: StatisticDiff
            StatisticDiff(traceback: tracemalloc.Traceback, size: int, size_diff: int, count: int, count_diff: int) -> tracemalloc.StatisticDiff
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L43>`__)
 
    Statistic difference on memory allocations between an old and a new
    :class:`Snapshot` instance.
@@ -755,7 +755,7 @@ StatisticDiff
    .. attribute:: count
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L45>`__)
 
       Number of memory blocks in the new snapshot (``int``): ``0`` if
       the memory blocks have been released in the new snapshot.
@@ -763,7 +763,7 @@ StatisticDiff
    .. attribute:: count_diff
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L46>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L46>`__)
 
       Difference of number of memory blocks between the old and the new
       snapshots (``int``): ``0`` if the memory blocks have been allocated in
@@ -772,7 +772,7 @@ StatisticDiff
    .. attribute:: size
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L47>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L47>`__)
 
       Total size of memory blocks in bytes in the new snapshot (``int``):
       ``0`` if the memory blocks have been released in the new snapshot.
@@ -780,7 +780,7 @@ StatisticDiff
    .. attribute:: size_diff
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L48>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L48>`__)
 
       Difference of total size of memory blocks in bytes between the old and
       the new snapshots (``int``): ``0`` if the memory blocks have been
@@ -789,7 +789,7 @@ StatisticDiff
    .. attribute:: traceback
       :type: tracemalloc.Traceback
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L49>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L49>`__)
 
       Traceback where the memory blocks were allocated, :class:`Traceback`
       instance.
@@ -801,7 +801,7 @@ Trace
 .. class:: Trace
            Trace(trace: _TraceTuple) -> tracemalloc.Trace
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L77>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L77>`__)
 
    Trace of a memory block.
 
@@ -814,7 +814,7 @@ Trace
    .. attribute:: domain
       :type: domain(self: tracemalloc.Trace) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L80>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L80>`__)
 
       Address space of a memory block (``int``). Read-only property.
 
@@ -824,14 +824,14 @@ Trace
    .. attribute:: size
       :type: size(self: tracemalloc.Trace) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L82>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L82>`__)
 
       Size of the memory block in bytes (``int``).
 
    .. attribute:: traceback
       :type: traceback(self: tracemalloc.Trace) -> tracemalloc.Traceback
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L84>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L84>`__)
 
       Traceback where the memory block was allocated, :class:`Traceback`
       instance.
@@ -843,7 +843,7 @@ Traceback
 .. class:: Traceback
            Traceback(frames: collections.abc.Sequence[tuple[str, int]], total_nframe: int | None = None) -> tracemalloc.Traceback
 
-   (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L89>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L89>`__)
 
    Sequence of :class:`Frame` instances sorted from the oldest frame to the
    most recent frame.
@@ -867,7 +867,7 @@ Traceback
    .. attribute:: total_nframe
       :type: total_nframe(self: tracemalloc.Traceback) -> int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L92>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L92>`__)
 
       Total number of frames that composed the traceback before truncation.
       This attribute can be set to ``None`` if the information is not
@@ -879,7 +879,7 @@ Traceback
    .. method:: format(limit=None, most_recent_first=False)
                format(limit: int | None = None, most_recent_first: bool = False) -> list[str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/c045882/stdlib/tracemalloc.pyi#L94>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/tracemalloc.pyi#L94>`__)
 
       Format the traceback as a list of lines. Use the :mod:`linecache` module to
       retrieve lines from the source code. If *limit* is set, format the *limit*
