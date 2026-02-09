@@ -905,10 +905,11 @@ Setting this to NULL is equivalent to omitting the slot.</p>
 <dt class="sig sig-object c" id="c.PyModuleDef.m_slots">
 <a class="reference internal" href="#c.PyModuleDef_Slot" title="PyModuleDef_Slot"><span class="n"><span class="pre">PyModuleDef_Slot</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_slots</span></span></span><a class="headerlink" href="#c.PyModuleDef.m_slots" title="Link to this definition">¶</a><br /></dt>
 <dd><p>An array of additional slots, terminated by a <code class="docutils literal notranslate"><span class="pre">{0,</span> <span class="pre">NULL}</span></code> entry.</p>
-<p>This array may not contain slots corresponding to <a class="reference internal" href="#c.PyModuleDef" title="PyModuleDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code></a>
-members.
-For example, you cannot use <a class="reference internal" href="#c.Py_mod_name" title="Py_mod_name"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_mod_name</span></code></a> in <code class="xref c c-member docutils literal notranslate"><span class="pre">m_slots</span></code>;
-the module name must be given as <a class="reference internal" href="#c.PyModuleDef.m_name" title="PyModuleDef.m_name"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyModuleDef.m_name</span></code></a>.</p>
+<p>If the array contains slots corresponding to <a class="reference internal" href="#c.PyModuleDef" title="PyModuleDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code></a>
+members, the values must match.
+For example, if you use <a class="reference internal" href="#c.Py_mod_name" title="Py_mod_name"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_mod_name</span></code></a> in <code class="xref c c-member docutils literal notranslate"><span class="pre">m_slots</span></code>,
+<a class="reference internal" href="#c.PyModuleDef.m_name" title="PyModuleDef.m_name"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyModuleDef.m_name</span></code></a> must be set to the same pointer
+(not just an equal string).</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>Prior to version 3.5, this member was always set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>,
 and was defined as:</p>

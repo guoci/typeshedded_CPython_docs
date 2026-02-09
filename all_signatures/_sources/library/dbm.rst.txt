@@ -28,7 +28,7 @@ the Oracle Berkeley DB.
 .. exception:: error
                error[type[dbm._error], type[OSError]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/__init__.pyi#L97>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/__init__.pyi#L97>`__)
 
    A tuple containing the exceptions that can be raised by each of the supported
    modules, with a unique exception also named :exc:`dbm.error` as the first
@@ -38,7 +38,7 @@ the Oracle Berkeley DB.
 .. function:: whichdb(filename)
               whichdb(filename: StrOrBytesPath) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/__init__.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/__init__.pyi#L100>`__)
 
    This function attempts to guess which of the several simple database modules
    available --- :mod:`dbm.sqlite3`, :mod:`dbm.gnu`, :mod:`dbm.ndbm`,
@@ -75,7 +75,7 @@ the Oracle Berkeley DB.
 .. function:: open(file, flag='r', mode=0o666)
               open(file: StrOrBytesPath, flag: _TFlags = 'r', mode: int = 438) -> dbm._Database
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/__init__.pyi#L101>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/__init__.pyi#L101>`__)
 
    Open a database and return the corresponding database object.
 
@@ -189,7 +189,7 @@ or any other SQLite browser, including the SQLite CLI.
 .. function:: open(filename, /, flag="r", mode=0o666)
               open(filename: StrOrBytesPath, /, flag: typing.Literal['c', 'n', 'r', 'w'] = 'r', mode: int = 438) -> dbm.sqlite3._Database
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/sqlite3.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/sqlite3.pyi#L29>`__)
 
    Open an SQLite database.
 
@@ -218,7 +218,7 @@ or any other SQLite browser, including the SQLite CLI.
    .. method:: sqlite3.close()
                sqlite3.close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/sqlite3.pyi#L24>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/sqlite3.pyi#L24>`__)
 
       Close the SQLite database.
 
@@ -260,7 +260,7 @@ functionality like crash tolerance.
 .. exception:: error
                error(*args: object) -> _gdbm.error
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L14>`__)
 
    Raised on :mod:`dbm.gnu`-specific errors, such as I/O errors. :exc:`KeyError` is
    raised for general mapping errors like specifying an incorrect key.
@@ -269,7 +269,7 @@ functionality like crash tolerance.
 .. data:: open_flags
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L12>`__)
 
    A string of characters the *flag* parameter of :meth:`~dbm.gnu.open` supports.
 
@@ -277,7 +277,7 @@ functionality like crash tolerance.
 .. function:: open(filename, flag="r", mode=0o666, /)
               open(filename: StrOrBytesPath, flags: str = 'r', mode: int = 438, /) -> _gdbm._gdbm
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L46>`__)
 
    Open a GDBM database and return a :class:`!gdbm` object.
 
@@ -330,14 +330,14 @@ functionality like crash tolerance.
    .. method:: gdbm.close()
                gdbm.close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L22>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L22>`__)
 
       Close the GDBM database.
 
    .. method:: gdbm.firstkey()
                gdbm.firstkey() -> bytes | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L18>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L18>`__)
 
       It's possible to loop over every key in the database using this method  and the
       :meth:`nextkey` method.  The traversal is ordered by GDBM's internal
@@ -347,7 +347,7 @@ functionality like crash tolerance.
    .. method:: gdbm.nextkey(key)
                gdbm.nextkey(key: _KeyType) -> bytes | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L19>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L19>`__)
 
       Returns the key that follows *key* in the traversal.  The following code prints
       every key in the database ``db``, without having to create a list in memory that
@@ -361,7 +361,7 @@ functionality like crash tolerance.
    .. method:: gdbm.reorganize()
                gdbm.reorganize() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L20>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L20>`__)
 
       If you have carried out a lot of deletions and would like to shrink the space
       used by the GDBM file, this routine will reorganize the database.  :class:`!gdbm`
@@ -376,7 +376,7 @@ functionality like crash tolerance.
    .. method:: gdbm.sync()
                gdbm.sync() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_gdbm.pyi#L21>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_gdbm.pyi#L21>`__)
 
       When the database has been opened in fast mode, this method forces any
       unwritten data to be written to the disk.
@@ -415,7 +415,7 @@ This module can be used with the "classic" NDBM interface or the
 .. exception:: error
                error(*args: object) -> _dbm.error
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_dbm.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_dbm.pyi#L12>`__)
 
    Raised on :mod:`dbm.ndbm`-specific errors, such as I/O errors. :exc:`KeyError` is raised
    for general mapping errors like specifying an incorrect key.
@@ -424,7 +424,7 @@ This module can be used with the "classic" NDBM interface or the
 .. data:: library
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_dbm.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_dbm.pyi#L13>`__)
 
    Name of the NDBM implementation library used.
 
@@ -432,7 +432,7 @@ This module can be used with the "classic" NDBM interface or the
 .. function:: open(filename, flag="r", mode=0o666, /)
               open(filename: StrOrBytesPath, flags: str = 'r', mode: int = 438, /) -> _dbm._dbm
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_dbm.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_dbm.pyi#L42>`__)
 
    Open an NDBM database and return an :class:`!ndbm` object.
 
@@ -471,7 +471,7 @@ This module can be used with the "classic" NDBM interface or the
    .. method:: ndbm.close()
                ndbm.close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/_dbm.pyi#L19>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_dbm.pyi#L19>`__)
 
       Close the NDBM database.
 
@@ -505,7 +505,7 @@ The :mod:`!dbm.dumb` module defines the following:
 .. exception:: error
                error(*args: object) -> OSError
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/dumb.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/dumb.pyi#L12>`__)
 
    Raised on :mod:`dbm.dumb`-specific errors, such as I/O errors.  :exc:`KeyError` is
    raised for general mapping errors like specifying an incorrect key.
@@ -514,7 +514,7 @@ The :mod:`!dbm.dumb` module defines the following:
 .. function:: open(filename, flag="c", mode=0o666)
               open(file: StrOrBytesPath, flag: str = 'c', mode: int = 438) -> dbm.dumb._Database
 
-   (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/dumb.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/dumb.pyi#L34>`__)
 
    Open a :mod:`!dbm.dumb` database.
 
@@ -565,7 +565,7 @@ The :mod:`!dbm.dumb` module defines the following:
    .. method:: dumbdbm.close()
                dumbdbm.close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/dumb.pyi#L21>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/dumb.pyi#L21>`__)
 
       Close the database.
 
@@ -584,7 +584,7 @@ The :mod:`!dbm.dumb` module defines the following:
    .. method:: dumbdbm.sync()
                dumbdbm.sync() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/ae6f49a/stdlib/dbm/dumb.pyi#L19>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/dbm/dumb.pyi#L19>`__)
 
       Synchronize the on-disk directory and data files.  This method is called
       by the :meth:`shelve.Shelf.sync` method.
