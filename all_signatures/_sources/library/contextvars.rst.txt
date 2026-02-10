@@ -30,7 +30,7 @@ Context Variables
            ContextVar(name: str) -> contextvars.ContextVar[_T]
            ContextVar(name: str, *, default: _T) -> contextvars.ContextVar[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L12>`__)
 
    This class is used to declare a new Context Variable, e.g.::
 
@@ -51,7 +51,7 @@ Context Variables
    .. attribute:: ContextVar.name
       :type: name[_T](self: contextvars.ContextVar[_T]) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L19>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L19>`__)
 
       The name of the variable.  This is a read-only property.
 
@@ -62,7 +62,7 @@ Context Variables
                get(default: _T, /) -> _T
                get(default: _D, /) -> _D | _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L21>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L21>`__)
 
       Return a value for the context variable for the current context.
 
@@ -80,7 +80,7 @@ Context Variables
    .. method:: set(value)
                set[_T](value: _T, /) -> contextvars.Token[_T]
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L26>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L26>`__)
 
       Call to set a new value for the context variable in the current
       context.
@@ -121,7 +121,7 @@ Context Variables
    .. method:: reset(token)
                reset[_T](token: contextvars.Token[_T], /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L27>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L27>`__)
 
       Reset the context variable to the value it had before the
       :meth:`ContextVar.set` that created the *token* was used.
@@ -143,7 +143,7 @@ Context Variables
 .. class:: Token
            Token() -> contextvars.Token[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L31>`__)
 
    *Token* objects are returned by the :meth:`ContextVar.set` method.
    They can be passed to the :meth:`ContextVar.reset` method to revert
@@ -160,7 +160,7 @@ Context Variables
    .. attribute:: Token.var
       :type: var[_T](self: contextvars.Token[_T]) -> contextvars.ContextVar[_T]
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L33>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L33>`__)
 
       A read-only property.  Points to the :class:`ContextVar` object
       that created the token.
@@ -168,7 +168,7 @@ Context Variables
    .. attribute:: Token.old_value
       :type: old_value[_T](self: contextvars.Token[_T]) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L35>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L35>`__)
 
       A read-only property.  Set to the value the variable had before
       the :meth:`ContextVar.set` method call that created the token.
@@ -178,7 +178,7 @@ Context Variables
    .. attribute:: Token.MISSING
       :type: object
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L36>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L36>`__)
 
       A marker object used by :attr:`Token.old_value`.
 
@@ -189,7 +189,7 @@ Manual Context Management
 .. function:: copy_context()
               copy_context() -> contextvars.Context
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L45>`__)
 
    Returns a copy of the current :class:`~contextvars.Context` object.
 
@@ -207,7 +207,7 @@ Manual Context Management
 .. class:: Context()
            Context() -> contextvars.Context
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L50>`__)
 
    A mapping of :class:`ContextVars <ContextVar>` to their values.
 
@@ -250,7 +250,7 @@ Manual Context Management
    .. method:: run(callable, *args, **kwargs)
                run[_P, _T](contextvars.Context, collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L58>`__)
 
       Enters the Context, executes ``callable(*args, **kwargs)``, then exits the
       Context.  Returns *callable*'s return value, or propagates an exception if
@@ -305,7 +305,7 @@ Manual Context Management
    .. method:: copy()
                copy() -> contextvars.Context
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L59>`__)
 
       Return a shallow copy of the context object.
 
@@ -325,7 +325,7 @@ Manual Context Management
                get(key: contextvars.ContextVar[_T], default: _T, /) -> _T
                get(key: contextvars.ContextVar[_T], default: _D, /) -> _D | _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_contextvars.pyi#L53>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L53>`__)
 
       Return the value for *var* if *var* has the value in the context
       object.  Return *default* otherwise.  If *default* is not given,
@@ -343,14 +343,14 @@ Manual Context Management
    .. method:: keys()
                keys() -> collections.abc.KeysView[contextvars.ContextVar[typing.Any]]
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/typing.pyi#L786>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/typing.pyi#L786>`__)
 
       Return a list of all variables in the context object.
 
    .. method:: values()
                values() -> collections.abc.ValuesView[typing.Any]
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/typing.pyi#L787>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/typing.pyi#L787>`__)
 
       Return a list of all variables' values in the context object.
 
@@ -358,7 +358,7 @@ Manual Context Management
    .. method:: items()
                items() -> collections.abc.ItemsView[contextvars.ContextVar[typing.Any], typing.Any]
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/typing.pyi#L785>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/typing.pyi#L785>`__)
 
       Return a list of 2-tuples containing all variables and their
       values in the context object.

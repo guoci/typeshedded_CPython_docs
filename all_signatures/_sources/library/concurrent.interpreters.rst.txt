@@ -209,7 +209,7 @@ This module defines the following functions:
 .. function:: list_all()
               list_all() -> list[concurrent.interpreters.Interpreter]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L46>`__)
 
    Return a :class:`list` of :class:`Interpreter` objects,
    one for each existing interpreter.
@@ -217,7 +217,7 @@ This module defines the following functions:
 .. function:: get_current()
               get_current() -> concurrent.interpreters.Interpreter
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L47>`__)
 
    Return an :class:`Interpreter` object for the currently running
    interpreter.
@@ -225,7 +225,7 @@ This module defines the following functions:
 .. function:: get_main()
               get_main() -> concurrent.interpreters.Interpreter
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L48>`__)
 
    Return an :class:`Interpreter` object for the main interpreter.
    This is the interpreter the runtime created to run the :term:`REPL`
@@ -234,7 +234,7 @@ This module defines the following functions:
 .. function:: create()
               create() -> concurrent.interpreters.Interpreter
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L45>`__)
 
    Initialize a new (idle) Python interpreter
    and return a :class:`Interpreter` object for it.
@@ -242,7 +242,7 @@ This module defines the following functions:
 .. function:: create_queue()
               create_queue(maxsize: int = 0, *, unbounditems: _AnyUnbound = ...) -> concurrent.interpreters._queues.Queue
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/_queues.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/_queues.pyi#L31>`__)
 
    Initialize a new cross-interpreter queue and return a :class:`Queue`
    object for it.
@@ -254,7 +254,7 @@ Interpreter objects
 .. class:: Interpreter(id)
            Interpreter(id: int, /, _whence: typing.Literal[0, 1, 2, 3, 4, 5] | None = None, _ownsref: bool | None = None) -> concurrent.interpreters.Interpreter
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L50>`__)
 
    A single interpreter in the current process.
 
@@ -264,7 +264,7 @@ Interpreter objects
    .. attribute:: id
       :type: id(self: concurrent.interpreters.Interpreter) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L56>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L56>`__)
 
       (read-only)
 
@@ -273,7 +273,7 @@ Interpreter objects
    .. attribute:: whence
       :type: whence(self: concurrent.interpreters.Interpreter) -> typing.Literal['C-API', '_interpreters module', 'cross-interpreter C-API', 'legacy C-API', 'runtime init', 'unknown']
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L58>`__)
 
       (read-only)
 
@@ -282,7 +282,7 @@ Interpreter objects
    .. method:: is_running()
                is_running() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L61>`__)
 
       Return ``True`` if the interpreter is currently executing code
       in its :mod:`!__main__` module and ``False`` otherwise.
@@ -290,14 +290,14 @@ Interpreter objects
    .. method:: close()
                close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L62>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L62>`__)
 
       Finalize and destroy the interpreter.
 
    .. method:: prepare_main(ns=None, **kwargs)
                prepare_main(ns: dict[str, typing.Any] | None = None, /, **kwargs: typing.Any) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L63>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L63>`__)
 
       Bind objects in the interpreter's :mod:`!__main__` module.
 
@@ -307,14 +307,14 @@ Interpreter objects
    .. method:: exec(code, /, dedent=True)
                exec(code: (collections.abc.Callable[[], object]) | types.CodeType | str, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L66>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L66>`__)
 
       Run the given source code in the interpreter (in the current thread).
 
    .. method:: call(callable, /, *args, **kwargs)
                call[_P, _R](concurrent.interpreters.Interpreter, collections.abc.Callable[[typing.ParamSpec(_P)], _R], typing.ParamSpec(_P)) -> _R
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L67>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L67>`__)
 
       Return the result of calling running the given function in the
       interpreter (in the current thread).
@@ -324,7 +324,7 @@ Interpreter objects
    .. method:: call_in_thread(callable, /, *args, **kwargs)
                call_in_thread[_P](concurrent.interpreters.Interpreter, collections.abc.Callable[[typing.ParamSpec(_P)], object], typing.ParamSpec(_P)) -> threading.Thread
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L68>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L68>`__)
 
       Run the given function in the interpreter (in a new thread).
 
@@ -334,7 +334,7 @@ Exceptions
 .. exception:: InterpreterError
                InterpreterError(*args: object) -> _interpreters.InterpreterError
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_interpreters.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_interpreters.pyi#L11>`__)
 
    This exception, a subclass of :exc:`Exception`, is raised when
    an interpreter-related error happens.
@@ -342,7 +342,7 @@ Exceptions
 .. exception:: InterpreterNotFoundError
                InterpreterNotFoundError(*args: object) -> _interpreters.InterpreterNotFoundError
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_interpreters.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_interpreters.pyi#L12>`__)
 
    This exception, a subclass of :exc:`InterpreterError`, is raised when
    the targeted interpreter no longer exists.
@@ -350,7 +350,7 @@ Exceptions
 .. exception:: ExecutionFailed
                ExecutionFailed(excinfo: types.SimpleNamespace) -> concurrent.interpreters.ExecutionFailed
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L40>`__)
 
    This exception, a subclass of :exc:`InterpreterError`, is raised when
    the running code raised an uncaught exception.
@@ -358,7 +358,7 @@ Exceptions
    .. attribute:: excinfo
       :type: types.SimpleNamespace
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/__init__.pyi#L41>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/__init__.pyi#L41>`__)
 
       A basic snapshot of the exception raised in the other interpreter.
 
@@ -367,7 +367,7 @@ Exceptions
 .. exception:: NotShareableError
                NotShareableError(*args: object) -> _interpreters.NotShareableError
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/_interpreters.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/_interpreters.pyi#L13>`__)
 
    This exception, a subclass of :exc:`TypeError`, is raised when
    an object cannot be sent to another interpreter.
@@ -379,7 +379,7 @@ Communicating Between Interpreters
 .. class:: Queue(id)
            Queue(id: int, /) -> concurrent.interpreters._queues.Queue
 
-   (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/_queues.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/_queues.pyi#L34>`__)
 
    A wrapper around a low-level, cross-interpreter queue, which
    implements the :class:`queue.Queue` interface.  The underlying queue
@@ -391,7 +391,7 @@ Communicating Between Interpreters
    .. attribute:: id
       :type: id(self: concurrent.interpreters._queues.Queue) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/a6fba4f/stdlib/concurrent/interpreters/_queues.pyi#L40>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/concurrent/interpreters/_queues.pyi#L40>`__)
 
       (read-only)
 
