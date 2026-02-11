@@ -16,21 +16,23 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>Glossary &#8212; Python 3.15.0a5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossary &#8212; Python 3.15.0a6 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css?v=234b1a7c" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=4eb63a40" />
+    <link rel="stylesheet" type="text/css" href="_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="_static/documentation_options.js?v=5c84159f"></script>
+    <script src="_static/documentation_options.js?v=6b7c9ff5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/profiling-sampling-visualization.js?v=9811ed04"></script>
     
     <script src="_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a5 documentation"
+          title="Search within Python 3.15.0a6 documentation"
           href="_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -149,7 +151,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
         <li class="nav-item nav-item-this"><a href="">Glossary</a></li>
@@ -973,6 +975,15 @@ to prevent <a class="reference internal" href="#term-race-condition"><span class
 to locks exist such as queues, producer/consumer patterns, and
 thread-local state. See also <a class="reference internal" href="#term-deadlock"><span class="xref std std-term">deadlock</span></a>, and <a class="reference internal" href="#term-reentrant"><span class="xref std std-term">reentrant</span></a>.</p>
 </dd>
+<dt id="term-lock-free">lock-free<a class="headerlink" href="#term-lock-free" title="Link to this term">¶</a></dt><dd><p>An operation that does not acquire any <a class="reference internal" href="#term-lock"><span class="xref std std-term">lock</span></a> and uses atomic CPU
+instructions to ensure correctness. Lock-free operations can execute
+concurrently without blocking each other and cannot be blocked by
+operations that hold locks. In <a class="reference internal" href="#term-free-threading"><span class="xref std std-term">free-threaded</span></a>
+Python, built-in types like <a class="reference internal" href="library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> and <a class="reference internal" href="library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> provide
+lock-free read operations, which means other threads may observe
+intermediate states during multi-step modifications even when those
+modifications hold the <a class="reference internal" href="#term-per-object-lock"><span class="xref std std-term">per-object lock</span></a>.</p>
+</dd>
 <dt id="term-loader">loader<a class="headerlink" href="#term-loader" title="Link to this term">¶</a></dt><dd><p>An object that loads a module.
 It must define the <code class="xref py py-meth docutils literal notranslate"><span class="pre">exec_module()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">create_module()</span></code> methods
 to implement the <a class="reference internal" href="library/importlib.html#importlib.abc.Loader" title="importlib.abc.Loader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loader</span></code></a> interface.
@@ -1198,6 +1209,14 @@ default values for some optional arguments.</p>
 <p>See also the <a class="reference internal" href="#term-argument"><span class="xref std std-term">argument</span></a> glossary entry, the FAQ question on
 <a class="reference internal" href="faq/programming.html#faq-argument-vs-parameter"><span class="std std-ref">the difference between arguments and parameters</span></a>, the <a class="reference internal" href="library/inspect.html#inspect.Parameter" title="inspect.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">inspect.Parameter</span></code></a> class, the
 <a class="reference internal" href="reference/compound_stmts.html#function"><span class="std std-ref">Function definitions</span></a> section, and <span class="target" id="index-32"></span><a class="pep reference external" href="https://peps.python.org/pep-0362/"><strong>PEP 362</strong></a>.</p>
+</dd>
+<dt id="term-per-object-lock">per-object lock<a class="headerlink" href="#term-per-object-lock" title="Link to this term">¶</a></dt><dd><p>A <a class="reference internal" href="#term-lock"><span class="xref std std-term">lock</span></a> associated with an individual object instance rather than
+a global lock shared across all objects. In <a class="reference internal" href="#term-free-threading"><span class="xref std std-term">free-threaded</span></a> Python, built-in types like <a class="reference internal" href="library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> and
+<a class="reference internal" href="library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> use per-object locks to allow concurrent operations on
+different objects while serializing operations on the same object.
+Operations that hold the per-object lock prevent other locking operations
+on the same object from proceeding, but do not block <a class="reference internal" href="#term-lock-free"><span class="xref std std-term">lock-free</span></a>
+operations.</p>
 </dd>
 <dt id="term-path-entry">path entry<a class="headerlink" href="#term-path-entry" title="Link to this term">¶</a></dt><dd><p>A single location on the <a class="reference internal" href="#term-import-path"><span class="xref std std-term">import path</span></a> which the <a class="reference internal" href="#term-path-based-finder"><span class="xref std std-term">path
 based finder</span></a> consults to find modules for importing.</p>
@@ -1653,7 +1672,7 @@ understanding and using the language.  The listing can be found by typing
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
         <li class="nav-item nav-item-this"><a href="">Glossary</a></li>

@@ -16,21 +16,23 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>profiling.sampling — Statistical profiler &#8212; Python 3.15.0a5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profiling.sampling — Statistical profiler &#8212; Python 3.15.0a6 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
+    <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=5c84159f"></script>
+    <script src="../_static/documentation_options.js?v=6b7c9ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
     
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a5 documentation"
+          title="Search within Python 3.15.0a6 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -221,7 +223,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -258,7 +260,7 @@
           <div class="body" role="main">
             
   <section id="module-profiling.sampling">
-<span id="profiling-sampling-statistical-profiler"></span><span id="profiling-sampling"></span><h1><a class="reference internal" href="#module-profiling.sampling" title="profiling.sampling: Statistical sampling profiler for Python processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code></a> — Statistical profiler<a class="headerlink" href="#module-profiling.sampling" title="Link to this heading">¶</a></h1>
+<span id="profiling-sampling-statistical-profiler"></span><span id="profiling-sampling"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code> — Statistical profiler<a class="headerlink" href="#module-profiling.sampling" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
@@ -266,7 +268,7 @@
 <hr class="docutils" />
 <a class="reference internal image-reference" href="../_images/tachyon-logo.png"><img alt="Tachyon logo" class="align-center" src="../_images/tachyon-logo.png" style="width: 300px;" />
 </a>
-<p>The <a class="reference internal" href="#module-profiling.sampling" title="profiling.sampling: Statistical sampling profiler for Python processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code></a> module, named <strong>Tachyon</strong>, provides statistical
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code> module, named <strong>Tachyon</strong>, provides statistical
 profiling of Python programs through periodic stack sampling. Tachyon can
 run scripts directly or attach to any running Python process without requiring
 code changes or restarts. Because sampling occurs externally to the target
@@ -283,6 +285,11 @@ CPU time will appear frequently in the collected samples. By gathering thousands
 of samples over a profiling session, Tachyon constructs an accurate statistical
 estimate of where time is spent. The more samples collected, the
 more precise this estimate becomes.</p>
+<p>The following interactive visualization demonstrates how sampling profiling
+works. Press <strong>Play</strong> to watch a Python program execute, and observe how the
+profiler periodically captures snapshots of the call stack. Adjust the
+<strong>sample interval</strong> to see how sampling frequency affects the results.</p>
+<div id="sampling-profiler-viz" class="sampling-profiler-viz"></div>
 <section id="how-time-is-estimated">
 <h3>How time is estimated<a class="headerlink" href="#how-time-is-estimated" title="Link to this heading">¶</a></h3>
 <p>The time values shown in Tachyon’s output are <strong>estimates derived from sample
@@ -555,7 +562,7 @@ additional context is captured in each sample.</p>
 Together, these determine how many samples will be collected during a profiling
 session.</p>
 <p>The <a class="reference internal" href="#cmdoption-profiling.sampling-r"><code class="xref std std-option docutils literal notranslate"><span class="pre">--sampling-rate</span></code></a> option (<a class="reference internal" href="#cmdoption-profiling.sampling-r"><code class="xref std std-option docutils literal notranslate"><span class="pre">-r</span></code></a>) sets how frequently samples
-are collected. The default is 1 kHz (10,000 samples per second):</p>
+are collected. The default is 1 kHz (1,000 samples per second):</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>-r<span class="w"> </span>20khz<span class="w"> </span>script.py
 </pre></div>
 </div>
@@ -1802,7 +1809,7 @@ opens the browser; subprocess outputs are never auto-opened.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>

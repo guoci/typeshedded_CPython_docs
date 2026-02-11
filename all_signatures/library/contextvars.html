@@ -16,21 +16,23 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>contextvars — Context Variables &#8212; Python 3.15.0a5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contextvars — Context Variables &#8212; Python 3.15.0a6 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
+    <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=5c84159f"></script>
+    <script src="../_static/documentation_options.js?v=6b7c9ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
     
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a5 documentation"
+          title="Search within Python 3.15.0a6 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -161,7 +163,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -220,7 +222,7 @@ bleeding to other code unexpectedly, when used in concurrent code.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">ContextVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><span class="pre">ContextVar</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">ContextVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><span class="pre">ContextVar</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L12">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L12">typeshed</a>)</p>
 <p>This class is used to declare a new Context Variable, e.g.:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">:</span> <span class="n">ContextVar</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ContextVar</span><span class="p">(</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
@@ -237,7 +239,7 @@ from being properly garbage collected.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="contextvars.ContextVar.name">
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">name[_T](self:</span> <span class="pre">contextvars.ContextVar[_T])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></em><a class="headerlink" href="#contextvars.ContextVar.name" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L19">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L19">typeshed</a>)</p>
 <p>The name of the variable.  This is a read-only property.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.1.</span></p>
@@ -253,7 +255,7 @@ from being properly garbage collected.</p>
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_T</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T</span></span></span></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_D</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_D</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_T</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L21">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L21">typeshed</a>)</p>
 <p>Return a value for the context variable for the current context.</p>
 <p>If there is no value for the variable in the current context,
 the method will:</p>
@@ -271,7 +273,7 @@ if it was created with one; or</p></li>
 <span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.ContextVar.set" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_T</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextvars.Token" title="contextvars.Token"><span class="pre">Token</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L26">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L26">typeshed</a>)</p>
 <p>Call to set a new value for the context variable in the current
 context.</p>
 <p>The required <em>value</em> argument is the new value for the context
@@ -311,7 +313,7 @@ to avoid calling <a class="reference internal" href="#contextvars.ContextVar.res
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.ContextVar.reset" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#contextvars.Token" title="contextvars.Token"><span class="pre">Token</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L27">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L27">typeshed</a>)</p>
 <p>Reset the context variable to the value it had before the
 <a class="reference internal" href="#contextvars.ContextVar.set" title="contextvars.ContextVar.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ContextVar.set()</span></code></a> that created the <em>token</em> was used.</p>
 <p>For example:</p>
@@ -335,7 +337,7 @@ to avoid calling <a class="reference internal" href="#contextvars.ContextVar.res
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">Token</span></span><a class="headerlink" href="#contextvars.Token" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">Token</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextvars.Token" title="contextvars.Token"><span class="pre">Token</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L31">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L31">typeshed</a>)</p>
 <p><em>Token</em> objects are returned by the <a class="reference internal" href="#contextvars.ContextVar.set" title="contextvars.ContextVar.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ContextVar.set()</span></code></a> method.
 They can be passed to the <a class="reference internal" href="#contextvars.ContextVar.reset" title="contextvars.ContextVar.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ContextVar.reset()</span></code></a> method to revert
 the value of the variable to what it was before the corresponding
@@ -348,7 +350,7 @@ to automatically reset context variables. See <a class="reference internal" href
 <dl class="py attribute">
 <dt class="sig sig-object py" id="contextvars.Token.var">
 <span class="sig-name descname"><span class="pre">var</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">var[_T](self:</span> <span class="pre">contextvars.Token[_T])</span> <span class="pre">-&gt;</span> <span class="pre">contextvars.ContextVar[_T]</span></em><a class="headerlink" href="#contextvars.Token.var" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L33">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L33">typeshed</a>)</p>
 <p>A read-only property.  Points to the <a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextVar</span></code></a> object
 that created the token.</p>
 </dd></dl>
@@ -356,7 +358,7 @@ that created the token.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="contextvars.Token.old_value">
 <span class="sig-name descname"><span class="pre">old_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">old_value[_T](self:</span> <span class="pre">contextvars.Token[_T])</span> <span class="pre">-&gt;</span> <span class="pre">typing.Any</span></em><a class="headerlink" href="#contextvars.Token.old_value" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L35">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L35">typeshed</a>)</p>
 <p>A read-only property.  Set to the value the variable had before
 the <a class="reference internal" href="#contextvars.ContextVar.set" title="contextvars.ContextVar.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ContextVar.set()</span></code></a> method call that created the token.
 It points to <a class="reference internal" href="#contextvars.Token.MISSING" title="contextvars.Token.MISSING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Token.MISSING</span></code></a> if the variable was not set
@@ -366,7 +368,7 @@ before the call.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="contextvars.Token.MISSING">
 <span class="sig-name descname"><span class="pre">MISSING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#object" title="object"><span class="pre">object</span></a></em><a class="headerlink" href="#contextvars.Token.MISSING" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L36">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L36">typeshed</a>)</p>
 <p>A marker object used by <a class="reference internal" href="#contextvars.Token.old_value" title="contextvars.Token.old_value"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Token.old_value</span></code></a>.</p>
 </dd></dl>
 
@@ -380,7 +382,7 @@ before the call.</p>
 <span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">copy_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.copy_context" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">copy_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextvars.Context" title="contextvars.Context"><span class="pre">Context</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L45">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L45">typeshed</a>)</p>
 <p>Returns a copy of the current <a class="reference internal" href="#contextvars.Context" title="contextvars.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> object.</p>
 <p>The following snippet gets a copy of the current context and prints
 all variables and their values that are set in it:</p>
@@ -398,7 +400,7 @@ a lot of them.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">Context</span></span><a class="headerlink" href="#contextvars.Context" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextvars.</span></span><span class="sig-name descname"><span class="pre">Context</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextvars.Context" title="contextvars.Context"><span class="pre">Context</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L50">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L50">typeshed</a>)</p>
 <p>A mapping of <a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextVars</span></code></a> to their values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Context()</span></code> creates an empty context with no values in it.
 To get a copy of the current context use the
@@ -432,7 +434,7 @@ context).</p>
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.Context.run" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contextvars.Context,</span> <span class="pre">collections.abc.Callable[[typing.ParamSpec(_P)],</span> <span class="pre">_T],</span> <span class="pre">typing.ParamSpec(_P)</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L58">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L58">typeshed</a>)</p>
 <p>Enters the Context, executes <code class="docutils literal notranslate"><span class="pre">callable(*args,</span> <span class="pre">**kwargs)</span></code>, then exits the
 Context.  Returns <em>callable</em>’s return value, or propagates an exception if
 one occurred.</p>
@@ -476,7 +478,7 @@ one occurred.</p>
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.Context.copy" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextvars.Context" title="contextvars.Context"><span class="pre">Context</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L59">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L59">typeshed</a>)</p>
 <p>Return a shallow copy of the context object.</p>
 </dd></dl>
 
@@ -504,7 +506,7 @@ If the variable is not set in the context object, a
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><span class="pre">ContextVar</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_T</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T</span></span></span></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><span class="pre">ContextVar</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_D</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_D</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_T</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/_contextvars.pyi#L53">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/_contextvars.pyi#L53">typeshed</a>)</p>
 <p>Return the value for <em>var</em> if <em>var</em> has the value in the context
 object.  Return <em>default</em> otherwise.  If <em>default</em> is not given,
 return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
@@ -528,7 +530,7 @@ object.</p>
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.Context.keys" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.KeysView" title="collections.abc.KeysView"><span class="pre">KeysView</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><span class="pre">ContextVar</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/typing.pyi#L786">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/typing.pyi#L786">typeshed</a>)</p>
 <p>Return a list of all variables in the context object.</p>
 </dd></dl>
 
@@ -537,7 +539,7 @@ object.</p>
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.Context.values" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.ValuesView" title="collections.abc.ValuesView"><span class="pre">ValuesView</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/typing.pyi#L787">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/typing.pyi#L787">typeshed</a>)</p>
 <p>Return a list of all variables’ values in the context object.</p>
 </dd></dl>
 
@@ -546,7 +548,7 @@ object.</p>
 <span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextvars.Context.items" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.ItemsView" title="collections.abc.ItemsView"><span class="pre">ItemsView</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#contextvars.ContextVar" title="contextvars.ContextVar"><span class="pre">ContextVar</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/c492f44/stdlib/typing.pyi#L785">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/601dc5f/stdlib/typing.pyi#L785">typeshed</a>)</p>
 <p>Return a list of 2-tuples containing all variables and their
 values in the context object.</p>
 </dd></dl>
@@ -683,7 +685,7 @@ client:</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>

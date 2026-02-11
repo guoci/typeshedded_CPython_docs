@@ -16,21 +16,23 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>profiling — Python profilers &#8212; Python 3.15.0a5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profiling — Python profilers &#8212; Python 3.15.0a6 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
+    <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=5c84159f"></script>
+    <script src="../_static/documentation_options.js?v=6b7c9ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
     
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a5 documentation"
+          title="Search within Python 3.15.0a6 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -171,7 +173,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -207,7 +209,7 @@
           <div class="body" role="main">
             
   <section id="module-profiling">
-<span id="profiling-python-profilers"></span><span id="profiling-module"></span><h1><a class="reference internal" href="#module-profiling" title="profiling: Python profiling tools for performance analysis."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a> — Python profilers<a class="headerlink" href="#module-profiling" title="Link to this heading">¶</a></h1>
+<span id="profiling-python-profilers"></span><span id="profiling-module"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code> — Python profilers<a class="headerlink" href="#module-profiling" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
@@ -220,7 +222,7 @@ long various parts of a program execute. These statistics help identify
 performance bottlenecks and guide optimization efforts. Python provides two
 fundamentally different approaches to collecting this information: statistical
 sampling and deterministic tracing.</p>
-<p>The <a class="reference internal" href="#module-profiling" title="profiling: Python profiling tools for performance analysis."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code></a> package organizes Python’s built-in profiling tools under
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling</span></code> package organizes Python’s built-in profiling tools under
 a single namespace. It contains two submodules, each implementing a different
 profiling methodology:</p>
 <dl class="simple">
@@ -248,7 +250,7 @@ Python code but not for C-level functions, which can skew comparisons.</p>
 <span id="id1"></span><h2>Choosing a profiler<a class="headerlink" href="#choosing-a-profiler" title="Link to this heading">¶</a></h2>
 <p>For most performance analysis, use the statistical profiler
 (<a class="reference internal" href="profiling.sampling.html#module-profiling.sampling" title="profiling.sampling: Statistical sampling profiler for Python processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code></a>). It has minimal overhead, works for both development
-and production, and provides rich visualization options including flamegraphs,
+and production, and provides rich visualization options including flame graphs,
 heatmaps, GIL analysis, and more.</p>
 <p>Use the deterministic profiler (<a class="reference internal" href="profiling.tracing.html#module-profiling.tracing" title="profiling.tracing: Deterministic tracing profiler for Python programs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.tracing</span></code></a>) when you need <strong>exact
 call counts</strong> and cannot afford to miss any function calls. Since it instruments
@@ -274,7 +276,7 @@ complete between sampling intervals. The tradeoff is higher overhead.</p>
 <td><p>Exact call counts</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Output formats</strong></p></td>
-<td><p>pstats, flamegraph, heatmap,
+<td><p>pstats, flame graph, heatmap,
 gecko, collapsed</p></td>
 <td><p>pstats</p></td>
 </tr>
@@ -302,7 +304,7 @@ performance analysis tasks. Use it the same way you would use
 </div>
 <p>One of the main strengths of the sampling profiler is its variety of output
 formats. Beyond traditional pstats tables, it can generate interactive
-flamegraphs that visualize call hierarchies, line-level source heatmaps that
+flame graphs that visualize call hierarchies, line-level source heatmaps that
 show exactly where time is spent in your code, and Firefox Profiler output for
 timeline-based analysis.</p>
 <p>The profiler also provides insight into Python interpreter behavior that
@@ -346,7 +348,7 @@ python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span 
 </pre></div>
 </div>
 <p>This runs the script under the profiler and prints a summary of where time was
-spent. For an interactive flamegraph:</p>
+spent. For an interactive flame graph:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>profiling.sampling<span class="w"> </span>run<span class="w"> </span>--flamegraph<span class="w"> </span>script.py
 </pre></div>
 </div>
@@ -380,7 +382,7 @@ exact function call counts and timing.</p>
 <span id="profile-output"></span><h2>Understanding profile output<a class="headerlink" href="#understanding-profile-output" title="Link to this heading">¶</a></h2>
 <p>Both profilers collect function-level statistics, though they present them in
 different formats. The sampling profiler offers multiple visualizations
-(flamegraphs, heatmaps, Firefox Profiler, pstats tables), while the
+(flame graphs, heatmaps, Firefox Profiler, pstats tables), while the
 deterministic profiler produces pstats-compatible output. Regardless of format,
 the underlying concepts are the same.</p>
 <p>Key profiling concepts:</p>
@@ -403,7 +405,7 @@ the initial entry. Displayed as <code class="docutils literal notranslate"><span
 means three total calls, one primitive).</p>
 </dd>
 <dt><strong>Caller/Callee relationships</strong></dt><dd><p>Which functions called a given function (callers) and which functions it
-called (callees). Flamegraphs visualize this as nested rectangles; pstats
+called (callees). Flame graphs visualize this as nested rectangles; pstats
 can display it via the <a class="reference internal" href="pstats.html#pstats.Stats.print_callers" title="pstats.Stats.print_callers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">print_callers()</span></code></a> and
 <a class="reference internal" href="pstats.html#pstats.Stats.print_callees" title="pstats.Stats.print_callees"><code class="xref py py-meth docutils literal notranslate"><span class="pre">print_callees()</span></code></a> methods.</p>
 </dd>
@@ -422,7 +424,7 @@ instead. See <a class="reference internal" href="profile.html#module-profile" ti
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="profiling.sampling.html#module-profiling.sampling" title="profiling.sampling: Statistical sampling profiler for Python processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code></a></dt><dd><p>Statistical sampling profiler with flamegraphs, heatmaps, and GIL analysis.
+<dt><a class="reference internal" href="profiling.sampling.html#module-profiling.sampling" title="profiling.sampling: Statistical sampling profiler for Python processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.sampling</span></code></a></dt><dd><p>Statistical sampling profiler with flame graphs, heatmaps, and GIL analysis.
 Recommended for most users.</p>
 </dd>
 <dt><a class="reference internal" href="profiling.tracing.html#module-profiling.tracing" title="profiling.tracing: Deterministic tracing profiler for Python programs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">profiling.tracing</span></code></a></dt><dd><p>Deterministic tracing profiler for exact call counts.</p>
@@ -528,7 +530,7 @@ Recommended for most users.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a5 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>

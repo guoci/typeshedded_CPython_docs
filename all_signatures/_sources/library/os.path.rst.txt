@@ -58,7 +58,7 @@ the :mod:`glob` module.)
               abspath(path: os.PathLike[AnyStr]) -> AnyStr
               abspath(path: AnyStr) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L85>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L85>`__)
 
    Return a normalized absolutized version of the pathname *path*. On most
    platforms, this is equivalent to calling ``normpath(join(os.getcwd(), path))``.
@@ -73,7 +73,7 @@ the :mod:`glob` module.)
               basename(p: os.PathLike[AnyStr]) -> AnyStr
               basename(p: AnyOrLiteralStr) -> AnyOrLiteralStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L89>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L89>`__)
 
    Return the base name of pathname *path*.  This is the second element of the
    pair returned by passing *path* to the function :func:`split`.  Note that
@@ -91,7 +91,7 @@ the :mod:`glob` module.)
               commonpath(paths: collections.abc.Iterable[StrPath]) -> str
               commonpath(paths: collections.abc.Iterable[BytesPath]) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L113>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L113>`__)
 
    Return the longest common sub-path of each pathname in the iterable
    *paths*.  Raise :exc:`ValueError` if *paths* contain both absolute
@@ -115,7 +115,7 @@ the :mod:`glob` module.)
               commonprefix(m: collections.abc.Sequence[list[SupportsRichComparisonT]]) -> collections.abc.Sequence[SupportsRichComparisonT]
               commonprefix(m: collections.abc.Sequence[tuple[SupportsRichComparisonT, ...]]) -> collections.abc.Sequence[SupportsRichComparisonT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L31>`__)
 
    Return the longest string prefix (taken character-by-character) that is a
    prefix of all strings in *list*.  If *list* is empty, return the empty string
@@ -140,7 +140,7 @@ the :mod:`glob` module.)
    .. versionchanged:: 3.6
       Accepts a :term:`path-like object`.
 
-   .. deprecated:: next
+   .. deprecated:: 3.15
       Deprecated in favor of :func:`os.path.commonpath` for path prefixes.
       The :func:`os.path.commonprefix` function is being deprecated due to
       having a misleading name and module. The function is not safe to use for
@@ -153,7 +153,7 @@ the :mod:`glob` module.)
               dirname(p: os.PathLike[AnyStr]) -> AnyStr
               dirname(p: AnyOrLiteralStr) -> AnyOrLiteralStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L93>`__)
 
    Return the directory name of pathname *path*.  This is the first element of
    the pair returned by passing *path* to the function :func:`split`.
@@ -165,7 +165,7 @@ the :mod:`glob` module.)
 .. function:: exists(path)
               exists(path: FileDescriptorOrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L40>`__)
 
    Return ``True`` if *path* refers to an existing path or an open
    file descriptor.  Returns ``False`` for broken symbolic links.  On
@@ -184,7 +184,7 @@ the :mod:`glob` module.)
 .. function:: lexists(path)
               lexists(path: FileDescriptorOrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L153>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L153>`__)
 
    Return ``True`` if *path* refers to an existing path, including
    broken symbolic links.   Equivalent to :func:`exists` on platforms lacking
@@ -200,7 +200,7 @@ the :mod:`glob` module.)
               expanduser(path: os.PathLike[AnyStr]) -> AnyStr
               expanduser(path: AnyStr) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L97>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L97>`__)
 
    On Unix and Windows, return the argument with an initial component of ``~`` or
    ``~user`` replaced by that *user*'s home directory.
@@ -234,7 +234,7 @@ the :mod:`glob` module.)
               expandvars(path: os.PathLike[AnyStr]) -> AnyStr
               expandvars(path: AnyStr) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L101>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L101>`__)
 
    Return the argument with environment variables expanded.  Substrings of the form
    ``$name`` or ``${name}`` are replaced by the value of environment variable
@@ -251,7 +251,7 @@ the :mod:`glob` module.)
 .. function:: getatime(path, /)
               getatime(filename: FileDescriptorOrPath) -> float
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L50>`__)
 
    Return the time of last access of *path*.  The return value is a floating-point number giving
    the number of seconds since the epoch (see the  :mod:`time` module).  Raise
@@ -261,7 +261,7 @@ the :mod:`glob` module.)
 .. function:: getmtime(path, /)
               getmtime(filename: FileDescriptorOrPath) -> float
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L51>`__)
 
    Return the time of last modification of *path*.  The return value is a floating-point number
    giving the number of seconds since the epoch (see the  :mod:`time` module).
@@ -274,7 +274,7 @@ the :mod:`glob` module.)
 .. function:: getctime(path, /)
               getctime(filename: FileDescriptorOrPath) -> float
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L52>`__)
 
    Return the system's ctime which, on some systems (like Unix) is the time of the
    last metadata change, and, on others (like Windows), is the creation time for *path*.
@@ -289,7 +289,7 @@ the :mod:`glob` module.)
 .. function:: getsize(path, /)
               getsize(filename: FileDescriptorOrPath) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L41>`__)
 
    Return the size, in bytes, of *path*.  Raise :exc:`OSError` if the file does
    not exist or is inaccessible.
@@ -301,7 +301,7 @@ the :mod:`glob` module.)
 .. function:: isabs(path, /)
               isabs(s: StrOrBytesPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L150>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L150>`__)
 
    Return ``True`` if *path* is an absolute pathname.  On Unix, that means it
    begins with a slash, on Windows that it begins with two (back)slashes, or a
@@ -320,7 +320,7 @@ the :mod:`glob` module.)
 .. function:: isfile(path)
               isfile(path: FileDescriptorOrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L42>`__)
 
    Return ``True`` if *path* is an :func:`existing <exists>` regular file.
    This follows symbolic links, so both :func:`islink` and :func:`isfile` can
@@ -333,7 +333,7 @@ the :mod:`glob` module.)
 .. function:: isdir(path, /)
               isdir(s: FileDescriptorOrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L43>`__)
 
    Return ``True`` if *path* is an :func:`existing <exists>` directory.  This
    follows symbolic links, so both :func:`islink` and :func:`isdir` can be true
@@ -346,7 +346,7 @@ the :mod:`glob` module.)
 .. function:: isjunction(path)
               isjunction(path: StrOrBytesPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L156>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L156>`__)
 
    Return ``True`` if *path* refers to an :func:`existing <lexists>` directory
    entry that is a junction.  Always return ``False`` if junctions are not
@@ -358,7 +358,7 @@ the :mod:`glob` module.)
 .. function:: islink(path)
               islink(path: FileDescriptorOrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L151>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L151>`__)
 
    Return ``True`` if *path* refers to an :func:`existing <exists>` directory
    entry that is a symbolic link.  Always ``False`` if symbolic links are not
@@ -371,7 +371,7 @@ the :mod:`glob` module.)
 .. function:: ismount(path)
               ismount(path: FileDescriptorOrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L152>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L152>`__)
 
    Return ``True`` if pathname *path* is a :dfn:`mount point`: a point in a
    file system where a different file system has been mounted.  On POSIX, the
@@ -394,7 +394,7 @@ the :mod:`glob` module.)
 .. function:: isdevdrive(path)
               isdevdrive(path: StrOrBytesPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L59>`__)
 
    Return ``True`` if pathname *path* is located on a Windows Dev Drive.
    A Dev Drive is optimized for developer scenarios, and offers faster
@@ -440,7 +440,7 @@ the :mod:`glob` module.)
               join(a: StrPath, /, *paths: StrPath) -> str
               join(a: BytesPath, /, *paths: BytesPath) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L123>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L123>`__)
 
    Join one or more path segments intelligently.  The return value is the
    concatenation of *path* and all members of *\*paths*, with exactly one
@@ -479,7 +479,7 @@ the :mod:`glob` module.)
               normcase(s: os.PathLike[AnyStr]) -> AnyStr
               normcase(s: AnyOrLiteralStr) -> AnyOrLiteralStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L105>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L105>`__)
 
    Normalize the case of a pathname.  On Windows, convert all characters in the
    pathname to lowercase, and also convert forward slashes to backward slashes.
@@ -493,7 +493,7 @@ the :mod:`glob` module.)
               normpath(path: os.PathLike[AnyStr]) -> AnyStr
               normpath(path: AnyOrLiteralStr) -> AnyOrLiteralStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L109>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L109>`__)
 
    Normalize a pathname by collapsing redundant separators and up-level
    references so that ``A//B``, ``A/B/``, ``A/./B`` and ``A/foo/../B`` all
@@ -517,7 +517,7 @@ the :mod:`glob` module.)
               realpath(filename: os.PathLike[AnyStr], *, strict: genericpath._AllowMissingType | bool = False) -> AnyStr
               realpath(filename: AnyStr, *, strict: genericpath._AllowMissingType | bool = False) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L129>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L129>`__)
 
    Return the canonical path of the specified filename, eliminating any symbolic
    links encountered in the path (if they are supported by the operating
@@ -577,7 +577,7 @@ the :mod:`glob` module.)
 .. data:: ALLOW_MISSING
    :type: genericpath._AllowMissingType
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L64>`__)
 
    Special value used for the *strict* argument in :func:`realpath`.
 
@@ -589,7 +589,7 @@ the :mod:`glob` module.)
               relpath(path: BytesPath, start: os.PathLike[bytes] | bytes | None = None) -> bytes
               relpath(path: StrPath, start: os.PathLike[str] | str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L133>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L133>`__)
 
    Return a relative filepath to *path* either from the current directory or
    from an optional *start* directory.  This is a path computation:  the
@@ -606,7 +606,7 @@ the :mod:`glob` module.)
 .. function:: samefile(path1, path2, /)
               samefile(f1: FileDescriptorOrPath, f2: FileDescriptorOrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L53>`__)
 
    Return ``True`` if both pathname arguments refer to the same file or directory.
    This is determined by the device number and i-node number and raises an
@@ -625,7 +625,7 @@ the :mod:`glob` module.)
 .. function:: sameopenfile(fp1, fp2)
               sameopenfile(fp1: int, fp2: int) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L54>`__)
 
    Return ``True`` if the file descriptors *fp1* and *fp2* refer to the same file.
 
@@ -639,7 +639,7 @@ the :mod:`glob` module.)
 .. function:: samestat(stat1, stat2, /)
               samestat(s1: os.stat_result, s2: os.stat_result) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/genericpath.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/genericpath.pyi#L55>`__)
 
    Return ``True`` if the stat tuples *stat1* and *stat2* refer to the same file.
    These structures may have been returned by :func:`os.fstat`,
@@ -654,7 +654,7 @@ the :mod:`glob` module.)
               split(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
               split(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L139>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L139>`__)
 
    Split the pathname *path* into a pair, ``(head, tail)`` where *tail* is the
    last pathname component and *head* is everything leading up to that.  The
@@ -674,7 +674,7 @@ the :mod:`glob` module.)
               splitdrive(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
               splitdrive(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L143>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L143>`__)
 
    Split the pathname *path* into a pair ``(drive, tail)`` where *drive* is either
    a mount point or the empty string.  On systems which do not use drive
@@ -703,7 +703,7 @@ the :mod:`glob` module.)
               splitroot(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr, AnyOrLiteralStr]
               splitroot(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr, AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L158>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L158>`__)
 
    Split the pathname *path* into a 3-item tuple ``(drive, root, tail)`` where
    *drive* is a device name or mount point, *root* is a string of separators
@@ -740,7 +740,7 @@ the :mod:`glob` module.)
               splitext(p: os.PathLike[AnyStr]) -> tuple[AnyStr, AnyStr]
               splitext(p: AnyOrLiteralStr) -> tuple[AnyOrLiteralStr, AnyOrLiteralStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L147>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L147>`__)
 
    Split the pathname *path* into a pair ``(root, ext)``  such that ``root + ext ==
    path``, and the extension, *ext*, is empty or begins with a period and contains at
@@ -774,7 +774,7 @@ the :mod:`glob` module.)
 .. data:: supports_unicode_filenames
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/c492f44/stdlib/posixpath.pyi#L72>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/posixpath.pyi#L72>`__)
 
    ``True`` if arbitrary Unicode strings can be used as file names (within limitations
    imposed by the file system).
