@@ -37,7 +37,7 @@ Notice that on Windows, it's a much smaller set.
               get_config_vars() -> dict[str, typing.Any]
               get_config_vars(arg: str, /, *args: str) -> list[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L25>`__)
 
    With no arguments, return a dictionary of all configuration variables
    relevant for the current platform.
@@ -52,7 +52,7 @@ Notice that on Windows, it's a much smaller set.
               get_config_var(name: typing.Literal['SO']) -> typing.Any
               get_config_var(name: str) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L21>`__)
 
    Return the value of a single variable *name*. Equivalent to
    ``get_config_vars().get(name)``.
@@ -271,7 +271,7 @@ Installation path functions
 .. function:: get_scheme_names()
               get_scheme_names() -> tuple[str, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L28>`__)
 
    Return a tuple containing all schemes currently supported in
    :mod:`!sysconfig`.
@@ -280,7 +280,7 @@ Installation path functions
 .. function:: get_default_scheme()
               get_default_scheme() -> typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L31>`__)
 
    Return the default scheme name for the current platform.
 
@@ -295,7 +295,7 @@ Installation path functions
 .. function:: get_preferred_scheme(key)
               get_preferred_scheme(key: typing.Literal['home', 'prefix', 'user']) -> typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L32>`__)
 
    Return a preferred scheme name for an installation layout specified by *key*.
 
@@ -315,7 +315,7 @@ Installation path functions
 .. function:: _get_preferred_schemes()
               _get_preferred_schemes() -> dict[typing.Literal['home', 'prefix', 'user'], typing.LiteralString]
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L34>`__)
 
    Return a dict containing preferred scheme names on the current platform.
    Python implementers and redistributors may add their preferred schemes to
@@ -333,7 +333,7 @@ Installation path functions
 .. function:: get_path_names()
               get_path_names() -> tuple[str, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L36>`__)
 
    Return a tuple containing all path names currently supported in
    :mod:`!sysconfig`.
@@ -342,7 +342,7 @@ Installation path functions
 .. function:: get_path(name, [scheme, [vars, [expand]]])
               get_path(name: str, scheme: str = ..., vars: dict[str, typing.Any] | None = None, expand: bool = True) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L37>`__)
 
    Return an installation path corresponding to the path *name*, from the
    install scheme named *scheme*.
@@ -373,7 +373,7 @@ Installation path functions
 .. function:: get_paths([scheme, [vars, [expand]]])
               get_paths(scheme: str = ..., vars: dict[str, typing.Any] | None = None, expand: bool = True) -> dict[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L38>`__)
 
    Return a dictionary containing all installation paths corresponding to an
    installation scheme. See :func:`get_path` for more information.
@@ -396,7 +396,7 @@ Other functions
 .. function:: get_python_version()
               get_python_version() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L39>`__)
 
    Return the ``MAJOR.MINOR`` Python version number as a string.  Similar to
    ``'%d.%d' % sys.version_info[:2]``.
@@ -405,7 +405,7 @@ Other functions
 .. function:: get_platform()
               get_platform() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L40>`__)
 
    Return a string that identifies the current platform.
 
@@ -441,7 +441,7 @@ Other functions
               is_python_build() -> bool
               is_python_build(check_home: object = None) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L44>`__)
 
    Return ``True`` if the running Python interpreter was built from source and
    is being run from its built location, and not from a location resulting from
@@ -451,7 +451,7 @@ Other functions
 .. function:: parse_config_h(fp[, vars])
               parse_config_h(fp: typing.IO[typing.Any], vars: dict[str, typing.Any] | None = None) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L55>`__)
 
    Parse a :file:`config.h`\-style file.
 
@@ -465,14 +465,14 @@ Other functions
 .. function:: get_config_h_filename()
               get_config_h_filename() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L56>`__)
 
    Return the path of :file:`pyconfig.h`.
 
 .. function:: get_makefile_filename()
               get_makefile_filename() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/601dc5f/stdlib/sysconfig.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sysconfig.pyi#L57>`__)
 
    Return the path of :file:`Makefile`.
 

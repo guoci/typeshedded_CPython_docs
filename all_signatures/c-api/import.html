@@ -551,6 +551,77 @@ strings instead of Python <a class="reference internal" href="../library/stdtype
 </dd></dl>
 
 <dl class="c function">
+<dt class="sig sig-object c" id="c.PyImport_GetLazyImportsMode">
+<a class="reference internal" href="#c.PyImport_LazyImportsMode" title="PyImport_LazyImportsMode"><span class="n"><span class="pre">PyImport_LazyImportsMode</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_GetLazyImportsMode</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyImport_GetLazyImportsMode" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Gets the current lazy imports mode.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyImport_GetLazyImportsFilter">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_GetLazyImportsFilter</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyImport_GetLazyImportsFilter" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Return a <a class="reference internal" href="../glossary.html#term-strong-reference"><span class="xref std std-term">strong reference</span></a> to the current lazy imports filter,
+or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if none exists. This function always succeeds.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyImport_SetLazyImportsMode">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_SetLazyImportsMode</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyImport_LazyImportsMode" title="PyImport_LazyImportsMode"><span class="n"><span class="pre">PyImport_LazyImportsMode</span></span></a><span class="w"> </span><span class="n"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyImport_SetLazyImportsMode" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Similar to <a class="reference internal" href="#c.PyImport_ImportModuleAttr" title="PyImport_ImportModuleAttr"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyImport_ImportModuleAttr()</span></code></a>, but names are UTF-8 encoded
+strings instead of Python <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> objects.</p>
+<p>This function always returns <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.PyImport_SetLazyImportsFilter">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_SetLazyImportsFilter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">filter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyImport_SetLazyImportsFilter" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Sets the current lazy imports filter. The <em>filter</em> should be a callable that
+will receive <code class="docutils literal notranslate"><span class="pre">(importing_module_name,</span> <span class="pre">imported_module_name,</span> <span class="pre">[fromlist])</span></code>
+when an import can potentially be lazy and that must return <code class="docutils literal notranslate"><span class="pre">True</span></code> if
+the import should be lazy and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success and <code class="docutils literal notranslate"><span class="pre">-1</span></code> with an exception set otherwise.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.PyImport_LazyImportsMode">
+<span class="k"><span class="pre">type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_LazyImportsMode</span></span></span><a class="headerlink" href="#c.PyImport_LazyImportsMode" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Enumeration of possible lazy import modes.</p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.PyImport_LazyImportsMode.PyImport_LAZY_NORMAL">
+<span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_LAZY_NORMAL</span></span></span><a class="headerlink" href="#c.PyImport_LazyImportsMode.PyImport_LAZY_NORMAL" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Respect the <code class="docutils literal notranslate"><span class="pre">lazy</span></code> keyword in source code. This is the default mode.</p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.PyImport_LazyImportsMode.PyImport_LAZY_ALL">
+<span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_LAZY_ALL</span></span></span><a class="headerlink" href="#c.PyImport_LazyImportsMode.PyImport_LAZY_ALL" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Make all imports lazy by default.</p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.PyImport_LazyImportsMode.PyImport_LAZY_NONE">
+<span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_LAZY_NONE</span></span></span><a class="headerlink" href="#c.PyImport_LazyImportsMode.PyImport_LAZY_NONE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Disable lazy imports entirely. Even explicit <code class="docutils literal notranslate"><span class="pre">lazy</span></code> statements become
+eager imports.</p>
+</dd></dl>
+
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+</div>
+</dd></dl>
+
+<dl class="c function">
 <dt class="sig sig-object c" id="c.PyImport_CreateModuleFromInitfunc">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyImport_CreateModuleFromInitfunc</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">spec</span></span>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">initfunc</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyImport_CreateModuleFromInitfunc" title="Link to this definition">¶</a><br /></dt>
 <dd><p>This function is a building block that enables embedders to implement

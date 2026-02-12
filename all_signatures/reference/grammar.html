@@ -301,9 +301,9 @@ Their behavior in these contexts is deliberately left unspecified.</p>
 <span class="nf">simple_stmt</span><span class="p">:</span>
     <span class="o">|</span> <span class="nf">assignment</span>
     <span class="o">|</span> <span class="nf">type_alias</span>
+    <span class="o">|</span> <span class="nf">import_stmt</span>
     <span class="o">|</span> <span class="nf">star_expressions</span> 
     <span class="o">|</span> <span class="nf">return_stmt</span>
-    <span class="o">|</span> <span class="nf">import_stmt</span>
     <span class="o">|</span> <span class="nf">raise_stmt</span>
     <span class="o">|</span> <span class="nf">pass_stmt</span>
     <span class="o">|</span> <span class="nf">del_stmt</span>
@@ -388,11 +388,13 @@ Their behavior in these contexts is deliberately left unspecified.</p>
 <span class="c c-Singleline"># Import statements</span>
 <span class="c c-Singleline"># -----------------</span>
 
-<span class="nf">import_name</span><span class="p">:</span> <span class="k">&#39;import&#39;</span> <span class="nf">dotted_as_names</span> 
+<span class="nf">import_name</span><span class="p">:</span>
+    <span class="o">|</span> <span class="k">&quot;lazy&quot;</span><span class="o">?</span> <span class="k">&#39;import&#39;</span> <span class="nf">dotted_as_names</span> 
+
 <span class="c c-Singleline"># note below: the (&#39;.&#39; | &#39;...&#39;) is necessary because &#39;...&#39; is tokenized as ELLIPSIS</span>
 <span class="nf">import_from</span><span class="p">:</span>
-    <span class="o">|</span> <span class="k">&#39;from&#39;</span> <span class="p">(</span>&#39;.&#39; <span class="o">|</span> &#39;...&#39;<span class="p">)</span><span class="o">*</span> <span class="nf">dotted_name</span> <span class="k">&#39;import&#39;</span> <span class="nf">import_from_targets</span> 
-    <span class="o">|</span> <span class="k">&#39;from&#39;</span> <span class="p">(</span>&#39;.&#39; <span class="o">|</span> &#39;...&#39;<span class="p">)</span><span class="o">+</span> <span class="k">&#39;import&#39;</span> <span class="nf">import_from_targets</span> 
+    <span class="o">|</span> <span class="k">&quot;lazy&quot;</span><span class="o">?</span> <span class="k">&#39;from&#39;</span> <span class="p">(</span>&#39;.&#39; <span class="o">|</span> &#39;...&#39;<span class="p">)</span><span class="o">*</span> <span class="nf">dotted_name</span> <span class="k">&#39;import&#39;</span> <span class="nf">import_from_targets</span> 
+    <span class="o">|</span> <span class="k">&quot;lazy&quot;</span><span class="o">?</span> <span class="k">&#39;from&#39;</span> <span class="p">(</span>&#39;.&#39; <span class="o">|</span> &#39;...&#39;<span class="p">)</span><span class="o">+</span> <span class="k">&#39;import&#39;</span> <span class="nf">import_from_targets</span> 
 <span class="nf">import_from_targets</span><span class="p">:</span>
     <span class="o">|</span> &#39;(&#39; <span class="nf">import_from_as_names</span> <span class="p">[</span>&#39;,&#39;<span class="p">]</span> &#39;)&#39; 
     <span class="o">|</span> <span class="nf">import_from_as_names</span> !&#39;,&#39;

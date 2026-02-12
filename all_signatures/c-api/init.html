@@ -657,7 +657,7 @@ If there were errors during finalization (flushing buffered data),
 <code class="docutils literal notranslate"><span class="pre">-1</span></code> is returned.</p>
 <p>Note that Python will do a best effort at freeing all memory allocated by the Python
 interpreter.  Therefore, any C-Extension should make sure to correctly clean up all
-of the preveiously allocated PyObjects before using them in subsequent calls to
+of the previously allocated PyObjects before using them in subsequent calls to
 <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>.  Otherwise it could introduce vulnerabilities and incorrect
 behavior.</p>
 <p>This function is provided for a number of reasons.  An embedding application
@@ -1600,7 +1600,7 @@ of a Python thread state to the operating system defaults.</p>
 <dt class="sig sig-object c" id="c.PyInterpreterState_Get">
 <a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState"><span class="n"><span class="pre">PyInterpreterState</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyInterpreterState_Get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyInterpreterState_Get" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.9.</em><p>Get the current interpreter.</p>
-<p>Issue a fatal error if there no <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>.
+<p>Issue a fatal error if there is no <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>.
 It cannot return NULL.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.9.</span></p>
@@ -2162,7 +2162,7 @@ exception has been raised.  The callback function is called with this value for
 <em>what</em> when after any bytecode is processed after which the exception becomes
 set within the frame being executed.  The effect of this is that as exception
 propagation causes the Python stack to unwind, the callback is called upon
-return to each frame as the exception propagates.  Only trace functions receives
+return to each frame as the exception propagates.  Only trace functions receive
 these events; they are not needed by the profiler.</p>
 </dd></dl>
 
@@ -2319,7 +2319,7 @@ Python has been created or when an object is going to be destroyed. If
 <strong>data</strong> is provided it must be an opaque pointer that will be provided when
 the tracer function is called. Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success. Set an exception and
 return <code class="docutils literal notranslate"><span class="pre">-1</span></code> on error.</p>
-<p>Not that tracer functions <strong>must not</strong> create Python objects inside or
+<p>Note that tracer functions <strong>must not</strong> create Python objects inside or
 otherwise the call will be re-entrant. The tracer also <strong>must not</strong> clear
 any existing exception or set an exception.  A <a class="reference internal" href="../glossary.html#term-thread-state"><span class="xref std std-term">thread state</span></a> will be active
 every time the tracer function is called.</p>
