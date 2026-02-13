@@ -254,6 +254,11 @@ even if the signal was received in another thread.  This means that signals
 can’t be used as a means of inter-thread communication.  You can use
 the synchronization primitives from the <a class="reference internal" href="threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> module instead.</p>
 <p>Besides, only the main thread of the main interpreter is allowed to set a new signal handler.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Synchronization primitives such as <a class="reference internal" href="threading.html#threading.Lock" title="threading.Lock"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Lock</span></code></a> should not be used
+within signal handlers.  Doing so can lead to unexpected deadlocks.</p>
+</div>
 </section>
 </section>
 <section id="module-contents">
