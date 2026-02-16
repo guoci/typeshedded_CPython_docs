@@ -52,7 +52,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
                 access=ACCESS_DEFAULT, offset=0, *, trackfd=True)
            mmap(fileno: int, length: int, flags: int = ..., prot: int = ..., access: int = 0, offset: int = 0, *, trackfd: bool = True) -> mmap.mmap
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L35>`__)
 
    **(Windows version)** Maps *length* bytes from the file specified by the
    file descriptor *fileno*, and creates a mmap object.  If *length* is larger
@@ -91,7 +91,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
            mmap(fileno: int, length: int, flags: int = ..., prot: int = ..., access: int = 0, offset: int = 0, *, trackfd: bool = True) -> mmap.mmap
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L35>`__)
 
    **(Unix version)** Maps *length* bytes from the file specified by the file
    descriptor *fileno*, and returns a mmap object.  If *length* is ``0``, the
@@ -196,7 +196,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: close()
                close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L56>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L56>`__)
 
       Closes the mmap. Subsequent calls to other methods of the object will
       result in a ValueError exception being raised. This will not close
@@ -206,7 +206,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. attribute:: closed
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L71>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L71>`__)
 
       ``True`` if the file is closed.
 
@@ -216,7 +216,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: find(sub[, start[, end]])
                find(view: collections.abc.Buffer, start: int = ..., end: int = ..., /) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L75>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L75>`__)
 
       Returns the lowest index in the object where the subsequence *sub* is
       found, such that *sub* is contained in the range [*start*, *end*].
@@ -230,7 +230,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: flush([offset[, size]], *, flags=MS_SYNC)
                flush(offset: int = 0, size: int = ..., /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L57>`__)
 
       Flushes changes made to the in-memory copy of a file back to disk. Without
       use of this call there is no guarantee that changes are written back before
@@ -266,7 +266,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: madvise(option[, start[, length]])
                madvise(option: int, start: int = 0, length: int = ..., /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L73>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L73>`__)
 
       Send advice *option* to the kernel about the memory region beginning at
       *start* and extending *length* bytes.  *option* must be one of the
@@ -283,7 +283,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: move(dest, src, count)
                move(dest: int, src: int, count: int, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L58>`__)
 
       Copy the *count* bytes starting at offset *src* to the destination index
       *dest*.  If the mmap was created with :const:`ACCESS_READ`, then calls to
@@ -293,7 +293,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: read([n])
                read(n: int | None = None, /) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L77>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L77>`__)
 
       Return a :class:`bytes` containing up to *n* bytes starting from the
       current file position. If the argument is omitted, ``None`` or negative,
@@ -307,7 +307,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: read_byte()
                read_byte() -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L59>`__)
 
       Returns a byte at the current file position as an integer, and advances
       the file position by 1.
@@ -316,7 +316,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: readline()
                readline() -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L60>`__)
 
       Returns a single line, starting at the current file position and up to the
       next newline. The file position is updated to point after the bytes that were
@@ -326,7 +326,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: resize(newsize)
                resize(newsize: int, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L61>`__)
 
       Resizes the map and the underlying file, if any.
 
@@ -349,7 +349,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: rfind(sub[, start[, end]])
                rfind(view: collections.abc.Buffer, start: int = ..., end: int = ..., /) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L76>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L76>`__)
 
       Returns the highest index in the object where the subsequence *sub* is
       found, such that *sub* is contained in the range [*start*, *end*].
@@ -363,7 +363,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: seek(pos[, whence])
                seek(pos: int, whence: typing.Literal[0, 1, 2, 3, 4] = 0, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L63>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L63>`__)
 
       Set the file's current position.  *whence* argument is optional and
       defaults to ``os.SEEK_SET`` or ``0`` (absolute file positioning); other
@@ -376,7 +376,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: seekable()
                seekable() -> typing.Literal[True]
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L99>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L99>`__)
 
       Return whether the file supports seeking, and the return value is always ``True``.
 
@@ -396,7 +396,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: size()
                size() -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L67>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L67>`__)
 
       Return the length of the file, which can be larger than the size of the
       memory-mapped area.
@@ -409,7 +409,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: tell()
                tell() -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L68>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L68>`__)
 
       Returns the current position of the file pointer.
 
@@ -417,7 +417,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: write(bytes)
                write(bytes: collections.abc.Buffer, /) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L78>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L78>`__)
 
       Write the bytes in *bytes* into memory at the current position of the
       file pointer and return the number of bytes written (never less than
@@ -436,7 +436,7 @@ To map anonymous memory, -1 should be passed as the fileno along with the length
    .. method:: write_byte(byte)
                write_byte(byte: int, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L69>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L69>`__)
 
       Write the integer *byte* into memory at the current
       position of the file pointer; the file position is advanced by ``1``. If
@@ -473,7 +473,7 @@ MADV_* Constants
           MADV_FREE_REUSABLE
           MADV_FREE_REUSE
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L102>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L102>`__)
 
    These options can be passed to :meth:`mmap.madvise`.  Not every option will
    be present on every system.
@@ -509,7 +509,7 @@ MAP_* Constants
           MAP_TRANSLATED_ALLOW_EXECUTE
           MAP_UNIX03
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/mmap.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/mmap.pyi#L27>`__)
 
     These are the various flags that can be passed to :meth:`mmap.mmap`.  :data:`MAP_ALIGNED_SUPER`
     is only available at FreeBSD and :data:`MAP_CONCEAL` is only available at OpenBSD.  Note

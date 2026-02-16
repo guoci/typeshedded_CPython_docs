@@ -218,6 +218,9 @@ The caller must check if an error occurred via <a class="reference internal" hre
 <p class="admonition-title">Warning</p>
 <p>This is not compatible with subinterpreters.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15: </span>This macro is now thread safe.</p>
+</div>
 </dd></dl>
 
 <dl class="c type">
@@ -233,6 +236,10 @@ The caller must check if an error occurred via <a class="reference internal" hre
 <a class="reference internal" href="#c.PyDateTime_CAPI" title="PyDateTime_CAPI"><span class="n"><span class="pre">PyDateTime_CAPI</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDateTimeAPI</span></span></span><a class="headerlink" href="#c.PyDateTimeAPI" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Dynamically allocated object containing the datetime C API.</p>
 <p>This variable is only available once <a class="reference internal" href="#c.PyDateTime_IMPORT" title="PyDateTime_IMPORT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDateTime_IMPORT</span></code></a> succeeds.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15: </span>This variable should not be accessed directly as direct access is not thread-safe.
+Use <a class="reference internal" href="#c.PyDateTime_IMPORT" title="PyDateTime_IMPORT"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyDateTime_IMPORT()</span></code></a> instead.</p>
+</div>
 </dd></dl>
 
 <dl class="c type">

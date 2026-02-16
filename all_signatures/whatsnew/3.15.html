@@ -140,6 +140,7 @@
 <li><a class="reference internal" href="#os">os</a></li>
 <li><a class="reference internal" href="#os-path">os.path</a></li>
 <li><a class="reference internal" href="#pickle">pickle</a></li>
+<li><a class="reference internal" href="#re">re</a></li>
 <li><a class="reference internal" href="#resource">resource</a></li>
 <li><a class="reference internal" href="#shelve">shelve</a></li>
 <li><a class="reference internal" href="#socket">socket</a></li>
@@ -1004,6 +1005,19 @@ the resulting path can be missing but it will be free of symlinks.
 <ul class="simple">
 <li><p>Add support for pickling private methods and nested classes.
 (Contributed by Zackery Spytz and Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/77188">gh-77188</a>.)</p></li>
+</ul>
+</section>
+<section id="re">
+<h3>re<a class="headerlink" href="#re" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../library/re.html#re.prefixmatch" title="re.prefixmatch"><code class="xref py py-func docutils literal notranslate"><span class="pre">re.prefixmatch()</span></code></a> and a corresponding <a class="reference internal" href="../library/re.html#re.Pattern.prefixmatch" title="re.Pattern.prefixmatch"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prefixmatch()</span></code></a>
+have been added as alternate more explicit names for the existing
+<a class="reference internal" href="../library/re.html#re.match" title="re.match"><code class="xref py py-func docutils literal notranslate"><span class="pre">re.match()</span></code></a> and <a class="reference internal" href="../library/re.html#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code></a> APIs. These are intended
+to be used to alleviate confusion around what <em>match</em> means by following the
+Zen of Python’s <em>“Explicit is better than implicit”</em> mantra. Most other
+language regular expression libraries use an API named <em>match</em> to mean what
+Python has always called <em>search</em>.
+(Contributed by Gregory P. Smith in <a class="reference external" href="https://github.com/python/cpython/issues/86519">gh-86519</a>.)</p></li>
 </ul>
 </section>
 <section id="resource">
@@ -2091,6 +2105,8 @@ It should only be used for debugging.
 the stack protection base address and stack protection size of a Python
 thread state.
 (Contributed by Victor Stinner in <a class="reference external" href="https://github.com/python/cpython/issues/139653">gh-139653</a>.)</p></li>
+<li><p>Add <a class="reference internal" href="../c-api/object.html#c.PyUnstable_SetImmortal" title="PyUnstable_SetImmortal"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_SetImmortal()</span></code></a> C-API function to mark objects as <a class="reference internal" href="../glossary.html#term-immortal"><span class="xref std std-term">immortal</span></a>.
+(Contributed by Kumar Aditya in <a class="reference external" href="https://github.com/python/cpython/issues/143300">gh-143300</a>.)</p></li>
 </ul>
 </section>
 <section id="changed-c-apis">
@@ -2099,6 +2115,9 @@ thread state.
 <li><p>If the <a class="reference internal" href="../c-api/typeobj.html#c.Py_TPFLAGS_MANAGED_DICT" title="Py_TPFLAGS_MANAGED_DICT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_MANAGED_DICT</span></code></a> or <a class="reference internal" href="../c-api/typeobj.html#c.Py_TPFLAGS_MANAGED_WEAKREF" title="Py_TPFLAGS_MANAGED_WEAKREF"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_MANAGED_WEAKREF</span></code></a>
 flag is set then <a class="reference internal" href="../c-api/typeobj.html#c.Py_TPFLAGS_HAVE_GC" title="Py_TPFLAGS_HAVE_GC"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_GC</span></code></a> must be set too.
 (Contributed by Sergey Miryanov in <a class="reference external" href="https://github.com/python/cpython/issues/134786">gh-134786</a>.)</p></li>
+<li><p><a class="reference internal" href="../c-api/datetime.html#c.PyDateTime_IMPORT" title="PyDateTime_IMPORT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDateTime_IMPORT</span></code></a> is now thread safe. Code that directly checks <code class="docutils literal notranslate"><span class="pre">PyDateTimeAPI</span></code>
+for <code class="docutils literal notranslate"><span class="pre">NULL</span></code> should be updated to call <a class="reference internal" href="../c-api/datetime.html#c.PyDateTime_IMPORT" title="PyDateTime_IMPORT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDateTime_IMPORT</span></code></a> instead.
+(Contributed by Kumar Aditya in <a class="reference external" href="https://github.com/python/cpython/issues/141563">gh-141563</a>.)</p></li>
 </ul>
 </section>
 <section id="porting-to-python-3-15">
@@ -2328,6 +2347,7 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
 <li><a class="reference internal" href="#os">os</a></li>
 <li><a class="reference internal" href="#os-path">os.path</a></li>
 <li><a class="reference internal" href="#pickle">pickle</a></li>
+<li><a class="reference internal" href="#re">re</a></li>
 <li><a class="reference internal" href="#resource">resource</a></li>
 <li><a class="reference internal" href="#shelve">shelve</a></li>
 <li><a class="reference internal" href="#socket">socket</a></li>

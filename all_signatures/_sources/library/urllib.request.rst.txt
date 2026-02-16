@@ -37,7 +37,7 @@ The :mod:`!urllib.request` module defines the following functions:
 .. function:: urlopen(url, data=None[, timeout], *, context=None)
               urlopen(url: urllib.request.Request | str, data: collections.abc.Buffer | collections.abc.Iterable[bytes] | _typeshed.SupportsRead[bytes] | None = None, timeout: float | None = ..., *, context: ssl.SSLContext | None = None) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L63>`__)
 
    Open *url*, which can be either a string containing a valid, properly
    encoded URL, or a :class:`Request` object.
@@ -123,7 +123,7 @@ The :mod:`!urllib.request` module defines the following functions:
 .. function:: install_opener(opener)
               install_opener(opener: urllib.request.OpenerDirector) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L95>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L95>`__)
 
    Install an :class:`OpenerDirector` instance as the default global opener.
    Installing an opener is only necessary if you want urlopen to use that
@@ -136,7 +136,7 @@ The :mod:`!urllib.request` module defines the following functions:
 .. function:: build_opener([handler, ...])
               build_opener(*handlers: (collections.abc.Callable[[], urllib.request.BaseHandler]) | urllib.request.BaseHandler) -> urllib.request.OpenerDirector
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L96>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L96>`__)
 
    Return an :class:`OpenerDirector` instance, which chains the handlers in the
    order given. *handler*\s can be either instances of :class:`BaseHandler`, or
@@ -158,7 +158,7 @@ The :mod:`!urllib.request` module defines the following functions:
 .. function:: pathname2url(path, *, add_scheme=False)
               pathname2url(pathname: str, *, add_scheme: bool = False) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L100>`__)
 
    Convert the given local path to a ``file:`` URL. This function uses
    :func:`~urllib.parse.quote` function to encode the path.
@@ -190,7 +190,7 @@ The :mod:`!urllib.request` module defines the following functions:
 .. function:: url2pathname(url, *, require_scheme=False, resolve_host=False)
               url2pathname(url: str, *, require_scheme: bool = False, resolve_host: bool = False) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L99>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L99>`__)
 
    Convert the given ``file:`` URL to a local path. This function uses
    :func:`~urllib.parse.unquote` to decode the URL.
@@ -235,7 +235,7 @@ The :mod:`!urllib.request` module defines the following functions:
 .. function:: getproxies()
               getproxies() -> dict[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L109>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L109>`__)
 
    This helper function returns a dictionary of scheme to proxy server URL
    mappings. It scans the environment for variables named ``<scheme>_proxy``,
@@ -261,7 +261,7 @@ The following classes are provided:
 .. class:: Request(url, data=None, headers={}, origin_req_host=None, unverifiable=False, method=None)
            Request(url: str, data: _DataType = None, headers: collections.abc.MutableMapping[str, str] = ..., origin_req_host: str | None = None, unverifiable: bool = False, method: str | None = None) -> urllib.request.Request
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L120>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L120>`__)
 
    This class is an abstraction of a URL request.
 
@@ -346,7 +346,7 @@ The following classes are provided:
 .. class:: OpenerDirector()
            OpenerDirector() -> urllib.request.OpenerDirector
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L160>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L160>`__)
 
    The :class:`OpenerDirector` class opens URLs via :class:`BaseHandler`\ s chained
    together. It manages the chaining of handlers, and recovery from errors.
@@ -355,7 +355,7 @@ The following classes are provided:
 .. class:: BaseHandler()
            BaseHandler() -> urllib.request.BaseHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L167>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L167>`__)
 
    This is the base class for all registered handlers --- and handles only the
    simple mechanics of registration.
@@ -364,7 +364,7 @@ The following classes are provided:
 .. class:: HTTPDefaultErrorHandler()
            HTTPDefaultErrorHandler() -> urllib.request.HTTPDefaultErrorHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L174>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L174>`__)
 
    A class which defines a default handler for HTTP error responses; all responses
    are turned into :exc:`~urllib.error.HTTPError` exceptions.
@@ -373,7 +373,7 @@ The following classes are provided:
 .. class:: HTTPRedirectHandler()
            HTTPRedirectHandler() -> urllib.request.HTTPRedirectHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L179>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L179>`__)
 
    A class to handle redirections.
 
@@ -381,7 +381,7 @@ The following classes are provided:
 .. class:: HTTPCookieProcessor(cookiejar=None)
            HTTPCookieProcessor(cookiejar: http.cookiejar.CookieJar | None = None) -> urllib.request.HTTPCookieProcessor
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L195>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L195>`__)
 
    A class to handle HTTP Cookies.
 
@@ -389,7 +389,7 @@ The following classes are provided:
 .. class:: ProxyHandler(proxies=None)
            ProxyHandler(proxies: dict[str, str] | None = None) -> urllib.request.ProxyHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L203>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L203>`__)
 
    Cause requests to go through a proxy. If *proxies* is given, it must be a
    dictionary mapping protocol names to URLs of proxies. The default is to read
@@ -415,7 +415,7 @@ The following classes are provided:
 .. class:: HTTPPasswordMgr()
            HTTPPasswordMgr() -> urllib.request.HTTPPasswordMgr
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L208>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L208>`__)
 
    Keep a database of  ``(realm, uri) -> (user, password)`` mappings.
 
@@ -423,7 +423,7 @@ The following classes are provided:
 .. class:: HTTPPasswordMgrWithDefaultRealm()
            HTTPPasswordMgrWithDefaultRealm() -> urllib.request.HTTPPasswordMgrWithDefaultRealm
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L214>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L214>`__)
 
    Keep a database of  ``(realm, uri) -> (user, password)`` mappings. A realm of
    ``None`` is considered a catch-all realm, which is searched if no other realm
@@ -433,7 +433,7 @@ The following classes are provided:
 .. class:: HTTPPasswordMgrWithPriorAuth()
            HTTPPasswordMgrWithPriorAuth() -> urllib.request.HTTPPasswordMgrWithPriorAuth
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L218>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L218>`__)
 
    A variant of :class:`HTTPPasswordMgrWithDefaultRealm` that also has a
    database of ``uri -> is_authenticated`` mappings.  Can be used by a
@@ -446,7 +446,7 @@ The following classes are provided:
 .. class:: AbstractBasicAuthHandler(password_mgr=None)
            AbstractBasicAuthHandler(password_mgr: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.AbstractBasicAuthHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L225>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L225>`__)
 
    This is a mixin class that helps with HTTP authentication, both to the remote
    host and to a proxy. *password_mgr*, if given, should be something that is
@@ -472,7 +472,7 @@ The following classes are provided:
 .. class:: HTTPBasicAuthHandler(password_mgr=None)
            HTTPBasicAuthHandler(password_mgr: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.HTTPBasicAuthHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L237>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L237>`__)
 
    Handle authentication with the remote host. *password_mgr*, if given, should
    be something that is compatible with :class:`HTTPPasswordMgr`; refer to
@@ -484,7 +484,7 @@ The following classes are provided:
 .. class:: ProxyBasicAuthHandler(password_mgr=None)
            ProxyBasicAuthHandler(password_mgr: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.ProxyBasicAuthHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L241>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L241>`__)
 
    Handle authentication with the proxy. *password_mgr*, if given, should be
    something that is compatible with :class:`HTTPPasswordMgr`; refer to section
@@ -495,7 +495,7 @@ The following classes are provided:
 .. class:: AbstractDigestAuthHandler(password_mgr=None)
            AbstractDigestAuthHandler(passwd: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.AbstractDigestAuthHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L245>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L245>`__)
 
    This is a mixin class that helps with HTTP authentication, both to the remote
    host and to a proxy. *password_mgr*, if given, should be something that is
@@ -510,7 +510,7 @@ The following classes are provided:
 .. class:: HTTPDigestAuthHandler(password_mgr=None)
            HTTPDigestAuthHandler(passwd: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.HTTPDigestAuthHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L255>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L255>`__)
 
    Handle authentication with the remote host. *password_mgr*, if given, should
    be something that is compatible with :class:`HTTPPasswordMgr`; refer to
@@ -530,7 +530,7 @@ The following classes are provided:
 .. class:: ProxyDigestAuthHandler(password_mgr=None)
            ProxyDigestAuthHandler(passwd: urllib.request.HTTPPasswordMgr | None = None) -> urllib.request.ProxyDigestAuthHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L259>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L259>`__)
 
    Handle authentication with the proxy. *password_mgr*, if given, should be
    something that is compatible with :class:`HTTPPasswordMgr`; refer to section
@@ -541,7 +541,7 @@ The following classes are provided:
 .. class:: HTTPHandler()
            HTTPHandler(debuglevel: int | None = None) -> urllib.request.HTTPHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L286>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L286>`__)
 
    A class to handle opening of HTTP URLs.
 
@@ -549,7 +549,7 @@ The following classes are provided:
 .. class:: HTTPSHandler(debuglevel=0, context=None, check_hostname=None)
            HTTPSHandler(debuglevel: int | None = None, context: ssl.SSLContext | None = None, check_hostname: bool | None = None) -> urllib.request.HTTPSHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L290>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L290>`__)
 
    A class to handle opening of HTTPS URLs.  *context* and *check_hostname*
    have the same meaning as in :class:`http.client.HTTPSConnection`.
@@ -561,14 +561,14 @@ The following classes are provided:
 .. class:: FileHandler()
            FileHandler() -> urllib.request.FileHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L303>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L303>`__)
 
    Open local files.
 
 .. class:: DataHandler()
            DataHandler() -> urllib.request.DataHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L309>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L309>`__)
 
    Open data URLs.
 
@@ -577,7 +577,7 @@ The following classes are provided:
 .. class:: FTPHandler()
            FTPHandler() -> urllib.request.FTPHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L323>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L323>`__)
 
    Open FTP URLs.
 
@@ -585,7 +585,7 @@ The following classes are provided:
 .. class:: CacheFTPHandler()
            CacheFTPHandler() -> urllib.request.CacheFTPHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L329>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L329>`__)
 
    Open FTP URLs, keeping a cache of open FTP connections to minimize delays.
 
@@ -593,7 +593,7 @@ The following classes are provided:
 .. class:: UnknownHandler()
            UnknownHandler() -> urllib.request.UnknownHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L335>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L335>`__)
 
    A catch-all class to handle unknown URLs.
 
@@ -601,7 +601,7 @@ The following classes are provided:
 .. class:: HTTPErrorProcessor()
            HTTPErrorProcessor() -> urllib.request.HTTPErrorProcessor
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L338>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L338>`__)
 
    Process HTTP error responses.
 
@@ -619,7 +619,7 @@ request.
 .. attribute:: Request.full_url
    :type: full_url(self: urllib.request.Request, value: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L122>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L122>`__)
 
    The original URL passed to the constructor.
 
@@ -632,14 +632,14 @@ request.
 .. attribute:: Request.type
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L127>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L127>`__)
 
    The URI scheme.
 
 .. attribute:: Request.host
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L128>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L128>`__)
 
    The URI authority, typically a host, but may also contain a port
    separated by a colon.
@@ -647,14 +647,14 @@ request.
 .. attribute:: Request.origin_req_host
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L129>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L129>`__)
 
    The original host for the request, without port.
 
 .. attribute:: Request.selector
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L130>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L130>`__)
 
    The URI path.  If the :class:`Request` uses a proxy, then selector
    will be the full URL that is passed to the proxy.
@@ -662,7 +662,7 @@ request.
 .. attribute:: Request.data
    :type: collections.abc.Buffer | collections.abc.Iterable[bytes] | _typeshed.SupportsRead[bytes] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L131>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L131>`__)
 
    The entity body for the request, or ``None`` if not specified.
 
@@ -673,7 +673,7 @@ request.
 .. attribute:: Request.unverifiable
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L134>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L134>`__)
 
    boolean, indicates whether the request is unverifiable as defined
    by :rfc:`2965`.
@@ -681,7 +681,7 @@ request.
 .. attribute:: Request.method
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L135>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L135>`__)
 
    The HTTP request method to use.  By default its value is :const:`None`,
    which means that :meth:`~Request.get_method` will do its normal computation
@@ -701,7 +701,7 @@ request.
 .. method:: Request.get_method()
             Request.get_method() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L146>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L146>`__)
 
    Return a string indicating the HTTP request method.  If
    :attr:`Request.method` is not ``None``, return its value, otherwise return
@@ -715,7 +715,7 @@ request.
 .. method:: Request.add_header(key, val)
             Request.add_header(key: str, val: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L147>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L147>`__)
 
    Add another header to the request.  Headers are currently ignored by all
    handlers except HTTP handlers, where they are added to the list of headers sent
@@ -730,7 +730,7 @@ request.
 .. method:: Request.add_unredirected_header(key, header)
             Request.add_unredirected_header(key: str, val: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L148>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L148>`__)
 
    Add a header that will not be added to a redirected request.
 
@@ -738,7 +738,7 @@ request.
 .. method:: Request.has_header(header)
             Request.has_header(header_name: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L149>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L149>`__)
 
    Return whether the instance has the named header (checks both regular and
    unredirected).
@@ -747,7 +747,7 @@ request.
 .. method:: Request.remove_header(header)
             Request.remove_header(header_name: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L150>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L150>`__)
 
    Remove named header from the request instance (both from regular and
    unredirected headers).
@@ -758,7 +758,7 @@ request.
 .. method:: Request.get_full_url()
             Request.get_full_url() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L151>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L151>`__)
 
    Return the URL given in the constructor.
 
@@ -770,7 +770,7 @@ request.
 .. method:: Request.set_proxy(host, type)
             Request.set_proxy(host: str, type: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L152>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L152>`__)
 
    Prepare the request by connecting to a proxy server. The *host* and *type* will
    replace those of the instance, and the instance's selector will be the original
@@ -781,7 +781,7 @@ request.
             Request.get_header(header_name: str) -> str | None
             Request.get_header(header_name: str, default: _T) -> str | _T
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L154>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L154>`__)
 
    Return the value of the given header. If the header is not present, return
    the default value.
@@ -790,7 +790,7 @@ request.
 .. method:: Request.header_items()
             Request.header_items() -> list[tuple[str, str]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L157>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L157>`__)
 
    Return a list of tuples (header_name, header_value) of the Request headers.
 
@@ -811,7 +811,7 @@ OpenerDirector Objects
 .. method:: OpenerDirector.add_handler(handler)
             OpenerDirector.add_handler(handler: urllib.request.BaseHandler) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L162>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L162>`__)
 
    *handler* should be an instance of :class:`BaseHandler`.  The following methods
    are searched, and added to the possible chains (note that HTTP errors are a
@@ -852,7 +852,7 @@ OpenerDirector Objects
 .. method:: OpenerDirector.open(url, data=None[, timeout])
             OpenerDirector.open(fullurl: urllib.request.Request | str, data: _DataType = None, timeout: float | None = ...) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L163>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L163>`__)
 
    Open the given *url* (which can be a request object or a string), optionally
    passing the given *data*. Arguments, return values and exceptions raised are
@@ -867,7 +867,7 @@ OpenerDirector Objects
 .. method:: OpenerDirector.error(proto, *args)
             OpenerDirector.error(proto: str, *args: typing.Any) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L164>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L164>`__)
 
    Handle an error of the given protocol.  This will call the registered error
    handlers for the given protocol with the given arguments (which are protocol
@@ -917,7 +917,7 @@ intended for direct use:
 .. method:: BaseHandler.add_parent(director)
             BaseHandler.add_parent(parent: urllib.request.OpenerDirector) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L170>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L170>`__)
 
    Add a director as parent.
 
@@ -925,7 +925,7 @@ intended for direct use:
 .. method:: BaseHandler.close()
             BaseHandler.close() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L171>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L171>`__)
 
    Remove any parents.
 
@@ -942,7 +942,7 @@ The following attribute and methods should only be used by classes derived from
 .. attribute:: BaseHandler.parent
    :type: urllib.request.OpenerDirector
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L169>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L169>`__)
 
    A valid :class:`OpenerDirector`, which can be used to open using a different
    protocol, or handle errors.
@@ -1062,7 +1062,7 @@ HTTPRedirectHandler Objects
 .. method:: HTTPRedirectHandler.redirect_request(req, fp, code, msg, hdrs, newurl)
             HTTPRedirectHandler.redirect_request(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage, newurl: str) -> urllib.request.Request | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L183>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L183>`__)
 
    Return a :class:`Request` or ``None`` in response to a redirect. This is called
    by the default implementations of the :meth:`!http_error_30\*` methods when a
@@ -1084,7 +1084,7 @@ HTTPRedirectHandler Objects
 .. method:: HTTPRedirectHandler.http_error_301(req, fp, code, msg, hdrs)
             HTTPRedirectHandler.http_error_301(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L186>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L186>`__)
 
    Redirect to the ``Location:`` or ``URI:`` URL.  This method is called by the
    parent :class:`OpenerDirector` when getting an HTTP 'moved permanently' response.
@@ -1093,7 +1093,7 @@ HTTPRedirectHandler Objects
 .. method:: HTTPRedirectHandler.http_error_302(req, fp, code, msg, hdrs)
             HTTPRedirectHandler.http_error_302(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L187>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L187>`__)
 
    The same as :meth:`http_error_301`, but called for the 'found' response.
 
@@ -1101,7 +1101,7 @@ HTTPRedirectHandler Objects
 .. method:: HTTPRedirectHandler.http_error_303(req, fp, code, msg, hdrs)
             HTTPRedirectHandler.http_error_303(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L188>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L188>`__)
 
    The same as :meth:`http_error_301`, but called for the 'see other' response.
 
@@ -1109,7 +1109,7 @@ HTTPRedirectHandler Objects
 .. method:: HTTPRedirectHandler.http_error_307(req, fp, code, msg, hdrs)
             HTTPRedirectHandler.http_error_307(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L189>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L189>`__)
 
    The same as :meth:`http_error_301`, but called for the 'temporary redirect'
    response. It does not allow changing the request method from ``POST``
@@ -1119,7 +1119,7 @@ HTTPRedirectHandler Objects
 .. method:: HTTPRedirectHandler.http_error_308(req, fp, code, msg, hdrs)
             HTTPRedirectHandler.http_error_308(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L191>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L191>`__)
 
    The same as :meth:`http_error_301`, but called for the 'permanent redirect'
    response. It does not allow changing the request method from ``POST``
@@ -1138,7 +1138,7 @@ HTTPCookieProcessor Objects
 .. attribute:: HTTPCookieProcessor.cookiejar
    :type: http.cookiejar.CookieJar
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L196>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L196>`__)
 
    The :class:`http.cookiejar.CookieJar` in which cookies are stored.
 
@@ -1171,7 +1171,7 @@ These methods are available on :class:`HTTPPasswordMgr` and
 .. method:: HTTPPasswordMgr.add_password(realm, uri, user, passwd)
             HTTPPasswordMgr.add_password(realm: str, uri: collections.abc.Sequence[str] | str, user: str, passwd: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L209>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L209>`__)
 
    *uri* can be either a single URI, or a sequence of URIs. *realm*, *user* and
    *passwd* must be strings. This causes ``(user, passwd)`` to be used as
@@ -1182,7 +1182,7 @@ These methods are available on :class:`HTTPPasswordMgr` and
 .. method:: HTTPPasswordMgr.find_user_password(realm, authuri)
             HTTPPasswordMgr.find_user_password(realm: str, authuri: str) -> tuple[str | None, str | None]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L210>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L210>`__)
 
    Get user/password for given realm and URI, if any.  This method will return
    ``(None, None)`` if there is no matching user/password.
@@ -1204,7 +1204,7 @@ tracking URIs for which authentication credentials should always be sent.
             passwd, is_authenticated=False)
             HTTPPasswordMgrWithPriorAuth.add_password(realm: str | None, uri: collections.abc.Sequence[str] | str, user: str, passwd: str, is_authenticated: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L219>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L219>`__)
 
    *realm*, *uri*, *user*, *passwd* are as for
    :meth:`HTTPPasswordMgr.add_password`.  *is_authenticated* sets the initial
@@ -1215,7 +1215,7 @@ tracking URIs for which authentication credentials should always be sent.
 .. method:: HTTPPasswordMgrWithPriorAuth.find_user_password(realm, authuri)
             HTTPPasswordMgrWithPriorAuth.find_user_password(realm: str | None, authuri: str) -> tuple[str | None, str | None]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L216>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L216>`__)
 
    Same as for :class:`HTTPPasswordMgrWithDefaultRealm` objects
 
@@ -1224,7 +1224,7 @@ tracking URIs for which authentication credentials should always be sent.
             is_authenticated=False)
             HTTPPasswordMgrWithPriorAuth.update_authenticated(uri: collections.abc.Sequence[str] | str, is_authenticated: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L222>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L222>`__)
 
    Update the ``is_authenticated`` flag for the given *uri* or list
    of URIs.
@@ -1233,7 +1233,7 @@ tracking URIs for which authentication credentials should always be sent.
 .. method:: HTTPPasswordMgrWithPriorAuth.is_authenticated(self, authuri)
             HTTPPasswordMgrWithPriorAuth.is_authenticated(authuri: str) -> bool | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L223>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L223>`__)
 
    Returns the current state of the ``is_authenticated`` flag for
    the given URI.
@@ -1248,7 +1248,7 @@ AbstractBasicAuthHandler Objects
 .. method:: AbstractBasicAuthHandler.http_error_auth_reqed(authreq, host, req, headers)
             AbstractBasicAuthHandler.http_error_auth_reqed(authreq: str, host: str, req: urllib.request.Request, headers: http.client.HTTPMessage) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L230>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L230>`__)
 
    Handle an authentication request by getting a user/password pair, and re-trying
    the request.  *authreq* should be the name of the header where the information
@@ -1271,7 +1271,7 @@ HTTPBasicAuthHandler Objects
 .. method:: HTTPBasicAuthHandler.http_error_401(req, fp, code,  msg, hdrs)
             HTTPBasicAuthHandler.http_error_401(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L239>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L239>`__)
 
    Retry the request with authentication information, if available.
 
@@ -1285,7 +1285,7 @@ ProxyBasicAuthHandler Objects
 .. method:: ProxyBasicAuthHandler.http_error_407(req, fp, code,  msg, hdrs)
             ProxyBasicAuthHandler.http_error_407(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L243>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L243>`__)
 
    Retry the request with authentication information, if available.
 
@@ -1299,7 +1299,7 @@ AbstractDigestAuthHandler Objects
 .. method:: AbstractDigestAuthHandler.http_error_auth_reqed(authreq, host, req, headers)
             AbstractDigestAuthHandler.http_error_auth_reqed(auth_header: str, host: str, req: urllib.request.Request, headers: http.client.HTTPMessage) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L248>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L248>`__)
 
    *authreq* should be the name of the header where the information about the realm
    is included in the request, *host* should be the host to authenticate to, *req*
@@ -1316,7 +1316,7 @@ HTTPDigestAuthHandler Objects
 .. method:: HTTPDigestAuthHandler.http_error_401(req, fp, code,  msg, hdrs)
             HTTPDigestAuthHandler.http_error_401(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L257>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L257>`__)
 
    Retry the request with authentication information, if available.
 
@@ -1330,7 +1330,7 @@ ProxyDigestAuthHandler Objects
 .. method:: ProxyDigestAuthHandler.http_error_407(req, fp, code,  msg, hdrs)
             ProxyDigestAuthHandler.http_error_407(req: urllib.request.Request, fp: typing.IO[bytes], code: int, msg: str, headers: http.client.HTTPMessage) -> typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L261>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L261>`__)
 
    Retry the request with authentication information, if available.
 
@@ -1344,7 +1344,7 @@ HTTPHandler Objects
 .. method:: HTTPHandler.http_open(req)
             HTTPHandler.http_open(req: urllib.request.Request) -> http.client.HTTPResponse
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L287>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L287>`__)
 
    Send an HTTP request, which can be either GET or POST, depending on
    ``req.data``.
@@ -1359,7 +1359,7 @@ HTTPSHandler Objects
 .. method:: HTTPSHandler.https_open(req)
             HTTPSHandler.https_open(req: urllib.request.Request) -> http.client.HTTPResponse
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L300>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L300>`__)
 
    Send an HTTPS request, which can be either GET or POST, depending on
    ``req.data``.
@@ -1374,7 +1374,7 @@ FileHandler Objects
 .. method:: FileHandler.file_open(req)
             FileHandler.file_open(req: urllib.request.Request) -> urllib.response.addinfourl
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L305>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L305>`__)
 
    Open the file locally, if there is no host name, or the host name is
    ``'localhost'``.
@@ -1392,7 +1392,7 @@ DataHandler Objects
 .. method:: DataHandler.data_open(req)
             DataHandler.data_open(req: urllib.request.Request) -> urllib.response.addinfourl
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L310>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L310>`__)
 
    Read a data URL. This kind of URL contains the content encoded in the URL
    itself. The data URL syntax is specified in :rfc:`2397`. This implementation
@@ -1411,7 +1411,7 @@ FTPHandler Objects
 .. method:: FTPHandler.ftp_open(req)
             FTPHandler.ftp_open(req: urllib.request.Request) -> urllib.response.addinfourl
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L324>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L324>`__)
 
    Open the FTP file indicated by *req*. The login is always done with empty
    username and password.
@@ -1429,7 +1429,7 @@ following additional methods:
 .. method:: CacheFTPHandler.setTimeout(t)
             CacheFTPHandler.setTimeout(t: float) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L330>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L330>`__)
 
    Set timeout of connections to *t* seconds.
 
@@ -1437,7 +1437,7 @@ following additional methods:
 .. method:: CacheFTPHandler.setMaxConns(m)
             CacheFTPHandler.setMaxConns(m: int) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L331>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L331>`__)
 
    Set maximum number of cached connections to *m*.
 
@@ -1451,7 +1451,7 @@ UnknownHandler Objects
 .. method:: UnknownHandler.unknown_open()
             UnknownHandler.unknown_open(req: urllib.request.Request) -> typing.NoReturn
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L336>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L336>`__)
 
    Raise a :exc:`~urllib.error.URLError` exception.
 
@@ -1464,7 +1464,7 @@ HTTPErrorProcessor Objects
 .. method:: HTTPErrorProcessor.http_response(request, response)
             HTTPErrorProcessor.http_response(request: urllib.request.Request, response: http.client.HTTPResponse) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L339>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L339>`__)
 
    Process HTTP error responses.
 
@@ -1479,7 +1479,7 @@ HTTPErrorProcessor Objects
 .. method:: HTTPErrorProcessor.https_response(request, response)
             HTTPErrorProcessor.https_response(request: urllib.request.Request, response: http.client.HTTPResponse) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L340>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L340>`__)
 
    Process HTTPS error responses.
 
@@ -1682,7 +1682,7 @@ some point in the future.
 .. function:: urlretrieve(url, filename=None, reporthook=None, data=None)
               urlretrieve(url: str, filename: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, reporthook: (collections.abc.Callable[[int, int, int], object]) | None = None, data: _DataType = None) -> tuple[str, http.client.HTTPMessage]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L342>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L342>`__)
 
    Copy a network object denoted by a URL to a local file. If the URL
    points to a local file, the object will not be copied unless filename is supplied.
@@ -1732,7 +1732,7 @@ some point in the future.
 .. function:: urlcleanup()
               urlcleanup() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/request.pyi#L348>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/request.pyi#L348>`__)
 
    Cleans up temporary files that may have been left behind by previous
    calls to :func:`urlretrieve`.
@@ -1806,26 +1806,26 @@ The typical response object is a :class:`urllib.response.addinfourl` instance:
 .. class:: addinfourl
            addinfourl(fp: typing.IO[bytes], headers: email.message.Message[str, str], url: str, code: int | None = None) -> urllib.response.addinfourl
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L34>`__)
 
    .. attribute:: url
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L35>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L35>`__)
 
       URL of the resource retrieved, commonly used to determine if a redirect was followed.
 
    .. attribute:: headers
       :type: email.message.Message[str, str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L30>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L30>`__)
 
       Returns the headers of the response in the form of an :class:`~email.message.EmailMessage` instance.
 
    .. attribute:: status
       :type: status(self: urllib.response.addinfourl) -> int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L38>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L38>`__)
 
       .. versionadded:: 3.9
 
@@ -1834,7 +1834,7 @@ The typical response object is a :class:`urllib.response.addinfourl` instance:
    .. method:: geturl()
                geturl() -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L41>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L41>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.url`.
@@ -1842,7 +1842,7 @@ The typical response object is a :class:`urllib.response.addinfourl` instance:
    .. method:: info()
                info() -> email.message.Message[str, str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L43>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L43>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.headers`.
@@ -1850,7 +1850,7 @@ The typical response object is a :class:`urllib.response.addinfourl` instance:
    .. attribute:: code
       :type: int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L36>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L36>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.status`.
@@ -1858,7 +1858,7 @@ The typical response object is a :class:`urllib.response.addinfourl` instance:
    .. method:: getcode()
                getcode() -> int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/urllib/response.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/urllib/response.pyi#L45>`__)
 
       .. deprecated:: 3.9
          Deprecated in favor of :attr:`~addinfourl.status`.

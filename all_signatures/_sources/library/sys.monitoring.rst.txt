@@ -46,7 +46,7 @@ Registering and using tools
 
 .. function:: use_tool_id(tool_id: int, name: str, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L19>`__)
 
    Must be called before *tool_id* can be used.
    *tool_id* must be in the range 0 to 5 inclusive.
@@ -54,20 +54,20 @@ Registering and using tools
 
 .. function:: clear_tool_id(tool_id: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L22>`__)
 
    Unregister all events and callback functions associated with *tool_id*.
 
 .. function:: free_tool_id(tool_id: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L24>`__)
 
    Should be called once a tool no longer requires *tool_id*.
    Will call :func:`clear_tool_id` before releasing *tool_id*.
 
 .. function:: get_tool(tool_id: int, /) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L25>`__)
 
    Returns the name of the tool if *tool_id* is in use,
    otherwise it returns ``None``.
@@ -89,7 +89,7 @@ The following events are supported:
 
 .. monitoring-event:: BRANCH_LEFT
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L49>`__)
 
    A conditional branch goes left.
 
@@ -99,104 +99,104 @@ The following events are supported:
 
 .. monitoring-event:: BRANCH_RIGHT
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L50>`__)
 
    A conditional branch goes right.
 
 .. monitoring-event:: CALL
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L31>`__)
 
    A call in Python code (event occurs before the call).
 
 .. monitoring-event:: C_RAISE
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L32>`__)
 
    An exception raised from any callable, except for Python functions (event occurs after the exit).
 
 .. monitoring-event:: C_RETURN
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L33>`__)
 
    Return from any callable, except for Python functions (event occurs after the return).
 
 .. monitoring-event:: EXCEPTION_HANDLED
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L34>`__)
 
    An exception is handled.
 
 .. monitoring-event:: INSTRUCTION
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L35>`__)
 
    A VM instruction is about to be executed.
 
 .. monitoring-event:: JUMP
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L36>`__)
 
    An unconditional jump in the control flow graph is made.
 
 .. monitoring-event:: LINE
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L37>`__)
 
    An instruction is about to be executed that has a different line number from the preceding instruction.
 
 .. monitoring-event:: PY_RESUME
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L39>`__)
 
    Resumption of a Python function (for generator and coroutine functions), except for ``throw()`` calls.
 
 .. monitoring-event:: PY_RETURN
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L40>`__)
 
    Return from a Python function (occurs immediately before the return, the callee's frame will be on the stack).
 
 .. monitoring-event:: PY_START
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L41>`__)
 
    Start of a Python function (occurs immediately after the call, the callee's frame will be on the stack)
 
 .. monitoring-event:: PY_THROW
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L42>`__)
 
    A Python function is resumed by a ``throw()`` call.
 
 .. monitoring-event:: PY_UNWIND
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L43>`__)
 
    Exit from a Python function during exception unwinding. This includes exceptions raised directly within the
    function and that are allowed to continue to propagate.
 
 .. monitoring-event:: PY_YIELD
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L44>`__)
 
    Yield from a Python function (occurs immediately before the yield, the callee's frame will be on the stack).
 
 .. monitoring-event:: RAISE
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L45>`__)
 
    An exception is raised, except those that cause a :monitoring-event:`STOP_ITERATION` event.
 
 .. monitoring-event:: RERAISE
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L46>`__)
 
    An exception is re-raised, for example at the end of a :keyword:`finally` block.
 
 .. monitoring-event:: STOP_ITERATION
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L47>`__)
 
    An artificial :exc:`StopIteration` is raised; see `the STOP_ITERATION event`_.
 
@@ -211,7 +211,7 @@ events, use the expression ``PY_RETURN | PY_START``.
 
 .. monitoring-event:: NO_EVENTS
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L38>`__)
 
     An alias for ``0`` so users can do explicit comparisons like::
 
@@ -319,13 +319,13 @@ Events can be controlled globally by modifying the set of events being monitored
 
 .. function:: get_events(tool_id: int, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L59>`__)
 
    Returns the ``int`` representing all the active events.
 
 .. function:: set_events(tool_id: int, event_set: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L60>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L60>`__)
 
    Activates all events which are set in *event_set*.
    Raises a :exc:`ValueError` if *tool_id* is not in use.
@@ -342,13 +342,13 @@ in Python (see :ref:`c-api-monitoring`).
 
 .. function:: get_local_events(tool_id: int, code: CodeType, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L61>`__)
 
    Returns all the :ref:`local events <monitoring-event-local>` for *code*
 
 .. function:: set_local_events(tool_id: int, code: CodeType, event_set: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L62>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L62>`__)
 
    Activates all the :ref:`local events <monitoring-event-local>` for *code*
    which are set in *event_set*. Raises a :exc:`ValueError` if *tool_id* is not
@@ -361,7 +361,7 @@ Disabling events
 .. data:: DISABLE
    :type: object
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L65>`__)
 
    A special value that can be returned from a callback function to disable
    events for the current code location.
@@ -383,7 +383,7 @@ provided).
 
 .. function:: restart_events() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L63>`__)
 
    Enable all the events that were disabled by :data:`sys.monitoring.DISABLE`
    for all tools.
@@ -396,7 +396,7 @@ Registering callback functions
 
 .. function:: register_callback(tool_id: int, event: int, func: Callable | None, /) -> Callable | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L68>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L68>`__)
 
    Registers the callable *func* for the *event* with the given *tool_id*
 
@@ -423,7 +423,7 @@ Callback function arguments
 .. data:: MISSING
    :type: object
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/sys/_monitoring.pyi#L66>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/sys/_monitoring.pyi#L66>`__)
 
    A special value that is passed to a callback function to indicate
    that there are no arguments to the call.

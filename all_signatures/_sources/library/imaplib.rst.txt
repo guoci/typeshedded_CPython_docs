@@ -36,7 +36,7 @@ base class:
 .. class:: IMAP4(host='', port=IMAP4_PORT, timeout=None)
            IMAP4(host: str = '', port: int = 143, timeout: float | None = None) -> imaplib.IMAP4
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L25>`__)
 
    This class implements the actual IMAP4 protocol.  The connection is created and
    protocol version (IMAP4 or IMAP4rev1) is determined when the instance is
@@ -67,7 +67,7 @@ Three exceptions are defined as attributes of the :class:`IMAP4` class:
 .. exception:: IMAP4.error
                IMAP4.error(*args: object) -> imaplib.IMAP4.error
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L26>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L26>`__)
 
    Exception raised on any errors.  The reason for the exception is passed to the
    constructor as a string.
@@ -76,7 +76,7 @@ Three exceptions are defined as attributes of the :class:`IMAP4` class:
 .. exception:: IMAP4.abort
                IMAP4.abort(*args: object) -> imaplib.IMAP4.abort
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L27>`__)
 
    IMAP4 server errors cause this exception to be raised.  This is a sub-class of
    :exc:`IMAP4.error`.  Note that closing the instance and instantiating a new one
@@ -86,7 +86,7 @@ Three exceptions are defined as attributes of the :class:`IMAP4` class:
 .. exception:: IMAP4.readonly
                IMAP4.readonly(*args: object) -> imaplib.IMAP4.readonly
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L28>`__)
 
    This exception is raised when a writable mailbox has its status changed by the
    server.  This is a sub-class of :exc:`IMAP4.error`.  Some other client now has
@@ -101,7 +101,7 @@ There's also a subclass for secure connections:
                      timeout=None)
            IMAP4_SSL(host: str = '', port: int = 993, *, ssl_context: ssl.SSLContext | None = None, timeout: float | None = None) -> imaplib.IMAP4_SSL
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L124>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L124>`__)
 
    This is a subclass derived from :class:`IMAP4` that connects over an SSL
    encrypted socket (to use this class you need a socket module that was compiled
@@ -136,7 +136,7 @@ The second subclass allows for connections created by a child process:
 .. class:: IMAP4_stream(command)
            IMAP4_stream(command: str) -> imaplib.IMAP4_stream
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L167>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L167>`__)
 
    This is a subclass derived from :class:`IMAP4` that connects to the
    ``stdin/stdout`` file descriptors created by passing *command* to
@@ -149,7 +149,7 @@ The following utility functions are defined:
 .. function:: Internaldate2tuple(datestr)
               Internaldate2tuple(resp: collections.abc.Buffer) -> time.struct_time | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L188>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L188>`__)
 
    Parse an IMAP4 ``INTERNALDATE`` string and return corresponding local
    time.  The return value is a :class:`time.struct_time` tuple or
@@ -158,7 +158,7 @@ The following utility functions are defined:
 .. function:: Int2AP(num)
               Int2AP(num: typing.SupportsAbs[typing.SupportsInt]) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L189>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L189>`__)
 
    Converts an integer into a bytes representation using characters from the set
    [``A`` .. ``P``].
@@ -167,7 +167,7 @@ The following utility functions are defined:
 .. function:: ParseFlags(flagstr)
               ParseFlags(resp: collections.abc.Buffer) -> tuple[bytes, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L190>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L190>`__)
 
    Converts an IMAP4 ``FLAGS`` response to a tuple of individual flags.
 
@@ -175,7 +175,7 @@ The following utility functions are defined:
 .. function:: Time2Internaldate(date_time)
               Time2Internaldate(date_time: _TimeLike) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L194>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L194>`__)
 
    Convert *date_time* to an IMAP4 ``INTERNALDATE`` representation.
    The return value is a string in the form: ``"DD-Mmm-YYYY HH:MM:SS
@@ -236,7 +236,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.append(mailbox, flags, date_time, message)
             IMAP4.append(mailbox: str | None, flags: str | None, date_time: datetime.datetime | float | str | time.struct_time | tuple[int, int, int, int, int, int, int, int, int] | None, message: collections.abc.Buffer) -> tuple[str, list[bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L64>`__)
 
    Append *message* to named mailbox.
 
@@ -244,7 +244,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.authenticate(mechanism, authobject)
             IMAP4.authenticate(mechanism: str, authobject: collections.abc.Callable[[bytes], bytes | None]) -> tuple[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L67>`__)
 
    Authenticate command --- requires response processing.
 
@@ -268,7 +268,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.check()
             IMAP4.check() -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L69>`__)
 
    Checkpoint mailbox on server.
 
@@ -276,7 +276,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.close()
             IMAP4.close() -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L70>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L70>`__)
 
    Close currently selected mailbox. Deleted messages are removed from writable
    mailbox. This is the recommended command before ``LOGOUT``.
@@ -285,7 +285,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.copy(message_set, new_mailbox)
             IMAP4.copy(message_set: str, new_mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L71>`__)
 
    Copy *message_set* messages onto end of *new_mailbox*.
 
@@ -293,7 +293,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.create(mailbox)
             IMAP4.create(mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L72>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L72>`__)
 
    Create new mailbox named *mailbox*.
 
@@ -301,7 +301,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.delete(mailbox)
             IMAP4.delete(mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L73>`__)
 
    Delete old mailbox named *mailbox*.
 
@@ -309,7 +309,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.deleteacl(mailbox, who)
             IMAP4.deleteacl(mailbox: str, who: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L74>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L74>`__)
 
    Delete the ACLs (remove any rights) set for who on mailbox.
 
@@ -317,7 +317,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.enable(capability)
             IMAP4.enable(capability: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L75>`__)
 
    Enable *capability* (see :rfc:`5161`).  Most capabilities do not need to be
    enabled.  Currently only the ``UTF8=ACCEPT`` capability is supported
@@ -330,7 +330,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.expunge()
             IMAP4.expunge() -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L78>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L78>`__)
 
    Permanently remove deleted items from selected mailbox. Generates an ``EXPUNGE``
    response for each deleted message. Returned data contains a list of ``EXPUNGE``
@@ -340,7 +340,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.fetch(message_set, message_parts)
             IMAP4.fetch(message_set: str, message_parts: str) -> tuple[str, _AnyResponseData]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L79>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L79>`__)
 
    Fetch (parts of) messages.  *message_parts* should be a string of message part
    names enclosed within parentheses, eg: ``"(UID BODY[TEXT])"``.  Returned data
@@ -350,7 +350,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.getacl(mailbox)
             IMAP4.getacl(mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L80>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L80>`__)
 
    Get the ``ACL``\ s for *mailbox*. The method is non-standard, but is supported
    by the ``Cyrus`` server.
@@ -359,7 +359,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.getannotation(mailbox, entry, attribute)
             IMAP4.getannotation(mailbox: str, entry: str, attribute: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L81>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L81>`__)
 
    Retrieve the specified ``ANNOTATION``\ s for *mailbox*. The method is
    non-standard, but is supported by the ``Cyrus`` server.
@@ -368,7 +368,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.getquota(root)
             IMAP4.getquota(root: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L82>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L82>`__)
 
    Get the ``quota`` *root*'s resource usage and limits. This method is part of the
    IMAP4 QUOTA extension defined in rfc2087.
@@ -377,7 +377,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.getquotaroot(mailbox)
             IMAP4.getquotaroot(mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L83>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L83>`__)
 
    Get the list of ``quota`` ``roots`` for the named *mailbox*. This method is part
    of the IMAP4 QUOTA extension defined in rfc2087.
@@ -386,7 +386,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.idle(duration=None)
             IMAP4.idle(duration: float | None = None) -> imaplib.Idler
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L85>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L85>`__)
 
    Return an :class:`!Idler`: an iterable context manager implementing the
    IMAP4 ``IDLE`` command as defined in :rfc:`2177`.
@@ -425,7 +425,7 @@ An :class:`IMAP4` instance has the following methods:
    .. method:: Idler.burst(interval=0.1)
                Idler.burst(interval: float = ...) -> collections.abc.Generator[tuple[str, float | None], None, None]
 
-      (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L122>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L122>`__)
 
       Yield a burst of responses no more than *interval* seconds apart
       (expressed as an :class:`int` or :class:`float`).
@@ -479,7 +479,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.list([directory[, pattern]])
             IMAP4.list(directory: str = '""', pattern: str = '*') -> tuple[str, _AnyResponseData]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L87>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L87>`__)
 
    List mailbox names in *directory* matching *pattern*.  *directory* defaults to
    the top-level mail folder, and *pattern* defaults to match anything.  Returned
@@ -489,7 +489,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.login(user, password)
             IMAP4.login(user: str, password: str) -> tuple[typing.Literal['OK'], list[bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L88>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L88>`__)
 
    Identify the client using a plaintext password. The *password* will be quoted.
 
@@ -497,7 +497,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.login_cram_md5(user, password)
             IMAP4.login_cram_md5(user: str, password: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L89>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L89>`__)
 
    Force use of ``CRAM-MD5`` authentication when identifying the client to protect
    the password.  Will only work if the server ``CAPABILITY`` response includes the
@@ -510,7 +510,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.logout()
             IMAP4.logout() -> tuple[str, _AnyResponseData]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L90>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L90>`__)
 
    Shutdown connection to server. Returns server ``BYE`` response.
 
@@ -521,7 +521,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.lsub(directory='""', pattern='*')
             IMAP4.lsub(directory: str = '""', pattern: str = '*') -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L91>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L91>`__)
 
    List subscribed mailbox names in directory matching pattern. *directory*
    defaults to the top level directory and *pattern* defaults to match any mailbox.
@@ -531,7 +531,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.myrights(mailbox)
             IMAP4.myrights(mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L92>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L92>`__)
 
    Show my ACLs for a mailbox (i.e. the rights that I have on mailbox).
 
@@ -539,7 +539,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.namespace()
             IMAP4.namespace() -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L93>`__)
 
    Returns IMAP namespaces as defined in :rfc:`2342`.
 
@@ -547,7 +547,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.noop()
             IMAP4.noop() -> tuple[str, list[bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L94>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L94>`__)
 
    Send ``NOOP`` to server.
 
@@ -555,7 +555,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.open(host, port, timeout=None)
             IMAP4.open(host: str = '', port: int = 143, timeout: float | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L45>`__)
 
    Opens socket to *port* at *host*. The optional *timeout* parameter
    specifies a timeout in seconds for the connection attempt.
@@ -575,7 +575,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.partial(message_num, message_part, start, length)
             IMAP4.partial(message_num: str, message_part: str, start: str, length: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L95>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L95>`__)
 
    Fetch truncated part of a message. Returned data is a tuple of message part
    envelope and data.
@@ -584,7 +584,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.proxyauth(user)
             IMAP4.proxyauth(user: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L96>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L96>`__)
 
    Assume authentication as *user*. Allows an authorised administrator to proxy
    into any user's mailbox.
@@ -593,7 +593,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.read(size)
             IMAP4.read(size: int) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L57>`__)
 
    Reads *size* bytes from the remote server. You may override this method.
 
@@ -601,7 +601,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.readline()
             IMAP4.readline() -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L58>`__)
 
    Reads one line from the remote server. You may override this method.
 
@@ -609,7 +609,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.recent()
             IMAP4.recent() -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L62>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L62>`__)
 
    Prompt server for an update. Returned data is ``None`` if no new messages, else
    value of ``RECENT`` response.
@@ -618,7 +618,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.rename(oldmailbox, newmailbox)
             IMAP4.rename(oldmailbox: str, newmailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L97>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L97>`__)
 
    Rename mailbox named *oldmailbox* to *newmailbox*.
 
@@ -626,7 +626,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.response(code)
             IMAP4.response(code: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L63>`__)
 
    Return data for response *code* if received, or ``None``. Returns the given
    code, instead of the usual type.
@@ -635,7 +635,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.search(charset, criterion[, ...])
             IMAP4.search(charset: str | None, *criteria: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L98>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L98>`__)
 
    Search mailbox for matching messages.  *charset* may be ``None``, in which case
    no ``CHARSET`` will be specified in the request to the server.  The IMAP
@@ -656,7 +656,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.select(mailbox='INBOX', readonly=False)
             IMAP4.select(mailbox: str = 'INBOX', readonly: bool = False) -> tuple[str, list[bytes | None]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L99>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L99>`__)
 
    Select a mailbox. Returned data is the count of messages in *mailbox*
    (``EXISTS`` response).  The default *mailbox* is ``'INBOX'``.  If the *readonly*
@@ -666,7 +666,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.send(data)
             IMAP4.send(data: collections.abc.Buffer) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L59>`__)
 
    Sends ``data`` to the remote server. You may override this method.
 
@@ -676,7 +676,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.setacl(mailbox, who, what)
             IMAP4.setacl(mailbox: str, who: str, what: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L100>`__)
 
    Set an ``ACL`` for *mailbox*. The method is non-standard, but is supported by
    the ``Cyrus`` server.
@@ -685,7 +685,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.setannotation(mailbox, entry, attribute[, ...])
             IMAP4.setannotation(*args: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L101>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L101>`__)
 
    Set ``ANNOTATION``\ s for *mailbox*. The method is non-standard, but is
    supported by the ``Cyrus`` server.
@@ -694,7 +694,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.setquota(root, limits)
             IMAP4.setquota(root: str, limits: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L102>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L102>`__)
 
    Set the ``quota`` *root*'s resource *limits*. This method is part of the IMAP4
    QUOTA extension defined in rfc2087.
@@ -703,7 +703,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.shutdown()
             IMAP4.shutdown() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L60>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L60>`__)
 
    Close connection established in ``open``.  This method is implicitly
    called by :meth:`IMAP4.logout`.  You may override this method.
@@ -712,7 +712,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.socket()
             IMAP4.socket() -> socket.socket
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L61>`__)
 
    Returns socket instance used to connect to server.
 
@@ -720,7 +720,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.sort(sort_criteria, charset, search_criterion[, ...])
             IMAP4.sort(sort_criteria: str, charset: str, *search_criteria: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L103>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L103>`__)
 
    The ``sort`` command is a variant of ``search`` with sorting semantics for the
    results.  Returned data contains a space separated list of matching message
@@ -741,7 +741,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.starttls(ssl_context=None)
             IMAP4.starttls(ssl_context: typing.Any | None = None) -> tuple[typing.Literal['OK'], list[None]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L104>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L104>`__)
 
    Send a ``STARTTLS`` command.  The *ssl_context* argument is optional
    and should be a :class:`ssl.SSLContext` object.  This will enable
@@ -759,7 +759,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.status(mailbox, names)
             IMAP4.status(mailbox: str, names: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L105>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L105>`__)
 
    Request named status conditions for *mailbox*.
 
@@ -767,7 +767,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.store(message_set, command, flag_list)
             IMAP4.store(message_set: str, command: str, flags: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L106>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L106>`__)
 
    Alters flag dispositions for messages in mailbox.  *command* is specified by
    section 6.4.6 of :rfc:`2060` as being one of "FLAGS", "+FLAGS", or "-FLAGS",
@@ -795,7 +795,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.subscribe(mailbox)
             IMAP4.subscribe(mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L107>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L107>`__)
 
    Subscribe to new mailbox.
 
@@ -803,7 +803,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.thread(threading_algorithm, charset, search_criterion[, ...])
             IMAP4.thread(threading_algorithm: str, charset: str, *search_criteria: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L108>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L108>`__)
 
    The ``thread`` command is a variant of ``search`` with threading semantics for
    the results.  Returned data contains a space separated list of thread members.
@@ -827,7 +827,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.uid(command, arg[, ...])
             IMAP4.uid(command: str, *args: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L109>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L109>`__)
 
    Execute command args with messages identified by UID, rather than message
    number.  Returns response appropriate to command.  At least one argument must be
@@ -838,14 +838,14 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.unsubscribe(mailbox)
             IMAP4.unsubscribe(mailbox: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L110>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L110>`__)
 
    Unsubscribe from old mailbox.
 
 .. method:: IMAP4.unselect()
             IMAP4.unselect() -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L111>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L111>`__)
 
    :meth:`imaplib.IMAP4.unselect` frees server's resources associated with the
    selected mailbox and returns the server to the authenticated
@@ -858,7 +858,7 @@ An :class:`IMAP4` instance has the following methods:
 .. method:: IMAP4.xatom(name[, ...])
             IMAP4.xatom(name: str, *args: str) -> tuple[str, list[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L112>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L112>`__)
 
    Allow simple extension commands notified by server in ``CAPABILITY`` response.
 
@@ -868,7 +868,7 @@ The following attributes are defined on instances of :class:`IMAP4`:
 .. attribute:: IMAP4.PROTOCOL_VERSION
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L43>`__)
 
    The most recent supported protocol in the ``CAPABILITY`` response from the
    server.
@@ -877,7 +877,7 @@ The following attributes are defined on instances of :class:`IMAP4`:
 .. attribute:: IMAP4.debug
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L31>`__)
 
    Integer value to control debugging output.  The initialize value is taken from
    the module variable ``Debug``.  Values greater than three trace each command.
@@ -886,7 +886,7 @@ The following attributes are defined on instances of :class:`IMAP4`:
 .. attribute:: IMAP4.utf8_enabled
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/da3de3a/stdlib/imaplib.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/imaplib.pyi#L29>`__)
 
    Boolean value that is normally ``False``, but is set to ``True`` if an
    :meth:`enable` command is successfully issued for the ``UTF8=ACCEPT``
