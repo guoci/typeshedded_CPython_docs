@@ -34,7 +34,7 @@ The module defines the following items:
               open(filename: os.PathLike[bytes] | os.PathLike[str] | gzip._ReadableFileobj | gzip._WritableFileobj | bytes | str, mode: _OpenTextMode, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> _io.TextIOWrapper[_io._WrappedBuffer]
               open(filename: os.PathLike[bytes] | os.PathLike[str] | gzip._ReadableFileobj | gzip._WritableFileobj | bytes | str, mode: str, compresslevel: int = 9, encoding: str | None = None, errors: str | None = None, newline: str | None = None) -> gzip.GzipFile | _io.TextIOWrapper[_io._WrappedBuffer]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L47>`__)
 
    Open a gzip-compressed file in binary or text mode, returning a :term:`file
    object`.
@@ -75,7 +75,7 @@ The module defines the following items:
 .. exception:: BadGzipFile
                BadGzipFile(*args: object) -> gzip.BadGzipFile
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L91>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L91>`__)
 
    An exception raised for invalid gzip files.  It inherits from :exc:`OSError`.
    :exc:`EOFError` and :exc:`zlib.error` can also be raised for invalid gzip
@@ -90,7 +90,7 @@ The module defines the following items:
            GzipFile(*, mode: _WriteBinaryMode, compresslevel: int = 9, fileobj: gzip._WritableFileobj | None = None, mtime: float | None = None) -> gzip.GzipFile
            GzipFile(filename: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, mode: str | None = None, compresslevel: int = 9, fileobj: gzip._ReadableFileobj | gzip._WritableFileobj | None = None, mtime: float | None = None) -> gzip.GzipFile
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L93>`__)
 
    Constructor for the :class:`GzipFile` class, which simulates most of the
    methods of a :term:`file object`, with the exception of the :meth:`~io.IOBase.truncate`
@@ -145,7 +145,7 @@ The module defines the following items:
    .. method:: peek(n)
                peek(n: int) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L155>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L155>`__)
 
       Read *n* uncompressed bytes without advancing the file position.
       The number of bytes returned may be more or less than requested.
@@ -160,7 +160,7 @@ The module defines the following items:
    .. attribute:: mode
       :type: object
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L95>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L95>`__)
 
       ``'rb'`` for reading and ``'wb'`` for writing.
 
@@ -170,7 +170,7 @@ The module defines the following items:
    .. attribute:: mtime
       :type: mtime(self: gzip.GzipFile) -> int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L150>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L150>`__)
 
       When decompressing, this attribute is set to the last timestamp in the most
       recently read header.  It is an integer, holding the number of seconds
@@ -180,7 +180,7 @@ The module defines the following items:
    .. attribute:: name
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L96>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L96>`__)
 
       The path to the gzip file on disk, as a :class:`str` or :class:`bytes`.
       Equivalent to the output of :func:`os.fspath` on the original input path,
@@ -225,7 +225,7 @@ The module defines the following items:
 .. function:: compress(data, compresslevel=6, *, mtime=0)
               compress(data: _typeshed.SizedBuffer, compresslevel: int = 9, *, mtime: float = 0) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L171>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L171>`__)
 
    Compress the *data*, returning a :class:`bytes` object containing
    the compressed data.  *compresslevel* and *mtime* have the same meaning as in
@@ -257,7 +257,7 @@ The module defines the following items:
 .. function:: decompress(data)
               decompress(data: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/gzip.pyi#L176>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/gzip.pyi#L176>`__)
 
    Decompress the *data*, returning a :class:`bytes` object containing the
    uncompressed data. This function is capable of decompressing multi-member

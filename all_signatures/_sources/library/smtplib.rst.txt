@@ -24,7 +24,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
 .. class:: SMTP(host='', port=0, local_hostname=None[, timeout], source_address=None)
            SMTP(host: str = '', port: int = 0, local_hostname: str | None = None, timeout: float = ..., source_address: collections.abc.Buffer | str | tuple[typing.Any, ...] | None = None) -> smtplib.SMTP
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L75>`__)
 
    An :class:`SMTP` instance encapsulates an SMTP connection.  It has methods
    that support a full repertoire of SMTP and ESMTP operations.
@@ -71,7 +71,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
    .. attribute:: SMTP.default_port
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L84>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L84>`__)
 
       The default port used for SMTP connections (25).
 
@@ -92,7 +92,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
                     context=None, source_address=None)
            SMTP_SSL(host: str = '', port: int = 0, local_hostname: str | None = None, *, timeout: float = ..., source_address: collections.abc.Buffer | str | tuple[typing.Any, ...] | None = None, context: ssl.SSLContext | None = None) -> smtplib.SMTP_SSL
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L164>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L164>`__)
 
    An :class:`SMTP_SSL` instance behaves exactly the same as instances of
    :class:`SMTP`. :class:`SMTP_SSL` should be used for situations where SSL is
@@ -112,7 +112,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
    .. attribute:: SMTP_SSL.default_port
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L84>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L84>`__)
 
       The default port used for SMTP-over-SSL connections (465).
 
@@ -138,7 +138,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
                 source_address=None[, timeout])
            LMTP(host: str = '', port: int = 2003, local_hostname: str | None = None, source_address: collections.abc.Buffer | str | tuple[typing.Any, ...] | None = None, timeout: float = ...) -> smtplib.LMTP
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L211>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L211>`__)
 
    The LMTP protocol, which is very similar to ESMTP, is heavily based on the
    standard SMTP client. It's common to use Unix sockets for LMTP, so our
@@ -161,7 +161,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPException
                SMTPException(*args: object) -> smtplib.SMTPException
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L40>`__)
 
    Subclass of :exc:`OSError` that is the base exception class for all
    the other exceptions provided by this module.
@@ -173,7 +173,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPServerDisconnected
                SMTPServerDisconnected(*args: object) -> smtplib.SMTPServerDisconnected
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L42>`__)
 
    This exception is raised when the server unexpectedly disconnects, or when an
    attempt is made to use the :class:`SMTP` instance before connecting it to a
@@ -183,7 +183,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPResponseException
                SMTPResponseException(code: int, msg: bytes | str) -> smtplib.SMTPResponseException
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L44>`__)
 
    Base class for all exceptions that include an SMTP error code. These exceptions
    are generated in some instances when the SMTP server returns an error code.
@@ -191,14 +191,14 @@ A nice selection of exceptions is defined as well:
    .. attribute:: smtp_code
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L45>`__)
 
       The error code.
 
    .. attribute:: smtp_error
       :type: bytes | str
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L46>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L46>`__)
 
       The error message.
 
@@ -206,7 +206,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPSenderRefused
                SMTPSenderRefused(code: int, msg: bytes, sender: str) -> smtplib.SMTPSenderRefused
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L50>`__)
 
    Sender address refused.  In addition to the attributes set by on all
    :exc:`SMTPResponseException` exceptions, this sets 'sender' to the string that
@@ -216,14 +216,14 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPRecipientsRefused
                SMTPRecipientsRefused(recipients: dict[str, tuple[int, bytes]]) -> smtplib.SMTPRecipientsRefused
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L56>`__)
 
    All recipient addresses refused.
 
    .. attribute:: recipients
       :type: dict[str, tuple[int, bytes]]
 
-      (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L57>`__)
 
       A dictionary of exactly the same sort as returned
       by :meth:`SMTP.sendmail` containing the errors for
@@ -233,7 +233,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPDataError
                SMTPDataError(code: int, msg: bytes | str) -> smtplib.SMTPDataError
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L61>`__)
 
    The SMTP server refused to accept the message data.
 
@@ -241,7 +241,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPConnectError
                SMTPConnectError(code: int, msg: bytes | str) -> smtplib.SMTPConnectError
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L62>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L62>`__)
 
    Error occurred during establishment of a connection  with the server.
 
@@ -249,7 +249,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPHeloError
                SMTPHeloError(code: int, msg: bytes | str) -> smtplib.SMTPHeloError
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L63>`__)
 
    The server refused our ``HELO`` message.
 
@@ -257,7 +257,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPNotSupportedError
                SMTPNotSupportedError(*args: object) -> smtplib.SMTPNotSupportedError
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L41>`__)
 
     The command or option attempted is not supported by the server.
 
@@ -267,7 +267,7 @@ A nice selection of exceptions is defined as well:
 .. exception:: SMTPAuthenticationError
                SMTPAuthenticationError(code: int, msg: bytes | str) -> smtplib.SMTPAuthenticationError
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L64>`__)
 
    SMTP authentication went wrong.  Most probably the server didn't accept the
    username/password combination provided.
@@ -295,7 +295,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.set_debuglevel(level)
             SMTP.set_debuglevel(debuglevel: int) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L102>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L102>`__)
 
    Set the debug output level.  A value of 1 or ``True`` for *level* results in
    debug messages for connection and for all messages sent to and received from
@@ -308,7 +308,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.docmd(cmd, args='')
             SMTP.docmd(cmd: str, args: str = '') -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L107>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L107>`__)
 
    Send a command *cmd* to the server.  The optional argument *args* is simply
    concatenated to the command, separated by a space.
@@ -327,7 +327,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.connect(host='localhost', port=0)
             SMTP.connect(host: str = 'localhost', port: int = 0, source_address: collections.abc.Buffer | str | tuple[typing.Any, ...] | None = None) -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L103>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L103>`__)
 
    Connect to a host on a given port.  The defaults are to connect to the local
    host at the standard SMTP port (25). If the hostname ends with a colon (``':'``)
@@ -346,7 +346,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.helo(name='')
             SMTP.helo(name: str = '') -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L108>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L108>`__)
 
    Identify yourself to the SMTP server using ``HELO``.  The hostname argument
    defaults to the fully qualified domain name of the local host.
@@ -360,7 +360,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.ehlo(name='')
             SMTP.ehlo(name: str = '') -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L109>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L109>`__)
 
    Identify yourself to an ESMTP server using ``EHLO``.  The hostname argument
    defaults to the fully qualified domain name of the local host.  Examine the
@@ -379,7 +379,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.ehlo_or_helo_if_needed()
             SMTP.ehlo_or_helo_if_needed() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L120>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L120>`__)
 
    This method calls :meth:`ehlo` and/or :meth:`helo` if there has been no
    previous ``EHLO`` or ``HELO`` command this session.  It tries ESMTP ``EHLO``
@@ -391,7 +391,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.has_extn(name)
             SMTP.has_extn(opt: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L110>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L110>`__)
 
    Return :const:`True` if *name* is in the set of SMTP service extensions returned
    by the server, :const:`False` otherwise. Case is ignored.
@@ -400,7 +400,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.verify(address)
             SMTP.verify(address: str) -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L117>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L117>`__)
 
    Check the validity of an address on this server using SMTP ``VRFY``. Returns a
    tuple consisting of code 250 and a full :rfc:`822` address (including human
@@ -415,7 +415,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.login(user, password, *, initial_response_ok=True)
             SMTP.login(user: str, password: str, *, initial_response_ok: bool = True) -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L130>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L130>`__)
 
    Log in on an SMTP server that requires authentication. The arguments are the
    username and the password to authenticate with. If there has been no previous
@@ -453,7 +453,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.auth(mechanism, authobject, *, initial_response_ok=True)
             SMTP.auth(mechanism: str, authobject: smtplib._AuthObject, *, initial_response_ok: bool = True) -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L123>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L123>`__)
 
    Issue an ``SMTP`` ``AUTH`` command for the specified authentication
    *mechanism*, and handle the challenge response via *authobject*.
@@ -498,7 +498,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.starttls(*, context=None)
             SMTP.starttls(*, context: ssl.SSLContext | None = None) -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L132>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L132>`__)
 
    Put the SMTP connection in TLS (Transport Layer Security) mode.  All SMTP
    commands that follow will be encrypted.  You should then call :meth:`ehlo`
@@ -543,7 +543,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.sendmail(from_addr, to_addrs, msg, mail_options=(), rcpt_options=())
             SMTP.sendmail(from_addr: str, to_addrs: collections.abc.Sequence[str] | str, msg: _typeshed.SizedBuffer | str, mail_options: collections.abc.Sequence[str] = ..., rcpt_options: collections.abc.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L145>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L145>`__)
 
    Send mail.  The required arguments are an :rfc:`822` from-address string, a list
    of :rfc:`822` to-address strings (a bare string will be treated as a list with 1
@@ -617,7 +617,7 @@ An :class:`SMTP` instance has the following methods:
                               mail_options=(), rcpt_options=())
             SMTP.send_message(msg: email.message.Message[str, str], from_addr: str | None = None, to_addrs: collections.abc.Sequence[str] | str | None = None, mail_options: collections.abc.Sequence[str] = ..., rcpt_options: collections.abc.Sequence[str] = ...) -> dict[str, tuple[int, bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L153>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L153>`__)
 
    This is a convenience method for calling :meth:`sendmail` with the message
    represented by an :class:`email.message.Message` object.  The arguments have
@@ -657,7 +657,7 @@ An :class:`SMTP` instance has the following methods:
 .. method:: SMTP.quit()
             SMTP.quit() -> tuple[int, bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L162>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L162>`__)
 
    Terminate the SMTP session and close the connection.  Return the result of
    the SMTP ``QUIT`` command.
@@ -674,7 +674,7 @@ Additionally, an SMTP instance has the following attributes:
 .. attribute:: SMTP.helo_resp
    :type: bytes | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L80>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L80>`__)
 
    The response to the ``HELO`` command, see :meth:`helo`.
 
@@ -682,7 +682,7 @@ Additionally, an SMTP instance has the following attributes:
 .. attribute:: SMTP.ehlo_resp
    :type: bytes | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L82>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L82>`__)
 
    The response to the ``EHLO`` command, see :meth:`ehlo`.
 
@@ -690,7 +690,7 @@ Additionally, an SMTP instance has the following attributes:
 .. attribute:: SMTP.does_esmtp
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L83>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L83>`__)
 
    A boolean value indicating whether the server supports ESMTP, see
    :meth:`ehlo`.
@@ -699,7 +699,7 @@ Additionally, an SMTP instance has the following attributes:
 .. attribute:: SMTP.esmtp_features
    :type: dict[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/9c00c6e/stdlib/smtplib.pyi#L86>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/smtplib.pyi#L86>`__)
 
    A dictionary of the names of SMTP service extensions supported by the server,
    see :meth:`ehlo`.
