@@ -243,10 +243,25 @@
     <p class="topless"><a href="3.2.html"
                           title="next chapter">What’s New In Python 3.2</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "whatsnew/3.3.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/whatsnew/3.3.rst?plain=1"
             rel="nofollow">Show source
@@ -2660,10 +2675,25 @@ previous versions, it did.</p>
     <p class="topless"><a href="3.2.html"
                           title="next chapter">What’s New In Python 3.2</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "whatsnew/3.3.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/whatsnew/3.3.rst?plain=1"
             rel="nofollow">Show source

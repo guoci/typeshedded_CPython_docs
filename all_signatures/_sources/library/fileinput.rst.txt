@@ -61,7 +61,7 @@ The following function is the primary interface of this module:
               input(files: collections.abc.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['rb'], openhook: (collections.abc.Callable[[StrOrBytesPath, str], fileinput._HasReadlineAndFileno[bytes]]) | None = None, encoding: None = None, errors: None = None) -> fileinput.FileInput[bytes]
               input(files: collections.abc.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: str, openhook: (collections.abc.Callable[[StrOrBytesPath, str], fileinput._HasReadlineAndFileno[typing.Any]]) | None = None, encoding: str | None = None, errors: str | None = None) -> fileinput.FileInput[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L36>`__)
 
    Create an instance of the :class:`FileInput` class.  The instance will be used
    as global state for the functions of this module, and is also returned to use
@@ -93,7 +93,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: filename()
               filename() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L101>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L101>`__)
 
    Return the name of the file currently being read.  Before the first line has
    been read, returns ``None``.
@@ -102,7 +102,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: fileno()
               fileno() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L104>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L104>`__)
 
    Return the integer "file descriptor" for the current file. When no file is
    opened (before the first line and between files), returns ``-1``.
@@ -111,7 +111,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: lineno()
               lineno() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L102>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L102>`__)
 
    Return the cumulative line number of the line that has just been read.  Before
    the first line has been read, returns ``0``.  After the last line of the last
@@ -121,7 +121,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: filelineno()
               filelineno() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L103>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L103>`__)
 
    Return the line number in the current file.  Before the first line has been
    read, returns ``0``.  After the last line of the last file has been read,
@@ -131,7 +131,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: isfirstline()
               isfirstline() -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L105>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L105>`__)
 
    Return ``True`` if the line just read is the first line of its file, otherwise
    return ``False``.
@@ -140,7 +140,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: isstdin()
               isstdin() -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L106>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L106>`__)
 
    Return ``True`` if the last line was read from ``sys.stdin``, otherwise return
    ``False``.
@@ -149,7 +149,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: nextfile()
               nextfile() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L100>`__)
 
    Close the current file so that the next iteration will read the first line from
    the next file (if any); lines not read from the file will not count towards the
@@ -162,7 +162,7 @@ if there is no active state, :exc:`RuntimeError` is raised.
 .. function:: close()
               close() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L99>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L99>`__)
 
    Close the sequence.
 
@@ -175,7 +175,7 @@ available for subclassing as well:
            FileInput(files: collections.abc.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: typing.Literal['rb'], openhook: (collections.abc.Callable[[StrOrBytesPath, str], fileinput._HasReadlineAndFileno[bytes]]) | None = None, encoding: None = None, errors: None = None) -> fileinput.FileInput[bytes]
            FileInput(files: collections.abc.Iterable[StrOrBytesPath] | os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, inplace: bool = False, backup: str = '', *, mode: str, openhook: (collections.abc.Callable[[StrOrBytesPath, str], fileinput._HasReadlineAndFileno[typing.Any]]) | None = None, encoding: str | None = None, errors: str | None = None) -> fileinput.FileInput[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L108>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L108>`__)
 
    Class :class:`FileInput` is the implementation; its methods :meth:`filename`,
    :meth:`fileno`, :meth:`lineno`, :meth:`filelineno`, :meth:`isfirstline`,
@@ -232,7 +232,7 @@ The two following opening hooks are provided by this module:
 .. function:: hook_compressed(filename, mode, *, encoding=None, errors=None)
               hook_compressed(filename: StrOrBytesPath, mode: str, *, encoding: str | None = None, errors: str | None = None) -> typing.IO[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L203>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L203>`__)
 
    Transparently opens files compressed with gzip and bzip2 (recognized by the
    extensions ``'.gz'`` and ``'.bz2'``) using the :mod:`gzip` and :mod:`bz2`
@@ -251,7 +251,7 @@ The two following opening hooks are provided by this module:
 .. function:: hook_encoded(encoding, errors=None)
               hook_encoded(encoding: str, errors: str | None = None) -> collections.abc.Callable[[StrOrBytesPath, str], typing.IO[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/fileinput.pyi#L212>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/fileinput.pyi#L212>`__)
 
    Returns a hook which opens each file with :func:`open`, using the given
    *encoding* and *errors* to read the file.

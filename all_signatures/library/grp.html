@@ -108,10 +108,25 @@
     <p class="topless"><a href="termios.html"
                           title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">termios</span></code> — POSIX style tty control</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "library/grp.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/library/grp.rst?plain=1"
             rel="nofollow">Show source
@@ -237,7 +252,7 @@ accessible via <a class="reference internal" href="#grp.getgrnam" title="grp.get
 <span class="sig-prename descclassname"><span class="pre">grp.</span></span><span class="sig-name descname"><span class="pre">getgrgid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#grp.getgrgid" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">grp.</span></span><span class="sig-name descname"><span class="pre">getgrgid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">grp.struct_group</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/grp.pyi#L21">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/grp.pyi#L21">typeshed</a>)</p>
 <p>Return the group database entry for the given numeric group ID. <a class="reference internal" href="exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>
 is raised if the entry asked for cannot be found.</p>
 <div class="versionchanged">
@@ -250,7 +265,7 @@ is raised if the entry asked for cannot be found.</p>
 <span class="sig-prename descclassname"><span class="pre">grp.</span></span><span class="sig-name descname"><span class="pre">getgrnam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#grp.getgrnam" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">grp.</span></span><span class="sig-name descname"><span class="pre">getgrnam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">grp.struct_group</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/grp.pyi#L22">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/grp.pyi#L22">typeshed</a>)</p>
 <p>Return the group database entry for the given group name. <a class="reference internal" href="exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> is
 raised if the entry asked for cannot be found.</p>
 </dd></dl>
@@ -260,7 +275,7 @@ raised if the entry asked for cannot be found.</p>
 <span class="sig-prename descclassname"><span class="pre">grp.</span></span><span class="sig-name descname"><span class="pre">getgrall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grp.getgrall" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">grp.</span></span><span class="sig-name descname"><span class="pre">getgrall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">grp.struct_group</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/grp.pyi#L20">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/grp.pyi#L20">typeshed</a>)</p>
 <p>Return a list of all available group entries, in arbitrary order.</p>
 </dd></dl>
 
@@ -290,10 +305,25 @@ raised if the entry asked for cannot be found.</p>
     <p class="topless"><a href="termios.html"
                           title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">termios</span></code> — POSIX style tty control</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "library/grp.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/library/grp.rst?plain=1"
             rel="nofollow">Show source

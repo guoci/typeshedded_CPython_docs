@@ -17,7 +17,7 @@
 .. class:: ContentManager()
            ContentManager() -> email.contentmanager.ContentManager
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L5>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L5>`__)
 
    Base class for content managers.  Provides the standard registry mechanisms
    to register converters between MIME content and other representations, as
@@ -27,7 +27,7 @@
    .. method:: get_content(msg, *args, **kw)
                get_content(msg: email.message.email.message.Message[str, str], *args: typing.Any, **kw: typing.Any) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L6>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L6>`__)
 
       Look up a handler function based on the ``mimetype`` of *msg* (see next
       paragraph), call it, passing through all arguments, and return the result
@@ -49,7 +49,7 @@
    .. method:: set_content(msg, obj, *args, **kw)
                set_content(msg: email.message.email.message.Message[str, str], obj: typing.Any, *args: typing.Any, **kw: typing.Any) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L7>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L7>`__)
 
       If the ``maintype`` is ``multipart``, raise a :exc:`TypeError`; otherwise
       look up a handler function based on the type of *obj* (see next
@@ -84,7 +84,7 @@
    .. method:: add_get_handler(key, handler)
                add_get_handler(key: str, handler: collections.abc.Callable[[...], typing.Any]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L8>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L8>`__)
 
       Record the function *handler* as the handler for *key*.  For the possible
       values of *key*, see :meth:`get_content`.
@@ -93,7 +93,7 @@
    .. method:: add_set_handler(typekey, handler)
                add_set_handler(typekey: type[Any], handler: collections.abc.Callable[[...], typing.Any]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L9>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L9>`__)
 
       Record *handler* as the function to call when an object of a type
       matching *typekey* is passed to :meth:`set_content`.  For the possible
@@ -113,7 +113,7 @@ Currently the email package provides only one concrete content manager,
 .. data:: raw_data_manager
    :type: email.contentmanager.ContentManager
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L11>`__)
 
    This content manager provides only a minimum interface beyond that provided
    by :class:`~email.message.Message` itself:  it deals only with text, raw
@@ -128,7 +128,7 @@ Currently the email package provides only one concrete content manager,
    .. method:: get_content(msg, errors='replace')
                get_content(msg: email.message.email.message.Message[str, str], *args: typing.Any, **kw: typing.Any) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L6>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L6>`__)
 
       Return the payload of the part as either a string (for ``text`` parts), an
       :class:`~email.message.EmailMessage` object (for ``message/rfc822``
@@ -150,7 +150,7 @@ Currently the email package provides only one concrete content manager,
                            params=None, headers=None)
                set_content(msg: email.message.email.message.Message[str, str], obj: typing.Any, *args: typing.Any, **kw: typing.Any) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/email/contentmanager.pyi#L7>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/email/contentmanager.pyi#L7>`__)
 
        Add headers and payload to *msg*:
 

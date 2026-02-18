@@ -221,10 +221,25 @@
     <p class="topless"><a href="3.14.html"
                           title="next chapter">What’s new in Python 3.14</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "whatsnew/3.15.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/whatsnew/3.15.rst?plain=1"
             rel="nofollow">Show source
@@ -1364,6 +1379,10 @@ to 40% for long-running small pure-Python scripts on Windows.
 This was made possible by a new feature introduced in MSVC 18.
 (Contributed by Chris Eibl, Ken Jin, and Brandt Bucher in <a class="reference external" href="https://github.com/python/cpython/issues/143068">gh-143068</a>.
 Special thanks to the MSVC team including Hulon Jenkins.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code> is now used as the default allocator for
+for raw memory allocations such as via <a class="reference internal" href="../c-api/memory.html#c.PyMem_RawMalloc" title="PyMem_RawMalloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_RawMalloc()</span></code></a>
+for better performance on <a class="reference internal" href="../glossary.html#term-free-threaded-build"><span class="xref std std-term">free-threaded builds</span></a>.
+(Contributed by Kumar Aditya in <a class="reference external" href="https://github.com/python/cpython/issues/144914">gh-144914</a>.)</p></li>
 </ul>
 <section id="base64-binascii">
 <h3>base64 &amp; binascii<a class="headerlink" href="#base64-binascii" title="Link to this heading">¶</a></h3>
@@ -2451,10 +2470,25 @@ Pass an explicit <em>dest</em> argument to preserve the old behavior.
     <p class="topless"><a href="3.14.html"
                           title="next chapter">What’s new in Python 3.14</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "whatsnew/3.15.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/whatsnew/3.15.rst?plain=1"
             rel="nofollow">Show source

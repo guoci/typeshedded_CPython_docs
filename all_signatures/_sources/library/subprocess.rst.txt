@@ -46,7 +46,7 @@ underlying :class:`Popen` interface can be used directly.
               run(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: _FILE = None, stdout: _FILE = None, stderr: _FILE = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: typing.Literal[False] | None = None, startupinfo: typing.Any = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., *, capture_output: bool = False, check: bool = False, encoding: None = None, errors: None = None, input: collections.abc.Buffer | None = None, text: typing.Literal[False] | None = None, timeout: float | None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> subprocess.CompletedProcess[bytes]
               run(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: _FILE = None, stdout: _FILE = None, stderr: _FILE = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: bool | None = None, startupinfo: typing.Any = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., *, capture_output: bool = False, check: bool = False, encoding: str | None = None, errors: str | None = None, input: collections.abc.Buffer | str | None = None, text: bool | None = None, timeout: float | None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> subprocess.CompletedProcess[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L92>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L92>`__)
 
    Run the command described by *args*.  Wait for command to complete, then
    return a :class:`CompletedProcess` instance.
@@ -136,21 +136,21 @@ underlying :class:`Popen` interface can be used directly.
 .. class:: CompletedProcess
            CompletedProcess(args: _CMD, returncode: int, stdout: _T | None = None, stderr: _T | None = None) -> subprocess.CompletedProcess[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L77>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L77>`__)
 
    The return value from :func:`run`, representing a process that has finished.
 
    .. attribute:: args
       :type: typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L79>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L79>`__)
 
       The arguments used to launch the process. This may be a list or a string.
 
    .. attribute:: returncode
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L80>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L80>`__)
 
       Exit status of the child process. Typically, an exit status of 0 indicates
       that it ran successfully.
@@ -161,7 +161,7 @@ underlying :class:`Popen` interface can be used directly.
    .. attribute:: stdout
       :type: Unknown
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L83>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L83>`__)
 
       Captured stdout from the child process. A bytes sequence, or a string if
       :func:`run` was called with an encoding, errors, or text=True.
@@ -174,7 +174,7 @@ underlying :class:`Popen` interface can be used directly.
    .. attribute:: stderr
       :type: Unknown
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L84>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L84>`__)
 
       Captured stderr from the child process. A bytes sequence, or a string if
       :func:`run` was called with an encoding, errors, or text=True.
@@ -183,7 +183,7 @@ underlying :class:`Popen` interface can be used directly.
    .. method:: check_returncode()
                check_returncode[_T]() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L86>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L86>`__)
 
       If :attr:`returncode` is non-zero, raise a :exc:`CalledProcessError`.
 
@@ -192,7 +192,7 @@ underlying :class:`Popen` interface can be used directly.
 .. data:: DEVNULL
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1433>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1433>`__)
 
    Special value that can be used as the *stdin*, *stdout* or *stderr* argument
    to :class:`Popen` and indicates that the special file :data:`os.devnull`
@@ -204,7 +204,7 @@ underlying :class:`Popen` interface can be used directly.
 .. data:: PIPE
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1431>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1431>`__)
 
    Special value that can be used as the *stdin*, *stdout* or *stderr* argument
    to :class:`Popen` and indicates that a pipe to the standard stream should be
@@ -214,7 +214,7 @@ underlying :class:`Popen` interface can be used directly.
 .. data:: STDOUT
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1432>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1432>`__)
 
    Special value that can be used as the *stderr* argument to :class:`Popen` and
    indicates that standard error should go into the same handle as standard
@@ -224,7 +224,7 @@ underlying :class:`Popen` interface can be used directly.
 .. exception:: SubprocessError
                SubprocessError(*args: object) -> subprocess.SubprocessError
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1435>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1435>`__)
 
     Base class for all other exceptions from this module.
 
@@ -234,7 +234,7 @@ underlying :class:`Popen` interface can be used directly.
 .. exception:: TimeoutExpired
                TimeoutExpired(cmd: _CMD, timeout: float, output: bytes | str | None = None, stderr: bytes | str | None = None) -> subprocess.TimeoutExpired
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1437>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1437>`__)
 
     Subclass of :exc:`SubprocessError`, raised when a timeout expires
     while waiting for a child process.
@@ -242,21 +242,21 @@ underlying :class:`Popen` interface can be used directly.
     .. attribute:: cmd
        :type: typing.Any
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1442>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1442>`__)
 
         Command that was used to spawn the child process.
 
     .. attribute:: timeout
        :type: float
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1443>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1443>`__)
 
         Timeout in seconds.
 
     .. attribute:: output
        :type: typing.Any
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1445>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1445>`__)
 
         Output of the child process if it was captured by :func:`run` or
         :func:`check_output`.  Otherwise, ``None``.  This is always
@@ -267,14 +267,14 @@ underlying :class:`Popen` interface can be used directly.
     .. attribute:: stdout
        :type: bytes | None
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1446>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1446>`__)
 
         Alias for output, for symmetry with :attr:`stderr`.
 
     .. attribute:: stderr
        :type: bytes | None
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1447>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1447>`__)
 
         Stderr output of the child process if it was captured by :func:`run`.
         Otherwise, ``None``.  This is always :class:`bytes` when stderr output
@@ -289,7 +289,7 @@ underlying :class:`Popen` interface can be used directly.
 .. exception:: CalledProcessError
                CalledProcessError(returncode: int, cmd: _CMD, output: bytes | str | None = None, stderr: bytes | str | None = None) -> subprocess.CalledProcessError
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1449>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1449>`__)
 
     Subclass of :exc:`SubprocessError`, raised when a process run by
     :func:`check_call`, :func:`check_output`, or :func:`run` (with ``check=True``)
@@ -299,7 +299,7 @@ underlying :class:`Popen` interface can be used directly.
     .. attribute:: returncode
        :type: int
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1450>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1450>`__)
 
         Exit status of the child process.  If the process exited due to a
         signal, this will be the negative signal number.
@@ -307,14 +307,14 @@ underlying :class:`Popen` interface can be used directly.
     .. attribute:: cmd
        :type: typing.Any
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1452>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1452>`__)
 
         Command that was used to spawn the child process.
 
     .. attribute:: output
        :type: typing.Any
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1454>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1454>`__)
 
         Output of the child process if it was captured by :func:`run` or
         :func:`check_output`.  Otherwise, ``None``.
@@ -322,14 +322,14 @@ underlying :class:`Popen` interface can be used directly.
     .. attribute:: stdout
        :type: typing.Any
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1457>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1457>`__)
 
         Alias for output, for symmetry with :attr:`stderr`.
 
     .. attribute:: stderr
        :type: typing.Any
 
-       (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1458>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1458>`__)
 
         Stderr output of the child process if it was captured by :func:`run`.
         Otherwise, ``None``.
@@ -445,7 +445,7 @@ functions.
            Popen(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: typing.IO[typing.Any] | int | None = None, stdout: typing.IO[typing.Any] | int | None = None, stderr: typing.IO[typing.Any] | int | None = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: typing.Literal[False] | None = None, startupinfo: typing.Any | None = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., *, text: typing.Literal[False] | None = None, encoding: None = None, errors: None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> subprocess.Popen[bytes]
            Popen(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: typing.IO[typing.Any] | int | None = None, stdout: typing.IO[typing.Any] | int | None = None, stderr: typing.IO[typing.Any] | int | None = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: bool | None = None, startupinfo: typing.Any | None = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., *, text: bool | None = None, encoding: str | None = None, errors: str | None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> subprocess.Popen[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1463>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1463>`__)
 
    Execute a child program in a new process.  On POSIX, the class uses
    :meth:`os.execvpe`-like behavior to execute the child program.  On Windows,
@@ -864,7 +864,7 @@ Instances of the :class:`Popen` class have the following methods:
 .. method:: Popen.poll()
             Popen.poll[AnyStr: (str, bytes)]() -> int | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2021>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2021>`__)
 
    Check if child process has terminated.  Set and return
    :attr:`~Popen.returncode` attribute. Otherwise, returns ``None``.
@@ -873,7 +873,7 @@ Instances of the :class:`Popen` class have the following methods:
 .. method:: Popen.wait(timeout=None)
             Popen.wait[AnyStr: (str, bytes)](timeout: float | None = None) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2022>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2022>`__)
 
    Wait for child process to terminate.  Set and return
    :attr:`~Popen.returncode` attribute.
@@ -917,7 +917,7 @@ Instances of the :class:`Popen` class have the following methods:
 .. method:: Popen.communicate(input=None, timeout=None)
             Popen.communicate[AnyStr: (str, bytes)](input: AnyStr | None = None, timeout: float | None = None) -> tuple[AnyStr, AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2026>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2026>`__)
 
    Interact with process: Send data to stdin.  Read data from stdout and stderr,
    until end-of-file is reached.  Wait for process to terminate and set the
@@ -969,7 +969,7 @@ Instances of the :class:`Popen` class have the following methods:
 .. method:: Popen.send_signal(signal)
             Popen.send_signal[AnyStr: (str, bytes)](sig: int) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2027>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2027>`__)
 
    Sends the signal *signal* to the child.
 
@@ -985,7 +985,7 @@ Instances of the :class:`Popen` class have the following methods:
 .. method:: Popen.terminate()
             Popen.terminate[AnyStr: (str, bytes)]() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2028>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2028>`__)
 
    Stop the child. On POSIX OSs the method sends :py:const:`~signal.SIGTERM` to the
    child. On Windows the Win32 API function :c:func:`!TerminateProcess` is called
@@ -995,7 +995,7 @@ Instances of the :class:`Popen` class have the following methods:
 .. method:: Popen.kill()
             Popen.kill[AnyStr: (str, bytes)]() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2029>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2029>`__)
 
    Kills the child. On POSIX OSs the function sends SIGKILL to the child.
    On Windows :meth:`kill` is an alias for :meth:`terminate`.
@@ -1007,7 +1007,7 @@ Reassigning them to new values is unsupported:
 .. attribute:: Popen.args
    :type: os.PathLike[bytes] | os.PathLike[str] | collections.abc.Sequence[StrOrBytesPath] | bytes | str
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1464>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1464>`__)
 
    The *args* argument as it was passed to :class:`Popen` -- a
    sequence of program arguments or else a single string.
@@ -1017,7 +1017,7 @@ Reassigning them to new values is unsupported:
 .. attribute:: Popen.stdin
    :type: Unknown
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1465>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1465>`__)
 
    If the *stdin* argument was :data:`PIPE`, this attribute is a writeable
    stream object as returned by :func:`open`. If the *encoding* or *errors*
@@ -1029,7 +1029,7 @@ Reassigning them to new values is unsupported:
 .. attribute:: Popen.stdout
    :type: Unknown
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1466>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1466>`__)
 
    If the *stdout* argument was :data:`PIPE`, this attribute is a readable
    stream object as returned by :func:`open`. Reading from the stream provides
@@ -1042,7 +1042,7 @@ Reassigning them to new values is unsupported:
 .. attribute:: Popen.stderr
    :type: Unknown
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1467>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1467>`__)
 
    If the *stderr* argument was :data:`PIPE`, this attribute is a readable
    stream object as returned by :func:`open`. Reading from the stream provides
@@ -1062,7 +1062,7 @@ Reassigning them to new values is unsupported:
 .. attribute:: Popen.pid
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1468>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1468>`__)
 
    The process ID of the child process.
 
@@ -1073,7 +1073,7 @@ Reassigning them to new values is unsupported:
 .. attribute:: Popen.returncode
    :type: int | typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L1469>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L1469>`__)
 
    The child return code. Initially ``None``, :attr:`returncode` is set by
    a call to the :meth:`poll`, :meth:`wait`, or :meth:`communicate` methods
@@ -1326,7 +1326,7 @@ calls these functions.
                    shell=False, cwd=None, timeout=None, **other_popen_kwargs)
               call(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: _FILE = None, stdout: _FILE = None, stderr: _FILE = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: bool | None = None, startupinfo: typing.Any = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., *, encoding: str | None = None, timeout: float | None = None, text: bool | None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L697>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L697>`__)
 
    Run the command described by *args*.  Wait for command to complete, then
    return the :attr:`~Popen.returncode` attribute.
@@ -1365,7 +1365,7 @@ calls these functions.
                          **other_popen_kwargs)
               check_call(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: _FILE = None, stdout: _FILE = None, stderr: _FILE = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: bool | None = None, startupinfo: typing.Any = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., timeout: float | None = None, *, encoding: str | None = None, text: bool | None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L790>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L790>`__)
 
    Run command with arguments.  Wait for command to complete. If the return
    code was zero then return, otherwise raise :exc:`CalledProcessError`. The
@@ -1415,7 +1415,7 @@ calls these functions.
               check_output(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: _FILE = None, stderr: _FILE = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: typing.Literal[False] | None = None, startupinfo: typing.Any = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., *, timeout: float | None = None, input: collections.abc.Buffer | str | None = None, encoding: None = None, errors: None = None, text: typing.Literal[False] | None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> bytes
               check_output(args: _CMD, bufsize: int = -1, executable: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, stdin: _FILE = None, stderr: _FILE = None, preexec_fn: (collections.abc.Callable[[], object]) | None = None, close_fds: bool = True, shell: bool = False, cwd: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, env: collections.abc.Mapping[bytes, StrOrBytesPath] | collections.abc.Mapping[str, StrOrBytesPath] | None = None, universal_newlines: bool | None = None, startupinfo: typing.Any = None, creationflags: int = 0, restore_signals: bool = True, start_new_session: bool = False, pass_fds: collections.abc.Collection[int] = ..., *, timeout: float | None = None, input: collections.abc.Buffer | str | None = None, encoding: str | None = None, errors: str | None = None, text: bool | None = None, user: int | str | None = None, group: int | str | None = None, extra_groups: collections.abc.Iterable[int | str] | None = None, umask: int = -1, pipesize: int = -1, process_group: int | None = None) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L883>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L883>`__)
 
    Run command with arguments and return its output.
 
@@ -1626,7 +1626,7 @@ handling consistency are valid for these functions.
 .. function:: getstatusoutput(cmd, *, encoding=None, errors=None)
               getstatusoutput(cmd: _CMD, *, encoding: str | None = None, errors: str | None = None) -> tuple[int, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2039>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2039>`__)
 
    Return ``(exitcode, output)`` of executing *cmd* in a shell.
 
@@ -1663,7 +1663,7 @@ handling consistency are valid for these functions.
 .. function:: getoutput(cmd, *, encoding=None, errors=None)
               getoutput(cmd: _CMD, *, encoding: str | None = None, errors: str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/subprocess.pyi#L2040>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/subprocess.pyi#L2040>`__)
 
    Return output (stdout and stderr) of executing *cmd* in a shell.
 

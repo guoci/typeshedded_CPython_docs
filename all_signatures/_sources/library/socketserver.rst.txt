@@ -18,7 +18,7 @@ There are four basic concrete server classes:
 .. class:: TCPServer(server_address, RequestHandlerClass, bind_and_activate=True)
            TCPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, socketserver.TCPServer], socketserver.BaseRequestHandler], bind_and_activate: bool = True) -> socketserver.TCPServer
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L67>`__)
 
    This uses the internet TCP protocol, which provides for
    continuous streams of data between the client and server.
@@ -33,7 +33,7 @@ There are four basic concrete server classes:
 .. class:: UDPServer(server_address, RequestHandlerClass, bind_and_activate=True)
            UDPServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, socketserver.UDPServer], socketserver.BaseRequestHandler], bind_and_activate: bool = True) -> socketserver.UDPServer
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L86>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L86>`__)
 
    This uses datagrams, which are discrete packets of information that may
    arrive out of order or be lost while in transit.  The parameters are
@@ -43,7 +43,7 @@ There are four basic concrete server classes:
 .. class:: UnixStreamServer(server_address, RequestHandlerClass, bind_and_activate=True)
            UnixDatagramServer(server_address, RequestHandlerClass, bind_and_activate=True)
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L91>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L91>`__)
 
    These more infrequently used classes are similar to the TCP and
    UDP classes, but use Unix domain sockets; they're not available on
@@ -112,7 +112,7 @@ server is the address family.
 .. class:: ForkingMixIn
            ThreadingMixIn
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L110>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L110>`__)
 
    Forking and threading versions of each type of server can be created
    using these mix-in classes.  For instance, :class:`ThreadingUDPServer`
@@ -131,7 +131,7 @@ server is the address family.
    .. attribute:: block_on_close
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L123>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L123>`__)
 
       :meth:`ForkingMixIn.server_close <BaseServer.server_close>`
       waits until all child processes complete, except if
@@ -144,7 +144,7 @@ server is the address family.
    .. attribute:: max_children
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L113>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L113>`__)
 
       Specify how many child processes will exist to handle requests at a time
       for :class:`ForkingMixIn`.  If the limit is reached,
@@ -153,7 +153,7 @@ server is the address family.
    .. attribute:: daemon_threads
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L122>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L122>`__)
 
       For :class:`ThreadingMixIn` use daemonic threads by setting
       :data:`ThreadingMixIn.daemon_threads <daemon_threads>`
@@ -177,7 +177,7 @@ server is the address family.
            ThreadingUnixStreamServer
            ThreadingUnixDatagramServer
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L129>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L129>`__)
 
    These classes are pre-defined using the mix-in classes.
 
@@ -229,7 +229,7 @@ Server Objects
 .. class:: BaseServer(server_address, RequestHandlerClass)
            BaseServer(server_address: _Address, RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, socketserver.BaseServer], socketserver.BaseRequestHandler]) -> socketserver.BaseServer
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L41>`__)
 
    This is the superclass of all Server objects in the module.  It defines the
    interface, given below, but does not implement most of the methods, which is
@@ -240,7 +240,7 @@ Server Objects
    .. method:: fileno()
                fileno() -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L82>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L82>`__)
 
       Return an integer file descriptor for the socket on which the server is
       listening.  This function is most commonly passed to :mod:`selectors`, to
@@ -250,7 +250,7 @@ Server Objects
    .. method:: handle_request()
                handle_request() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L48>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L48>`__)
 
       Process a single request.  This function calls the following methods in
       order: :meth:`get_request`, :meth:`verify_request`, and
@@ -265,7 +265,7 @@ Server Objects
    .. method:: serve_forever(poll_interval=0.5)
                serve_forever(poll_interval: float = ...) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L49>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L49>`__)
 
       Handle requests until an explicit :meth:`shutdown` request.  Poll for
       shutdown every *poll_interval* seconds.
@@ -282,7 +282,7 @@ Server Objects
    .. method:: service_actions()
                service_actions() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L63>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L63>`__)
 
       This is called in the :meth:`serve_forever` loop. This method can be
       overridden by subclasses or mixin classes to perform actions specific to
@@ -293,7 +293,7 @@ Server Objects
    .. method:: shutdown()
                shutdown() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L50>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L50>`__)
 
       Tell the :meth:`serve_forever` loop to stop and wait until it does.
       :meth:`shutdown` must be called while :meth:`serve_forever` is running in a
@@ -303,7 +303,7 @@ Server Objects
    .. method:: server_close()
                server_close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L51>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L51>`__)
 
       Clean up the server. May be overridden.
 
@@ -311,7 +311,7 @@ Server Objects
    .. attribute:: address_family
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L68>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L68>`__)
 
       The family of protocols to which the server's socket belongs.  Common
       examples are :const:`socket.AF_INET`, :const:`socket.AF_INET6`, and
@@ -323,7 +323,7 @@ Server Objects
    .. attribute:: RequestHandlerClass
       :type: (typing.Any, typing.Any, socketserver.BaseServer) -> socketserver.BaseRequestHandler
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L44>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L44>`__)
 
       The user-provided request handler class; an instance of this class is created
       for each request.
@@ -332,7 +332,7 @@ Server Objects
    .. attribute:: server_address
       :type: collections.abc.Buffer | str | tuple[typing.Any, ...]
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L42>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L42>`__)
 
       The address on which the server is listening.  The format of addresses varies
       depending on the protocol family;
@@ -344,7 +344,7 @@ Server Objects
    .. attribute:: socket
       :type: socket.socket
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L69>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L69>`__)
 
       The socket object on which the server will listen for incoming requests.
 
@@ -356,7 +356,7 @@ Server Objects
    .. attribute:: allow_reuse_address
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L70>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L70>`__)
 
       Whether the server will allow the reuse of an address.  This defaults to
       :const:`False`, and can be set in subclasses to change the policy.
@@ -365,7 +365,7 @@ Server Objects
    .. attribute:: request_queue_size
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L71>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L71>`__)
 
       The size of the request queue.  If it takes a long time to process a single
       request, any requests that arrive while the server is busy are placed into a
@@ -377,7 +377,7 @@ Server Objects
    .. attribute:: socket_type
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L72>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L72>`__)
 
       The type of socket used by the server; :const:`socket.SOCK_STREAM` and
       :const:`socket.SOCK_DGRAM` are two common values.
@@ -386,7 +386,7 @@ Server Objects
    .. attribute:: timeout
       :type: float | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L43>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L43>`__)
 
       Timeout duration, measured in seconds, or :const:`None` if no timeout is
       desired.  If :meth:`handle_request` receives no incoming requests within the
@@ -403,7 +403,7 @@ Server Objects
    .. method:: finish_request(request, client_address)
                finish_request(request: _RequestType, client_address: typing.Any) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L52>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L52>`__)
 
       Actually processes the request by instantiating :attr:`RequestHandlerClass` and
       calling its :meth:`~BaseRequestHandler.handle` method.
@@ -412,7 +412,7 @@ Server Objects
    .. method:: get_request()
                get_request() -> tuple[typing.Any, typing.Any]
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L53>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L53>`__)
 
       Must accept a request from the socket, and return a 2-tuple containing the *new*
       socket object to be used to communicate with the client, and the client's
@@ -422,7 +422,7 @@ Server Objects
    .. method:: handle_error(request, client_address)
                handle_error(request: _RequestType, client_address: typing.Any) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L54>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L54>`__)
 
       This function is called if the :meth:`~BaseRequestHandler.handle`
       method of a :attr:`RequestHandlerClass` instance raises
@@ -437,7 +437,7 @@ Server Objects
    .. method:: handle_timeout()
                handle_timeout() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L55>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L55>`__)
 
       This function is called when the :attr:`timeout` attribute has been set to a
       value other than :const:`None` and the timeout period has passed with no
@@ -449,7 +449,7 @@ Server Objects
    .. method:: process_request(request, client_address)
                process_request(request: _RequestType, client_address: typing.Any) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L56>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L56>`__)
 
       Calls :meth:`finish_request` to create an instance of the
       :attr:`RequestHandlerClass`.  If desired, this function can create a new process
@@ -464,7 +464,7 @@ Server Objects
    .. method:: server_activate()
                server_activate() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L57>`__)
 
       Called by the server's constructor to activate the server.  The default behavior
       for a TCP server just invokes :meth:`~socket.socket.listen`
@@ -474,7 +474,7 @@ Server Objects
    .. method:: server_bind()
                server_bind() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L84>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L84>`__)
 
       Called by the server's constructor to bind the socket to the desired address.
       May be overridden.
@@ -483,7 +483,7 @@ Server Objects
    .. method:: verify_request(request, client_address)
                verify_request(request: _RequestType, client_address: typing.Any) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L58>`__)
 
       Must return a Boolean value; if the value is :const:`True`, the request will
       be processed, and if it's :const:`False`, the request will be denied.  This
@@ -502,7 +502,7 @@ Request Handler Objects
 .. class:: BaseRequestHandler
            BaseRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> socketserver.BaseRequestHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L142>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L142>`__)
 
    This is the superclass of all request handler objects.  It defines
    the interface, given below.  A concrete request handler subclass must
@@ -514,7 +514,7 @@ Request Handler Objects
    .. method:: setup()
                setup() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L153>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L153>`__)
 
       Called before the :meth:`handle` method to perform any initialization actions
       required.  The default implementation does nothing.
@@ -523,7 +523,7 @@ Request Handler Objects
    .. method:: handle()
                handle() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L154>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L154>`__)
 
       This function must do all the work required to service a request.  The
       default implementation does nothing.  Several instance attributes are
@@ -539,7 +539,7 @@ Request Handler Objects
    .. method:: finish()
                finish() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L155>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L155>`__)
 
       Called after the :meth:`handle` method to perform any clean-up actions
       required.  The default implementation does nothing.  If :meth:`setup`
@@ -549,7 +549,7 @@ Request Handler Objects
    .. attribute:: request
       :type: typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L149>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L149>`__)
 
       The *new* :class:`socket.socket` object
       to be used to communicate with the client.
@@ -558,7 +558,7 @@ Request Handler Objects
    .. attribute:: client_address
       :type: typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L150>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L150>`__)
 
       Client address returned by :meth:`BaseServer.get_request`.
 
@@ -566,7 +566,7 @@ Request Handler Objects
    .. attribute:: server
       :type: socketserver.BaseServer
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L151>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L151>`__)
 
       :class:`BaseServer` object used for handling the request.
 
@@ -574,7 +574,7 @@ Request Handler Objects
 .. class:: StreamRequestHandler
            DatagramRequestHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L157>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L157>`__)
 
    These :class:`BaseRequestHandler` subclasses override the
    :meth:`~BaseRequestHandler.setup` and :meth:`~BaseRequestHandler.finish`
@@ -583,7 +583,7 @@ Request Handler Objects
    .. attribute:: rfile
       :type: io.BufferedIOBase
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L169>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L169>`__)
 
       A file object from which receives the request is read.
       Support the :class:`io.BufferedIOBase` readable interface.
@@ -591,7 +591,7 @@ Request Handler Objects
    .. attribute:: wfile
       :type: io.BufferedIOBase
 
-      (`typeshed <https://github.com/python/typeshed/blob/2b2a93d/stdlib/socketserver.pyi#L170>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/socketserver.pyi#L170>`__)
 
       A file object to which the reply is written.
       Support the :class:`io.BufferedIOBase` writable interface

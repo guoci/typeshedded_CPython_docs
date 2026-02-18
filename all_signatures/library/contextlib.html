@@ -131,10 +131,25 @@
     <p class="topless"><a href="abc.html"
                           title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code> — Abstract Base Classes</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "library/contextlib.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/library/contextlib.rst?plain=1"
             rel="nofollow">Show source
@@ -224,7 +239,7 @@ statement. For more information see also <a class="reference internal" href="std
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AbstractContextManager</span></span><a class="headerlink" href="#contextlib.AbstractContextManager" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AbstractContextManager</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextlib.AbstractContextManager" title="contextlib.AbstractContextManager"><span class="pre">AbstractContextManager</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T_co</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_ExitT_co</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L48">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L48">typeshed</a>)</p>
 <p>An <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">abstract base class</span></a> for classes that implement
 <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__enter__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__exit__()</span></code></a>. A default
 implementation for <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__enter__()</span></code></a> is provided which returns
@@ -240,7 +255,7 @@ returns <code class="docutils literal notranslate"><span class="pre">None</span>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AbstractAsyncContextManager</span></span><a class="headerlink" href="#contextlib.AbstractAsyncContextManager" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AbstractAsyncContextManager</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextlib.AbstractAsyncContextManager" title="contextlib.AbstractAsyncContextManager"><span class="pre">AbstractAsyncContextManager</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T_co</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_ExitT_co</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L60">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L60">typeshed</a>)</p>
 <p>An <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">abstract base class</span></a> for classes that implement
 <a class="reference internal" href="../reference/datamodel.html#object.__aenter__" title="object.__aenter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__aenter__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__aexit__" title="object.__aexit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__aexit__()</span></code></a>. A default
 implementation for <a class="reference internal" href="../reference/datamodel.html#object.__aenter__" title="object.__aenter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__aenter__()</span></code></a> is provided which returns
@@ -271,7 +286,7 @@ returns <code class="docutils literal notranslate"><span class="pre">None</span>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.ParamSpec" title="typing.ParamSpec"><span class="pre">ParamSpec</span></a><span class="p"><span class="pre">(</span></span><span class="pre">_P</span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">contextlib._GeneratorContextManager</span><span class="p"><span class="pre">[</span></span><span class="pre">_T_co</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L90">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L90">typeshed</a>)</p>
 <p>This function is a <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> that can be used to define a factory
 function for <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement context managers, without needing to
 create a class or separate <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> methods.</p>
@@ -343,7 +358,7 @@ managers support multiple invocations in order to be used as decorators).</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.ParamSpec" title="typing.ParamSpec"><span class="pre">ParamSpec</span></a><span class="p"><span class="pre">(</span></span><span class="pre">_P</span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">contextlib._AsyncGeneratorContextManager</span><span class="p"><span class="pre">[</span></span><span class="pre">_T_co</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L122">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L122">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#contextlib.contextmanager" title="contextlib.contextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">contextmanager()</span></code></a>, but creates an
 <a class="reference internal" href="../reference/datamodel.html#async-context-managers"><span class="std std-ref">asynchronous context manager</span></a>.</p>
 <p>This function is a <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> that can be used to define a factory
@@ -403,7 +418,7 @@ be used as decorators.</p>
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">closing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.closing" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">closing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_SupportsCloseT</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.closing</span><span class="p"><span class="pre">[</span></span><span class="pre">_SupportsCloseT</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L135">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L135">typeshed</a>)</p>
 <p>Return a context manager that closes <em>thing</em> upon completion of the block.  This
 is basically equivalent to:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
@@ -443,7 +458,7 @@ as <a class="reference internal" href="urllib.request.html#urllib.request.urlope
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">aclosing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.aclosing" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">aclosing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_SupportsAcloseT</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.aclosing</span><span class="p"><span class="pre">[</span></span><span class="pre">_SupportsAcloseT</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L146">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L146">typeshed</a>)</p>
 <p>Return an async context manager that calls the <code class="docutils literal notranslate"><span class="pre">aclose()</span></code> method of <em>thing</em>
 upon completion of the block.  This is basically equivalent to:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">asynccontextmanager</span>
@@ -483,7 +498,7 @@ lifetime of some task it depends on).</p>
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">nullcontext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enter_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.nullcontext</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">nullcontext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enter_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.nullcontext</span><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L210">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L210">typeshed</a>)</p>
 <p>Return a context manager that returns <em>enter_result</em> from <code class="docutils literal notranslate"><span class="pre">__enter__</span></code>, but
 otherwise does nothing. It is intended to be used as a stand-in for an
 optional context manager, for example:</p>
@@ -538,7 +553,7 @@ optional context manager, for example:</p>
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">suppress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">exceptions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.suppress" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">suppress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">exceptions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#type" title="type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="exceptions.html#BaseException" title="BaseException"><span class="pre">BaseException</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.suppress</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L150">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L150">typeshed</a>)</p>
 <p>Return a context manager that suppresses any of the specified exceptions
 if they occur in the body of a <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code> statement and then
 resumes execution with the first statement following the end of the
@@ -595,7 +610,7 @@ part of a <a class="reference internal" href="exceptions.html#BaseExceptionGroup
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.redirect_stdout</span><span class="p"><span class="pre">[</span></span><span class="pre">_SupportsRedirectT</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L172">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L172">typeshed</a>)</p>
 <p>Context manager for temporarily redirecting <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a> to
 another <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>.</p>
 <p>This tool adds flexibility to existing functions or classes whose output
@@ -643,7 +658,7 @@ However, it is still a useful approach for many utility scripts.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.redirect_stderr</span><span class="p"><span class="pre">[</span></span><span class="pre">_SupportsRedirectT</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L173">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L173">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#contextlib.redirect_stdout" title="contextlib.redirect_stdout"><code class="xref py py-func docutils literal notranslate"><span class="pre">redirect_stdout()</span></code></a> but redirecting the global
 <a class="reference internal" href="sys.html#sys.stderr" title="sys.stderr"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> to another <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>.</p>
 <p>This context manager is <a class="reference internal" href="#reentrant-cms"><span class="std std-ref">reentrant</span></a>.</p>
@@ -657,7 +672,7 @@ However, it is still a useful approach for many utility scripts.</p>
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">chdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.chdir" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">chdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_T_fd_or_any_path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">contextlib.chdir</span><span class="p"><span class="pre">[</span></span><span class="pre">_T_fd_or_any_path</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L234">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L234">typeshed</a>)</p>
 <p>Non parallel-safe context manager to change the current working directory.
 As this changes a global state, the working directory, it is not suitable
 for use in most threaded or async contexts. It is also not suitable for most
@@ -677,7 +692,7 @@ working directory upon entering and restores the old one on exit.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">ContextDecorator</span></span><a class="headerlink" href="#contextlib.ContextDecorator" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">ContextDecorator</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextlib.ContextDecorator" title="contextlib.ContextDecorator"><span class="pre">ContextDecorator</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L68">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L68">typeshed</a>)</p>
 <p>A base class that enables a context manager to also be used as a decorator.</p>
 <p>Context managers inheriting from <code class="docutils literal notranslate"><span class="pre">ContextDecorator</span></code> have to implement
 <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> and <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> as normal. <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> retains its optional
@@ -758,7 +773,7 @@ explicit <code class="xref std std-keyword docutils literal notranslate"><span c
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AsyncContextDecorator</span></span><a class="headerlink" href="#contextlib.AsyncContextDecorator" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AsyncContextDecorator</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextlib.AsyncContextDecorator" title="contextlib.AsyncContextDecorator"><span class="pre">AsyncContextDecorator</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L100">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L100">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#contextlib.ContextDecorator" title="contextlib.ContextDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextDecorator</span></code></a> but only for asynchronous functions.</p>
 <p>Example of <code class="docutils literal notranslate"><span class="pre">AsyncContextDecorator</span></code>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span>
@@ -804,7 +819,7 @@ explicit <code class="xref std std-keyword docutils literal notranslate"><span c
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">ExitStack</span></span><a class="headerlink" href="#contextlib.ExitStack" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">ExitStack</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><span class="pre">ExitStack</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_ExitT_co</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L183">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L183">typeshed</a>)</p>
 <p>A context manager that is designed to make it easy to programmatically
 combine other context managers and cleanup functions, especially those
 that are optional or otherwise driven by input data.</p>
@@ -844,7 +859,7 @@ stack in application specific ways.</p>
 <span class="sig-name descname"><span class="pre">enter_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.enter_context" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">enter_context</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_ExitT_co</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_T</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#contextlib.AbstractContextManager" title="contextlib.AbstractContextManager"><span class="pre">AbstractContextManager</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_ExitT_co</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_T</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L176">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L176">typeshed</a>)</p>
 <p>Enters a new context manager and adds its <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> method to
 the callback stack. The return value is the result of the context
 manager’s own <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> method.</p>
@@ -872,7 +887,7 @@ is not a context manager.</p>
 </dl>
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_CM_EF</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_CM_EF</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L177">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L177">typeshed</a>)</p>
 <p>Adds a context manager’s <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> method to the callback stack.</p>
 <p>As <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> is <em>not</em> invoked, this method can be used to cover
 part of an <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> implementation with a context manager’s own
@@ -902,7 +917,7 @@ method to be used as a function decorator.</p>
 </dl>
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contextlib.ExitStack[_ExitT_co],</span> <span class="pre">collections.abc.Callable[[typing.ParamSpec(_P)],</span> <span class="pre">_T],</span> <span class="pre">typing.ParamSpec(_P)</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.ParamSpec" title="typing.ParamSpec"><span class="pre">ParamSpec</span></a><span class="p"><span class="pre">(</span></span><span class="pre">_P</span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L178">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L178">typeshed</a>)</p>
 <p>Accepts an arbitrary callback function and arguments and adds it to
 the callback stack.</p>
 <p>Unlike the other methods, callbacks added this way cannot suppress
@@ -922,7 +937,7 @@ method to be used as a function decorator.</p>
 </dl>
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><span class="pre">ExitStack</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_ExitT_co</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L179">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L179">typeshed</a>)</p>
 <p>Transfers the callback stack to a fresh <a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a> instance
 and returns it. No callbacks are invoked by this operation - instead,
 they will now be invoked when the new stack is closed (either
@@ -946,7 +961,7 @@ operation as follows:</p>
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.close" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_ExitT_co</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L184">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L184">typeshed</a>)</p>
 <p>Immediately unwinds the callback stack, invoking callbacks in the
 reverse order of registration. For any context managers and exit
 callbacks registered, the arguments passed in will indicate that no
@@ -960,7 +975,7 @@ exception occurred.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AsyncExitStack</span></span><a class="headerlink" href="#contextlib.AsyncExitStack" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contextlib.</span></span><span class="sig-name descname"><span class="pre">AsyncExitStack</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#contextlib.AsyncExitStack" title="contextlib.AsyncExitStack"><span class="pre">AsyncExitStack</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_ExitT_co</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L197">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L197">typeshed</a>)</p>
 <p>An <a class="reference internal" href="../reference/datamodel.html#async-context-managers"><span class="std std-ref">asynchronous context manager</span></a>, similar
 to <a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a>, that supports combining both synchronous and
 asynchronous context managers, as well as having coroutines for
@@ -985,7 +1000,7 @@ instead.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Coroutine" title="collections.abc.Coroutine"><span class="pre">Coroutine</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Unknown</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Unknown</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L198">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L198">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#contextlib.ExitStack.enter_context" title="contextlib.ExitStack.enter_context"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExitStack.enter_context()</span></code></a> but expects an asynchronous context
 manager.</p>
 <div class="versionchanged">
@@ -1009,7 +1024,7 @@ is not an asynchronous context manager.</p>
 </dl>
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_ACM_EF</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_ACM_EF</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L199">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L199">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#contextlib.ExitStack.push" title="contextlib.ExitStack.push"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExitStack.push()</span></code></a> but expects either an asynchronous context manager
 or a coroutine function.</p>
 <div class="versionchanged">
@@ -1030,7 +1045,7 @@ or a coroutine function.</p>
 </dl>
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contextlib.AsyncExitStack[_ExitT_co],</span> <span class="pre">collections.abc.Callable[[typing.ParamSpec(_P)],</span> <span class="pre">typing.collections.abc.Awaitable[_T]],</span> <span class="pre">typing.ParamSpec(_P)</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.ParamSpec" title="typing.ParamSpec"><span class="pre">ParamSpec</span></a><span class="p"><span class="pre">(</span></span><span class="pre">_P</span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">collections.abc.Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">_T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L200">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L200">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#contextlib.ExitStack.callback" title="contextlib.ExitStack.callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExitStack.callback()</span></code></a> but expects a coroutine function.</p>
 </dd></dl>
 
@@ -1045,7 +1060,7 @@ or a coroutine function.</p>
 </dl>
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Coroutine" title="collections.abc.Coroutine"><span class="pre">Coroutine</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Unknown</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Unknown</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/2b2a93d/stdlib/contextlib.pyi#L203">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/contextlib.pyi#L203">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#contextlib.ExitStack.close" title="contextlib.ExitStack.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExitStack.close()</span></code></a> but properly handles awaitables.</p>
 </dd></dl>
 
@@ -1456,10 +1471,25 @@ instance avoids that problem:</p>
     <p class="topless"><a href="abc.html"
                           title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code> — Abstract Base Classes</a></p>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('meta[property="og:title"]').content;
+        const elements = document.querySelectorAll('.improvepage');
+        const pageurl = window.location.href.split('?')[0];
+        elements.forEach(element => {
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
+            url.searchParams.set('pagetitle', title);
+            url.searchParams.set('pageurl', pageurl);
+            url.searchParams.set('pagesource', "library/contextlib.rst");
+            element.href = url.toString();
+        });
+    });
+  </script>
   <div role="note" aria-label="source link">
     <h3>This page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a bug</a></li>
+      <li><a class="improvepage" href="../improve-page-nojs.html">Improve this page</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/library/contextlib.rst?plain=1"
             rel="nofollow">Show source
