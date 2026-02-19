@@ -430,14 +430,33 @@ raise <a class="reference internal" href="../library/exceptions.html#SyntaxError
 </section>
 <section id="pep-814-add-frozendict-built-in-type">
 <span id="whatsnew315-frozendict"></span><h3><span class="target" id="index-10"></span><a class="pep reference external" href="https://peps.python.org/pep-0814/"><strong>PEP 814</strong></a>: Add frozendict built-in type<a class="headerlink" href="#pep-814-add-frozendict-built-in-type" title="Link to this heading">¶</a></h3>
-<p>A new public immutable type <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a> is added to the <a class="reference internal" href="../library/builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a>
-module. It is not a <code class="docutils literal notranslate"><span class="pre">dict</span></code> subclass but inherits directly from <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">frozendict</span></code> can be hashed with <code class="docutils literal notranslate"><span class="pre">hash(frozendict)</span></code> if all keys and values
-can be hashed.</p>
+<p>A new <a class="reference internal" href="../glossary.html#term-immutable"><span class="xref std std-term">immutable</span></a> type, <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>, is added to the <a class="reference internal" href="../library/builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> module.
+It does not allow modification after creation. A <code class="docutils literal notranslate"><span class="pre">frozendict</span></code> is not a subclass of <code class="docutils literal notranslate"><span class="pre">dict</span></code>;
+it inherits directly from <code class="docutils literal notranslate"><span class="pre">object</span></code>. A <code class="docutils literal notranslate"><span class="pre">frozendict</span></code> is <a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a>
+as long as all of its keys and values are hashable. A <code class="docutils literal notranslate"><span class="pre">frozendict</span></code> preserves
+insertion order, but comparison does not take order into account.</p>
+<p>For example:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">frozendict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">frozendict({&#39;x&#39;: 1, &#39;y&#39;: 2})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;python-input-2&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="w">    </span><span class="pm">~^^^^^</span>
+<span class="gr">TypeError</span>: <span class="n">&#39;frozendict&#39; object does not support item assignment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">frozendict</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0814/"><strong>PEP 814</strong></a> for the full specification and rationale.</p>
 </div>
+<p>(Contributed by Victor Stinner and Donghee Na in <a class="reference external" href="https://github.com/python/cpython/issues/141510">gh-141510</a>.)</p>
 </section>
 <section id="pep-799-a-dedicated-profiling-package">
 <span id="whatsnew315-profiling-package"></span><h3><span class="target" id="index-12"></span><a class="pep reference external" href="https://peps.python.org/pep-0799/"><strong>PEP 799</strong></a>: A dedicated profiling package<a class="headerlink" href="#pep-799-a-dedicated-profiling-package" title="Link to this heading">¶</a></h3>
@@ -897,7 +916,7 @@ type names.</p></li>
 <section id="dbm">
 <h3>dbm<a class="headerlink" href="#dbm" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Added new <code class="xref py py-meth docutils literal notranslate"><span class="pre">reorganize()</span></code> methods to <a class="reference internal" href="../library/dbm.html#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code></a> and <a class="reference internal" href="../library/dbm.html#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm (All)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a>
+<li><p>Added new <code class="xref py py-meth docutils literal notranslate"><span class="pre">reorganize()</span></code> methods to <a class="reference internal" href="../library/dbm.html#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code></a> and <a class="reference internal" href="../library/dbm.html#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a>
 which allow to recover unused free space previously occupied by deleted entries.
 (Contributed by Andrea Oliveri in <a class="reference external" href="https://github.com/python/cpython/issues/134004">gh-134004</a>.)</p></li>
 </ul>
@@ -1665,7 +1684,7 @@ Python 3.20. Use <a class="reference internal" href="../library/sys.html#sys.ver
 <li><p><a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/socketserver.html#module-socketserver" title="socketserver: A framework for network servers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socketserver</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tabnanny.html#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a></p></li>
-<li><p><a class="reference internal" href="../library/tkinter.font.html#module-tkinter.font" title="tkinter.font: Tkinter font-wrapping class (Tk)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code></a></p></li>
+<li><p><a class="reference internal" href="../library/tkinter.font.html#module-tkinter.font" title="tkinter.font: Tkinter font-wrapping class"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tkinter.ttk.html#module-tkinter.ttk" title="tkinter.ttk: Tk themed widget set"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.ttk</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/wsgiref.html#module-wsgiref.simple_server" title="wsgiref.simple_server: A simple WSGI HTTP server."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wsgiref.simple_server</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/xml.etree.elementtree.html#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code></a></p></li>
@@ -1920,7 +1939,7 @@ Python 3.20. Use <a class="reference internal" href="../library/sys.html#sys.ver
 <li><p><a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/socketserver.html#module-socketserver" title="socketserver: A framework for network servers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socketserver</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tabnanny.html#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a></p></li>
-<li><p><a class="reference internal" href="../library/tkinter.font.html#module-tkinter.font" title="tkinter.font: Tkinter font-wrapping class (Tk)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code></a></p></li>
+<li><p><a class="reference internal" href="../library/tkinter.font.html#module-tkinter.font" title="tkinter.font: Tkinter font-wrapping class"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tkinter.ttk.html#module-tkinter.ttk" title="tkinter.ttk: Tk themed widget set"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.ttk</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/wsgiref.html#module-wsgiref.simple_server" title="wsgiref.simple_server: A simple WSGI HTTP server."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wsgiref.simple_server</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/xml.etree.elementtree.html#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code></a></p></li>

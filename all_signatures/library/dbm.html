@@ -220,9 +220,9 @@
 <hr class="docutils" />
 <p><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm</span></code> is a generic interface to variants of the DBM database:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm (All)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a></p></li>
-<li><p><a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a></p></li>
-<li><p><a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a></p></li>
+<li><p><a class="reference internal" href="#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a></p></li>
+<li><p><a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a></p></li>
+<li><p><a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a></p></li>
 </ul>
 <p>If none of these modules are installed, the
 slow-but-simple implementation in module <a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code></a> will be used. There
@@ -231,7 +231,7 @@ the Oracle Berkeley DB.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>None of the underlying modules will automatically shrink the disk space used by
-the database file. However, <a class="reference internal" href="#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm (All)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a>, <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a> and <a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code></a>
+the database file. However, <a class="reference internal" href="#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a>, <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a> and <a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code></a>
 provide a <code class="xref py py-meth docutils literal notranslate"><span class="pre">reorganize()</span></code> method that can be used for this purpose.</p>
 </div>
 <dl class="py exception">
@@ -252,7 +252,7 @@ item — the latter is used when <a class="reference internal" href="#dbm.error"
 <span class="sig-prename descclassname"><span class="pre">dbm.</span></span><span class="sig-name descname"><span class="pre">whichdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StrOrBytesPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/637ece0/stdlib/dbm/__init__.pyi#L100">typeshed</a>)</p>
 <p>This function attempts to guess which of the several simple database modules
-available — <a class="reference internal" href="#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm (All)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a>, <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a>, <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a>,
+available — <a class="reference internal" href="#module-dbm.sqlite3" title="dbm.sqlite3: SQLite backend for dbm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.sqlite3</span></code></a>, <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a>, <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a>,
 or <a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code></a> — should be used to open a given file.</p>
 <p>Return one of the following values:</p>
 <ul class="simple">
@@ -453,17 +453,20 @@ in free disk space. However, be aware that this factor changes for each <code cl
 <p><strong>Source code:</strong> <a class="extlink-source reference external" href="https://github.com/python/cpython/tree/main/Lib/dbm/gnu.py">Lib/dbm/gnu.py</a></p>
 <hr class="docutils" />
 <p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code> module provides an interface to the <abbr title="GNU dbm">GDBM</abbr>
-library, similar to the <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a> module, but with additional
+library, similar to the <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a> module, but with additional
 functionality like crash tolerance.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The file formats created by <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code> and <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a> are incompatible
+<p>The file formats created by <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code> and <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The New Database Manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a> are incompatible
 and can not be used interchangeably.</p>
 </div>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: not Android, not iOS, not WASI.</p>
 <p>This module is not supported on <a class="reference internal" href="intro.html#mobile-availability"><span class="std std-ref">mobile platforms</span></a>
 or <a class="reference internal" href="intro.html#wasm-availability"><span class="std std-ref">WebAssembly platforms</span></a>.</p>
+</div>
+<div class="availability docutils container">
+<p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </div>
 <dl class="py exception">
 <dt class="sig sig-object py" id="dbm.gnu.error">
@@ -623,7 +626,7 @@ This module can be used with the “classic” NDBM interface or the
 <abbr title="GNU dbm">GDBM</abbr> compatibility interface.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The file formats created by <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code> are incompatible
+<p>The file formats created by <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code> are incompatible
 and can not be used interchangeably.</p>
 </div>
 <div class="admonition warning">
@@ -637,6 +640,9 @@ result in a hard crash (segmentation fault).</p>
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: not Android, not iOS, not WASI.</p>
 <p>This module is not supported on <a class="reference internal" href="intro.html#mobile-availability"><span class="std std-ref">mobile platforms</span></a>
 or <a class="reference internal" href="intro.html#wasm-availability"><span class="std std-ref">WebAssembly platforms</span></a>.</p>
+</div>
+<div class="availability docutils container">
+<p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </div>
 <dl class="py exception">
 <dt class="sig sig-object py" id="dbm.ndbm.error">
@@ -729,7 +735,7 @@ database modules.</p>
 <hr class="docutils" />
 <p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code> module provides a persistent <a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>-like
 interface which is written entirely in Python.
-Unlike other <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm</span></code> backends, such as <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a>, no
+Unlike other <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm</span></code> backends, such as <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU database manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.gnu</span></code></a>, no
 external library is required.</p>
 <p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.dumb</span></code> module defines the following:</p>
 <dl class="py exception">

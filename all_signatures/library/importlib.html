@@ -519,6 +519,29 @@ when invalidating the caches of all finders on <a class="reference internal" hre
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="importlib.abc.MetaPathFinder.discover">
+<span class="sig-name descname"><span class="pre">discover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.MetaPathFinder.discover" title="Link to this definition">¶</a></dt>
+<dd><p>An optional method which searches for possible specs with given <em>parent</em>
+module spec. If <em>parent</em> is <em>None</em>, <a class="reference internal" href="#importlib.abc.MetaPathFinder.discover" title="importlib.abc.MetaPathFinder.discover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">MetaPathFinder.discover()</span></code></a> will
+search for top-level modules.</p>
+<p>Returns an iterable of possible specs.</p>
+<p>Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if <em>parent</em> is not a package module.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This method can potentially yield a very large number of objects, and
+it may carry out IO operations when computing these values.</p>
+<p>Because of this, it will generaly be desirable to compute the result
+values on-the-fly, as they are needed. As such, the returned object is
+only guaranteed to be an <a class="reference internal" href="collections.abc.html#collections.abc.Iterable" title="collections.abc.Iterable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code></a>,
+instead of a <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or other
+<a class="reference internal" href="collections.abc.html#collections.abc.Collection" title="collections.abc.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">collection</span></code></a> type.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -572,6 +595,29 @@ may be useful for implementing concrete <code class="docutils literal notranslat
 cache used by the finder. Used by
 <a class="reference internal" href="#importlib.machinery.PathFinder.invalidate_caches" title="importlib.machinery.PathFinder.invalidate_caches"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.machinery.PathFinder.invalidate_caches()</span></code></a>
 when invalidating the caches of all cached finders.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="importlib.abc.PathEntryFinder.discover">
+<span class="sig-name descname"><span class="pre">discover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PathEntryFinder.discover" title="Link to this definition">¶</a></dt>
+<dd><p>An optional method which searches for possible specs with given <em>parent</em>
+module spec. If <em>parent</em> is <em>None</em>, <a class="reference internal" href="#importlib.abc.PathEntryFinder.discover" title="importlib.abc.PathEntryFinder.discover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PathEntryFinder.discover()</span></code></a> will
+search for top-level modules.</p>
+<p>Returns an iterable of possible specs.</p>
+<p>Raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if <em>parent</em> is not a package module.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This method can potentially yield a very large number of objects, and
+it may carry out IO operations when computing these values.</p>
+<p>Because of this, it will generaly be desirable to compute the result
+values on-the-fly, as they are needed. As such, the returned object is
+only guaranteed to be an <a class="reference internal" href="collections.abc.html#collections.abc.Iterable" title="collections.abc.Iterable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iterable</span></code></a>,
+instead of a <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or other
+<a class="reference internal" href="collections.abc.html#collections.abc.Collection" title="collections.abc.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">collection</span></code></a> type.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>
