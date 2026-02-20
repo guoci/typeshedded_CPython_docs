@@ -178,7 +178,7 @@
       <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API reference manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="utilities.html" accesskey="U">Utilities</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Operating System Utilities</a></li>
                 <li class="right">
@@ -248,8 +248,8 @@ Only available on systems where <code class="xref c c-func docutils literal notr
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The C <code class="xref c c-func docutils literal notranslate"><span class="pre">fork()</span></code> call should only be made from the
-<a class="reference internal" href="init.html#fork-and-threads"><span class="std std-ref">“main” thread</span></a> (of the
-<a class="reference internal" href="init.html#sub-interpreter-support"><span class="std std-ref">“main” interpreter</span></a>).  The same is
+<a class="reference internal" href="threads.html#fork-and-threads"><span class="std std-ref">“main” thread</span></a> (of the
+<a class="reference internal" href="subinterpreters.html#sub-interpreter-support"><span class="std std-ref">“main” interpreter</span></a>).  The same is
 true for <code class="docutils literal notranslate"><span class="pre">PyOS_BeforeFork()</span></code>.</p>
 </div>
 <div class="versionadded">
@@ -268,8 +268,8 @@ Only available on systems where <code class="xref c c-func docutils literal notr
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The C <code class="xref c c-func docutils literal notranslate"><span class="pre">fork()</span></code> call should only be made from the
-<a class="reference internal" href="init.html#fork-and-threads"><span class="std std-ref">“main” thread</span></a> (of the
-<a class="reference internal" href="init.html#sub-interpreter-support"><span class="std std-ref">“main” interpreter</span></a>).  The same is
+<a class="reference internal" href="threads.html#fork-and-threads"><span class="std std-ref">“main” thread</span></a> (of the
+<a class="reference internal" href="subinterpreters.html#sub-interpreter-support"><span class="std std-ref">“main” interpreter</span></a>).  The same is
 true for <code class="docutils literal notranslate"><span class="pre">PyOS_AfterFork_Parent()</span></code>.</p>
 </div>
 <div class="versionadded">
@@ -288,8 +288,8 @@ Only available on systems where <code class="xref c c-func docutils literal notr
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The C <code class="xref c c-func docutils literal notranslate"><span class="pre">fork()</span></code> call should only be made from the
-<a class="reference internal" href="init.html#fork-and-threads"><span class="std std-ref">“main” thread</span></a> (of the
-<a class="reference internal" href="init.html#sub-interpreter-support"><span class="std std-ref">“main” interpreter</span></a>).  The same is
+<a class="reference internal" href="threads.html#fork-and-threads"><span class="std std-ref">“main” thread</span></a> (of the
+<a class="reference internal" href="subinterpreters.html#sub-interpreter-support"><span class="std std-ref">“main” interpreter</span></a>).  The same is
 true for <code class="docutils literal notranslate"><span class="pre">PyOS_AfterFork_Child()</span></code>.</p>
 </div>
 <div class="versionadded">
@@ -656,7 +656,7 @@ interpreters created by the runtime.</p>
 <p>The <em>userData</em> pointer is passed into the hook function. Since hook
 functions may be called from different runtimes, this pointer should not
 refer directly to Python state.</p>
-<p>This function is safe to call before <a class="reference internal" href="init.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>. When called
+<p>This function is safe to call before <a class="reference internal" href="interp-lifecycle.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>. When called
 after runtime initialization, existing audit hooks are notified and may
 silently abort the operation by raising an error subclassed from
 <a class="reference internal" href="../library/exceptions.html#Exception" title="Exception"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a> (other errors will not be silenced).</p>
@@ -710,8 +710,8 @@ automatically the name of the current function, unless the
 <dl class="c function">
 <dt class="sig sig-object c" id="c.Py_Exit">
 <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_Exit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_Exit" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-4">Exit the current process.  This calls <a class="reference internal" href="init.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> and then calls the
-standard C library function <code class="docutils literal notranslate"><span class="pre">exit(status)</span></code>.  If <a class="reference internal" href="init.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-4">Exit the current process.  This calls <a class="reference internal" href="interp-lifecycle.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> and then calls the
+standard C library function <code class="docutils literal notranslate"><span class="pre">exit(status)</span></code>.  If <a class="reference internal" href="interp-lifecycle.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>
 indicates an error, the exit status is set to 120.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>Errors from finalization no longer ignored.</p>
@@ -721,7 +721,7 @@ indicates an error, the exit status is set to 120.</p>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.Py_AtExit">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_AtExit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_AtExit" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-5">Register a cleanup function to be called by <a class="reference internal" href="init.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>.  The cleanup
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-5">Register a cleanup function to be called by <a class="reference internal" href="interp-lifecycle.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>.  The cleanup
 function will be called with no arguments and should return no value.  At most
 32 cleanup functions can be registered.  When the registration is successful,
 <a class="reference internal" href="#c.Py_AtExit" title="Py_AtExit"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_AtExit()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">0</span></code>; on failure, it returns <code class="docutils literal notranslate"><span class="pre">-1</span></code>.  The cleanup
@@ -730,7 +730,7 @@ at most once.  Since Python’s internal finalization will have completed before
 the cleanup function, no Python APIs should be called by <em>func</em>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="init.html#c.PyUnstable_AtExit" title="PyUnstable_AtExit"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_AtExit()</span></code></a> for passing a <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*data</span></code> argument.</p>
+<p><a class="reference internal" href="interp-lifecycle.html#c.PyUnstable_AtExit" title="PyUnstable_AtExit"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_AtExit()</span></code></a> for passing a <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*data</span></code> argument.</p>
 </div>
 </dd></dl>
 
@@ -826,7 +826,7 @@ the cleanup function, no Python APIs should be called by <em>func</em>.</p>
       <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API reference manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="utilities.html" >Utilities</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Operating System Utilities</a></li>
                 <li class="right">

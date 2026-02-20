@@ -2280,8 +2280,8 @@ but this option may be removed at some point in the future.
 (Contributed by Hai Shi in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=42035">bpo-42035</a>.)</p></li>
 <li><p>Add a new <a class="reference internal" href="../c-api/type.html#c.PyType_GetQualName" title="PyType_GetQualName"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GetQualName()</span></code></a> function to get type’s qualified name.
 (Contributed by Hai Shi in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=42035">bpo-42035</a>.)</p></li>
-<li><p>Add new <a class="reference internal" href="../c-api/init.html#c.PyThreadState_EnterTracing" title="PyThreadState_EnterTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_EnterTracing()</span></code></a> and
-<a class="reference internal" href="../c-api/init.html#c.PyThreadState_LeaveTracing" title="PyThreadState_LeaveTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_LeaveTracing()</span></code></a> functions to the limited C API to
+<li><p>Add new <a class="reference internal" href="../c-api/threads.html#c.PyThreadState_EnterTracing" title="PyThreadState_EnterTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_EnterTracing()</span></code></a> and
+<a class="reference internal" href="../c-api/threads.html#c.PyThreadState_LeaveTracing" title="PyThreadState_LeaveTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_LeaveTracing()</span></code></a> functions to the limited C API to
 suspend and resume tracing and profiling.
 (Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43760">bpo-43760</a>.)</p></li>
 <li><p>Added the <a class="reference internal" href="../c-api/apiabiversion.html#c.Py_Version" title="Py_Version"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_Version</span></code></a> constant which bears the same value as
@@ -2355,7 +2355,7 @@ or not the frozen module is a package.  Previously, a negative value
 in the <code class="docutils literal notranslate"><span class="pre">size</span></code> field was the indicator.  Now only non-negative values
 be used for <code class="docutils literal notranslate"><span class="pre">size</span></code>.
 (Contributed by Kumar Aditya in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=46608">bpo-46608</a>.)</p></li>
-<li><p><a class="reference internal" href="../c-api/init.html#c._PyFrameEvalFunction" title="_PyFrameEvalFunction"><code class="xref c c-func docutils literal notranslate"><span class="pre">_PyFrameEvalFunction()</span></code></a> now takes <code class="docutils literal notranslate"><span class="pre">_PyInterpreterFrame*</span></code>
+<li><p><a class="reference internal" href="../c-api/subinterpreters.html#c._PyFrameEvalFunction" title="_PyFrameEvalFunction"><code class="xref c c-func docutils literal notranslate"><span class="pre">_PyFrameEvalFunction()</span></code></a> now takes <code class="docutils literal notranslate"><span class="pre">_PyInterpreterFrame*</span></code>
 as its second parameter, instead of <code class="docutils literal notranslate"><span class="pre">PyFrameObject*</span></code>.
 See <span class="target" id="index-37"></span><a class="pep reference external" href="https://peps.python.org/pep-0523/"><strong>PEP 523</strong></a> for more details of how to use this function pointer type.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCode_New()</span></code> and <code class="xref c c-func docutils literal notranslate"><span class="pre">PyCode_NewWithPosOnlyArgs()</span></code> now take
@@ -2542,14 +2542,14 @@ frame is now managed by the virtual machine.</p>
 <p>Or use the <a class="reference external" href="https://github.com/python/pythoncapi-compat">pythoncapi_compat project</a> to get these two
 functions on older Python versions.</p>
 </li>
-<li><p>Changes of the <a class="reference internal" href="../c-api/init.html#c.PyThreadState" title="PyThreadState"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyThreadState</span></code></a> structure members:</p>
+<li><p>Changes of the <a class="reference internal" href="../c-api/threads.html#c.PyThreadState" title="PyThreadState"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyThreadState</span></code></a> structure members:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">frame</span></code>: removed, use <a class="reference internal" href="../c-api/init.html#c.PyThreadState_GetFrame" title="PyThreadState_GetFrame"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_GetFrame()</span></code></a> (function added
+<li><p><code class="docutils literal notranslate"><span class="pre">frame</span></code>: removed, use <a class="reference internal" href="../c-api/threads.html#c.PyThreadState_GetFrame" title="PyThreadState_GetFrame"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_GetFrame()</span></code></a> (function added
 to Python 3.9 by <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=40429">bpo-40429</a>).
 Warning: the function returns a <a class="reference internal" href="../glossary.html#term-strong-reference"><span class="xref std std-term">strong reference</span></a>, need to call
 <a class="reference internal" href="../c-api/refcounting.html#c.Py_XDECREF" title="Py_XDECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_XDECREF()</span></code></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tracing</span></code>: changed, use <a class="reference internal" href="../c-api/init.html#c.PyThreadState_EnterTracing" title="PyThreadState_EnterTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_EnterTracing()</span></code></a>
-and <a class="reference internal" href="../c-api/init.html#c.PyThreadState_LeaveTracing" title="PyThreadState_LeaveTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_LeaveTracing()</span></code></a>
+<li><p><code class="docutils literal notranslate"><span class="pre">tracing</span></code>: changed, use <a class="reference internal" href="../c-api/threads.html#c.PyThreadState_EnterTracing" title="PyThreadState_EnterTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_EnterTracing()</span></code></a>
+and <a class="reference internal" href="../c-api/threads.html#c.PyThreadState_LeaveTracing" title="PyThreadState_LeaveTracing"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThreadState_LeaveTracing()</span></code></a>
 (functions added to Python 3.11 by <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43760">bpo-43760</a>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">recursion_depth</span></code>: removed,
 use <code class="docutils literal notranslate"><span class="pre">(tstate-&gt;recursion_limit</span> <span class="pre">-</span> <span class="pre">tstate-&gt;recursion_remaining)</span></code> instead.</p></li>

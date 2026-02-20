@@ -39,7 +39,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="C API and ABI Stability" href="stable.html" />
-    <link rel="prev" title="Python/C API Reference Manual" href="index.html" />
+    <link rel="prev" title="Python/C API reference manual" href="index.html" />
     
       
       <link rel="canonical" href="https://docs.python.org/3/c-api/intro.html">
@@ -141,7 +141,7 @@
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="index.html"
-                          title="previous chapter">Python/C API Reference Manual</a></p>
+                          title="previous chapter">Python/C API reference manual</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -193,7 +193,7 @@
           <a href="stable.html" title="C API and ABI Stability"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Python/C API Reference Manual"
+          <a href="index.html" title="Python/C API reference manual"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
@@ -209,7 +209,7 @@
       <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API reference manual</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Introduction</a></li>
                 <li class="right">
                     
@@ -1187,16 +1187,16 @@ the final call made is successful.</p>
 the Python interpreter have to worry about is the initialization, and possibly
 the finalization, of the Python interpreter.  Most functionality of the
 interpreter can only be used after the interpreter has been initialized.</p>
-<p id="index-17">The basic initialization function is <a class="reference internal" href="init.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>. This initializes
+<p id="index-17">The basic initialization function is <a class="reference internal" href="interp-lifecycle.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>. This initializes
 the table of loaded modules, and creates the fundamental modules
 <a class="reference internal" href="../library/builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a>, <a class="reference internal" href="../library/__main__.html#module-__main__" title="__main__: The environment where top-level code is run. Covers command-line interfaces, import-time behavior, and ``__name__ == '__main__'``."><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a>, and <a class="reference internal" href="../library/sys.html#module-sys" title="sys: Access system-specific parameters and functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>.  It also
 initializes the module search path (<code class="docutils literal notranslate"><span class="pre">sys.path</span></code>).</p>
-<p><a class="reference internal" href="init.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> does not set the “script argument list”  (<code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>).
+<p><a class="reference internal" href="interp-lifecycle.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> does not set the “script argument list”  (<code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>).
 If this variable is needed by Python code that will be executed later, setting
 <a class="reference internal" href="init_config.html#c.PyConfig.argv" title="PyConfig.argv"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyConfig.argv</span></code></a> and <a class="reference internal" href="init_config.html#c.PyConfig.parse_argv" title="PyConfig.parse_argv"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyConfig.parse_argv</span></code></a> must be set: see
 <a class="reference internal" href="init_config.html#init-config"><span class="std std-ref">Python Initialization Configuration</span></a>.</p>
 <p>On most systems (in particular, on Unix and Windows, although the details are
-slightly different), <a class="reference internal" href="init.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> calculates the module search path
+slightly different), <a class="reference internal" href="interp-lifecycle.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> calculates the module search path
 based upon its best guess for the location of the standard Python interpreter
 executable, assuming that the Python library is found in a fixed location
 relative to the Python interpreter executable.  In particular, it looks for a
@@ -1212,16 +1212,16 @@ environment variable <span class="target" id="index-20"></span><a class="referen
 front of the standard path by setting <span class="target" id="index-21"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a>.</p>
 <p>The embedding application can steer the search by setting
 <a class="reference internal" href="init_config.html#c.PyConfig.program_name" title="PyConfig.program_name"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyConfig.program_name</span></code></a> <em>before</em> calling
-<a class="reference internal" href="init.html#c.Py_InitializeFromConfig" title="Py_InitializeFromConfig"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_InitializeFromConfig()</span></code></a>. Note that
+<a class="reference internal" href="interp-lifecycle.html#c.Py_InitializeFromConfig" title="Py_InitializeFromConfig"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_InitializeFromConfig()</span></code></a>. Note that
 <span class="target" id="index-22"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a> still overrides this and <span class="target" id="index-23"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> is still
 inserted in front of the standard path.</p>
 <p id="index-24">Sometimes, it is desirable to “uninitialize” Python.  For instance,  the
 application may want to start over (make another call to
-<a class="reference internal" href="init.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>) or the application is simply done with its  use of
+<a class="reference internal" href="interp-lifecycle.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>) or the application is simply done with its  use of
 Python and wants to free memory allocated by Python.  This can be accomplished
-by calling <a class="reference internal" href="init.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>.  The function <a class="reference internal" href="init.html#c.Py_IsInitialized" title="Py_IsInitialized"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_IsInitialized()</span></code></a> returns
+by calling <a class="reference internal" href="interp-lifecycle.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>.  The function <a class="reference internal" href="interp-lifecycle.html#c.Py_IsInitialized" title="Py_IsInitialized"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_IsInitialized()</span></code></a> returns
 true if Python is currently in the initialized state.  More information about
-these functions is given in a later chapter. Notice that <a class="reference internal" href="init.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>
+these functions is given in a later chapter. Notice that <a class="reference internal" href="interp-lifecycle.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>
 does <em>not</em> free all memory allocated by the Python interpreter, e.g. memory
 allocated by extension modules currently cannot be released.</p>
 </section>
@@ -1346,7 +1346,7 @@ desirable in the first place.</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="index.html"
-                          title="previous chapter">Python/C API Reference Manual</a></p>
+                          title="previous chapter">Python/C API reference manual</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -1401,7 +1401,7 @@ desirable in the first place.</p>
           <a href="stable.html" title="C API and ABI Stability"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Python/C API Reference Manual"
+          <a href="index.html" title="Python/C API reference manual"
              >previous</a> |</li>
 
           <li><img src="../_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
@@ -1417,7 +1417,7 @@ desirable in the first place.</p>
       <a href="../index.html">3.15.0a6 Documentation</a> &#187;
     </li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API reference manual</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Introduction</a></li>
                 <li class="right">
                     

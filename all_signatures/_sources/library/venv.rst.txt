@@ -4,9 +4,6 @@
 .. module:: venv
    :synopsis: Creation of virtual environments.
 
-.. moduleauthor:: Vinay Sajip <vinay_sajip@yahoo.co.uk>
-.. sectionauthor:: Vinay Sajip <vinay_sajip@yahoo.co.uk>
-
 .. versionadded:: 3.3
 
 **Source code:** :source:`Lib/venv/`
@@ -305,7 +302,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
                       *, scm_ignore_files=frozenset())
            EnvBuilder(system_site_packages: bool = False, clear: bool = False, symlinks: bool = False, upgrade: bool = False, with_pip: bool = False, prompt: str | None = None, upgrade_deps: bool = False, *, scm_ignore_files: collections.abc.Iterable[str] = ...) -> venv.EnvBuilder
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L12>`__)
 
     The :class:`EnvBuilder` class accepts the following keyword arguments on
     instantiation:
@@ -357,7 +354,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: create(env_dir)
                 create(env_dir: StrOrBytesPath) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L45>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L45>`__)
 
         Create a virtual environment by specifying the target directory
         (absolute or relative to the current directory) which is to contain the
@@ -387,7 +384,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: ensure_directories(env_dir)
                 ensure_directories(env_dir: StrOrBytesPath) -> types.SimpleNamespace
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L47>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L47>`__)
 
         Creates the environment directory and all necessary subdirectories that
         don't already exist, and returns a context object.  This context object
@@ -448,14 +445,14 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: create_configuration(context)
                 create_configuration(context: types.SimpleNamespace) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L48>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L48>`__)
 
         Creates the ``pyvenv.cfg`` configuration file in the environment.
 
     .. method:: setup_python(context)
                 setup_python(context: types.SimpleNamespace) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L52>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L52>`__)
 
         Creates a copy or symlink to the Python executable in the environment.
         On POSIX systems, if a specific executable ``python3.x`` was used,
@@ -465,7 +462,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: setup_scripts(context)
                 setup_scripts(context: types.SimpleNamespace) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L54>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L54>`__)
 
         Installs activation scripts appropriate to the platform into the virtual
         environment.
@@ -473,7 +470,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: upgrade_dependencies(context)
                 upgrade_dependencies(context: types.SimpleNamespace) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L58>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L58>`__)
 
        Upgrades the core venv dependency packages (currently :pypi:`pip`)
        in the environment. This is done by shelling out to the
@@ -487,7 +484,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: post_setup(context)
                 post_setup(context: types.SimpleNamespace) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L55>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L55>`__)
 
         A placeholder method which can be overridden in third party
         implementations to pre-install packages in the virtual environment or
@@ -496,7 +493,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: install_scripts(context, path)
                 install_scripts(context: types.SimpleNamespace, path: str) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L57>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L57>`__)
 
         This method can be
         called from :meth:`setup_scripts` or :meth:`post_setup` in subclasses to
@@ -529,7 +526,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. method:: create_git_ignore_file(context)
                 create_git_ignore_file(context: types.SimpleNamespace) -> None
 
-       (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L60>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L60>`__)
 
        Creates a ``.gitignore`` file within the virtual environment that causes
        the entire directory to be ignored by the Git source control manager.
@@ -553,7 +550,7 @@ There is also a module-level convenience function:
                      upgrade_deps=False, *, scm_ignore_files=frozenset())
               create(env_dir: StrOrBytesPath, system_site_packages: bool = False, clear: bool = False, symlinks: bool = False, with_pip: bool = False, prompt: str | None = None, upgrade_deps: bool = False, *, scm_ignore_files: collections.abc.Iterable[str] = ...) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/venv/__init__.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/venv/__init__.pyi#L63>`__)
 
     Create an :class:`EnvBuilder` with the given keyword arguments, and call its
     :meth:`~EnvBuilder.create` method with the *env_dir* argument.

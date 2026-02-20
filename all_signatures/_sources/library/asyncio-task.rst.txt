@@ -241,7 +241,7 @@ Creating Tasks
 .. function:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
               create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool | None = None) -> _asyncio.Task[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L417>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L417>`__)
 
    Wrap the *coro* :ref:`coroutine <coroutine>` into a :class:`Task`
    and schedule its execution.  Return the Task object.
@@ -336,7 +336,7 @@ and reliable way to wait for all tasks in the group to finish.
 .. class:: TaskGroup()
            TaskGroup() -> asyncio.taskgroups.TaskGroup
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/taskgroups.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/taskgroups.pyi#L19>`__)
 
    An :ref:`asynchronous context manager <async-context-managers>`
    holding a group of tasks.
@@ -348,7 +348,7 @@ and reliable way to wait for all tasks in the group to finish.
    .. method:: create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
                create_task[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool | None = None) -> _asyncio.Task[_T]
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/taskgroups.pyi#L26>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/taskgroups.pyi#L26>`__)
 
       Create a task in this task group.
       The signature matches that of :func:`asyncio.create_task`.
@@ -491,7 +491,7 @@ Sleeping
               sleep(delay: float, result: _T) -> collections.abc.Coroutine[Unknown, Unknown, _T]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L358>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L358>`__)
 
    Block for *delay* seconds.
 
@@ -551,7 +551,7 @@ Running Tasks Concurrently
                        gather(coro_or_future1: _FutureLike, coro_or_future2: _FutureLike, coro_or_future3: _FutureLike, coro_or_future4: _FutureLike, coro_or_future5: _FutureLike, coro_or_future6: _FutureLike, /, *, return_exceptions: bool) -> _asyncio.Future[tuple[BaseException | _T1, BaseException | _T2, BaseException | _T3, BaseException | _T4, BaseException | _T5, BaseException | _T6]]
                        gather(*coros_or_futures: _FutureLike, *, return_exceptions: bool) -> _asyncio.Future[list[BaseException | _T]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L116>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L116>`__)
 
    Run :ref:`awaitable objects <asyncio-awaitables>` in the *aws*
    sequence *concurrently*.
@@ -656,7 +656,7 @@ Eager Task Factory
 .. function:: eager_task_factory(loop, coro, *, name=None, context=None)
               eager_task_factory[_T_co](loop: asyncio.events.AbstractEventLoop | None, coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = True) -> _asyncio.Task[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L433>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L433>`__)
 
     A task factory for eager task execution.
 
@@ -683,7 +683,7 @@ Eager Task Factory
 .. function:: create_eager_task_factory(custom_task_constructor)
               create_eager_task_factory[_TaskT_co: Task[Any]](custom_task_constructor: asyncio.tasks._CustomTaskConstructor[_TaskT_co]) -> asyncio.tasks._EagerTaskFactoryType[_TaskT_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L478>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L478>`__)
 
     Create an eager task factory, similar to :func:`eager_task_factory`,
     using the provided *custom_task_constructor* when creating a new task instead
@@ -705,7 +705,7 @@ Shielding From Cancellation
 .. awaitablefunction:: shield(aw)
                        shield[_T](arg: _FutureLike) -> _asyncio.Future[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L356>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L356>`__)
 
    Protect an :ref:`awaitable object <asyncio-awaitables>`
    from being :meth:`cancelled <Task.cancel>`.
@@ -761,7 +761,7 @@ Timeouts
 .. function:: timeout(delay)
               timeout(delay: float | None) -> asyncio.timeouts.Timeout
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/timeouts.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/timeouts.pyi#L19>`__)
 
     Return an :ref:`asynchronous context manager <async-context-managers>`
     that can be used to limit the amount of time spent waiting on
@@ -860,7 +860,7 @@ Timeouts
 .. function:: timeout_at(when)
               timeout_at(when: float | None) -> asyncio.timeouts.Timeout
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/timeouts.pyi#L20>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/timeouts.pyi#L20>`__)
 
    Similar to :func:`asyncio.timeout`, except *when* is the absolute time
    to stop waiting, or ``None``.
@@ -884,7 +884,7 @@ Timeouts
               wait_for[_T](fut: _FutureLike, timeout: float | None) -> collections.abc.Coroutine[Unknown, Unknown, _T]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L361>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L361>`__)
 
    Wait for the *aw* :ref:`awaitable <asyncio-awaitables>`
    to complete with a timeout.
@@ -949,7 +949,7 @@ Waiting Primitives
               wait(fs: collections.abc.Iterable[_asyncio.Task[_T]], *, timeout: float | None = None, return_when: str = 'ALL_COMPLETED') -> collections.abc.Coroutine[Unknown, Unknown, tuple[set[_asyncio.Task[_T]], set[_asyncio.Task[_T]]]]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L373>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L373>`__)
 
    Run :class:`~asyncio.Future` and :class:`~asyncio.Task` instances in the *aws*
    iterable concurrently and block until the condition specified
@@ -1006,7 +1006,7 @@ Waiting Primitives
 .. function:: as_completed(aws, *, timeout=None)
               as_completed[_T](fs: collections.abc.Iterable[_FutureLike], *, timeout: float | None = None) -> asyncio.tasks._SyncAndAsyncIterator[_asyncio.Future[_T]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L93>`__)
 
    Run :ref:`awaitable objects <asyncio-awaitables>` in the *aws* iterable
    concurrently. The returned object can be iterated to obtain the results
@@ -1075,7 +1075,7 @@ Running in Threads
               to_thread[_P, _R](collections.abc.Callable[[typing.ParamSpec(_P)], _R], typing.ParamSpec(_P)) -> collections.abc.Coroutine[Unknown, Unknown, _R]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/threads.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/threads.pyi#L10>`__)
 
    Asynchronously run function *func* in a separate thread.
 
@@ -1137,7 +1137,7 @@ Scheduling From Other Threads
 .. function:: run_coroutine_threadsafe(coro, loop)
               run_coroutine_threadsafe[_T](coro: collections.abc.Coroutine[typing.Any, typing.Any, _T], loop: asyncio.events.AbstractEventLoop) -> concurrent.futures._base.Future[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L353>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L353>`__)
 
    Submit a coroutine to the given event loop.  Thread-safe.
 
@@ -1231,7 +1231,7 @@ Introspection
 .. function:: current_task(loop=None)
               current_task(loop: asyncio.events.AbstractEventLoop | None = None) -> _asyncio.Task[typing.Any] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L107>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L107>`__)
 
    Return the currently running :class:`Task` instance, or ``None`` if
    no task is running.
@@ -1245,7 +1245,7 @@ Introspection
 .. function:: all_tasks(loop=None)
               all_tasks(loop: asyncio.events.AbstractEventLoop | None = None) -> set[_asyncio.Task[typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/tasks.pyi#L414>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/tasks.pyi#L414>`__)
 
    Return a set of not yet finished :class:`Task` objects run by
    the loop.
@@ -1259,7 +1259,7 @@ Introspection
 .. function:: iscoroutine(obj)
               iscoroutine(obj: object) -> typing.TypeIs[collections.abc.Coroutine[typing.Any, typing.Any, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/asyncio/coroutines.pyi#L20>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/asyncio/coroutines.pyi#L20>`__)
 
    Return ``True`` if *obj* is a coroutine object.
 
@@ -1273,7 +1273,7 @@ Task Object
 .. class:: Task(coro, *, loop=None, name=None, context=None, eager_start=False)
            Task(coro: collections.abc.Coroutine[typing.Any, typing.Any, _T_co], *, loop: asyncio.events.AbstractEventLoop | None = None, name: str | None = None, context: contextvars.Context | None = None, eager_start: bool = False) -> _asyncio.Task[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L54>`__)
 
    A :class:`Future-like <Future>` object that runs a Python
    :ref:`coroutine <coroutine>`.  Not thread-safe.
@@ -1339,7 +1339,7 @@ Task Object
    .. method:: done()
                done[_T_co]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L32>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L32>`__)
 
       Return ``True`` if the Task is *done*.
 
@@ -1349,7 +1349,7 @@ Task Object
    .. method:: result()
                result[_T_co]() -> _T_co
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L33>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L33>`__)
 
       Return the result of the Task.
 
@@ -1366,7 +1366,7 @@ Task Object
    .. method:: exception()
                exception[_T_co]() -> BaseException | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L34>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L34>`__)
 
       Return the exception of the Task.
 
@@ -1383,7 +1383,7 @@ Task Object
    .. method:: add_done_callback(callback, *, context=None)
                add_done_callback[_T_co](fn: collections.abc.Callable[[_asyncio.Task[_T_co]], object], /, *, context: contextvars.Context | None = None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L29>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L29>`__)
 
       Add a callback to be run when the Task is *done*.
 
@@ -1395,7 +1395,7 @@ Task Object
    .. method:: remove_done_callback(callback)
                remove_done_callback[_T_co](fn: collections.abc.Callable[[_asyncio.Task[_T_co]], object], /) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L35>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L35>`__)
 
       Remove *callback* from the callbacks list.
 
@@ -1407,7 +1407,7 @@ Task Object
    .. method:: get_stack(*, limit=None)
                get_stack[_T_co](*, limit: int | None = None) -> list[types.FrameType]
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L89>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L89>`__)
 
       Return the list of stack frames for this Task.
 
@@ -1431,7 +1431,7 @@ Task Object
    .. method:: print_stack(*, limit=None, file=None)
                print_stack[_T_co](*, limit: int | None = None, file: typing.TextIO | None = None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L90>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L90>`__)
 
       Print the stack or traceback for this Task.
 
@@ -1446,7 +1446,7 @@ Task Object
    .. method:: get_coro()
                get_coro[_T_co]() -> collections.abc.Coroutine[typing.Any, typing.Any, _T_co] | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L80>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L80>`__)
 
       Return the coroutine object wrapped by the :class:`Task`.
 
@@ -1464,7 +1464,7 @@ Task Object
    .. method:: get_context()
                get_context[_T_co]() -> contextvars.Context
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L87>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L87>`__)
 
       Return the :class:`contextvars.Context` object
       associated with the task.
@@ -1474,7 +1474,7 @@ Task Object
    .. method:: get_name()
                get_name[_T_co]() -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L84>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L84>`__)
 
       Return the name of the Task.
 
@@ -1487,7 +1487,7 @@ Task Object
    .. method:: set_name(value)
                set_name[_T_co](value: object, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L85>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L85>`__)
 
       Set the name of the Task.
 
@@ -1502,7 +1502,7 @@ Task Object
    .. method:: cancel(msg=None)
                cancel[_T_co](msg: typing.Any | None = None) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L30>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L30>`__)
 
       Request the Task to be cancelled.
 
@@ -1574,7 +1574,7 @@ Task Object
    .. method:: cancelled()
                cancelled[_T_co]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L31>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L31>`__)
 
       Return ``True`` if the Task is *cancelled*.
 
@@ -1585,7 +1585,7 @@ Task Object
    .. method:: uncancel()
                uncancel[_T_co]() -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L93>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L93>`__)
 
       Decrement the count of cancellation requests to this Task.
 
@@ -1636,7 +1636,7 @@ Task Object
    .. method:: cancelling()
                cancelling[_T_co]() -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/_asyncio.pyi#L92>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/_asyncio.pyi#L92>`__)
 
       Return the number of pending cancellation requests to this Task, i.e.,
       the number of calls to :meth:`cancel` less the number of

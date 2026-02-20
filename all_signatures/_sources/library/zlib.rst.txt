@@ -25,7 +25,7 @@ The available exception and functions in this module are:
 .. exception:: error
                error(*args: object) -> zlib.error
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L33>`__)
 
    Exception raised on compression and decompression errors.
 
@@ -33,7 +33,7 @@ The available exception and functions in this module are:
 .. function:: adler32(data[, value])
               adler32(data: collections.abc.Buffer, value: int = 1, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L61>`__)
 
    Computes an Adler-32 checksum of *data*.  (An Adler-32 checksum is almost as
    reliable as a CRC32 but can be computed much more quickly.)  The result
@@ -65,7 +65,7 @@ The available exception and functions in this module are:
 .. function:: compress(data, /, level=Z_DEFAULT_COMPRESSION, wbits=MAX_WBITS)
               compress(data: collections.abc.Buffer, /, level: int = -1, wbits: int = 15) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L64>`__)
 
    Compresses the bytes in *data*, returning a bytes object containing compressed data.
    *level* is an integer from ``0`` to ``9`` or ``-1`` controlling the level of compression;
@@ -105,7 +105,7 @@ The available exception and functions in this module are:
 .. function:: compressobj(level=Z_DEFAULT_COMPRESSION, method=DEFLATED, wbits=MAX_WBITS, memLevel=DEF_MEM_LEVEL, strategy=Z_DEFAULT_STRATEGY[, zdict])
               compressobj(level: int = -1, method: int = 8, wbits: int = 15, memLevel: int = 8, strategy: int = 0, zdict: collections.abc.Buffer | None = None) -> zlib._Compress
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L69>`__)
 
    Returns a compression object, to be used for compressing data streams that won't
    fit into memory at once.
@@ -142,7 +142,7 @@ The available exception and functions in this module are:
 .. function:: crc32(data[, value])
               crc32(data: collections.abc.Buffer, value: int = 0, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L72>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L72>`__)
 
    .. index::
       single: Cyclic Redundancy Check
@@ -177,7 +177,7 @@ The available exception and functions in this module are:
 .. function:: decompress(data, /, wbits=MAX_WBITS, bufsize=DEF_BUF_SIZE)
               decompress(data: collections.abc.Buffer, /, wbits: int = 15, bufsize: int = 16384) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L73>`__)
 
    Decompresses the bytes in *data*, returning a bytes object containing the
    uncompressed data.  The *wbits* parameter depends on
@@ -226,7 +226,7 @@ The available exception and functions in this module are:
 .. function:: decompressobj(wbits=MAX_WBITS[, zdict])
               decompressobj(wbits: int = 15, zdict: collections.abc.Buffer = b'') -> zlib._Decompress
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L74>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L74>`__)
 
    Returns a decompression object, to be used for decompressing data streams that
    won't fit into memory at once.
@@ -255,7 +255,7 @@ Compression objects support the following methods:
 .. method:: Compress.compress(data)
             Compress.compress(data: collections.abc.Buffer, /) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L41>`__)
 
    Compress *data*, returning a bytes object containing compressed data for at least
    part of the data in *data*.  This data should be concatenated to the output
@@ -266,7 +266,7 @@ Compression objects support the following methods:
 .. method:: Compress.flush([mode])
             Compress.flush(mode: int = 4, /) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L42>`__)
 
    All pending input is processed, and a bytes object containing the remaining compressed
    output is returned.  *mode* can be selected from the constants
@@ -282,7 +282,7 @@ Compression objects support the following methods:
 .. method:: Compress.copy()
             Compress.copy() -> zlib._Compress
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L43>`__)
 
    Returns a copy of the compression object.  This can be used to efficiently
    compress a set of data that share a common initial prefix.
@@ -299,7 +299,7 @@ Decompression objects support the following methods and attributes:
 .. attribute:: Decompress.unused_data
    :type: bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L50>`__)
 
    A bytes object which contains any bytes past the end of the compressed data. That is,
    this remains ``b""`` until the last byte that contains compression data is
@@ -310,7 +310,7 @@ Decompression objects support the following methods and attributes:
 .. attribute:: Decompress.unconsumed_tail
    :type: bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L52>`__)
 
    A bytes object that contains any data that was not consumed by the last
    :meth:`decompress` call because it exceeded the limit for the uncompressed data
@@ -322,7 +322,7 @@ Decompression objects support the following methods and attributes:
 .. attribute:: Decompress.eof
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L54>`__)
 
    A boolean indicating whether the end of the compressed data stream has been
    reached.
@@ -336,7 +336,7 @@ Decompression objects support the following methods and attributes:
 .. method:: Decompress.decompress(data, max_length=0)
             Decompress.decompress(data: collections.abc.Buffer, /, max_length: int = 0) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L57>`__)
 
    Decompress *data*, returning a bytes object containing the uncompressed data
    corresponding to at least part of the data in *string*.  This data should be
@@ -358,7 +358,7 @@ Decompression objects support the following methods and attributes:
 .. method:: Decompress.flush([length])
             Decompress.flush(length: int = 16384, /) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L58>`__)
 
    All pending input is processed, and a bytes object containing the remaining
    uncompressed output is returned.  After calling :meth:`flush`, the
@@ -371,7 +371,7 @@ Decompression objects support the following methods and attributes:
 .. method:: Decompress.copy()
             Decompress.copy() -> zlib._Decompress
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L59>`__)
 
    Returns a copy of the decompression object.  This can be used to save the state
    of the decompressor midway through the data stream in order to speed up random
@@ -389,7 +389,7 @@ behavior:
 .. data:: DEFLATED
    :type: typing.Literal[8]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L6>`__)
 
    The deflate compression method.
 
@@ -397,7 +397,7 @@ behavior:
 .. data:: MAX_WBITS
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L9>`__)
 
    The maximum window size, expressed as a power of 2.
    For example, if :const:`!MAX_WBITS` is ``15`` it results in a window size
@@ -407,7 +407,7 @@ behavior:
 .. data:: DEF_MEM_LEVEL
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L7>`__)
 
    The default memory level for compression objects.
 
@@ -415,7 +415,7 @@ behavior:
 .. data:: DEF_BUF_SIZE
    :type: typing.Literal[16384]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L8>`__)
 
    The default buffer size for decompression operations.
 
@@ -423,7 +423,7 @@ behavior:
 .. data:: Z_NO_COMPRESSION
    :type: typing.Literal[0]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L12>`__)
 
    Compression level ``0``; no compression.
 
@@ -433,7 +433,7 @@ behavior:
 .. data:: Z_BEST_SPEED
    :type: typing.Literal[1]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L15>`__)
 
    Compression level ``1``; fastest and produces the least compression.
 
@@ -441,7 +441,7 @@ behavior:
 .. data:: Z_BEST_COMPRESSION
    :type: typing.Literal[9]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L14>`__)
 
    Compression level ``9``; slowest and produces the most compression.
 
@@ -449,7 +449,7 @@ behavior:
 .. data:: Z_DEFAULT_COMPRESSION
    :type: typing.Literal[-1]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L17>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L17>`__)
 
    Default compression level (``-1``); a compromise between speed and
    compression. Currently equivalent to compression level ``6``.
@@ -458,7 +458,7 @@ behavior:
 .. data:: Z_DEFAULT_STRATEGY
    :type: typing.Literal[0]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L18>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L18>`__)
 
    Default compression strategy, for normal data.
 
@@ -466,7 +466,7 @@ behavior:
 .. data:: Z_FILTERED
    :type: typing.Literal[1]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L19>`__)
 
    Compression strategy for data produced by a filter (or predictor).
 
@@ -474,7 +474,7 @@ behavior:
 .. data:: Z_HUFFMAN_ONLY
    :type: typing.Literal[2]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L23>`__)
 
    Compression strategy that forces Huffman coding only.
 
@@ -482,7 +482,7 @@ behavior:
 .. data:: Z_RLE
    :type: typing.Literal[3]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L25>`__)
 
    Compression strategy that limits match distances to one (run-length encoding).
 
@@ -495,7 +495,7 @@ behavior:
 .. data:: Z_FIXED
    :type: typing.Literal[4]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L21>`__)
 
    Compression strategy that prevents the use of dynamic Huffman codes.
 
@@ -508,7 +508,7 @@ behavior:
 .. data:: Z_NO_FLUSH
    :type: typing.Literal[0]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L24>`__)
 
    Flush mode ``0``. No special flushing behavior.
 
@@ -518,7 +518,7 @@ behavior:
 .. data:: Z_PARTIAL_FLUSH
    :type: typing.Literal[1]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L13>`__)
 
    Flush mode ``1``. Flush as much output as possible.
 
@@ -526,7 +526,7 @@ behavior:
 .. data:: Z_SYNC_FLUSH
    :type: typing.Literal[2]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L26>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L26>`__)
 
    Flush mode ``2``. All output is flushed and the output is aligned to a byte boundary.
 
@@ -534,7 +534,7 @@ behavior:
 .. data:: Z_FULL_FLUSH
    :type: typing.Literal[3]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L22>`__)
 
    Flush mode ``3``. All output is flushed and the compression state is reset.
 
@@ -542,7 +542,7 @@ behavior:
 .. data:: Z_FINISH
    :type: typing.Literal[4]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L20>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L20>`__)
 
    Flush mode ``4``. All pending input is processed, no more input is expected.
 
@@ -550,7 +550,7 @@ behavior:
 .. data:: Z_BLOCK
    :type: typing.Literal[5]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L16>`__)
 
    Flush mode ``5``. A deflate block is completed and emitted.
 
@@ -563,7 +563,7 @@ behavior:
 .. data:: Z_TREES
    :type: typing.Literal[6]
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L27>`__)
 
    Flush mode ``6``, for inflate operations. Instructs inflate to return when
    it gets to the next deflate block boundary.
@@ -581,7 +581,7 @@ the following constants:
 .. data:: ZLIB_VERSION
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L10>`__)
 
    The version string of the zlib library that was used for building the module.
    This may be different from the zlib library actually used at runtime, which
@@ -591,7 +591,7 @@ the following constants:
 .. data:: ZLIB_RUNTIME_VERSION
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L11>`__)
 
    The version string of the zlib library actually loaded by the interpreter.
 
@@ -601,7 +601,7 @@ the following constants:
 .. data:: ZLIBNG_VERSION
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/637ece0/stdlib/zlib.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/zlib.pyi#L31>`__)
 
    The version string of the zlib-ng library that was used for building the
    module if zlib-ng was used. When present, the :data:`ZLIB_VERSION` and
