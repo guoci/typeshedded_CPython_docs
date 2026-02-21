@@ -40,7 +40,7 @@ in a cookie name (as :attr:`~Morsel.key`).
 .. exception:: CookieError
                CookieError(*args: object) -> http.cookies.CookieError
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L21>`__)
 
    Exception failing because of :rfc:`2109` invalidity: incorrect attributes,
    incorrect :mailheader:`Set-Cookie` header, etc.
@@ -49,7 +49,7 @@ in a cookie name (as :attr:`~Morsel.key`).
 .. class:: BaseCookie([input])
            BaseCookie(input: collections.abc.Mapping[str, http.cookies.Morsel[typing.Any] | str] | str | None = None) -> http.cookies.BaseCookie[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L47>`__)
 
    This class is a dictionary-like object whose keys are strings and whose values
    are :class:`Morsel` instances. Note that upon setting a key to a value, the
@@ -61,7 +61,7 @@ in a cookie name (as :attr:`~Morsel.key`).
 .. class:: SimpleCookie([input])
            SimpleCookie(input: collections.abc.Mapping[str, http.cookies.Morsel[typing.Any] | str] | str | None = None) -> http.cookies.SimpleCookie
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L57>`__)
 
    This class derives from :class:`BaseCookie` and overrides :meth:`~BaseCookie.value_decode`
    and :meth:`~BaseCookie.value_encode`. :class:`!SimpleCookie` supports
@@ -88,7 +88,7 @@ Cookie Objects
 .. method:: BaseCookie.value_decode(val)
             BaseCookie.value_decode[_T](val: str) -> tuple[_T, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L49>`__)
 
    Return a tuple ``(real_value, coded_value)`` from a string representation.
    ``real_value`` can be any type. This method does no decoding in
@@ -98,7 +98,7 @@ Cookie Objects
 .. method:: BaseCookie.value_encode(val)
             BaseCookie.value_encode[_T](val: _T) -> tuple[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L50>`__)
 
    Return a tuple ``(real_value, coded_value)``. *val* can be any type, but
    ``coded_value`` will always be converted to a string.
@@ -112,7 +112,7 @@ Cookie Objects
 .. method:: BaseCookie.output(attrs=None, header='Set-Cookie:', sep='\r\n')
             BaseCookie.output[_T](attrs: list[str] | None = None, header: str = 'Set-Cookie:', sep: str = '\r\n') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L51>`__)
 
    Return a string representation suitable to be sent as HTTP headers. *attrs* and
    *header* are sent to each :class:`Morsel`'s :meth:`~Morsel.output` method. *sep* is used
@@ -123,7 +123,7 @@ Cookie Objects
 .. method:: BaseCookie.js_output(attrs=None)
             BaseCookie.js_output[_T](attrs: list[str] | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L53>`__)
 
    Return an embeddable JavaScript snippet, which, if run on a browser which
    supports JavaScript, will act the same as if the HTTP headers was sent.
@@ -134,7 +134,7 @@ Cookie Objects
 .. method:: BaseCookie.load(rawdata)
             BaseCookie.load[_T](rawdata: _DataType) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L54>`__)
 
    If *rawdata* is a string, parse it as an ``HTTP_COOKIE`` and add the values
    found there as :class:`Morsel`\ s. If it is a dictionary, it is equivalent to::
@@ -152,7 +152,7 @@ Morsel Objects
 .. class:: Morsel
            Morsel() -> http.cookies.Morsel[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L23>`__)
 
    Abstract a key/value pair, which has some :rfc:`2109` attributes.
 
@@ -215,7 +215,7 @@ Morsel Objects
 .. attribute:: Morsel.value
    :type: value[_T](self: http.cookies.Morsel[_T]) -> str | typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L25>`__)
 
    The value of the cookie.
 
@@ -223,7 +223,7 @@ Morsel Objects
 .. attribute:: Morsel.coded_value
    :type: coded_value[_T](self: http.cookies.Morsel[_T]) -> _T | typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L27>`__)
 
    The encoded value of the cookie --- this is what should be sent.
 
@@ -231,7 +231,7 @@ Morsel Objects
 .. attribute:: Morsel.key
    :type: key[_T](self: http.cookies.Morsel[_T]) -> str | typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L29>`__)
 
    The name of the cookie.
 
@@ -239,7 +239,7 @@ Morsel Objects
 .. method:: Morsel.set(key, value, coded_value)
             Morsel.set[_T](key: str, val: str, coded_val: _T) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L31>`__)
 
    Set the *key*, *value* and *coded_value* attributes.
 
@@ -247,7 +247,7 @@ Morsel Objects
 .. method:: Morsel.isReservedKey(K)
             Morsel.isReservedKey[_T](K: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L38>`__)
 
    Whether *K* is a member of the set of keys of a :class:`Morsel`.
 
@@ -255,7 +255,7 @@ Morsel Objects
 .. method:: Morsel.output(attrs=None, header='Set-Cookie:')
             Morsel.output[_T](attrs: list[str] | None = None, header: str = 'Set-Cookie:') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L39>`__)
 
    Return a string representation of the Morsel, suitable to be sent as an HTTP
    header. By default, all the attributes are included, unless *attrs* is given, in
@@ -266,7 +266,7 @@ Morsel Objects
 .. method:: Morsel.js_output(attrs=None)
             Morsel.js_output[_T](attrs: list[str] | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L41>`__)
 
    Return an embeddable JavaScript snippet, which, if run on a browser which
    supports JavaScript, will act the same as if the HTTP header was sent.
@@ -277,7 +277,7 @@ Morsel Objects
 .. method:: Morsel.OutputString(attrs=None)
             Morsel.OutputString[_T](attrs: list[str] | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L42>`__)
 
    Return a string representing the Morsel, without any surrounding HTTP or
    JavaScript.
@@ -289,7 +289,7 @@ Morsel Objects
             Morsel.update(values: collections.abc.Mapping[str, str]) -> None
             Morsel.update(values: collections.abc.Iterable[tuple[str, str]]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L35>`__)
 
    Update the values in the Morsel dictionary with the values in the dictionary
    *values*.  Raise an error if any of the keys in the *values* dict is not a
@@ -302,7 +302,7 @@ Morsel Objects
 .. method:: Morsel.copy(value)
             Morsel.copy[_T]() -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/builtins.pyi#L1207>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/builtins.pyi#L1207>`__)
 
    Return a shallow copy of the Morsel object.
 
@@ -313,7 +313,7 @@ Morsel Objects
 .. method:: Morsel.setdefault(key, value=None)
             Morsel.setdefault[_T](key: str, val: str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/de55f7f/stdlib/http/cookies.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/9a06cb6/stdlib/http/cookies.pyi#L32>`__)
 
    Raise an error if key is not a valid :rfc:`2109` attribute, otherwise
    behave the same as :meth:`dict.setdefault`.

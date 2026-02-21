@@ -618,7 +618,7 @@ name, the error message will suggest accessing it via that inner attribute:</p>
 <span class="gr">File &quot;/home/pablogsal/github/python/main/lel.py&quot;, line 42, in &lt;module&gt;</span>
 <span class="gr">   print(container.area)</span>
 <span class="gr">         ^^^^^^^^^^^^^^</span>
-<span class="gr">AttributeError</span>: <span class="n">&#39;Container&#39; object has no attribute &#39;area&#39;. Did you mean: &#39;inner.area&#39;?</span>
+<span class="gr">AttributeError</span>: <span class="n">&#39;Container&#39; object has no attribute &#39;area&#39;. Did you mean &#39;.inner.area&#39; instead of &#39;.area&#39;?</span>
 </pre></div>
 </div>
 </li>
@@ -2257,7 +2257,15 @@ use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get
 </section>
 <section id="deprecated-c-apis">
 <h3>Deprecated C APIs<a class="headerlink" href="#deprecated-c-apis" title="Link to this heading">¶</a></h3>
-<ul class="simple">
+<ul>
+<li><p>Deprecate <span class="target" id="index-33"></span><a class="pep reference external" href="https://peps.python.org/pep-0456/"><strong>PEP 456</strong></a> support for providing an external definition
+of the string hashing scheme. Removal is scheduled for Python 3.19.</p>
+<p>Previously, embedders could define <a class="reference internal" href="../c-api/hash.html#c.Py_HASH_ALGORITHM" title="Py_HASH_ALGORITHM"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_HASH_ALGORITHM</span></code></a> to be
+<code class="docutils literal notranslate"><span class="pre">Py_HASH_EXTERNAL</span></code> to indicate that the hashing scheme was provided
+externally but this feature was undocumented, untested and most likely
+unused.</p>
+<p>(Contributed by Bénédikt Tran in <a class="reference external" href="https://github.com/python/cpython/issues/141226">gh-141226</a>.)</p>
+</li>
 <li><p>For unsigned integer formats in <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>,
 accepting Python integers with value that is larger than the maximal value
 for the C type or less than the minimal value for the corresponding
@@ -2313,7 +2321,7 @@ increases to 2 MiB and allocation uses <code class="docutils literal notranslate
 <code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages.
 On Windows, use <code class="docutils literal notranslate"><span class="pre">build.bat</span> <span class="pre">--pymalloc-hugepages</span></code>.
 At runtime, huge pages must be explicitly enabled by setting the
-<span class="target" id="index-33"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHON_PYMALLOC_HUGEPAGES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></code></a> environment variable to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<span class="target" id="index-34"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHON_PYMALLOC_HUGEPAGES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></code></a> environment variable to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
 <li><p>Annotating anonymous mmap usage is now supported if Linux kernel supports
 <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/PR_SET_VMA(2const)">PR_SET_VMA_ANON_NAME</a></em> (Linux 5.17 or newer).
 Annotations are visible in <code class="docutils literal notranslate"><span class="pre">/proc/&lt;pid&gt;/maps</span></code> if the kernel supports the feature
