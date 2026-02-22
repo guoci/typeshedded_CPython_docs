@@ -1,0 +1,227 @@
+:mod:`!pyclbr` --- Python module browser support
+================================================
+
+.. module:: pyclbr
+   :synopsis: Supports information extraction for a Python module browser.
+
+**Source code:** :source:`Lib/pyclbr.py`
+
+--------------
+
+The :mod:`!pyclbr` module provides limited information about the
+functions, classes, and methods defined in a Python-coded module.  The
+information is sufficient to implement a module browser.  The
+information is extracted from the Python source code rather than by
+importing the module, so this module is safe to use with untrusted code.
+This restriction makes it impossible to use this module with modules not
+implemented in Python, including all standard and optional extension
+modules.
+
+
+.. function:: readmodule(module, path=None)
+              readmodule(module: str, path: collections.abc.Sequence[str] | None = None) -> dict[str, pyclbr.Class]
+
+   (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L73>`__)
+
+   Return a dictionary mapping module-level class names to class
+   descriptors.  If possible, descriptors for imported base classes are
+   included.  Parameter *module* is a string with the name of the module
+   to read; it may be the name of a module within a package.  If given,
+   *path* is a sequence of directory paths prepended to ``sys.path``,
+   which is used to locate the module source code.
+
+   This function is the original interface and is only kept for back
+   compatibility.  It returns a filtered version of the following.
+
+
+.. function:: readmodule_ex(module, path=None)
+              readmodule_ex(module: str, path: collections.abc.Sequence[str] | None = None) -> dict[str, pyclbr.Class | pyclbr.Function | list[str]]
+
+   (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L74>`__)
+
+   Return a dictionary-based tree containing a function or class
+   descriptors for each function and class defined in the module with a
+   ``def`` or ``class`` statement.  The returned dictionary maps
+   module-level function and class names to their descriptors.  Nested
+   objects are entered into the children dictionary of their parent.  As
+   with readmodule, *module* names the module to be read and *path* is
+   prepended to sys.path.  If the module being read is a package, the
+   returned dictionary has a key ``'__path__'`` whose value is a list
+   containing the package search path.
+
+.. versionadded:: 3.7
+   Descriptors for nested definitions.  They are accessed through the
+   new children attribute.  Each has a new parent attribute.
+
+The descriptors returned by these functions are instances of
+Function and Class classes.  Users are not expected to create instances
+of these classes.
+
+
+.. _pyclbr-function-objects:
+
+Function Objects
+----------------
+
+.. class:: Function
+           Function(module: str, name: str, file: str, lineno: int, parent: pyclbr.Class | pyclbr.Function | None = None, is_async: bool = False, *, end_lineno: int | None = None) -> pyclbr.Function
+
+   (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L28>`__)
+
+   Class :class:`!Function` instances describe functions defined by def
+   statements.  They have the following attributes:
+
+
+   .. attribute:: file
+      :type: int
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L9>`__)
+
+      Name of the file in which the function is defined.
+
+
+   .. attribute:: module
+      :type: str
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L7>`__)
+
+      The name of the module defining the function described.
+
+
+   .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L8>`__)
+
+      The name of the function.
+
+
+   .. attribute:: lineno
+      :type: int
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L10>`__)
+
+      The line number in the file where the definition starts.
+
+
+   .. attribute:: parent
+      :type: pyclbr.Class | pyclbr.Function | None
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L32>`__)
+
+      For top-level functions, ``None``.  For nested functions, the parent.
+
+      .. versionadded:: 3.7
+
+
+   .. attribute:: children
+      :type: dict[str, pyclbr.Class | pyclbr.Function]
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L33>`__)
+
+      A :class:`dictionary <dict>` mapping names to descriptors for nested functions and
+      classes.
+
+      .. versionadded:: 3.7
+
+
+   .. attribute:: is_async
+      :type: bool
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L30>`__)
+
+      ``True`` for functions that are defined with the
+      :keyword:`async <async def>` prefix, ``False`` otherwise.
+
+      .. versionadded:: 3.10
+
+
+.. _pyclbr-class-objects:
+
+Class Objects
+-------------
+
+.. class:: Class
+           Class(module: str, name: str, super_: list[pyclbr.Class | str] | None, file: str, lineno: int, parent: pyclbr.Class | None = None, *, end_lineno: int | None = None) -> pyclbr.Class
+
+   (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L50>`__)
+
+   Class :class:`!Class` instances describe classes defined by class
+   statements.  They have the same attributes as :class:`Functions <Function>`
+   and two more.
+
+
+   .. attribute:: file
+      :type: int
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L9>`__)
+
+      Name of the file in which the class is defined.
+
+
+   .. attribute:: module
+      :type: str
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L7>`__)
+
+      The name of the module defining the class described.
+
+
+   .. attribute:: name
+      :type: str
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L8>`__)
+
+      The name of the class.
+
+
+   .. attribute:: lineno
+      :type: int
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L10>`__)
+
+      The line number in the file where the definition starts.
+
+
+   .. attribute:: parent
+      :type: pyclbr.Class | None
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L53>`__)
+
+      For top-level classes, ``None``.  For nested classes, the parent.
+
+      .. versionadded:: 3.7
+
+
+   .. attribute:: children
+      :type: dict[str, pyclbr.Class | pyclbr.Function]
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L54>`__)
+
+      A dictionary mapping names to descriptors for nested functions and
+      classes.
+
+      .. versionadded:: 3.7
+
+
+   .. attribute:: super
+      :type: list[pyclbr.Class | str] | None
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L51>`__)
+
+      A list of :class:`!Class` objects which describe the immediate base
+      classes of the class being described.  Classes which are named as
+      superclasses but which are not discoverable by :func:`readmodule_ex`
+      are listed as a string with the class name instead of as
+      :class:`!Class` objects.
+
+
+   .. attribute:: methods
+      :type: dict[str, int]
+
+      (`typeshed <https://github.com/python/typeshed/blob/9a9cc18/stdlib/pyclbr.pyi#L52>`__)
+
+      A :class:`dictionary <dict>` mapping method names to line numbers.
+      This can be derived from the newer :attr:`children` dictionary,
+      but remains for
+      back-compatibility.
