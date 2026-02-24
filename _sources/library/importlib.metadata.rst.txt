@@ -103,7 +103,7 @@ You can also get a :ref:`distribution's version number <version>`, list its
 .. exception:: PackageNotFoundError
                PackageNotFoundError(*args: object, *, name: str | None = None, path: str | None = None) -> importlib.metadata.PackageNotFoundError
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L45>`__)
 
    Subclass of :class:`ModuleNotFoundError` raised by several functions in this
    module when queried for a distribution package which is not installed in the
@@ -124,21 +124,21 @@ Entry points
 .. function:: entry_points(**select_params)
               entry_points(*, name: str = ..., value: str = ..., group: str = ..., module: str = ..., attr: str = ..., extras: list[str] = ...) -> importlib.metadata.EntryPoints
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L303>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L303>`__)
 
    Returns a :class:`EntryPoints` instance describing entry points for the
    current environment. Any given keyword parameters are passed to the
    :meth:`!select` method for comparison to the attributes of
    the individual entry point definitions.
 
-   Note: it is not currently possible to query for entry points based on
-   their :attr:`!EntryPoint.dist` attribute (as different :class:`!Distribution`
+   Note: to query for entry points based on :attr:`!EntryPoint.dist` attribute,
+   use :meth:`Distribution.entry_points` instead (as different :class:`Distribution`
    instances do not currently compare equal, even if they have the same attributes)
 
 .. class:: EntryPoints
            EntryPoints(iterable: collections.abc.Iterable[importlib.metadata.EntryPoint] = ..., /) -> importlib.metadata.EntryPoints
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L123>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L123>`__)
 
    Details of a collection of installed entry points.
 
@@ -149,7 +149,7 @@ Entry points
 .. class:: EntryPoint
            EntryPoint(name: str, value: str, group: str) -> importlib.metadata.EntryPoint
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L63>`__)
 
    Details of an installed entry point.
 
@@ -233,7 +233,7 @@ Distribution metadata
 .. function:: metadata(distribution_name)
               metadata(distribution_name: str) -> importlib.metadata._meta.PackageMetadata
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L297>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L297>`__)
 
    Return the distribution metadata corresponding to the named
    distribution package as a :class:`PackageMetadata` instance.
@@ -244,7 +244,7 @@ Distribution metadata
 .. class:: PackageMetadata
            PackageMetadata() -> importlib.metadata._meta.PackageMetadata
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/_meta.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/_meta.pyi#L11>`__)
 
    A concrete implementation of the
    `PackageMetadata protocol <https://importlib-metadata.readthedocs.io/en/latest/api.html#importlib_metadata.PackageMetadata>`_.
@@ -287,7 +287,7 @@ Distribution versions
 .. function:: version(distribution_name)
               version(distribution_name: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L318>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L318>`__)
 
    Return the installed distribution package
    `version <https://packaging.python.org/en/latest/specifications/core-metadata/#version>`__
@@ -312,10 +312,10 @@ Distribution files
 .. function:: files(distribution_name)
               files(distribution_name: str) -> list[importlib.metadata.PackagePath] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L319>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L319>`__)
 
    Return the full set of files contained within the named
-   distribution package.
+   distribution package as :class:`PackagePath` instances.
 
    Raises :exc:`PackageNotFoundError` if the named distribution
    package is not installed in the current Python environment.
@@ -327,16 +327,32 @@ Distribution files
 .. class:: PackagePath
            PackagePath(*args: StrPath) -> importlib.metadata.PackagePath
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L200>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L200>`__)
 
     A :class:`pathlib.PurePath` derived object with additional ``dist``,
     ``size``, and ``hash`` properties corresponding to the distribution
-    package's installation metadata for that file.
+    package's installation metadata for that file, also:
+
+    .. method:: locate()
+                locate() -> os.PathLike[str]
+
+       (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L203>`__)
+
+       If possible, return the concrete :class:`SimplePath` allowing to access data,
+       or raise a :exc:`NotImplementedError` otherwise.
+
+.. class:: SimplePath
+           SimplePath() -> importlib.metadata._meta.SimplePath
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/_meta.pyi#L29>`__)
+
+    A protocol representing a minimal subset of :class:`pathlib.Path` that allows to
+    check if it ``exists()``, to traverse using ``joinpath()`` and ``parent``,
+    and to retrieve data using ``read_text()`` and ``read_bytes()``.
 
 The :func:`!files` function takes a
 `Distribution Package <https://packaging.python.org/en/latest/glossary/#term-Distribution-Package>`_
-name and returns all of the files installed by this distribution. Each file is reported
-as a :class:`PackagePath` instance. For example::
+name and returns all of the files installed by this distribution. For example::
 
     >>> util = [p for p in files('wheel') if 'util.py' in str(p)][0]  # doctest: +SKIP
     >>> util  # doctest: +SKIP
@@ -381,7 +397,7 @@ Distribution requirements
 .. function:: requires(distribution_name)
               requires(distribution_name: str) -> list[str] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L320>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L320>`__)
 
    Return the declared dependency specifiers for the named
    distribution package.
@@ -406,7 +422,7 @@ Mapping import to distribution packages
 .. function:: packages_distributions()
               packages_distributions() -> collections.abc.Mapping[str, list[str]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L38>`__)
 
    Return a mapping from the top level module and import package
    names found via :data:`sys.meta_path` to the names of the distribution
@@ -435,47 +451,11 @@ function is not reliable with such installs.
 Distributions
 =============
 
-.. function:: distribution(distribution_name)
-              distribution(distribution_name: str) -> importlib.metadata.Distribution
-
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L288>`__)
-
-   Return a :class:`Distribution` instance describing the named
-   distribution package.
-
-   Raises :exc:`PackageNotFoundError` if the named distribution
-   package is not installed in the current Python environment.
-
-.. class:: Distribution
-           Distribution() -> importlib.metadata.Distribution
-
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L220>`__)
-
-   Details of an installed distribution package.
-
-   Note: different :class:`!Distribution` instances do not currently compare
-   equal, even if they relate to the same installed distribution and
-   accordingly have the same attributes.
-
-   .. method:: discover(cls, *, context=None, **kwargs)
-               discover(cls: type[importlib.metadata.Distribution], *, context: importlib.metadata.DistributionFinder.Context) -> collections.abc.Iterable[importlib.metadata.Distribution]
-               discover(cls: type[importlib.metadata.Distribution], *, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> collections.abc.Iterable[importlib.metadata.Distribution]
-
-      (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L229>`__)
-
-      Returns an iterable of :class:`Distribution` instances for all packages.
-
-      The optional argument *context* is a :class:`DistributionFinder.Context`
-      instance, used to modify the search for distributions. Alternatively,
-      *kwargs* may contain keyword arguments for constructing a new
-      :class:`!DistributionFinder.Context`.
-
-
 While the module level API described above is the most common and convenient usage,
-you can get all of that information from the :class:`!Distribution` class.
+all that information is accessible from the :class:`Distribution` class.
 :class:`!Distribution` is an abstract object that represents the metadata for
 a Python `Distribution Package <https://packaging.python.org/en/latest/glossary/#term-Distribution-Package>`_.
-You can get the concrete :class:`!Distribution` subclass instance for an installed
+Get the concrete :class:`!Distribution` subclass instance for an installed
 distribution package by calling the :func:`distribution` function::
 
     >>> from importlib.metadata import distribution  # doctest: +SKIP
@@ -483,31 +463,155 @@ distribution package by calling the :func:`distribution` function::
     >>> type(dist)  # doctest: +SKIP
     <class 'importlib.metadata.PathDistribution'>
 
-Thus, an alternative way to get the version number is through the
-:class:`!Distribution` instance::
+.. function:: distribution(distribution_name)
+              distribution(distribution_name: str) -> importlib.metadata.Distribution
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L288>`__)
+
+   Return a :class:`Distribution` instance describing the named
+   distribution package.
+
+   Raises :exc:`PackageNotFoundError` if the named distribution
+   package is not installed in the current Python environment.
+
+Thus, an alternative way to get e.g. the version number is through the
+:attr:`Distribution.version` attribute::
 
     >>> dist.version  # doctest: +SKIP
     '0.32.3'
 
-There are all kinds of additional metadata available on :class:`!Distribution`
-instances::
+The same applies for :func:`entry_points` and :func:`files`.
 
-    >>> dist.metadata['Requires-Python']  # doctest: +SKIP
-    '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*'
-    >>> dist.metadata['License']  # doctest: +SKIP
-    'MIT'
+.. class:: Distribution
+           Distribution() -> importlib.metadata.Distribution
 
-For editable packages, an ``origin`` property may present :pep:`610`
-metadata::
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L220>`__)
 
-    >>> dist.origin.url
-    'file:///path/to/wheel-0.32.3.editable-py3-none-any.whl'
+   Details of an installed distribution package.
 
-The full set of available metadata is not described here.
-See the PyPA `Core metadata specification <https://packaging.python.org/en/latest/specifications/core-metadata/#core-metadata>`_ for additional details.
+   Note: different :class:`!Distribution` instances do not currently compare
+   equal, even if they relate to the same installed distribution and
+   accordingly have the same attributes.
 
-.. versionadded:: 3.13
-   The ``.origin`` property was added.
+   .. staticmethod:: at(path)
+                     at(path: StrPath) -> importlib.metadata.PathDistribution
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L236>`__)
+
+   .. classmethod:: from_name(name)
+                    from_name(cls: type[importlib.metadata.Distribution], name: str) -> importlib.metadata.Distribution
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L226>`__)
+
+      Return a :class:`!Distribution` instance at the given path or
+      with the given name.
+
+   .. classmethod:: discover(*, context=None, **kwargs)
+                    discover(cls: type[importlib.metadata.Distribution], *, context: importlib.metadata.DistributionFinder.Context) -> collections.abc.Iterable[importlib.metadata.Distribution]
+                    discover(cls: type[importlib.metadata.Distribution], *, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> collections.abc.Iterable[importlib.metadata.Distribution]
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L229>`__)
+
+      Returns an iterable of :class:`!Distribution` instances for all packages
+      (see distribution-discovery_).
+
+      The optional argument *context* is a :class:`DistributionFinder.Context`
+      instance, used to modify the search for distributions. Alternatively,
+      *kwargs* may contain keyword arguments for constructing a new
+      :class:`!DistributionFinder.Context`.
+
+   .. attribute:: metadata
+      :type: metadata(self: importlib.metadata.Distribution) -> importlib.metadata._meta.PackageMetadata
+      :type: PackageMetadata
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L240>`__)
+
+      There are all kinds of additional metadata available on :class:`!Distribution`
+      instances as a :class:`PackageMetadata` instance::
+
+          >>> dist.metadata['Requires-Python']  # doctest: +SKIP
+          '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*'
+          >>> dist.metadata['License']  # doctest: +SKIP
+          'MIT'
+
+      The full set of available metadata is not described here.
+      See the PyPA `Core metadata specification <https://packaging.python.org/en/latest/specifications/core-metadata/#core-metadata>`_ for additional details.
+
+   .. attribute:: name
+      :type: name(self: importlib.metadata.Distribution) -> str
+      :type: str
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L257>`__)
+
+   .. attribute:: requires
+      :type: requires(self: importlib.metadata.Distribution) -> list[str] | None
+      :type: list[str]
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L254>`__)
+
+   .. attribute:: version
+      :type: version(self: importlib.metadata.Distribution) -> str
+      :type: str
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L250>`__)
+
+      A few metadata fields are also available as shortcut properties.
+
+      .. versionadded:: 3.10
+
+         The ``name`` shortcut was added.
+
+   .. attribute:: origin
+      :type: origin(self: importlib.metadata.Distribution) -> types.SimpleNamespace | None
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L260>`__)
+
+      For editable packages, an ``origin`` property may present :pep:`610`
+      metadata (for non-editable packages, ``origin`` is :const:`None`)::
+
+         >>> dist.origin.url
+         'file:///path/to/wheel-0.32.3.editable-py3-none-any.whl'
+
+      The ``origin`` object follows the `Direct URL Data Structure
+      <https://packaging.python.org/en/latest/specifications/direct-url-data-structure/>`_.
+
+      .. versionadded:: 3.13
+
+   .. attribute:: entry_points
+      :type: entry_points(self: importlib.metadata.Distribution) -> importlib.metadata.EntryPoints
+      :type: EntryPoints
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L242>`__)
+
+      The entry points provided by this distribution package.
+
+   .. attribute:: files
+      :type: files(self: importlib.metadata.Distribution) -> list[importlib.metadata.PackagePath] | None
+      :type: list[PackagePath] | None
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L252>`__)
+
+      All files contained in this distribution package.
+      Like :func:`files`, this returns :const:`None` if there are no records.
+
+   The following two abstract methods need to be implemented when implementing-custom-providers_:
+
+   .. method:: locate_file(path)
+               locate_file(path: StrPath) -> importlib.metadata._meta.SimplePath
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L224>`__)
+
+      Like :meth:`!PackagePath.locate`, return a :class:`SimplePath` for the given path.
+      Takes a :class:`os.PathLike` or a :class:`str`.
+
+   .. method:: read_text(filename)
+               read_text(filename: str) -> str | None
+
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L222>`__)
+
+      A shortcut for ``distribution.locate_file(filename).read_text()``.
+
+.. _distribution-discovery:
 
 Distribution Discovery
 ======================
@@ -522,7 +626,7 @@ This metadata finder search defaults to ``sys.path``, but varies slightly in how
 .. class:: DistributionFinder
            DistributionFinder() -> importlib.metadata.DistributionFinder
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L262>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L262>`__)
 
    A :class:`~importlib.abc.MetaPathFinder` subclass capable of discovering
    installed distributions.
@@ -533,7 +637,7 @@ This metadata finder search defaults to ``sys.path``, but varies slightly in how
     .. class:: Context(**kwargs)
                Context(*, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> importlib.metadata.DistributionFinder.Context
 
-       (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L263>`__)
+       (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L263>`__)
 
        A :class:`!Context` gives a custom provider a means to
        solicit additional details from the callers of distribution discovery
@@ -573,7 +677,7 @@ This metadata finder search defaults to ``sys.path``, but varies slightly in how
               distributions(*, context: importlib.metadata.DistributionFinder.Context) -> collections.abc.Iterable[importlib.metadata.Distribution]
               distributions(*, context: None = None, name: str | None = ..., path: list[str] = ..., **kwargs: typing.Any) -> collections.abc.Iterable[importlib.metadata.Distribution]
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/importlib/metadata/__init__.pyi#L290>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/importlib/metadata/__init__.pyi#L290>`__)
 
    Returns an iterable of :class:`Distribution` instances for all packages.
 
@@ -628,8 +732,8 @@ consumer.
 
 In practice, to support finding distribution package
 metadata in locations other than the file system, subclass
-``Distribution`` and implement the abstract methods. Then from
-a custom finder, return instances of this derived ``Distribution`` in the
+:class:`!Distribution` and implement the abstract methods. Then from
+a custom finder, return instances of this derived :class:`!Distribution` in the
 ``find_distributions()`` method.
 
 Example
@@ -706,8 +810,8 @@ packages served by the ``DatabaseImporter``, assuming that the
 ``.entry_points`` attributes.
 
 The ``DatabaseDistribution`` may also provide other metadata files, like
-``RECORD`` (required for ``Distribution.files``) or override the
-implementation of ``Distribution.files``. See the source for more inspiration.
+``RECORD`` (required for :attr:`!Distribution.files`) or override the
+implementation of :attr:`!Distribution.files`. See the source for more inspiration.
 
 
 .. _`entry point API`: https://setuptools.readthedocs.io/en/latest/pkg_resources.html#entry-points

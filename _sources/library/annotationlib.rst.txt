@@ -123,7 +123,7 @@ Classes
 .. class:: Format
            Format(value: int) -> annotationlib.Format
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L23>`__)
 
    An :class:`~enum.IntEnum` describing the formats in which annotations
    can be returned. Members of the enum, or their equivalent integer values,
@@ -134,7 +134,7 @@ Classes
       :type: typing.Literal[annotationlib.Format.VALUE]
       :value: 1
 
-      (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L24>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L24>`__)
 
       Values are the result of evaluating the annotation expressions.
 
@@ -142,7 +142,7 @@ Classes
       :type: typing.Literal[annotationlib.Format.VALUE_WITH_FAKE_GLOBALS]
       :value: 2
 
-      (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L25>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L25>`__)
 
       Special value used to signal that an annotate function is being
       evaluated in a special environment with fake globals. When passed this
@@ -156,7 +156,7 @@ Classes
       :type: typing.Literal[annotationlib.Format.FORWARDREF]
       :value: 3
 
-      (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L26>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L26>`__)
 
       Values are real annotation values (as per :attr:`Format.VALUE` format)
       for defined values, and :class:`ForwardRef` proxies for undefined
@@ -167,7 +167,7 @@ Classes
       :type: typing.Literal[annotationlib.Format.STRING]
       :value: 4
 
-      (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L27>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L27>`__)
 
       Values are the text string of the annotation as it appears in the
       source code, up to modifications including, but not restricted to,
@@ -180,7 +180,7 @@ Classes
 .. class:: ForwardRef
            ForwardRef(arg: str, *, module: str | None = None, owner: object = None, is_argument: bool = True, is_class: bool = False) -> annotationlib.ForwardRef
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L30>`__)
 
    A proxy object for forward references in annotations.
 
@@ -192,7 +192,7 @@ Classes
    .. attribute:: __forward_arg__
       :type: __forward_arg__(self: annotationlib.ForwardRef) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L91>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L91>`__)
 
       A string containing the code that was evaluated to produce the
       :class:`~ForwardRef`. The string may not be exactly equivalent
@@ -203,7 +203,7 @@ Classes
                evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> annotationlib.ForwardRef | typing.Any
                evaluate(*, globals: dict[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None, type_params: tuple[typing.ParamSpec | typing.TypeVar | typing.TypeVarTuple, ...] | None = None, owner: object = None, format: annotationlib.Format = Format.VALUE) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L52>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L52>`__)
 
       Evaluate the forward reference, returning its value.
 
@@ -255,7 +255,7 @@ Functions
 .. function:: annotations_to_string(annotations)
               annotations_to_string(annotations: _typeshed.SupportsItems[str, object]) -> dict[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L146>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L146>`__)
 
    Convert an annotations dict containing runtime values to a
    dict containing only strings. If the values are not already strings,
@@ -281,7 +281,7 @@ Functions
               call_annotate_function(annotate: collections.abc.Callable[[annotationlib.Format], dict[str, typing.Any]], format: typing.Literal[annotationlib.Format.FORWARDREF], *, owner: object = None) -> dict[str, annotationlib.ForwardRef | typing.Any]
               call_annotate_function(annotate: collections.abc.Callable[[annotationlib.Format], dict[str, typing.Any]], format: annotationlib.Format, *, owner: object = None) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L108>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L108>`__)
 
    Call the :term:`annotate function` *annotate* with the given *format*,
    a member of the :class:`Format` enum, and return the annotations
@@ -314,7 +314,7 @@ Functions
               call_evaluate_function(evaluate: collections.abc.Callable[[annotationlib.Format], typing.Any], format: typing.Literal[annotationlib.Format.FORWARDREF], *, owner: object = None) -> annotationlib.ForwardRef | typing.Any
               call_evaluate_function(evaluate: collections.abc.Callable[[annotationlib.Format], typing.Any], format: annotationlib.Format, *, owner: object = None) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L100>`__)
 
    Call the :term:`evaluate function` *evaluate* with the given *format*,
    a member of the :class:`Format` enum, and return the value produced by
@@ -358,7 +358,7 @@ Functions
 .. function:: get_annotate_from_class_namespace(namespace)
               get_annotate_from_class_namespace(obj: collections.abc.Mapping[str, object]) -> (collections.abc.Callable[[annotationlib.Format], dict[str, typing.Any]]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L117>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L117>`__)
 
    Retrieve the :term:`annotate function` from a class namespace dictionary *namespace*.
    Return :const:`!None` if the namespace does not contain an annotate function.
@@ -373,7 +373,7 @@ Functions
               get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: typing.Literal[annotationlib.Format.FORWARDREF]) -> dict[str, annotationlib.ForwardRef | typing.Any]
               get_annotations(obj: typing.Any, *, globals: dict[str, object] | None = None, locals: collections.abc.Mapping[str, object] | None = None, eval_str: bool = False, format: annotationlib.Format = Format.VALUE) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L119>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L119>`__)
 
    Compute the annotations dict for an object.
 
@@ -472,7 +472,7 @@ Functions
 .. function:: type_repr(value)
               type_repr(value: object) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/6ee36ba/stdlib/annotationlib.pyi#L145>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/annotationlib.pyi#L145>`__)
 
    Convert an arbitrary Python value to a format suitable for use by the
    :attr:`~Format.STRING` format. This calls :func:`repr` for most
