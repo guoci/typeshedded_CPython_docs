@@ -34,7 +34,7 @@ class-based API instead.
 .. function:: bindtextdomain(domain, localedir=None)
               bindtextdomain(domain: str, localedir: os.PathLike[str] | str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L165>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L165>`__)
 
    Bind the *domain* to the locale directory *localedir*.  More concretely,
    :mod:`!gettext` will look for binary :file:`.mo` files for the given domain using
@@ -49,7 +49,7 @@ class-based API instead.
 .. function:: textdomain(domain=None)
               textdomain(domain: str | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L164>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L164>`__)
 
    Change or query the current global domain.  If *domain* is ``None``, then the
    current global domain is returned, otherwise the global domain is set to
@@ -60,7 +60,7 @@ class-based API instead.
 .. function:: gettext(message)
               gettext(message: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L168>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L168>`__)
 
    Return the localized translation of *message*, based on the current global
    domain, language, and locale directory.  This function is usually aliased as
@@ -70,7 +70,7 @@ class-based API instead.
 .. function:: dgettext(domain, message)
               dgettext(domain: str, message: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L166>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L166>`__)
 
    Like :func:`.gettext`, but look the message up in the specified *domain*.
 
@@ -78,7 +78,7 @@ class-based API instead.
 .. function:: ngettext(singular, plural, n)
               ngettext(msgid1: str, msgid2: str, n: int) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L169>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L169>`__)
 
    Like :func:`.gettext`, but consider plural forms. If a translation is found,
    apply the plural formula to *n*, and return the resulting message (some
@@ -96,7 +96,7 @@ class-based API instead.
 .. function:: dngettext(domain, singular, plural, n)
               dngettext(domain: str, msgid1: str, msgid2: str, n: int) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L167>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L167>`__)
 
    Like :func:`ngettext`, but look the message up in the specified *domain*.
 
@@ -104,22 +104,22 @@ class-based API instead.
 .. function:: pgettext(context, message)
               pgettext(context: str, message: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L170>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L170>`__)
 
 .. function:: dpgettext(domain, context, message)
               dpgettext(domain: str, context: str, message: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L171>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L171>`__)
 
 .. function:: npgettext(context, singular, plural, n)
               npgettext(context: str, msgid1: str, msgid2: str, n: int) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L172>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L172>`__)
 
 .. function:: dnpgettext(domain, context, singular, plural, n)
               dnpgettext(domain: str, context: str, msgid1: str, msgid2: str, n: int) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L173>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L173>`__)
 
    Similar to the corresponding functions without the ``p`` in the prefix (that
    is, :func:`gettext`, :func:`dgettext`, :func:`ngettext`, :func:`dngettext`),
@@ -158,7 +158,7 @@ install themselves in the built-in namespace as the function :func:`!_`.
               find(domain: str, localedir: os.PathLike[str] | str | None, languages: collections.abc.Iterable[str] | None, all: typing.Literal[True]) -> list[str]
               find(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, all: bool = False) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L65>`__)
 
    This function implements the standard :file:`.mo` file search algorithm.  It
    takes a *domain*, identical to what :func:`textdomain` takes.  Optional
@@ -190,7 +190,7 @@ install themselves in the built-in namespace as the function :func:`!_`.
               translation(domain: str, localedir: os.PathLike[str] | str | None, languages: collections.abc.Iterable[str] | None, class_: collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], _NullTranslationsT], fallback: typing.Literal[False] = False) -> _NullTranslationsT
               translation(domain: str, localedir: os.PathLike[str] | str | None = None, languages: collections.abc.Iterable[str] | None = None, class_: (collections.abc.Callable[[_io.BufferedReader[_io._BufferedReaderStream]], gettext.NullTranslations]) | None = None, fallback: bool = False) -> gettext.NullTranslations
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L81>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L81>`__)
 
    Return a ``*Translations`` instance based on the *domain*, *localedir*,
    and *languages*, which are first passed to :func:`find` to get a list of the
@@ -217,7 +217,7 @@ install themselves in the built-in namespace as the function :func:`!_`.
 .. function:: install(domain, localedir=None, *, names=None)
               install(domain: str, localedir: os.PathLike[str] | str | None = None, *, names: collections.abc.Container[str] | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L113>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L113>`__)
 
    This installs the function :func:`!_` in Python's builtins namespace, based on
    *domain* and *localedir* which are passed to the function :func:`translation`.
@@ -251,7 +251,7 @@ are the methods of :class:`!NullTranslations`:
 .. class:: NullTranslations(fp=None)
            NullTranslations(fp: gettext._TranslationsReader | None = None) -> gettext.NullTranslations
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L36>`__)
 
    Takes an optional :term:`file object` *fp*, which is ignored by the base class.
    Initializes "protected" instance variables *_info* and *_charset* which are set
@@ -262,7 +262,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: _parse(fp)
                _parse(fp: gettext._TranslationsReader) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L38>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L38>`__)
 
       No-op in the base class, this method takes file object *fp*, and reads
       the data from the file, initializing its message catalog.  If you have an
@@ -273,7 +273,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: add_fallback(fallback)
                add_fallback(fallback: gettext.NullTranslations) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L39>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L39>`__)
 
       Add *fallback* as the fallback object for the current translation object.
       A translation object should consult the fallback if it cannot provide a
@@ -283,7 +283,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: gettext(message)
                gettext(message: str) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L40>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L40>`__)
 
       If a fallback has been set, forward :meth:`!gettext` to the fallback.
       Otherwise, return *message*.  Overridden in derived classes.
@@ -292,7 +292,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: ngettext(singular, plural, n)
                ngettext(msgid1: str, msgid2: str, n: int) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L41>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L41>`__)
 
       If a fallback has been set, forward :meth:`!ngettext` to the fallback.
       Otherwise, return *singular* if *n* is 1; return *plural* otherwise.
@@ -302,7 +302,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: pgettext(context, message)
                pgettext(context: str, message: str) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L42>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L42>`__)
 
       If a fallback has been set, forward :meth:`pgettext` to the fallback.
       Otherwise, return the translated message.  Overridden in derived classes.
@@ -313,7 +313,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: npgettext(context, singular, plural, n)
                npgettext(context: str, msgid1: str, msgid2: str, n: int) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L43>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L43>`__)
 
       If a fallback has been set, forward :meth:`npgettext` to the fallback.
       Otherwise, return the translated message.  Overridden in derived classes.
@@ -324,7 +324,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: info()
                info() -> dict[str, str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L44>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L44>`__)
 
       Return a dictionary containing
       the metadata found in the message catalog file.
@@ -333,7 +333,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: charset()
                charset() -> str | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L45>`__)
 
       Return the encoding of the message catalog file.
 
@@ -341,7 +341,7 @@ are the methods of :class:`!NullTranslations`:
    .. method:: install(names=None)
                install(names: collections.abc.Container[str] | None = None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L56>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L56>`__)
 
       This method installs :meth:`.gettext` into the built-in namespace,
       binding it to ``_``.
@@ -399,14 +399,14 @@ unexpected, or if other problems occur while reading the file, instantiating a
 .. class:: GNUTranslations
            GNUTranslations(fp: gettext._TranslationsReader | None = None) -> gettext.GNUTranslations
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L58>`__)
 
    The following methods are overridden from the base class implementation:
 
    .. method:: gettext(message)
                gettext(message: str) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L40>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L40>`__)
 
       Look up the *message* id in the catalog and return the corresponding message
       string, as a Unicode string.  If there is no entry in the catalog for the
@@ -418,7 +418,7 @@ unexpected, or if other problems occur while reading the file, instantiating a
    .. method:: ngettext(singular, plural, n)
                ngettext(msgid1: str, msgid2: str, n: int) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L41>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L41>`__)
 
       Do a plural-forms lookup of a message id.  *singular* is used as the message id
       for purposes of lookup in the catalog, while *n* is used to determine which
@@ -442,7 +442,7 @@ unexpected, or if other problems occur while reading the file, instantiating a
    .. method:: pgettext(context, message)
                pgettext(context: str, message: str) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L42>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L42>`__)
 
       Look up the *context* and *message* id in the catalog and return the
       corresponding message string, as a Unicode string.  If there is no
@@ -456,7 +456,7 @@ unexpected, or if other problems occur while reading the file, instantiating a
    .. method:: npgettext(context, singular, plural, n)
                npgettext(context: str, msgid1: str, msgid2: str, n: int) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/gettext.pyi#L43>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/gettext.pyi#L43>`__)
 
       Do a plural-forms lookup of a message id.  *singular* is used as the
       message id for purposes of lookup in the catalog, while *n* is used to

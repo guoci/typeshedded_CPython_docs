@@ -2179,6 +2179,8 @@ directory <em>lib_dir</em>.</p>
 <p>Both <span class="target" id="index-36"></span><a class="reference internal" href="#envvar-CPPFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CPPFLAGS</span></code></a> and <span class="target" id="index-37"></span><a class="reference internal" href="#envvar-LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LDFLAGS</span></code></a> need to contain the shell’s
 value to be able to build extension modules using the
 directories specified in the environment variables.</p>
+<p>Please consider using <code class="docutils literal notranslate"><span class="pre">EXE_LDFLAGS</span></code> if the supplied linker flags are
+executable specific, e.g. GCC’s <code class="docutils literal notranslate"><span class="pre">-pie</span></code> flag.</p>
 </dd></dl>
 
 <dl class="std envvar">
@@ -2224,6 +2226,38 @@ executable.</p>
 <dd><p>Linker flags used for building the interpreter object files.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.8.</span></p>
+</div>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-EXE_LDFLAGS">
+<span class="sig-name descname"><span class="pre">EXE_LDFLAGS</span></span><a class="headerlink" href="#envvar-EXE_LDFLAGS" title="Link to this definition">¶</a></dt>
+<dd><p>Linker flags used for building executable targets such as the
+interpreter. If supplied, <span class="target" id="index-38"></span><a class="reference internal" href="#envvar-PY_CORE_EXE_LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PY_CORE_EXE_LDFLAGS</span></code></a>
+will be used in replacement of <span class="target" id="index-39"></span><a class="reference internal" href="#envvar-PY_CORE_LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PY_CORE_LDFLAGS</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
+</div>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-CONFIGURE_EXE_LDFLAGS">
+<span class="sig-name descname"><span class="pre">CONFIGURE_EXE_LDFLAGS</span></span><a class="headerlink" href="#envvar-CONFIGURE_EXE_LDFLAGS" title="Link to this definition">¶</a></dt>
+<dd><p>Value of <span class="target" id="index-40"></span><a class="reference internal" href="#envvar-EXE_LDFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">EXE_LDFLAGS</span></code></a> variable passed to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code>
+script.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
+</div>
+</dd></dl>
+
+<dl class="std envvar">
+<dt class="sig sig-object std" id="envvar-PY_CORE_EXE_LDFLAGS">
+<span class="sig-name descname"><span class="pre">PY_CORE_EXE_LDFLAGS</span></span><a class="headerlink" href="#envvar-PY_CORE_EXE_LDFLAGS" title="Link to this definition">¶</a></dt>
+<dd><p>Linker flags used for building the interpreter and
+executable targets.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">$(PY_CORE_LDFLAGS)</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 </dd></dl>
 

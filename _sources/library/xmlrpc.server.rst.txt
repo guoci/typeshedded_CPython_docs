@@ -27,7 +27,7 @@ servers written in Python.  Servers can either be free standing, using
                bind_and_activate=True, use_builtin_types=False)
            SimpleXMLRPCServer(addr: tuple[str, int], requestHandler: type[xmlrpc.server.SimpleXMLRPCRequestHandler] = ..., logRequests: bool = True, allow_none: bool = False, encoding: str | None = None, bind_and_activate: bool = True, use_builtin_types: bool = False) -> xmlrpc.server.SimpleXMLRPCServer
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L78>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L78>`__)
 
    Create a new server instance.  This class provides methods for registration of
    functions that can be called by the XML-RPC protocol.  The *requestHandler*
@@ -53,7 +53,7 @@ servers written in Python.  Servers can either be free standing, using
                use_builtin_types=False)
            CGIXMLRPCRequestHandler(allow_none: bool = False, encoding: str | None = None, use_builtin_types: bool = False) -> xmlrpc.server.CGIXMLRPCRequestHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L106>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L106>`__)
 
    Create a new instance to handle XML-RPC requests in a CGI environment.  The
    *allow_none* and *encoding* parameters are passed on to :mod:`xmlrpc.client`
@@ -69,7 +69,7 @@ servers written in Python.  Servers can either be free standing, using
 .. class:: SimpleXMLRPCRequestHandler()
            SimpleXMLRPCRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> xmlrpc.server.SimpleXMLRPCRequestHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L68>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L68>`__)
 
    Create a new request handler instance.  This request handler supports ``POST``
    requests and modifies logging so that the *logRequests* parameter to the
@@ -89,7 +89,7 @@ alone XML-RPC servers.
 .. method:: SimpleXMLRPCServer.register_function(function=None, name=None)
             SimpleXMLRPCServer.register_function(function: xmlrpc.server._DispatchArity0 | xmlrpc.server._DispatchArity1 | xmlrpc.server._DispatchArity2 | xmlrpc.server._DispatchArity3 | xmlrpc.server._DispatchArity4 | xmlrpc.server._DispatchArityN | None = None, name: str | None = None) -> collections.abc.Callable[[...], typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L53>`__)
 
    Register a function that can respond to XML-RPC requests.  If *name* is given,
    it will be the method name associated with *function*, otherwise
@@ -107,7 +107,7 @@ alone XML-RPC servers.
 .. method:: SimpleXMLRPCServer.register_instance(instance, allow_dotted_names=False)
             SimpleXMLRPCServer.register_instance(instance: typing.Any, allow_dotted_names: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L52>`__)
 
    Register an object which is used to expose method names which have not been
    registered using :meth:`register_function`.  If *instance* contains a
@@ -137,7 +137,7 @@ alone XML-RPC servers.
 .. method:: SimpleXMLRPCServer.register_introspection_functions()
             SimpleXMLRPCServer.register_introspection_functions() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L54>`__)
 
    Registers the XML-RPC introspection functions ``system.listMethods``,
    ``system.methodHelp`` and ``system.methodSignature``.
@@ -146,7 +146,7 @@ alone XML-RPC servers.
 .. method:: SimpleXMLRPCServer.register_multicall_functions()
             SimpleXMLRPCServer.register_multicall_functions() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L55>`__)
 
    Registers the XML-RPC multicall function system.multicall.
 
@@ -154,7 +154,7 @@ alone XML-RPC servers.
 .. attribute:: SimpleXMLRPCRequestHandler.rpc_paths
    :type: tuple[str, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L69>`__)
 
    An attribute value that must be a tuple listing valid path portions of the URL
    for receiving XML-RPC requests.  Requests posted to other paths will result in a
@@ -318,7 +318,7 @@ requests sent to Python CGI scripts.
 .. method:: CGIXMLRPCRequestHandler.register_function(function=None, name=None)
             CGIXMLRPCRequestHandler.register_function(function: xmlrpc.server._DispatchArity0 | xmlrpc.server._DispatchArity1 | xmlrpc.server._DispatchArity2 | xmlrpc.server._DispatchArity3 | xmlrpc.server._DispatchArity4 | xmlrpc.server._DispatchArityN | None = None, name: str | None = None) -> collections.abc.Callable[[...], typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L53>`__)
 
    Register a function that can respond to XML-RPC requests.  If *name* is given,
    it will be the method name associated with *function*, otherwise
@@ -336,7 +336,7 @@ requests sent to Python CGI scripts.
 .. method:: CGIXMLRPCRequestHandler.register_instance(instance)
             CGIXMLRPCRequestHandler.register_instance(instance: typing.Any, allow_dotted_names: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L52>`__)
 
    Register an object which is used to expose method names  which have not been
    registered using :meth:`register_function`. If  instance contains a
@@ -353,7 +353,7 @@ requests sent to Python CGI scripts.
 .. method:: CGIXMLRPCRequestHandler.register_introspection_functions()
             CGIXMLRPCRequestHandler.register_introspection_functions() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L54>`__)
 
    Register the XML-RPC introspection functions  ``system.listMethods``,
    ``system.methodHelp`` and  ``system.methodSignature``.
@@ -362,7 +362,7 @@ requests sent to Python CGI scripts.
 .. method:: CGIXMLRPCRequestHandler.register_multicall_functions()
             CGIXMLRPCRequestHandler.register_multicall_functions() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L55>`__)
 
    Register the XML-RPC multicall function ``system.multicall``.
 
@@ -370,7 +370,7 @@ requests sent to Python CGI scripts.
 .. method:: CGIXMLRPCRequestHandler.handle_request(request_text=None)
             CGIXMLRPCRequestHandler.handle_request(request_text: str | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L110>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L110>`__)
 
    Handle an XML-RPC request. If *request_text* is given, it should be the POST
    data provided by the HTTP server,  otherwise the contents of stdin will be used.
@@ -404,7 +404,7 @@ to HTTP GET requests.  Servers can either be free standing, using
                bind_and_activate=True, use_builtin_types=True)
            DocXMLRPCServer(addr: tuple[str, int], requestHandler: type[xmlrpc.server.SimpleXMLRPCRequestHandler] = ..., logRequests: bool = True, allow_none: bool = False, encoding: str | None = None, bind_and_activate: bool = True, use_builtin_types: bool = False) -> xmlrpc.server.DocXMLRPCServer
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L137>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L137>`__)
 
    Create a new server instance. All parameters have the same meaning as for
    :class:`SimpleXMLRPCServer`; *requestHandler* defaults to
@@ -417,7 +417,7 @@ to HTTP GET requests.  Servers can either be free standing, using
 .. class:: DocCGIXMLRPCRequestHandler()
            DocCGIXMLRPCRequestHandler() -> xmlrpc.server.DocCGIXMLRPCRequestHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L149>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L149>`__)
 
    Create a new instance to handle XML-RPC requests in a CGI environment.
 
@@ -425,7 +425,7 @@ to HTTP GET requests.  Servers can either be free standing, using
 .. class:: DocXMLRPCRequestHandler()
            DocXMLRPCRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> xmlrpc.server.DocXMLRPCRequestHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L134>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L134>`__)
 
    Create a new request handler instance. This request handler supports XML-RPC
    POST requests, documentation GET requests, and modifies logging so that the
@@ -448,7 +448,7 @@ server to provide its own web-based documentation.
 .. method:: DocXMLRPCServer.set_server_title(server_title)
             DocXMLRPCServer.set_server_title(server_title: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L129>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L129>`__)
 
    Set the title used in the generated HTML documentation. This title will be used
    inside the HTML "title" element.
@@ -457,7 +457,7 @@ server to provide its own web-based documentation.
 .. method:: DocXMLRPCServer.set_server_name(server_name)
             DocXMLRPCServer.set_server_name(server_name: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L130>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L130>`__)
 
    Set the name used in the generated HTML documentation. This name will appear at
    the top of the generated documentation inside a "h1" element.
@@ -466,7 +466,7 @@ server to provide its own web-based documentation.
 .. method:: DocXMLRPCServer.set_server_documentation(server_documentation)
             DocXMLRPCServer.set_server_documentation(server_documentation: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L131>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L131>`__)
 
    Set the description used in the generated HTML documentation. This description
    will appear as a paragraph, below the server name, in the documentation.
@@ -485,7 +485,7 @@ documentation. This allows a server to provide its own web-based documentation.
 .. method:: DocCGIXMLRPCRequestHandler.set_server_title(server_title)
             DocCGIXMLRPCRequestHandler.set_server_title(server_title: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L129>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L129>`__)
 
    Set the title used in the generated HTML documentation. This title will be used
    inside the HTML "title" element.
@@ -494,7 +494,7 @@ documentation. This allows a server to provide its own web-based documentation.
 .. method:: DocCGIXMLRPCRequestHandler.set_server_name(server_name)
             DocCGIXMLRPCRequestHandler.set_server_name(server_name: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L130>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L130>`__)
 
    Set the name used in the generated HTML documentation. This name will appear at
    the top of the generated documentation inside a "h1" element.
@@ -503,7 +503,7 @@ documentation. This allows a server to provide its own web-based documentation.
 .. method:: DocCGIXMLRPCRequestHandler.set_server_documentation(server_documentation)
             DocCGIXMLRPCRequestHandler.set_server_documentation(server_documentation: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e951ce/stdlib/xmlrpc/server.pyi#L131>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/d6cdd5e/stdlib/xmlrpc/server.pyi#L131>`__)
 
    Set the description used in the generated HTML documentation. This description
    will appear as a paragraph, below the server name, in the documentation.
