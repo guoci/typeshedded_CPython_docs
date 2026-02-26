@@ -3914,8 +3914,8 @@ It is usually preferable to make such classes public.</p>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#dict" title="dict"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/d6cdd5e/stdlib/typing.pyi#L958">typeshed</a>)</p>
-<p>Return a dictionary containing type hints for a function, method, module
-or class object.</p>
+<p>Return a dictionary containing type hints for a function, method, module,
+class object, or other callable object.</p>
 <p>This is often the same as <code class="docutils literal notranslate"><span class="pre">obj.__annotations__</span></code>, but this function makes
 the following changes to the annotations dictionary:</p>
 <ul class="simple">
@@ -3954,6 +3954,13 @@ such as <a class="reference internal" href="exceptions.html#NameError" title="Na
 <a class="reference internal" href="#type-aliases"><span class="std std-ref">type aliases</span></a> that include forward references,
 or with names imported under <a class="reference internal" href="#typing.TYPE_CHECKING" title="typing.TYPE_CHECKING"><code class="xref py py-data docutils literal notranslate"><span class="pre">if</span> <span class="pre">TYPE_CHECKING</span></code></a>.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Calling <a class="reference internal" href="#typing.get_type_hints" title="typing.get_type_hints"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_type_hints()</span></code></a> on an instance is not supported.
+To retrieve annotations for an instance, call
+<a class="reference internal" href="#typing.get_type_hints" title="typing.get_type_hints"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_type_hints()</span></code></a> on the instance’s class instead
+(for example, <code class="docutils literal notranslate"><span class="pre">get_type_hints(type(obj))</span></code>).</p>
+</div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.9: </span>Added <code class="docutils literal notranslate"><span class="pre">include_extras</span></code> parameter as part of <span class="target" id="index-38"></span><a class="pep reference external" href="https://peps.python.org/pep-0593/"><strong>PEP 593</strong></a>.
 See the documentation on <a class="reference internal" href="#typing.Annotated" title="typing.Annotated"><code class="xref py py-data docutils literal notranslate"><span class="pre">Annotated</span></code></a> for more information.</p>
@@ -3962,6 +3969,11 @@ See the documentation on <a class="reference internal" href="#typing.Annotated" 
 <p><span class="versionmodified changed">Changed in version 3.11: </span>Previously, <code class="docutils literal notranslate"><span class="pre">Optional[t]</span></code> was added for function and method annotations
 if a default value equal to <code class="docutils literal notranslate"><span class="pre">None</span></code> was set.
 Now the annotation is returned unchanged.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.14: </span>Calling <a class="reference internal" href="#typing.get_type_hints" title="typing.get_type_hints"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_type_hints()</span></code></a> on instances is no longer supported.
+Some instances were accepted in earlier versions as an undocumented
+implementation detail.</p>
 </div>
 </dd></dl>
 
