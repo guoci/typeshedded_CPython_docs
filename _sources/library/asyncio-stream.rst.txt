@@ -57,7 +57,7 @@ and work with streams:
               open_connection(host: str | None = None, port: int | str | None = None, *, limit: int = 65536, ssl_handshake_timeout: float | None = None, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[asyncio.StreamReader, asyncio.StreamWriter]]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L32>`__)
 
    Establish a network connection and return a pair of
    ``(reader, writer)`` objects.
@@ -102,7 +102,7 @@ and work with streams:
               start_server(client_connected_cb: collections.abc.Callable[[asyncio.StreamReader, asyncio.StreamWriter], collections.abc.Awaitable[None] | None], host: collections.abc.Sequence[str] | str | None = None, port: int | str | None = None, *, limit: int = 65536, ssl_handshake_timeout: float | None = None, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, asyncio.base_events.Server]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L40>`__)
 
    Start a socket server.
 
@@ -149,7 +149,7 @@ and work with streams:
               open_unix_connection(path: os.PathLike[str] | str | None = None, *, limit: int = 65536, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, tuple[asyncio.StreamReader, asyncio.StreamWriter]]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L73>`__)
 
    Establish a Unix socket connection and return a pair of
    ``(reader, writer)``.
@@ -184,7 +184,7 @@ and work with streams:
               start_unix_server(client_connected_cb: collections.abc.Callable[[asyncio.StreamReader, asyncio.StreamWriter], collections.abc.Awaitable[None] | None], path: os.PathLike[str] | str | None = None, *, limit: int = 65536, **kwds: typing.Any) -> collections.abc.Coroutine[Unknown, Unknown, asyncio.base_events.Server]
    :async:
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L76>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L76>`__)
 
    Start a Unix socket server.
 
@@ -224,7 +224,7 @@ StreamReader
 .. class:: StreamReader
            StreamReader(limit: int = 65536, loop: asyncio.events.AbstractEventLoop | None = None) -> asyncio.StreamReader
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L142>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L142>`__)
 
    Represents a reader object that provides APIs to read data
    from the IO stream. As an :term:`asynchronous iterable`, the
@@ -237,7 +237,7 @@ StreamReader
    .. method:: feed_eof()
                feed_eof() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L147>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L147>`__)
 
       Acknowledge the EOF.
 
@@ -245,7 +245,7 @@ StreamReader
                read(n: int = -1) -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L156>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L156>`__)
 
       Read up to *n* bytes from the stream.
 
@@ -265,7 +265,7 @@ StreamReader
                readline() -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L150>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L150>`__)
 
       Read one line, where "line" is a sequence of bytes
       ending with ``\n``.
@@ -280,7 +280,7 @@ StreamReader
                readexactly(n: int) -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L157>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L157>`__)
 
       Read exactly *n* bytes.
 
@@ -292,7 +292,7 @@ StreamReader
                readuntil(separator: asyncio._ReaduntilBuffer | tuple[asyncio._ReaduntilBuffer, ...] = b'\n') -> collections.abc.Coroutine[Unknown, Unknown, bytes]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L152>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L152>`__)
 
       Read data from the stream until *separator* is found.
 
@@ -325,7 +325,7 @@ StreamReader
    .. method:: at_eof()
                at_eof() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L148>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L148>`__)
 
       Return ``True`` if the buffer is empty and :meth:`feed_eof`
       was called.
@@ -337,7 +337,7 @@ StreamWriter
 .. class:: StreamWriter
            StreamWriter(transport: asyncio.transports.WriteTransport, protocol: asyncio.protocols.BaseProtocol, reader: asyncio.StreamReader | None, loop: asyncio.events.AbstractEventLoop) -> asyncio.StreamWriter
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L104>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L104>`__)
 
    Represents a writer object that provides APIs to write data
    to the IO stream.
@@ -349,7 +349,7 @@ StreamWriter
    .. method:: write(data)
                write(data: bytearray | bytes | memoryview[int]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L114>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L114>`__)
 
       The method attempts to write the *data* to the underlying socket immediately.
       If that fails, the data is queued in an internal write buffer until it can be
@@ -367,7 +367,7 @@ StreamWriter
    .. method:: writelines(data)
                writelines(data: collections.abc.Iterable[bytearray | bytes | memoryview[int]]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L115>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L115>`__)
 
       The method writes a list (or any iterable) of bytes to the underlying socket
       immediately.
@@ -382,7 +382,7 @@ StreamWriter
    .. method:: close()
                close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L118>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L118>`__)
 
       The method closes the stream and the underlying socket.
 
@@ -395,7 +395,7 @@ StreamWriter
    .. method:: can_write_eof()
                can_write_eof() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L117>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L117>`__)
 
       Return ``True`` if the underlying transport supports
       the :meth:`write_eof` method, ``False`` otherwise.
@@ -403,7 +403,7 @@ StreamWriter
    .. method:: write_eof()
                write_eof() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L116>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L116>`__)
 
       Close the write end of the stream after the buffered write
       data is flushed.
@@ -411,14 +411,14 @@ StreamWriter
    .. attribute:: transport
       :type: transport(self: asyncio.StreamWriter) -> asyncio.transports.WriteTransport
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L113>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L113>`__)
 
       Return the underlying asyncio transport.
 
    .. method:: get_extra_info(name, default=None)
                get_extra_info(name: str, default: typing.Any = None) -> typing.Any
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L121>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L121>`__)
 
       Access optional transport information; see
       :meth:`BaseTransport.get_extra_info` for details.
@@ -427,7 +427,7 @@ StreamWriter
                drain() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L122>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L122>`__)
 
       Wait until it is appropriate to resume writing to the stream.
       Example::
@@ -447,7 +447,7 @@ StreamWriter
                start_tls(sslcontext: ssl.SSLContext, *, server_hostname: str | None = None, ssl_handshake_timeout: float | None = None, ssl_shutdown_timeout: float | None = None) -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L124>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L124>`__)
 
       Upgrade an existing stream-based connection to TLS.
 
@@ -475,7 +475,7 @@ StreamWriter
    .. method:: is_closing()
                is_closing() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L119>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L119>`__)
 
       Return ``True`` if the stream is closed or in the process of
       being closed.
@@ -486,7 +486,7 @@ StreamWriter
                wait_closed() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/streams.pyi#L120>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/streams.pyi#L120>`__)
 
       Wait until the stream is closed.
 

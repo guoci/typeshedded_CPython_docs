@@ -18,7 +18,7 @@ parsing text files formatted in HTML (HyperText Mark-up Language) and XHTML.
 .. class:: HTMLParser(*, convert_charrefs=True, scripting=False)
            HTMLParser(*, convert_charrefs: bool = True, scripting: bool = False) -> html.parser.HTMLParser
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L7>`__)
 
    Create a parser instance able to parse invalid markup.
 
@@ -100,7 +100,7 @@ The output will then be:
 .. method:: HTMLParser.feed(data)
             HTMLParser.feed(data: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L14>`__)
 
    Feed some text to the parser.  It is processed insofar as it consists of
    complete elements; incomplete data is buffered until more data is fed or
@@ -110,7 +110,7 @@ The output will then be:
 .. method:: HTMLParser.close()
             HTMLParser.close() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L15>`__)
 
    Force processing of all buffered data as if it were followed by an end-of-file
    mark.  This method may be redefined by a derived class to define additional
@@ -121,7 +121,7 @@ The output will then be:
 .. method:: HTMLParser.reset()
             HTMLParser.reset() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/_markupbase.pyi#L5>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/_markupbase.pyi#L5>`__)
 
    Reset the instance.  Loses all unprocessed data.  This is called implicitly at
    instantiation time.
@@ -130,7 +130,7 @@ The output will then be:
 .. method:: HTMLParser.getpos()
             HTMLParser.getpos() -> tuple[int, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/_markupbase.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/_markupbase.pyi#L6>`__)
 
    Return current line number and offset.
 
@@ -138,7 +138,7 @@ The output will then be:
 .. method:: HTMLParser.get_starttag_text()
             HTMLParser.get_starttag_text() -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L16>`__)
 
    Return the text of the most recently opened start tag.  This should not normally
    be needed for structured processing, but may be useful in dealing with HTML "as
@@ -154,7 +154,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_starttag(tag, attrs)
             HTMLParser.handle_starttag(tag: str, attrs: list[tuple[str, str | None]]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L17>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L17>`__)
 
    This method is called to handle the start tag of an element (e.g. ``<div id="main">``).
 
@@ -174,7 +174,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_endtag(tag)
             HTMLParser.handle_endtag(tag: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L18>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L18>`__)
 
    This method is called to handle the end tag of an element (e.g. ``</div>``).
 
@@ -184,7 +184,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_startendtag(tag, attrs)
             HTMLParser.handle_startendtag(tag: str, attrs: list[tuple[str, str | None]]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L19>`__)
 
    Similar to :meth:`handle_starttag`, but called when the parser encounters an
    XHTML-style empty tag (``<img ... />``).  This method may be overridden by
@@ -195,7 +195,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_data(data)
             HTMLParser.handle_data(data: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L20>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L20>`__)
 
    This method is called to process arbitrary data (e.g. text nodes and the
    content of elements like ``script`` and ``style``).
@@ -204,7 +204,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_entityref(name)
             HTMLParser.handle_entityref(name: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L21>`__)
 
    This method is called to process a named character reference of the form
    ``&name;`` (e.g. ``&gt;``), where *name* is a general entity reference
@@ -215,7 +215,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_charref(name)
             HTMLParser.handle_charref(name: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L22>`__)
 
    This method is called to process decimal and hexadecimal numeric character
    references of the form :samp:`&#{NNN};` and :samp:`&#x{NNN};`.  For example, the decimal
@@ -227,7 +227,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_comment(data)
             HTMLParser.handle_comment(data: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L23>`__)
 
    This method is called when a comment is encountered (e.g. ``<!--comment-->``).
 
@@ -242,7 +242,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_decl(decl)
             HTMLParser.handle_decl(decl: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L24>`__)
 
    This method is called to handle an HTML doctype declaration (e.g.
    ``<!DOCTYPE html>``).
@@ -254,7 +254,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.handle_pi(data)
             HTMLParser.handle_pi(data: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/html/parser.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/html/parser.pyi#L25>`__)
 
    Method called when a processing instruction is encountered.  The *data*
    parameter will contain the entire processing instruction. For example, for the
@@ -272,7 +272,7 @@ implementations do nothing (except for :meth:`~HTMLParser.handle_startendtag`):
 .. method:: HTMLParser.unknown_decl(data)
             HTMLParser.unknown_decl(data: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/_markupbase.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/_markupbase.pyi#L7>`__)
 
    This method is called when an unrecognized declaration is read by the parser.
 

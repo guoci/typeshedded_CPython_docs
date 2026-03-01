@@ -26,7 +26,7 @@ Queue
 .. class:: Queue(maxsize=0)
            Queue(maxsize: int = 0) -> asyncio.Queue[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L29>`__)
 
    A first in, first out (FIFO) queue.
 
@@ -48,21 +48,21 @@ Queue
    .. attribute:: maxsize
       :type: maxsize[_T](self: asyncio.Queue[_T]) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L41>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L41>`__)
 
       Number of items allowed in the queue.
 
    .. method:: empty()
                empty[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L42>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L42>`__)
 
       Return ``True`` if the queue is empty, ``False`` otherwise.
 
    .. method:: full()
                full[_T]() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L43>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L43>`__)
 
       Return ``True`` if there are :attr:`maxsize` items in the queue.
 
@@ -73,7 +73,7 @@ Queue
                get[_T]() -> collections.abc.Coroutine[Unknown, Unknown, _T]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L46>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L46>`__)
 
       Remove and return an item from the queue. If queue is empty,
       wait until an item is available.
@@ -84,7 +84,7 @@ Queue
    .. method:: get_nowait()
                get_nowait[_T]() -> _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L47>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L47>`__)
 
       Return an item if one is immediately available, else raise
       :exc:`QueueEmpty`.
@@ -93,7 +93,7 @@ Queue
                join[_T]() -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L48>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L48>`__)
 
       Block until all items in the queue have been received and processed.
 
@@ -107,7 +107,7 @@ Queue
                put[_T](item: _T) -> collections.abc.Coroutine[Unknown, Unknown, None]
       :async:
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L44>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L44>`__)
 
       Put an item into the queue. If the queue is full, wait until a
       free slot is available before adding the item.
@@ -117,7 +117,7 @@ Queue
    .. method:: put_nowait(item)
                put_nowait[_T](item: _T) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L45>`__)
 
       Put an item into the queue without blocking.
 
@@ -126,14 +126,14 @@ Queue
    .. method:: qsize()
                qsize[_T]() -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L39>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L39>`__)
 
       Return the number of items in the queue.
 
    .. method:: shutdown(immediate=False)
                shutdown[_T](immediate: bool = False) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L52>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L52>`__)
 
       Put a :class:`Queue` instance into a shutdown mode.
 
@@ -169,7 +169,7 @@ Queue
    .. method:: task_done()
                task_done[_T]() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L49>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L49>`__)
 
       Indicate that a formerly enqueued work item is complete.
 
@@ -192,7 +192,7 @@ Priority Queue
 .. class:: PriorityQueue
            PriorityQueue(maxsize: int = 0) -> asyncio.PriorityQueue[SupportsRichComparisonT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L54>`__)
 
    A variant of :class:`Queue`; retrieves entries in priority order
    (lowest first).
@@ -207,7 +207,7 @@ LIFO Queue
 .. class:: LifoQueue
            LifoQueue(maxsize: int = 0) -> asyncio.LifoQueue[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L55>`__)
 
    A variant of :class:`Queue` that retrieves most recently added
    entries first (last in, first out).
@@ -219,7 +219,7 @@ Exceptions
 .. exception:: QueueEmpty
                QueueEmpty(*args: object) -> asyncio.QueueEmpty
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L12>`__)
 
    This exception is raised when the :meth:`~Queue.get_nowait` method
    is called on an empty queue.
@@ -228,7 +228,7 @@ Exceptions
 .. exception:: QueueFull
                QueueFull(*args: object) -> asyncio.QueueFull
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L13>`__)
 
    Exception raised when the :meth:`~Queue.put_nowait` method is called
    on a queue that has reached its *maxsize*.
@@ -237,7 +237,7 @@ Exceptions
 .. exception:: QueueShutDown
                QueueShutDown(*args: object) -> asyncio.QueueShutDown
 
-   (`typeshed <https://github.com/python/typeshed/blob/843c1fd/stdlib/asyncio/queues.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/asyncio/queues.pyi#L25>`__)
 
    Exception raised when :meth:`~Queue.put` or :meth:`~Queue.get` is
    called on a queue which has been shut down.

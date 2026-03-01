@@ -1579,6 +1579,22 @@ in Python 3.14.
 <section id="typing">
 <h3>typing<a class="headerlink" href="#typing" title="Link to this heading">¶</a></h3>
 <ul>
+<li><p><span class="target" id="index-28"></span><a class="pep reference external" href="https://peps.python.org/pep-0747/"><strong>PEP 747</strong></a>: Add <a class="reference internal" href="../library/typing.html#typing.TypeForm" title="typing.TypeForm"><code class="xref py py-data docutils literal notranslate"><span class="pre">TypeForm</span></code></a>, a new special form for annotating
+values that are themselves type expressions.
+<code class="docutils literal notranslate"><span class="pre">TypeForm[T]</span></code> means “a type form object describing <code class="docutils literal notranslate"><span class="pre">T</span></code> (or a type
+assignable to <code class="docutils literal notranslate"><span class="pre">T</span></code>)”. At runtime, <code class="docutils literal notranslate"><span class="pre">TypeForm(x)</span></code> simply returns <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+which allows explicit annotation of type-form values without changing
+behavior.</p>
+<p>This helps libraries that accept user-provided type expressions
+(for example <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span></code>, <a class="reference internal" href="../library/typing.html#typing.TypedDict" title="typing.TypedDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></a>
+classes, or <code class="docutils literal notranslate"><span class="pre">list[int]</span></code>) expose precise signatures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TypeForm</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cast</span><span class="p">[</span><span class="n">T</span><span class="p">](</span><span class="n">typ</span><span class="p">:</span> <span class="n">TypeForm</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>(Contributed by Jelle Zijlstra in <a class="reference external" href="https://github.com/python/cpython/issues/145033">gh-145033</a>.)</p>
+</li>
 <li><p>The undocumented keyword argument syntax for creating
 <a class="reference internal" href="../library/typing.html#typing.NamedTuple" title="typing.NamedTuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></a> classes (for example,
 <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">=</span> <span class="pre">NamedTuple(&quot;Point&quot;,</span> <span class="pre">x=int,</span> <span class="pre">y=int)</span></code>) is no longer supported.
@@ -1694,6 +1710,7 @@ Python 3.20. Use <a class="reference internal" href="../library/sys.html#sys.ver
 <li><p><a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/socketserver.html#module-socketserver" title="socketserver: A framework for network servers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socketserver</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tabnanny.html#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a></p></li>
+<li><p><a class="reference internal" href="../library/tarfile.html#module-tarfile" title="tarfile: Read and write tar-format archive files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tarfile</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tkinter.font.html#module-tkinter.font" title="tkinter.font: Tkinter font-wrapping class"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tkinter.ttk.html#module-tkinter.ttk" title="tkinter.ttk: Tk themed widget set"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.ttk</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/wsgiref.html#module-wsgiref.simple_server" title="wsgiref.simple_server: A simple WSGI HTTP server."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wsgiref.simple_server</span></code></a></p></li>
@@ -1809,7 +1826,7 @@ has been deprecated since Python 3.14.</p></li>
 <ul class="simple">
 <li><p>The <a class="reference internal" href="../library/sys.html#sys._enablelegacywindowsfsencoding" title="sys._enablelegacywindowsfsencoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">_enablelegacywindowsfsencoding()</span></code></a> function
 has been deprecated since Python 3.13.
-Use the <span class="target" id="index-28"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONLEGACYWINDOWSFSENCODING"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONLEGACYWINDOWSFSENCODING</span></code></a> environment variable instead.</p></li>
+Use the <span class="target" id="index-29"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONLEGACYWINDOWSFSENCODING"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONLEGACYWINDOWSFSENCODING</span></code></a> environment variable instead.</p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="../library/sysconfig.html#module-sysconfig" title="sysconfig: Python's configuration information"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sysconfig</span></code></a>:</p>
@@ -1845,7 +1862,7 @@ instance of <code class="xref py py-class docutils literal notranslate"><span cl
 about the object. Other common buffer types such as <a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a>
 were also never understood as subtypes of <code class="xref py py-class docutils literal notranslate"><span class="pre">ByteString</span></code> (either at
 runtime or by static type checkers).</p>
-<p>See <span class="target" id="index-29"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
+<p>See <span class="target" id="index-30"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
 (Contributed by Shantanu Jain in <a class="reference external" href="https://github.com/python/cpython/issues/91896">gh-91896</a>.)</p>
 </li>
 </ul>
@@ -1878,7 +1895,7 @@ instance of <code class="xref py py-class docutils literal notranslate"><span cl
 about the object. Other common buffer types such as <a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a>
 were also never understood as subtypes of <code class="xref py py-class docutils literal notranslate"><span class="pre">ByteString</span></code> (either at
 runtime or by static type checkers).</p>
-<p>See <span class="target" id="index-30"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
+<p>See <span class="target" id="index-31"></span><a class="pep reference external" href="https://peps.python.org/pep-0688/#current-options"><strong>PEP 688</strong></a> for more details.
 (Contributed by Shantanu Jain in <a class="reference external" href="https://github.com/python/cpython/issues/91896">gh-91896</a>.)</p>
 </li>
 </ul>
@@ -1949,6 +1966,7 @@ Python 3.20. Use <a class="reference internal" href="../library/sys.html#sys.ver
 <li><p><a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/socketserver.html#module-socketserver" title="socketserver: A framework for network servers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socketserver</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tabnanny.html#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tabnanny</span></code></a></p></li>
+<li><p><a class="reference internal" href="../library/tarfile.html#module-tarfile" title="tarfile: Read and write tar-format archive files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tarfile</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tkinter.font.html#module-tkinter.font" title="tkinter.font: Tkinter font-wrapping class"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.font</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/tkinter.ttk.html#module-tkinter.ttk" title="tkinter.ttk: Tk themed widget set"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tkinter.ttk</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/wsgiref.html#module-wsgiref.simple_server" title="wsgiref.simple_server: A simple WSGI HTTP server."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wsgiref.simple_server</span></code></a></p></li>
@@ -2145,7 +2163,7 @@ and <a class="reference internal" href="../c-api/module.html#c.Py_mod_abi" title
 (Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/137210">gh-137210</a>.)</p></li>
 </ul>
 <ul id="whatsnew315-pep782">
-<li><p>Implement <span class="target" id="index-31"></span><a class="pep reference external" href="https://peps.python.org/pep-0782/"><strong>PEP 782</strong></a>, the <a class="reference internal" href="../c-api/bytes.html#pybyteswriter"><span class="std std-ref">PyBytesWriter API</span></a>.
+<li><p>Implement <span class="target" id="index-32"></span><a class="pep reference external" href="https://peps.python.org/pep-0782/"><strong>PEP 782</strong></a>, the <a class="reference internal" href="../c-api/bytes.html#pybyteswriter"><span class="std std-ref">PyBytesWriter API</span></a>.
 Add functions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../c-api/bytes.html#c.PyBytesWriter_Create" title="PyBytesWriter_Create"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyBytesWriter_Create()</span></code></a></p></li>
@@ -2259,7 +2277,7 @@ use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get
 (<a class="reference internal" href="../library/sys.html#sys.executable" title="sys.executable"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.executable</span></code></a>) instead.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPythonHome()</span></code>:
 use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;home&quot;)</span></code></a> or the
-<span class="target" id="index-32"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a> environment variable instead.</p></li>
+<span class="target" id="index-33"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONHOME"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONHOME</span></code></a> environment variable instead.</p></li>
 </ul>
 <p>(Contributed by Bénédikt Tran in <a class="reference external" href="https://github.com/python/cpython/issues/133644">gh-133644</a>.)</p>
 </li>
@@ -2268,7 +2286,7 @@ use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get
 <section id="deprecated-c-apis">
 <h3>Deprecated C APIs<a class="headerlink" href="#deprecated-c-apis" title="Link to this heading">¶</a></h3>
 <ul>
-<li><p>Deprecate <span class="target" id="index-33"></span><a class="pep reference external" href="https://peps.python.org/pep-0456/"><strong>PEP 456</strong></a> support for providing an external definition
+<li><p>Deprecate <span class="target" id="index-34"></span><a class="pep reference external" href="https://peps.python.org/pep-0456/"><strong>PEP 456</strong></a> support for providing an external definition
 of the string hashing scheme. Removal is scheduled for Python 3.19.</p>
 <p>Previously, embedders could define <a class="reference internal" href="../c-api/hash.html#c.Py_HASH_ALGORITHM" title="Py_HASH_ALGORITHM"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_HASH_ALGORITHM</span></code></a> to be
 <code class="docutils literal notranslate"><span class="pre">Py_HASH_EXTERNAL</span></code> to indicate that the hashing scheme was provided
@@ -2331,7 +2349,7 @@ increases to 2 MiB and allocation uses <code class="docutils literal notranslate
 <code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages.
 On Windows, use <code class="docutils literal notranslate"><span class="pre">build.bat</span> <span class="pre">--pymalloc-hugepages</span></code>.
 At runtime, huge pages must be explicitly enabled by setting the
-<span class="target" id="index-34"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHON_PYMALLOC_HUGEPAGES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></code></a> environment variable to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<span class="target" id="index-35"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHON_PYMALLOC_HUGEPAGES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></code></a> environment variable to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
 <li><p>Annotating anonymous mmap usage is now supported if Linux kernel supports
 <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/PR_SET_VMA(2const)">PR_SET_VMA_ANON_NAME</a></em> (Linux 5.17 or newer).
 Annotations are visible in <code class="docutils literal notranslate"><span class="pre">/proc/&lt;pid&gt;/maps</span></code> if the kernel supports the feature
