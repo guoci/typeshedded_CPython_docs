@@ -74,7 +74,7 @@ ArgumentParser objects
                           *, suggest_on_error=True, color=True)
            ArgumentParser(prog: str | None = None, usage: str | None = None, description: str | None = None, epilog: str | None = None, parents: collections.abc.Sequence[argparse.ArgumentParser] = ..., formatter_class: argparse._FormatterClass = ..., prefix_chars: str = '-', fromfile_prefix_chars: str | None = None, argument_default: typing.Any = None, conflict_handler: str = 'error', add_help: bool = True, allow_abbrev: bool = True, exit_on_error: bool = True, *, suggest_on_error: bool = False, color: bool = True) -> argparse.ArgumentParser
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L144>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L144>`__)
 
    Create a new :class:`ArgumentParser` object. All parameters should be passed
    as keyword arguments. Each parameter has its own more detailed description
@@ -306,7 +306,7 @@ classes:
            MetavarTypeHelpFormatter
 
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L354>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L354>`__)
 
 :class:`RawDescriptionHelpFormatter` and :class:`RawTextHelpFormatter` give
 more control over how textual descriptions are displayed.
@@ -673,7 +673,7 @@ The add_argument() method
                            [help], [metavar], [dest], [deprecated])
             ArgumentParser.add_argument[_T](*name_or_flags: str, *, action: str | type[argparse.Action] = ..., nargs: int | str | None = None, const: typing.Any = ..., default: typing.Any = ..., type: _ActionType = ..., choices: collections.abc.Iterable[_T] | None = ..., required: bool = ..., help: str | None = ..., metavar: str | tuple[str, ...] | None = ..., dest: str | None = ..., version: str = ..., **kwargs: typing.Any) -> argparse.Action
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L73>`__)
 
    Define how a single command-line argument should be parsed.  Each parameter
    has its own more detailed description below, but in short they are:
@@ -1415,7 +1415,7 @@ this API may be passed as the ``action`` parameter to
                   metavar=None)
            Action(option_strings: collections.abc.Sequence[str], dest: str, nargs: int | str | None = None, const: _T | None = None, default: str | _T | None = None, type: (collections.abc.Callable[[str], _T]) | argparse.FileType | None = None, choices: collections.abc.Iterable[_T] | None = None, required: bool = False, help: str | None = None, metavar: str | tuple[str, ...] | None = None, deprecated: bool = False) -> argparse.Action
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L359>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L359>`__)
 
    :class:`!Action` objects are used by an :class:`ArgumentParser` to represent the information
    needed to parse a single argument from one or more strings from the
@@ -1432,7 +1432,7 @@ this API may be passed as the ``action`` parameter to
    .. method:: __call__(parser, namespace, values, option_string=None)
                __call__(parser: argparse.ArgumentParser, namespace: argparse.Namespace, values: collections.abc.Sequence[typing.Any] | str | None, option_string: str | None = None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L400>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L400>`__)
 
       :class:`!Action` instances should be callable, so subclasses must override the
       :meth:`!__call__` method, which should accept four parameters:
@@ -1457,7 +1457,7 @@ this API may be passed as the ``action`` parameter to
    .. method:: format_usage()
                format_usage() -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L403>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L403>`__)
 
       :class:`!Action` subclasses can define a :meth:`!format_usage` method that takes no argument
       and return a string which will be used when printing the usage of the program.
@@ -1466,7 +1466,7 @@ this API may be passed as the ``action`` parameter to
 .. class:: BooleanOptionalAction
            BooleanOptionalAction(option_strings: collections.abc.Sequence[str], dest: str, default: bool | None = None, required: bool = False, help: str | None = None, deprecated: bool = False) -> argparse.BooleanOptionalAction
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L406>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L406>`__)
 
    A subclass of :class:`Action` for handling boolean flags with positive
    and negative options. Adding a single argument such as ``--foo`` automatically
@@ -1500,7 +1500,7 @@ The parse_args() method
             ArgumentParser.parse_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> _N
             ArgumentParser.parse_args(*, namespace: _N) -> _N
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L203>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L203>`__)
 
    Convert argument strings to objects and assign them as attributes of the
    namespace.  Return the populated namespace.
@@ -1688,7 +1688,7 @@ The Namespace object
 .. class:: Namespace
            Namespace(**kwargs: typing.Any) -> argparse.Namespace
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L494>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L494>`__)
 
    Simple class used by default by :meth:`~ArgumentParser.parse_args` to create
    an object holding attributes and return it.
@@ -1731,7 +1731,7 @@ Subcommands
             ArgumentParser.add_subparsers(*, title: str = 'subcommands', description: str | None = None, prog: str | None = None, action: type[argparse.Action] = ..., option_string: str = ..., dest: str | None = None, required: bool = False, help: str | None = None, metavar: str | None = None) -> argparse._SubParsersAction[_ArgumentParserT]
             ArgumentParser.add_subparsers(*, title: str = 'subcommands', description: str | None = None, prog: str | None = None, parser_class: type[_ArgumentParserT], action: type[argparse.Action] = ..., option_string: str = ..., dest: str | None = None, required: bool = False, help: str | None = None, metavar: str | None = None) -> argparse._SubParsersAction[_ArgumentParserT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L209>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L209>`__)
 
    Many programs split up their functionality into a number of subcommands,
    for example, the ``svn`` program can invoke subcommands like ``svn
@@ -1925,7 +1925,7 @@ Subcommands
                                          deprecated=False, **kwargs)
             _SubParsersAction.add_parser[_ArgumentParserT: ArgumentParser](name: str, *, deprecated: bool = False, help: str | None = ..., aliases: collections.abc.Sequence[str] = ..., prog: str | None = ..., usage: str | None = ..., description: str | None = ..., epilog: str | None = ..., parents: collections.abc.Sequence[_ArgumentParserT] = ..., formatter_class: argparse._FormatterClass = ..., prefix_chars: str = ..., fromfile_prefix_chars: str | None = ..., argument_default: typing.Any = ..., conflict_handler: str = ..., add_help: bool = True, allow_abbrev: bool = True, exit_on_error: bool = True, suggest_on_error: bool = False, color: bool = False, **kwargs: typing.Any) -> _ArgumentParserT
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L780>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L780>`__)
 
    Create and return a new :class:`ArgumentParser` object for the
    subcommand *name*.
@@ -1967,7 +1967,7 @@ FileType objects
 .. class:: FileType(mode='r', bufsize=-1, encoding=None, errors=None)
            FileType(mode: str = 'r', bufsize: int = -1, encoding: str | None = None, errors: str | None = None) -> argparse.FileType
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L504>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L504>`__)
 
    The :class:`FileType` factory creates objects that can be passed to the type
    argument of :meth:`ArgumentParser.add_argument`.  Arguments that have
@@ -2012,7 +2012,7 @@ Argument groups
             ArgumentParser.add_argument_group(title: str | None = None, description: str | None = None, *, argument_default: typing.Any = ..., conflict_handler: str = ...) -> argparse._ArgumentGroup
             ArgumentParser.add_argument_group(title: str | None = None, description: str | None = None, *, prefix_chars: str, argument_default: typing.Any = ..., conflict_handler: str = ...) -> argparse._ArgumentGroup
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L96>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L96>`__)
 
    By default, :class:`ArgumentParser` groups command-line arguments into
    "positional arguments" and "options" when displaying help
@@ -2081,7 +2081,7 @@ Mutual exclusion
 .. method:: ArgumentParser.add_mutually_exclusive_group(required=False)
             ArgumentParser.add_mutually_exclusive_group(*, required: bool = False) -> argparse._MutuallyExclusiveGroup
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L128>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L128>`__)
 
    Create a mutually exclusive group. :mod:`!argparse` will make sure that only
    one of the arguments in the mutually exclusive group was present on the
@@ -2147,7 +2147,7 @@ Parser defaults
 .. method:: ArgumentParser.set_defaults(**kwargs)
             ArgumentParser.set_defaults(**kwargs: typing.Any) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L71>`__)
 
    Most of the time, the attributes of the object returned by :meth:`parse_args`
    will be fully determined by inspecting the command-line arguments and the argument
@@ -2178,7 +2178,7 @@ Parser defaults
 .. method:: ArgumentParser.get_default(dest)
             ArgumentParser.get_default(dest: str) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L72>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L72>`__)
 
    Get the default value for a namespace attribute, as set by either
    :meth:`~ArgumentParser.add_argument` or by
@@ -2200,7 +2200,7 @@ formatting methods are available:
 .. method:: ArgumentParser.print_usage(file=None)
             ArgumentParser.print_usage(file: _typeshed.SupportsWrite[str] | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L237>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L237>`__)
 
    Print a brief description of how the :class:`ArgumentParser` should be
    invoked on the command line.  If *file* is ``None``, :data:`sys.stdout` is
@@ -2209,7 +2209,7 @@ formatting methods are available:
 .. method:: ArgumentParser.print_help(file=None)
             ArgumentParser.print_help(file: _typeshed.SupportsWrite[str] | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L238>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L238>`__)
 
    Print a help message, including the program usage and information about the
    arguments registered with the :class:`ArgumentParser`.  If *file* is
@@ -2221,7 +2221,7 @@ printing it:
 .. method:: ArgumentParser.format_usage()
             ArgumentParser.format_usage() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L239>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L239>`__)
 
    Return a string containing a brief description of how the
    :class:`ArgumentParser` should be invoked on the command line.
@@ -2229,7 +2229,7 @@ printing it:
 .. method:: ArgumentParser.format_help()
             ArgumentParser.format_help() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L240>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L240>`__)
 
    Return a string containing a help message, including the program usage and
    information about the arguments registered with the :class:`ArgumentParser`.
@@ -2243,7 +2243,7 @@ Partial parsing
             ArgumentParser.parse_known_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> tuple[_N, list[str]]
             ArgumentParser.parse_known_args(*, namespace: _N) -> tuple[_N, list[str]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L242>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L242>`__)
 
    Sometimes a script only needs to handle a specific set of command-line
    arguments, leaving any unrecognized arguments for another script or program.
@@ -2276,7 +2276,7 @@ Customizing file parsing
 .. method:: ArgumentParser.convert_arg_line_to_args(arg_line)
             ArgumentParser.convert_arg_line_to_args(arg_line: str) -> list[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L247>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L247>`__)
 
    Arguments that are read from a file (see the *fromfile_prefix_chars*
    keyword argument to the :class:`ArgumentParser` constructor) are read one
@@ -2301,7 +2301,7 @@ Exiting methods
 .. method:: ArgumentParser.exit(status=0, message=None)
             ArgumentParser.exit(status: int = 0, message: str | None = None) -> typing.NoReturn
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L248>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L248>`__)
 
    This method terminates the program, exiting with the specified *status*
    and, if given, it prints a *message* to :data:`sys.stderr` before that.
@@ -2316,7 +2316,7 @@ Exiting methods
 .. method:: ArgumentParser.error(message)
             ArgumentParser.error(message: str) -> typing.NoReturn
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L249>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L249>`__)
 
    This method prints a usage message, including the *message*, to
    :data:`sys.stderr` and terminates the program with a status code of 2.
@@ -2330,14 +2330,14 @@ Intermixed parsing
             ArgumentParser.parse_intermixed_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> _N
             ArgumentParser.parse_intermixed_args(*, namespace: _N) -> _N
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L251>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L251>`__)
 
 .. method:: ArgumentParser.parse_known_intermixed_args(args=None, namespace=None)
             ArgumentParser.parse_known_intermixed_args(args: collections.abc.Sequence[str] | None = None, namespace: None = None) -> tuple[argparse.Namespace, list[str]]
             ArgumentParser.parse_known_intermixed_args(args: collections.abc.Sequence[str] | None, namespace: _N) -> tuple[_N, list[str]]
             ArgumentParser.parse_known_intermixed_args(*, namespace: _N) -> tuple[_N, list[str]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L257>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L257>`__)
 
    A number of Unix commands allow the user to intermix optional arguments with
    positional arguments.  The :meth:`~ArgumentParser.parse_intermixed_args`
@@ -2378,7 +2378,7 @@ Registering custom types or actions
 .. method:: ArgumentParser.register(registry_name, value, object)
             ArgumentParser.register(registry_name: str, value: typing.Any, object: typing.Any) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L69>`__)
 
    Sometimes it's desirable to use a custom string in error messages to provide
    more user-friendly output. In these cases, :meth:`!register` can be used to
@@ -2409,7 +2409,7 @@ Exceptions
 .. exception:: ArgumentError
                ArgumentError(argument: argparse.Action | None, message: str) -> argparse.ArgumentError
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L43>`__)
 
    An error from creating or using an argument (optional or positional).
 
@@ -2419,7 +2419,7 @@ Exceptions
 .. exception:: ArgumentTypeError
                ArgumentTypeError(*args: object) -> argparse.ArgumentTypeError
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/argparse.pyi#L856>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/argparse.pyi#L856>`__)
 
    Raised when something goes wrong converting a command line string to a type.
 

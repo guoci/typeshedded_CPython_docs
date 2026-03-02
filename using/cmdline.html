@@ -1172,7 +1172,9 @@ Files and pipes redirected through the standard streams are not affected.</p>
 <dl class="std envvar">
 <dt class="sig sig-object std" id="envvar-PYTHONNOUSERSITE">
 <span class="sig-name descname"><span class="pre">PYTHONNOUSERSITE</span></span><a class="headerlink" href="#envvar-PYTHONNOUSERSITE" title="Link to this definition">¶</a></dt>
-<dd><p>If this is set, Python won’t add the <a class="reference internal" href="../library/site.html#site.USER_SITE" title="site.USER_SITE"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">site-packages</span> <span class="pre">directory</span></code></a> to <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p>
+<dd><p>This is equivalent to the <a class="reference internal" href="#cmdoption-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">-s</span></code></a> option.  If this is set, Python won’t
+add the <a class="reference internal" href="../library/site.html#site.USER_SITE" title="site.USER_SITE"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">site-packages</span> <span class="pre">directory</span></code></a> to
+<a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><span class="target" id="index-53"></span><a class="pep reference external" href="https://peps.python.org/pep-0370/"><strong>PEP 370</strong></a> – Per user site-packages directory</p>
@@ -1186,9 +1188,11 @@ Files and pipes redirected through the standard streams are not affected.</p>
 compute the path of the <a class="reference internal" href="../library/site.html#site.USER_SITE" title="site.USER_SITE"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">site-packages</span> <span class="pre">directory</span></code></a>
 and <a class="reference internal" href="../library/sysconfig.html#sysconfig-user-scheme"><span class="std std-ref">installation paths</span></a> for
 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span></code>.</p>
+<p>To disable the user site-packages, see <span class="target" id="index-54"></span><a class="reference internal" href="#envvar-PYTHONNOUSERSITE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONNOUSERSITE</span></code></a> or the <a class="reference internal" href="#cmdoption-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">-s</span></code></a>
+option.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><span class="target" id="index-54"></span><a class="pep reference external" href="https://peps.python.org/pep-0370/"><strong>PEP 370</strong></a> – Per user site-packages directory</p>
+<p><span class="target" id="index-55"></span><a class="pep reference external" href="https://peps.python.org/pep-0370/"><strong>PEP 370</strong></a> – Per user site-packages directory</p>
 </div>
 </dd></dl>
 
@@ -1319,7 +1323,7 @@ allocators</span></a>.</p></li>
 <dd><p>If set to a non-empty string, Python will print statistics of the
 <a class="reference internal" href="../c-api/memory.html#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a> every time a new pymalloc object
 arena is created, and on shutdown.</p>
-<p>This variable is ignored if the <span class="target" id="index-55"></span><a class="reference internal" href="#envvar-PYTHONMALLOC"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONMALLOC</span></code></a> environment variable
+<p>This variable is ignored if the <span class="target" id="index-56"></span><a class="reference internal" href="#envvar-PYTHONMALLOC"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONMALLOC</span></code></a> environment variable
 is used to force the <code class="xref c c-func docutils literal notranslate"><span class="pre">malloc()</span></code> allocator of the C library, or if
 Python is configured without <code class="docutils literal notranslate"><span class="pre">pymalloc</span></code> support.</p>
 <div class="versionchanged">
@@ -1363,7 +1367,7 @@ error handler</span></a> mode will revert to their pre-3.6 values of ‘mbcs’ 
 <p><a class="reference internal" href="../library/intro.html#availability"><span class="std std-ref">Availability</span></a>: Windows.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.6: </span>See <span class="target" id="index-56"></span><a class="pep reference external" href="https://peps.python.org/pep-0529/"><strong>PEP 529</strong></a> for more details.</p>
+<p><span class="versionmodified added">Added in version 3.6: </span>See <span class="target" id="index-57"></span><a class="pep reference external" href="https://peps.python.org/pep-0529/"><strong>PEP 529</strong></a> for more details.</p>
 </div>
 </dd></dl>
 
@@ -1415,13 +1419,13 @@ implicit locale coercion) automatically enables the <code class="docutils litera
 <a class="reference internal" href="../library/codecs.html#error-handlers"><span class="std std-ref">error handler</span></a> for <a class="reference internal" href="../library/sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdin</span></code></a> and
 <a class="reference internal" href="../library/sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a> (<a class="reference internal" href="../library/sys.html#sys.stderr" title="sys.stderr"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> continues to use <code class="docutils literal notranslate"><span class="pre">backslashreplace</span></code>
 as it does in any other locale). This stream handling behavior can be
-overridden using <span class="target" id="index-57"></span><a class="reference internal" href="#envvar-PYTHONIOENCODING"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONIOENCODING</span></code></a> as usual.</p>
+overridden using <span class="target" id="index-58"></span><a class="reference internal" href="#envvar-PYTHONIOENCODING"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONIOENCODING</span></code></a> as usual.</p>
 <p>For debugging purposes, setting <code class="docutils literal notranslate"><span class="pre">PYTHONCOERCECLOCALE=warn</span></code> will cause
 Python to emit warning messages on <code class="docutils literal notranslate"><span class="pre">stderr</span></code> if either the locale coercion
 activates, or else if a locale that <em>would</em> have triggered coercion is
 still active when the Python runtime is initialized.</p>
 <p>Also note that even when locale coercion is disabled, or when it fails to
-find a suitable target locale, <span class="target" id="index-58"></span><a class="reference internal" href="#envvar-PYTHONUTF8"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONUTF8</span></code></a> will still activate by
+find a suitable target locale, <span class="target" id="index-59"></span><a class="reference internal" href="#envvar-PYTHONUTF8"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONUTF8</span></code></a> will still activate by
 default in legacy ASCII-based locales. Both features must be disabled in
 order to force the interpreter to use <code class="docutils literal notranslate"><span class="pre">ASCII</span></code> instead of <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code> for
 system interfaces.</p>
@@ -1429,7 +1433,7 @@ system interfaces.</p>
 <p><a class="reference internal" href="../library/intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.7: </span>See <span class="target" id="index-59"></span><a class="pep reference external" href="https://peps.python.org/pep-0538/"><strong>PEP 538</strong></a> for more details.</p>
+<p><span class="versionmodified added">Added in version 3.7: </span>See <span class="target" id="index-60"></span><a class="pep reference external" href="https://peps.python.org/pep-0538/"><strong>PEP 538</strong></a> for more details.</p>
 </div>
 </dd></dl>
 
@@ -1512,7 +1516,7 @@ and <a class="reference internal" href="../howto/perf_profiling.html#perf-profil
 <dt class="sig sig-object std" id="envvar-PYTHON_DISABLE_REMOTE_DEBUG">
 <span class="sig-name descname"><span class="pre">PYTHON_DISABLE_REMOTE_DEBUG</span></span><a class="headerlink" href="#envvar-PYTHON_DISABLE_REMOTE_DEBUG" title="Link to this definition">¶</a></dt>
 <dd><p>If this variable is set to a non-empty string, it disables the remote
-debugging feature described in <span class="target" id="index-60"></span><a class="pep reference external" href="https://peps.python.org/pep-0768/"><strong>PEP 768</strong></a>. This includes both the functionality
+debugging feature described in <span class="target" id="index-61"></span><a class="pep reference external" href="https://peps.python.org/pep-0768/"><strong>PEP 768</strong></a>. This includes both the functionality
 to schedule code for execution in another process and the functionality to
 receive code for execution in the current process.</p>
 <p>See also the <a class="reference internal" href="#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span> <span class="pre">disable_remote_debug</span></code></a> command-line option.</p>

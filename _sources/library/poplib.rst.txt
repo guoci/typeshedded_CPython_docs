@@ -33,7 +33,7 @@ The :mod:`!poplib` module provides two classes:
 .. class:: POP3(host, port=POP3_PORT[, timeout])
            POP3(host: str, port: int = 110, timeout: float = ...) -> poplib.POP3
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L23>`__)
 
    This class implements the actual POP3 protocol.  The connection is created when
    the instance is initialized. If *port* is omitted, the standard POP3 port (110)
@@ -56,7 +56,7 @@ The :mod:`!poplib` module provides two classes:
 .. class:: POP3_SSL(host, port=POP3_SSL_PORT, *, timeout=None, context=None)
            POP3_SSL(host: str, port: int = 995, *, timeout: float = ..., context: ssl.SSLContext | None = None) -> poplib.POP3_SSL
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L55>`__)
 
    This is a subclass of :class:`POP3` that connects to the server over an SSL
    encrypted socket.  If *port* is not specified, 995, the standard POP3-over-SSL
@@ -95,7 +95,7 @@ One exception is defined as an attribute of the :mod:`!poplib` module:
 .. exception:: error_proto
                error_proto(*args: object) -> poplib.error_proto
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L14>`__)
 
    Exception raised on any errors from this module (errors from :mod:`socket`
    module are not caught). The reason for the exception is passed to the
@@ -127,7 +127,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.set_debuglevel(level)
             POP3.set_debuglevel(level: int) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L32>`__)
 
    Set the instance's debugging level.  This controls the amount of debugging
    output printed.  The default, ``0``, produces no debugging output.  A value of
@@ -139,7 +139,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.getwelcome()
             POP3.getwelcome() -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L31>`__)
 
    Returns the greeting string sent by the POP3 server.
 
@@ -147,7 +147,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.capa()
             POP3.capa() -> dict[str, list[str]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L52>`__)
 
    Query the server's capabilities as specified in :rfc:`2449`.
    Returns a dictionary in the form ``{'name': ['param'...]}``.
@@ -158,7 +158,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.user(username)
             POP3.user(user: str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L33>`__)
 
    Send user command, response should indicate that a password is required.
 
@@ -166,7 +166,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.pass_(password)
             POP3.pass_(pswd: str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L34>`__)
 
    Send password, response includes message count and mailbox size. Note: the
    mailbox on the server is locked until :meth:`~POP3.quit` is called.
@@ -175,7 +175,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.apop(user, secret)
             POP3.apop(user: str, password: str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L45>`__)
 
    Use the more secure APOP authentication to log into the POP3 server.
 
@@ -183,7 +183,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.rpop(user)
             POP3.rpop(user: str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L43>`__)
 
    Use RPOP authentication (similar to UNIX r-commands) to log into POP3 server.
 
@@ -191,7 +191,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.stat()
             POP3.stat() -> tuple[int, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L35>`__)
 
    Get mailbox status.  The result is a tuple of 2 integers: ``(message count,
    mailbox size)``.
@@ -200,7 +200,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.list([which])
             POP3.list(which: typing.Any | None = None) -> tuple[bytes, list[bytes], int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L36>`__)
 
    Request message list, result is in the form ``(response, ['mesg_num octets',
    ...], octets)``. If *which* is set, it is the message to list.
@@ -209,7 +209,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.retr(which)
             POP3.retr(which: typing.Any) -> tuple[bytes, list[bytes], int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L37>`__)
 
    Retrieve whole message number *which*, and set its seen flag. Result is in form
    ``(response, ['line', ...], octets)``.
@@ -218,7 +218,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.dele(which)
             POP3.dele(which: typing.Any) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L38>`__)
 
    Flag message number *which* for deletion.  On most servers deletions are not
    actually performed until QUIT (the major exception is Eudora QPOP, which
@@ -228,7 +228,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.rset()
             POP3.rset() -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L40>`__)
 
    Remove any deletion marks for the mailbox.
 
@@ -236,7 +236,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.noop()
             POP3.noop() -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L39>`__)
 
    Do nothing.  Might be used as a keep-alive.
 
@@ -244,7 +244,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.quit()
             POP3.quit() -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L41>`__)
 
    Signoff:  commit changes, unlock mailbox, drop connection.
 
@@ -252,7 +252,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.top(which, howmuch)
             POP3.top(which: typing.Any, howmuch: int) -> tuple[bytes, list[bytes], int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L46>`__)
 
    Retrieves the message header plus *howmuch* lines of the message after the
    header of message number *which*. Result is in form ``(response, ['line', ...],
@@ -268,7 +268,7 @@ A :class:`POP3` instance has the following methods:
             POP3.uidl() -> tuple[bytes, list[bytes], int]
             POP3.uidl(which: typing.Any) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L48>`__)
 
    Return message digest (unique id) list. If *which* is specified, result contains
    the unique id for that message in the form ``'response mesgnum uid``, otherwise
@@ -278,7 +278,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.utf8()
             POP3.utf8() -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L51>`__)
 
    Try to switch to UTF-8 mode. Returns the server response if successful,
    raises :class:`error_proto` if not. Specified in :RFC:`6856`.
@@ -289,7 +289,7 @@ A :class:`POP3` instance has the following methods:
 .. method:: POP3.stls(context=None)
             POP3.stls(context: ssl.SSLContext | None = None) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/poplib.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/poplib.pyi#L53>`__)
 
    Start a TLS session on the active connection as specified in :rfc:`2595`.
    This is only allowed before user authentication

@@ -910,13 +910,22 @@ The caller must hold an <a class="reference internal" href="../glossary.html#ter
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyThreadState_SetAsyncExc">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyThreadState_SetAsyncExc</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n"><span class="pre">id</span></span>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">exc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyThreadState_SetAsyncExc" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Asynchronously raise an exception in a thread. The <em>id</em> argument is the thread
-id of the target thread; <em>exc</em> is the exception object to be raised. This
-function does not steal any references to <em>exc</em>. To prevent naive misuse, you
-must write your own C extension to call this.  Must be called with an <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>.
-Returns the number of thread states modified; this is normally one, but will be
-zero if the thread id isn’t found.  If <em>exc</em> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, the pending
-exception (if any) for the thread is cleared. This raises no exceptions.</p>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Schedule an exception to be raised asynchronously in a thread.
+If the thread has a previously scheduled exception, it is overwritten.</p>
+<p>The <em>id</em> argument is the thread id of the target thread, as returned by
+<a class="reference internal" href="#c.PyThread_get_thread_ident" title="PyThread_get_thread_ident"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyThread_get_thread_ident()</span></code></a>.
+<em>exc</em> is the class of the exception to be raised, or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to clear
+the pending exception (if any).</p>
+<p>Return the number of affected thread states.
+This is normally <code class="docutils literal notranslate"><span class="pre">1</span></code> if <em>id</em> is found, even when no change was
+made (the given <em>exc</em> was already pending, or <em>exc</em> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code> but
+no exception is pending).
+If the thread id isn’t found, return <code class="docutils literal notranslate"><span class="pre">0</span></code>.  This raises no exceptions.</p>
+<p>To prevent naive misuse, you must write your own C extension to call this.
+This function must be called with an <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>.
+This function does not steal any references to <em>exc</em>.
+This function does not necessarily interrupt system calls such as
+<a class="reference internal" href="../library/time.html#time.sleep" title="time.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">sleep()</span></code></a>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.7: </span>The type of the <em>id</em> parameter changed from <span class="c-expr sig sig-inline c"><span class="kt">long</span></span> to
 <span class="c-expr sig sig-inline c"><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span></span>.</p>
@@ -952,7 +961,8 @@ this returns <a class="reference internal" href="#c.PYTHREAD_INVALID_THREAD_ID" 
 <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="../library/threading.html#threading.get_ident" title="threading.get_ident"><code class="xref py py-func docutils literal notranslate"><span class="pre">threading.get_ident()</span></code></a></p>
+<p><a class="reference internal" href="../library/threading.html#threading.get_ident" title="threading.get_ident"><code class="xref py py-func docutils literal notranslate"><span class="pre">threading.get_ident()</span></code></a> and <a class="reference internal" href="../library/threading.html#threading.Thread.ident" title="threading.Thread.ident"><code class="xref py py-attr docutils literal notranslate"><span class="pre">threading.Thread.ident</span></code></a>
+expose this identifier to Python.</p>
 </div>
 </dd></dl>
 

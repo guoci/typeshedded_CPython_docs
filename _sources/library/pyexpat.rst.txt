@@ -47,7 +47,7 @@ This module provides one exception and one type object:
 .. exception:: error
                error(*args: object) -> xml.parsers.expat.ExpatError
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L14>`__)
 
    Alias for :exc:`ExpatError`.
 
@@ -55,7 +55,7 @@ This module provides one exception and one type object:
 .. data:: XMLParserType
    :type: (self: pyexpat.XMLParserType) -> pyexpat.XMLParserType
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L22>`__)
 
    The type of the return values from the :func:`ParserCreate` function.
 
@@ -65,7 +65,7 @@ The :mod:`!xml.parsers.expat` module contains two functions:
 .. function:: ErrorString(errno)
               ErrorString(code: int, /) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L81>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L81>`__)
 
    Returns an explanatory string for a given error number *errno*.
 
@@ -73,7 +73,7 @@ The :mod:`!xml.parsers.expat` module contains two functions:
 .. function:: ParserCreate(encoding=None, namespace_separator=None)
               ParserCreate(encoding: str | None = None, namespace_separator: str | None = None, intern: dict[str, typing.Any] | None = None) -> pyexpat.XMLParserType
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L84>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L84>`__)
 
    Creates and returns a new :class:`xmlparser` object.   *encoding*, if specified,
    must be a string naming the encoding  used by the XML data.  Expat doesn't
@@ -143,7 +143,7 @@ XMLParser Objects
 .. method:: xmlparser.Parse(data[, isfinal])
             xmlparser.Parse(data: collections.abc.Buffer | str, isfinal: bool = False, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L23>`__)
 
    Parses the contents of the string *data*, calling the appropriate handler
    functions to process the parsed data.  *isfinal* must be true on the final call
@@ -155,7 +155,7 @@ XMLParser Objects
 .. method:: xmlparser.ParseFile(file)
             xmlparser.ParseFile(file: _typeshed.SupportsRead[bytes], /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L24>`__)
 
    Parse XML data reading from the object *file*.  *file* only needs to provide
    the ``read(nbytes)`` method, returning the empty string when there's no more
@@ -165,7 +165,7 @@ XMLParser Objects
 .. method:: xmlparser.SetBase(base)
             xmlparser.SetBase(base: str, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L25>`__)
 
    Sets the base to be used for resolving relative URIs in system identifiers in
    declarations.  Resolving relative identifiers is left to the application: this
@@ -177,7 +177,7 @@ XMLParser Objects
 .. method:: xmlparser.GetBase()
             xmlparser.GetBase() -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L26>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L26>`__)
 
    Returns a string containing the base set by a previous call to :meth:`SetBase`,
    or ``None`` if  :meth:`SetBase` hasn't been called.
@@ -186,7 +186,7 @@ XMLParser Objects
 .. method:: xmlparser.GetInputContext()
             xmlparser.GetInputContext() -> bytes | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L27>`__)
 
    Returns the input data that generated the current event as a string. The data is
    in the encoding of the entity which contains the text. When called while an
@@ -196,7 +196,7 @@ XMLParser Objects
 .. method:: xmlparser.ExternalEntityParserCreate(context[, encoding])
             xmlparser.ExternalEntityParserCreate(context: str | None, encoding: str = ..., /) -> pyexpat.XMLParserType
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L28>`__)
 
    Create a "child" parser which can be used to parse an external parsed entity
    referred to by content parsed by the parent parser.  The *context* parameter
@@ -208,7 +208,7 @@ XMLParser Objects
 .. method:: xmlparser.SetParamEntityParsing(flag)
             xmlparser.SetParamEntityParsing(flag: int, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L29>`__)
 
    Control parsing of parameter entities (including the external DTD subset).
    Possible *flag* values are :const:`XML_PARAM_ENTITY_PARSING_NEVER`,
@@ -219,7 +219,7 @@ XMLParser Objects
 .. method:: xmlparser.UseForeignDTD([flag])
             xmlparser.UseForeignDTD(flag: bool = True, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L30>`__)
 
    Calling this with a true value for *flag* (the default) will cause Expat to call
    the :attr:`ExternalEntityRefHandler` with :const:`None` for all arguments to
@@ -239,7 +239,7 @@ XMLParser Objects
 .. method:: xmlparser.SetReparseDeferralEnabled(enabled)
             xmlparser.SetReparseDeferralEnabled(enabled: bool, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L32>`__)
 
    .. warning::
 
@@ -270,7 +270,7 @@ XMLParser Objects
 .. method:: xmlparser.GetReparseDeferralEnabled()
             xmlparser.GetReparseDeferralEnabled() -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L31>`__)
 
    Returns whether reparse deferral is currently enabled for the given
    Expat parser instance.
@@ -349,7 +349,7 @@ against some common XML vulnerabilities.
 .. method:: xmlparser.SetAllocTrackerActivationThreshold(threshold, /)
             xmlparser.SetAllocTrackerActivationThreshold(threshold: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L35>`__)
 
    Sets the number of allocated bytes of dynamic memory needed to activate
    protection against disproportionate use of RAM.
@@ -372,7 +372,7 @@ against some common XML vulnerabilities.
 .. method:: xmlparser.SetAllocTrackerMaximumAmplification(max_factor, /)
             xmlparser.SetAllocTrackerMaximumAmplification(max_factor: float, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L36>`__)
 
    Sets the maximum amplification factor between direct input and bytes
    of dynamic memory allocated.
@@ -415,7 +415,7 @@ against some common XML vulnerabilities.
 .. attribute:: xmlparser.buffer_size
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L40>`__)
 
    The size of the buffer used when :attr:`buffer_text` is true.
    A new buffer size can be set by assigning a new integer value
@@ -426,7 +426,7 @@ against some common XML vulnerabilities.
 .. attribute:: xmlparser.buffer_text
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L41>`__)
 
    Setting this to true causes the :class:`xmlparser` object to buffer textual
    content returned by Expat to avoid multiple calls to the
@@ -440,7 +440,7 @@ against some common XML vulnerabilities.
 .. attribute:: xmlparser.buffer_used
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L42>`__)
 
    If :attr:`buffer_text` is enabled, the number of bytes stored in the buffer.
    These bytes represent UTF-8 encoded text.  This attribute has no meaningful
@@ -450,7 +450,7 @@ against some common XML vulnerabilities.
 .. attribute:: xmlparser.ordered_attributes
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L44>`__)
 
    Setting this attribute to a non-zero integer causes the attributes to be
    reported as a list rather than a dictionary.  The attributes are presented in
@@ -463,7 +463,7 @@ against some common XML vulnerabilities.
 .. attribute:: xmlparser.specified_attributes
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L45>`__)
 
    If set to a non-zero integer, the parser will report only those attributes which
    were specified in the document instance and not those which were derived from
@@ -482,7 +482,7 @@ once a call to :meth:`Parse` or :meth:`ParseFile` has raised an
 .. attribute:: xmlparser.ErrorByteIndex
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L46>`__)
 
    Byte index at which an error occurred.
 
@@ -490,7 +490,7 @@ once a call to :meth:`Parse` or :meth:`ParseFile` has raised an
 .. attribute:: xmlparser.ErrorCode
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L47>`__)
 
    Numeric code specifying the problem.  This value can be passed to the
    :func:`ErrorString` function, or compared to one of the constants defined in the
@@ -500,7 +500,7 @@ once a call to :meth:`Parse` or :meth:`ParseFile` has raised an
 .. attribute:: xmlparser.ErrorColumnNumber
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L48>`__)
 
    Column number at which an error occurred.
 
@@ -508,7 +508,7 @@ once a call to :meth:`Parse` or :meth:`ParseFile` has raised an
 .. attribute:: xmlparser.ErrorLineNumber
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L49>`__)
 
    Line number at which an error occurred.
 
@@ -523,7 +523,7 @@ callback).
 .. attribute:: xmlparser.CurrentByteIndex
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L50>`__)
 
    Current byte index in the parser input.
 
@@ -531,7 +531,7 @@ callback).
 .. attribute:: xmlparser.CurrentColumnNumber
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L51>`__)
 
    Current column number in the parser input.
 
@@ -539,7 +539,7 @@ callback).
 .. attribute:: xmlparser.CurrentLineNumber
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L52>`__)
 
    Current line number in the parser input.
 
@@ -553,7 +553,7 @@ otherwise stated.
 .. method:: xmlparser.XmlDeclHandler(version, encoding, standalone)
             xmlparser.XmlDeclHandler(collections.abc.Callable[[str, str | None, int], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L53>`__)
 
    Called when the XML declaration is parsed.  The XML declaration is the
    (optional) declaration of the applicable version of the XML recommendation, the
@@ -567,7 +567,7 @@ otherwise stated.
 .. method:: xmlparser.StartDoctypeDeclHandler(doctypeName, systemId, publicId, has_internal_subset)
             xmlparser.StartDoctypeDeclHandler(collections.abc.Callable[[str, str | None, str | None, bool], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L54>`__)
 
    Called when Expat begins parsing the document type declaration (``<!DOCTYPE
    ...``).  The *doctypeName* is provided exactly as presented.  The *systemId* and
@@ -580,7 +580,7 @@ otherwise stated.
 .. method:: xmlparser.EndDoctypeDeclHandler()
             xmlparser.EndDoctypeDeclHandler(collections.abc.Callable[[], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L55>`__)
 
    Called when Expat is done parsing the document type declaration. This requires
    Expat version 1.2 or newer.
@@ -589,7 +589,7 @@ otherwise stated.
 .. method:: xmlparser.ElementDeclHandler(name, model)
             xmlparser.ElementDeclHandler(collections.abc.Callable[[str, tuple[int, int, str | None, tuple[typing.Any, ...]]], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L56>`__)
 
    Called once for each element type declaration.  *name* is the name of the
    element type, and *model* is a representation of the content model.
@@ -598,7 +598,7 @@ otherwise stated.
 .. method:: xmlparser.AttlistDeclHandler(elname, attname, type, default, required)
             xmlparser.AttlistDeclHandler(collections.abc.Callable[[str, str, str, str | None, bool], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L57>`__)
 
    Called for each declared attribute for an element type.  If an attribute list
    declaration declares three attributes, this handler is called three times, once
@@ -615,7 +615,7 @@ otherwise stated.
 .. method:: xmlparser.StartElementHandler(name, attributes)
             xmlparser.StartElementHandler(collections.abc.Callable[[str, dict[str, str]], typing.Any]) | (collections.abc.Callable[[str, dict[str, str], list[str]], typing.Any]) | (collections.abc.Callable[[str, list[str]], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L58>`__)
 
    Called for the start of every element.  *name* is a string containing the
    element name, and *attributes* is the element attributes. If
@@ -627,7 +627,7 @@ otherwise stated.
 .. method:: xmlparser.EndElementHandler(name)
             xmlparser.EndElementHandler(collections.abc.Callable[[str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L64>`__)
 
    Called for the end of every element.
 
@@ -635,7 +635,7 @@ otherwise stated.
 .. method:: xmlparser.ProcessingInstructionHandler(target, data)
             xmlparser.ProcessingInstructionHandler(collections.abc.Callable[[str, str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L65>`__)
 
    Called for every processing instruction.
 
@@ -643,7 +643,7 @@ otherwise stated.
 .. method:: xmlparser.CharacterDataHandler(data)
             xmlparser.CharacterDataHandler(collections.abc.Callable[[str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L66>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L66>`__)
 
    Called for character data.  This will be called for normal character data, CDATA
    marked content, and ignorable whitespace.  Applications which must distinguish
@@ -658,7 +658,7 @@ otherwise stated.
 .. method:: xmlparser.UnparsedEntityDeclHandler(entityName, base, systemId, publicId, notationName)
             xmlparser.UnparsedEntityDeclHandler(collections.abc.Callable[[str, str | None, str, str | None, str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L67>`__)
 
    Called for unparsed (NDATA) entity declarations.  This is only present for
    version 1.2 of the Expat library; for more recent versions, use
@@ -669,7 +669,7 @@ otherwise stated.
 .. method:: xmlparser.EntityDeclHandler(entityName, is_parameter_entity, value, base, systemId, publicId, notationName)
             xmlparser.EntityDeclHandler(collections.abc.Callable[[str, bool, str | None, str | None, str, str | None, str | None], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L68>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L68>`__)
 
    Called for all entity declarations.  For parameter and internal entities,
    *value* will be a string giving the declared contents of the entity; this will
@@ -684,7 +684,7 @@ otherwise stated.
 .. method:: xmlparser.NotationDeclHandler(notationName, base, systemId, publicId)
             xmlparser.NotationDeclHandler(collections.abc.Callable[[str, str | None, str, str | None], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L69>`__)
 
    Called for notation declarations.  *notationName*, *base*, and *systemId*, and
    *publicId* are strings if given.  If the public identifier is omitted,
@@ -694,7 +694,7 @@ otherwise stated.
 .. method:: xmlparser.StartNamespaceDeclHandler(prefix, uri)
             xmlparser.StartNamespaceDeclHandler(collections.abc.Callable[[str, str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L70>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L70>`__)
 
    Called when an element contains a namespace declaration.  Namespace declarations
    are processed before the :attr:`StartElementHandler` is called for the element
@@ -704,7 +704,7 @@ otherwise stated.
 .. method:: xmlparser.EndNamespaceDeclHandler(prefix)
             xmlparser.EndNamespaceDeclHandler(collections.abc.Callable[[str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L71>`__)
 
    Called when the closing tag is reached for an element  that contained a
    namespace declaration.  This is called once for each namespace declaration on
@@ -717,7 +717,7 @@ otherwise stated.
 .. method:: xmlparser.CommentHandler(data)
             xmlparser.CommentHandler(collections.abc.Callable[[str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L72>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L72>`__)
 
    Called for comments.  *data* is the text of the comment, excluding the leading
    ``'<!-``\ ``-'`` and trailing ``'-``\ ``->'``.
@@ -726,7 +726,7 @@ otherwise stated.
 .. method:: xmlparser.StartCdataSectionHandler()
             xmlparser.StartCdataSectionHandler(collections.abc.Callable[[], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L73>`__)
 
    Called at the start of a CDATA section.  This and :attr:`EndCdataSectionHandler`
    are needed to be able to identify the syntactical start and end for CDATA
@@ -736,7 +736,7 @@ otherwise stated.
 .. method:: xmlparser.EndCdataSectionHandler()
             xmlparser.EndCdataSectionHandler(collections.abc.Callable[[], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L74>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L74>`__)
 
    Called at the end of a CDATA section.
 
@@ -744,7 +744,7 @@ otherwise stated.
 .. method:: xmlparser.DefaultHandler(data)
             xmlparser.DefaultHandler(collections.abc.Callable[[str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L75>`__)
 
    Called for any characters in the XML document for which no applicable handler
    has been specified.  This means characters that are part of a construct which
@@ -754,7 +754,7 @@ otherwise stated.
 .. method:: xmlparser.DefaultHandlerExpand(data)
             xmlparser.DefaultHandlerExpand(collections.abc.Callable[[str], typing.Any]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L76>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L76>`__)
 
    This is the same as the :func:`DefaultHandler`,  but doesn't inhibit expansion
    of internal entities. The entity reference will not be passed to the default
@@ -764,7 +764,7 @@ otherwise stated.
 .. method:: xmlparser.NotStandaloneHandler()
             xmlparser.NotStandaloneHandler(collections.abc.Callable[[], int]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L77>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L77>`__)
 
    Called if the XML document hasn't been declared as being a standalone document.
    This happens when there is an external subset or a reference to a parameter
@@ -777,7 +777,7 @@ otherwise stated.
 .. method:: xmlparser.ExternalEntityRefHandler(context, base, systemId, publicId)
             xmlparser.ExternalEntityRefHandler(collections.abc.Callable[[str, str | None, str | None, str | None], int]) | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/__init__.pyi#L78>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/__init__.pyi#L78>`__)
 
    .. warning::
 
@@ -817,7 +817,7 @@ ExpatError Exceptions
 .. attribute:: ExpatError.code
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/xml/parsers/expat/__init__.pyi#L5>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/xml/parsers/expat/__init__.pyi#L5>`__)
 
    Expat's internal error number for the specific error.  The
    :data:`errors.messages <xml.parsers.expat.errors.messages>` dictionary maps
@@ -839,7 +839,7 @@ ExpatError Exceptions
 .. attribute:: ExpatError.lineno
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/xml/parsers/expat/__init__.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/xml/parsers/expat/__init__.pyi#L6>`__)
 
    Line number on which the error was detected.  The first line is numbered ``1``.
 
@@ -847,7 +847,7 @@ ExpatError Exceptions
 .. attribute:: ExpatError.offset
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/xml/parsers/expat/__init__.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/xml/parsers/expat/__init__.pyi#L7>`__)
 
    Character offset into the line where the error occurred.  The first column is
    numbered ``0``.
@@ -918,7 +918,7 @@ The constants in the model type group are:
    :type: typing.Literal[2]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L3>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L3>`__)
 
    The element named by the model name was declared to have a content model of
    ``ANY``.
@@ -928,7 +928,7 @@ The constants in the model type group are:
    :type: typing.Literal[5]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L7>`__)
 
    The named element allows a choice from a number of options; this is used for
    content models such as ``(A | B | C)``.
@@ -938,7 +938,7 @@ The constants in the model type group are:
    :type: typing.Literal[1]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L4>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L4>`__)
 
    Elements which are declared to be ``EMPTY`` have this model type.
 
@@ -947,21 +947,21 @@ The constants in the model type group are:
    :type: typing.Literal[3]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L5>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L5>`__)
 
 
 .. data:: XML_CTYPE_NAME
    :type: typing.Literal[4]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L6>`__)
 
 
 .. data:: XML_CTYPE_SEQ
    :type: typing.Literal[6]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L8>`__)
 
    Models which represent a series of models which follow one after the other are
    indicated with this model type.  This is used for models such as ``(A, B, C)``.
@@ -973,7 +973,7 @@ The constants in the quantifier group are:
    :type: typing.Literal[0]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L10>`__)
 
    No modifier is given, so it can appear exactly once, as for ``A``.
 
@@ -982,7 +982,7 @@ The constants in the quantifier group are:
    :type: typing.Literal[1]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L11>`__)
 
    The model is optional: it can appear once or not at all, as for ``A?``.
 
@@ -991,7 +991,7 @@ The constants in the quantifier group are:
    :type: typing.Literal[3]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L13>`__)
 
    The model must occur one or more times (like ``A+``).
 
@@ -1000,7 +1000,7 @@ The constants in the quantifier group are:
    :type: typing.Literal[2]
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/model.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/model.pyi#L12>`__)
 
    The model must occur zero or more times, as for ``A*``.
 
@@ -1025,7 +1025,7 @@ The ``errors`` module has the following attributes:
 .. data:: codes
    :type: dict[str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L5>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L5>`__)
 
    A dictionary mapping string descriptions to their error codes.
 
@@ -1035,7 +1035,7 @@ The ``errors`` module has the following attributes:
 .. data:: messages
    :type: dict[int, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L6>`__)
 
    A dictionary mapping numeric error codes to their string descriptions.
 
@@ -1045,13 +1045,13 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_ASYNC_ENTITY
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L9>`__)
 
 
 .. data:: XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L10>`__)
 
    An entity reference in an attribute value referred to an external entity instead
    of an internal entity.
@@ -1060,7 +1060,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_BAD_CHAR_REF
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L11>`__)
 
    A character reference referred to a character which is illegal in XML (for
    example, character ``0``, or '``&#0;``').
@@ -1069,7 +1069,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_BINARY_ENTITY_REF
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L12>`__)
 
    An entity reference referred to an entity which was declared with a notation, so
    cannot be parsed.
@@ -1078,7 +1078,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_DUPLICATE_ATTRIBUTE
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L14>`__)
 
    An attribute was used more than once in a start tag.
 
@@ -1086,13 +1086,13 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_INCORRECT_ENCODING
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L20>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L20>`__)
 
 
 .. data:: XML_ERROR_INVALID_TOKEN
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L21>`__)
 
    Raised when an input byte could not properly be assigned to a character; for
    example, a NUL byte (value ``0``) in a UTF-8 input stream.
@@ -1101,7 +1101,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_JUNK_AFTER_DOC_ELEMENT
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L22>`__)
 
    Something other than whitespace occurred after the document element.
 
@@ -1109,7 +1109,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_MISPLACED_XML_PI
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L23>`__)
 
    An XML declaration was found somewhere other than the start of the input data.
 
@@ -1117,7 +1117,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_NO_ELEMENTS
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L26>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L26>`__)
 
    The document contains no elements (XML requires all documents to contain exactly
    one top-level element)..
@@ -1126,7 +1126,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_NO_MEMORY
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L27>`__)
 
    Expat was not able to allocate memory internally.
 
@@ -1134,7 +1134,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_PARAM_ENTITY_REF
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L28>`__)
 
    A parameter entity reference was found where it was not allowed.
 
@@ -1142,7 +1142,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_PARTIAL_CHAR
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L29>`__)
 
    An incomplete character was found in the input.
 
@@ -1150,7 +1150,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_RECURSIVE_ENTITY_REF
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L31>`__)
 
    An entity reference contained another reference to the same entity; possibly via
    a different name, and possibly indirectly.
@@ -1159,7 +1159,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_SYNTAX
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L34>`__)
 
    Some unspecified syntax error was encountered.
 
@@ -1167,7 +1167,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_TAG_MISMATCH
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L35>`__)
 
    An end tag did not match the innermost open start tag.
 
@@ -1175,7 +1175,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_UNCLOSED_TOKEN
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L39>`__)
 
    Some token (such as a start tag) was not closed before the end of the stream or
    the next token was encountered.
@@ -1184,7 +1184,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_UNDEFINED_ENTITY
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L41>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L41>`__)
 
    A reference was made to an entity which was not defined.
 
@@ -1192,7 +1192,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_UNKNOWN_ENCODING
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L43>`__)
 
    The document encoding is not supported by Expat.
 
@@ -1200,7 +1200,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_UNCLOSED_CDATA_SECTION
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L38>`__)
 
    A CDATA marked section was not closed.
 
@@ -1208,13 +1208,13 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_EXTERNAL_ENTITY_HANDLING
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L16>`__)
 
 
 .. data:: XML_ERROR_NOT_STANDALONE
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L24>`__)
 
    The parser determined that the document was not "standalone" though it declared
    itself to be in the XML declaration, and the :attr:`NotStandaloneHandler` was
@@ -1224,19 +1224,19 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_UNEXPECTED_STATE
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L42>`__)
 
 
 .. data:: XML_ERROR_ENTITY_DECLARED_IN_PE
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L15>`__)
 
 
 .. data:: XML_ERROR_FEATURE_REQUIRES_XML_DTD
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L17>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L17>`__)
 
    An operation was requested that requires DTD support to be compiled in, but
    Expat was configured without DTD support.  This should never be reported by a
@@ -1246,7 +1246,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_CANT_CHANGE_FEATURE_ONCE_PARSING
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L13>`__)
 
    A behavioral change was requested after parsing started that can only be changed
    before parsing has started.  This is (currently) only raised by
@@ -1256,7 +1256,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_UNBOUND_PREFIX
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L37>`__)
 
    An undeclared prefix was found when namespace processing was enabled.
 
@@ -1264,7 +1264,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_UNDECLARING_PREFIX
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L40>`__)
 
    The document attempted to remove the namespace declaration associated with a
    prefix.
@@ -1273,7 +1273,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_INCOMPLETE_PE
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L19>`__)
 
    A parameter entity contained incomplete markup.
 
@@ -1281,7 +1281,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_XML_DECL
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L44>`__)
 
    The document contained no document element at all.
 
@@ -1289,7 +1289,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_TEXT_DECL
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L36>`__)
 
    There was an error parsing a text declaration in an external entity.
 
@@ -1297,7 +1297,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_PUBLICID
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L30>`__)
 
    Characters were found in the public id that are not allowed.
 
@@ -1305,7 +1305,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_SUSPENDED
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L32>`__)
 
    The requested operation was made on a suspended parser, but isn't allowed.  This
    includes attempts to provide additional input or to stop the parser.
@@ -1314,7 +1314,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_NOT_SUSPENDED
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L25>`__)
 
    An attempt to resume the parser was made when the parser had not been suspended.
 
@@ -1322,7 +1322,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_ABORTED
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L8>`__)
 
    This should not be reported to Python applications.
 
@@ -1330,7 +1330,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_FINISHED
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L18>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L18>`__)
 
    The requested operation was made on a parser which was finished parsing input,
    but isn't allowed.  This includes attempts to provide additional input or to
@@ -1340,13 +1340,13 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_SUSPEND_PE
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L33>`__)
 
 
 .. data:: XML_ERROR_RESERVED_PREFIX_XML
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L46>`__)
 
    An attempt was made to
    undeclare reserved namespace prefix ``xml``
@@ -1356,7 +1356,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_RESERVED_PREFIX_XMLNS
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L47>`__)
 
    An attempt was made to declare or undeclare reserved namespace prefix ``xmlns``.
 
@@ -1364,7 +1364,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_RESERVED_NAMESPACE_URI
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L48>`__)
 
    An attempt was made to bind the URI of one the reserved namespace
    prefixes ``xml`` and ``xmlns`` to another namespace prefix.
@@ -1373,7 +1373,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_INVALID_ARGUMENT
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L49>`__)
 
    This should not be reported to Python applications.
 
@@ -1381,7 +1381,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_NO_BUFFER
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L50>`__)
 
    This should not be reported to Python applications.
 
@@ -1389,7 +1389,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_AMPLIFICATION_LIMIT_BREACH
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L51>`__)
 
    The limit on input amplification factor (from DTD and entities)
    has been breached.
@@ -1398,7 +1398,7 @@ The ``errors`` module has the following attributes:
 .. data:: XML_ERROR_NOT_STARTED
    :type: typing.LiteralString
 
-   (`typeshed <https://github.com/python/typeshed/blob/944838f/stdlib/pyexpat/errors.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/35004e9/stdlib/pyexpat/errors.pyi#L53>`__)
 
    The parser was tried to be stopped or suspended before it started.
 
