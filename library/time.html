@@ -262,14 +262,14 @@ the units in which their value or argument is expressed. E.g. on most Unix
 systems, the clock “ticks” only 50 or 100 times a second.</p></li>
 <li><p>On the other hand, the precision of <a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> and <a class="reference internal" href="#time.sleep" title="time.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">sleep()</span></code></a> is better
 than their Unix equivalents: times are expressed as floating-point numbers,
-<a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> returns the most accurate time available (using Unix
-<code class="xref c c-func docutils literal notranslate"><span class="pre">gettimeofday()</span></code> where available), and <a class="reference internal" href="#time.sleep" title="time.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">sleep()</span></code></a> will accept a time
+<code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code> returns the most accurate time available (using Unix
+<code class="xref c c-func docutils literal notranslate"><span class="pre">gettimeofday()</span></code> where available), and <code class="xref py py-func docutils literal notranslate"><span class="pre">sleep()</span></code> will accept a time
 with a nonzero fraction (Unix <code class="xref c c-func docutils literal notranslate"><span class="pre">select()</span></code> is used to implement this, where
 available).</p></li>
 <li><p>The time value as returned by <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a>, <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a>, and
 <a class="reference internal" href="#time.strptime" title="time.strptime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strptime()</span></code></a>, and accepted by <a class="reference internal" href="#time.asctime" title="time.asctime"><code class="xref py py-func docutils literal notranslate"><span class="pre">asctime()</span></code></a>, <a class="reference internal" href="#time.mktime" title="time.mktime"><code class="xref py py-func docutils literal notranslate"><span class="pre">mktime()</span></code></a> and
 <a class="reference internal" href="#time.strftime" title="time.strftime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strftime()</span></code></a>, is a sequence of 9 integers.  The return values of
-<a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a>, <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a>, and <a class="reference internal" href="#time.strptime" title="time.strptime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strptime()</span></code></a> also offer attribute
+<code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">strptime()</span></code> also offer attribute
 names for individual fields.</p>
 <p>See <a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a> for a description of these objects.</p>
 <div class="versionchanged">
@@ -331,17 +331,17 @@ local time</p></td>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L77">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L77">typeshed</a>)</p>
 <p>Convert a tuple or <a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a> representing a time as returned by
 <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> or <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> to a string of the following
 form: <code class="docutils literal notranslate"><span class="pre">'Sun</span> <span class="pre">Jun</span> <span class="pre">20</span> <span class="pre">23:21:05</span> <span class="pre">1993'</span></code>. The day field is two characters long
 and is space padded if the day is a single digit,
 e.g.: <code class="docutils literal notranslate"><span class="pre">'Wed</span> <span class="pre">Jun</span>&#160; <span class="pre">9</span> <span class="pre">04:26:40</span> <span class="pre">1993'</span></code>.</p>
 <p>If <em>t</em> is not provided, the current time as returned by <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a>
-is used. Locale information is not used by <a class="reference internal" href="#time.asctime" title="time.asctime"><code class="xref py py-func docutils literal notranslate"><span class="pre">asctime()</span></code></a>.</p>
+is used. Locale information is not used by <code class="xref py py-func docutils literal notranslate"><span class="pre">asctime()</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Unlike the C function of the same name, <a class="reference internal" href="#time.asctime" title="time.asctime"><code class="xref py py-func docutils literal notranslate"><span class="pre">asctime()</span></code></a> does not add a
+<p>Unlike the C function of the same name, <code class="xref py py-func docutils literal notranslate"><span class="pre">asctime()</span></code> does not add a
 trailing newline.</p>
 </div>
 </dd></dl>
@@ -351,7 +351,7 @@ trailing newline.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">pthread_getcpuclockid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thread_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.pthread_getcpuclockid" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">pthread_getcpuclockid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thread_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L112">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L112">typeshed</a>)</p>
 <p>Return the <em>clk_id</em> of the thread-specific CPU-time clock for the specified <em>thread_id</em>.</p>
 <p>Use <a class="reference internal" href="threading.html#threading.get_ident" title="threading.get_ident"><code class="xref py py-func docutils literal notranslate"><span class="pre">threading.get_ident()</span></code></a> or the <a class="reference internal" href="threading.html#threading.Thread.ident" title="threading.Thread.ident"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ident</span></code></a>
 attribute of <a class="reference internal" href="threading.html#threading.Thread" title="threading.Thread"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></a> objects to get a suitable value
@@ -376,7 +376,7 @@ further information.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_getres</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.clock_getres" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_getres</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L103">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L103">typeshed</a>)</p>
 <p>Return the resolution (precision) of the specified clock <em>clk_id</em>.  Refer to
 <a class="reference internal" href="#time-clock-id-constants"><span class="std std-ref">Clock ID Constants</span></a> for a list of accepted values for <em>clk_id</em>.</p>
 <div class="availability docutils container">
@@ -392,7 +392,7 @@ further information.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_gettime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span><a class="headerlink" href="#time.clock_gettime" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_gettime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L104">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L104">typeshed</a>)</p>
 <p>Return the time of the specified clock <em>clk_id</em>.  Refer to
 <a class="reference internal" href="#time-clock-id-constants"><span class="std std-ref">Clock ID Constants</span></a> for a list of accepted values for <em>clk_id</em>.</p>
 <p>Use <a class="reference internal" href="#time.clock_gettime_ns" title="time.clock_gettime_ns"><code class="xref py py-func docutils literal notranslate"><span class="pre">clock_gettime_ns()</span></code></a> to avoid the precision loss caused by the
@@ -410,7 +410,7 @@ further information.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_gettime_ns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.clock_gettime_ns" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_gettime_ns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L108">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L108">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.clock_gettime" title="time.clock_gettime"><code class="xref py py-func docutils literal notranslate"><span class="pre">clock_gettime()</span></code></a> but return time as nanoseconds.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
@@ -425,7 +425,7 @@ further information.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_settime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.clock_settime" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_settime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L105">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L105">typeshed</a>)</p>
 <p>Set the time of the specified clock <em>clk_id</em>.  Currently,
 <a class="reference internal" href="#time.CLOCK_REALTIME" title="time.CLOCK_REALTIME"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_REALTIME</span></code></a> is the only accepted value for <em>clk_id</em>.</p>
 <p>Use <a class="reference internal" href="#time.clock_settime_ns" title="time.clock_settime_ns"><code class="xref py py-func docutils literal notranslate"><span class="pre">clock_settime_ns()</span></code></a> to avoid the precision loss caused by the
@@ -446,7 +446,7 @@ further information.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_settime_ns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clk_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.clock_settime_ns" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">clock_settime_ns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clock_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L109">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L109">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.clock_settime" title="time.clock_settime"><code class="xref py py-func docutils literal notranslate"><span class="pre">clock_settime()</span></code></a> but set time with nanoseconds.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix, not Android, not iOS.</p>
@@ -461,7 +461,7 @@ further information.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ctime</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">secs</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#time.ctime" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ctime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="typing.html#typing.SupportsIndex" title="typing.SupportsIndex"><span class="pre">SupportsIndex</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L78">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L78">typeshed</a>)</p>
 <p>Convert a time expressed in seconds since the <a class="reference internal" href="#epoch">epoch</a> to a string of a form:
 <code class="docutils literal notranslate"><span class="pre">'Sun</span> <span class="pre">Jun</span> <span class="pre">20</span> <span class="pre">23:21:05</span> <span class="pre">1993'</span></code> representing local time. The day field
 is two characters long and is space padded if the day is a single digit,
@@ -469,7 +469,7 @@ e.g.: <code class="docutils literal notranslate"><span class="pre">'Wed</span> <
 <p>If <em>secs</em> is not provided or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>, the current time as
 returned by <a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> is used. <code class="docutils literal notranslate"><span class="pre">ctime(secs)</span></code> is equivalent to
 <code class="docutils literal notranslate"><span class="pre">asctime(localtime(secs))</span></code>. Locale information is not used by
-<a class="reference internal" href="#time.ctime" title="time.ctime"><code class="xref py py-func docutils literal notranslate"><span class="pre">ctime()</span></code></a>.</p>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">ctime()</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.15: </span>Accepts any real number, not only integer or float.</p>
 </div>
@@ -487,7 +487,7 @@ returned by <a class="reference internal" href="#time.time" title="time.time"><c
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">time._ClockInfo</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L97">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L97">typeshed</a>)</p>
 <p>Get information on the specified clock as a namespace object.
 Supported clock names and the corresponding functions to read their value
 are:</p>
@@ -525,12 +525,12 @@ the clock value.  Refer to <a class="reference internal" href="#time-clock-id-co
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><span class="pre">struct_time</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L79">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L79">typeshed</a>)</p>
 <p>Convert a time expressed in seconds since the <a class="reference internal" href="#epoch">epoch</a> to a <a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a> in
 UTC in which the dst flag is always zero.  If <em>secs</em> is not provided or
 <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>, the current time as returned by <a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> is used.  Fractions
 of a second are ignored.  See above for a description of the
-<a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a> object. See <a class="reference internal" href="calendar.html#calendar.timegm" title="calendar.timegm"><code class="xref py py-func docutils literal notranslate"><span class="pre">calendar.timegm()</span></code></a> for the inverse of this
+<code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code> object. See <a class="reference internal" href="calendar.html#calendar.timegm" title="calendar.timegm"><code class="xref py py-func docutils literal notranslate"><span class="pre">calendar.timegm()</span></code></a> for the inverse of this
 function.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.15: </span>Accepts any real number, not only integer or float.</p>
@@ -549,11 +549,11 @@ function.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><span class="pre">struct_time</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L80">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L80">typeshed</a>)</p>
 <p>Like <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> but converts to local time.  If <em>secs</em> is not provided or
 <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>, the current time as returned by <a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> is used.  The dst
 flag is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> when DST applies to the given time.</p>
-<p><a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> may raise <a class="reference internal" href="exceptions.html#OverflowError" title="OverflowError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OverflowError</span></code></a>, if the timestamp is
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code> may raise <a class="reference internal" href="exceptions.html#OverflowError" title="OverflowError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OverflowError</span></code></a>, if the timestamp is
 outside the range of values supported by the platform C <code class="xref c c-func docutils literal notranslate"><span class="pre">localtime()</span></code>
 or <code class="xref c c-func docutils literal notranslate"><span class="pre">gmtime()</span></code> functions, and <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> on <code class="xref c c-func docutils literal notranslate"><span class="pre">localtime()</span></code> or
 <code class="xref c c-func docutils literal notranslate"><span class="pre">gmtime()</span></code> failure. It’s common for this to be restricted to years
@@ -575,7 +575,7 @@ between 1970 and 2038.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L81">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L81">typeshed</a>)</p>
 <p>This is the inverse function of <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a>.  Its argument is the
 <a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a> or full 9-tuple (since the dst flag is needed; use <code class="docutils literal notranslate"><span class="pre">-1</span></code>
 as the dst flag if it is unknown) which expresses the time in <em>local</em> time, not
@@ -591,7 +591,7 @@ The earliest date for which it can generate a time is platform-dependent.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">monotonic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span><a class="headerlink" href="#time.monotonic" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">monotonic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L98">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L98">typeshed</a>)</p>
 <p>Return the value (in fractional seconds) of a monotonic clock, i.e. a clock
 that cannot go backwards.  The clock is not affected by system clock updates.
 The reference point of the returned value is undefined, so that only the
@@ -624,7 +624,7 @@ all processes.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">monotonic_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.monotonic_ns" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">monotonic_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L114">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L114">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.monotonic" title="time.monotonic"><code class="xref py py-func docutils literal notranslate"><span class="pre">monotonic()</span></code></a>, but return time as nanoseconds.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.</span></p>
@@ -636,7 +636,7 @@ all processes.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">perf_counter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span><a class="headerlink" href="#time.perf_counter" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">perf_counter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L99">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L99">typeshed</a>)</p>
 <p id="index-6">Return the value (in fractional seconds) of a performance counter, i.e. a
 clock with the highest available resolution to measure a short duration.  It
 does include time elapsed during sleep. The clock is the same for all
@@ -665,7 +665,7 @@ monotonic clock, i.e. a clock that cannot go backwards.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">perf_counter_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.perf_counter_ns" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">perf_counter_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L115">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L115">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.perf_counter" title="time.perf_counter"><code class="xref py py-func docutils literal notranslate"><span class="pre">perf_counter()</span></code></a>, but return time as nanoseconds.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.</span></p>
@@ -677,7 +677,7 @@ monotonic clock, i.e. a clock that cannot go backwards.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">process_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span><a class="headerlink" href="#time.process_time" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">process_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L100">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L100">typeshed</a>)</p>
 <p id="index-7">Return the value (in fractional seconds) of the sum of the system and user
 CPU time of the current process.  It does not include time elapsed during
 sleep.  It is process-wide by definition.  The reference point of the
@@ -695,7 +695,7 @@ of two calls is valid.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">process_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.process_time_ns" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">process_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L116">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L116">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.process_time" title="time.process_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">process_time()</span></code></a> but return time as nanoseconds.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.</span></p>
@@ -707,7 +707,7 @@ of two calls is valid.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.sleep" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_SupportsFloatOrIndex</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L82">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L82">typeshed</a>)</p>
 <p>Suspend execution of the calling thread for the given number of seconds.
 The argument may be a non-integer to indicate a more precise sleep time.</p>
 <p>If the sleep is interrupted by a signal and no exception is raised by the
@@ -764,17 +764,17 @@ used if available. On Windows, a waitable timer is now used.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L83">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L83">typeshed</a>)</p>
 <p>Convert a tuple or <a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a> representing a time as returned by
 <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> or <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> to a string as specified by the <em>format</em>
 argument.  If <em>t</em> is not provided, the current time as returned by
-<a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> is used.  <em>format</em> must be a string.  <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is
+<code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code> is used.  <em>format</em> must be a string.  <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is
 raised if any field in <em>t</em> is outside of the allowed range.</p>
 <p>0 is a legal argument for any position in the time tuple; if it is normally
 illegal the value is forced to a correct one.</p>
 <p>The following directives can be embedded in the <em>format</em> string. They are shown
 without the optional field width and precision specification, and are replaced
-by the indicated characters in the <a class="reference internal" href="#time.strftime" title="time.strftime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strftime()</span></code></a> result:</p>
+by the indicated characters in the <code class="xref py py-func docutils literal notranslate"><span class="pre">strftime()</span></code> result:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
@@ -922,7 +922,7 @@ year. Weeks start on Monday.</p></td>
 <p>Notes:</p>
 <ol class="arabic simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">%f</span></code> format directive only applies to <a class="reference internal" href="#time.strptime" title="time.strptime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strptime()</span></code></a>,
-not to <a class="reference internal" href="#time.strftime" title="time.strftime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strftime()</span></code></a>. However, see also <a class="reference internal" href="datetime.html#datetime.datetime.strptime" title="datetime.datetime.strptime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">datetime.datetime.strptime()</span></code></a> and
+not to <code class="xref py py-func docutils literal notranslate"><span class="pre">strftime()</span></code>. However, see also <a class="reference internal" href="datetime.html#datetime.datetime.strptime" title="datetime.datetime.strptime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">datetime.datetime.strptime()</span></code></a> and
 <a class="reference internal" href="datetime.html#datetime.datetime.strftime" title="datetime.datetime.strftime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">datetime.datetime.strftime()</span></code></a> where the <code class="docutils literal notranslate"><span class="pre">%f</span></code> format directive
 <a class="reference internal" href="datetime.html#format-codes"><span class="std std-ref">applies to microseconds</span></a>.</p></li>
 <li><p>When used with the <a class="reference internal" href="#time.strptime" title="time.strptime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strptime()</span></code></a> function, the <code class="docutils literal notranslate"><span class="pre">%p</span></code> directive only affects
@@ -965,7 +965,7 @@ it is 3.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><span class="pre">struct_time</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L84">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L84">typeshed</a>)</p>
 <p>Parse a string representing a time according to a format.  The return value
 is a <a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a> as returned by <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> or
 <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a>.</p>
@@ -1006,7 +1006,7 @@ documented as supported.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><span class="pre">struct_time</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L49">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L49">typeshed</a>)</p>
 <p>The type of the time value sequence returned by <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a>,
 <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a>, and <a class="reference internal" href="#time.strptime" title="time.strptime"><code class="xref py py-func docutils literal notranslate"><span class="pre">strptime()</span></code></a>.  It is an object with a <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named
 tuple</span></a> interface: values can be accessed by index and by attribute name.  The
@@ -1124,7 +1124,7 @@ following values are present:</p>
 savings time is in effect, and 0 when it is not.  A value of -1 indicates that
 this is not known, and will usually result in the correct state being filled in.</p>
 <p>When a tuple with an incorrect length is passed to a function expecting a
-<a class="reference internal" href="#time.struct_time" title="time.struct_time"><code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code></a>, or having elements of the wrong type, a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">struct_time</span></code>, or having elements of the wrong type, a
 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is raised.</p>
 </dd></dl>
 
@@ -1133,7 +1133,7 @@ this is not known, and will usually result in the correct state being filled in.
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span><a class="headerlink" href="#time.time" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L85">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L85">typeshed</a>)</p>
 <p>Return the time in seconds since the <a class="reference internal" href="#epoch">epoch</a> as a floating-point
 number. The handling of <a class="reference external" href="https://en.wikipedia.org/wiki/Leap_second">leap seconds</a> is platform dependent.
 On Windows and most Unix systems, the leap seconds are not counted towards
@@ -1144,7 +1144,7 @@ number, not all systems provide time with a better precision than 1 second.
 While this function normally returns non-decreasing values, it can return a
 lower value than a previous call if the system clock has been set back
 between the two calls.</p>
-<p>The number returned by <a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> may be converted into a more common
+<p>The number returned by <code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code> may be converted into a more common
 time format (i.e. year, month, day, hour, etc…) in UTC by passing it to
 <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> function or in local time by passing it to the
 <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> function. In both cases a
@@ -1169,7 +1169,7 @@ type.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.time_ns" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L117">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L117">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> but returns time as an integer number of
 nanoseconds since the <a class="reference internal" href="#epoch">epoch</a>.</p>
 <div class="versionadded">
@@ -1182,7 +1182,7 @@ nanoseconds since the <a class="reference internal" href="#epoch">epoch</a>.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">thread_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span><a class="headerlink" href="#time.thread_time" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">thread_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#float" title="float"><span class="pre">float</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L118">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L118">typeshed</a>)</p>
 <p id="index-12">Return the value (in fractional seconds) of the sum of the system and user
 CPU time of the current thread.  It does not include time elapsed during
 sleep.  It is thread-specific by definition.  The reference point of the
@@ -1204,7 +1204,7 @@ of two calls in the same thread is valid.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">thread_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.thread_time_ns" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">thread_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L119">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L119">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.thread_time" title="time.thread_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">thread_time()</span></code></a> but return time as nanoseconds.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.</span></p>
@@ -1216,7 +1216,7 @@ of two calls in the same thread is valid.</p>
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">tzset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#time.tzset" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">tzset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L88">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L88">typeshed</a>)</p>
 <p>Reset the time conversion rules used by the library routines. The environment
 variable <span class="target" id="index-13"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TZ</span></code> specifies how this is done. It will also set the variables
 <code class="docutils literal notranslate"><span class="pre">tzname</span></code> (from the <span class="target" id="index-14"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TZ</span></code> environment variable), <code class="docutils literal notranslate"><span class="pre">timezone</span></code> (non-DST
@@ -1231,7 +1231,7 @@ applies).</p>
 <p class="admonition-title">Note</p>
 <p>Although in many cases, changing the <span class="target" id="index-15"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TZ</span></code> environment variable may
 affect the output of functions like <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> without calling
-<a class="reference internal" href="#time.tzset" title="time.tzset"><code class="xref py py-func docutils literal notranslate"><span class="pre">tzset()</span></code></a>, this behavior should not be relied on.</p>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">tzset()</span></code>, this behavior should not be relied on.</p>
 <p>The <span class="target" id="index-16"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TZ</span></code> environment variable should contain no whitespace.</p>
 </div>
 <p>The standard format of the <span class="target" id="index-17"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TZ</span></code> environment variable is (whitespace
@@ -1306,7 +1306,7 @@ the systems ‘zoneinfo’ timezone database, usually located at
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_BOOTTIME">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_BOOTTIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_BOOTTIME" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L21">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L21">typeshed</a>)</p>
 <p>Identical to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_MONOTONIC</span></code></a>, except it also includes any time that
 the system is suspended.</p>
 <p>This allows applications to get a suspend-aware monotonic  clock  without
@@ -1338,7 +1338,7 @@ hardware source, and may give close to nanosecond resolution.
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_MONOTONIC">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_MONOTONIC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_MONOTONIC" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L27">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L27">typeshed</a>)</p>
 <p>Clock that cannot be set and represents monotonic time since some unspecified
 starting point.</p>
 <div class="availability docutils container">
@@ -1352,7 +1352,7 @@ starting point.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_MONOTONIC_RAW">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_MONOTONIC_RAW</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_MONOTONIC_RAW" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L28">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L28">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLOCK_MONOTONIC</span></code></a>, but provides access to a raw
 hardware-based time that is not subject to NTP adjustments.</p>
 <div class="availability docutils container">
@@ -1379,7 +1379,7 @@ the system at context switch and hence has less accuracy.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_PROCESS_CPUTIME_ID">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_PROCESS_CPUTIME_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_PROCESS_CPUTIME_ID" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L29">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L29">typeshed</a>)</p>
 <p>High-resolution per-process timer from the CPU.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
@@ -1404,7 +1404,7 @@ the system at context switch and hence has less accuracy.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_TAI">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_TAI</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_TAI" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L42">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L42">typeshed</a>)</p>
 <p><a class="reference external" href="https://www.nist.gov/pml/time-and-frequency-division/how-utcnist-related-coordinated-universal-time-utc-international">International Atomic Time</a></p>
 <p>The system must have a current leap second table in order for this to give
 the correct answer.  PTP or NTP software can maintain a leap second table.</p>
@@ -1419,7 +1419,7 @@ the correct answer.  PTP or NTP software can maintain a leap second table.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_THREAD_CPUTIME_ID">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_THREAD_CPUTIME_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_THREAD_CPUTIME_ID" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L31">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L31">typeshed</a>)</p>
 <p>Thread-specific CPU-time clock.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
@@ -1475,7 +1475,7 @@ at context switches and therefore has less accuracy.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.CLOCK_REALTIME">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">CLOCK_REALTIME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.CLOCK_REALTIME" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L30">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L30">typeshed</a>)</p>
 <p>Real-time clock.  Setting this clock requires appropriate privileges.
 The clock is the same for all processes.</p>
 <div class="availability docutils container">
@@ -1492,7 +1492,7 @@ The clock is the same for all processes.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="time.altzone">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">altzone</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.altzone" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L15">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L15">typeshed</a>)</p>
 <p>The offset of the local DST timezone, in seconds west of UTC, if one is defined.
 This is negative if the local DST timezone is east of UTC (as in Western Europe,
 including the UK).  Only use this if <code class="docutils literal notranslate"><span class="pre">daylight</span></code> is nonzero.  See note below.</p>
@@ -1501,14 +1501,14 @@ including the UK).  Only use this if <code class="docutils literal notranslate">
 <dl class="py data">
 <dt class="sig sig-object py" id="time.daylight">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">daylight</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.daylight" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L16">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L16">typeshed</a>)</p>
 <p>Nonzero if a DST timezone is defined.  See note below.</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="time.timezone">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">timezone</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#time.timezone" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L17">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L17">typeshed</a>)</p>
 <p>The offset of the local (non-DST) timezone, in seconds west of UTC (negative in
 most of Western Europe, positive in the US, zero in the UK).  See note below.</p>
 </dd></dl>
@@ -1516,7 +1516,7 @@ most of Western Europe, positive in the US, zero in the UK).  See note below.</p
 <dl class="py data">
 <dt class="sig sig-object py" id="time.tzname">
 <span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">tzname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#time.tzname" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/time.pyi#L18">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/time.pyi#L18">typeshed</a>)</p>
 <p>A tuple of two strings: the first is the name of the local non-DST timezone, the
 second is the name of the local DST timezone.  If no DST timezone is defined,
 the second string should not be used.  See note below.</p>

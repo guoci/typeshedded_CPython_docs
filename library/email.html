@@ -228,18 +228,18 @@ API.</p>
 the <a class="reference internal" href="email.generator.html#module-email.generator" title="email.generator: Generate flat text email messages from a message structure."><code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code></a>.  The parser takes the serialized version of an
 email message (a stream of bytes) and converts it into a tree of
 <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> objects.  The generator takes an
-<a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> and turns it back into a serialized byte
+<code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code> and turns it back into a serialized byte
 stream.  (The parser and generator also handle streams of text characters, but
 this usage is discouraged as it is too easy to end up with messages that are
 not valid in one way or another.)</p>
 <p>The control component is the <a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> module.  Every
 <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a>, every <a class="reference internal" href="email.generator.html#module-email.generator" title="email.generator: Generate flat text email messages from a message structure."><code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code></a>, and every
-<a class="reference internal" href="email.parser.html#module-email.parser" title="email.parser: Parse flat text email messages to produce a message object structure."><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> has an associated <a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> object that
+<a class="reference internal" href="email.parser.html#module-email.parser" title="email.parser: Parse flat text email messages to produce a message object structure."><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> has an associated <code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code> object that
 controls its behavior.  Usually an application only needs to specify the policy
-when an <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> is created, either by directly
-instantiating an <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a>  to create a new email,
-or by parsing an input stream using a <a class="reference internal" href="email.parser.html#module-email.parser" title="email.parser: Parse flat text email messages to produce a message object structure."><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a>.  But the policy can
-be changed when the message is serialized using a <a class="reference internal" href="email.generator.html#module-email.generator" title="email.generator: Generate flat text email messages from a message structure."><code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code></a>.
+when an <code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code> is created, either by directly
+instantiating an <code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code>  to create a new email,
+or by parsing an input stream using a <code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code>.  But the policy can
+be changed when the message is serialized using a <code class="xref py py-mod docutils literal notranslate"><span class="pre">generator</span></code>.
 This allows, for example, a generic email message to be parsed from disk, but
 to serialize it using standard SMTP settings when sending it to an email
 server.</p>
@@ -275,7 +275,7 @@ covered in the preceding sections.</p>
 The remaining sections, starting with the <a class="reference internal" href="email.compat32-message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
 class, cover the legacy <a class="reference internal" href="email.policy.html#email.policy.compat32" title="email.policy.compat32"><code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code></a> API that deals much more
 directly with the details of how email messages are represented.  The
-<a class="reference internal" href="email.policy.html#email.policy.compat32" title="email.policy.compat32"><code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code></a> API does <em>not</em> hide the details of the RFCs from
+<code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code> API does <em>not</em> hide the details of the RFCs from
 the application, but for applications that need to operate at that level, they
 can be useful tools.  This documentation is also relevant for applications that
 are still using the <a class="reference internal" href="email.policy.html#email.policy.compat32" title="email.policy.compat32"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat32</span></code></a> API for backward

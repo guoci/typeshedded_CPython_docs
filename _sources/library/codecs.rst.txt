@@ -34,7 +34,7 @@ any codec:
               encode(obj: str, encoding: _StrToStrEncoding, errors: str = 'strict') -> str
               encode(obj: str, encoding: str = 'utf-8', errors: str = 'strict') -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L51>`__)
 
    Encodes *obj* using the codec registered for *encoding*.
 
@@ -51,7 +51,7 @@ any codec:
               decode(obj: str, encoding: typing.Literal['hex', 'hex_codec'], errors: str = 'strict') -> bytes
               decode(obj: collections.abc.Buffer, encoding: str = 'utf-8', errors: str = 'strict') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L57>`__)
 
    Decodes *obj* using the codec registered for *encoding*.
 
@@ -64,7 +64,7 @@ any codec:
 .. function:: charmap_build(string)
               charmap_build(map: str, /) -> _CharMap
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L75>`__)
 
    Return a mapping suitable for encoding with a custom single-byte encoding.
    Given a :class:`str` *string* of up to 256 characters representing a
@@ -77,7 +77,7 @@ The full details for each codec can also be looked up directly:
 .. function:: lookup(encoding, /)
               lookup(encoding: str, /) -> codecs.CodecInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L74>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L74>`__)
 
    Looks up the codec info in the Python codec registry and returns a
    :class:`CodecInfo` object as defined below.
@@ -100,7 +100,7 @@ The full details for each codec can also be looked up directly:
 .. class:: CodecInfo(encode, decode, streamreader=None, streamwriter=None, incrementalencoder=None, incrementaldecoder=None, name=None)
            CodecInfo(encode: codecs._Encoder, decode: codecs._Decoder, streamreader: codecs._StreamReader | None = None, streamwriter: codecs._StreamWriter | None = None, incrementalencoder: codecs._IncrementalEncoder | None = None, incrementaldecoder: codecs._IncrementalDecoder | None = None, name: str | None = None, *, _is_text_encoding: bool | None = None) -> codecs.CodecInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L127>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L127>`__)
 
    Codec details when looking up the codec registry. The constructor
    arguments are stored in attributes of the same name:
@@ -109,7 +109,7 @@ The full details for each codec can also be looked up directly:
    .. attribute:: name
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L141>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L141>`__)
 
       The name of the encoding.
 
@@ -117,7 +117,7 @@ The full details for each codec can also be looked up directly:
    .. attribute:: encode
                   decode
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L130>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L130>`__)
 
       The stateless encoding and decoding functions. These must be
       functions or methods which have the same interface as
@@ -129,7 +129,7 @@ The full details for each codec can also be looked up directly:
    .. attribute:: incrementalencoder
                   incrementaldecoder
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L138>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L138>`__)
 
       Incremental encoder and decoder classes or factory functions.
       These have to provide the interface defined by the base classes
@@ -140,7 +140,7 @@ The full details for each codec can also be looked up directly:
    .. attribute:: streamwriter
                   streamreader
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L136>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L136>`__)
 
       Stream writer and reader classes or factory functions. These have to
       provide the interface defined by the base classes
@@ -153,7 +153,7 @@ these additional functions which use :func:`lookup` for the codec lookup:
 .. function:: getencoder(encoding)
               getencoder(encoding: str) -> codecs._Encoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L185>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L185>`__)
 
    Look up the codec for the given encoding and return its encoder function.
 
@@ -163,7 +163,7 @@ these additional functions which use :func:`lookup` for the codec lookup:
 .. function:: getdecoder(encoding)
               getdecoder(encoding: str) -> codecs._Decoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L186>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L186>`__)
 
    Look up the codec for the given encoding and return its decoder function.
 
@@ -173,7 +173,7 @@ these additional functions which use :func:`lookup` for the codec lookup:
 .. function:: getincrementalencoder(encoding)
               getincrementalencoder(encoding: str) -> codecs._IncrementalEncoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L187>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L187>`__)
 
    Look up the codec for the given encoding and return its incremental encoder
    class or factory function.
@@ -186,7 +186,7 @@ these additional functions which use :func:`lookup` for the codec lookup:
               getincrementaldecoder(encoding: _BufferedEncoding) -> codecs._BufferedIncrementalDecoder
               getincrementaldecoder(encoding: str) -> codecs._IncrementalDecoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L189>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L189>`__)
 
    Look up the codec for the given encoding and return its incremental decoder
    class or factory function.
@@ -198,7 +198,7 @@ these additional functions which use :func:`lookup` for the codec lookup:
 .. function:: getreader(encoding)
               getreader(encoding: str) -> codecs._StreamReader
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L192>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L192>`__)
 
    Look up the codec for the given encoding and return its :class:`StreamReader`
    class or factory function.
@@ -209,7 +209,7 @@ these additional functions which use :func:`lookup` for the codec lookup:
 .. function:: getwriter(encoding)
               getwriter(encoding: str) -> codecs._StreamWriter
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L193>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L193>`__)
 
    Look up the codec for the given encoding and return its :class:`StreamWriter`
    class or factory function.
@@ -222,7 +222,7 @@ function:
 .. function:: register(search_function, /)
               register(search_function: collections.abc.Callable[[str], codecs.CodecInfo | None], /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L19>`__)
 
    Register a codec search function. Search functions are expected to take one
    argument, being the encoding name in all lower case letters with spaces
@@ -234,7 +234,7 @@ function:
 .. function:: unregister(search_function, /)
               unregister(search_function: collections.abc.Callable[[str], codecs.CodecInfo | None], /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L22>`__)
 
    Unregister a codec search function and clear the registry's cache.
    If the search function is not registered, do nothing.
@@ -250,7 +250,7 @@ wider range of codecs when working with binary files:
 .. function:: open(filename, mode='r', encoding=None, errors='strict', buffering=-1)
               open(filename: str, mode: str = 'r', encoding: str | None = None, errors: str = 'strict', buffering: int = -1) -> codecs.StreamReaderWriter
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L195>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L195>`__)
 
    Open an encoded file using the given *mode* and return an instance of
    :class:`StreamReaderWriter`, providing transparent encoding/decoding.
@@ -285,7 +285,7 @@ wider range of codecs when working with binary files:
 .. function:: EncodedFile(file, data_encoding, file_encoding=None, errors='strict')
               EncodedFile(file: codecs._Stream, data_encoding: str, file_encoding: str | None = None, errors: str = 'strict') -> codecs.StreamRecoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L198>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L198>`__)
 
    Return a :class:`StreamRecoder` instance, a wrapped version of *file*
    which provides transparent transcoding. The original file is closed
@@ -307,7 +307,7 @@ wider range of codecs when working with binary files:
 .. function:: iterencode(iterator, encoding, errors='strict', **kwargs)
               iterencode(iterator: collections.abc.Iterable[str], encoding: str, errors: str = 'strict') -> collections.abc.Generator[bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L199>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L199>`__)
 
    Uses an incremental encoder to iteratively encode the input provided by
    *iterator*. *iterator* must yield :class:`str` objects.
@@ -322,7 +322,7 @@ wider range of codecs when working with binary files:
 .. function:: iterdecode(iterator, encoding, errors='strict', **kwargs)
               iterdecode(iterator: collections.abc.Iterable[bytes], encoding: str, errors: str = 'strict') -> collections.abc.Generator[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L200>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L200>`__)
 
    Uses an incremental decoder to iteratively decode the input provided by
    *iterator*. *iterator* must yield :class:`bytes` objects.
@@ -338,7 +338,7 @@ wider range of codecs when working with binary files:
 .. function:: readbuffer_encode(buffer, errors=None, /)
               readbuffer_encode(data: collections.abc.Buffer | str, errors: str | None = None, /) -> tuple[bytes, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L88>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L88>`__)
 
    Return a :class:`tuple` containing the raw bytes of *buffer*, a
    :ref:`buffer-compatible object <bufferobjects>` or :class:`str`
@@ -367,7 +367,7 @@ and writing to platform dependent files:
           BOM_UTF32_BE
           BOM_UTF32_LE
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L202>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L202>`__)
 
    These constants define various byte sequences,
    being Unicode byte order marks (BOMs) for several encodings. They are
@@ -520,7 +520,7 @@ handler:
 .. function:: register_error(name, error_handler, /)
               register_error(errors: str, handler: collections.abc.Callable[[UnicodeError], tuple[bytes | str, int]], /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L24>`__)
 
    Register the error handling function *error_handler* under the name *name*.
    The *error_handler* argument will be called during encoding and decoding
@@ -549,7 +549,7 @@ can be looked up by name:
 .. function:: lookup_error(name, /)
               lookup_error(name: str, /) -> collections.abc.Callable[[UnicodeError], tuple[bytes | str, int]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L25>`__)
 
    Return the error handler previously registered under the name *name*.
 
@@ -561,7 +561,7 @@ functions:
 .. function:: strict_errors(exception)
               strict_errors(exception: UnicodeError, /) -> tuple[bytes | str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L213>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L213>`__)
 
    Implements the ``'strict'`` error handling.
 
@@ -571,7 +571,7 @@ functions:
 .. function:: ignore_errors(exception)
               ignore_errors(exception: UnicodeError, /) -> tuple[bytes | str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L215>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L215>`__)
 
    Implements the ``'ignore'`` error handling.
 
@@ -582,7 +582,7 @@ functions:
 .. function:: replace_errors(exception)
               replace_errors(exception: UnicodeError, /) -> tuple[bytes | str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L214>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L214>`__)
 
    Implements the ``'replace'`` error handling.
 
@@ -593,7 +593,7 @@ functions:
 .. function:: backslashreplace_errors(exception)
               backslashreplace_errors(exception: UnicodeError, /) -> tuple[bytes | str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L217>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L217>`__)
 
    Implements the ``'backslashreplace'`` error handling.
 
@@ -610,7 +610,7 @@ functions:
 .. function:: xmlcharrefreplace_errors(exception)
               xmlcharrefreplace_errors(exception: UnicodeError, /) -> tuple[bytes | str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L216>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L216>`__)
 
    Implements the ``'xmlcharrefreplace'`` error handling (for encoding within
    :term:`text encoding` only).
@@ -623,7 +623,7 @@ functions:
 .. function:: namereplace_errors(exception)
               namereplace_errors(exception: UnicodeError, /) -> tuple[bytes | str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L218>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L218>`__)
 
    Implements the ``'namereplace'`` error handling (for encoding within
    :term:`text encoding` only).
@@ -648,12 +648,12 @@ function interfaces of the stateless encoder and decoder:
 .. class:: Codec
            Codec() -> codecs.Codec
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L220>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L220>`__)
 
    .. method:: encode(input, errors='strict')
                encode(input: str, errors: str = 'strict') -> tuple[bytes, int]
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L223>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L223>`__)
 
       Encodes the object *input* and returns a tuple (output object, length consumed).
       For instance, :term:`text encoding` converts
@@ -674,7 +674,7 @@ function interfaces of the stateless encoder and decoder:
    .. method:: decode(input, errors='strict')
                decode(input: bytes, errors: str = 'strict') -> tuple[str, int]
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L224>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L224>`__)
 
       Decodes the object *input* and returns a tuple (output object, length
       consumed). For instance, for a :term:`text encoding`, decoding converts
@@ -726,7 +726,7 @@ define in order to be compatible with the Python codec registry.
 .. class:: IncrementalEncoder(errors='strict')
            IncrementalEncoder(errors: str = 'strict') -> codecs.IncrementalEncoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L226>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L226>`__)
 
    Constructor for an :class:`IncrementalEncoder` instance.
 
@@ -747,7 +747,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: encode(object, final=False)
                encode(input: str, final: bool = False) -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L230>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L230>`__)
 
       Encodes *object* (taking the current state of the encoder into account)
       and returns the resulting encoded object. If this is the last call to
@@ -757,7 +757,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: reset()
                reset() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L231>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L231>`__)
 
       Reset the encoder to the initial state. The output is discarded: call
       ``.encode(object, final=True)``, passing an empty byte or text string
@@ -767,7 +767,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: getstate()
                getstate() -> int | str
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L233>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L233>`__)
 
       Return the current state of the encoder which must be an integer. The
       implementation should make sure that ``0`` is the most common
@@ -779,7 +779,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: setstate(state)
                setstate(state: int | str) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L234>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L234>`__)
 
       Set the state of the encoder to *state*. *state* must be an encoder state
       returned by :meth:`getstate`.
@@ -798,7 +798,7 @@ define in order to be compatible with the Python codec registry.
 .. class:: IncrementalDecoder(errors='strict')
            IncrementalDecoder(errors: str = 'strict') -> codecs.IncrementalDecoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L236>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L236>`__)
 
    Constructor for an :class:`IncrementalDecoder` instance.
 
@@ -819,7 +819,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: decode(object, final=False)
                decode(input: collections.abc.Buffer, final: bool = False) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L240>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L240>`__)
 
       Decodes *object* (taking the current state of the decoder into account)
       and returns the resulting decoded object. If this is the last call to
@@ -833,7 +833,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: reset()
                reset() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L241>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L241>`__)
 
       Reset the decoder to the initial state.
 
@@ -841,7 +841,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: getstate()
                getstate() -> tuple[bytes, int]
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L242>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L242>`__)
 
       Return the current state of the decoder. This must be a tuple with two
       items, the first must be the buffer containing the still undecoded
@@ -859,7 +859,7 @@ define in order to be compatible with the Python codec registry.
    .. method:: setstate(state)
                setstate(state: tuple[bytes, int]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L243>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L243>`__)
 
       Set the state of the decoder to *state*. *state* must be a decoder state
       returned by :meth:`getstate`.
@@ -887,7 +887,7 @@ compatible with the Python codec registry.
 .. class:: StreamWriter(stream, errors='strict')
            StreamWriter(stream: codecs._WritableStream, errors: str = 'strict') -> codecs.StreamWriter
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L262>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L262>`__)
 
    Constructor for a :class:`StreamWriter` instance.
 
@@ -909,7 +909,7 @@ compatible with the Python codec registry.
    .. method:: write(object)
                write(object: str) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L266>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L266>`__)
 
       Writes the object's contents encoded to the stream.
 
@@ -917,7 +917,7 @@ compatible with the Python codec registry.
    .. method:: writelines(list)
                writelines(list: collections.abc.Iterable[str]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L267>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L267>`__)
 
       Writes the concatenated iterable of strings to the stream (possibly by reusing
       the :meth:`write` method). Infinite or
@@ -928,7 +928,7 @@ compatible with the Python codec registry.
    .. method:: reset()
                reset() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L268>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L268>`__)
 
       Resets the codec buffers used for keeping internal state.
 
@@ -954,7 +954,7 @@ compatible with the Python codec registry.
 .. class:: StreamReader(stream, errors='strict')
            StreamReader(stream: codecs._ReadableStream, errors: str = 'strict') -> codecs.StreamReader
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L274>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L274>`__)
 
    Constructor for a :class:`StreamReader` instance.
 
@@ -980,7 +980,7 @@ compatible with the Python codec registry.
    .. method:: read(size=-1, chars=-1, firstline=False)
                read(size: int = -1, chars: int = -1, firstline: bool = False) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L280>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L280>`__)
 
       Decodes data from the stream and returns the resulting object.
 
@@ -1009,7 +1009,7 @@ compatible with the Python codec registry.
    .. method:: readline(size=None, keepends=True)
                readline(size: int | None = None, keepends: bool = True) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L281>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L281>`__)
 
       Read one line from the input stream and return the decoded data.
 
@@ -1023,7 +1023,7 @@ compatible with the Python codec registry.
    .. method:: readlines(sizehint=None, keepends=True)
                readlines(sizehint: int | None = None, keepends: bool = True) -> list[str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L282>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L282>`__)
 
       Read all lines available on the input stream and return them as a list of
       lines.
@@ -1038,7 +1038,7 @@ compatible with the Python codec registry.
    .. method:: reset()
                reset() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L283>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L283>`__)
 
       Resets the codec buffers used for keeping internal state.
 
@@ -1064,7 +1064,7 @@ The design is such that one can use the factory functions returned by the
 .. class:: StreamReaderWriter(stream, Reader, Writer, errors='strict')
            StreamReaderWriter(stream: codecs._Stream, Reader: codecs._StreamReader, Writer: codecs._StreamWriter, errors: str = 'strict') -> codecs.StreamReaderWriter
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L293>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L293>`__)
 
    Creates a :class:`StreamReaderWriter` instance. *stream* must be a file-like
    object. *Reader* and *Writer* must be factory functions or classes providing the
@@ -1091,7 +1091,7 @@ The design is such that one can use the factory functions returned by the
 .. class:: StreamRecoder(stream, encode, decode, Reader, Writer, errors='strict')
            StreamRecoder(stream: codecs._Stream, encode: codecs._Encoder, decode: codecs._Decoder, Reader: codecs._StreamReader, Writer: codecs._StreamWriter, errors: str = 'strict') -> codecs.StreamRecoder
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/codecs.pyi#L320>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/codecs.pyi#L320>`__)
 
    Creates a :class:`StreamRecoder` instance which implements a two-way conversion:
    *encode* and *decode* work on the frontend — the data visible to
@@ -1672,7 +1672,7 @@ They are used internally (for example, by :mod:`pickle`) and behave similarly to
 .. function:: codecs.escape_encode(input, errors=None)
               escape_encode(data: bytes, errors: str | None = None, /) -> tuple[bytes, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L81>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L81>`__)
 
    Encode *input* using escape sequences. Similar to how :func:`repr` on bytes
    produces escaped byte values.
@@ -1685,7 +1685,7 @@ They are used internally (for example, by :mod:`pickle`) and behave similarly to
 .. function:: codecs.escape_decode(input, errors=None)
               escape_decode(data: collections.abc.Buffer | str, errors: str | None = None, /) -> tuple[str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/_codecs.pyi#L80>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/_codecs.pyi#L80>`__)
 
    Decode *input* from escape sequences back to the original bytes.
 
@@ -1732,7 +1732,7 @@ This module implements the following functions:
 .. function:: normalize_encoding(encoding)
               normalize_encoding(encoding: bytes | str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/encodings/__init__.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/encodings/__init__.pyi#L8>`__)
 
    Normalize encoding name *encoding*.
 
@@ -1752,7 +1752,7 @@ This module implements the following functions:
 .. function:: search_function(encoding)
               search_function(encoding: str) -> codecs.CodecInfo | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/encodings/__init__.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/encodings/__init__.pyi#L9>`__)
 
    Search for the codec module corresponding to the given encoding name
    *encoding*.
@@ -1785,7 +1785,7 @@ This module implements the following exception:
 .. exception:: CodecRegistryError
                CodecRegistryError(*args: object) -> encodings.CodecRegistryError
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/encodings/__init__.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/encodings/__init__.pyi#L6>`__)
 
    Raised when a codec is invalid or incompatible.
 
@@ -1841,7 +1841,7 @@ functions can be used directly if desired.
 .. function:: nameprep(label)
               nameprep(label: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/encodings/idna.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/encodings/idna.pyi#L9>`__)
 
    Return the nameprepped version of *label*. The implementation currently assumes
    query strings, so ``AllowUnassigned`` is true.
@@ -1850,7 +1850,7 @@ functions can be used directly if desired.
 .. function:: ToASCII(label)
               ToASCII(label: str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/encodings/idna.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/encodings/idna.pyi#L10>`__)
 
    Convert a label to ASCII, as specified in :rfc:`3490`. ``UseSTD3ASCIIRules`` is
    assumed to be false.
@@ -1859,7 +1859,7 @@ functions can be used directly if desired.
 .. function:: ToUnicode(label)
               ToUnicode(label: bytes | str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/encodings/idna.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/encodings/idna.pyi#L11>`__)
 
    Convert a label to Unicode, as specified in :rfc:`3490`.
 

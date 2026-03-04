@@ -394,7 +394,7 @@ only used for variable-sized objects and should otherwise be zero.</p>
 inheritance.  A Python subclass of your type will have to list your type first
 in its <a class="reference internal" href="../reference/datamodel.html#type.__bases__" title="type.__bases__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__bases__</span></code></a>, or else it will not be able to call your type’s
 <a class="reference internal" href="../reference/datamodel.html#object.__new__" title="object.__new__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code></a> method without getting an error.  You can avoid this problem by
-ensuring that your type has a larger value for <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_basicsize" title="PyTypeObject.tp_basicsize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_basicsize</span></code></a> than its
+ensuring that your type has a larger value for <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_basicsize</span></code> than its
 base type does.  Most of the time, this will be true anyway, because either your
 base type will be <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>, or else you will be adding data members to
 your base type, and therefore increasing its size.</p>
@@ -738,10 +738,10 @@ strategy.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are creating a co-operative <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> (one
-that calls a base type’s <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> or <a class="reference internal" href="../reference/datamodel.html#object.__new__" title="object.__new__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code></a>),
+that calls a base type’s <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code> or <a class="reference internal" href="../reference/datamodel.html#object.__new__" title="object.__new__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__new__()</span></code></a>),
 you must <em>not</em> try to determine what method to call using method resolution
 order at runtime.  Always statically determine what type you are going to
-call, and call its <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> directly, or via
+call, and call its <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code> directly, or via
 <code class="docutils literal notranslate"><span class="pre">type-&gt;tp_base-&gt;tp_new</span></code>.  If you do not do this, Python subclasses of your
 type that also inherit from other Python-defined classes may not work correctly.
 (Specifically, you may not be able to create instances of such subclasses
@@ -1477,7 +1477,7 @@ participate in cycles:</p>
 <em>arg</em> passed to the traversal method.  It returns an integer value that must be
 returned if it is non-zero.</p>
 <p>Python provides a <a class="reference internal" href="../c-api/gcsupport.html#c.Py_VISIT" title="Py_VISIT"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_VISIT()</span></code></a> macro that automates calling visit
-functions.  With <a class="reference internal" href="../c-api/gcsupport.html#c.Py_VISIT" title="Py_VISIT"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_VISIT()</span></code></a>, we can minimize the amount of boilerplate
+functions.  With <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_VISIT()</span></code>, we can minimize the amount of boilerplate
 in <code class="docutils literal notranslate"><span class="pre">Custom_traverse</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span>
 <span class="nf">Custom_traverse</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="n">visitproc</span><span class="w"> </span><span class="n">visit</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
@@ -1529,7 +1529,7 @@ try to micro-optimize at the expense of robustness!</p>
 attributes.  It means the circular GC can be triggered inside the function.
 Since the GC assumes reference count is not zero, we need to untrack the object
 from the GC by calling <a class="reference internal" href="../c-api/gcsupport.html#c.PyObject_GC_UnTrack" title="PyObject_GC_UnTrack"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GC_UnTrack()</span></code></a> before clearing members.
-Here is our reimplemented deallocator using <a class="reference internal" href="../c-api/gcsupport.html#c.PyObject_GC_UnTrack" title="PyObject_GC_UnTrack"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GC_UnTrack()</span></code></a>
+Here is our reimplemented deallocator using <code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GC_UnTrack()</span></code>
 and <code class="docutils literal notranslate"><span class="pre">Custom_clear</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span>
 <span class="nf">Custom_dealloc</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">op</span><span class="p">)</span>
@@ -1553,7 +1553,7 @@ garbage collection.  Most extensions will use the versions automatically provide
 <p>It is possible to create new extension types that are derived from existing
 types. It is easiest to inherit from the built in types, since an extension can
 easily use the <a class="reference internal" href="../c-api/type.html#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> it needs. It can be difficult to share
-these <a class="reference internal" href="../c-api/type.html#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> structures between extension modules.</p>
+these <code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code> structures between extension modules.</p>
 <p>In this example we will create a <code class="xref py py-class docutils literal notranslate"><span class="pre">SubList</span></code> type that inherits from the
 built-in <a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> type. The new type will be completely compatible with
 regular lists, but will have an additional <code class="xref py py-meth docutils literal notranslate"><span class="pre">increment()</span></code> method that
@@ -1676,9 +1676,9 @@ can be safely cast to both <code class="docutils literal notranslate"><span clas
 type.</p>
 <p>This pattern is important when writing a type with custom
 <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> and <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a>
-members.  The <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> handler should not actually
+members.  The <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code> handler should not actually
 create the memory for the object with its <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_alloc" title="PyTypeObject.tp_alloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_alloc</span></code></a>,
-but let the base class handle it by calling its own <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a>.</p>
+but let the base class handle it by calling its own <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code>.</p>
 <p>The <a class="reference internal" href="../c-api/type.html#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> struct supports a <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_base" title="PyTypeObject.tp_base"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_base</span></code></a>
 specifying the type’s concrete base class.  Due to cross-platform compiler
 issues, you can’t fill that field directly with a reference to

@@ -647,7 +647,7 @@ first tuple was not callable.  (Contributed by Serhiy Storchaka in
 <a class="reference internal" href="../library/datetime.html#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> and <a class="reference internal" href="../library/datetime.html#datetime.timedelta" title="datetime.timedelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> objects now return
 an instance of the subclass, rather than the base class. This also affects
 the return type of operations whose implementation (directly or indirectly)
-uses <a class="reference internal" href="../library/datetime.html#datetime.timedelta" title="datetime.timedelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> arithmetic, such as
+uses <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code> arithmetic, such as
 <a class="reference internal" href="../library/datetime.html#datetime.datetime.astimezone" title="datetime.datetime.astimezone"><code class="xref py py-meth docutils literal notranslate"><span class="pre">astimezone()</span></code></a>.
 (Contributed by Paul Ganssle in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=32417">bpo-32417</a>.)</p></li>
 <li><p>When the Python interpreter is interrupted by Ctrl-C (SIGINT) and the
@@ -865,7 +865,7 @@ and IPv6 by attempting to simultaneously connect using both.
 <h3>builtins<a class="headerlink" href="#builtins" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="../library/functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> built-in has been improved to accept the
 <code class="docutils literal notranslate"><span class="pre">ast.PyCF_ALLOW_TOP_LEVEL_AWAIT</span></code> flag. With this new flag passed,
-<a class="reference internal" href="../library/functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> will allow top-level <code class="docutils literal notranslate"><span class="pre">await</span></code>, <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code> will allow top-level <code class="docutils literal notranslate"><span class="pre">await</span></code>, <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code>
 constructs that are usually considered invalid syntax. Asynchronous code object
 marked with the <code class="docutils literal notranslate"><span class="pre">CO_COROUTINE</span></code> flag may then be returned.
 (Contributed by Matthias Bussonnier in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=34616">bpo-34616</a>)</p>
@@ -1150,14 +1150,14 @@ modules or loading DLLs using <a class="reference internal" href="../library/cty
 symlinks and directory junctions) has been delegated to the operating system.
 Specifically, <a class="reference internal" href="../library/os.html#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a> will now traverse anything supported by the
 operating system, while <a class="reference internal" href="../library/os.html#os.lstat" title="os.lstat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.lstat()</span></code></a> will only open reparse points that
-identify as “name surrogates” while others are opened as for <a class="reference internal" href="../library/os.html#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a>.
+identify as “name surrogates” while others are opened as for <code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code>.
 In all cases, <a class="reference internal" href="../library/os.html#os.stat_result.st_mode" title="os.stat_result.st_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">os.stat_result.st_mode</span></code></a> will only have <code class="docutils literal notranslate"><span class="pre">S_IFLNK</span></code> set for
 symbolic links and not other kinds of reparse points. To identify other kinds
 of reparse point, check the new <a class="reference internal" href="../library/os.html#os.stat_result.st_reparse_tag" title="os.stat_result.st_reparse_tag"><code class="xref py py-attr docutils literal notranslate"><span class="pre">os.stat_result.st_reparse_tag</span></code></a> attribute.</p>
 <p>On Windows, <a class="reference internal" href="../library/os.html#os.readlink" title="os.readlink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.readlink()</span></code></a> is now able to read directory junctions. Note
 that <a class="reference internal" href="../library/os.path.html#os.path.islink" title="os.path.islink"><code class="xref py py-func docutils literal notranslate"><span class="pre">islink()</span></code></a> will return <code class="docutils literal notranslate"><span class="pre">False</span></code> for directory junctions,
 and so code that checks <code class="docutils literal notranslate"><span class="pre">islink</span></code> first will continue to treat junctions as
-directories, while code that handles errors from <a class="reference internal" href="../library/os.html#os.readlink" title="os.readlink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.readlink()</span></code></a> may now
+directories, while code that handles errors from <code class="xref py py-func docutils literal notranslate"><span class="pre">os.readlink()</span></code> may now
 treat junctions as links.</p>
 <p>(Contributed by Steve Dower in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=37834">bpo-37834</a>.)</p>
 </section>
@@ -1333,14 +1333,14 @@ in a standardized and extensible format, and offers several other benefits.
 <h3>threading<a class="headerlink" href="#threading" title="Link to this heading">¶</a></h3>
 <p>Add a new <a class="reference internal" href="../library/threading.html#threading.excepthook" title="threading.excepthook"><code class="xref py py-func docutils literal notranslate"><span class="pre">threading.excepthook()</span></code></a> function which handles uncaught
 <a class="reference internal" href="../library/threading.html#threading.Thread.run" title="threading.Thread.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">threading.Thread.run()</span></code></a> exception. It can be overridden to control how
-uncaught <a class="reference internal" href="../library/threading.html#threading.Thread.run" title="threading.Thread.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">threading.Thread.run()</span></code></a> exceptions are handled.
+uncaught <code class="xref py py-meth docutils literal notranslate"><span class="pre">threading.Thread.run()</span></code> exceptions are handled.
 (Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1230540">bpo-1230540</a>.)</p>
 <p>Add a new <a class="reference internal" href="../library/threading.html#threading.get_native_id" title="threading.get_native_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">threading.get_native_id()</span></code></a> function and
 a <a class="reference internal" href="../library/threading.html#threading.Thread.native_id" title="threading.Thread.native_id"><code class="xref py py-data docutils literal notranslate"><span class="pre">native_id</span></code></a>
 attribute to the <a class="reference internal" href="../library/threading.html#threading.Thread" title="threading.Thread"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></a> class. These return the native
 integral Thread ID of the current thread assigned by the kernel.
 This feature is only available on certain platforms, see
-<a class="reference internal" href="../library/threading.html#threading.get_native_id" title="threading.get_native_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_native_id</span></code></a> for more information.
+<code class="xref py py-func docutils literal notranslate"><span class="pre">get_native_id</span></code> for more information.
 (Contributed by Jake Tesler in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=36084">bpo-36084</a>.)</p>
 </section>
 <section id="tokenize">
@@ -1518,7 +1518,7 @@ more efficiently.
 “fast-copy” means that the copying operation occurs within the kernel,
 avoiding the use of userspace buffers in Python as in
 “<code class="docutils literal notranslate"><span class="pre">outfd.write(infd.read())</span></code>”.
-On Windows <a class="reference internal" href="../library/shutil.html#shutil.copyfile" title="shutil.copyfile"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.copyfile()</span></code></a> uses a bigger default buffer size (1 MiB
+On Windows <code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.copyfile()</span></code> uses a bigger default buffer size (1 MiB
 instead of 16 KiB) and a <a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-func docutils literal notranslate"><span class="pre">memoryview()</span></code></a>-based variant of
 <a class="reference internal" href="../library/shutil.html#shutil.copyfileobj" title="shutil.copyfileobj"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.copyfileobj()</span></code></a> is used.
 The speedup for copying a 512 MiB file within the same partition is about
@@ -1529,8 +1529,8 @@ See <a class="reference internal" href="../library/shutil.html#shutil-platform-d
 <li><p><a class="reference internal" href="../library/shutil.html#shutil.copytree" title="shutil.copytree"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.copytree()</span></code></a> uses <a class="reference internal" href="../library/os.html#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.scandir()</span></code></a> function and all copy
 functions depending from it use cached <a class="reference internal" href="../library/os.html#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a> values. The speedup
 for copying a directory with 8000 files is around +9% on Linux, +20% on
-Windows and +30% on a Windows SMB share. Also the number of <a class="reference internal" href="../library/os.html#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a>
-syscalls is reduced by 38% making <a class="reference internal" href="../library/shutil.html#shutil.copytree" title="shutil.copytree"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.copytree()</span></code></a> especially faster
+Windows and +30% on a Windows SMB share. Also the number of <code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code>
+syscalls is reduced by 38% making <code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.copytree()</span></code> especially faster
 on network filesystems. (Contributed by Giampaolo Rodolà in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=33695">bpo-33695</a>.)</p></li>
 <li><p>The default protocol in the <a class="reference internal" href="../library/pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> module is now Protocol 4,
 first introduced in Python 3.4.  It offers better performance and smaller
@@ -1855,8 +1855,8 @@ function is no longer deprecated on Windows.
 (Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=37412">bpo-37412</a>.)</p></li>
 <li><p><a class="reference internal" href="../library/subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> can now use <a class="reference internal" href="../library/os.html#os.posix_spawn" title="os.posix_spawn"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.posix_spawn()</span></code></a> in some cases
 for better performance. On Windows Subsystem for Linux and QEMU User
-Emulation, the <a class="reference internal" href="../library/subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> constructor using
-<a class="reference internal" href="../library/os.html#os.posix_spawn" title="os.posix_spawn"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.posix_spawn()</span></code></a> no longer raises an exception on errors like
+Emulation, the <code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code> constructor using
+<code class="xref py py-func docutils literal notranslate"><span class="pre">os.posix_spawn()</span></code> no longer raises an exception on errors like
 “missing program”.  Instead the child process fails with a
 non-zero <a class="reference internal" href="../library/subprocess.html#subprocess.Popen.returncode" title="subprocess.Popen.returncode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">returncode</span></code></a>.
 (Contributed by Joannah Nanjekye and Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=35537">bpo-35537</a>.)</p></li>
@@ -1962,7 +1962,7 @@ containing the DLL or PYD file, and directories added with
 Specifically, <span class="target" id="index-22"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> and the current working directory are no longer
 used, and modifications to these will no longer have any effect on normal DLL
 resolution. If your application relies on these mechanisms, you should check
-for <a class="reference internal" href="../library/os.html#os.add_dll_directory" title="os.add_dll_directory"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_dll_directory()</span></code></a> and if it exists, use it to add your DLLs
+for <code class="xref py py-func docutils literal notranslate"><span class="pre">add_dll_directory()</span></code> and if it exists, use it to add your DLLs
 directory while loading your library. Note that Windows 7 users will need to
 ensure that Windows Update KB2533623 has been installed (this is also verified
 by the installer).
@@ -1974,7 +1974,7 @@ in <a class="reference external" href="https://bugs.python.org/issue?&#64;action
 constructor (<em>posonlyargcount</em>) to support positional-only arguments defined
 in <span class="target" id="index-23"></span><a class="pep reference external" href="https://peps.python.org/pep-0570/"><strong>PEP 570</strong></a>. The first argument (<em>argcount</em>) now represents the total
 number of positional arguments (including positional-only arguments). The new
-<code class="docutils literal notranslate"><span class="pre">replace()</span></code> method of <a class="reference internal" href="../library/types.html#types.CodeType" title="types.CodeType"><code class="xref py py-class docutils literal notranslate"><span class="pre">types.CodeType</span></code></a> can be used to make the code
+<code class="docutils literal notranslate"><span class="pre">replace()</span></code> method of <code class="xref py py-class docutils literal notranslate"><span class="pre">types.CodeType</span></code> can be used to make the code
 future-proof.</p></li>
 <li><p>The parameter <code class="docutils literal notranslate"><span class="pre">digestmod</span></code> for <a class="reference internal" href="../library/hmac.html#hmac.new" title="hmac.new"><code class="xref py py-func docutils literal notranslate"><span class="pre">hmac.new()</span></code></a> no longer uses the MD5 digest
 by default.</p></li>
@@ -2009,7 +2009,7 @@ It will be removed in 3.10 or 4.0.  Read <a class="reference internal" href="../
 Increasing the reference count of these type objects has been moved from
 <a class="reference internal" href="../c-api/type.html#c.PyType_GenericAlloc" title="PyType_GenericAlloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GenericAlloc()</span></code></a> to the more low-level functions,
 <a class="reference internal" href="../c-api/allocation.html#c.PyObject_Init" title="PyObject_Init"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Init()</span></code></a> and <code class="xref c c-macro docutils literal notranslate"><span class="pre">PyObject_INIT</span></code>.
-This makes types created through <a class="reference internal" href="../c-api/type.html#c.PyType_FromSpec" title="PyType_FromSpec"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_FromSpec()</span></code></a> behave like
+This makes types created through <code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_FromSpec()</span></code> behave like
 other classes in managed code.</p>
 <p><a class="reference internal" href="../c-api/typeobj.html#static-types"><span class="std std-ref">Statically allocated types</span></a> are not affected.</p>
 <p>For the vast majority of cases, there should be no side effect.
@@ -2072,7 +2072,7 @@ extension types across feature releases, anymore.  A <a class="reference interna
 exported by a third-party extension module is supposed to have all the
 slots expected in the current Python version, including
 <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a> (<a class="reference internal" href="../c-api/typeobj.html#c.Py_TPFLAGS_HAVE_FINALIZE" title="Py_TPFLAGS_HAVE_FINALIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_FINALIZE</span></code></a>
-is not checked anymore before reading <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a>).</p>
+is not checked anymore before reading <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code>).</p>
 <p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=32388">bpo-32388</a>.)</p>
 </li>
 <li><p>The functions <code class="xref c c-func docutils literal notranslate"><span class="pre">PyNode_AddChild()</span></code> and <code class="xref c c-func docutils literal notranslate"><span class="pre">PyParser_AddToken()</span></code> now accept

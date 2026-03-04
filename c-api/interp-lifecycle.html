@@ -297,7 +297,7 @@ and options. By default, these flags are controlled by <a class="reference inter
 options</span></a>.</p>
 <p>When a flag is set by an option, the value of the flag is the number of times
 that the option was set. For example, <code class="docutils literal notranslate"><span class="pre">-b</span></code> sets <a class="reference internal" href="#c.Py_BytesWarningFlag" title="Py_BytesWarningFlag"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_BytesWarningFlag</span></code></a>
-to 1 and <code class="docutils literal notranslate"><span class="pre">-bb</span></code> sets <a class="reference internal" href="#c.Py_BytesWarningFlag" title="Py_BytesWarningFlag"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_BytesWarningFlag</span></code></a> to 2.</p>
+to 1 and <code class="docutils literal notranslate"><span class="pre">-bb</span></code> sets <code class="xref c c-data docutils literal notranslate"><span class="pre">Py_BytesWarningFlag</span></code> to 2.</p>
 <dl class="c var">
 <dt class="sig sig-object c" id="c.Py_BytesWarningFlag">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_BytesWarningFlag</span></span></span><a class="headerlink" href="#c.Py_BytesWarningFlag" title="Link to this definition">¶</a><br /></dt>
@@ -305,7 +305,7 @@ to 1 and <code class="docutils literal notranslate"><span class="pre">-bb</span>
 <a class="reference internal" href="init_config.html#c.PyConfig.bytes_warning" title="PyConfig.bytes_warning"><code class="xref c c-member docutils literal notranslate"><span class="pre">PyConfig.bytes_warning</span></code></a> should be used instead, see <a class="reference internal" href="init_config.html#init-config"><span class="std std-ref">Python
 Initialization Configuration</span></a>.</p>
 <p>Issue a warning when comparing <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> with
-<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> with <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.  Issue an error if greater
+<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> with <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.  Issue an error if greater
 or equal to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-b"><code class="xref std std-option docutils literal notranslate"><span class="pre">-b</span></code></a> option.</p>
 <div class="deprecated-removed">
@@ -476,7 +476,7 @@ variable is set to a non-empty string.</p>
 <a class="reference internal" href="init_config.html#init-config"><span class="std std-ref">Python Initialization Configuration</span></a>.</p>
 <p>Disable the import of the module <a class="reference internal" href="../library/site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> and the site-dependent
 manipulations of <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> that it entails.  Also disable these
-manipulations if <a class="reference internal" href="../library/site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> is explicitly imported later (call
+manipulations if <code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code> is explicitly imported later (call
 <a class="reference internal" href="../library/site.html#site.main" title="site.main"><code class="xref py py-func docutils literal notranslate"><span class="pre">site.main()</span></code></a> if you want them to be triggered).</p>
 <p>Set by the <a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal notranslate"><span class="pre">-S</span></code></a> option.</p>
 <div class="deprecated-removed">
@@ -628,8 +628,8 @@ the returned status structure.</p>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.6.</em><p>Undo all initializations made by <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> and subsequent use of
 Python/C API functions, and destroy all sub-interpreters (see
 <a class="reference internal" href="subinterpreters.html#c.Py_NewInterpreter" title="Py_NewInterpreter"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_NewInterpreter()</span></code></a> below) that were created and not yet destroyed since
-the last call to <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>.  This is a no-op when called for a second
-time (without calling <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> again first).</p>
+the last call to <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code>.  This is a no-op when called for a second
+time (without calling <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code> again first).</p>
 <p>Since this is the reverse of <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>, it should be called
 in the same thread with the same interpreter active.  That means
 the main thread and the main interpreter.
@@ -659,7 +659,7 @@ freed.  Interned strings will all be deallocated regardless of their reference c
 Some memory allocated by extension modules may not be freed.  Some extensions may not
 work properly if their initialization routine is called more than once; this can
 happen if an application calls <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a> and <a class="reference internal" href="#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a>
-more than once.  <a class="reference internal" href="#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> must not be called recursively from
+more than once.  <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code> must not be called recursively from
 within itself.  Therefore, it must not be called by any code that may be run
 as part of the interpreter shutdown process, such as <a class="reference internal" href="../library/atexit.html#module-atexit" title="atexit: Register and execute cleanup functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">atexit</span></code></a>
 handlers, object finalizers, or any code that may be run while flushing the
@@ -789,7 +789,7 @@ blocked thread, or otherwise waits on the blocked thread.</p>
 <p>Gross? Yes. This prevents random crashes and/or unexpectedly skipped C++
 finalizations further up the call stack when such threads were forcibly exited
 here in CPython 3.13 and earlier. The CPython runtime <a class="reference internal" href="../glossary.html#term-thread-state"><span class="xref std std-term">thread state</span></a> C APIs
-have never had any error reporting or handling expectations at <a class="reference internal" href="../glossary.html#term-thread-state"><span class="xref std std-term">thread state</span></a>
+have never had any error reporting or handling expectations at <span class="xref std std-term">thread state</span>
 attachment time that would’ve allowed for graceful exit from this situation. Changing that
 would require new stable C APIs and rewriting the majority of C code in the
 CPython ecosystem to use those with error handling.</p>
@@ -893,7 +893,7 @@ similar to those passed to the program’s <code class="xref c c-func docutils l
 difference that the first entry should refer to the script file to be
 executed rather than the executable hosting the Python interpreter.  If there
 isn’t a script that will be run, the first entry in <em>argv</em> can be an empty
-string.  If this function fails to initialize <a class="reference internal" href="../library/sys.html#sys.argv" title="sys.argv"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.argv</span></code></a>, a fatal
+string.  If this function fails to initialize <code class="xref py py-data docutils literal notranslate"><span class="pre">sys.argv</span></code>, a fatal
 condition is signalled using <a class="reference internal" href="sys.html#c.Py_FatalError" title="Py_FatalError"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FatalError()</span></code></a>.</p>
 <p>If <em>updatepath</em> is zero, this is all the function does.  If <em>updatepath</em>
 is non-zero, the function also modifies <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> according to the

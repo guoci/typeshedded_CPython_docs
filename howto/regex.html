@@ -753,7 +753,7 @@ Flags are available in the <a class="reference internal" href="../library/re.htm
 familiar with Perl’s pattern modifiers, the one-letter forms use the same
 letters; the short form of <a class="reference internal" href="../library/re.html#re.VERBOSE" title="re.VERBOSE"><code class="xref py py-const docutils literal notranslate"><span class="pre">re.VERBOSE</span></code></a> is <a class="reference internal" href="../library/re.html#re.X" title="re.X"><code class="xref py py-const docutils literal notranslate"><span class="pre">re.X</span></code></a>, for example.)
 Multiple flags can be specified by bitwise OR-ing them; <code class="docutils literal notranslate"><span class="pre">re.I</span> <span class="pre">|</span> <span class="pre">re.M</span></code> sets
-both the <a class="reference internal" href="../library/re.html#re.I" title="re.I"><code class="xref py py-const docutils literal notranslate"><span class="pre">I</span></code></a> and <a class="reference internal" href="../library/re.html#re.M" title="re.M"><code class="xref py py-const docutils literal notranslate"><span class="pre">M</span></code></a> flags, for example.</p>
+both the <code class="xref py py-const docutils literal notranslate"><span class="pre">I</span></code> and <a class="reference internal" href="../library/re.html#re.M" title="re.M"><code class="xref py py-const docutils literal notranslate"><span class="pre">M</span></code></a> flags, for example.</p>
 <p>Here’s a table of the available flags, followed by a more detailed explanation
 of each one.</p>
 <table class="docutils align-default">
@@ -933,7 +933,7 @@ not <code class="docutils literal notranslate"><span class="pre">'Cro'</span></c
 as in <code class="docutils literal notranslate"><span class="pre">[|]</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">^</span></code></dt><dd><p>Matches at the beginning of lines.  Unless the <a class="reference internal" href="../library/re.html#re.MULTILINE" title="re.MULTILINE"><code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code></a> flag has been
-set, this will only match at the beginning of the string.  In <a class="reference internal" href="../library/re.html#re.MULTILINE" title="re.MULTILINE"><code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code></a>
+set, this will only match at the beginning of the string.  In <code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code>
 mode, this also matches immediately after each newline within the string.</p>
 <p>For example, if you wish to match the word <code class="docutils literal notranslate"><span class="pre">From</span></code> only at the beginning of a
 line, the RE to use is <code class="docutils literal notranslate"><span class="pre">^From</span></code>.</p>
@@ -959,7 +959,7 @@ or any location followed by a newline character.</p>
 as in  <code class="docutils literal notranslate"><span class="pre">[$]</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">\A</span></code></dt><dd><p>Matches only at the start of the string.  When not in <a class="reference internal" href="../library/re.html#re.MULTILINE" title="re.MULTILINE"><code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code></a> mode,
-<code class="docutils literal notranslate"><span class="pre">\A</span></code> and <code class="docutils literal notranslate"><span class="pre">^</span></code> are effectively the same.  In <a class="reference internal" href="../library/re.html#re.MULTILINE" title="re.MULTILINE"><code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code></a> mode, they’re
+<code class="docutils literal notranslate"><span class="pre">\A</span></code> and <code class="docutils literal notranslate"><span class="pre">^</span></code> are effectively the same.  In <code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code> mode, they’re
 different: <code class="docutils literal notranslate"><span class="pre">\A</span></code> still matches only at the beginning of the string, but <code class="docutils literal notranslate"><span class="pre">^</span></code>
 may match at any location inside the string that follows a newline character.</p>
 </dd>
@@ -1429,7 +1429,7 @@ expect them to.  This section will point out some of the most common pitfalls.</
 <section id="use-string-methods">
 <h3>Use String Methods<a class="headerlink" href="#use-string-methods" title="Link to this heading">¶</a></h3>
 <p>Sometimes using the <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a> module is a mistake.  If you’re matching a fixed
-string, or a single character class, and you’re not using any <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a> features
+string, or a single character class, and you’re not using any <code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code> features
 such as the <a class="reference internal" href="../library/re.html#re.IGNORECASE" title="re.IGNORECASE"><code class="xref py py-const docutils literal notranslate"><span class="pre">IGNORECASE</span></code></a> flag, then the full power of regular expressions
 may not be required. Strings have several methods for performing operations with
 fixed strings and they’re usually much faster, because the implementation is a

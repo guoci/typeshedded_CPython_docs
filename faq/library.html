@@ -438,8 +438,8 @@ using curses, but curses is a fairly large module to learn.</p>
 <section id="how-do-i-program-using-threads">
 <h3><a class="toc-backref" href="#id14" role="doc-backlink">How do I program using threads?</a><a class="headerlink" href="#how-do-i-program-using-threads" title="Link to this heading">¶</a></h3>
 <p>Be sure to use the <a class="reference internal" href="../library/threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> module and not the <a class="reference internal" href="../library/_thread.html#module-_thread" title="_thread: Low-level threading API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">_thread</span></code></a> module.
-The <a class="reference internal" href="../library/threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> module builds convenient abstractions on top of the
-low-level primitives provided by the <a class="reference internal" href="../library/_thread.html#module-_thread" title="_thread: Low-level threading API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">_thread</span></code></a> module.</p>
+The <code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code> module builds convenient abstractions on top of the
+low-level primitives provided by the <code class="xref py py-mod docutils literal notranslate"><span class="pre">_thread</span></code> module.</p>
 </section>
 <section id="none-of-my-threads-seem-to-run-why">
 <h3><a class="toc-backref" href="#id15" role="doc-backlink">None of my threads seem to run: why?</a><a class="headerlink" href="#none-of-my-threads-seem-to-run-why" title="Link to this heading">¶</a></h3>
@@ -702,7 +702,7 @@ and <code class="docutils literal notranslate"><span class="pre">f.read()</span>
 <p><a class="reference internal" href="../library/os.html#os.read" title="os.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.read()</span></code></a> is a low-level function which takes a file descriptor, a small
 integer representing the opened file.  <a class="reference internal" href="../library/os.html#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen()</span></code></a> creates a high-level
 file object, the same type returned by the built-in <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function.
-Thus, to read <em>n</em> bytes from a pipe <em>p</em> created with <a class="reference internal" href="../library/os.html#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen()</span></code></a>, you need to
+Thus, to read <em>n</em> bytes from a pipe <em>p</em> created with <code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen()</span></code>, you need to
 use <code class="docutils literal notranslate"><span class="pre">p.read(n)</span></code>.</p>
 </section>
 <section id="how-do-i-access-the-serial-rs232-port">
@@ -810,7 +810,7 @@ have to check what’s returned on your system.</p>
 <p>You can use the <a class="reference internal" href="../library/socket.html#socket.socket.connect_ex" title="socket.socket.connect_ex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect_ex()</span></code></a> method
 to avoid creating an exception.
 It will just return the errno value.
-To poll, you can call <a class="reference internal" href="../library/socket.html#socket.socket.connect_ex" title="socket.socket.connect_ex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect_ex()</span></code></a> again later
+To poll, you can call <code class="xref py py-meth docutils literal notranslate"><span class="pre">connect_ex()</span></code> again later
 – <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">errno.EISCONN</span></code> indicate that you’re connected – or you can pass this
 socket to <a class="reference internal" href="../library/select.html#select.select" title="select.select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select.select()</span></code></a> to check if it’s writable.</p>
 <div class="admonition note">

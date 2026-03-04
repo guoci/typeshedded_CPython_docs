@@ -604,8 +604,8 @@ interfaces by passing <a class="reference internal" href="../using/cmdline.html#
 shorthand for <code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span> <span class="pre">default</span></code>) or setting <code class="docutils literal notranslate"><span class="pre">PYTHONWARNINGS=default</span></code> in
 the environment. This enables default handling for all warnings, including those
 that are ignored by default. To change what action is taken for encountered
-warnings you can change what argument is passed to <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> (e.g.
-<code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span> <span class="pre">error</span></code>). See the <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> flag for more details on what is
+warnings you can change what argument is passed to <code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code> (e.g.
+<code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span> <span class="pre">error</span></code>). See the <code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code> flag for more details on what is
 possible.</p>
 </section>
 <section id="available-functions">
@@ -650,7 +650,7 @@ possible.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/_warnings.pyi#L10">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/_warnings.pyi#L10">typeshed</a>)</p>
 <p>Issue a warning, or maybe ignore it or raise an exception.  The <em>category</em>
 argument, if given, must be a <a class="reference internal" href="#warning-categories"><span class="std std-ref">warning category class</span></a>; it
 defaults to <a class="reference internal" href="exceptions.html#UserWarning" title="UserWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UserWarning</span></code></a>.  Alternatively, <em>message</em> can be a <a class="reference internal" href="exceptions.html#Warning" title="Warning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Warning</span></code></a> instance,
@@ -748,12 +748,12 @@ outside of <code class="docutils literal notranslate"><span class="pre">example<
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/_warnings.pyi#L35">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/_warnings.pyi#L35">typeshed</a>)</p>
 <p>This is a low-level interface to the functionality of <a class="reference internal" href="#warnings.warn" title="warnings.warn"><code class="xref py py-func docutils literal notranslate"><span class="pre">warn()</span></code></a>, passing in
 explicitly the message, category, filename and line number, and optionally
 other arguments.
 <em>message</em> must be a string and <em>category</em> a subclass of <a class="reference internal" href="exceptions.html#Warning" title="Warning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Warning</span></code></a> or
-<em>message</em> may be a <a class="reference internal" href="exceptions.html#Warning" title="Warning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Warning</span></code></a> instance, in which case <em>category</em> will be
+<em>message</em> may be a <code class="xref py py-exc docutils literal notranslate"><span class="pre">Warning</span></code> instance, in which case <em>category</em> will be
 ignored.</p>
 <p><em>module</em>, if supplied, should be the module name.
 If no module is passed, the module regular expression in
@@ -800,13 +800,13 @@ module names created from the path, not only the path itself.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/warnings.pyi#L32">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/warnings.pyi#L32">typeshed</a>)</p>
 <p>Write a warning to a file.  The default implementation calls
 <code class="docutils literal notranslate"><span class="pre">formatwarning(message,</span> <span class="pre">category,</span> <span class="pre">filename,</span> <span class="pre">lineno,</span> <span class="pre">line)</span></code> and writes the
 resulting string to <em>file</em>, which defaults to <a class="reference internal" href="sys.html#sys.stderr" title="sys.stderr"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a>.  You may replace
 this function with any callable by assigning to <code class="docutils literal notranslate"><span class="pre">warnings.showwarning</span></code>.
 <em>line</em> is a line of source code to be included in the warning
-message; if <em>line</em> is not supplied, <a class="reference internal" href="#warnings.showwarning" title="warnings.showwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code></a> will
+message; if <em>line</em> is not supplied, <code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code> will
 try to read the line specified by <em>filename</em> and <em>lineno</em>.</p>
 </dd></dl>
 
@@ -825,11 +825,11 @@ try to read the line specified by <em>filename</em> and <em>lineno</em>.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/warnings.pyi#L40">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/warnings.pyi#L40">typeshed</a>)</p>
 <p>Format a warning the standard way.  This returns a string which may contain
 embedded newlines and ends in a newline.  <em>line</em> is a line of source code to
 be included in the warning message; if <em>line</em> is not supplied,
-<a class="reference internal" href="#warnings.formatwarning" title="warnings.formatwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">formatwarning()</span></code></a> will try to read the line specified by <em>filename</em> and
+<code class="xref py py-func docutils literal notranslate"><span class="pre">formatwarning()</span></code> will try to read the line specified by <em>filename</em> and
 <em>lineno</em>.</p>
 </dd></dl>
 
@@ -860,7 +860,7 @@ be included in the warning message; if <em>line</em> is not supplied,
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/warnings.pyi#L43">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/warnings.pyi#L43">typeshed</a>)</p>
 <p>Insert an entry into the list of <a class="reference internal" href="#warning-filter"><span class="std std-ref">warnings filter specifications</span></a>.  The entry is inserted at the front by default; if
 <em>append</em> is true, it is inserted at the end.  This checks the types of the
 arguments, compiles the <em>message</em> and <em>module</em> regular expressions, and
@@ -884,7 +884,7 @@ everything.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/warnings.pyi#L46">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/warnings.pyi#L46">typeshed</a>)</p>
 <p>Insert a simple entry into the list of <a class="reference internal" href="#warning-filter"><span class="std std-ref">warnings filter specifications</span></a>.  The meaning of the function parameters is as for
 <a class="reference internal" href="#warnings.filterwarnings" title="warnings.filterwarnings"><code class="xref py py-func docutils literal notranslate"><span class="pre">filterwarnings()</span></code></a>, but regular expressions are not needed as the filter
 inserted always matches any message in any module as long as the category and
@@ -896,7 +896,7 @@ line number match.</p>
 <span class="sig-prename descclassname"><span class="pre">warnings.</span></span><span class="sig-name descname"><span class="pre">resetwarnings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#warnings.resetwarnings" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">warnings.</span></span><span class="sig-name descname"><span class="pre">resetwarnings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/warnings.pyi#L47">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/warnings.pyi#L47">typeshed</a>)</p>
 <p>Reset the warnings filter.  This discards the effect of all previous calls to
 <a class="reference internal" href="#warnings.filterwarnings" title="warnings.filterwarnings"><code class="xref py py-func docutils literal notranslate"><span class="pre">filterwarnings()</span></code></a>, including that of the <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal notranslate"><span class="pre">-W</span></code></a> command line options
 and calls to <a class="reference internal" href="#warnings.simplefilter" title="warnings.simplefilter"><code class="xref py py-func docutils literal notranslate"><span class="pre">simplefilter()</span></code></a>.</p>
@@ -917,7 +917,7 @@ and calls to <a class="reference internal" href="#warnings.simplefilter" title="
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">warnings.deprecated</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/warnings.pyi#L121">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/warnings.pyi#L121">typeshed</a>)</p>
 <p>Decorator to indicate that a class, function or overload is deprecated.</p>
 <p>When this decorator is applied to an object,
 deprecation warnings may be emitted at runtime when the object is used.
@@ -1023,16 +1023,16 @@ for the attribute to exist on the overload as returned by
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#warnings.catch_warnings" title="warnings.catch_warnings"><span class="pre">catch_warnings</span></a><span class="p"><span class="pre">[</span></span><span class="pre">_W_co</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/0e16ea3/stdlib/warnings.pyi#L70">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/b0401bc/stdlib/warnings.pyi#L70">typeshed</a>)</p>
 <blockquote>
 <div><p>A context manager that copies and, upon exit, restores the warnings filter
 and the <a class="reference internal" href="#warnings.showwarning" title="warnings.showwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code></a> function.
 If the <em>record</em> argument is <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> (the default) the context manager
 returns <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code></a> on entry. If <em>record</em> is <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>, a list is
 returned that is progressively populated with objects as seen by a custom
-<a class="reference internal" href="#warnings.showwarning" title="warnings.showwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code></a> function (which also suppresses output to <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code>).
+<code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code> function (which also suppresses output to <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code>).
 Each object in the list has attributes with the same names as the arguments to
-<a class="reference internal" href="#warnings.showwarning" title="warnings.showwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code></a>.</p>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code>.</p>
 <p>The <em>module</em> argument takes a module that will be used instead of the
 module returned when you import <code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code> whose filter will be
 protected. This argument exists primarily for testing the <code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code>
@@ -1045,7 +1045,7 @@ parameters.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See <a class="reference internal" href="#warning-concurrent-safe"><span class="std std-ref">Concurrent safety of Context Managers</span></a> for details on the
-concurrency-safety of the <a class="reference internal" href="#warnings.catch_warnings" title="warnings.catch_warnings"><code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code></a> context manager when
+concurrency-safety of the <code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code> context manager when
 used in programs using multiple threads or async functions.</p>
 </div>
 <div class="versionchanged">
@@ -1068,12 +1068,12 @@ to true for free-threaded builds and false otherwise.</p>
 <a class="reference internal" href="#warnings.catch_warnings" title="warnings.catch_warnings"><code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code></a> will modify the global attributes of the
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code> module.  This is not safe if used within a concurrent program
 (using multiple threads or using asyncio coroutines).  For example, if two
-or more threads use the <a class="reference internal" href="#warnings.catch_warnings" title="warnings.catch_warnings"><code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code></a> class at the same time, the
+or more threads use the <code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code> class at the same time, the
 behavior is undefined.</p>
 <p>If the flag is true, <a class="reference internal" href="#warnings.catch_warnings" title="warnings.catch_warnings"><code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code></a> will not modify global
 attributes and will instead use a <a class="reference internal" href="contextvars.html#contextvars.ContextVar" title="contextvars.ContextVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextVar</span></code></a> to
 store the newly established warning filtering state.  A context variable
-provides thread-local storage and it makes the use of <a class="reference internal" href="#warnings.catch_warnings" title="warnings.catch_warnings"><code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code></a>
+provides thread-local storage and it makes the use of <code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code>
 thread-safe.</p>
 <p>The <em>record</em> parameter of the context handler also behaves differently
 depending on the value of the flag.  When <em>record</em> is true and the flag is
@@ -1081,7 +1081,7 @@ false, the context manager works by replacing and then later restoring the
 module’s <a class="reference internal" href="#warnings.showwarning" title="warnings.showwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code></a> function.  That is not concurrent-safe.</p>
 <p>When <em>record</em> is true and the flag is true, the <a class="reference internal" href="#warnings.showwarning" title="warnings.showwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code></a> function
 is not replaced.  Instead, the recording status is indicated by an internal
-property in the context variable.  In this case, the <a class="reference internal" href="#warnings.showwarning" title="warnings.showwarning"><code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code></a>
+property in the context variable.  In this case, the <code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code>
 function will not be restored when exiting the context handler.</p>
 <p>The <a class="reference internal" href="sys.html#sys.flags.context_aware_warnings" title="sys.flags.context_aware_warnings"><code class="xref py py-data docutils literal notranslate"><span class="pre">context_aware_warnings</span></code></a> flag can be set the <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span>
 <span class="pre">context_aware_warnings</span></code></a> command-line option or by the
@@ -1098,7 +1098,7 @@ it.  When true, the context established by <a class="reference internal" href="#
 in one thread will also apply to new threads started by it.  If false,
 new threads will start with an empty warnings context variable,
 meaning that any filtering that was established by a
-<a class="reference internal" href="#warnings.catch_warnings" title="warnings.catch_warnings"><code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code></a> context manager will no longer be active.</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">catch_warnings</span></code> context manager will no longer be active.</p>
 </div>
 </div></blockquote>
 <div class="versionchanged">

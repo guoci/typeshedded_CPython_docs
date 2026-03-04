@@ -227,7 +227,7 @@ still recognized by <a class="reference internal" href="library/functions.html#i
 data structures (in the <a class="reference internal" href="library/collections.abc.html#module-collections.abc" title="collections.abc: Abstract base classes for containers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections.abc</span></code></a> module), numbers (in the
 <a class="reference internal" href="library/numbers.html#module-numbers" title="numbers: Numeric abstract base classes (Complex, Real, Integral, etc.)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">numbers</span></code></a> module), streams (in the <a class="reference internal" href="library/io.html#module-io" title="io: Core tools for working with streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a> module), import finders
 and loaders (in the <a class="reference internal" href="library/importlib.html#module-importlib.abc" title="importlib.abc: Abstract base classes related to import"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.abc</span></code></a> module).  You can create your own
-ABCs with the <a class="reference internal" href="library/abc.html#module-abc" title="abc: Abstract base classes according to :pep:`3119`."><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code></a> module.</p>
+ABCs with the <code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code> module.</p>
 </dd>
 <dt id="term-annotate-function">annotate function<a class="headerlink" href="#term-annotate-function" title="Link to this term">¶</a></dt><dd><p>A function that can be called to retrieve the <a class="reference internal" href="#term-annotation"><span class="xref std std-term">annotations</span></a>
 of an object. This function is accessible as the <a class="reference internal" href="reference/datamodel.html#object.__annotate__" title="object.__annotate__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__annotate__</span></code></a>
@@ -307,9 +307,9 @@ Must return an <a class="reference internal" href="#term-asynchronous-iterator">
 <a class="reference internal" href="reference/datamodel.html#object.__aiter__" title="object.__aiter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aiter__()</span></code></a> method.  Introduced by <span class="target" id="index-8"></span><a class="pep reference external" href="https://peps.python.org/pep-0492/"><strong>PEP 492</strong></a>.</p>
 </dd>
 <dt id="term-asynchronous-iterator">asynchronous iterator<a class="headerlink" href="#term-asynchronous-iterator" title="Link to this term">¶</a></dt><dd><p>An object that implements the <a class="reference internal" href="reference/datamodel.html#object.__aiter__" title="object.__aiter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aiter__()</span></code></a> and <a class="reference internal" href="reference/datamodel.html#object.__anext__" title="object.__anext__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code></a>
-methods.  <a class="reference internal" href="reference/datamodel.html#object.__anext__" title="object.__anext__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code></a> must return an <a class="reference internal" href="#term-awaitable"><span class="xref std std-term">awaitable</span></a> object.
+methods.  <code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code> must return an <a class="reference internal" href="#term-awaitable"><span class="xref std std-term">awaitable</span></a> object.
 <a class="reference internal" href="reference/compound_stmts.html#async-for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code></a> resolves the awaitables returned by an asynchronous
-iterator’s <a class="reference internal" href="reference/datamodel.html#object.__anext__" title="object.__anext__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code></a> method until it raises a
+iterator’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code> method until it raises a
 <a class="reference internal" href="library/exceptions.html#StopAsyncIteration" title="StopAsyncIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopAsyncIteration</span></code></a> exception.  Introduced by <span class="target" id="index-9"></span><a class="pep reference external" href="https://peps.python.org/pep-0492/"><strong>PEP 492</strong></a>.</p>
 </dd>
 <dt id="term-atomic-operation">atomic operation<a class="headerlink" href="#term-atomic-operation" title="Link to this term">¶</a></dt><dd><p>An operation that appears to execute as a single, indivisible step: no
@@ -370,7 +370,7 @@ remove the last <a class="reference internal" href="#term-strong-reference"><spa
 recommended to convert it to a <a class="reference internal" href="#term-strong-reference"><span class="xref std std-term">strong reference</span></a> in-place, except
 when the object cannot be destroyed before the last usage of the borrowed
 reference. The <a class="reference internal" href="c-api/refcounting.html#c.Py_NewRef" title="Py_NewRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_NewRef()</span></code></a> function can be used to create a new
-<a class="reference internal" href="#term-strong-reference"><span class="xref std std-term">strong reference</span></a>.</p>
+<span class="xref std std-term">strong reference</span>.</p>
 </dd>
 <dt id="term-bytes-like-object">bytes-like object<a class="headerlink" href="#term-bytes-like-object" title="Link to this term">¶</a></dt><dd><p>An object that supports the <a class="reference internal" href="c-api/buffer.html#bufferobjects"><span class="std std-ref">Buffer Protocol</span></a> and can
 export a C-<a class="reference internal" href="#term-contiguous"><span class="xref std std-term">contiguous</span></a> buffer. This includes all <a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>,
@@ -381,11 +381,11 @@ compression, saving to a binary file, and sending over a socket.</p>
 <p>Some operations need the binary data to be mutable.  The documentation
 often refers to these as “read-write bytes-like objects”.  Example
 mutable buffer objects include <a class="reference internal" href="library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> and a
-<a class="reference internal" href="library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a> of a <a class="reference internal" href="library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>.
+<a class="reference internal" href="library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a> of a <code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code>.
 Other operations require the binary data to be stored in
 immutable objects (“read-only bytes-like objects”); examples
-of these include <a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> and a <a class="reference internal" href="library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a>
-of a <a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object.</p>
+of these include <a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> and a <code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code>
+of a <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> object.</p>
 </dd>
 <dt id="term-bytecode">bytecode<a class="headerlink" href="#term-bytecode" title="Link to this term">¶</a></dt><dd><p>Python source code is compiled into bytecode, the internal representation
 of a Python program in the CPython interpreter.  The bytecode is also
@@ -543,7 +543,7 @@ both threads will wait indefinitely.  In Python this often arises from
 acquiring multiple locks in conflicting orders or from circular
 join/await dependencies.  Deadlocks can be avoided by always acquiring
 multiple <a class="reference internal" href="#term-lock"><span class="xref std std-term">locks</span></a> in a consistent order.  See also
-<a class="reference internal" href="#term-lock"><span class="xref std std-term">lock</span></a> and <a class="reference internal" href="#term-reentrant"><span class="xref std std-term">reentrant</span></a>.</p>
+<span class="xref std std-term">lock</span> and <a class="reference internal" href="#term-reentrant"><span class="xref std std-term">reentrant</span></a>.</p>
 </dd>
 <dt id="term-decorator">decorator<a class="headerlink" href="#term-decorator" title="Link to this term">¶</a></dt><dd><p>A function returning another function, usually applied as a function
 transformation using the <code class="docutils literal notranslate"><span class="pre">&#64;wrapper</span></code> syntax.  Common examples for
@@ -649,7 +649,7 @@ etc.).  File objects are also called <em class="dfn">file-like objects</em> or
 <em class="dfn">streams</em>.</p>
 <p>There are actually three categories of file objects: raw
 <a class="reference internal" href="#term-binary-file"><span class="xref std std-term">binary files</span></a>, buffered
-<a class="reference internal" href="#term-binary-file"><span class="xref std std-term">binary files</span></a> and <a class="reference internal" href="#term-text-file"><span class="xref std std-term">text files</span></a>.
+<span class="xref std std-term">binary files</span> and <a class="reference internal" href="#term-text-file"><span class="xref std std-term">text files</span></a>.
 Their interfaces are defined in the <a class="reference internal" href="library/io.html#module-io" title="io: Core tools for working with streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a> module.  The canonical
 way to create a file object is by using the <a class="reference internal" href="library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function.</p>
 </dd>
@@ -694,7 +694,7 @@ configured using the <a class="reference internal" href="using/configure.html#cm
 variable is any variable used in a namespace which is not a local variable in that
 namespace. See <a class="reference internal" href="#term-closure-variable"><span class="xref std std-term">closure variable</span></a> for an example.
 Pragmatically, due to the name of the <a class="reference internal" href="reference/datamodel.html#codeobject.co_freevars" title="codeobject.co_freevars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">codeobject.co_freevars</span></code></a> attribute,
-the term is also sometimes used as a synonym for <a class="reference internal" href="#term-closure-variable"><span class="xref std std-term">closure variable</span></a>.</p>
+the term is also sometimes used as a synonym for <span class="xref std std-term">closure variable</span>.</p>
 </dd>
 <dt id="term-function">function<a class="headerlink" href="#term-function" title="Link to this term">¶</a></dt><dd><p>A series of statements which returns some value to a caller. It can also
 be passed zero or more <a class="reference internal" href="#term-argument"><span class="xref std std-term">arguments</span></a> which may be used in
@@ -704,7 +704,7 @@ and the <a class="reference internal" href="reference/compound_stmts.html#functi
 <dt id="term-function-annotation">function annotation<a class="headerlink" href="#term-function-annotation" title="Link to this term">¶</a></dt><dd><p>An <a class="reference internal" href="#term-annotation"><span class="xref std std-term">annotation</span></a> of a function parameter or return value.</p>
 <p>Function annotations are usually used for
 <a class="reference internal" href="#term-type-hint"><span class="xref std std-term">type hints</span></a>: for example, this function is expected to take two
-<a class="reference internal" href="library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> arguments and is also expected to have an <a class="reference internal" href="library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>
+<a class="reference internal" href="library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> arguments and is also expected to have an <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>
 return value:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_two_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -901,7 +901,7 @@ needed (<a class="reference internal" href="library/functions.html#zip" title="z
 as an argument to the built-in function <a class="reference internal" href="library/functions.html#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a>, it returns an
 iterator for the object.  This iterator is good for one pass over the set
 of values.  When using iterables, it is usually not necessary to call
-<a class="reference internal" href="library/functions.html#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a> or deal with iterator objects yourself.  The <a class="reference internal" href="reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code> or deal with iterator objects yourself.  The <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code>
 statement does that automatically for you, creating a temporary unnamed
 variable to hold the iterator for the duration of the loop.  See also
 <a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>, <a class="reference internal" href="#term-sequence"><span class="xref std std-term">sequence</span></a>, and <a class="reference internal" href="#term-generator"><span class="xref std std-term">generator</span></a>.</p>
@@ -911,7 +911,7 @@ variable to hold the iterator for the duration of the loop.  See also
 <a class="reference internal" href="library/functions.html#next" title="next"><code class="xref py py-func docutils literal notranslate"><span class="pre">next()</span></code></a>) return successive items in the stream.  When no more data
 are available a <a class="reference internal" href="library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception is raised instead.  At this
 point, the iterator object is exhausted and any further calls to its
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code> method just raise <a class="reference internal" href="library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> again.  Iterators
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code> method just raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code> again.  Iterators
 are required to have an <a class="reference internal" href="library/stdtypes.html#iterator.__iter__" title="iterator.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method that returns the iterator
 object itself so every iterator is also iterable and may be used in most
 places where other iterables are accepted.  One notable exception is code
@@ -988,7 +988,7 @@ module provides <a class="reference internal" href="library/threading.html#threa
 to prevent <a class="reference internal" href="#term-race-condition"><span class="xref std std-term">race conditions</span></a> and ensure
 <a class="reference internal" href="#term-thread-safe"><span class="xref std std-term">thread-safe</span></a> access to shared data.  Alternative design patterns
 to locks exist such as queues, producer/consumer patterns, and
-thread-local state. See also <a class="reference internal" href="#term-deadlock"><span class="xref std std-term">deadlock</span></a>, and <a class="reference internal" href="#term-reentrant"><span class="xref std std-term">reentrant</span></a>.</p>
+thread-local state. See also <a class="reference internal" href="#term-deadlock"><span class="xref std std-term">deadlock</span></a>, and <span class="xref std std-term">reentrant</span>.</p>
 </dd>
 <dt id="term-lock-free">lock-free<a class="headerlink" href="#term-lock-free" title="Link to this term">¶</a></dt><dd><p>An operation that does not acquire any <a class="reference internal" href="#term-lock"><span class="xref std std-term">lock</span></a> and uses atomic CPU
 instructions to ensure correctness. Lock-free operations can execute
@@ -1115,7 +1115,7 @@ Otherwise, it is recommended to use a <a class="reference internal" href="#term-
 processor, as opposed to code that is interpreted or runs in a virtual
 machine.  In the context of Python, native code typically refers to
 C, C++, Rust or Fortran code in <a class="reference internal" href="#term-extension-module"><span class="xref std std-term">extension modules</span></a>
-that can be called from Python.  See also <a class="reference internal" href="#term-extension-module"><span class="xref std std-term">extension module</span></a>.</p>
+that can be called from Python.  See also <span class="xref std std-term">extension module</span>.</p>
 </dd>
 <dt id="term-nested-scope">nested scope<a class="headerlink" href="#term-nested-scope" title="Link to this term">¶</a></dt><dd><p>The ability to refer to a variable in an enclosing definition.  For
 instance, a function defined inside another function can refer to
@@ -1177,7 +1177,7 @@ specifies an <a class="reference internal" href="#term-argument"><span class="xr
 function can accept.  There are five kinds of parameter:</p>
 <ul>
 <li><p><em class="dfn">positional-or-keyword</em>: specifies an argument that can be passed
-either <a class="reference internal" href="#term-argument"><span class="xref std std-term">positionally</span></a> or as a <a class="reference internal" href="#term-argument"><span class="xref std std-term">keyword argument</span></a>.  This is the default kind of parameter, for example <em>foo</em>
+either <a class="reference internal" href="#term-argument"><span class="xref std std-term">positionally</span></a> or as a <span class="xref std std-term">keyword argument</span>.  This is the default kind of parameter, for example <em>foo</em>
 and <em>bar</em> in the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> <span class="o">...</span>
 </pre></div>
@@ -1252,10 +1252,10 @@ searches an <a class="reference internal" href="#term-import-path"><span class="
 <dt id="term-path-like-object">path-like object<a class="headerlink" href="#term-path-like-object" title="Link to this term">¶</a></dt><dd><p>An object representing a file system path. A path-like object is either
 a <a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object representing a path, or an object
 implementing the <a class="reference internal" href="library/os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a> protocol. An object that supports
-the <a class="reference internal" href="library/os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a> protocol can be converted to a <a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or
-<a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> file system path by calling the <a class="reference internal" href="library/os.html#os.fspath" title="os.fspath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fspath()</span></code></a> function;
+the <code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code> protocol can be converted to a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> file system path by calling the <a class="reference internal" href="library/os.html#os.fspath" title="os.fspath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fspath()</span></code></a> function;
 <a class="reference internal" href="library/os.html#os.fsdecode" title="os.fsdecode"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fsdecode()</span></code></a> and <a class="reference internal" href="library/os.html#os.fsencode" title="os.fsencode"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fsencode()</span></code></a> can be used to guarantee a
-<a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> result instead, respectively. Introduced
+<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> result instead, respectively. Introduced
 by <span class="target" id="index-33"></span><a class="pep reference external" href="https://peps.python.org/pep-0519/"><strong>PEP 519</strong></a>.</p>
 </dd>
 <dt id="term-PEP">PEP<a class="headerlink" href="#term-PEP" title="Link to this term">¶</a></dt><dd><p>Python Enhancement Proposal. A PEP is a design document
@@ -1395,7 +1395,7 @@ indices via the <a class="reference internal" href="reference/datamodel.html#obj
 <a class="reference internal" href="reference/datamodel.html#object.__len__" title="object.__len__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> method that returns the length of the sequence.
 Some built-in sequence types are <a class="reference internal" href="library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
 <a class="reference internal" href="library/stdtypes.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, and <a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>. Note that <a class="reference internal" href="library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> also
-supports <a class="reference internal" href="reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code>, but is considered a
+supports <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code>, but is considered a
 mapping rather than a sequence because the lookups use arbitrary
 <a class="reference internal" href="#term-hashable"><span class="xref std std-term">hashable</span></a> keys rather than integers.</p>
 <p>The <a class="reference internal" href="library/collections.abc.html#collections.abc.Sequence" title="collections.abc.Sequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> abstract base class

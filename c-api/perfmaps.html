@@ -221,7 +221,7 @@ on generating machine code on the fly.</p>
 <p>Open the <code class="docutils literal notranslate"><span class="pre">/tmp/perf-$pid.map</span></code> file, unless it’s already opened, and create
 a lock to ensure thread-safe writes to the file (provided the writes are
 done through <a class="reference internal" href="#c.PyUnstable_WritePerfMapEntry" title="PyUnstable_WritePerfMapEntry"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_WritePerfMapEntry()</span></code></a>). Normally, there’s no need
-to call this explicitly; just use <a class="reference internal" href="#c.PyUnstable_WritePerfMapEntry" title="PyUnstable_WritePerfMapEntry"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_WritePerfMapEntry()</span></code></a>
+to call this explicitly; just use <code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_WritePerfMapEntry()</span></code>
 and it will initialize the state on first call.</p>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">0</span></code> on success, <code class="docutils literal notranslate"><span class="pre">-1</span></code> on failure to create/open the perf map file,
 or <code class="docutils literal notranslate"><span class="pre">-2</span></code> on failure to create a lock. Check <code class="docutils literal notranslate"><span class="pre">errno</span></code> for more information
@@ -241,7 +241,7 @@ thread safe. Here is what an example entry looks like:</p>
 </div>
 <p>Will call <a class="reference internal" href="#c.PyUnstable_PerfMapState_Init" title="PyUnstable_PerfMapState_Init"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_PerfMapState_Init()</span></code></a> before writing the entry, if
 the perf map file is not already opened. Returns <code class="docutils literal notranslate"><span class="pre">0</span></code> on success, or the
-same error codes as <a class="reference internal" href="#c.PyUnstable_PerfMapState_Init" title="PyUnstable_PerfMapState_Init"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_PerfMapState_Init()</span></code></a> on failure.</p>
+same error codes as <code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_PerfMapState_Init()</span></code> on failure.</p>
 </dd></dl>
 
 <dl class="c function">

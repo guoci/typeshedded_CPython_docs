@@ -253,7 +253,7 @@ indicating it is in use and should not be destroyed.</p>
 <p>This function has no effect on <a class="reference internal" href="../glossary.html#term-immortal"><span class="xref std std-term">immortal</span></a> objects.</p>
 <p>This function is usually used to convert a <a class="reference internal" href="../glossary.html#term-borrowed-reference"><span class="xref std std-term">borrowed reference</span></a> to a
 <a class="reference internal" href="../glossary.html#term-strong-reference"><span class="xref std std-term">strong reference</span></a> in-place. The <a class="reference internal" href="#c.Py_NewRef" title="Py_NewRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_NewRef()</span></code></a> function can be
-used to create a new <a class="reference internal" href="../glossary.html#term-strong-reference"><span class="xref std std-term">strong reference</span></a>.</p>
+used to create a new <span class="xref std std-term">strong reference</span>.</p>
 <p>When done using the object, release is by calling <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>.</p>
 <p>The object must not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>; if you aren’t sure that it isn’t
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, use <a class="reference internal" href="#c.Py_XINCREF" title="Py_XINCREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_XINCREF()</span></code></a>.</p>
@@ -333,7 +333,7 @@ all Python global variables.  This means that any object that is reachable from
 a global variable should be in a consistent state before <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a> is
 invoked.  For example, code to delete an object from a list should copy a
 reference to the deleted object in a temporary variable, update the list data
-structure, and then call <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a> for the temporary variable.</p>
+structure, and then call <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code> for the temporary variable.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.12: </span>Immortal objects are not modified.</p>
@@ -345,7 +345,7 @@ structure, and then call <a class="reference internal" href="#c.Py_DECREF" title
 <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_XDECREF</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_XDECREF" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Similar to <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>, but the object <em>o</em> can be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>,
 in which case this has no effect.
-The same warning from <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a> applies here as well.</p>
+The same warning from <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code> applies here as well.</p>
 </dd></dl>
 
 <dl class="c function">
@@ -355,7 +355,7 @@ The same warning from <a class="reference internal" href="#c.Py_DECREF" title="P
 The object may be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, in
 which case the macro has no effect; otherwise the effect is the same as for
 <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>, except that the argument is also set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  The warning
-for <a class="reference internal" href="#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a> does not apply with respect to the object passed because
+for <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code> does not apply with respect to the object passed because
 the macro carefully uses a temporary variable and sets the argument to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
 before releasing the reference.</p>
 <p>It is a good idea to use this macro whenever releasing a reference

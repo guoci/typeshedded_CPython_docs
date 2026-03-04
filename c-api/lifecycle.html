@@ -654,13 +654,13 @@ marking it as <em>finalized</em> and calling its
 <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a> function.  Python does
 <em>not</em> finalize an object when the last reference to it is deleted; use
 <a class="reference internal" href="#c.PyObject_CallFinalizerFromDealloc" title="PyObject_CallFinalizerFromDealloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallFinalizerFromDealloc()</span></code></a> to ensure that
-<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a> is always called.</p></li>
+<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code> is always called.</p></li>
 <li><p>If the object is marked as finalized,
 <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_clear" title="PyTypeObject.tp_clear"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code></a> might be called by the garbage collector
 to clear references held by the object.  It is <em>not</em> called when the
 object’s reference count reaches zero.</p></li>
 <li><p><a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> is called to destroy the object.
-To avoid code duplication, <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> typically
+To avoid code duplication, <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code> typically
 calls into <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_clear" title="PyTypeObject.tp_clear"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code></a> to free up the object’s
 references.</p></li>
 <li><p>When <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> finishes object destruction,
@@ -687,7 +687,7 @@ future.</p></li>
 <a class="reference internal" href="#c.PyObject_CallFinalizerFromDealloc" title="PyObject_CallFinalizerFromDealloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallFinalizerFromDealloc()</span></code></a> if it wishes to reuse that
 code to help with object destruction.  This is recommended because it
 guarantees that <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code> is always called before
-destruction.  See the <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> documentation
+destruction.  See the <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code> documentation
 for example code.</p></li>
 <li><p>If the object is a member of a <a class="reference internal" href="../glossary.html#term-cyclic-isolate"><span class="xref std std-term">cyclic isolate</span></a> and either
 <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_clear" title="PyTypeObject.tp_clear"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code></a> fails to break the reference cycle or
@@ -765,7 +765,7 @@ way to safely break a reference cycle.  Simply destroying an object in a cyclic
 isolate would result in a dangling pointer, triggering undefined behavior when
 an object referencing the destroyed object is itself destroyed.  The clearing
 step makes object destruction a two-phase process: first
-<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_clear" title="PyTypeObject.tp_clear"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code></a> is called to partially destroy the objects
+<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code> is called to partially destroy the objects
 enough to detangle them from each other, then
 <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> is called to complete the destruction.</p>
 <p>Unlike clearing, finalization is not a phase of destruction.  A finalized
@@ -799,7 +799,7 @@ safely reclaim unused objects.  However, it can be useful to automatically call
 before destruction anyway because type design is simplified when all objects
 always experience the same series of events regardless of whether they
 participated in a cyclic isolate.  Python currently only calls
-<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a> and <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_clear" title="PyTypeObject.tp_clear"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code></a> as
+<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code> and <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code> as
 needed to destroy a cyclic isolate; this may change in a future version.</p>
 </section>
 <section id="functions">
@@ -810,7 +810,7 @@ needed to destroy a cyclic isolate; this may change in a future version.</p>
 <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyObject_CallFinalizer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyObject_CallFinalizer" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Finalizes the object as described in <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a>.
 Call this function (or <a class="reference internal" href="#c.PyObject_CallFinalizerFromDealloc" title="PyObject_CallFinalizerFromDealloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallFinalizerFromDealloc()</span></code></a>) instead
-of calling <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a> directly because this
+of calling <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code> directly because this
 function may deduplicate multiple calls to <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code>.
 Currently, calls are only deduplicated if the type supports garbage
 collection (i.e., the <a class="reference internal" href="typeobj.html#c.Py_TPFLAGS_HAVE_GC" title="Py_TPFLAGS_HAVE_GC"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_GC</span></code></a> flag is set); this may

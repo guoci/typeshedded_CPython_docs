@@ -39,7 +39,7 @@ copying of data.
 .. class:: SharedMemory(name=None, create=False, size=0, *, track=True)
            SharedMemory(name: str | None = None, create: bool = False, size: int = 0, *, track: bool = True) -> multiprocessing.shared_memory.SharedMemory
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L11>`__)
 
    Create an instance of the :class:`!SharedMemory` class for either
    creating a new shared memory block or attaching to an existing shared
@@ -97,7 +97,7 @@ copying of data.
    .. method:: close()
                close() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L23>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L23>`__)
 
       Close the file descriptor/handle to the shared memory from this
       instance.  :meth:`close` should be called once access to the shared
@@ -109,7 +109,7 @@ copying of data.
    .. method:: unlink()
                unlink() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L24>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L24>`__)
 
       Delete the underlying shared memory block.  This should be called only
       once per shared memory block regardless of the number of handles to it,
@@ -124,21 +124,21 @@ copying of data.
    .. attribute:: buf
       :type: buf(self: multiprocessing.shared_memory.SharedMemory) -> memoryview | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L18>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L18>`__)
 
       A memoryview of contents of the shared memory block.
 
    .. attribute:: name
       :type: name(self: multiprocessing.shared_memory.SharedMemory) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L20>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L20>`__)
 
       Read-only access to the unique name of the shared memory block.
 
    .. attribute:: size
       :type: size(self: multiprocessing.shared_memory.SharedMemory) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L22>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L22>`__)
 
       Read-only access to size in bytes of the shared memory block.
 
@@ -224,7 +224,7 @@ same :class:`!numpy.ndarray` from two distinct Python shells:
            SharedMemoryManager(address: str | tuple[str, int] | None = None, authkey: bytes | None = None, serializer: str = 'pickle', ctx: multiprocessing.context.BaseContext | None = None, *, shutdown_timeout: float = ...) -> multiprocessing.managers.SharedMemoryManager
    :module: multiprocessing.managers
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/managers.pyi#L372>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/managers.pyi#L372>`__)
 
    A subclass of :class:`multiprocessing.managers.BaseManager` which can be
    used for the management of shared memory blocks across processes.
@@ -253,7 +253,7 @@ same :class:`!numpy.ndarray` from two distinct Python shells:
    .. method:: SharedMemory(size)
                SharedMemory(size: int) -> multiprocessing.shared_memory.SharedMemory
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/managers.pyi#L374>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/managers.pyi#L374>`__)
 
       Create and return a new :class:`SharedMemory` object with the
       specified *size* in bytes.
@@ -261,7 +261,7 @@ same :class:`!numpy.ndarray` from two distinct Python shells:
    .. method:: ShareableList(sequence)
                ShareableList[_SLT: (int, float, bool, str, bytes, None)](sequence: collections.abc.Iterable[_SLT] | None) -> multiprocessing.shared_memory.ShareableList[_SLT]
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/managers.pyi#L375>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/managers.pyi#L375>`__)
 
       Create and return a new :class:`ShareableList` object, initialized
       by the values from the input *sequence*.
@@ -314,7 +314,7 @@ finishes execution.
            ShareableList(sequence: None = None, *, name: str | None = None) -> multiprocessing.shared_memory.ShareableList[_SLT]
            ShareableList(sequence: collections.abc.Iterable[_SLT], *, name: str | None = None) -> multiprocessing.shared_memory.ShareableList[_SLT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L27>`__)
 
    Provide a mutable list-like object where all values stored within are
    stored in a shared memory block.
@@ -374,14 +374,14 @@ finishes execution.
    .. method:: count(value)
                count[_SLT: (int, float, bool, str, bytes, None)](value: _SLT) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L39>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L39>`__)
 
       Return the number of occurrences of *value*.
 
    .. method:: index(value)
                index[_SLT: (int, float, bool, str, bytes, None)](value: _SLT) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L40>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L40>`__)
 
       Return first index position of *value*.
       Raise :exc:`ValueError` if *value* is not present.
@@ -389,7 +389,7 @@ finishes execution.
    .. attribute:: format
       :type: format[_SLT: (int, float, bool, str, bytes, None)](self: multiprocessing.shared_memory.ShareableList[_SLT]) -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L38>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L38>`__)
 
       Read-only attribute containing the :mod:`struct` packing format used by
       all currently stored values.
@@ -397,7 +397,7 @@ finishes execution.
    .. attribute:: shm
       :type: multiprocessing.shared_memory.SharedMemory
 
-      (`typeshed <https://github.com/python/typeshed/blob/0e16ea3/stdlib/multiprocessing/shared_memory.pyi#L28>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/multiprocessing/shared_memory.pyi#L28>`__)
 
       The :class:`SharedMemory` instance where the values are stored.
 

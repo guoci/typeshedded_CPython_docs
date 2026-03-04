@@ -666,9 +666,9 @@ changes to the core CPython interpreter. Now type hints and the <a class="refere
 module are extensively used by the community, so this restriction is removed.
 The PEP introduces two special methods <a class="reference internal" href="../reference/datamodel.html#object.__class_getitem__" title="object.__class_getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__class_getitem__()</span></code></a> and
 <a class="reference internal" href="../reference/datamodel.html#object.__mro_entries__" title="object.__mro_entries__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mro_entries__()</span></code></a>, these methods are now used by most classes and special
-constructs in <a class="reference internal" href="../library/typing.html#module-typing" title="typing: Support for type hints (see :pep:`484`)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a>. As a result, the speed of various operations
+constructs in <code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code>. As a result, the speed of various operations
 with types increased up to 7 times, the generic types can be used without
-metaclass conflicts, and several long standing bugs in <a class="reference internal" href="../library/typing.html#module-typing" title="typing: Support for type hints (see :pep:`484`)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> module are
+metaclass conflicts, and several long standing bugs in <code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code> module are
 fixed.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -733,7 +733,7 @@ Victor Stinner.</p>
 <span class="target" id="index-27"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONDEVMODE"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONDEVMODE</span></code></a> environment variable can be used to enable
 <a class="reference internal" href="../library/devmode.html#devmode"><span class="std std-ref">Python Development Mode</span></a>.  When in development mode, Python performs
 additional runtime checks that are too expensive to be enabled by default.
-See <a class="reference internal" href="../library/devmode.html#devmode"><span class="std std-ref">Python Development Mode</span></a> documentation for the full
+See <span class="xref std std-ref">Python Development Mode</span> documentation for the full
 description.</p>
 </section>
 </section>
@@ -918,7 +918,7 @@ as well as <a class="reference internal" href="../library/asyncio-eventloop.html
 <a class="reference internal" href="../library/asyncio-eventloop.html#asyncio.Server.serve_forever" title="asyncio.Server.serve_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Server.serve_forever()</span></code></a>
 can be used to decouple server instantiation and serving.  The new
 <a class="reference internal" href="../library/asyncio-eventloop.html#asyncio.Server.is_serving" title="asyncio.Server.is_serving"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Server.is_serving()</span></code></a> method returns <code class="docutils literal notranslate"><span class="pre">True</span></code>
-if the server is serving.  <a class="reference internal" href="../library/asyncio-eventloop.html#asyncio.Server" title="asyncio.Server"><code class="xref py py-class docutils literal notranslate"><span class="pre">Server</span></code></a> objects are now
+if the server is serving.  <code class="xref py py-class docutils literal notranslate"><span class="pre">Server</span></code> objects are now
 asynchronous context managers:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">srv</span> <span class="o">=</span> <span class="k">await</span> <span class="n">loop</span><span class="o">.</span><span class="n">create_server</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 
@@ -1078,7 +1078,7 @@ enum members.
 <p>In Python 3.8, attempting to check for non-Enum objects in <a class="reference internal" href="../library/enum.html#enum.Enum" title="enum.Enum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a>
 classes will raise a <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> (e.g. <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">in</span> <span class="pre">Color</span></code>); similarly,
 attempting to check for non-Flag objects in a <a class="reference internal" href="../library/enum.html#enum.Flag" title="enum.Flag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flag</span></code></a> member will
-raise <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> (e.g. <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">in</span> <span class="pre">Perm.RW</span></code>); currently, both operations
+raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">in</span> <span class="pre">Perm.RW</span></code>); currently, both operations
 return <a class="reference internal" href="../library/constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> instead and are deprecated.
 (Contributed by Ethan Furman in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=33217">bpo-33217</a>.)</p>
 </section>
@@ -1359,7 +1359,7 @@ returns <code class="docutils literal notranslate"><span class="pre">True</span>
 This function should be used instead of <a class="reference internal" href="../library/os.html#os.close" title="os.close"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.close()</span></code></a> for better
 compatibility across platforms.
 (Contributed by Christian Heimes in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=32454">bpo-32454</a>.)</p>
-<p>The <a class="reference internal" href="../library/socket.html#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> module now exposes the <a class="reference internal" href="../library/socket.html#socket-unix-constants"><span class="std std-ref">socket.TCP_CONGESTION</span></a> (Linux 2.6.13), <a class="reference internal" href="../library/socket.html#socket-unix-constants"><span class="std std-ref">socket.TCP_USER_TIMEOUT</span></a> (Linux 2.6.37), and <a class="reference internal" href="../library/socket.html#socket-unix-constants"><span class="std std-ref">socket.TCP_NOTSENT_LOWAT</span></a> (Linux 3.12) constants.
+<p>The <a class="reference internal" href="../library/socket.html#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> module now exposes the <a class="reference internal" href="../library/socket.html#socket-unix-constants"><span class="std std-ref">socket.TCP_CONGESTION</span></a> (Linux 2.6.13), <span class="xref std std-ref">socket.TCP_USER_TIMEOUT</span> (Linux 2.6.37), and <span class="xref std std-ref">socket.TCP_NOTSENT_LOWAT</span> (Linux 3.12) constants.
 (Contributed by Omar Sandoval in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=26273">bpo-26273</a> and
 Nathaniel J. Smith in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=29728">bpo-29728</a>.)</p>
 <p>Support for <a class="reference internal" href="../library/socket.html#socket.AF_VSOCK" title="socket.AF_VSOCK"><code class="xref py py-const docutils literal notranslate"><span class="pre">socket.AF_VSOCK</span></code></a> sockets has been added to allow
@@ -1372,7 +1372,7 @@ by default.
 <section id="socketserver">
 <h3>socketserver<a class="headerlink" href="#socketserver" title="Link to this heading">¶</a></h3>
 <p><a class="reference internal" href="../library/socketserver.html#socketserver.BaseServer.server_close" title="socketserver.BaseServer.server_close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">socketserver.ThreadingMixIn.server_close</span></code></a> now waits until all non-daemon
-threads complete. <a class="reference internal" href="../library/socketserver.html#socketserver.BaseServer.server_close" title="socketserver.BaseServer.server_close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">socketserver.ForkingMixIn.server_close</span></code></a> now waits
+threads complete. <code class="xref py py-meth docutils literal notranslate"><span class="pre">socketserver.ForkingMixIn.server_close</span></code> now waits
 until all child processes complete.</p>
 <p>Add a new <a class="reference internal" href="../library/socketserver.html#socketserver.ThreadingMixIn.block_on_close" title="socketserver.ThreadingMixIn.block_on_close"><code class="xref py py-attr docutils literal notranslate"><span class="pre">socketserver.ForkingMixIn.block_on_close</span></code></a> class attribute to
 <a class="reference internal" href="../library/socketserver.html#socketserver.ForkingMixIn" title="socketserver.ForkingMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">socketserver.ForkingMixIn</span></code></a> and <a class="reference internal" href="../library/socketserver.html#socketserver.ThreadingMixIn" title="socketserver.ThreadingMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">socketserver.ThreadingMixIn</span></code></a>
@@ -1686,7 +1686,7 @@ code paths.
 functions.
 (Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=30054">bpo-30054</a>.)</p>
 <p>The new <a class="reference internal" href="../howto/instrumentation.html#static-markers"><span class="std std-ref">import__find__load__start</span></a> and
-<a class="reference internal" href="../howto/instrumentation.html#static-markers"><span class="std std-ref">import__find__load__done</span></a> static markers can be used
+<span class="xref std std-ref">import__find__load__done</span> static markers can be used
 to trace module imports.
 (Contributed by Christian Heimes in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=31574">bpo-31574</a>.)</p>
 <p>The fields <code class="xref c c-member docutils literal notranslate"><span class="pre">name</span></code> and <code class="xref c c-member docutils literal notranslate"><span class="pre">doc</span></code> of structures
@@ -1934,7 +1934,7 @@ modes (this will be an error in future Python releases).
 <p>In Python 3.8, attempting to check for non-Enum objects in <a class="reference internal" href="../library/enum.html#enum.Enum" title="enum.Enum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a>
 classes will raise a <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> (e.g. <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">in</span> <span class="pre">Color</span></code>); similarly,
 attempting to check for non-Flag objects in a <a class="reference internal" href="../library/enum.html#enum.Flag" title="enum.Flag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flag</span></code></a> member will
-raise <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> (e.g. <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">in</span> <span class="pre">Perm.RW</span></code>); currently, both operations
+raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">in</span> <span class="pre">Perm.RW</span></code>); currently, both operations
 return <a class="reference internal" href="../library/constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> instead.
 (Contributed by Ethan Furman in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=33217">bpo-33217</a>.)</p>
 </section>
@@ -2251,7 +2251,7 @@ work as expected on all platforms.
 <li><p>On Windows the default for the <em>close_fds</em> argument of
 <a class="reference internal" href="../library/subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> was changed from <a class="reference internal" href="../library/constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> to <a class="reference internal" href="../library/constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>
 when redirecting the standard handles. If you previously depended on handles
-being inherited when using <a class="reference internal" href="../library/subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> with standard io
+being inherited when using <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> with standard io
 redirection, you will have to pass <code class="docutils literal notranslate"><span class="pre">close_fds=False</span></code> to preserve the
 previous behaviour, or use
 <a class="reference internal" href="../library/subprocess.html#subprocess.STARTUPINFO.lpAttributeList" title="subprocess.STARTUPINFO.lpAttributeList"><code class="xref py py-attr docutils literal notranslate"><span class="pre">STARTUPINFO.lpAttributeList</span></code></a>.</p></li>
@@ -2378,7 +2378,7 @@ all of the same environment settings as <a class="reference internal" href="../c
 versions, it respected an ill-defined subset of those environment variables,
 while in Python 3.7.0 it didn’t read any of them due to <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=34247">bpo-34247</a>). If
 this behavior is unwanted, set <a class="reference internal" href="../c-api/interp-lifecycle.html#c.Py_IgnoreEnvironmentFlag" title="Py_IgnoreEnvironmentFlag"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_IgnoreEnvironmentFlag</span></code></a> to 1 before
-calling <a class="reference internal" href="../c-api/interp-lifecycle.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code></a>.</p>
+calling <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_Initialize()</span></code>.</p>
 <p>In 3.7.1 the C API for Context Variables
 <a class="reference internal" href="../c-api/contextvars.html#contextvarsobjects-pointertype-change"><span class="std std-ref">was updated</span></a> to use
 <a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> pointers.  See also <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=34762">bpo-34762</a>.</p>

@@ -398,7 +398,7 @@ interpreter, and don’t just continue from the session described above:</p>
 specified, the encoding used is the default value used by <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>. While
 not shown in the above example, an <em>errors</em> argument can also now be passed,
 which determines how encoding errors are handled. For available values and
-the default, see the documentation for <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>.</p>
+the default, see the documentation for <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code>.</p>
 </div>
 <p>And now if we open the file and look at what we have, we should find the log
 messages:</p>
@@ -990,7 +990,7 @@ substitution fields in the message.  With regard to <code class="docutils litera
 logging methods care only about a keyword of <code class="docutils literal notranslate"><span class="pre">exc_info</span></code> and use it to
 determine whether to log exception information.</p></li>
 <li><p><a class="reference internal" href="../library/logging.html#logging.Logger.exception" title="logging.Logger.exception"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.exception()</span></code></a> creates a log message similar to
-<a class="reference internal" href="../library/logging.html#logging.Logger.error" title="logging.Logger.error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.error()</span></code></a>.  The difference is that <a class="reference internal" href="../library/logging.html#logging.Logger.exception" title="logging.Logger.exception"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.exception()</span></code></a> dumps a
+<a class="reference internal" href="../library/logging.html#logging.Logger.error" title="logging.Logger.error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.error()</span></code></a>.  The difference is that <code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.exception()</span></code> dumps a
 stack trace along with it.  Call this method only from an exception handler.</p></li>
 <li><p><a class="reference internal" href="../library/logging.html#logging.Logger.log" title="logging.Logger.log"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Logger.log()</span></code></a> takes a log level as an explicit argument.  This is a
 little more verbose for logging messages than using the log level convenience
@@ -998,7 +998,7 @@ methods listed above, but this is how to log at custom log levels.</p></li>
 </ul>
 <p><a class="reference internal" href="../library/logging.html#logging.getLogger" title="logging.getLogger"><code class="xref py py-func docutils literal notranslate"><span class="pre">getLogger()</span></code></a> returns a reference to a logger instance with the specified
 name if it is provided, or <code class="docutils literal notranslate"><span class="pre">root</span></code> if not.  The names are period-separated
-hierarchical structures.  Multiple calls to <a class="reference internal" href="../library/logging.html#logging.getLogger" title="logging.getLogger"><code class="xref py py-func docutils literal notranslate"><span class="pre">getLogger()</span></code></a> with the same name
+hierarchical structures.  Multiple calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">getLogger()</span></code> with the same name
 will return a reference to the same logger object.  Loggers that are further
 down in the hierarchical list are children of loggers higher up in the list.
 For example, given a logger with a name of <code class="docutils literal notranslate"><span class="pre">foo</span></code>, loggers with names of
@@ -1038,7 +1038,7 @@ custom handlers) are the following configuration methods:</p>
 <ul class="simple">
 <li><p>The <a class="reference internal" href="../library/logging.html#logging.Handler.setLevel" title="logging.Handler.setLevel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevel()</span></code></a> method, just as in logger objects, specifies the
 lowest severity that will be dispatched to the appropriate destination.  Why
-are there two <a class="reference internal" href="../library/logging.html#logging.Handler.setLevel" title="logging.Handler.setLevel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevel()</span></code></a> methods?  The level set in the logger
+are there two <code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevel()</span></code> methods?  The level set in the logger
 determines which severity of messages it will pass to its handlers.  The level
 set in each handler determines which messages that handler will send on.</p></li>
 <li><p><a class="reference internal" href="../library/logging.html#logging.Handler.setFormatter" title="logging.Handler.setFormatter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setFormatter()</span></code></a> selects a Formatter object for this handler to
@@ -1047,7 +1047,7 @@ use.</p></li>
 configure and deconfigure filter objects on handlers.</p></li>
 </ul>
 <p>Application code should not directly instantiate and use instances of
-<a class="reference internal" href="../library/logging.html#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a>.  Instead, the <a class="reference internal" href="../library/logging.html#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a> class is a base class that
+<a class="reference internal" href="../library/logging.html#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a>.  Instead, the <code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code> class is a base class that
 defines the interface that all handlers should have and establishes some
 default behavior that child classes can use (or override).</p>
 </section>
@@ -1089,7 +1089,7 @@ order:</p>
 <p>Formatters use a user-configurable function to convert the creation time of a
 record to a tuple. By default, <a class="reference internal" href="../library/time.html#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.localtime()</span></code></a> is used; to change this
 for a particular formatter instance, set the <code class="docutils literal notranslate"><span class="pre">converter</span></code> attribute of the
-instance to a function with the same signature as <a class="reference internal" href="../library/time.html#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.localtime()</span></code></a> or
+instance to a function with the same signature as <code class="xref py py-func docutils literal notranslate"><span class="pre">time.localtime()</span></code> or
 <a class="reference internal" href="../library/time.html#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.gmtime()</span></code></a>. To change it for all formatters, for example if you want
 all logging times to be shown in GMT, set the <code class="docutils literal notranslate"><span class="pre">converter</span></code> attribute in the
 Formatter class (to <code class="docutils literal notranslate"><span class="pre">time.gmtime</span></code> for GMT display).</p>
@@ -1210,7 +1210,7 @@ noncoders to easily modify the logging properties.</p>
 <p>The <a class="reference internal" href="../library/logging.config.html#logging.config.fileConfig" title="logging.config.fileConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileConfig()</span></code></a> function takes a default parameter,
 <code class="docutils literal notranslate"><span class="pre">disable_existing_loggers</span></code>, which defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code> for reasons of
 backward compatibility. This may or may not be what you want, since it
-will cause any non-root loggers existing before the <a class="reference internal" href="../library/logging.config.html#logging.config.fileConfig" title="logging.config.fileConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">fileConfig()</span></code></a>
+will cause any non-root loggers existing before the <code class="xref py py-func docutils literal notranslate"><span class="pre">fileConfig()</span></code>
 call to be disabled unless they (or an ancestor) are explicitly named in
 the configuration. Please refer to the reference documentation for more
 information, and specify <code class="docutils literal notranslate"><span class="pre">False</span></code> for this parameter if you wish.</p>
@@ -1384,14 +1384,14 @@ logging message is actually generated. This is the basic mechanism controlling
 the verbosity of logging output.</p>
 <p>Logging messages are encoded as instances of the <a class="reference internal" href="../library/logging.html#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a>
 class. When a logger decides to actually log an event, a
-<a class="reference internal" href="../library/logging.html#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> instance is created from the logging message.</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code> instance is created from the logging message.</p>
 <p>Logging messages are subjected to a dispatch mechanism through the use of
 <em class="dfn">handlers</em>, which are instances of subclasses of the <a class="reference internal" href="../library/logging.html#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a>
 class. Handlers are responsible for ensuring that a logged message (in the form
 of a <a class="reference internal" href="../library/logging.html#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a>) ends up in a particular location (or set of locations)
 which is useful for the target audience for that message (such as end users,
 support desk staff, system administrators, developers). Handlers are passed
-<a class="reference internal" href="../library/logging.html#logging.LogRecord" title="logging.LogRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> instances intended for particular destinations. Each logger
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code> instances intended for particular destinations. Each logger
 can have zero, one or more handlers associated with it (via the
 <a class="reference internal" href="../library/logging.html#logging.Logger.addHandler" title="logging.Logger.addHandler"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addHandler()</span></code></a> method of <a class="reference internal" href="../library/logging.html#logging.Logger" title="logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a>). In addition to any
 handlers directly associated with a logger, <em>all handlers associated with all
@@ -1402,7 +1402,7 @@ passing to ancestor handlers stops).</p>
 level acts as a filter in the same way as a logger’s level does. If a handler
 decides to actually dispatch an event, the <a class="reference internal" href="../library/logging.html#logging.Handler.emit" title="logging.Handler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a> method is used
 to send the message to its destination. Most user-defined subclasses of
-<a class="reference internal" href="../library/logging.html#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a> will need to override this <a class="reference internal" href="../library/logging.html#logging.Handler.emit" title="logging.Handler.emit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code></a>.</p>
+<a class="reference internal" href="../library/logging.html#logging.Handler" title="logging.Handler"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></a> will need to override this <code class="xref py py-meth docutils literal notranslate"><span class="pre">emit()</span></code>.</p>
 <section id="custom-levels">
 <span id="id2"></span><h3>Custom Levels<a class="headerlink" href="#custom-levels" title="Link to this heading">¶</a></h3>
 <p>Defining your own levels is possible, but should not be necessary, as the
@@ -1503,7 +1503,7 @@ swallowed.</p>
 <p class="admonition-title">Note</p>
 <p>The default value of <a class="reference internal" href="../library/logging.html#logging.raiseExceptions" title="logging.raiseExceptions"><code class="xref py py-data docutils literal notranslate"><span class="pre">raiseExceptions</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code>. This is
 because during development, you typically want to be notified of any
-exceptions that occur. It’s advised that you set <a class="reference internal" href="../library/logging.html#logging.raiseExceptions" title="logging.raiseExceptions"><code class="xref py py-data docutils literal notranslate"><span class="pre">raiseExceptions</span></code></a> to
+exceptions that occur. It’s advised that you set <code class="xref py py-data docutils literal notranslate"><span class="pre">raiseExceptions</span></code> to
 <code class="docutils literal notranslate"><span class="pre">False</span></code> for production usage.</p>
 </div>
 </section>
@@ -1540,7 +1540,7 @@ You can write code like this:</p>
 expensive than you’d like (e.g. for deeply nested loggers where an explicit
 level is only set high up in the logger hierarchy). In such cases (or if you
 want to avoid calling a method in tight loops), you can cache the result of a
-call to <a class="reference internal" href="../library/logging.html#logging.Logger.isEnabledFor" title="logging.Logger.isEnabledFor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isEnabledFor()</span></code></a> in a local or instance variable, and use
+call to <code class="xref py py-meth docutils literal notranslate"><span class="pre">isEnabledFor()</span></code> in a local or instance variable, and use
 that instead of calling the method each time. Such a cached value would only
 need to be recomputed when the logging configuration changes dynamically
 while the application is running (which is not all that common).</p>
@@ -1561,7 +1561,7 @@ need:</p>
 This avoids calling <a class="reference internal" href="../library/sys.html#sys._getframe" title="sys._getframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys._getframe()</span></code></a>, which
 may help to speed up your code in environments
 like PyPy (which can’t speed up code that uses
-<a class="reference internal" href="../library/sys.html#sys._getframe" title="sys._getframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys._getframe()</span></code></a>).</p></td>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">sys._getframe()</span></code>).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Threading information.</p></td>
 <td><p>Set <code class="docutils literal notranslate"><span class="pre">logging.logThreads</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>

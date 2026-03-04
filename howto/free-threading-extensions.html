@@ -433,7 +433,7 @@ where this was only a best practice and not a hard requirement.</p>
 <p>Search for uses of <a class="reference internal" href="../c-api/memory.html#c.PyObject_Malloc" title="PyObject_Malloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Malloc()</span></code></a> in your
 extension and check that the allocated memory is used for Python objects.
 Use <a class="reference internal" href="../c-api/memory.html#c.PyMem_Malloc" title="PyMem_Malloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyMem_Malloc()</span></code></a> to allocate buffers instead of
-<a class="reference internal" href="../c-api/memory.html#c.PyObject_Malloc" title="PyObject_Malloc"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Malloc()</span></code></a>.</p>
+<code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Malloc()</span></code>.</p>
 </div>
 </section>
 <section id="thread-state-and-gil-apis">
@@ -550,9 +550,9 @@ at once, as the inner critical section may suspend the outer ones. Instead, use
 <p>Note that the locks described above are only <a class="reference internal" href="../c-api/synchronization.html#c.PyMutex" title="PyMutex"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code></a> based locks.
 The critical section implementation does not know about or affect other locking
 mechanisms that might be in use, like POSIX mutexes.  Also note that while
-blocking on any <a class="reference internal" href="../c-api/synchronization.html#c.PyMutex" title="PyMutex"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code></a> causes the critical sections to be
+blocking on any <code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code> causes the critical sections to be
 suspended, only the mutexes that are part of the critical sections are
-released.  If <a class="reference internal" href="../c-api/synchronization.html#c.PyMutex" title="PyMutex"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code></a> is used without a critical section, it will
+released.  If <code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code> is used without a critical section, it will
 not be released and therefore does not get the same deadlock avoidance.</p>
 </section>
 <section id="important-considerations">

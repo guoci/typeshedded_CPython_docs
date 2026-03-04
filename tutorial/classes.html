@@ -758,11 +758,11 @@ scope.)</p>
 <ul class="simple">
 <li><p>Use <a class="reference internal" href="../library/functions.html#isinstance" title="isinstance"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> to check an instance’s type: <code class="docutils literal notranslate"><span class="pre">isinstance(obj,</span> <span class="pre">int)</span></code>
 will be <code class="docutils literal notranslate"><span class="pre">True</span></code> only if <code class="docutils literal notranslate"><span class="pre">obj.__class__</span></code> is <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or some class
-derived from <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.</p></li>
+derived from <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 <li><p>Use <a class="reference internal" href="../library/functions.html#issubclass" title="issubclass"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> to check class inheritance: <code class="docutils literal notranslate"><span class="pre">issubclass(bool,</span> <span class="pre">int)</span></code>
 is <code class="docutils literal notranslate"><span class="pre">True</span></code> since <a class="reference internal" href="../library/functions.html#bool" title="bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> is a subclass of <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.  However,
 <code class="docutils literal notranslate"><span class="pre">issubclass(float,</span> <span class="pre">int)</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code> since <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> is not a
-subclass of <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.</p></li>
+subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 </ul>
 <section id="multiple-inheritance">
 <span id="tut-multiple"></span><h3><span class="section-number">9.5.1. </span>Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Link to this heading">¶</a></h3>
@@ -791,7 +791,7 @@ single-inheritance languages.</p>
 one or more diamond relationships (where at least one of the parent classes
 can be accessed through multiple paths from the bottommost class).  For example,
 all classes inherit from <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>, so any case of multiple inheritance
-provides more than one path to reach <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>.  To keep the base classes
+provides more than one path to reach <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>.  To keep the base classes
 from being accessed more than once, the dynamic algorithm linearizes the search
 order in a way that preserves the left-to-right ordering specified in each
 class, that calls each parent only once, and that is monotonic (meaning that a
@@ -914,8 +914,8 @@ pervades and unifies Python.  Behind the scenes, the <a class="reference interna
 calls <a class="reference internal" href="../library/functions.html#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a> on the container object.  The function returns an iterator
 object that defines the method <a class="reference internal" href="../library/stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> which accesses
 elements in the container one at a time.  When there are no more elements,
-<a class="reference internal" href="../library/stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> raises a <a class="reference internal" href="../library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception which tells the
-<code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> loop to terminate.  You can call the <a class="reference internal" href="../library/stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code> raises a <a class="reference internal" href="../library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception which tells the
+<code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code> loop to terminate.  You can call the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code> method
 using the <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-func docutils literal notranslate"><span class="pre">next()</span></code></a> built-in function; this example shows how it all works:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>

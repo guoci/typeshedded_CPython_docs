@@ -427,7 +427,7 @@ have been removed from the public C API.</p>
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">visitproc</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.visitproc" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Type of the visitor function passed to the <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> handler.
 The function should be called with an object to traverse as <em>object</em> and
-the third parameter to the <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> handler as <em>arg</em>.  The
+the third parameter to the <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code> handler as <em>arg</em>.  The
 Python core uses several visitor functions to implement cyclic garbage
 detection; it’s not expected that users will need to write their own
 visitor functions.</p>
@@ -449,7 +449,7 @@ destroy any Python objects.</p>
 </dd></dl>
 
 <p>To simplify writing <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> handlers, a <a class="reference internal" href="#c.Py_VISIT" title="Py_VISIT"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_VISIT()</span></code></a> macro is
-provided.  In order to use this macro, the <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> implementation
+provided.  In order to use this macro, the <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code> implementation
 must name its arguments exactly <em>visit</em> and <em>arg</em>:</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.Py_VISIT">

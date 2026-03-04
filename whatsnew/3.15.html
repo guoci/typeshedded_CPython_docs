@@ -421,7 +421,7 @@ imports are only permitted at module scope; using <code class="docutils literal 
 function, class body, or <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>/<code class="docutils literal notranslate"><span class="pre">finally</span></code> block raises a
 <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>. Neither star imports nor future imports can be lazy
 (<code class="docutils literal notranslate"><span class="pre">lazy</span> <span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">lazy</span> <span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">...</span></code> both
-raise <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>).</p>
+raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code>).</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><span class="target" id="index-9"></span><a class="pep reference external" href="https://peps.python.org/pep-0810/"><strong>PEP 810</strong></a> for the full specification and rationale.</p>
@@ -2012,10 +2012,10 @@ these methods will be required to return an instance of a strict subclass of
 <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.</p></li>
 <li><p>Support for <code class="docutils literal notranslate"><span class="pre">__float__()</span></code> method returning a strict subclass of
 <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>: these methods will be required to return an instance of
-<a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>.</p></li>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
 <li><p>Support for <code class="docutils literal notranslate"><span class="pre">__complex__()</span></code> method returning a strict subclass of
 <a class="reference internal" href="../library/functions.html#complex" title="complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>: these methods will be required to return an instance of
-<a class="reference internal" href="../library/functions.html#complex" title="complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>.</p></li>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code>.</p></li>
 <li><p>Passing a complex number as the <em>real</em> or <em>imag</em> argument in the
 <a class="reference internal" href="../library/functions.html#complex" title="complex"><code class="xref py py-func docutils literal notranslate"><span class="pre">complex()</span></code></a> constructor is now deprecated; it should only be passed
 as a single positional argument.
@@ -2056,7 +2056,7 @@ since Python 3.3, use <a class="reference internal" href="../library/logging.htm
 BytesIO and binary mode instead.</p></li>
 <li><p><a class="reference internal" href="../library/os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a>: Calling <a class="reference internal" href="../library/os.html#os.register_at_fork" title="os.register_at_fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.register_at_fork()</span></code></a> in a multi-threaded process.</p></li>
 <li><p><a class="reference internal" href="../library/os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a>: <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a> is deprecated, use
-<a class="reference internal" href="../library/os.path.html#os.path.commonpath" title="os.path.commonpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonpath()</span></code></a> for path prefixes. The <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a>
+<a class="reference internal" href="../library/os.path.html#os.path.commonpath" title="os.path.commonpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonpath()</span></code></a> for path prefixes. The <code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code>
 function is being deprecated due to having a misleading name and module.
 The function is not safe to use for path prefixes despite being included in a
 module about path manipulation, meaning it is easy to accidentally
@@ -2159,7 +2159,7 @@ a string. See the documentation for caveats.
 (Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/131510">gh-131510</a>.)</p></li>
 <li><p>Add API for checking an extension module’s ABI compatibility:
 <a class="reference internal" href="../c-api/module.html#c.Py_mod_abi" title="Py_mod_abi"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_abi</span></code></a>, <a class="reference internal" href="../c-api/stable.html#c.PyABIInfo_Check" title="PyABIInfo_Check"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyABIInfo_Check()</span></code></a>, <a class="reference internal" href="../c-api/stable.html#c.PyABIInfo_VAR" title="PyABIInfo_VAR"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyABIInfo_VAR</span></code></a>
-and <a class="reference internal" href="../c-api/module.html#c.Py_mod_abi" title="Py_mod_abi"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_abi</span></code></a>.
+and <code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_abi</span></code>.
 (Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/137210">gh-137210</a>.)</p></li>
 </ul>
 <ul id="whatsnew315-pep782">
@@ -2196,6 +2196,9 @@ thread state.
 (Contributed by Victor Stinner in <a class="reference external" href="https://github.com/python/cpython/issues/139653">gh-139653</a>.)</p></li>
 <li><p>Add <a class="reference internal" href="../c-api/object.html#c.PyUnstable_SetImmortal" title="PyUnstable_SetImmortal"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_SetImmortal()</span></code></a> C-API function to mark objects as <a class="reference internal" href="../glossary.html#term-immortal"><span class="xref std std-term">immortal</span></a>.
 (Contributed by Kumar Aditya in <a class="reference external" href="https://github.com/python/cpython/issues/143300">gh-143300</a>.)</p></li>
+<li><p>Restore private provisional <code class="docutils literal notranslate"><span class="pre">_Py_InitializeMain()</span></code> function removed in
+Python 3.14.
+(Contributed by Victor Stinner in <a class="reference external" href="https://github.com/python/cpython/issues/142417">gh-142417</a>.)</p></li>
 </ul>
 </section>
 <section id="changed-c-apis">
@@ -2205,7 +2208,7 @@ thread state.
 flag is set then <a class="reference internal" href="../c-api/typeobj.html#c.Py_TPFLAGS_HAVE_GC" title="Py_TPFLAGS_HAVE_GC"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_GC</span></code></a> must be set too.
 (Contributed by Sergey Miryanov in <a class="reference external" href="https://github.com/python/cpython/issues/134786">gh-134786</a>.)</p></li>
 <li><p><a class="reference internal" href="../c-api/datetime.html#c.PyDateTime_IMPORT" title="PyDateTime_IMPORT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDateTime_IMPORT</span></code></a> is now thread safe. Code that directly checks <code class="docutils literal notranslate"><span class="pre">PyDateTimeAPI</span></code>
-for <code class="docutils literal notranslate"><span class="pre">NULL</span></code> should be updated to call <a class="reference internal" href="../c-api/datetime.html#c.PyDateTime_IMPORT" title="PyDateTime_IMPORT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDateTime_IMPORT</span></code></a> instead.
+for <code class="docutils literal notranslate"><span class="pre">NULL</span></code> should be updated to call <code class="xref c c-macro docutils literal notranslate"><span class="pre">PyDateTime_IMPORT</span></code> instead.
 (Contributed by Kumar Aditya in <a class="reference external" href="https://github.com/python/cpython/issues/141563">gh-141563</a>.)</p></li>
 </ul>
 </section>
@@ -2257,7 +2260,7 @@ on Python 3.13 and older.</p>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetExecPrefix()</span></code>:
 use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;base_exec_prefix&quot;)</span></code></a>
 (<a class="reference internal" href="../library/sys.html#sys.base_exec_prefix" title="sys.base_exec_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.base_exec_prefix</span></code></a>) instead.
-Use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;exec_prefix&quot;)</span></code></a>
+Use <code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;exec_prefix&quot;)</span></code>
 (<a class="reference internal" href="../library/sys.html#sys.exec_prefix" title="sys.exec_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.exec_prefix</span></code></a>) if <a class="reference internal" href="../library/venv.html#venv-def"><span class="std std-ref">virtual environments</span></a>
 need to be handled.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPath()</span></code>:
@@ -2266,7 +2269,7 @@ use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPrefix()</span></code>:
 use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;base_prefix&quot;)</span></code></a>
 (<a class="reference internal" href="../library/sys.html#sys.base_prefix" title="sys.base_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.base_prefix</span></code></a>) instead.
-Use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;prefix&quot;)</span></code></a>
+Use <code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;prefix&quot;)</span></code>
 (<a class="reference internal" href="../library/sys.html#sys.prefix" title="sys.prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.prefix</span></code></a>) if <a class="reference internal" href="../library/venv.html#venv-def"><span class="std std-ref">virtual environments</span></a>
 need to be handled.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetProgramFullPath()</span></code>:
