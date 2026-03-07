@@ -56,7 +56,7 @@ in type annotations.
 .. function:: guess_scheme(environ)
               guess_scheme(environ: dict[str, typing.Any]) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/util.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/util.pyi#L21>`__)
 
    Return a guess for whether ``wsgi.url_scheme`` should be "http" or "https", by
    checking for a ``HTTPS`` environment variable in the *environ* dictionary.  The
@@ -72,7 +72,7 @@ in type annotations.
 .. function:: request_uri(environ, include_query=True)
               request_uri(environ: dict[str, typing.Any], include_query: bool = True) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/util.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/util.pyi#L23>`__)
 
    Return the full request URI, optionally including the query string, using the
    algorithm found in the "URL Reconstruction" section of :pep:`3333`.  If
@@ -82,7 +82,7 @@ in type annotations.
 .. function:: application_uri(environ)
               application_uri(environ: dict[str, typing.Any]) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/util.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/util.pyi#L22>`__)
 
    Similar to :func:`request_uri`, except that the ``PATH_INFO`` and
    ``QUERY_STRING`` variables are ignored.  The result is the base URI of the
@@ -92,7 +92,7 @@ in type annotations.
 .. function:: shift_path_info(environ)
               shift_path_info(environ: dict[str, typing.Any]) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/util.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/util.pyi#L24>`__)
 
    Shift a single name from ``PATH_INFO`` to ``SCRIPT_NAME`` and return the name.
    The *environ* dictionary is *modified* in-place; use a copy if you need to keep
@@ -122,7 +122,7 @@ in type annotations.
 .. function:: setup_testing_defaults(environ)
               setup_testing_defaults(environ: dict[str, typing.Any]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/util.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/util.pyi#L25>`__)
 
    Update *environ* with trivial defaults for testing purposes.
 
@@ -168,7 +168,7 @@ also provides these miscellaneous utilities:
 .. function:: is_hop_by_hop(header_name)
               is_hop_by_hop(header_name: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/util.pyi#L26>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/util.pyi#L26>`__)
 
    Return ``True`` if 'header_name' is an HTTP/1.1 "Hop-by-Hop" header, as defined by
    :rfc:`2616`.
@@ -177,7 +177,7 @@ also provides these miscellaneous utilities:
 .. class:: FileWrapper(filelike, blksize=8192)
            FileWrapper(filelike: typing.IO[bytes], blksize: int = 8192) -> wsgiref.util.FileWrapper
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/util.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/util.pyi#L10>`__)
 
    A concrete implementation of the :class:`wsgiref.types.FileWrapper`
    protocol used to convert a file-like object to an :term:`iterator`.
@@ -221,7 +221,7 @@ manipulation of WSGI response headers using a mapping-like interface.
 .. class:: Headers([headers])
            Headers(headers: list[tuple[str, str]] | None = None) -> wsgiref.headers.Headers
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/headers.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/headers.pyi#L9>`__)
 
    Create a mapping-like object wrapping *headers*, which must be a list of header
    name/value tuples as described in :pep:`3333`. The default value of *headers* is
@@ -263,7 +263,7 @@ manipulation of WSGI response headers using a mapping-like interface.
    .. method:: Headers.get_all(name)
                Headers.get_all(name: str) -> list[str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/headers.pyi#L16>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/headers.pyi#L16>`__)
 
       Return a list of all the values for the named header.
 
@@ -276,7 +276,7 @@ manipulation of WSGI response headers using a mapping-like interface.
    .. method:: Headers.add_header(name, value, **_params)
                Headers.add_header(_name: str, _value: str | None, **_params: str | None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/headers.pyi#L26>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/headers.pyi#L26>`__)
 
       Add a (possibly multi-valued) header, with optional MIME parameters specified
       via keyword arguments.
@@ -320,7 +320,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
               make_server(host: str, port: int, app: collections.abc.Callable[[dict[str, typing.Any], wsgiref.types.StartResponse], collections.abc.Iterable[bytes]], *, handler_class: type[wsgiref.simple_server.WSGIRequestHandler] = ...) -> wsgiref.simple_server.WSGIServer
               make_server(host: str, port: int, app: collections.abc.Callable[[dict[str, typing.Any], wsgiref.types.StartResponse], collections.abc.Iterable[bytes]], server_class: type[_S], handler_class: type[wsgiref.simple_server.WSGIRequestHandler] = ...) -> _S
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L33>`__)
 
    Create a new WSGI server listening on *host* and *port*, accepting connections
    for *app*.  The return value is an instance of the supplied *server_class*, and
@@ -344,7 +344,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 .. function:: demo_app(environ, start_response)
               demo_app(environ: dict[str, typing.Any], start_response: wsgiref.types.StartResponse) -> list[bytes]
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L28>`__)
 
    This function is a small but complete WSGI application that returns a text page
    containing the message "Hello world!" and a list of the key/value pairs provided
@@ -358,7 +358,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 .. class:: WSGIServer(server_address, RequestHandlerClass)
            WSGIServer(server_address: tuple[bytearray | bytes | str, int] | tuple[bytearray | bytes | str, int, int, int], RequestHandlerClass: collections.abc.Callable[[typing.Any, typing.Any, wsgiref.simple_server.WSGIServer], socketserver.BaseRequestHandler], bind_and_activate: bool = True) -> wsgiref.simple_server.WSGIServer
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L16>`__)
 
    Create a :class:`WSGIServer` instance.  *server_address* should be a
    ``(host,port)`` tuple, and *RequestHandlerClass* should be the subclass of
@@ -376,7 +376,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
    .. method:: WSGIServer.set_app(application)
                WSGIServer.set_app(application: (collections.abc.Callable[[dict[str, typing.Any], wsgiref.types.StartResponse], collections.abc.Iterable[bytes]]) | None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L21>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L21>`__)
 
       Sets the callable *application* as the WSGI application that will receive
       requests.
@@ -385,7 +385,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
    .. method:: WSGIServer.get_app()
                WSGIServer.get_app() -> (collections.abc.Callable[[dict[str, typing.Any], wsgiref.types.StartResponse], collections.abc.Iterable[bytes]]) | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L20>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L20>`__)
 
       Returns the currently set application callable.
 
@@ -397,7 +397,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 .. class:: WSGIRequestHandler(request, client_address, server)
            WSGIRequestHandler(request: _RequestType, client_address: typing.Any, server: socketserver.BaseServer) -> wsgiref.simple_server.WSGIRequestHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L23>`__)
 
    Create an HTTP handler for the given *request* (i.e. a socket), *client_address*
    (a ``(host,port)`` tuple), and *server* (:class:`WSGIServer` instance).
@@ -412,7 +412,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
    .. method:: WSGIRequestHandler.get_environ()
                WSGIRequestHandler.get_environ() -> dict[str, typing.Any]
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L25>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L25>`__)
 
       Return a :data:`~wsgiref.types.WSGIEnvironment` dictionary for a
       request.  The default
@@ -426,7 +426,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
    .. method:: WSGIRequestHandler.get_stderr()
                WSGIRequestHandler.get_stderr() -> wsgiref.types.ErrorStream
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/simple_server.pyi#L26>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/simple_server.pyi#L26>`__)
 
       Return the object that should be used as the ``wsgi.errors`` stream. The default
       implementation just returns ``sys.stderr``.
@@ -435,7 +435,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
    .. method:: WSGIRequestHandler.handle()
                WSGIRequestHandler.handle() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/socketserver.pyi#L154>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/socketserver.pyi#L154>`__)
 
       Process the HTTP request.  The default implementation creates a handler instance
       using a :mod:`wsgiref.handlers` class to implement the actual WSGI application
@@ -468,7 +468,7 @@ Paste" library.
 .. function:: validator(application)
               validator(application: collections.abc.Callable[[dict[str, typing.Any], wsgiref.types.StartResponse], collections.abc.Iterable[bytes]]) -> collections.abc.Callable[[dict[str, typing.Any], wsgiref.types.StartResponse], collections.abc.Iterable[bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/validate.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/validate.pyi#L10>`__)
 
    Wrap *application* and return a new WSGI application object.  The returned
    application will forward all requests to the original *application*, and will
@@ -529,7 +529,7 @@ input, output, and error streams.
 .. class:: CGIHandler()
            CGIHandler() -> wsgiref.handlers.CGIHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L87>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L87>`__)
 
    CGI-based invocation via ``sys.stdin``, ``sys.stdout``, ``sys.stderr`` and
    ``os.environ``.  This is useful when you have a WSGI application and want to run
@@ -545,7 +545,7 @@ input, output, and error streams.
 .. class:: IISCGIHandler()
            IISCGIHandler() -> wsgiref.handlers.IISCGIHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L90>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L90>`__)
 
    A specialized alternative to :class:`CGIHandler`, for use when deploying on
    Microsoft's IIS web server, without having set the config allowPathInfo
@@ -574,7 +574,7 @@ input, output, and error streams.
 .. class:: BaseCGIHandler(stdin, stdout, stderr, environ, multithread=True, multiprocess=False)
            BaseCGIHandler(stdin: wsgiref.types.InputStream, stdout: typing.IO[bytes], stderr: wsgiref.types.ErrorStream, environ: collections.abc.MutableMapping[str, str], multithread: bool = True, multiprocess: bool = False) -> wsgiref.handlers.BaseCGIHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L85>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L85>`__)
 
    Similar to :class:`CGIHandler`, but instead of using the :mod:`sys` and
    :mod:`os` modules, the CGI environment and I/O streams are specified explicitly.
@@ -592,7 +592,7 @@ input, output, and error streams.
 .. class:: SimpleHandler(stdin, stdout, stderr, environ, multithread=True, multiprocess=False)
            SimpleHandler(stdin: wsgiref.types.InputStream, stdout: typing.IO[bytes], stderr: wsgiref.types.ErrorStream, environ: collections.abc.MutableMapping[str, str], multithread: bool = True, multiprocess: bool = False) -> wsgiref.handlers.SimpleHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L65>`__)
 
    Similar to :class:`BaseCGIHandler`, but designed for use with HTTP origin
    servers.  If you are writing an HTTP server implementation, you will probably
@@ -614,7 +614,7 @@ input, output, and error streams.
 .. class:: BaseHandler()
            BaseHandler() -> wsgiref.handlers.BaseHandler
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L15>`__)
 
    This is an abstract base class for running WSGI applications.  Each instance
    will handle a single HTTP request, although in principle you could create a
@@ -626,7 +626,7 @@ input, output, and error streams.
    .. method:: BaseHandler.run(app)
                BaseHandler.run(application: collections.abc.Callable[[dict[str, typing.Any], wsgiref.types.StartResponse], collections.abc.Iterable[bytes]]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L34>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L34>`__)
 
       Run the specified WSGI application, *app*.
 
@@ -640,7 +640,7 @@ input, output, and error streams.
    .. method:: BaseHandler._write(data)
                BaseHandler._write(data: bytes) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L55>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L55>`__)
 
       Buffer the bytes *data* for transmission to the client.  It's okay if this
       method actually transmits the data; :class:`BaseHandler` just separates write
@@ -651,7 +651,7 @@ input, output, and error streams.
    .. method:: BaseHandler._flush()
                BaseHandler._flush() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L57>`__)
 
       Force buffered data to be transmitted to the client.  It's okay if this method
       is a no-op (i.e., if :meth:`_write` actually sends the data).
@@ -660,7 +660,7 @@ input, output, and error streams.
    .. method:: BaseHandler.get_stdin()
                BaseHandler.get_stdin() -> wsgiref.types.InputStream
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L59>`__)
 
       Return an object compatible with :class:`~wsgiref.types.InputStream`
       suitable for use as the ``wsgi.input`` of the
@@ -670,7 +670,7 @@ input, output, and error streams.
    .. method:: BaseHandler.get_stderr()
                BaseHandler.get_stderr() -> wsgiref.types.ErrorStream
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L61>`__)
 
       Return an object compatible with :class:`~wsgiref.types.ErrorStream`
       suitable for use as the ``wsgi.errors`` of the
@@ -680,7 +680,7 @@ input, output, and error streams.
    .. method:: BaseHandler.add_cgi_vars()
                BaseHandler.add_cgi_vars() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L63>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L63>`__)
 
       Insert CGI variables for the current request into the :attr:`environ` attribute.
 
@@ -696,7 +696,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.wsgi_multithread
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L17>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L17>`__)
 
       The value to be used for the ``wsgi.multithread`` environment variable.  It
       defaults to true in :class:`BaseHandler`, but may have a different default (or
@@ -706,7 +706,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.wsgi_multiprocess
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L18>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L18>`__)
 
       The value to be used for the ``wsgi.multiprocess`` environment variable.  It
       defaults to true in :class:`BaseHandler`, but may have a different default (or
@@ -716,7 +716,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.wsgi_run_once
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L19>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L19>`__)
 
       The value to be used for the ``wsgi.run_once`` environment variable.  It
       defaults to false in :class:`BaseHandler`, but :class:`CGIHandler` sets it to
@@ -726,7 +726,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.os_environ
       :type: collections.abc.MutableMapping[str, str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L25>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L25>`__)
 
       The default environment variables to be included in every request's WSGI
       environment.  By default, this is a copy of ``os.environ`` at the time that
@@ -739,7 +739,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.server_software
       :type: str | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L23>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L23>`__)
 
       If the :attr:`origin_server` attribute is set, this attribute's value is used to
       set the default ``SERVER_SOFTWARE`` WSGI environment variable, and also to set a
@@ -754,7 +754,7 @@ input, output, and error streams.
    .. method:: BaseHandler.get_scheme()
                BaseHandler.get_scheme() -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L37>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L37>`__)
 
       Return the URL scheme being used for the current request.  The default
       implementation uses the :func:`guess_scheme` function from :mod:`wsgiref.util`
@@ -765,7 +765,7 @@ input, output, and error streams.
    .. method:: BaseHandler.setup_environ()
                BaseHandler.setup_environ() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L35>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L35>`__)
 
       Set the :attr:`environ` attribute to a fully populated WSGI environment.  The
       default implementation uses all of the above methods and attributes, plus the
@@ -780,7 +780,7 @@ input, output, and error streams.
    .. method:: BaseHandler.log_exception(exc_info)
                BaseHandler.log_exception(exc_info: OptExcInfo) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L51>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L51>`__)
 
       Log the *exc_info* tuple in the server log.  *exc_info* is a ``(type, value,
       traceback)`` tuple.  The default implementation simply writes the traceback to
@@ -792,7 +792,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.traceback_limit
       :type: int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L30>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L30>`__)
 
       The maximum number of frames to include in tracebacks output by the default
       :meth:`log_exception` method.  If ``None``, all frames are included.
@@ -801,7 +801,7 @@ input, output, and error streams.
    .. method:: BaseHandler.error_output(environ, start_response)
                BaseHandler.error_output(environ: dict[str, typing.Any], start_response: wsgiref.types.StartResponse) -> list[bytes]
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L53>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L53>`__)
 
       This method is a WSGI application to generate an error page for the user.  It is
       only invoked if an error occurs before headers are sent to the client.
@@ -825,7 +825,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.error_status
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L31>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L31>`__)
 
       The HTTP status used for error responses.  This should be a status string as
       defined in :pep:`3333`; it defaults to a 500 code and message.
@@ -834,7 +834,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.error_headers
       :type: list[tuple[str, str]]
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L32>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L32>`__)
 
       The HTTP headers used for error responses.  This should be a list of WSGI
       response headers (``(name, value)`` tuples), as described in :pep:`3333`.  The
@@ -844,7 +844,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.error_body
       :type: bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L33>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L33>`__)
 
       The error response body.  This should be an HTTP response body bytestring. It
       defaults to the plain text, "A server error occurred.  Please contact the
@@ -857,7 +857,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.wsgi_file_wrapper
       :type: (self: wsgiref.util.FileWrapper, filelike: typing.IO[bytes], blksize: int = 8192) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L27>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L27>`__)
 
       A ``wsgi.file_wrapper`` factory, compatible with
       :class:`wsgiref.types.FileWrapper`, or ``None``.  The default value
@@ -867,7 +867,7 @@ input, output, and error streams.
    .. method:: BaseHandler.sendfile()
                BaseHandler.sendfile() -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L45>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L45>`__)
 
       Override to implement platform-specific file transmission.  This method is
       called only if the application's return value is an instance of the class
@@ -882,7 +882,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.origin_server
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L21>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L21>`__)
 
       This attribute should be set to a true value if the handler's :meth:`_write` and
       :meth:`_flush` are being used to communicate directly to the client, rather than
@@ -896,7 +896,7 @@ input, output, and error streams.
    .. attribute:: BaseHandler.http_version
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L22>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L22>`__)
 
       If :attr:`origin_server` is true, this string attribute is used to set the HTTP
       version of the response set to the client.  It defaults to ``"1.0"``.
@@ -905,7 +905,7 @@ input, output, and error streams.
 .. function:: read_environ()
               read_environ() -> dict[str, str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/handlers.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/handlers.pyi#L13>`__)
 
    Transcode CGI variables from ``os.environ`` to :pep:`3333` "bytes in unicode"
    strings, returning a new dictionary.  This function is used by
@@ -939,7 +939,7 @@ in :pep:`3333`.
 .. class:: StartResponse
            StartResponse() -> wsgiref.types.StartResponse
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/types.pyi#L8>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/types.pyi#L8>`__)
 
    A :class:`typing.Protocol` describing :pep:`start_response()
    <3333#the-start-response-callable>`
@@ -948,21 +948,21 @@ in :pep:`3333`.
 .. data:: WSGIEnvironment
    :type: type[dict[str, typing.Any]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/types.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/types.pyi#L13>`__)
 
    A type alias describing a WSGI environment dictionary.
 
 .. data:: WSGIApplication
    :type: collections.abc.Callable[[WSGIEnvironment, StartResponse], collections.abc.Iterable[bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/types.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/types.pyi#L14>`__)
 
    A type alias describing a WSGI application callable.
 
 .. class:: InputStream()
            InputStream() -> wsgiref.types.InputStream
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/types.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/types.pyi#L16>`__)
 
    A :class:`typing.Protocol` describing a :pep:`WSGI Input Stream
    <3333#input-and-error-streams>`.
@@ -970,7 +970,7 @@ in :pep:`3333`.
 .. class:: ErrorStream()
            ErrorStream() -> wsgiref.types.ErrorStream
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/types.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/types.pyi#L22>`__)
 
    A :class:`typing.Protocol` describing a :pep:`WSGI Error Stream
    <3333#input-and-error-streams>`.
@@ -978,7 +978,7 @@ in :pep:`3333`.
 .. class:: FileWrapper()
            FileWrapper() -> wsgiref.types.FileWrapper
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/wsgiref/types.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/wsgiref/types.pyi#L31>`__)
 
    A :class:`typing.Protocol` describing a :pep:`file wrapper
    <3333#optional-platform-specific-file-handling>`.

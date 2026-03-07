@@ -81,7 +81,7 @@ The :mod:`!datetime` module exports the following constants:
 .. data:: MINYEAR
    :type: typing.Literal[1]
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L12>`__)
 
    The smallest year number allowed in a :class:`date` or :class:`.datetime` object.
    :const:`MINYEAR` is 1.
@@ -90,7 +90,7 @@ The :mod:`!datetime` module exports the following constants:
 .. data:: MAXYEAR
    :type: typing.Literal[9999]
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L13>`__)
 
    The largest year number allowed in a :class:`date` or :class:`.datetime` object.
    :const:`MAXYEAR` is 9999.
@@ -99,7 +99,7 @@ The :mod:`!datetime` module exports the following constants:
 .. data:: UTC
    :type: datetime.timezone
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L40>`__)
 
    Alias for the UTC time zone singleton :attr:`datetime.timezone.utc`.
 
@@ -113,7 +113,7 @@ Available types
            date(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex) -> datetime.date
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L55>`__)
 
    An idealized naive date, assuming the current Gregorian calendar always was, and
    always will be, in effect. Attributes: :attr:`year`, :attr:`month`, and
@@ -124,7 +124,7 @@ Available types
            time(hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.time
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L117>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L117>`__)
 
    An idealized time, independent of any particular day, assuming that every day
    has exactly 24\*60\*60 seconds.  (There is no notion of "leap seconds" here.)
@@ -136,7 +136,7 @@ Available types
            datetime(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex, hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.datetime
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L246>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L246>`__)
 
    A combination of a date and a time. Attributes: :attr:`year`, :attr:`month`,
    :attr:`day`, :attr:`hour`, :attr:`minute`, :attr:`second`, :attr:`microsecond`,
@@ -147,7 +147,7 @@ Available types
            timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> datetime.timedelta
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L197>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L197>`__)
 
    A duration expressing the difference between two :class:`.datetime`
    or :class:`date` instances to microsecond resolution.
@@ -157,7 +157,7 @@ Available types
            tzinfo() -> datetime.tzinfo
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L15>`__)
 
    An abstract base class for time zone information objects. These are used by the
    :class:`.datetime` and :class:`.time` classes to provide a customizable notion of
@@ -169,7 +169,7 @@ Available types
            timezone(offset: datetime.timedelta, name: str = ...) -> datetime.timezone
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L28>`__)
 
    A class that implements the :class:`tzinfo` abstract base class as a
    fixed offset from the UTC.
@@ -236,7 +236,7 @@ A :class:`timedelta` object represents a duration, the difference between two
 .. class:: timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
            timedelta(days: float = 0, seconds: float = 0, microseconds: float = 0, milliseconds: float = 0, minutes: float = 0, hours: float = 0, weeks: float = 0) -> datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L197>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L197>`__)
 
    All arguments are optional and default to 0. Arguments may be integers
    or floats, and may be positive or negative.
@@ -260,8 +260,8 @@ A :class:`timedelta` object represents a duration, the difference between two
    *days*, *seconds* and *microseconds* are "merged" and normalized into those
    three resulting attributes::
 
-       >>> from datetime import timedelta
-       >>> delta = timedelta(
+       >>> import datetime as dt
+       >>> delta = dt.timedelta(
        ...     days=50,
        ...     seconds=27,
        ...     microseconds=10,
@@ -273,6 +273,12 @@ A :class:`timedelta` object represents a duration, the difference between two
        >>> # Only days, seconds, and microseconds remain
        >>> delta
        datetime.timedelta(days=64, seconds=29156, microseconds=10)
+
+   .. tip::
+      ``import datetime as dt`` instead of ``import datetime`` or
+      ``from datetime import datetime`` to avoid confusion between the module
+      and the class. See `How I Import Python’s datetime Module
+      <https://adamj.eu/tech/2019/09/12/how-i-import-pythons-datetime-module/>`__.
 
    If any argument is a float and there are fractional microseconds,
    the fractional microseconds left over from all arguments are
@@ -287,8 +293,8 @@ A :class:`timedelta` object represents a duration, the difference between two
    Note that normalization of negative values may be surprising at first. For
    example::
 
-      >>> from datetime import timedelta
-      >>> d = timedelta(microseconds=-1)
+      >>> import datetime as dt
+      >>> d = dt.timedelta(microseconds=-1)
       >>> (d.days, d.seconds, d.microseconds)
       (-1, 86399, 999999)
 
@@ -314,7 +320,7 @@ Class attributes:
 .. attribute:: timedelta.min
    :type: datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L198>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L198>`__)
 
    The most negative :class:`timedelta` object, ``timedelta(-999999999)``.
 
@@ -322,7 +328,7 @@ Class attributes:
 .. attribute:: timedelta.max
    :type: datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L199>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L199>`__)
 
    The most positive :class:`timedelta` object, ``timedelta(days=999999999,
    hours=23, minutes=59, seconds=59, microseconds=999999)``.
@@ -331,7 +337,7 @@ Class attributes:
 .. attribute:: timedelta.resolution
    :type: datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L200>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L200>`__)
 
    The smallest possible difference between non-equal :class:`timedelta` objects,
    ``timedelta(microseconds=1)``.
@@ -346,7 +352,7 @@ Instance attributes (read-only):
 .. attribute:: timedelta.days
    :type: days(self: datetime.timedelta) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L212>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L212>`__)
 
    Between -999,999,999 and 999,999,999 inclusive.
 
@@ -354,7 +360,7 @@ Instance attributes (read-only):
 .. attribute:: timedelta.seconds
    :type: seconds(self: datetime.timedelta) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L214>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L214>`__)
 
    Between 0 and 86,399 inclusive.
 
@@ -366,8 +372,8 @@ Instance attributes (read-only):
 
       .. doctest::
 
-         >>> from datetime import timedelta
-         >>> duration = timedelta(seconds=11235813)
+         >>> import datetime as dt
+         >>> duration = dt.timedelta(seconds=11235813)
          >>> duration.days, duration.seconds
          (130, 3813)
          >>> duration.total_seconds()
@@ -377,7 +383,7 @@ Instance attributes (read-only):
 .. attribute:: timedelta.microseconds
    :type: microseconds(self: datetime.timedelta) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L216>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L216>`__)
 
    Between 0 and 999,999 inclusive.
 
@@ -494,7 +500,7 @@ Instance methods:
 .. method:: timedelta.total_seconds()
             timedelta.total_seconds() -> float
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L217>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L217>`__)
 
    Return the total number of seconds contained in the duration. Equivalent to
    ``td / timedelta(seconds=1)``. For interval units other than seconds, use the
@@ -512,10 +518,10 @@ Examples of usage: :class:`!timedelta`
 An additional example of normalization::
 
     >>> # Components of another_year add up to exactly 365 days
-    >>> from datetime import timedelta
-    >>> year = timedelta(days=365)
-    >>> another_year = timedelta(weeks=40, days=84, hours=23,
-    ...                          minutes=50, seconds=600)
+    >>> import datetime as dt
+    >>> year = dt.timedelta(days=365)
+    >>> another_year = dt.timedelta(weeks=40, days=84, hours=23,
+    ...                             minutes=50, seconds=600)
     >>> year == another_year
     True
     >>> year.total_seconds()
@@ -523,8 +529,8 @@ An additional example of normalization::
 
 Examples of :class:`timedelta` arithmetic::
 
-    >>> from datetime import timedelta
-    >>> year = timedelta(days=365)
+    >>> import datetime as dt
+    >>> year = dt.timedelta(days=365)
     >>> ten_years = 10 * year
     >>> ten_years
     datetime.timedelta(days=3650)
@@ -553,7 +559,7 @@ called day number 2, and so on. [#]_
 .. class:: date(year, month, day)
            date(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L55>`__)
 
    All arguments are required. Arguments must be integers, in the following
    ranges:
@@ -570,7 +576,7 @@ Other constructors, all class methods:
 .. classmethod:: date.today()
                  date.today(cls: type[datetime.date]) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L63>`__)
 
    Return the current local date.
 
@@ -580,7 +586,7 @@ Other constructors, all class methods:
 .. classmethod:: date.fromtimestamp(timestamp)
                  date.fromtimestamp(cls: type[datetime.date], timestamp: float, /) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L61>`__)
 
    Return the local date corresponding to the POSIX *timestamp*, such as is
    returned by :func:`time.time`.
@@ -605,7 +611,7 @@ Other constructors, all class methods:
 .. classmethod:: date.fromordinal(ordinal)
                  date.fromordinal(cls: type[datetime.date], n: int, /) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L65>`__)
 
    Return the date corresponding to the proleptic Gregorian *ordinal*, where
    January 1 of year 1 has ordinal 1.
@@ -618,7 +624,7 @@ Other constructors, all class methods:
 .. classmethod:: date.fromisoformat(date_string)
                  date.fromisoformat(cls: type[datetime.date], date_string: str, /) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L67>`__)
 
    Return a :class:`date` corresponding to a *date_string* given in any valid
    ISO 8601 format, with the following exceptions:
@@ -631,12 +637,12 @@ Other constructors, all class methods:
 
    Examples::
 
-      >>> from datetime import date
-      >>> date.fromisoformat('2019-12-04')
+      >>> import datetime as dt
+      >>> dt.date.fromisoformat('2019-12-04')
       datetime.date(2019, 12, 4)
-      >>> date.fromisoformat('20191204')
+      >>> dt.date.fromisoformat('20191204')
       datetime.date(2019, 12, 4)
-      >>> date.fromisoformat('2021-W01-1')
+      >>> dt.date.fromisoformat('2021-W01-1')
       datetime.date(2021, 1, 4)
 
    .. versionadded:: 3.7
@@ -647,7 +653,7 @@ Other constructors, all class methods:
 .. classmethod:: date.fromisocalendar(year, week, day)
                  date.fromisocalendar(cls: type[datetime.date], year: int, week: int, day: int) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L69>`__)
 
    Return a :class:`date` corresponding to the ISO calendar date specified by
    *year*, *week* and *day*. This is the inverse of the function :meth:`date.isocalendar`.
@@ -658,7 +664,7 @@ Other constructors, all class methods:
 .. classmethod:: date.strptime(date_string, format)
                  date.strptime(cls: type[datetime.date], date_string: str, format: str, /) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L80>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L80>`__)
 
    Return a :class:`.date` corresponding to *date_string*, parsed according to
    *format*. This is equivalent to::
@@ -683,9 +689,9 @@ Other constructors, all class methods:
 
       .. doctest::
 
-         >>> from datetime import date
+         >>> import datetime as dt
          >>> date_string = "02/29"
-         >>> when = date.strptime(f"{date_string};1984", "%m/%d;%Y")  # Avoids leap year bug.
+         >>> when = dt.date.strptime(f"{date_string};1984", "%m/%d;%Y")  # Avoids leap year bug.
          >>> when.strftime("%B %d")  # doctest: +SKIP
          'February 29'
 
@@ -697,7 +703,7 @@ Class attributes:
 .. attribute:: date.min
    :type: datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L56>`__)
 
    The earliest representable date, ``date(MINYEAR, 1, 1)``.
 
@@ -705,7 +711,7 @@ Class attributes:
 .. attribute:: date.max
    :type: datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L57>`__)
 
    The latest representable date, ``date(MAXYEAR, 12, 31)``.
 
@@ -713,7 +719,7 @@ Class attributes:
 .. attribute:: date.resolution
    :type: datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L58>`__)
 
    The smallest possible difference between non-equal date objects,
    ``timedelta(days=1)``.
@@ -724,7 +730,7 @@ Instance attributes (read-only):
 .. attribute:: date.year
    :type: year(self: datetime.date) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L71>`__)
 
    Between :const:`MINYEAR` and :const:`MAXYEAR` inclusive.
 
@@ -732,7 +738,7 @@ Instance attributes (read-only):
 .. attribute:: date.month
    :type: month(self: datetime.date) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L73>`__)
 
    Between 1 and 12 inclusive.
 
@@ -740,7 +746,7 @@ Instance attributes (read-only):
 .. attribute:: date.day
    :type: day(self: datetime.date) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L75>`__)
 
    Between 1 and the number of days in the given month of the given year.
 
@@ -814,15 +820,15 @@ Instance methods:
 .. method:: date.replace(year=self.year, month=self.month, day=self.day)
             date.replace(year: typing.SupportsIndex = ..., month: typing.SupportsIndex = ..., day: typing.SupportsIndex = ...) -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L97>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L97>`__)
 
    Return a new :class:`date` object with the same values, but with specified
    parameters updated.
 
    Example::
 
-       >>> from datetime import date
-       >>> d = date(2002, 12, 31)
+       >>> import datetime as dt
+       >>> d = dt.date(2002, 12, 31)
        >>> d.replace(day=26)
        datetime.date(2002, 12, 26)
 
@@ -833,7 +839,7 @@ Instance methods:
 .. method:: date.timetuple()
             date.timetuple() -> time.struct_time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L92>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L92>`__)
 
    Return a :class:`time.struct_time` such as returned by :func:`time.localtime`.
 
@@ -850,7 +856,7 @@ Instance methods:
 .. method:: date.toordinal()
             date.toordinal() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L93>`__)
 
    Return the proleptic Gregorian ordinal of the date, where January 1 of year 1
    has ordinal 1. For any :class:`date` object ``d``,
@@ -860,7 +866,7 @@ Instance methods:
 .. method:: date.weekday()
             date.weekday() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L112>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L112>`__)
 
    Return the day of the week as an integer, where Monday is 0 and Sunday is 6.
    For example, ``date(2002, 12, 4).weekday() == 2``, a Wednesday. See also
@@ -870,7 +876,7 @@ Instance methods:
 .. method:: date.isoweekday()
             date.isoweekday() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L113>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L113>`__)
 
    Return the day of the week as an integer, where Monday is 1 and Sunday is 7.
    For example, ``date(2002, 12, 4).isoweekday() == 3``, a Wednesday. See also
@@ -880,7 +886,7 @@ Instance methods:
 .. method:: date.isocalendar()
             date.isocalendar() -> datetime._IsoCalendarDate
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L114>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L114>`__)
 
    Return a :term:`named tuple` object with three components: ``year``,
    ``week`` and ``weekday``.
@@ -895,10 +901,10 @@ Instance methods:
    For example, 2004 begins on a Thursday, so the first week of ISO year 2004
    begins on Monday, 29 Dec 2003 and ends on Sunday, 4 Jan 2004::
 
-        >>> from datetime import date
-        >>> date(2003, 12, 29).isocalendar()
+        >>> import datetime as dt
+        >>> dt.date(2003, 12, 29).isocalendar()
         datetime.IsoCalendarDate(year=2004, week=1, weekday=1)
-        >>> date(2004, 1, 4).isocalendar()
+        >>> dt.date(2004, 1, 4).isocalendar()
         datetime.IsoCalendarDate(year=2004, week=1, weekday=7)
 
    .. versionchanged:: 3.9
@@ -908,12 +914,12 @@ Instance methods:
 .. method:: date.isoformat()
             date.isoformat() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L91>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L91>`__)
 
    Return a string representing the date in ISO 8601 format, ``YYYY-MM-DD``::
 
-       >>> from datetime import date
-       >>> date(2002, 12, 4).isoformat()
+       >>> import datetime as dt
+       >>> dt.date(2002, 12, 4).isoformat()
        '2002-12-04'
 
 
@@ -925,12 +931,12 @@ Instance methods:
 .. method:: date.ctime()
             date.ctime() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L76>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L76>`__)
 
    Return a string representing the date::
 
-       >>> from datetime import date
-       >>> date(2002, 12, 4).ctime()
+       >>> import datetime as dt
+       >>> dt.date(2002, 12, 4).ctime()
        'Wed Dec  4 00:00:00 2002'
 
    ``d.ctime()`` is equivalent to::
@@ -945,7 +951,7 @@ Instance methods:
 .. method:: date.strftime(format)
             date.strftime(format: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L86>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L86>`__)
 
    Return a string representing the date, controlled by an explicit format string.
    Format codes referring to hours, minutes or seconds will see 0 values.
@@ -955,7 +961,7 @@ Instance methods:
 .. method:: date.__format__(format)
             date.__format__(fmt: str, /) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L90>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L90>`__)
 
    Same as :meth:`.date.strftime`. This makes it possible to specify a format
    string for a :class:`.date` object in :ref:`formatted string
@@ -969,13 +975,13 @@ Examples of usage: :class:`!date`
 Example of counting days to an event::
 
     >>> import time
-    >>> from datetime import date
-    >>> today = date.today()
+    >>> import datetime as dt
+    >>> today = dt.date.today()
     >>> today
     datetime.date(2007, 12, 5)
-    >>> today == date.fromtimestamp(time.time())
+    >>> today == dt.date.fromtimestamp(time.time())
     True
-    >>> my_birthday = date(today.year, 6, 24)
+    >>> my_birthday = dt.date(today.year, 6, 24)
     >>> if my_birthday < today:
     ...     my_birthday = my_birthday.replace(year=today.year + 1)
     ...
@@ -989,8 +995,8 @@ More examples of working with :class:`date`:
 
 .. doctest::
 
-    >>> from datetime import date
-    >>> d = date.fromordinal(730920) # 730920th day after 1. 1. 0001
+    >>> import datetime as dt
+    >>> d = dt.date.fromordinal(730920) # 730920th day after 1. 1. 0001
     >>> d
     datetime.date(2002, 3, 11)
 
@@ -1048,7 +1054,7 @@ Constructor:
 .. class:: datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)
            datetime(year: typing.SupportsIndex, month: typing.SupportsIndex, day: typing.SupportsIndex, hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L246>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L246>`__)
 
    The *year*, *month* and *day* arguments are required. *tzinfo* may be ``None``, or an
    instance of a :class:`tzinfo` subclass. The remaining arguments must be integers
@@ -1074,7 +1080,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.today()
                  datetime.today(cls: type[datetime.datetime]) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L63>`__)
 
    Return the current local date and time, with :attr:`.tzinfo` ``None``.
 
@@ -1091,7 +1097,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.now(tz=None)
                  datetime.now(cls: type[datetime.datetime], tz: datetime.tzinfo | None = None) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L288>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L288>`__)
 
    Return the current local date and time.
 
@@ -1115,7 +1121,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.utcnow()
                  datetime.utcnow(cls: type[datetime.datetime]) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L291>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L291>`__)
 
    Return the current UTC date and time, with :attr:`.tzinfo` ``None``.
 
@@ -1138,7 +1144,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.fromtimestamp(timestamp, tz=None)
                  datetime.fromtimestamp(cls: type[datetime.datetime], timestamp: float, tz: datetime.tzinfo | None = None) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L279>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L279>`__)
 
    Return the local date and time corresponding to the POSIX timestamp, such as is
    returned by :func:`time.time`. If optional argument *tz* is ``None`` or not
@@ -1176,7 +1182,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.utcfromtimestamp(timestamp)
                  datetime.utcfromtimestamp(cls: type[datetime.datetime], t: float, /) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L286>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L286>`__)
 
    Return the UTC :class:`.datetime` corresponding to the POSIX timestamp, with
    :attr:`.tzinfo` ``None``.  (The resulting object is naive.)
@@ -1223,7 +1229,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.fromordinal(ordinal)
                  datetime.fromordinal(cls: type[datetime.datetime], n: int, /) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L65>`__)
 
    Return the :class:`.datetime` corresponding to the proleptic Gregorian ordinal,
    where January 1 of year 1 has ordinal 1. :exc:`ValueError` is raised unless
@@ -1234,7 +1240,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.combine(date, time, tzinfo=time.tzinfo)
                  datetime.combine(cls: type[datetime.datetime], date: datetime.date, time: datetime.time, tzinfo: datetime.tzinfo | None = ...) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L293>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L293>`__)
 
    Return a new :class:`.datetime` object whose date components are equal to the
    given :class:`date` object's, and whose time components
@@ -1254,7 +1260,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.fromisoformat(date_string)
                  datetime.fromisoformat(cls: type[datetime.datetime], date_string: str, /) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L67>`__)
 
    Return a :class:`.datetime` corresponding to a *date_string* in any valid
    ISO 8601 format, with the following exceptions:
@@ -1270,24 +1276,24 @@ Other constructors, all class methods:
 
    Examples::
 
-       >>> from datetime import datetime
-       >>> datetime.fromisoformat('2011-11-04')
+       >>> import datetime as dt
+       >>> dt.datetime.fromisoformat('2011-11-04')
        datetime.datetime(2011, 11, 4, 0, 0)
-       >>> datetime.fromisoformat('20111104')
+       >>> dt.datetime.fromisoformat('20111104')
        datetime.datetime(2011, 11, 4, 0, 0)
-       >>> datetime.fromisoformat('2011-11-04T00:05:23')
+       >>> dt.datetime.fromisoformat('2011-11-04T00:05:23')
        datetime.datetime(2011, 11, 4, 0, 5, 23)
-       >>> datetime.fromisoformat('2011-11-04T00:05:23Z')
+       >>> dt.datetime.fromisoformat('2011-11-04T00:05:23Z')
        datetime.datetime(2011, 11, 4, 0, 5, 23, tzinfo=datetime.timezone.utc)
-       >>> datetime.fromisoformat('20111104T000523')
+       >>> dt.datetime.fromisoformat('20111104T000523')
        datetime.datetime(2011, 11, 4, 0, 5, 23)
-       >>> datetime.fromisoformat('2011-W01-2T00:05:23.283')
+       >>> dt.datetime.fromisoformat('2011-W01-2T00:05:23.283')
        datetime.datetime(2011, 1, 4, 0, 5, 23, 283000)
-       >>> datetime.fromisoformat('2011-11-04 00:05:23.283')
+       >>> dt.datetime.fromisoformat('2011-11-04 00:05:23.283')
        datetime.datetime(2011, 11, 4, 0, 5, 23, 283000)
-       >>> datetime.fromisoformat('2011-11-04 00:05:23.283+00:00')
+       >>> dt.datetime.fromisoformat('2011-11-04 00:05:23.283+00:00')
        datetime.datetime(2011, 11, 4, 0, 5, 23, 283000, tzinfo=datetime.timezone.utc)
-       >>> datetime.fromisoformat('2011-11-04T00:05:23+04:00')   # doctest: +NORMALIZE_WHITESPACE
+       >>> dt.datetime.fromisoformat('2011-11-04T00:05:23+04:00')   # doctest: +NORMALIZE_WHITESPACE
        datetime.datetime(2011, 11, 4, 0, 5, 23,
            tzinfo=datetime.timezone(datetime.timedelta(seconds=14400)))
 
@@ -1300,7 +1306,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.fromisocalendar(year, week, day)
                  datetime.fromisocalendar(cls: type[datetime.datetime], year: int, week: int, day: int) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L69>`__)
 
    Return a :class:`.datetime` corresponding to the ISO calendar date specified
    by *year*, *week* and *day*. The non-date components of the datetime are populated
@@ -1313,7 +1319,7 @@ Other constructors, all class methods:
 .. classmethod:: datetime.strptime(date_string, format)
                  datetime.strptime(cls: type[datetime.datetime], date_string: str, format: str, /) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L331>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L331>`__)
 
    Return a :class:`.datetime` corresponding to *date_string*, parsed according to
    *format*.
@@ -1340,9 +1346,9 @@ Other constructors, all class methods:
 
       .. doctest::
 
-         >>> from datetime import datetime
+         >>> import datetime as dt
          >>> date_string = "02/29"
-         >>> when = datetime.strptime(f"{date_string};1984", "%m/%d;%Y")  # Avoids leap year bug.
+         >>> when = dt.datetime.strptime(f"{date_string};1984", "%m/%d;%Y")  # Avoids leap year bug.
          >>> when.strftime("%B %d")  # doctest: +SKIP
          'February 29'
 
@@ -1352,7 +1358,7 @@ Class attributes:
 .. attribute:: datetime.min
    :type: datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L247>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L247>`__)
 
    The earliest representable :class:`.datetime`, ``datetime(MINYEAR, 1, 1,
    tzinfo=None)``.
@@ -1361,7 +1367,7 @@ Class attributes:
 .. attribute:: datetime.max
    :type: datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L248>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L248>`__)
 
    The latest representable :class:`.datetime`, ``datetime(MAXYEAR, 12, 31, 23, 59,
    59, 999999, tzinfo=None)``.
@@ -1370,7 +1376,7 @@ Class attributes:
 .. attribute:: datetime.resolution
    :type: datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L58>`__)
 
    The smallest possible difference between non-equal :class:`.datetime` objects,
    ``timedelta(microseconds=1)``.
@@ -1381,7 +1387,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.year
    :type: year(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L71>`__)
 
    Between :const:`MINYEAR` and :const:`MAXYEAR` inclusive.
 
@@ -1389,7 +1395,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.month
    :type: month(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L73>`__)
 
    Between 1 and 12 inclusive.
 
@@ -1397,7 +1403,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.day
    :type: day(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L75>`__)
 
    Between 1 and the number of days in the given month of the given year.
 
@@ -1405,7 +1411,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.hour
    :type: hour(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L263>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L263>`__)
 
    In ``range(24)``.
 
@@ -1413,7 +1419,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.minute
    :type: minute(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L265>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L265>`__)
 
    In ``range(60)``.
 
@@ -1421,7 +1427,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.second
    :type: second(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L267>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L267>`__)
 
    In ``range(60)``.
 
@@ -1429,7 +1435,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.microsecond
    :type: microsecond(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L269>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L269>`__)
 
    In ``range(1000000)``.
 
@@ -1437,7 +1443,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.tzinfo
    :type: tzinfo(self: datetime.datetime) -> datetime.tzinfo | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L271>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L271>`__)
 
    The object passed as the *tzinfo* argument to the :class:`.datetime` constructor,
    or ``None`` if none was passed.
@@ -1446,7 +1452,7 @@ Instance attributes (read-only):
 .. attribute:: datetime.fold
    :type: fold(self: datetime.datetime) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L273>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L273>`__)
 
    In ``[0, 1]``. Used to disambiguate wall times during a repeated interval. (A
    repeated interval occurs when clocks are rolled back at the end of daylight saving
@@ -1553,7 +1559,7 @@ Instance methods:
 .. method:: datetime.date()
             datetime.date() -> datetime.date
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L296>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L296>`__)
 
    Return :class:`date` object with same year, month and day.
 
@@ -1561,7 +1567,7 @@ Instance methods:
 .. method:: datetime.time()
             datetime.time() -> datetime.time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L297>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L297>`__)
 
    Return :class:`.time` object with same hour, minute, second, microsecond and fold.
    :attr:`.tzinfo` is ``None``. See also method :meth:`timetz`.
@@ -1573,7 +1579,7 @@ Instance methods:
 .. method:: datetime.timetz()
             datetime.timetz() -> datetime.time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L298>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L298>`__)
 
    Return :class:`.time` object with same hour, minute, second, microsecond, fold, and
    tzinfo attributes. See also method :meth:`time`.
@@ -1587,7 +1593,7 @@ Instance methods:
    hour=self.hour, minute=self.minute, second=self.second, microsecond=self.microsecond, \
    tzinfo=self.tzinfo, *, fold=0)
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L315>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L315>`__)
 
    Return a new :class:`datetime` object with the same attributes, but with
    specified parameters updated. Note that ``tzinfo=None`` can be specified to
@@ -1604,7 +1610,7 @@ Instance methods:
 .. method:: datetime.astimezone(tz=None)
             datetime.astimezone(tz: datetime.tzinfo | None = None) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L328>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L328>`__)
 
    Return a :class:`.datetime` object with new :attr:`.tzinfo` attribute *tz*,
    adjusting the date and time data so the result is the same UTC time as
@@ -1653,7 +1659,7 @@ Instance methods:
 .. method:: datetime.utcoffset()
             datetime.utcoffset() -> datetime.timedelta | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L332>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L332>`__)
 
    If :attr:`.tzinfo` is ``None``, returns ``None``, else returns
    ``self.tzinfo.utcoffset(self)``, and raises an exception if the latter doesn't
@@ -1666,7 +1672,7 @@ Instance methods:
 .. method:: datetime.dst()
             datetime.dst() -> datetime.timedelta | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L334>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L334>`__)
 
    If :attr:`.tzinfo` is ``None``, returns ``None``, else returns
    ``self.tzinfo.dst(self)``, and raises an exception if the latter doesn't return
@@ -1679,7 +1685,7 @@ Instance methods:
 .. method:: datetime.tzname()
             datetime.tzname() -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L333>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L333>`__)
 
    If :attr:`.tzinfo` is ``None``, returns ``None``, else returns
    ``self.tzinfo.tzname(self)``, raises an exception if the latter doesn't return
@@ -1689,7 +1695,7 @@ Instance methods:
 .. method:: datetime.timetuple()
             datetime.timetuple() -> time.struct_time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L92>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L92>`__)
 
    Return a :class:`time.struct_time` such as returned by :func:`time.localtime`.
 
@@ -1711,7 +1717,7 @@ Instance methods:
 .. method:: datetime.utctimetuple()
             datetime.utctimetuple() -> time.struct_time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L295>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L295>`__)
 
    If :class:`.datetime` instance ``d`` is naive, this is the same as
    ``d.timetuple()`` except that :attr:`~.time.struct_time.tm_isdst` is forced to 0 regardless of what
@@ -1737,7 +1743,7 @@ Instance methods:
 .. method:: datetime.toordinal()
             datetime.toordinal() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L93>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L93>`__)
 
    Return the proleptic Gregorian ordinal of the date. The same as
    ``self.date().toordinal()``.
@@ -1746,7 +1752,7 @@ Instance methods:
 .. method:: datetime.timestamp()
             datetime.timestamp() -> float
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L294>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L294>`__)
 
    Return POSIX timestamp corresponding to the :class:`.datetime`
    instance. The return value is a :class:`float` similar to that
@@ -1792,7 +1798,7 @@ Instance methods:
 .. method:: datetime.weekday()
             datetime.weekday() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L112>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L112>`__)
 
    Return the day of the week as an integer, where Monday is 0 and Sunday is 6.
    The same as ``self.date().weekday()``. See also :meth:`isoweekday`.
@@ -1801,7 +1807,7 @@ Instance methods:
 .. method:: datetime.isoweekday()
             datetime.isoweekday() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L113>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L113>`__)
 
    Return the day of the week as an integer, where Monday is 1 and Sunday is 7.
    The same as ``self.date().isoweekday()``. See also :meth:`weekday`,
@@ -1811,7 +1817,7 @@ Instance methods:
 .. method:: datetime.isocalendar()
             datetime.isocalendar() -> datetime._IsoCalendarDate
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L114>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L114>`__)
 
    Return a :term:`named tuple` with three components: ``year``, ``week``
    and ``weekday``. The same as ``self.date().isocalendar()``.
@@ -1820,7 +1826,7 @@ Instance methods:
 .. method:: datetime.isoformat(sep='T', timespec='auto')
             datetime.isoformat(sep: str = 'T', timespec: str = 'auto') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L329>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L329>`__)
 
    Return a string representing the date and time in ISO 8601 format:
 
@@ -1836,24 +1842,24 @@ Instance methods:
 
    Examples::
 
-       >>> from datetime import datetime, timezone
-       >>> datetime(2019, 5, 18, 15, 17, 8, 132263).isoformat()
+       >>> import datetime as dt
+       >>> dt.datetime(2019, 5, 18, 15, 17, 8, 132263).isoformat()
        '2019-05-18T15:17:08.132263'
-       >>> datetime(2019, 5, 18, 15, 17, tzinfo=timezone.utc).isoformat()
+       >>> dt.datetime(2019, 5, 18, 15, 17, tzinfo=dt.timezone.utc).isoformat()
        '2019-05-18T15:17:00+00:00'
 
    The optional argument *sep* (default ``'T'``) is a one-character separator,
    placed between the date and time portions of the result. For example::
 
-      >>> from datetime import tzinfo, timedelta, datetime
-      >>> class TZ(tzinfo):
+      >>> import datetime as dt
+      >>> class TZ(dt.tzinfo):
       ...     """A time zone with an arbitrary, constant -06:39 offset."""
-      ...     def utcoffset(self, dt):
-      ...         return timedelta(hours=-6, minutes=-39)
+      ...     def utcoffset(self, when):
+      ...         return dt.timedelta(hours=-6, minutes=-39)
       ...
-      >>> datetime(2002, 12, 25, tzinfo=TZ()).isoformat(' ')
+      >>> dt.datetime(2002, 12, 25, tzinfo=TZ()).isoformat(' ')
       '2002-12-25 00:00:00-06:39'
-      >>> datetime(2009, 11, 27, microsecond=100, tzinfo=TZ()).isoformat()
+      >>> dt.datetime(2009, 11, 27, microsecond=100, tzinfo=TZ()).isoformat()
       '2009-11-27T00:00:00.000100-06:39'
 
    The optional argument *timespec* specifies the number of additional
@@ -1877,11 +1883,11 @@ Instance methods:
    :exc:`ValueError` will be raised on an invalid *timespec* argument::
 
 
-      >>> from datetime import datetime
-      >>> datetime.now().isoformat(timespec='minutes')   # doctest: +SKIP
+      >>> import datetime as dt
+      >>> dt.datetime.now().isoformat(timespec='minutes')   # doctest: +SKIP
       '2002-12-25T00:00'
-      >>> dt = datetime(2015, 1, 1, 12, 30, 59, 0)
-      >>> dt.isoformat(timespec='microseconds')
+      >>> my_datetime = dt.datetime(2015, 1, 1, 12, 30, 59, 0)
+      >>> my_datetime.isoformat(timespec='microseconds')
       '2015-01-01T12:30:59.000000'
 
    .. versionchanged:: 3.6
@@ -1897,12 +1903,12 @@ Instance methods:
 .. method:: datetime.ctime()
             datetime.ctime() -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L76>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L76>`__)
 
    Return a string representing the date and time::
 
-       >>> from datetime import datetime
-       >>> datetime(2002, 12, 4, 20, 30, 40).ctime()
+       >>> import datetime as dt
+       >>> dt.datetime(2002, 12, 4, 20, 30, 40).ctime()
        'Wed Dec  4 20:30:40 2002'
 
    The output string will *not* include time zone information, regardless
@@ -1920,7 +1926,7 @@ Instance methods:
 .. method:: datetime.strftime(format)
             datetime.strftime(format: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L86>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L86>`__)
 
    Return a string representing the date and time,
    controlled by an explicit format string.
@@ -1930,7 +1936,7 @@ Instance methods:
 .. method:: datetime.__format__(format)
             datetime.__format__(fmt: str, /) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L90>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L90>`__)
 
    Same as :meth:`.datetime.strftime`. This makes it possible to specify a format
    string for a :class:`.datetime` object in :ref:`formatted string
@@ -1945,27 +1951,27 @@ Examples of working with :class:`.datetime` objects:
 
 .. doctest::
 
-    >>> from datetime import datetime, date, time, timezone
+    >>> import datetime as dt
 
     >>> # Using datetime.combine()
-    >>> d = date(2005, 7, 14)
-    >>> t = time(12, 30)
-    >>> datetime.combine(d, t)
+    >>> d = dt.date(2005, 7, 14)
+    >>> t = dt.time(12, 30)
+    >>> dt.datetime.combine(d, t)
     datetime.datetime(2005, 7, 14, 12, 30)
 
     >>> # Using datetime.now()
-    >>> datetime.now()   # doctest: +SKIP
+    >>> dt.datetime.now()   # doctest: +SKIP
     datetime.datetime(2007, 12, 6, 16, 29, 43, 79043)   # GMT +1
-    >>> datetime.now(timezone.utc)   # doctest: +SKIP
+    >>> dt.datetime.now(dt.timezone.utc)   # doctest: +SKIP
     datetime.datetime(2007, 12, 6, 15, 29, 43, 79060, tzinfo=datetime.timezone.utc)
 
     >>> # Using datetime.strptime()
-    >>> dt = datetime.strptime("21/11/06 16:30", "%d/%m/%y %H:%M")
-    >>> dt
+    >>> my_datetime = dt.datetime.strptime("21/11/06 16:30", "%d/%m/%y %H:%M")
+    >>> my_datetime
     datetime.datetime(2006, 11, 21, 16, 30)
 
     >>> # Using datetime.timetuple() to get tuple of all attributes
-    >>> tt = dt.timetuple()
+    >>> tt = my_datetime.timetuple()
     >>> for it in tt:   # doctest: +SKIP
     ...     print(it)
     ...
@@ -1980,7 +1986,7 @@ Examples of working with :class:`.datetime` objects:
     -1      # dst - method tzinfo.dst() returned None
 
     >>> # Date in ISO format
-    >>> ic = dt.isocalendar()
+    >>> ic = my_datetime.isocalendar()
     >>> for it in ic:   # doctest: +SKIP
     ...     print(it)
     ...
@@ -1989,55 +1995,55 @@ Examples of working with :class:`.datetime` objects:
     2       # ISO weekday
 
     >>> # Formatting a datetime
-    >>> dt.strftime("%A, %d. %B %Y %I:%M%p")
+    >>> my_datetime.strftime("%A, %d. %B %Y %I:%M%p")
     'Tuesday, 21. November 2006 04:30PM'
-    >>> 'The {1} is {0:%d}, the {2} is {0:%B}, the {3} is {0:%I:%M%p}.'.format(dt, "day", "month", "time")
+    >>> 'The {1} is {0:%d}, the {2} is {0:%B}, the {3} is {0:%I:%M%p}.'.format(my_datetime, "day", "month", "time")
     'The day is 21, the month is November, the time is 04:30PM.'
 
 The example below defines a :class:`tzinfo` subclass capturing time zone
 information for Kabul, Afghanistan, which used +4 UTC until 1945
 and then +4:30 UTC thereafter::
 
-   from datetime import timedelta, datetime, tzinfo, timezone
+   import datetime as dt
 
-   class KabulTz(tzinfo):
+   class KabulTz(dt.tzinfo):
        # Kabul used +4 until 1945, when they moved to +4:30
-       UTC_MOVE_DATE = datetime(1944, 12, 31, 20, tzinfo=timezone.utc)
+       UTC_MOVE_DATE = dt.datetime(1944, 12, 31, 20, tzinfo=dt.timezone.utc)
 
-       def utcoffset(self, dt):
-           if dt.year < 1945:
-               return timedelta(hours=4)
-           elif (1945, 1, 1, 0, 0) <= dt.timetuple()[:5] < (1945, 1, 1, 0, 30):
+       def utcoffset(self, when):
+           if when.year < 1945:
+               return dt.timedelta(hours=4)
+           elif (1945, 1, 1, 0, 0) <= when.timetuple()[:5] < (1945, 1, 1, 0, 30):
                # An ambiguous ("imaginary") half-hour range representing
                # a 'fold' in time due to the shift from +4 to +4:30.
-               # If dt falls in the imaginary range, use fold to decide how
-               # to resolve. See PEP495.
-               return timedelta(hours=4, minutes=(30 if dt.fold else 0))
+               # If when falls in the imaginary range, use fold to decide how
+               # to resolve. See PEP 495.
+               return dt.timedelta(hours=4, minutes=(30 if when.fold else 0))
            else:
-               return timedelta(hours=4, minutes=30)
+               return dt.timedelta(hours=4, minutes=30)
 
-       def fromutc(self, dt):
+       def fromutc(self, when):
            # Follow same validations as in datetime.tzinfo
-           if not isinstance(dt, datetime):
+           if not isinstance(when, dt.datetime):
                raise TypeError("fromutc() requires a datetime argument")
-           if dt.tzinfo is not self:
-               raise ValueError("dt.tzinfo is not self")
+           if when.tzinfo is not self:
+               raise ValueError("when.tzinfo is not self")
 
            # A custom implementation is required for fromutc as
            # the input to this function is a datetime with utc values
            # but with a tzinfo set to self.
            # See datetime.astimezone or fromtimestamp.
-           if dt.replace(tzinfo=timezone.utc) >= self.UTC_MOVE_DATE:
-               return dt + timedelta(hours=4, minutes=30)
+           if when.replace(tzinfo=dt.timezone.utc) >= self.UTC_MOVE_DATE:
+               return when + dt.timedelta(hours=4, minutes=30)
            else:
-               return dt + timedelta(hours=4)
+               return when + dt.timedelta(hours=4)
 
-       def dst(self, dt):
+       def dst(self, when):
            # Kabul does not observe daylight saving time.
-           return timedelta(0)
+           return dt.timedelta(0)
 
-       def tzname(self, dt):
-           if dt >= self.UTC_MOVE_DATE:
+       def tzname(self, when):
+           if when >= self.UTC_MOVE_DATE:
                return "+04:30"
            return "+04"
 
@@ -2046,17 +2052,17 @@ Usage of ``KabulTz`` from above::
    >>> tz1 = KabulTz()
 
    >>> # Datetime before the change
-   >>> dt1 = datetime(1900, 11, 21, 16, 30, tzinfo=tz1)
+   >>> dt1 = dt.datetime(1900, 11, 21, 16, 30, tzinfo=tz1)
    >>> print(dt1.utcoffset())
    4:00:00
 
    >>> # Datetime after the change
-   >>> dt2 = datetime(2006, 6, 14, 13, 0, tzinfo=tz1)
+   >>> dt2 = dt.datetime(2006, 6, 14, 13, 0, tzinfo=tz1)
    >>> print(dt2.utcoffset())
    4:30:00
 
    >>> # Convert datetime to another time zone
-   >>> dt3 = dt2.astimezone(timezone.utc)
+   >>> dt3 = dt2.astimezone(dt.timezone.utc)
    >>> dt3
    datetime.datetime(2006, 6, 14, 8, 30, tzinfo=datetime.timezone.utc)
    >>> dt2
@@ -2076,7 +2082,7 @@ day, and subject to adjustment via a :class:`tzinfo` object.
 .. class:: time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)
            time(hour: typing.SupportsIndex = 0, minute: typing.SupportsIndex = 0, second: typing.SupportsIndex = 0, microsecond: typing.SupportsIndex = 0, tzinfo: datetime.tzinfo | None = None, *, fold: int = 0) -> datetime.time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L117>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L117>`__)
 
    All arguments are optional. *tzinfo* may be ``None``, or an instance of a
    :class:`tzinfo` subclass. The remaining arguments must be integers in the
@@ -2098,7 +2104,7 @@ Class attributes:
 .. attribute:: time.min
    :type: datetime.time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L118>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L118>`__)
 
    The earliest representable :class:`.time`, ``time(0, 0, 0, 0)``.
 
@@ -2106,7 +2112,7 @@ Class attributes:
 .. attribute:: time.max
    :type: datetime.time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L119>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L119>`__)
 
    The latest representable :class:`.time`, ``time(23, 59, 59, 999999)``.
 
@@ -2114,7 +2120,7 @@ Class attributes:
 .. attribute:: time.resolution
    :type: datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L120>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L120>`__)
 
    The smallest possible difference between non-equal :class:`.time` objects,
    ``timedelta(microseconds=1)``, although note that arithmetic on
@@ -2126,7 +2132,7 @@ Instance attributes (read-only):
 .. attribute:: time.hour
    :type: hour(self: datetime.time) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L132>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L132>`__)
 
    In ``range(24)``.
 
@@ -2134,7 +2140,7 @@ Instance attributes (read-only):
 .. attribute:: time.minute
    :type: minute(self: datetime.time) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L134>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L134>`__)
 
    In ``range(60)``.
 
@@ -2142,7 +2148,7 @@ Instance attributes (read-only):
 .. attribute:: time.second
    :type: second(self: datetime.time) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L136>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L136>`__)
 
    In ``range(60)``.
 
@@ -2150,7 +2156,7 @@ Instance attributes (read-only):
 .. attribute:: time.microsecond
    :type: microsecond(self: datetime.time) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L138>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L138>`__)
 
    In ``range(1000000)``.
 
@@ -2158,7 +2164,7 @@ Instance attributes (read-only):
 .. attribute:: time.tzinfo
    :type: tzinfo(self: datetime.time) -> datetime.tzinfo | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L140>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L140>`__)
 
    The object passed as the tzinfo argument to the :class:`.time` constructor, or
    ``None`` if none was passed.
@@ -2167,7 +2173,7 @@ Instance attributes (read-only):
 .. attribute:: time.fold
    :type: fold(self: datetime.time) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L142>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L142>`__)
 
    In ``[0, 1]``. Used to disambiguate wall times during a repeated interval. (A
    repeated interval occurs when clocks are rolled back at the end of daylight saving
@@ -2209,7 +2215,7 @@ Other constructors:
 .. classmethod:: time.fromisoformat(time_string)
                  time.fromisoformat(cls: type[datetime.time], time_string: str, /) -> datetime.time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L151>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L151>`__)
 
    Return a :class:`.time` corresponding to a *time_string* in any valid
    ISO 8601 format, with the following exceptions:
@@ -2225,22 +2231,22 @@ Other constructors:
 
    .. doctest::
 
-       >>> from datetime import time
-       >>> time.fromisoformat('04:23:01')
+       >>> import datetime as dt
+       >>> dt.time.fromisoformat('04:23:01')
        datetime.time(4, 23, 1)
-       >>> time.fromisoformat('T04:23:01')
+       >>> dt.time.fromisoformat('T04:23:01')
        datetime.time(4, 23, 1)
-       >>> time.fromisoformat('T042301')
+       >>> dt.time.fromisoformat('T042301')
        datetime.time(4, 23, 1)
-       >>> time.fromisoformat('04:23:01.000384')
+       >>> dt.time.fromisoformat('04:23:01.000384')
        datetime.time(4, 23, 1, 384)
-       >>> time.fromisoformat('04:23:01,000384')
+       >>> dt.time.fromisoformat('04:23:01,000384')
        datetime.time(4, 23, 1, 384)
-       >>> time.fromisoformat('04:23:01+04:00')
+       >>> dt.time.fromisoformat('04:23:01+04:00')
        datetime.time(4, 23, 1, tzinfo=datetime.timezone(datetime.timedelta(seconds=14400)))
-       >>> time.fromisoformat('04:23:01Z')
+       >>> dt.time.fromisoformat('04:23:01Z')
        datetime.time(4, 23, 1, tzinfo=datetime.timezone.utc)
-       >>> time.fromisoformat('04:23:01+00:00')
+       >>> dt.time.fromisoformat('04:23:01+00:00')
        datetime.time(4, 23, 1, tzinfo=datetime.timezone.utc)
 
 
@@ -2253,7 +2259,7 @@ Other constructors:
 .. classmethod:: time.strptime(date_string, format)
                  time.strptime(cls: type[datetime.time], date_string: str, format: str, /) -> datetime.time
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L155>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L155>`__)
 
    Return a :class:`.time` corresponding to *date_string*, parsed according to
    *format*.
@@ -2276,7 +2282,7 @@ Instance methods:
             time.replace(hour: typing.SupportsIndex = ..., minute: typing.SupportsIndex = ..., second: typing.SupportsIndex = ..., microsecond: typing.SupportsIndex = ..., tzinfo: datetime.tzinfo | None = ..., *, fold: int = ...) -> datetime.time
    microsecond=self.microsecond, tzinfo=self.tzinfo, *, fold=0)
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L182>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L182>`__)
 
    Return a new :class:`.time` with the same values, but with specified
    parameters updated. Note that ``tzinfo=None`` can be specified to create a
@@ -2293,7 +2299,7 @@ Instance methods:
 .. method:: time.isoformat(timespec='auto')
             time.isoformat(timespec: str = 'auto') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L149>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L149>`__)
 
    Return a string representing the time in ISO 8601 format, one of:
 
@@ -2324,13 +2330,13 @@ Instance methods:
 
    Example::
 
-      >>> from datetime import time
-      >>> time(hour=12, minute=34, second=56, microsecond=123456).isoformat(timespec='minutes')
+      >>> import datetime as dt
+      >>> dt.time(hour=12, minute=34, second=56, microsecond=123456).isoformat(timespec='minutes')
       '12:34'
-      >>> dt = time(hour=12, minute=34, second=56, microsecond=0)
-      >>> dt.isoformat(timespec='microseconds')
+      >>> my_time = dt.time(hour=12, minute=34, second=56, microsecond=0)
+      >>> my_time.isoformat(timespec='microseconds')
       '12:34:56.000000'
-      >>> dt.isoformat(timespec='auto')
+      >>> my_time.isoformat(timespec='auto')
       '12:34:56'
 
    .. versionchanged:: 3.6
@@ -2345,7 +2351,7 @@ Instance methods:
 .. method:: time.strftime(format)
             time.strftime(format: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L161>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L161>`__)
 
    Return a string representing the time, controlled by an explicit format
    string.  See also :ref:`strftime-strptime-behavior` and :meth:`time.isoformat`.
@@ -2354,7 +2360,7 @@ Instance methods:
 .. method:: time.__format__(format)
             time.__format__(fmt: str, /) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L165>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L165>`__)
 
    Same as :meth:`.time.strftime`. This makes it possible to specify
    a format string for a :class:`.time` object in :ref:`formatted string
@@ -2365,7 +2371,7 @@ Instance methods:
 .. method:: time.utcoffset()
             time.utcoffset() -> datetime.timedelta | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L166>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L166>`__)
 
    If :attr:`.tzinfo` is ``None``, returns ``None``, else returns
    ``self.tzinfo.utcoffset(None)``, and raises an exception if the latter doesn't
@@ -2378,7 +2384,7 @@ Instance methods:
 .. method:: time.dst()
             time.dst() -> datetime.timedelta | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L168>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L168>`__)
 
    If :attr:`.tzinfo` is ``None``, returns ``None``, else returns
    ``self.tzinfo.dst(None)``, and raises an exception if the latter doesn't return
@@ -2391,7 +2397,7 @@ Instance methods:
 .. method:: time.tzname()
             time.tzname() -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L167>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L167>`__)
 
    If :attr:`.tzinfo` is ``None``, returns ``None``, else returns
    ``self.tzinfo.tzname(None)``, or raises an exception if the latter doesn't
@@ -2403,18 +2409,18 @@ Examples of usage: :class:`!time`
 
 Examples of working with a :class:`.time` object::
 
-    >>> from datetime import time, tzinfo, timedelta
-    >>> class TZ1(tzinfo):
-    ...     def utcoffset(self, dt):
-    ...         return timedelta(hours=1)
-    ...     def dst(self, dt):
-    ...         return timedelta(0)
-    ...     def tzname(self,dt):
+    >>> import datetime as dt
+    >>> class TZ1(dt.tzinfo):
+    ...     def utcoffset(self, when):
+    ...         return dt.timedelta(hours=1)
+    ...     def dst(self, when):
+    ...         return dt.timedelta(0)
+    ...     def tzname(self, when):
     ...         return "+01:00"
     ...     def  __repr__(self):
     ...         return f"{self.__class__.__name__}()"
     ...
-    >>> t = time(12, 10, 30, tzinfo=TZ1())
+    >>> t = dt.time(12, 10, 30, tzinfo=TZ1())
     >>> t
     datetime.time(12, 10, 30, tzinfo=TZ1())
     >>> t.isoformat()
@@ -2437,7 +2443,7 @@ Examples of working with a :class:`.time` object::
 .. class:: tzinfo()
            tzinfo() -> datetime.tzinfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L15>`__)
 
    This is an :term:`abstract base class`, meaning that this class should not be
    instantiated directly.  Define a subclass of :class:`tzinfo` to capture
@@ -2470,7 +2476,7 @@ Examples of working with a :class:`.time` object::
 .. method:: tzinfo.utcoffset(dt)
             tzinfo.utcoffset(dt: datetime.datetime | None, /) -> datetime.timedelta | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L19>`__)
 
    Return offset of local time from UTC, as a :class:`timedelta` object that is
    positive east of UTC. If local time is west of UTC, this should be negative.
@@ -2499,7 +2505,7 @@ Examples of working with a :class:`.time` object::
 .. method:: tzinfo.dst(dt)
             tzinfo.dst(dt: datetime.datetime | None, /) -> datetime.timedelta | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L21>`__)
 
    Return the daylight saving time (DST) adjustment, as a :class:`timedelta`
    object or
@@ -2531,21 +2537,25 @@ Examples of working with a :class:`.time` object::
 
    Most implementations of :meth:`dst` will probably look like one of these two::
 
-      def dst(self, dt):
+      import datetime as dt
+
+      def dst(self, when):
           # a fixed-offset class:  doesn't account for DST
-          return timedelta(0)
+          return dt.timedelta(0)
 
    or::
 
-      def dst(self, dt):
+      import datetime as dt
+
+      def dst(self, when):
           # Code to set dston and dstoff to the time zone's DST
-          # transition times based on the input dt.year, and expressed
+          # transition times based on the input when.year, and expressed
           # in standard local time.
 
-          if dston <= dt.replace(tzinfo=None) < dstoff:
-              return timedelta(hours=1)
+          if dston <= when.replace(tzinfo=None) < dstoff:
+              return dt.timedelta(hours=1)
           else:
-              return timedelta(0)
+              return dt.timedelta(0)
 
    The default implementation of :meth:`dst` raises :exc:`NotImplementedError`.
 
@@ -2556,7 +2566,7 @@ Examples of working with a :class:`.time` object::
 .. method:: tzinfo.tzname(dt)
             tzinfo.tzname(dt: datetime.datetime | None, /) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L17>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L17>`__)
 
    Return the time zone name corresponding to the :class:`.datetime` object *dt*, as
    a string. Nothing about string names is defined by the :mod:`!datetime` module,
@@ -2595,7 +2605,7 @@ There is one more :class:`tzinfo` method that a subclass may wish to override:
 .. method:: tzinfo.fromutc(dt)
             tzinfo.fromutc(dt: datetime.datetime, /) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L22>`__)
 
    This is called from the default :meth:`datetime.astimezone`
    implementation. When called from that, ``dt.tzinfo`` is *self*, and *dt*'s
@@ -2617,20 +2627,22 @@ There is one more :class:`tzinfo` method that a subclass may wish to override:
    Skipping code for error cases, the default :meth:`fromutc` implementation acts
    like::
 
-      def fromutc(self, dt):
-          # raise ValueError error if dt.tzinfo is not self
-          dtoff = dt.utcoffset()
-          dtdst = dt.dst()
+      import datetime as dt
+
+      def fromutc(self, when):
+          # raise ValueError error if when.tzinfo is not self
+          dtoff = when.utcoffset()
+          dtdst = when.dst()
           # raise ValueError if dtoff is None or dtdst is None
           delta = dtoff - dtdst  # this is self's standard offset
           if delta:
-              dt += delta   # convert to standard local time
-              dtdst = dt.dst()
+              when += delta   # convert to standard local time
+              dtdst = when.dst()
               # raise ValueError if dtdst is None
           if dtdst:
-              return dt + dtdst
+              return when + dtdst
           else:
-              return dt
+              return when
 
 In the following :download:`tzinfo_examples.py
 <../includes/tzinfo_examples.py>` file there are some examples of
@@ -2657,9 +2669,9 @@ When DST starts (the "start" line), the local wall clock leaps from 1:59 to
 ``astimezone(Eastern)`` won't deliver a result with ``hour == 2`` on the day DST
 begins. For example, at the Spring forward transition of 2016, we get::
 
-    >>> from datetime import datetime, timezone
+    >>> import datetime as dt
     >>> from tzinfo_examples import HOUR, Eastern
-    >>> u0 = datetime(2016, 3, 13, 5, tzinfo=timezone.utc)
+    >>> u0 = dt.datetime(2016, 3, 13, 5, tzinfo=dt.timezone.utc)
     >>> for i in range(4):
     ...     u = u0 + i*HOUR
     ...     t = u.astimezone(Eastern)
@@ -2682,7 +2694,9 @@ form 5:MM and 6:MM both map to 1:MM when converted to Eastern, but earlier times
 have the :attr:`~.datetime.fold` attribute set to 0 and the later times have it set to 1.
 For example, at the Fall back transition of 2016, we get::
 
-    >>> u0 = datetime(2016, 11, 6, 4, tzinfo=timezone.utc)
+    >>> import datetime as dt
+    >>> from tzinfo_examples import HOUR, Eastern
+    >>> u0 = dt.datetime(2016, 11, 6, 4, tzinfo=dt.timezone.utc)
     >>> for i in range(4):
     ...     u = u0 + i*HOUR
     ...     t = u.astimezone(Eastern)
@@ -2737,7 +2751,7 @@ where historical changes have been made to civil time.
 .. class:: timezone(offset[, name])
            timezone(offset: datetime.timedelta, name: str = ...) -> datetime.timezone
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L28>`__)
 
   The *offset* argument must be specified as a :class:`timedelta`
   object representing the difference between the local time and UTC. It must
@@ -2756,7 +2770,7 @@ where historical changes have been made to civil time.
 .. method:: timezone.utcoffset(dt)
             timezone.utcoffset(dt: datetime.datetime | None, /) -> datetime.timedelta
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L34>`__)
 
   Return the fixed value specified when the :class:`timezone` instance is
   constructed.
@@ -2771,7 +2785,7 @@ where historical changes have been made to civil time.
 .. method:: timezone.tzname(dt)
             timezone.tzname(dt: datetime.datetime | None, /) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L33>`__)
 
   Return the fixed value specified when the :class:`timezone` instance
   is constructed.
@@ -2790,7 +2804,7 @@ where historical changes have been made to civil time.
 .. method:: timezone.dst(dt)
             timezone.dst(dt: datetime.datetime | None, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L35>`__)
 
   Always returns ``None``.
 
@@ -2798,7 +2812,7 @@ where historical changes have been made to civil time.
 .. method:: timezone.fromutc(dt)
             timezone.fromutc(dt: datetime.datetime, /) -> datetime.datetime
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L22>`__)
 
   Return ``dt + offset``. The *dt* argument must be an aware
   :class:`.datetime` instance, with ``tzinfo`` set to ``self``.
@@ -2809,7 +2823,7 @@ Class attributes:
 .. attribute:: timezone.utc
    :type: datetime.timezone
 
-   (`typeshed <https://github.com/python/typeshed/blob/b0401bc/stdlib/datetime.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/datetime.pyi#L29>`__)
 
    The UTC time zone, ``timezone(timedelta(0))``.
 
@@ -2851,8 +2865,9 @@ versus :meth:`~.datetime.strptime`:
 
 These methods accept format codes that can be used to parse and format dates::
 
-   >>> datetime.strptime('31/01/22 23:59:59.999999',
-   ...                   '%d/%m/%y %H:%M:%S.%f')
+   >>> import datetime as dt
+   >>> dt.datetime.strptime('31/01/22 23:59:59.999999',
+   ...                      '%d/%m/%y %H:%M:%S.%f')
    datetime.datetime(2022, 1, 31, 23, 59, 59, 999999)
    >>> _.strftime('%a %d %b %Y, %I:%M%p')
    'Mon 31 Jan 2022, 11:59PM'
@@ -3081,13 +3096,13 @@ in the format string will be pulled from the default value.
 
 .. doctest::
 
-    >>> from datetime import datetime
+    >>> import datetime as dt
     >>> value = "2/29"
-    >>> datetime.strptime(value, "%m/%d")
+    >>> dt.datetime.strptime(value, "%m/%d")
     Traceback (most recent call last):
     ...
     ValueError: day 29 must be in range 1..28 for month 2 in year 1900
-    >>> datetime.strptime(f"1904 {value}", "%Y %m/%d")
+    >>> dt.datetime.strptime(f"1904 {value}", "%Y %m/%d")
     datetime.datetime(1904, 2, 29, 0, 0)
 
 Using ``datetime.strptime(date_string, format)`` is equivalent to::
@@ -3233,7 +3248,7 @@ Notes:
    .. doctest::
 
       >>> month_day = "02/29"
-      >>> datetime.strptime(f"{month_day};1984", "%m/%d;%Y")  # No leap year bug.
+      >>> dt.datetime.strptime(f"{month_day};1984", "%m/%d;%Y")  # No leap year bug.
       datetime.datetime(1984, 2, 29, 0, 0)
 
    .. deprecated-removed:: 3.13 3.15
@@ -3244,7 +3259,7 @@ Notes:
 
 .. rubric:: Footnotes
 
-.. [#] If, that is, we ignore the effects of Relativity
+.. [#] If, that is, we ignore the effects of relativity.
 
 .. [#] This matches the definition of the "proleptic Gregorian" calendar in
        Dershowitz and Reingold's book *Calendrical Calculations*,
