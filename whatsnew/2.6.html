@@ -755,21 +755,21 @@ multiple of 4.</p>
 </pre></div>
 </div>
 <p>A <a class="reference internal" href="../library/queue.html#queue.Queue" title="queue.Queue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Queue</span></code></a> is used to communicate the result of the factorial.
-The <code class="xref py py-class docutils literal notranslate"><span class="pre">Queue</span></code> object is stored in a global variable.
+The <a class="reference internal" href="../library/queue.html#queue.Queue" title="queue.Queue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Queue</span></code></a> object is stored in a global variable.
 The child process will use the value of the variable when the child
-was created; because it’s a <code class="xref py py-class docutils literal notranslate"><span class="pre">Queue</span></code>, parent and child can use
+was created; because it’s a <a class="reference internal" href="../library/queue.html#queue.Queue" title="queue.Queue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Queue</span></code></a>, parent and child can use
 the object to communicate.  (If the parent were to change the value of
 the global variable, the child’s value would be unaffected, and vice
 versa.)</p>
 <p>Two other classes, <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.pool.Pool" title="multiprocessing.pool.Pool"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pool</span></code></a> and
 <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.Manager" title="multiprocessing.Manager"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manager</span></code></a>, provide higher-level interfaces.
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Pool</span></code> will create a fixed number of worker
+<a class="reference internal" href="../library/multiprocessing.html#multiprocessing.pool.Pool" title="multiprocessing.pool.Pool"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pool</span></code></a> will create a fixed number of worker
 processes, and requests can then be distributed to the workers by calling
 <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.pool.Pool.apply" title="multiprocessing.pool.Pool.apply"><code class="xref py py-meth docutils literal notranslate"><span class="pre">apply()</span></code></a> or
 <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.pool.Pool.apply_async" title="multiprocessing.pool.Pool.apply_async"><code class="xref py py-meth docutils literal notranslate"><span class="pre">apply_async()</span></code></a> to add a single request, and
 <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.pool.Pool.map" title="multiprocessing.pool.Pool.map"><code class="xref py py-meth docutils literal notranslate"><span class="pre">map()</span></code></a> or
 <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.pool.Pool.map_async" title="multiprocessing.pool.Pool.map_async"><code class="xref py py-meth docutils literal notranslate"><span class="pre">map_async()</span></code></a> to add a number of
-requests.  The following code uses a <code class="xref py py-class docutils literal notranslate"><span class="pre">Pool</span></code> to
+requests.  The following code uses a <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.pool.Pool" title="multiprocessing.pool.Pool"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pool</span></code></a> to
 spread requests across 5 worker processes and retrieve a list of results:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span>
 
@@ -798,7 +798,7 @@ structures using proxy objects.  The following example creates a
 shared dictionary by calling the <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dict()</span></code></a> method; the worker
 processes then insert values into the dictionary.  (Locking is not
 done for you automatically, which doesn’t matter in this example.
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Manager</span></code>’s methods also include
+<a class="reference internal" href="../library/multiprocessing.html#multiprocessing.Manager" title="multiprocessing.Manager"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manager</span></code></a>’s methods also include
 <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.managers.SyncManager.Lock" title="multiprocessing.managers.SyncManager.Lock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Lock()</span></code></a>,
 <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.managers.SyncManager.RLock" title="multiprocessing.managers.SyncManager.RLock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RLock()</span></code></a>,
 and <a class="reference internal" href="../library/multiprocessing.html#multiprocessing.managers.SyncManager.Semaphore" title="multiprocessing.managers.SyncManager.Semaphore"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Semaphore()</span></code></a> to create
@@ -1022,7 +1022,7 @@ provided specifier:</p>
 <section id="pep-3105-print-as-a-function">
 <span id="pep-3105"></span><h2>PEP 3105: <code class="docutils literal notranslate"><span class="pre">print</span></code> As a Function<a class="headerlink" href="#pep-3105-print-as-a-function" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> statement becomes the <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> function in Python 3.0.
-Making <code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code> a function makes it possible to replace the function
+Making <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> a function makes it possible to replace the function
 by doing <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">print(...)</span></code> or importing a new function from somewhere else.</p>
 <p>Python 2.6 has a <code class="docutils literal notranslate"><span class="pre">__future__</span></code> import that removes <code class="docutils literal notranslate"><span class="pre">print</span></code> as language
 syntax, letting you use the functional form instead.  For example:</p>
@@ -1062,9 +1062,9 @@ is writing the following code:</p>
 </div>
 <p>The author is probably trying to catch both <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> and
 <a class="reference internal" href="../library/exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> exceptions, but this code actually does something
-different: it will catch <code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code> and bind the resulting
+different: it will catch <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> and bind the resulting
 exception object to the local name <code class="docutils literal notranslate"><span class="pre">&quot;ValueError&quot;</span></code>.  The
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> exception will not be caught at all.  The correct
+<a class="reference internal" href="../library/exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> exception will not be caught at all.  The correct
 code specifies a tuple of exceptions:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="o">...</span>
@@ -1102,7 +1102,7 @@ that will only be executed with 2.6.</p>
 <p>Python 3.0 adopts Unicode as the language’s fundamental string type and
 denotes 8-bit literals differently, either as <code class="docutils literal notranslate"><span class="pre">b'string'</span></code>
 or using a <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> constructor.  For future compatibility,
-Python 2.6 adds <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> as a synonym for the <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> type,
+Python 2.6 adds <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> as a synonym for the <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> type,
 and it also supports the <code class="docutils literal notranslate"><span class="pre">b''</span></code> notation.</p>
 <p>The 2.6 <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> differs from 3.0’s <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> type in various
 ways; most notably, the constructor is completely different.  In 3.0,
@@ -1113,7 +1113,7 @@ representing <code class="docutils literal notranslate"><span class="pre">ABC</s
 object type such as <code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">bytes)</span></code>.  This will help the 2to3
 converter, which can’t tell whether 2.x code intends strings to
 contain either characters or 8-bit bytes; you can now
-use either <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> or <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> to represent your intention
+use either <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> to represent your intention
 exactly, and the resulting code will also be correct in Python 3.0.</p>
 <p>There’s also a <code class="docutils literal notranslate"><span class="pre">__future__</span></code> import that causes all string literals
 to become Unicode strings.  This means that <code class="docutils literal notranslate"><span class="pre">\u</span></code> escape sequences
@@ -1213,7 +1213,7 @@ over an in-memory buffer.</p>
 </li>
 <li id="index-12"><p><a class="reference internal" href="../library/io.html#io.TextIOBase" title="io.TextIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOBase</span></code></a>: Provides functions for reading and writing
 strings (remember, strings will be Unicode in Python 3.0),
-and supporting <a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a>.  <code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOBase</span></code> defines
+and supporting <a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a>.  <a class="reference internal" href="../library/io.html#io.TextIOBase" title="io.TextIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOBase</span></code></a> defines
 the <a class="reference internal" href="../library/readline.html#module-readline" title="readline: GNU readline support for Python."><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a> method and supports iteration upon
 objects.</p>
 <p>There are two concrete implementations.  <a class="reference internal" href="../library/io.html#io.TextIOWrapper" title="io.TextIOWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOWrapper</span></code></a>
@@ -1524,7 +1524,7 @@ and can be used as array indexes and slice boundaries.</p>
 <p>In Python 3.0, the PEP slightly redefines the existing builtins
 <a class="reference internal" href="../library/functions.html#round" title="round"><code class="xref py py-func docutils literal notranslate"><span class="pre">round()</span></code></a>, <a class="reference internal" href="../library/math.html#math.floor" title="math.floor"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.floor()</span></code></a>, <a class="reference internal" href="../library/math.html#math.ceil" title="math.ceil"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.ceil()</span></code></a>, and adds a new
 one, <a class="reference internal" href="../library/math.html#math.trunc" title="math.trunc"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.trunc()</span></code></a>, that’s been backported to Python 2.6.
-<code class="xref py py-func docutils literal notranslate"><span class="pre">math.trunc()</span></code> rounds toward zero, returning the closest
+<a class="reference internal" href="../library/math.html#math.trunc" title="math.trunc"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.trunc()</span></code></a> rounds toward zero, returning the closest
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Integral</span></code> that’s between the function’s argument and zero.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -1589,10 +1589,10 @@ Andy Chu, subsequently revised by Phillip J. Eby and Nick Coghlan;
 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1739468">bpo-1739468</a>.)</p></li>
 <li><p>The <a class="reference internal" href="../library/functions.html#hasattr" title="hasattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">hasattr()</span></code></a> function was catching and ignoring all errors,
 under the assumption that they meant a <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> method
-was failing somehow and the return value of <code class="xref py py-func docutils literal notranslate"><span class="pre">hasattr()</span></code> would
+was failing somehow and the return value of <a class="reference internal" href="../library/functions.html#hasattr" title="hasattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">hasattr()</span></code></a> would
 therefore be <code class="docutils literal notranslate"><span class="pre">False</span></code>.  This logic shouldn’t be applied to
 <a class="reference internal" href="../library/exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> and <a class="reference internal" href="../library/exceptions.html#SystemExit" title="SystemExit"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code></a>, however; Python 2.6
-will no longer discard such exceptions when <code class="xref py py-func docutils literal notranslate"><span class="pre">hasattr()</span></code>
+will no longer discard such exceptions when <a class="reference internal" href="../library/functions.html#hasattr" title="hasattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">hasattr()</span></code></a>
 encounters them.  (Fixed by Benjamin Peterson; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=2196">bpo-2196</a>.)</p></li>
 <li><p>When calling a function using the <code class="docutils literal notranslate"><span class="pre">**</span></code> syntax to provide keyword
 arguments, you are no longer required to use a Python dictionary;
@@ -1731,7 +1731,7 @@ C level, extensions can set <code class="docutils literal notranslate"><span cla
 <li><p>The <a class="reference internal" href="../library/exceptions.html#GeneratorExit" title="GeneratorExit"><code class="xref py py-exc docutils literal notranslate"><span class="pre">GeneratorExit</span></code></a> exception now subclasses
 <a class="reference internal" href="../library/exceptions.html#BaseException" title="BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> instead of <a class="reference internal" href="../library/exceptions.html#Exception" title="Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a>.  This means
 that an exception handler that does <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception:</span></code>
-will not inadvertently catch <code class="xref py py-exc docutils literal notranslate"><span class="pre">GeneratorExit</span></code>.
+will not inadvertently catch <a class="reference internal" href="../library/exceptions.html#GeneratorExit" title="GeneratorExit"><code class="xref py py-exc docutils literal notranslate"><span class="pre">GeneratorExit</span></code></a>.
 (Contributed by Chad Austin; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1537">bpo-1537</a>.)</p></li>
 <li><p>Generator objects now have a <code class="xref py py-attr docutils literal notranslate"><span class="pre">gi_code</span></code> attribute that refers to
 the original code object backing the generator.
@@ -1751,7 +1751,7 @@ implemented by Raymond Hettinger; <a class="reference external" href="https://bu
 <li><p>The built-in <a class="reference internal" href="../library/functions.html#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> function now checks for a <code class="xref py py-meth docutils literal notranslate"><span class="pre">__dir__()</span></code>
 method on the objects it receives.  This method must return a list
 of strings containing the names of valid attributes for the object,
-and lets the object control the value that <code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code> produces.
+and lets the object control the value that <a class="reference internal" href="../library/functions.html#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> produces.
 Objects that have <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code>
 methods can use this to advertise pseudo-attributes they will honor.
 (<a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1591665">bpo-1591665</a>)</p></li>
@@ -1999,7 +1999,7 @@ will be called with each block of data after the data has been sent.
 (Contributed by Phil Schwartz; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1221598">bpo-1221598</a>.)</p></li>
 <li><p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code> built-in function is also available in the
 <a class="reference internal" href="../library/functools.html#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">functools</span></code></a> module.  In Python 3.0, the builtin has been
-dropped and <code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code> is only available from <code class="xref py py-mod docutils literal notranslate"><span class="pre">functools</span></code>;
+dropped and <code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code> is only available from <a class="reference internal" href="../library/functools.html#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">functools</span></code></a>;
 currently there are no plans to drop the builtin in the 2.x series.
 (Patched by Christian Heimes; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1739906">bpo-1739906</a>.)</p></li>
 <li><p>When possible, the <a class="reference internal" href="../library/getpass.html#module-getpass" title="getpass: Portable reading of passwords and retrieval of the userid."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getpass</span></code></a> module will now use
@@ -2024,7 +2024,7 @@ This is more efficient than making a call to <code class="xref py py-func docuti
 <code class="xref py py-func docutils literal notranslate"><span class="pre">heappop()</span></code>.</p>
 <p><a class="reference internal" href="../library/heapq.html#module-heapq" title="heapq: Heap queue algorithm (a.k.a. priority queue)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">heapq</span></code></a> is now implemented to only use less-than comparison,
 instead of the less-than-or-equal comparison it previously used.
-This makes <code class="xref py py-mod docutils literal notranslate"><span class="pre">heapq</span></code>’s usage of a type match the
+This makes <a class="reference internal" href="../library/heapq.html#module-heapq" title="heapq: Heap queue algorithm (a.k.a. priority queue)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">heapq</span></code></a>’s usage of a type match the
 <a class="reference internal" href="../library/stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a> method.
 (Contributed by Raymond Hettinger.)</p>
 </li>
@@ -2151,7 +2151,7 @@ standard about 754’s special values.  For example, <code class="docutils liter
 should now give a <a class="reference internal" href="../library/exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> across almost all platforms,
 while <code class="docutils literal notranslate"><span class="pre">sqrt(float('NaN'))</span></code> should return a NaN on all IEEE 754
 platforms.  Where Annex ‘F’ of the C99 standard recommends signaling
-‘divide-by-zero’ or ‘invalid’, Python will raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code>.
+‘divide-by-zero’ or ‘invalid’, Python will raise <a class="reference internal" href="../library/exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.
 Where Annex ‘F’ of the C99 standard recommends signaling ‘overflow’,
 Python will raise <a class="reference internal" href="../library/exceptions.html#OverflowError" title="OverflowError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OverflowError</span></code></a>.  (See <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=711019">bpo-711019</a> and
 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1640">bpo-1640</a>.)</p>
@@ -2567,7 +2567,7 @@ translated into another language.</p></li>
 <li><p>An optional <code class="docutils literal notranslate"><span class="pre">timeout</span></code> parameter was added to the
 <a class="reference internal" href="../library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.urlopen</span></code></a> function and the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.ftpwrapper</span></code> class constructor, as well as the
-<code class="xref py py-func docutils literal notranslate"><span class="pre">urllib2.urlopen</span></code> function.  The parameter specifies a timeout
+<a class="reference internal" href="../library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">urllib2.urlopen</span></code></a> function.  The parameter specifies a timeout
 measured in seconds.   For example:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;http://slow.example.com&quot;</span><span class="p">,</span>
 <span class="go">                        timeout=3)</span>
@@ -2585,12 +2585,12 @@ Martin von Löwis; <a class="reference external" href="https://bugs.python.org/i
 <li><p>The <a class="reference internal" href="../library/warnings.html#module-warnings" title="warnings: Issue warning messages and control their disposition."><code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code></a> module’s <code class="xref py py-func docutils literal notranslate"><span class="pre">formatwarning()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">showwarning()</span></code>
 gained an optional <em>line</em> argument that can be used to supply the
 line of source code.  (Added as part of <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1631171">bpo-1631171</a>, which re-implemented
-part of the <code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code> module in C code.)</p>
+part of the <a class="reference internal" href="../library/warnings.html#module-warnings" title="warnings: Issue warning messages and control their disposition."><code class="xref py py-mod docutils literal notranslate"><span class="pre">warnings</span></code></a> module in C code.)</p>
 <p>A new function, <code class="xref py py-func docutils literal notranslate"><span class="pre">catch_warnings()</span></code>, is a context manager
 intended for testing purposes that lets you temporarily modify the
 warning filters and then restore their original values (<a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=3781">bpo-3781</a>).</p>
 </li>
-<li><p>The XML-RPC <a class="reference internal" href="../library/xmlrpc.server.html#module-xmlrpc.server" title="xmlrpc.server: Basic XML-RPC server implementations."><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleXMLRPCServer</span></code></a> and <code class="xref py py-class docutils literal notranslate"><span class="pre">DocXMLRPCServer</span></code>
+<li><p>The XML-RPC <a class="reference internal" href="../library/xmlrpc.server.html#module-xmlrpc.server" title="xmlrpc.server: Basic XML-RPC server implementations."><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleXMLRPCServer</span></code></a> and <a class="reference internal" href="../library/xmlrpc.server.html#module-xmlrpc.server" title="xmlrpc.server: Basic XML-RPC server implementations."><code class="xref py py-class docutils literal notranslate"><span class="pre">DocXMLRPCServer</span></code></a>
 classes can now be prevented from immediately opening and binding to
 their socket by passing <code class="docutils literal notranslate"><span class="pre">False</span></code> as the <em>bind_and_activate</em>
 constructor parameter.  This can be used to modify the instance’s
@@ -2610,7 +2610,7 @@ project for Google’s Summer of Code 2007.)</p>
 <a class="reference internal" href="../library/datetime.html#datetime.date" title="datetime.date"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> and <a class="reference internal" href="../library/datetime.html#datetime.time" title="datetime.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a> to the
 <a class="reference internal" href="../library/xmlrpc.client.html#xmlrpc.client.DateTime" title="xmlrpc.client.DateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">xmlrpclib.DateTime</span></code></a> type; the conversion semantics were
 not necessarily correct for all applications.  Code using
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpclib</span></code> should convert <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">time</span></code>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpclib</span></code> should convert <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code> and <a class="reference internal" href="../library/datetime.html#datetime.time" title="datetime.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">time</span></code></a>
 instances. (<a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1330538">bpo-1330538</a>)  The code can also handle
 dates before 1900 (contributed by Ralf Schmitt; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=2014">bpo-2014</a>)
 and 64-bit integers represented by using <code class="docutils literal notranslate"><span class="pre">&lt;i8&gt;</span></code> in XML-RPC responses
@@ -2725,7 +2725,7 @@ of these built-in functions that can be imported when writing
 <p>The functions in this module currently include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ascii(obj)</span></code>: equivalent to <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>.  In Python 3.0,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code> will return a Unicode string, while <a class="reference internal" href="../library/functions.html#ascii" title="ascii"><code class="xref py py-func docutils literal notranslate"><span class="pre">ascii()</span></code></a> will
+<a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> will return a Unicode string, while <a class="reference internal" href="../library/functions.html#ascii" title="ascii"><code class="xref py py-func docutils literal notranslate"><span class="pre">ascii()</span></code></a> will
 return a pure ASCII bytestring.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">filter(predicate,</span> <span class="pre">iterable)</span></code>,
 <code class="docutils literal notranslate"><span class="pre">map(func,</span> <span class="pre">iterable1,</span> <span class="pre">...)</span></code>: the 3.0 versions
@@ -2969,7 +2969,7 @@ deadlocks; it will now raise an <a class="reference internal" href="../library/e
 function, <code class="xref c c-func docutils literal notranslate"><span class="pre">PyImport_ImportModuleNoBlock()</span></code>, will look for a
 module in <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code> first, then try to import it after
 acquiring an import lock.  If the import lock is held by another
-thread, an <code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code> is raised.
+thread, an <a class="reference internal" href="../library/exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised.
 (Contributed by Christian Heimes.)</p></li>
 <li><p>Several functions return information about the platform’s
 floating-point support.  <a class="reference internal" href="../c-api/float.html#c.PyFloat_GetMax" title="PyFloat_GetMax"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFloat_GetMax()</span></code></a> returns
@@ -3188,17 +3188,17 @@ should define their <code class="docutils literal notranslate"><span class="pre"
 <a class="reference internal" href="../c-api/object.html#c.PyObject_HashNotImplemented" title="PyObject_HashNotImplemented"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_HashNotImplemented()</span></code></a>.</p></li>
 <li><p>The <a class="reference internal" href="../library/socket.html#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> module exception <a class="reference internal" href="../library/socket.html#socket.error" title="socket.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">socket.error</span></code></a> now inherits
 from <a class="reference internal" href="../library/exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>.  Previously it wasn’t a subclass of
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">StandardError</span></code> but now it is, through <code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code>.
+<code class="xref py py-exc docutils literal notranslate"><span class="pre">StandardError</span></code> but now it is, through <a class="reference internal" href="../library/exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>.
 (Implemented by Gregory P. Smith; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1706815">bpo-1706815</a>.)</p></li>
 <li><p>The <a class="reference internal" href="../library/xmlrpc.client.html#module-xmlrpc.client" title="xmlrpc.client: XML-RPC client access."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpclib</span></code></a> module no longer automatically converts
 <a class="reference internal" href="../library/datetime.html#datetime.date" title="datetime.date"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a> and <a class="reference internal" href="../library/datetime.html#datetime.time" title="datetime.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a> to the
 <a class="reference internal" href="../library/xmlrpc.client.html#xmlrpc.client.DateTime" title="xmlrpc.client.DateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">xmlrpclib.DateTime</span></code></a> type; the conversion semantics were
 not necessarily correct for all applications.  Code using
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpclib</span></code> should convert <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">time</span></code>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">xmlrpclib</span></code> should convert <code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code> and <a class="reference internal" href="../library/datetime.html#datetime.time" title="datetime.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">time</span></code></a>
 instances. (<a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1330538">bpo-1330538</a>)</p></li>
 <li><p>(3.0-warning mode) The <a class="reference internal" href="../library/exceptions.html#Exception" title="Exception"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a> class now warns
 when accessed using slicing or index access; having
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code> behave like a tuple is being phased out.</p></li>
+<a class="reference internal" href="../library/exceptions.html#Exception" title="Exception"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a> behave like a tuple is being phased out.</p></li>
 <li><p>(3.0-warning mode) inequality comparisons between two dictionaries
 or two objects that don’t implement comparison methods are reported
 as warnings.  <code class="docutils literal notranslate"><span class="pre">dict1</span> <span class="pre">==</span> <span class="pre">dict2</span></code> still works, but <code class="docutils literal notranslate"><span class="pre">dict1</span> <span class="pre">&lt;</span> <span class="pre">dict2</span></code>

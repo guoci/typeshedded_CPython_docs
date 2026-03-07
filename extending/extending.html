@@ -255,7 +255,7 @@ to any of these functions.</p>
 <p>You can test non-destructively whether an exception has been set with
 <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_Occurred" title="PyErr_Occurred"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Occurred()</span></code></a>.  This returns the current exception object, or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
 if no exception has occurred.  You normally don’t need to call
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Occurred()</span></code> to see whether an error occurred in a function call,
+<a class="reference internal" href="../c-api/exceptions.html#c.PyErr_Occurred" title="PyErr_Occurred"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Occurred()</span></code></a> to see whether an error occurred in a function call,
 since you should be able to tell from the return value.</p>
 <p>When a function <em>f</em> that calls another function <em>g</em> detects that the latter
 fails, <em>f</em> should itself return an error value (usually <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or <code class="docutils literal notranslate"><span class="pre">-1</span></code>).  It
@@ -273,7 +273,7 @@ information about the cause of the error to be lost: most operations can fail
 for a variety of reasons.)</p>
 <p>To ignore an exception set by a function call that failed, the exception
 condition must be cleared explicitly by calling <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_Clear" title="PyErr_Clear"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Clear()</span></code></a>.  The only
-time C code should call <code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Clear()</span></code> is if it doesn’t want to pass the
+time C code should call <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_Clear" title="PyErr_Clear"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Clear()</span></code></a> is if it doesn’t want to pass the
 error on to the interpreter but wants to handle it completely by itself
 (possibly by trying something else, or pretending nothing went wrong).</p>
 <p>Every failing <code class="xref c c-func docutils literal notranslate"><span class="pre">malloc()</span></code> call must be turned into an exception — the
@@ -293,7 +293,7 @@ C objects corresponding to all built-in Python exceptions, such as
 should choose exceptions wisely — don’t use <a class="reference internal" href="../c-api/exceptions.html#c.PyExc_TypeError" title="PyExc_TypeError"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_TypeError</span></code></a> to mean
 that a file couldn’t be opened (that should probably be <a class="reference internal" href="../c-api/exceptions.html#c.PyExc_OSError" title="PyExc_OSError"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_OSError</span></code></a>).
 If something’s wrong with the argument list, the <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a>
-function usually raises <code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_TypeError</span></code>.  If you have an argument whose
+function usually raises <a class="reference internal" href="../c-api/exceptions.html#c.PyExc_TypeError" title="PyExc_TypeError"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_TypeError</span></code></a>.  If you have an argument whose
 value must be in a particular range or must satisfy other conditions,
 <a class="reference internal" href="../c-api/exceptions.html#c.PyExc_ValueError" title="PyExc_ValueError"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_ValueError</span></code></a> is appropriate.</p>
 <p>You can also define a new exception that is unique to your module.
@@ -479,10 +479,10 @@ or more format codes between parentheses.  For example:</p>
 </pre></div>
 </div>
 <p><a class="reference internal" href="../c-api/call.html#c.PyObject_CallObject" title="PyObject_CallObject"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallObject()</span></code></a> returns a Python object pointer: this is the return
-value of the Python function.  <code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallObject()</span></code> is
+value of the Python function.  <a class="reference internal" href="../c-api/call.html#c.PyObject_CallObject" title="PyObject_CallObject"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallObject()</span></code></a> is
 “reference-count-neutral” with respect to its arguments.  In the example a new
 tuple was created to serve as the argument list, which is
-<a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>-ed immediately after the <code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallObject()</span></code>
+<a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>-ed immediately after the <a class="reference internal" href="../c-api/call.html#c.PyObject_CallObject" title="PyObject_CallObject"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallObject()</span></code></a>
 call.</p>
 <p>The return value of <a class="reference internal" href="../c-api/call.html#c.PyObject_CallObject" title="PyObject_CallObject"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CallObject()</span></code></a> is “new”: either it is a brand
 new object, or it is an existing object whose reference count has been
@@ -814,7 +814,7 @@ Let’s first introduce some terms.  Nobody “owns” an object; however, you c
 as the number of owned references to it.  The owner of a reference is
 responsible for calling <a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a> when the reference is no longer
 needed.  Ownership of a reference can be transferred.  There are three ways to
-dispose of an owned reference: pass it on, store it, or call <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code>.
+dispose of an owned reference: pass it on, store it, or call <a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>.
 Forgetting to dispose of an owned reference creates a memory leak.</p>
 <p>It is also possible to <em class="dfn">borrow</em> <a class="footnote-reference brackets" href="#borrow" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> a reference to an object.  The
 borrower of a reference should not call <a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a>.  The borrower must
@@ -844,7 +844,7 @@ reference.  In particular, all functions whose function it is to create a new
 object, such as <a class="reference internal" href="../c-api/long.html#c.PyLong_FromLong" title="PyLong_FromLong"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyLong_FromLong()</span></code></a> and <a class="reference internal" href="../c-api/arg.html#c.Py_BuildValue" title="Py_BuildValue"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_BuildValue()</span></code></a>, pass
 ownership to the receiver.  Even if the object is not actually new, you still
 receive ownership of a new reference to that object.  For instance,
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyLong_FromLong()</span></code> maintains a cache of popular values and can return a
+<a class="reference internal" href="../c-api/long.html#c.PyLong_FromLong" title="PyLong_FromLong"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyLong_FromLong()</span></code></a> maintains a cache of popular values and can return a
 reference to a cached item.</p>
 <p>Many functions that extract objects from other objects also transfer ownership
 with the reference, for instance <a class="reference internal" href="../c-api/object.html#c.PyObject_GetAttrString" title="PyObject_GetAttrString"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetAttrString()</span></code></a>.  The picture
@@ -897,13 +897,13 @@ the original item 1.  Now let’s suppose the original item 1 was an instance of
 user-defined class, and let’s further suppose that the class defined a
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__del__()</span></code> method.  If this class instance has a reference count of 1,
 disposing of it will call its <code class="xref py py-meth docutils literal notranslate"><span class="pre">__del__()</span></code> method. Internally,
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_SetItem()</span></code> calls <a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a> on the replaced item,
+<a class="reference internal" href="../c-api/list.html#c.PyList_SetItem" title="PyList_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_SetItem()</span></code></a> calls <a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_DECREF()</span></code></a> on the replaced item,
 which invokes replaced item’s corresponding
 <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> function. During
-deallocation, <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code> calls
+deallocation, <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> calls
 <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_finalize" title="PyTypeObject.tp_finalize"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_finalize</span></code></a>, which is mapped to the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__del__()</span></code> method for class instances (see <span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0442/"><strong>PEP 442</strong></a>). This entire
-sequence happens synchronously within the <code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_SetItem()</span></code> call.</p>
+sequence happens synchronously within the <a class="reference internal" href="../c-api/list.html#c.PyList_SetItem" title="PyList_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyList_SetItem()</span></code></a> call.</p>
 <p>Since it is written in Python, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__del__()</span></code> method can execute arbitrary
 Python code.  Could it perhaps do something to invalidate the reference to
 <code class="docutils literal notranslate"><span class="pre">item</span></code> in <code class="xref c c-func docutils literal notranslate"><span class="pre">bug()</span></code>?  You bet!  Assuming that the list passed into

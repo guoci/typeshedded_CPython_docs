@@ -581,7 +581,7 @@ simplified and finer-grained.</p>
 type between <a class="reference internal" href="../library/exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>, <a class="reference internal" href="../library/exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>, <a class="reference internal" href="../library/exceptions.html#EnvironmentError" title="EnvironmentError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EnvironmentError</span></code></a>,
 <a class="reference internal" href="../library/exceptions.html#WindowsError" title="WindowsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">WindowsError</span></code></a>, <code class="xref py py-exc docutils literal notranslate"><span class="pre">mmap.error</span></code>, <a class="reference internal" href="../library/socket.html#socket.error" title="socket.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">socket.error</span></code></a> or
 <a class="reference internal" href="../library/select.html#select.error" title="select.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">select.error</span></code></a>.  All these exception types are now only one:
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code>.  The other names are kept as aliases for compatibility
+<a class="reference internal" href="../library/exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>.  The other names are kept as aliases for compatibility
 reasons.</p>
 <p>Also, it is now easier to catch a specific error condition.  Instead of
 inspecting the <code class="docutils literal notranslate"><span class="pre">errno</span></code> attribute (or <code class="docutils literal notranslate"><span class="pre">args[0]</span></code>) for a particular
@@ -988,7 +988,7 @@ attribute. Until such time, though, import is setting the module post-load.</p>
 from <a class="reference internal" href="../library/importlib.html#module-importlib" title="importlib: The implementation of the import machinery."><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a> and import itself is setting the attribute post-load.</p>
 <p><code class="docutils literal notranslate"><span class="pre">None</span></code> is now inserted into <a class="reference internal" href="../library/sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> when no finder
 can be found on <a class="reference internal" href="../library/sys.html#sys.path_hooks" title="sys.path_hooks"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code></a>. Since <code class="xref py py-class docutils literal notranslate"><span class="pre">imp.NullImporter</span></code> is not
-directly exposed on <code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code> it could no longer be relied upon to
+directly exposed on <a class="reference internal" href="../library/sys.html#sys.path_hooks" title="sys.path_hooks"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code></a> it could no longer be relied upon to
 always be available to use as a value representing no finder found.</p>
 <p>All other changes relate to semantic changes which should be taken into
 consideration when updating code for Python 3.3, and thus should be read about
@@ -1002,7 +1002,7 @@ in the <a class="reference internal" href="#porting-python-code">Porting Python 
 <ul>
 <li><p>Added support for Unicode name aliases and named sequences.
 Both <a class="reference internal" href="../library/unicodedata.html#unicodedata.lookup" title="unicodedata.lookup"><code class="xref py py-func docutils literal notranslate"><span class="pre">unicodedata.lookup()</span></code></a> and <code class="docutils literal notranslate"><span class="pre">'\N{...}'</span></code> now resolve name aliases,
-and <code class="xref py py-func docutils literal notranslate"><span class="pre">unicodedata.lookup()</span></code> resolves named sequences too.</p>
+and <a class="reference internal" href="../library/unicodedata.html#unicodedata.lookup" title="unicodedata.lookup"><code class="xref py py-func docutils literal notranslate"><span class="pre">unicodedata.lookup()</span></code></a> resolves named sequences too.</p>
 <p>(Contributed by Ezio Melotti in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=12753">bpo-12753</a>.)</p>
 </li>
 <li><p>Unicode database updated to UCD version 6.1.0</p></li>
@@ -1015,7 +1015,7 @@ integer between 0 and 255 as their first argument.</p>
 <p>(Contributed by Petri Lehtinen in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=12170">bpo-12170</a>.)</p>
 </li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">rjust()</span></code>, <code class="docutils literal notranslate"><span class="pre">ljust()</span></code>, and <code class="docutils literal notranslate"><span class="pre">center()</span></code> methods of <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>
-and <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> now accept a <code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code> for the <code class="docutils literal notranslate"><span class="pre">fill</span></code>
+and <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> now accept a <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> for the <code class="docutils literal notranslate"><span class="pre">fill</span></code>
 argument.  (Contributed by Petri Lehtinen in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=12380">bpo-12380</a>.)</p></li>
 <li><p>New methods have been added to <a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a>:
 <code class="docutils literal notranslate"><span class="pre">copy()</span></code> and <code class="docutils literal notranslate"><span class="pre">clear()</span></code> (<a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=10516">bpo-10516</a>).  Consequently,
@@ -1158,7 +1158,7 @@ objects, by means of its constructor’s <em>fileobj</em> argument.</p>
 </li>
 <li><p><a class="reference internal" href="../library/bz2.html#bz2.BZ2File" title="bz2.BZ2File"><code class="xref py py-class docutils literal notranslate"><span class="pre">bz2.BZ2File</span></code></a> and <a class="reference internal" href="../library/bz2.html#bz2.decompress" title="bz2.decompress"><code class="xref py py-func docutils literal notranslate"><span class="pre">bz2.decompress()</span></code></a> can now decompress
 multi-stream inputs (such as those produced by the <strong class="program">pbzip2</strong> tool).
-<code class="xref py py-class docutils literal notranslate"><span class="pre">bz2.BZ2File</span></code> can now also be used to create this type of file, using
+<a class="reference internal" href="../library/bz2.html#bz2.BZ2File" title="bz2.BZ2File"><code class="xref py py-class docutils literal notranslate"><span class="pre">bz2.BZ2File</span></code></a> can now also be used to create this type of file, using
 the <code class="docutils literal notranslate"><span class="pre">'a'</span></code> (append) mode.</p>
 <p>(Contributed by Nir Aides in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=1625">bpo-1625</a>.)</p>
 </li>
@@ -1170,7 +1170,7 @@ except for the <code class="xref py py-meth docutils literal notranslate"><span 
 <h3>codecs<a class="headerlink" href="#codecs" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="../library/codecs.html#module-encodings.mbcs" title="encodings.mbcs: Windows ANSI codepage"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mbcs</span></code></a> codec has been rewritten to handle correctly
 <code class="docutils literal notranslate"><span class="pre">replace</span></code> and <code class="docutils literal notranslate"><span class="pre">ignore</span></code> error handlers on all Windows versions.  The
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">mbcs</span></code> codec now supports all error handlers, instead of only
+<a class="reference internal" href="../library/codecs.html#module-encodings.mbcs" title="encodings.mbcs: Windows ANSI codepage"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mbcs</span></code></a> codec now supports all error handlers, instead of only
 <code class="docutils literal notranslate"><span class="pre">replace</span></code> to encode and <code class="docutils literal notranslate"><span class="pre">ignore</span></code> to decode.</p>
 <p>A new Windows-only codec has been added: <code class="docutils literal notranslate"><span class="pre">cp65001</span></code> (<a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=13216">bpo-13216</a>). It is the
 Windows code page 65001 (Windows UTF-8, <code class="docutils literal notranslate"><span class="pre">CP_UTF8</span></code>).  For example, it is used
@@ -1357,9 +1357,9 @@ but the final result is only “almost always correctly rounded”.</p></li>
 <li><p>In the C version, the context dictionary containing the signals is a
 <a class="reference internal" href="../library/collections.abc.html#collections.abc.MutableMapping" title="collections.abc.MutableMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code></a>.  For speed reasons,
 <a class="reference internal" href="../library/decimal.html#decimal.Context.flags" title="decimal.Context.flags"><code class="xref py py-attr docutils literal notranslate"><span class="pre">flags</span></code></a> and <a class="reference internal" href="../library/decimal.html#decimal.Context.traps" title="decimal.Context.traps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">traps</span></code></a> always
-refer to the same <code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code> that the context
+refer to the same <a class="reference internal" href="../library/collections.abc.html#collections.abc.MutableMapping" title="collections.abc.MutableMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code></a> that the context
 was initialized with. If a new signal dictionary is assigned,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">flags</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">traps</span></code>
+<a class="reference internal" href="../library/decimal.html#decimal.Context.flags" title="decimal.Context.flags"><code class="xref py py-attr docutils literal notranslate"><span class="pre">flags</span></code></a> and <a class="reference internal" href="../library/decimal.html#decimal.Context.traps" title="decimal.Context.traps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">traps</span></code></a>
 are updated with the new values, but they do not reference the RHS
 dictionary.</p></li>
 <li><p>Pickling a <a class="reference internal" href="../library/decimal.html#decimal.Context" title="decimal.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> produces a different output in order
@@ -1532,12 +1532,12 @@ API.</p>
 produce a string formatted for use in an email header.</p></li>
 <li><p><a class="reference internal" href="../library/email.utils.html#email.utils.parsedate_to_datetime" title="email.utils.parsedate_to_datetime"><code class="xref py py-func docutils literal notranslate"><span class="pre">parsedate_to_datetime()</span></code></a>: given a date string from
 an email header, convert it into an aware <a class="reference internal" href="../library/datetime.html#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a>,
-or a naive <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code> if the offset is <code class="docutils literal notranslate"><span class="pre">-0000</span></code>.</p></li>
+or a naive <a class="reference internal" href="../library/datetime.html#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> if the offset is <code class="docutils literal notranslate"><span class="pre">-0000</span></code>.</p></li>
 <li><p><a class="reference internal" href="../library/email.utils.html#email.utils.localtime" title="email.utils.localtime"><code class="xref py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a>: With no argument, returns the
 current local time as an aware <a class="reference internal" href="../library/datetime.html#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> using the local
-<a class="reference internal" href="../library/datetime.html#datetime.timezone" title="datetime.timezone"><code class="xref py py-class docutils literal notranslate"><span class="pre">timezone</span></code></a>.  Given an aware <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>,
-converts it into an aware <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code> using the
-local <code class="xref py py-class docutils literal notranslate"><span class="pre">timezone</span></code>.</p></li>
+<a class="reference internal" href="../library/datetime.html#datetime.timezone" title="datetime.timezone"><code class="xref py py-class docutils literal notranslate"><span class="pre">timezone</span></code></a>.  Given an aware <a class="reference internal" href="../library/datetime.html#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a>,
+converts it into an aware <a class="reference internal" href="../library/datetime.html#datetime.datetime" title="datetime.datetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> using the
+local <a class="reference internal" href="../library/datetime.html#datetime.timezone" title="datetime.timezone"><code class="xref py py-class docutils literal notranslate"><span class="pre">timezone</span></code></a>.</p></li>
 </ul>
 </section>
 </section>
@@ -1635,7 +1635,7 @@ already exists. It is based on the C11 ‘x’ mode to fopen().</p>
 <p>The constructor of the <a class="reference internal" href="../library/io.html#io.TextIOWrapper" title="io.TextIOWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOWrapper</span></code></a> class has a new
 <em>write_through</em> optional argument. If <em>write_through</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, calls to
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code> are guaranteed not to be buffered: any data
-written on the <code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOWrapper</span></code> object is immediately handled to its
+written on the <a class="reference internal" href="../library/io.html#io.TextIOWrapper" title="io.TextIOWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOWrapper</span></code></a> object is immediately handled to its
 underlying binary buffer.</p>
 </section>
 <section id="itertools">
@@ -1713,7 +1713,7 @@ avoid race conditions in multi-threaded programs.</p></li>
 an efficient “zero-copy” way for copying data from one file (or socket)
 descriptor to another. The phrase “zero-copy” refers to the fact that all of
 the copying of data between the two descriptors is done entirely by the
-kernel, with no copying of data into userspace buffers. <code class="xref py py-func docutils literal notranslate"><span class="pre">sendfile()</span></code>
+kernel, with no copying of data into userspace buffers. <a class="reference internal" href="../library/os.html#os.sendfile" title="os.sendfile"><code class="xref py py-func docutils literal notranslate"><span class="pre">sendfile()</span></code></a>
 can be used to efficiently copy data from a file on disk to a network socket,
 e.g. for downloading a file.</p>
 <p>(Patch submitted by Ross Lagerwall and Giampaolo Rodolà in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=10882">bpo-10882</a>.)</p>
@@ -1909,7 +1909,7 @@ acts on the symlink itself (or creates one, if relevant).
 <li><p>When copying files to a different file system, <a class="reference internal" href="../library/shutil.html#shutil.move" title="shutil.move"><code class="xref py py-func docutils literal notranslate"><span class="pre">move()</span></code></a> now
 handles symlinks the way the posix <code class="docutils literal notranslate"><span class="pre">mv</span></code> command does, recreating the
 symlink rather than copying the target file contents.  (Contributed by
-Jonathan Niehof in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=9993">bpo-9993</a>.)  <code class="xref py py-func docutils literal notranslate"><span class="pre">move()</span></code> now also returns
+Jonathan Niehof in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=9993">bpo-9993</a>.)  <a class="reference internal" href="../library/shutil.html#shutil.move" title="shutil.move"><code class="xref py py-func docutils literal notranslate"><span class="pre">move()</span></code></a> now also returns
 the <code class="docutils literal notranslate"><span class="pre">dst</span></code> argument as its result.</p></li>
 <li><p><a class="reference internal" href="../library/shutil.html#shutil.rmtree" title="shutil.rmtree"><code class="xref py py-func docutils literal notranslate"><span class="pre">rmtree()</span></code></a> is now resistant to symlink attacks on platforms
 which support the new <code class="docutils literal notranslate"><span class="pre">dir_fd</span></code> parameter in <a class="reference internal" href="../library/os.html#os.open" title="os.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a> and
@@ -2396,7 +2396,7 @@ implemented that the default value remained -1. If you need to continue to
 perform a relative import followed by an absolute import, then perform the
 relative import using an index of 1, followed by another import using an
 index of 0. It is preferred, though, that you use
-<a class="reference internal" href="../library/importlib.html#importlib.import_module" title="importlib.import_module"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.import_module()</span></code></a> rather than call <code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code> directly.</p></li>
+<a class="reference internal" href="../library/importlib.html#importlib.import_module" title="importlib.import_module"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.import_module()</span></code></a> rather than call <a class="reference internal" href="../library/functions.html#import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> directly.</p></li>
 <li><p><a class="reference internal" href="../library/functions.html#import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> no longer allows one to use an index value other than 0
 for top-level modules. E.g. <code class="docutils literal notranslate"><span class="pre">__import__('sys',</span> <span class="pre">level=1)</span></code> is now an error.</p></li>
 <li><p>Because <a class="reference internal" href="../library/sys.html#sys.meta_path" title="sys.meta_path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.meta_path</span></code></a> and <a class="reference internal" href="../library/sys.html#sys.path_hooks" title="sys.path_hooks"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code></a> now have finders on
@@ -2407,7 +2407,7 @@ are clearing out entries in the dictionary of paths that do not have a
 finder, you will need to remove keys paired with values of <code class="docutils literal notranslate"><span class="pre">None</span></code> <strong>and</strong>
 <code class="xref py py-class docutils literal notranslate"><span class="pre">imp.NullImporter</span></code> to be backwards-compatible. This will lead to extra
 overhead on older versions of Python that re-insert <code class="docutils literal notranslate"><span class="pre">None</span></code> into
-<code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code> where it represents the use of implicit
+<a class="reference internal" href="../library/sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> where it represents the use of implicit
 finders, but semantically it should not change anything.</p></li>
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.Finder</span></code> no longer specifies a <code class="docutils literal notranslate"><span class="pre">find_module()</span></code> abstract
 method that must be implemented. If you were relying on subclasses to

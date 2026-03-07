@@ -333,8 +333,8 @@ of the UTF-8 encoding:</p>
 argument has no effect).</p></li>
 <li><p><a class="reference internal" href="sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdin</span></code></a>, <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a>, and <a class="reference internal" href="sys.html#sys.stderr" title="sys.stderr"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> all use
 UTF-8 as their text encoding, with the <code class="docutils literal notranslate"><span class="pre">surrogateescape</span></code>
-<a class="reference internal" href="codecs.html#error-handlers"><span class="std std-ref">error handler</span></a> being enabled for <code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdin</span></code>
-and <code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code> (<code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code> continues to use
+<a class="reference internal" href="codecs.html#error-handlers"><span class="std std-ref">error handler</span></a> being enabled for <a class="reference internal" href="sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdin</span></code></a>
+and <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a> (<a class="reference internal" href="sys.html#sys.stderr" title="sys.stderr"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> continues to use
 <code class="docutils literal notranslate"><span class="pre">backslashreplace</span></code> as it does in the default locale-aware mode)</p></li>
 <li><p>On Unix, <a class="reference internal" href="#os.device_encoding" title="os.device_encoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.device_encoding()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">'utf-8'</span></code> rather than the
 device encoding.</p></li>
@@ -394,7 +394,7 @@ of your home directory (on some platforms), and is equivalent to
 <p>This mapping is captured the first time the <code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code> module is imported,
 typically during Python startup as part of processing <code class="file docutils literal notranslate"><span class="pre">site.py</span></code>.  Changes
 to the environment made after this time are not reflected in <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>,
-except for changes made by modifying <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code> directly.</p>
+except for changes made by modifying <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a> directly.</p>
 <p>This mapping may be used to modify the environment as well as query the
 environment.  <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> will be called automatically when the mapping
 is modified.</p>
@@ -408,7 +408,7 @@ getting, setting, or deleting an item. For example,
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Calling <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a> directly does not change <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>, so it’s better
-to modify <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+to modify <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -435,9 +435,9 @@ cause memory leaks.  Refer to the system documentation for
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L744">typeshed</a>)</p>
 <p>Bytes version of <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">environ</span></code></a>: a <a class="reference internal" href="../glossary.html#term-mapping"><span class="xref std std-term">mapping</span></a> object where both keys
 and values are <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> objects representing the process environment.
-<code class="xref py py-data docutils literal notranslate"><span class="pre">environ</span></code> and <code class="xref py py-data docutils literal notranslate"><span class="pre">environb</span></code> are synchronized (modifying
-<code class="xref py py-data docutils literal notranslate"><span class="pre">environb</span></code> updates <code class="xref py py-data docutils literal notranslate"><span class="pre">environ</span></code>, and vice versa).</p>
-<p><code class="xref py py-data docutils literal notranslate"><span class="pre">environb</span></code> is only available if <a class="reference internal" href="#os.supports_bytes_environ" title="os.supports_bytes_environ"><code class="xref py py-const docutils literal notranslate"><span class="pre">supports_bytes_environ</span></code></a> is
+<a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">environ</span></code></a> and <a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">environb</span></code></a> are synchronized (modifying
+<a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">environb</span></code></a> updates <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">environ</span></code></a>, and vice versa).</p>
+<p><a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">environb</span></code></a> is only available if <a class="reference internal" href="#os.supports_bytes_environ" title="os.supports_bytes_environ"><code class="xref py py-const docutils literal notranslate"><span class="pre">supports_bytes_environ</span></code></a> is
 <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.2.</span></p>
@@ -457,7 +457,7 @@ and values are <a class="reference internal" href="stdtypes.html#bytes" title="b
 environment variables at the time that Python started.
 As such, changes to the current process environment are not reflected
 if made outside Python, or by <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.putenv()</span></code></a> or <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.unsetenv()</span></code></a>.
-Use <code class="xref py py-func docutils literal notranslate"><span class="pre">os.reload_environ()</span></code> to update <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code> and <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environb</span></code>
+Use <code class="xref py py-func docutils literal notranslate"><span class="pre">os.reload_environ()</span></code> to update <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a> and <a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environb</span></code></a>
 with any such changes to the current process environment.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -533,7 +533,7 @@ interface.</p>
 <p>Return the file system representation of the path.</p>
 <p>If <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> is passed in, it is returned unchanged.
 Otherwise <a class="reference internal" href="#os.PathLike.__fspath__" title="os.PathLike.__fspath__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__fspath__()</span></code></a> is called and its value is
-returned as long as it is a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> object.
+returned as long as it is a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object.
 In all other cases, <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is raised.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.6.</span></p>
@@ -559,7 +559,7 @@ e.g. <a class="reference internal" href="pathlib.html#pathlib.PurePath" title="p
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L884">typeshed</a>)</p>
 <p>Return the file system path representation of the object.</p>
 <p>The method should only return a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object,
-with the preference being for <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>.</p>
+with the preference being for <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -574,7 +574,7 @@ with the preference being for <code class="xref py py-class docutils literal not
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1016">typeshed</a>)</p>
 <p>Return the value of the environment variable <em>key</em> as a string if it exists, or
 <em>default</em> if it doesn’t. <em>key</em> is a string. Note that
-since <code class="xref py py-func docutils literal notranslate"><span class="pre">getenv()</span></code> uses <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>, the mapping of <code class="xref py py-func docutils literal notranslate"><span class="pre">getenv()</span></code> is
+since <a class="reference internal" href="#os.getenv" title="os.getenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenv()</span></code></a> uses <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>, the mapping of <a class="reference internal" href="#os.getenv" title="os.getenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenv()</span></code></a> is
 similarly also captured on import, and the function may not reflect
 future environment changes.</p>
 <p>On Unix, keys and values are decoded with <a class="reference internal" href="sys.html#sys.getfilesystemencoding" title="sys.getfilesystemencoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getfilesystemencoding()</span></code></a>
@@ -595,10 +595,10 @@ would like to use a different encoding.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1022">typeshed</a>)</p>
 <p>Return the value of the environment variable <em>key</em> as bytes if it exists, or
 <em>default</em> if it doesn’t. <em>key</em> must be bytes. Note that
-since <code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code> uses <a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environb</span></code></a>, the mapping of <code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code> is
+since <a class="reference internal" href="#os.getenvb" title="os.getenvb"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code></a> uses <a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environb</span></code></a>, the mapping of <a class="reference internal" href="#os.getenvb" title="os.getenvb"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code></a> is
 similarly also captured on import, and the function may not reflect
 future environment changes.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code> is only available if <a class="reference internal" href="#os.supports_bytes_environ" title="os.supports_bytes_environ"><code class="xref py py-const docutils literal notranslate"><span class="pre">supports_bytes_environ</span></code></a>
+<p><a class="reference internal" href="#os.getenvb" title="os.getenvb"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code></a> is only available if <a class="reference internal" href="#os.supports_bytes_environ" title="os.supports_bytes_environ"><code class="xref py py-const docutils literal notranslate"><span class="pre">supports_bytes_environ</span></code></a>
 is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix.</p>
@@ -693,17 +693,17 @@ otherwise be potentially omitted.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>On macOS, <code class="xref py py-func docutils literal notranslate"><span class="pre">getgroups()</span></code> behavior differs somewhat from
+<p>On macOS, <a class="reference internal" href="#os.getgroups" title="os.getgroups"><code class="xref py py-func docutils literal notranslate"><span class="pre">getgroups()</span></code></a> behavior differs somewhat from
 other Unix platforms. If the Python interpreter was built with a
-deployment target of <code class="docutils literal notranslate"><span class="pre">10.5</span></code> or earlier, <code class="xref py py-func docutils literal notranslate"><span class="pre">getgroups()</span></code> returns
+deployment target of <code class="docutils literal notranslate"><span class="pre">10.5</span></code> or earlier, <a class="reference internal" href="#os.getgroups" title="os.getgroups"><code class="xref py py-func docutils literal notranslate"><span class="pre">getgroups()</span></code></a> returns
 the list of effective group ids associated with the current user process;
 this list is limited to a system-defined number of entries, typically 16,
 and may be modified by calls to <a class="reference internal" href="#os.setgroups" title="os.setgroups"><code class="xref py py-func docutils literal notranslate"><span class="pre">setgroups()</span></code></a> if suitably privileged.
 If built with a deployment target greater than <code class="docutils literal notranslate"><span class="pre">10.5</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">getgroups()</span></code> returns the current group access list for the user
+<a class="reference internal" href="#os.getgroups" title="os.getgroups"><code class="xref py py-func docutils literal notranslate"><span class="pre">getgroups()</span></code></a> returns the current group access list for the user
 associated with the effective user id of the process; the group access
 list may change over the lifetime of the process, it is not affected by
-calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">setgroups()</span></code>, and its length is not limited to 16.  The
+calls to <a class="reference internal" href="#os.setgroups" title="os.setgroups"><code class="xref py py-func docutils literal notranslate"><span class="pre">setgroups()</span></code></a>, and its length is not limited to 16.  The
 deployment target value can be obtained with
 <a class="reference internal" href="sysconfig.html#sysconfig.get_config_var" title="sysconfig.get_config_var"><code class="xref py py-func docutils literal notranslate"><span class="pre">sysconfig.get_config_var('MACOSX_DEPLOYMENT_TARGET')</span></code></a>.</p>
 </div>
@@ -788,8 +788,8 @@ the same id, which may be already reused by another process.</p>
 <p id="index-15">Get program scheduling priority.  The value <em>which</em> is one of
 <a class="reference internal" href="#os.PRIO_PROCESS" title="os.PRIO_PROCESS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PROCESS</span></code></a>, <a class="reference internal" href="#os.PRIO_PGRP" title="os.PRIO_PGRP"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PGRP</span></code></a>, or <a class="reference internal" href="#os.PRIO_USER" title="os.PRIO_USER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_USER</span></code></a>, and <em>who</em>
 is interpreted relative to <em>which</em> (a process identifier for
-<code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PROCESS</span></code>, process group identifier for <code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PGRP</span></code>, and a
-user ID for <code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_USER</span></code>).  A zero value for <em>who</em> denotes
+<a class="reference internal" href="#os.PRIO_PROCESS" title="os.PRIO_PROCESS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PROCESS</span></code></a>, process group identifier for <a class="reference internal" href="#os.PRIO_PGRP" title="os.PRIO_PGRP"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PGRP</span></code></a>, and a
+user ID for <a class="reference internal" href="#os.PRIO_USER" title="os.PRIO_USER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_USER</span></code></a>).  A zero value for <em>who</em> denotes
 (respectively) the calling process, the process group of the calling process,
 or the real user ID of the calling process.</p>
 <div class="availability docutils container">
@@ -908,10 +908,10 @@ group id.</p>
 changes to the environment affect subprocesses started with <a class="reference internal" href="#os.system" title="os.system"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.system()</span></code></a>,
 <a class="reference internal" href="#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">popen()</span></code></a> or <a class="reference internal" href="#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">fork()</span></code></a> and <a class="reference internal" href="#os.execv" title="os.execv"><code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code></a>.</p>
 <p>Assignments to items in <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a> are automatically translated into
-corresponding calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code>; however, calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code>
-don’t update <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code>, so it is actually preferable to assign to items
-of <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code>. This also applies to <a class="reference internal" href="#os.getenv" title="os.getenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenv()</span></code></a> and <a class="reference internal" href="#os.getenvb" title="os.getenvb"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code></a>, which
-respectively use <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code> and <a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environb</span></code></a> in their implementations.</p>
+corresponding calls to <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a>; however, calls to <a class="reference internal" href="#os.putenv" title="os.putenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">putenv()</span></code></a>
+don’t update <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>, so it is actually preferable to assign to items
+of <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>. This also applies to <a class="reference internal" href="#os.getenv" title="os.getenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenv()</span></code></a> and <a class="reference internal" href="#os.getenvb" title="os.getenvb"><code class="xref py py-func docutils literal notranslate"><span class="pre">getenvb()</span></code></a>, which
+respectively use <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a> and <a class="reference internal" href="#os.environb" title="os.environb"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environb</span></code></a> in their implementations.</p>
 <p>See also the <a class="reference internal" href="#os.reload_environ" title="os.reload_environ"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.reload_environ()</span></code></a> function.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1059,8 +1059,8 @@ for the semantics.</p>
 <p id="index-18">Set program scheduling priority. The value <em>which</em> is one of
 <a class="reference internal" href="#os.PRIO_PROCESS" title="os.PRIO_PROCESS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PROCESS</span></code></a>, <a class="reference internal" href="#os.PRIO_PGRP" title="os.PRIO_PGRP"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PGRP</span></code></a>, or <a class="reference internal" href="#os.PRIO_USER" title="os.PRIO_USER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_USER</span></code></a>, and <em>who</em>
 is interpreted relative to <em>which</em> (a process identifier for
-<code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PROCESS</span></code>, process group identifier for <code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PGRP</span></code>, and a
-user ID for <code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_USER</span></code>). A zero value for <em>who</em> denotes
+<a class="reference internal" href="#os.PRIO_PROCESS" title="os.PRIO_PROCESS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PROCESS</span></code></a>, process group identifier for <a class="reference internal" href="#os.PRIO_PGRP" title="os.PRIO_PGRP"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_PGRP</span></code></a>, and a
+user ID for <a class="reference internal" href="#os.PRIO_USER" title="os.PRIO_USER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PRIO_USER</span></code></a>). A zero value for <em>who</em> denotes
 (respectively) the calling process, the process group of the calling process,
 or the real user ID of the calling process.
 <em>priority</em> is a value in the range -20 to 19. The default priority is 0;
@@ -1242,9 +1242,9 @@ with named attributes.</p>
 environment affect subprocesses started with <a class="reference internal" href="#os.system" title="os.system"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.system()</span></code></a>, <a class="reference internal" href="#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">popen()</span></code></a> or
 <a class="reference internal" href="#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">fork()</span></code></a> and <a class="reference internal" href="#os.execv" title="os.execv"><code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code></a>.</p>
 <p>Deletion of items in <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a> is automatically translated into a
-corresponding call to <code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code>; however, calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code>
-don’t update <code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code>, so it is actually preferable to delete items of
-<code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+corresponding call to <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a>; however, calls to <a class="reference internal" href="#os.unsetenv" title="os.unsetenv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unsetenv()</span></code></a>
+don’t update <a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>, so it is actually preferable to delete items of
+<a class="reference internal" href="#os.environ" title="os.environ"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.environ</span></code></a>.</p>
 <p>See also the <a class="reference internal" href="#os.reload_environ" title="os.reload_environ"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.reload_environ()</span></code></a> function.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.unsetenv</span></code> with argument <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p>
 <div class="versionchanged">
@@ -1431,7 +1431,7 @@ for their exact effect and availability.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1035">typeshed</a>)</p>
 <p>Return an open file object connected to the file descriptor <em>fd</em>.  This is an
 alias of the <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> built-in function and accepts the same arguments.
-The only difference is that the first argument of <code class="xref py py-func docutils literal notranslate"><span class="pre">fdopen()</span></code> must always
+The only difference is that the first argument of <a class="reference internal" href="#os.fdopen" title="os.fdopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">fdopen()</span></code></a> must always
 be an integer.</p>
 </dd></dl>
 
@@ -1937,7 +1937,7 @@ the <code class="xref py py-mod docutils literal notranslate"><span class="pre">
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This function is intended for low-level I/O.  For normal usage, use the
-built-in function <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code>, which returns a <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a> with
+built-in function <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>, which returns a <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a> with
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code> methods (and many more).  To
 wrap a file descriptor in a file object, use <a class="reference internal" href="#os.fdopen" title="os.fdopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">fdopen()</span></code></a>.</p>
 </div>
@@ -1996,7 +1996,7 @@ or <a class="reference external" href="https://msdn.microsoft.com/en-us/library/
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L638">typeshed</a>)</p>
 <p>The above constants are only available on Unix.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.3: </span>Add <code class="xref py py-data docutils literal notranslate"><span class="pre">O_CLOEXEC</span></code> constant.</p>
+<p><span class="versionmodified changed">Changed in version 3.3: </span>Add <a class="reference internal" href="#os.O_CLOEXEC" title="os.O_CLOEXEC"><code class="xref py py-data docutils literal notranslate"><span class="pre">O_CLOEXEC</span></code></a> constant.</p>
 </div>
 </dd></dl>
 
@@ -2029,8 +2029,8 @@ or <a class="reference external" href="https://msdn.microsoft.com/en-us/library/
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">O_NOFOLLOW_ANY</span></span><a class="headerlink" href="#os.O_NOFOLLOW_ANY" title="Link to this definition">¶</a></dt>
 <dd><p>The above constants are only available on macOS.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.10: </span>Add <code class="xref py py-data docutils literal notranslate"><span class="pre">O_EVTONLY</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">O_FSYNC</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">O_SYMLINK</span></code>
-and <code class="xref py py-data docutils literal notranslate"><span class="pre">O_NOFOLLOW_ANY</span></code> constants.</p>
+<p><span class="versionmodified changed">Changed in version 3.10: </span>Add <a class="reference internal" href="#os.O_EVTONLY" title="os.O_EVTONLY"><code class="xref py py-data docutils literal notranslate"><span class="pre">O_EVTONLY</span></code></a>, <a class="reference internal" href="#os.O_FSYNC" title="os.O_FSYNC"><code class="xref py py-data docutils literal notranslate"><span class="pre">O_FSYNC</span></code></a>, <a class="reference internal" href="#os.O_SYMLINK" title="os.O_SYMLINK"><code class="xref py py-data docutils literal notranslate"><span class="pre">O_SYMLINK</span></code></a>
+and <a class="reference internal" href="#os.O_NOFOLLOW_ANY" title="os.O_NOFOLLOW_ANY"><code class="xref py py-data docutils literal notranslate"><span class="pre">O_NOFOLLOW_ANY</span></code></a> constants.</p>
 </div>
 </dd></dl>
 
@@ -2057,8 +2057,8 @@ and <code class="xref py py-data docutils literal notranslate"><span class="pre"
 <p>The above constants are extensions and not present if they are not defined by
 the C library.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.4: </span>Add <code class="xref py py-data docutils literal notranslate"><span class="pre">O_PATH</span></code> on systems that support it.
-Add <code class="xref py py-data docutils literal notranslate"><span class="pre">O_TMPFILE</span></code>, only available on Linux Kernel 3.11
+<p><span class="versionmodified changed">Changed in version 3.4: </span>Add <a class="reference internal" href="#os.O_PATH" title="os.O_PATH"><code class="xref py py-data docutils literal notranslate"><span class="pre">O_PATH</span></code></a> on systems that support it.
+Add <a class="reference internal" href="#os.O_TMPFILE" title="os.O_TMPFILE"><code class="xref py py-data docutils literal notranslate"><span class="pre">O_TMPFILE</span></code></a>, only available on Linux Kernel 3.11
   or newer.</p>
 </div>
 </dd></dl>
@@ -2509,7 +2509,7 @@ descriptor as returned by <a class="reference internal" href="#os.open" title="o
 starting at <em>offset</em>.
 Return the number of bytes sent. When EOF is reached return <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>The first function notation is supported by all platforms that define
-<code class="xref py py-func docutils literal notranslate"><span class="pre">sendfile()</span></code>.</p>
+<a class="reference internal" href="#os.sendfile" title="os.sendfile"><code class="xref py py-func docutils literal notranslate"><span class="pre">sendfile()</span></code></a>.</p>
 <p>On Linux, if <em>offset</em> is given as <code class="docutils literal notranslate"><span class="pre">None</span></code>, the bytes are read from the
 current position of <em>in_fd</em> and the position of <em>in_fd</em> is updated.</p>
 <p>The second case may be used on macOS and FreeBSD where <em>headers</em> and
@@ -2526,7 +2526,7 @@ arguments.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For a higher-level wrapper of <code class="xref py py-func docutils literal notranslate"><span class="pre">sendfile()</span></code>, see
+<p>For a higher-level wrapper of <a class="reference internal" href="#os.sendfile" title="os.sendfile"><code class="xref py py-func docutils literal notranslate"><span class="pre">sendfile()</span></code></a>, see
 <a class="reference internal" href="socket.html#socket.socket.sendfile" title="socket.socket.sendfile"><code class="xref py py-meth docutils literal notranslate"><span class="pre">socket.socket.sendfile()</span></code></a>.</p>
 </div>
 <div class="versionadded">
@@ -2986,14 +2986,14 @@ can be the inclusive OR of one or more of <a class="reference internal" href="#o
 information.</p>
 <p>This function can support specifying <a class="reference internal" href="#dir-fd"><span class="std std-ref">paths relative to directory
 descriptors</span></a> and <a class="reference internal" href="#follow-symlinks"><span class="std std-ref">not following symlinks</span></a>.</p>
-<p>If <em>effective_ids</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">access()</span></code> will perform its access
+<p>If <em>effective_ids</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, <a class="reference internal" href="#os.access" title="os.access"><code class="xref py py-func docutils literal notranslate"><span class="pre">access()</span></code></a> will perform its access
 checks using the effective uid/gid instead of the real uid/gid.
 <em>effective_ids</em> may not be supported on your platform; you can check whether
 or not it is available using <a class="reference internal" href="#os.supports_effective_ids" title="os.supports_effective_ids"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.supports_effective_ids</span></code></a>.  If it is
 unavailable, using it will raise a <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Using <code class="xref py py-func docutils literal notranslate"><span class="pre">access()</span></code> to check if a user is authorized to e.g. open a file
+<p>Using <a class="reference internal" href="#os.access" title="os.access"><code class="xref py py-func docutils literal notranslate"><span class="pre">access()</span></code></a> to check if a user is authorized to e.g. open a file
 before actually doing so using <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> creates a security hole,
 because the user might exploit the short time interval between checking
 and opening the file to manipulate it. It’s preferable to use <a class="reference internal" href="../glossary.html#term-EAFP"><span class="xref std std-term">EAFP</span></a>
@@ -3017,7 +3017,7 @@ techniques. For example:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>I/O operations may fail even when <code class="xref py py-func docutils literal notranslate"><span class="pre">access()</span></code> indicates that they would
+<p>I/O operations may fail even when <a class="reference internal" href="#os.access" title="os.access"><code class="xref py py-func docutils literal notranslate"><span class="pre">access()</span></code></a> indicates that they would
 succeed, particularly for operations on network filesystems which may have
 permissions semantics beyond the usual POSIX permission-bit model.</p>
 </div>
@@ -3142,7 +3142,7 @@ combinations of them:</p>
 following symlinks</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Although Windows supports <code class="xref py py-func docutils literal notranslate"><span class="pre">chmod()</span></code>, you can only set the file’s
+<p>Although Windows supports <a class="reference internal" href="#os.chmod" title="os.chmod"><code class="xref py py-func docutils literal notranslate"><span class="pre">chmod()</span></code></a>, you can only set the file’s
 read-only flag with it (via the <code class="docutils literal notranslate"><span class="pre">stat.S_IWRITE</span></code> and <code class="docutils literal notranslate"><span class="pre">stat.S_IREAD</span></code>
 constants or a corresponding integer value).  All other bits are ignored.
 The default value of <em>follow_symlinks</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code> on Windows.</p>
@@ -3541,13 +3541,13 @@ intermediate-level directories needed to contain the leaf directory.</p>
 <p>The <em>mode</em> parameter is passed to <a class="reference internal" href="#os.mkdir" title="os.mkdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkdir()</span></code></a> for creating the leaf
 directory; see <a class="reference internal" href="#mkdir-modebits"><span class="std std-ref">the mkdir() description</span></a> for how it
 is interpreted.  To set the file permission bits of any newly created parent
-directories you can set the umask before invoking <code class="xref py py-func docutils literal notranslate"><span class="pre">makedirs()</span></code>.  The
+directories you can set the umask before invoking <a class="reference internal" href="#os.makedirs" title="os.makedirs"><code class="xref py py-func docutils literal notranslate"><span class="pre">makedirs()</span></code></a>.  The
 file permission bits of existing parent directories are not changed.</p>
 <p>If <em>exist_ok</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code> (the default), a <a class="reference internal" href="exceptions.html#FileExistsError" title="FileExistsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code></a> is
 raised if the target directory already exists.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">makedirs()</span></code> will become confused if the path elements to create
+<p><a class="reference internal" href="#os.makedirs" title="os.makedirs"><code class="xref py py-func docutils literal notranslate"><span class="pre">makedirs()</span></code></a> will become confused if the path elements to create
 include <a class="reference internal" href="#os.pardir" title="os.pardir"><code class="xref py py-data docutils literal notranslate"><span class="pre">pardir</span></code></a> (eg. “..” on UNIX systems).</p>
 </div>
 <p>This function handles UNC paths correctly.</p>
@@ -3557,7 +3557,7 @@ include <a class="reference internal" href="#os.pardir" title="os.pardir"><code 
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4.1: </span>Before Python 3.4.1, if <em>exist_ok</em> was <code class="docutils literal notranslate"><span class="pre">True</span></code> and the directory existed,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">makedirs()</span></code> would still raise an error if <em>mode</em> did not match the
+<a class="reference internal" href="#os.makedirs" title="os.makedirs"><code class="xref py py-func docutils literal notranslate"><span class="pre">makedirs()</span></code></a> would still raise an error if <em>mode</em> did not match the
 mode of the existing directory. Since this behavior was impossible to
 implement safely, it was removed in Python 3.4.1. See <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=21082">bpo-21082</a>.</p>
 </div>
@@ -3591,7 +3591,7 @@ The current umask value is first masked out from the mode.</p>
 <p>FIFOs are pipes that can be accessed like regular files.  FIFOs exist until they
 are deleted (for example with <a class="reference internal" href="#os.unlink" title="os.unlink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.unlink()</span></code></a>). Generally, FIFOs are used as
 rendezvous between “client” and “server” type processes: the server opens the
-FIFO for reading, and the client opens it for writing.  Note that <code class="xref py py-func docutils literal notranslate"><span class="pre">mkfifo()</span></code>
+FIFO for reading, and the client opens it for writing.  Note that <a class="reference internal" href="#os.mkfifo" title="os.mkfifo"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkfifo()</span></code></a>
 doesn’t open the FIFO — it just creates the rendezvous point.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix, not WASI.</p>
@@ -3624,7 +3624,7 @@ doesn’t open the FIFO — it just creates the rendezvous point.</p>
 <em>path</em>. <em>mode</em> specifies both the permissions to use and the type of node
 to be created, being combined (bitwise OR) with one of <a class="reference internal" href="stat.html#stat.S_IFREG" title="stat.S_IFREG"><code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFREG</span></code></a>,
 <a class="reference internal" href="stat.html#stat.S_IFCHR" title="stat.S_IFCHR"><code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFCHR</span></code></a>, <a class="reference internal" href="stat.html#stat.S_IFBLK" title="stat.S_IFBLK"><code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFBLK</span></code></a>, and <a class="reference internal" href="stat.html#stat.S_IFIFO" title="stat.S_IFIFO"><code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFIFO</span></code></a>.
-For <code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFCHR</span></code> and <code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFBLK</span></code>, <em>device</em> defines the
+For <a class="reference internal" href="stat.html#stat.S_IFCHR" title="stat.S_IFCHR"><code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFCHR</span></code></a> and <a class="reference internal" href="stat.html#stat.S_IFBLK" title="stat.S_IFBLK"><code class="xref py py-const docutils literal notranslate"><span class="pre">stat.S_IFBLK</span></code></a>, <em>device</em> defines the
 newly created device special file (probably using
 <a class="reference internal" href="#os.makedev" title="os.makedev"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.makedev()</span></code></a>), otherwise it is ignored.</p>
 <p>This function can also support <a class="reference internal" href="#dir-fd"><span class="std std-ref">paths relative to directory descriptors</span></a>.</p>
@@ -3783,7 +3783,7 @@ to the file is not made available until the original file is no longer in use.</
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">removedirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StrOrBytesPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1255">typeshed</a>)</p>
 <p id="index-29">Remove directories recursively.  Works like <a class="reference internal" href="#os.rmdir" title="os.rmdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">rmdir()</span></code></a> except that, if the
-leaf directory is successfully removed, <code class="xref py py-func docutils literal notranslate"><span class="pre">removedirs()</span></code>  tries to
+leaf directory is successfully removed, <a class="reference internal" href="#os.removedirs" title="os.removedirs"><code class="xref py py-func docutils literal notranslate"><span class="pre">removedirs()</span></code></a>  tries to
 successively remove every parent directory mentioned in  <em>path</em> until an error
 is raised (which is ignored, because it generally means that a parent directory
 is not empty). For example, <code class="docutils literal notranslate"><span class="pre">os.removedirs('foo/bar/baz')</span></code> will first remove
@@ -3926,11 +3926,11 @@ arbitrary order, and the special entries <code class="docutils literal notransla
 included.  If a file is removed from or added to the directory after
 creating the iterator, whether an entry for that file be included is
 unspecified.</p>
-<p>Using <code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code> instead of <a class="reference internal" href="#os.listdir" title="os.listdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">listdir()</span></code></a> can significantly
+<p>Using <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> instead of <a class="reference internal" href="#os.listdir" title="os.listdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">listdir()</span></code></a> can significantly
 increase the performance of code that also needs file type or file
 attribute information, because <a class="reference internal" href="#os.DirEntry" title="os.DirEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.DirEntry</span></code></a> objects expose this
 information if the operating system provides it when scanning a directory.
-All <code class="xref py py-class docutils literal notranslate"><span class="pre">os.DirEntry</span></code> methods may perform a system call, but
+All <a class="reference internal" href="#os.DirEntry" title="os.DirEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.DirEntry</span></code></a> methods may perform a system call, but
 <a class="reference internal" href="#os.DirEntry.is_dir" title="os.DirEntry.is_dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_dir()</span></code></a> and <a class="reference internal" href="#os.DirEntry.is_file" title="os.DirEntry.is_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_file()</span></code></a> usually only
 require a system call for symbolic links; <a class="reference internal" href="#os.DirEntry.stat" title="os.DirEntry.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.DirEntry.stat()</span></code></a>
 always requires a system call on Unix but only requires one for
@@ -3942,7 +3942,7 @@ attributes of each <a class="reference internal" href="#os.DirEntry" title="os.D
 circumstances, they will be of type <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
 <p>This function can also support <a class="reference internal" href="#path-fd"><span class="std std-ref">specifying a file descriptor</span></a>; the file descriptor must refer to a directory.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.scandir</span></code> with argument <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
-<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code> iterator supports the <a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> protocol
+<p>The <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> iterator supports the <a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> protocol
 and has the following method:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="os.scandir.close">
@@ -3960,7 +3960,7 @@ statement.</p>
 </div>
 </dd></dl>
 
-<p>The following example shows a simple use of <code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code> to display all
+<p>The following example shows a simple use of <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> to display all
 the files (excluding directories) in the given <em>path</em> that don’t start with
 <code class="docutils literal notranslate"><span class="pre">'.'</span></code>. The <code class="docutils literal notranslate"><span class="pre">entry.is_file()</span></code> call will generally not make an additional
 system call:</p>
@@ -3972,7 +3972,7 @@ system call:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>On Unix-based systems, <code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code> uses the system’s
+<p>On Unix-based systems, <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> uses the system’s
 <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/009695399/functions/opendir.html">opendir()</a>
 and
 <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/009695399/functions/readdir_r.html">readdir()</a>
@@ -3987,7 +3987,7 @@ functions.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>Added support for the <a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> protocol and the
-<a class="reference internal" href="#os.scandir.close" title="os.scandir.close"><code class="xref py py-func docutils literal notranslate"><span class="pre">close()</span></code></a> method.  If a <code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code> iterator is neither
+<a class="reference internal" href="#os.scandir.close" title="os.scandir.close"><code class="xref py py-func docutils literal notranslate"><span class="pre">close()</span></code></a> method.  If a <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> iterator is neither
 exhausted nor explicitly closed a <a class="reference internal" href="exceptions.html#ResourceWarning" title="ResourceWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ResourceWarning</span></code></a> will be emitted
 in its destructor.</p>
 <p>The function accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>.</p>
@@ -4018,7 +4018,7 @@ elapsed since calling <a class="reference internal" href="#os.scandir" title="os
 up-to-date information.</p>
 <p>Because the <code class="docutils literal notranslate"><span class="pre">os.DirEntry</span></code> methods can make operating system calls, they may
 also raise <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>. If you need very fine-grained
-control over errors, you can catch <code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code> when calling one of the
+control over errors, you can catch <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> when calling one of the
 <code class="docutils literal notranslate"><span class="pre">os.DirEntry</span></code> methods and handle as appropriate.</p>
 <p>To be directly usable as a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>, <code class="docutils literal notranslate"><span class="pre">os.DirEntry</span></code>
 implements the <a class="reference internal" href="#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code></a> interface.</p>
@@ -4040,8 +4040,8 @@ argument.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L900">typeshed</a>)</p>
 <p>The entry’s full path name: equivalent to <code class="docutils literal notranslate"><span class="pre">os.path.join(scandir_path,</span>
 <span class="pre">entry.name)</span></code> where <em>scandir_path</em> is the <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> <em>path</em>
-argument.  The path is only absolute if the <code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code> <em>path</em>
-argument was absolute.  If the <code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code> <em>path</em>
+argument.  The path is only absolute if the <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> <em>path</em>
+argument was absolute.  If the <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> <em>path</em>
 argument was a <a class="reference internal" href="#path-fd"><span class="std std-ref">file descriptor</span></a>, the <a class="reference internal" href="os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a>
 attribute is the same as the <a class="reference internal" href="#os.name" title="os.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></a> attribute.</p>
 <p>The <a class="reference internal" href="os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code></a> attribute will be <code class="docutils literal notranslate"><span class="pre">bytes</span></code> if the <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a>
@@ -4410,8 +4410,8 @@ This attribute is not always available, and may raise
 <p>The exact meaning and resolution of the <a class="reference internal" href="#os.stat_result.st_atime" title="os.stat_result.st_atime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime</span></code></a>,
 <a class="reference internal" href="#os.stat_result.st_mtime" title="os.stat_result.st_mtime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime</span></code></a>, <a class="reference internal" href="#os.stat_result.st_ctime" title="os.stat_result.st_ctime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ctime</span></code></a> and <a class="reference internal" href="#os.stat_result.st_birthtime" title="os.stat_result.st_birthtime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_birthtime</span></code></a> attributes
 depend on the operating system and the file system. For example, on
-Windows systems using the FAT32 file systems, <code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime</span></code> has
-2-second resolution, and <code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime</span></code> has only 1-day resolution.
+Windows systems using the FAT32 file systems, <a class="reference internal" href="#os.stat_result.st_mtime" title="os.stat_result.st_mtime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime</span></code></a> has
+2-second resolution, and <a class="reference internal" href="#os.stat_result.st_atime" title="os.stat_result.st_atime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime</span></code></a> has only 1-day resolution.
 See your operating system documentation for details.</p>
 <p>Similarly, although <a class="reference internal" href="#os.stat_result.st_atime_ns" title="os.stat_result.st_atime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime_ns</span></code></a>, <a class="reference internal" href="#os.stat_result.st_mtime_ns" title="os.stat_result.st_mtime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime_ns</span></code></a>,
 <a class="reference internal" href="#os.stat_result.st_ctime_ns" title="os.stat_result.st_ctime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ctime_ns</span></code></a> and <a class="reference internal" href="#os.stat_result.st_birthtime_ns" title="os.stat_result.st_birthtime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_birthtime_ns</span></code></a> are always expressed in
@@ -4420,8 +4420,8 @@ systems that do provide nanosecond precision, the floating-point object
 used to store <a class="reference internal" href="#os.stat_result.st_atime" title="os.stat_result.st_atime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime</span></code></a>, <a class="reference internal" href="#os.stat_result.st_mtime" title="os.stat_result.st_mtime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime</span></code></a>, <a class="reference internal" href="#os.stat_result.st_ctime" title="os.stat_result.st_ctime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ctime</span></code></a> and
 <a class="reference internal" href="#os.stat_result.st_birthtime" title="os.stat_result.st_birthtime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_birthtime</span></code></a> cannot preserve all of it, and as such will be
 slightly inexact. If you need the exact timestamps you should always use
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime_ns</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime_ns</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ctime_ns</span></code> and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">st_birthtime_ns</span></code>.</p>
+<a class="reference internal" href="#os.stat_result.st_atime_ns" title="os.stat_result.st_atime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime_ns</span></code></a>, <a class="reference internal" href="#os.stat_result.st_mtime_ns" title="os.stat_result.st_mtime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime_ns</span></code></a>, <a class="reference internal" href="#os.stat_result.st_ctime_ns" title="os.stat_result.st_ctime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ctime_ns</span></code></a> and
+<a class="reference internal" href="#os.stat_result.st_birthtime_ns" title="os.stat_result.st_birthtime_ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_birthtime_ns</span></code></a>.</p>
 </div>
 <p>On some Unix systems (such as Linux), the following attributes may also be
 available:</p>
@@ -4516,14 +4516,14 @@ constants in the <a class="reference internal" href="stat.html#module-stat" titl
 <p>The standard module <a class="reference internal" href="stat.html#module-stat" title="stat: Utilities for interpreting the results of os.stat(), os.lstat() and os.fstat()."><code class="xref py py-mod docutils literal notranslate"><span class="pre">stat</span></code></a> defines functions and constants that are
 useful for extracting information from a <code class="xref c c-struct docutils literal notranslate"><span class="pre">stat</span></code> structure. (On
 Windows, some items are filled with dummy values.)</p>
-<p>For backward compatibility, a <code class="xref py py-class docutils literal notranslate"><span class="pre">stat_result</span></code> instance is also
+<p>For backward compatibility, a <a class="reference internal" href="#os.stat_result" title="os.stat_result"><code class="xref py py-class docutils literal notranslate"><span class="pre">stat_result</span></code></a> instance is also
 accessible as a tuple of at least 10 integers giving the most important (and
 portable) members of the <code class="xref c c-struct docutils literal notranslate"><span class="pre">stat</span></code> structure, in the order
 <a class="reference internal" href="#os.stat_result.st_mode" title="os.stat_result.st_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mode</span></code></a>, <a class="reference internal" href="#os.stat_result.st_ino" title="os.stat_result.st_ino"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ino</span></code></a>, <a class="reference internal" href="#os.stat_result.st_dev" title="os.stat_result.st_dev"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_dev</span></code></a>, <a class="reference internal" href="#os.stat_result.st_nlink" title="os.stat_result.st_nlink"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_nlink</span></code></a>,
 <a class="reference internal" href="#os.stat_result.st_uid" title="os.stat_result.st_uid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_uid</span></code></a>, <a class="reference internal" href="#os.stat_result.st_gid" title="os.stat_result.st_gid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_gid</span></code></a>, <a class="reference internal" href="#os.stat_result.st_size" title="os.stat_result.st_size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_size</span></code></a>, <a class="reference internal" href="#os.stat_result.st_atime" title="os.stat_result.st_atime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_atime</span></code></a>,
 <a class="reference internal" href="#os.stat_result.st_mtime" title="os.stat_result.st_mtime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_mtime</span></code></a>, <a class="reference internal" href="#os.stat_result.st_ctime" title="os.stat_result.st_ctime"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ctime</span></code></a>. More items may be added at the end by
 some implementations. For compatibility with older Python versions,
-accessing <code class="xref py py-class docutils literal notranslate"><span class="pre">stat_result</span></code> as a tuple always returns integers.</p>
+accessing <a class="reference internal" href="#os.stat_result" title="os.stat_result"><code class="xref py py-class docutils literal notranslate"><span class="pre">stat_result</span></code></a> as a tuple always returns integers.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>Windows now returns the file index as <a class="reference internal" href="#os.stat_result.st_ino" title="os.stat_result.st_ino"><code class="xref py py-attr docutils literal notranslate"><span class="pre">st_ino</span></code></a> when
 available.</p>
@@ -5085,7 +5085,7 @@ none of them work on Windows.</p>
 specifying <code class="docutils literal notranslate"><span class="pre">True</span></code> for its <em>effective_ids</em> parameter on the local platform.
 (Specifying <code class="docutils literal notranslate"><span class="pre">False</span></code> for <em>effective_ids</em> is always supported on all
 platforms.)  If the local platform supports it, the collection will contain
-<code class="xref py py-func docutils literal notranslate"><span class="pre">os.access()</span></code>; otherwise it will be empty.</p>
+<a class="reference internal" href="#os.access" title="os.access"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.access()</span></code></a>; otherwise it will be empty.</p>
 <p>This expression evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> if <a class="reference internal" href="#os.access" title="os.access"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.access()</span></code></a> supports
 <code class="docutils literal notranslate"><span class="pre">effective_ids=True</span></code> on the local platform:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">access</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">supports_effective_ids</span>
@@ -5250,7 +5250,7 @@ on non-Windows platforms.</p>
 <p>Remove (delete) the file <em>path</em>.  This function is semantically
 identical to <a class="reference internal" href="#os.remove" title="os.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove()</span></code></a>; the <code class="docutils literal notranslate"><span class="pre">unlink</span></code> name is its
 traditional Unix name.  Please see the documentation for
-<code class="xref py py-func docutils literal notranslate"><span class="pre">remove()</span></code> for further information.</p>
+<a class="reference internal" href="#os.remove" title="os.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove()</span></code></a> for further information.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.remove</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">dir_fd</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.3: </span>Added the <em>dir_fd</em> parameter.</p>
@@ -5278,7 +5278,7 @@ traditional Unix name.  Please see the documentation for
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1292">typeshed</a>)</p>
 <p>Set the access and modified times of the file specified by <em>path</em>.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">utime()</span></code> takes two optional parameters, <em>times</em> and <em>ns</em>.
+<p><a class="reference internal" href="#os.utime" title="os.utime"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime()</span></code></a> takes two optional parameters, <em>times</em> and <em>ns</em>.
 These specify the times set on <em>path</em> and are used as follows:</p>
 <ul class="simple">
 <li><p>If <em>ns</em> is specified,
@@ -5295,10 +5295,10 @@ where both times are the current time.</p></li>
 <p>It is an error to specify tuples for both <em>times</em> and <em>ns</em>.</p>
 <p>Note that the exact times you set here may not be returned by a subsequent
 <a class="reference internal" href="#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">stat()</span></code></a> call, depending on the resolution with which your operating
-system records access and modification times; see <code class="xref py py-func docutils literal notranslate"><span class="pre">stat()</span></code>. The best
+system records access and modification times; see <a class="reference internal" href="#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">stat()</span></code></a>. The best
 way to preserve exact times is to use the <em>st_atime_ns</em> and <em>st_mtime_ns</em>
-fields from the <code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code> result object with the <em>ns</em> parameter to
-<code class="xref py py-func docutils literal notranslate"><span class="pre">utime()</span></code>.</p>
+fields from the <a class="reference internal" href="#os.stat" title="os.stat"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a> result object with the <em>ns</em> parameter to
+<a class="reference internal" href="#os.utime" title="os.utime"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime()</span></code></a>.</p>
 <p>This function can support <a class="reference internal" href="#path-fd"><span class="std std-ref">specifying a file descriptor</span></a>,
 <a class="reference internal" href="#dir-fd"><span class="std std-ref">paths relative to directory descriptors</span></a> and <a class="reference internal" href="#follow-symlinks"><span class="std std-ref">not
 following symlinks</span></a>.</p>
@@ -5358,11 +5358,11 @@ for a directory is generated after the triples for all of its subdirectories
 list of subdirectories is retrieved before the tuples for the directory and
 its subdirectories are generated.</p>
 <p>When <em>topdown</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the caller can modify the <em>dirnames</em> list in-place
-(perhaps using <a class="reference internal" href="../reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> or slice assignment), and <code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code> will only
+(perhaps using <a class="reference internal" href="../reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> or slice assignment), and <a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a> will only
 recurse into the subdirectories whose names remain in <em>dirnames</em>; this can be
 used to prune the search, impose a specific order of visiting, or even to inform
-<code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code> about directories the caller creates or renames before it resumes
-<code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code> again.  Modifying <em>dirnames</em> when <em>topdown</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code> has
+<a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a> about directories the caller creates or renames before it resumes
+<a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a> again.  Modifying <em>dirnames</em> when <em>topdown</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code> has
 no effect on the behavior of the walk, because in bottom-up mode the directories
 in <em>dirnames</em> are generated before <em>dirpath</em> itself is generated.</p>
 <p>By default, errors from the <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">scandir()</span></code></a> call are ignored.  If optional
@@ -5370,19 +5370,19 @@ argument <em>onerror</em> is specified, it should be a function; it will be call
 one argument, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> instance.  It can report the error to continue
 with the walk, or raise the exception to abort the walk.  Note that the filename
 is available as the <code class="docutils literal notranslate"><span class="pre">filename</span></code> attribute of the exception object.</p>
-<p>By default, <code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code> will not walk down into symbolic links that resolve to
+<p>By default, <a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a> will not walk down into symbolic links that resolve to
 directories. Set <em>followlinks</em> to <code class="docutils literal notranslate"><span class="pre">True</span></code> to visit directories pointed to by
 symlinks, on systems that support them.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Be aware that setting <em>followlinks</em> to <code class="docutils literal notranslate"><span class="pre">True</span></code> can lead to infinite
-recursion if a link points to a parent directory of itself. <code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code>
+recursion if a link points to a parent directory of itself. <a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a>
 does not keep track of the directories it visited already.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you pass a relative pathname, don’t change the current working directory
-between resumptions of <code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code>.  <code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code> never changes the current
+between resumptions of <a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a>.  <a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a> never changes the current
 directory, and assumes that its caller doesn’t either.</p>
 </div>
 <p>This example displays the number of bytes taken by non-directory files in each
@@ -5470,11 +5470,11 @@ making it faster by reducing the number of calls to <a class="reference internal
 <p><em>dirpath</em>, <em>dirnames</em> and <em>filenames</em> are identical to <a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk()</span></code></a> output,
 and <em>dirfd</em> is a file descriptor referring to the directory <em>dirpath</em>.</p>
 <p>This function always supports <a class="reference internal" href="#dir-fd"><span class="std std-ref">paths relative to directory descriptors</span></a> and <a class="reference internal" href="#follow-symlinks"><span class="std std-ref">not following symlinks</span></a>.  Note however
-that, unlike other functions, the <code class="xref py py-func docutils literal notranslate"><span class="pre">fwalk()</span></code> default value for
+that, unlike other functions, the <a class="reference internal" href="#os.fwalk" title="os.fwalk"><code class="xref py py-func docutils literal notranslate"><span class="pre">fwalk()</span></code></a> default value for
 <em>follow_symlinks</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Since <code class="xref py py-func docutils literal notranslate"><span class="pre">fwalk()</span></code> yields file descriptors, those are only valid until
+<p>Since <a class="reference internal" href="#os.fwalk" title="os.fwalk"><code class="xref py py-func docutils literal notranslate"><span class="pre">fwalk()</span></code></a> yields file descriptors, those are only valid until
 the next iteration step, so you should duplicate them (e.g. with
 <a class="reference internal" href="#os.dup" title="os.dup"><code class="xref py py-func docutils literal notranslate"><span class="pre">dup()</span></code></a>) if you want to keep them longer.</p>
 </div>
@@ -5650,7 +5650,7 @@ write operation would increment the counter to a value larger than
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">eventfd_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1700">typeshed</a>)</p>
 <p>Read value from an <a class="reference internal" href="#os.eventfd" title="os.eventfd"><code class="xref py py-func docutils literal notranslate"><span class="pre">eventfd()</span></code></a> file descriptor and return a 64 bit
-unsigned int. The function does not verify that <em>fd</em> is an <code class="xref py py-func docutils literal notranslate"><span class="pre">eventfd()</span></code>.</p>
+unsigned int. The function does not verify that <em>fd</em> is an <a class="reference internal" href="#os.eventfd" title="os.eventfd"><code class="xref py py-func docutils literal notranslate"><span class="pre">eventfd()</span></code></a>.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux &gt;= 2.6.27</p>
 </div>
@@ -5666,7 +5666,7 @@ unsigned int. The function does not verify that <em>fd</em> is an <code class="x
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">eventfd_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1701">typeshed</a>)</p>
 <p>Add value to an <a class="reference internal" href="#os.eventfd" title="os.eventfd"><code class="xref py py-func docutils literal notranslate"><span class="pre">eventfd()</span></code></a> file descriptor. <em>value</em> must be a 64 bit
-unsigned int. The function does not verify that <em>fd</em> is an <code class="xref py py-func docutils literal notranslate"><span class="pre">eventfd()</span></code>.</p>
+unsigned int. The function does not verify that <em>fd</em> is an <a class="reference internal" href="#os.eventfd" title="os.eventfd"><code class="xref py py-func docutils literal notranslate"><span class="pre">eventfd()</span></code></a>.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux &gt;= 2.6.27</p>
 </div>
@@ -5730,14 +5730,14 @@ Naturally, they are all only available on Linux.</p>
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">timerfd_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clockid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1742">typeshed</a>)</p>
 <p>Create and return a timer file descriptor (<em>timerfd</em>).</p>
-<p>The file descriptor returned by <code class="xref py py-func docutils literal notranslate"><span class="pre">timerfd_create()</span></code> supports:</p>
+<p>The file descriptor returned by <a class="reference internal" href="#os.timerfd_create" title="os.timerfd_create"><code class="xref py py-func docutils literal notranslate"><span class="pre">timerfd_create()</span></code></a> supports:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#os.read" title="os.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code></a></p></li>
 <li><p><a class="reference internal" href="select.html#select.select" title="select.select"><code class="xref py py-func docutils literal notranslate"><span class="pre">select()</span></code></a></p></li>
 <li><p><a class="reference internal" href="select.html#select.poll" title="select.poll"><code class="xref py py-func docutils literal notranslate"><span class="pre">poll()</span></code></a></p></li>
 </ul>
 <p>The file descriptor’s <a class="reference internal" href="#os.read" title="os.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code></a> method can be called with a buffer size
-of 8. If the timer has already expired one or more times, <code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code>
+of 8. If the timer has already expired one or more times, <a class="reference internal" href="#os.read" title="os.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code></a>
 returns the number of expirations with the host’s endianness, which may be
 converted to an <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> by <code class="docutils literal notranslate"><span class="pre">int.from_bytes(x,</span> <span class="pre">byteorder=sys.byteorder)</span></code>.</p>
 <p><a class="reference internal" href="select.html#select.select" title="select.select"><code class="xref py py-func docutils literal notranslate"><span class="pre">select()</span></code></a> and <a class="reference internal" href="select.html#select.poll" title="select.poll"><code class="xref py py-func docutils literal notranslate"><span class="pre">poll()</span></code></a> can be used to wait until
@@ -5766,9 +5766,9 @@ Any of the following variables may be used, combined using bitwise OR
 <li><p><a class="reference internal" href="#os.TFD_CLOEXEC" title="os.TFD_CLOEXEC"><code class="xref py py-const docutils literal notranslate"><span class="pre">TFD_CLOEXEC</span></code></a></p></li>
 </ul>
 <p>If <a class="reference internal" href="#os.TFD_NONBLOCK" title="os.TFD_NONBLOCK"><code class="xref py py-const docutils literal notranslate"><span class="pre">TFD_NONBLOCK</span></code></a> is not set as a flag, <a class="reference internal" href="#os.read" title="os.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code></a> blocks until
-the timer expires. If it is set as a flag, <code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code> doesn’t block, but
+the timer expires. If it is set as a flag, <a class="reference internal" href="#os.read" title="os.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code></a> doesn’t block, but
 If there hasn’t been an expiration since the last call to read,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code> raises <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-class docutils literal notranslate"><span class="pre">OSError</span></code></a> with <code class="docutils literal notranslate"><span class="pre">errno</span></code> is set to
+<a class="reference internal" href="#os.read" title="os.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code></a> raises <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-class docutils literal notranslate"><span class="pre">OSError</span></code></a> with <code class="docutils literal notranslate"><span class="pre">errno</span></code> is set to
 <a class="reference internal" href="errno.html#errno.EAGAIN" title="errno.EAGAIN"><code class="xref py py-const docutils literal notranslate"><span class="pre">errno.EAGAIN</span></code></a>.</p>
 <p><a class="reference internal" href="#os.TFD_CLOEXEC" title="os.TFD_CLOEXEC"><code class="xref py py-const docutils literal notranslate"><span class="pre">TFD_CLOEXEC</span></code></a> is always set by Python automatically.</p>
 <p>The file descriptor must be closed with <a class="reference internal" href="#os.close" title="os.close"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.close()</span></code></a> when it is no
@@ -5875,7 +5875,7 @@ and <em class="manpage"><a class="manpage reference external" href="https://manp
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#tuple" title="tuple"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1746">typeshed</a>)</p>
 <p>Similar to <a class="reference internal" href="#os.timerfd_settime" title="os.timerfd_settime"><code class="xref py py-func docutils literal notranslate"><span class="pre">timerfd_settime()</span></code></a>, but use time as nanoseconds.
-This function operates the same interval timer as <code class="xref py py-func docutils literal notranslate"><span class="pre">timerfd_settime()</span></code>.</p>
+This function operates the same interval timer as <a class="reference internal" href="#os.timerfd_settime" title="os.timerfd_settime"><code class="xref py py-func docutils literal notranslate"><span class="pre">timerfd_settime()</span></code></a>.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Linux &gt;= 2.6.27 with glibc &gt;= 2.8</p>
 </div>
@@ -6034,7 +6034,7 @@ encoding.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1328">typeshed</a>)</p>
 <p>Return a list of the extended filesystem attributes on <em>path</em>.  The
 attributes in the list are represented as strings decoded with the filesystem
-encoding.  If <em>path</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">listxattr()</span></code> will examine the current
+encoding.  If <em>path</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, <a class="reference internal" href="#os.listxattr" title="os.listxattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">listxattr()</span></code></a> will examine the current
 directory.</p>
 <p>This function can support <a class="reference internal" href="#path-fd"><span class="std std-ref">specifying a file descriptor</span></a> and
 <a class="reference internal" href="#follow-symlinks"><span class="std std-ref">not following symlinks</span></a>.</p>
@@ -6096,9 +6096,9 @@ with the <a class="reference internal" href="../glossary.html#term-filesystem-en
 <em>attribute</em> must be a bytes or str with no embedded NULs (directly or
 indirectly through the <a class="reference internal" href="#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code></a> interface). If it is a str,
 it is encoded with the <a class="reference internal" href="../glossary.html#term-filesystem-encoding-and-error-handler"><span class="xref std std-term">filesystem encoding and error handler</span></a>.  <em>flags</em> may be
-<a class="reference internal" href="#os.XATTR_REPLACE" title="os.XATTR_REPLACE"><code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_REPLACE</span></code></a> or <a class="reference internal" href="#os.XATTR_CREATE" title="os.XATTR_CREATE"><code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_CREATE</span></code></a>. If <code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_REPLACE</span></code> is
+<a class="reference internal" href="#os.XATTR_REPLACE" title="os.XATTR_REPLACE"><code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_REPLACE</span></code></a> or <a class="reference internal" href="#os.XATTR_CREATE" title="os.XATTR_CREATE"><code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_CREATE</span></code></a>. If <a class="reference internal" href="#os.XATTR_REPLACE" title="os.XATTR_REPLACE"><code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_REPLACE</span></code></a> is
 given and the attribute does not exist, <code class="docutils literal notranslate"><span class="pre">ENODATA</span></code> will be raised.
-If <code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_CREATE</span></code> is given and the attribute already exists, the
+If <a class="reference internal" href="#os.XATTR_CREATE" title="os.XATTR_CREATE"><code class="xref py py-data docutils literal notranslate"><span class="pre">XATTR_CREATE</span></code></a> is given and the attribute already exists, the
 attribute will not be created and <code class="docutils literal notranslate"><span class="pre">EEXISTS</span></code> will be raised.</p>
 <p>This function can support <a class="reference internal" href="#path-fd"><span class="std std-ref">specifying a file descriptor</span></a> and
 <a class="reference internal" href="#follow-symlinks"><span class="std std-ref">not following symlinks</span></a>.</p>
@@ -6158,7 +6158,7 @@ to be ignored.</p>
 <p>Generate a <a class="reference internal" href="signal.html#signal.SIGABRT" title="signal.SIGABRT"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGABRT</span></code></a> signal to the current process.  On Unix, the default
 behavior is to produce a core dump; on Windows, the process immediately returns
 an exit code of <code class="docutils literal notranslate"><span class="pre">3</span></code>.  Be aware that calling this function will not call the
-Python signal handler registered for <code class="xref py py-const docutils literal notranslate"><span class="pre">SIGABRT</span></code> with
+Python signal handler registered for <a class="reference internal" href="signal.html#signal.SIGABRT" title="signal.SIGABRT"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGABRT</span></code></a> with
 <a class="reference internal" href="signal.html#signal.signal" title="signal.signal"><code class="xref py py-func docutils literal notranslate"><span class="pre">signal.signal()</span></code></a>.</p>
 </dd></dl>
 
@@ -6216,8 +6216,8 @@ and will have the same process id as the caller.  Errors will be reported as
 descriptors are not flushed, so if there may be data buffered
 on these open files, you should flush them using
 <code class="xref py py-func docutils literal notranslate"><span class="pre">sys.stdout.flush()</span></code> or <a class="reference internal" href="#os.fsync" title="os.fsync"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fsync()</span></code></a> before calling an
-<code class="xref py py-func docutils literal notranslate"><span class="pre">exec*</span></code> function.</p>
-<p>The “l” and “v” variants of the <code class="xref py py-func docutils literal notranslate"><span class="pre">exec*</span></code> functions differ in how
+<a class="reference internal" href="#os.execl" title="os.execl"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec*</span></code></a> function.</p>
+<p>The “l” and “v” variants of the <a class="reference internal" href="#os.execl" title="os.execl"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec*</span></code></a> functions differ in how
 command-line arguments are passed.  The “l” variants are perhaps the easiest
 to work with if the number of parameters is fixed when the code is written; the
 individual parameters simply become additional parameters to the <code class="xref py py-func docutils literal notranslate"><span class="pre">execl*()</span></code>
@@ -6225,23 +6225,23 @@ functions.  The “v” variants are good when the number of parameters is
 variable, with the arguments being passed in a list or tuple as the <em>args</em>
 parameter.  In either case, the arguments to the child process should start with
 the name of the command being run, but this is not enforced.</p>
-<p>The variants which include a “p” near the end (<code class="xref py py-func docutils literal notranslate"><span class="pre">execlp()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">execlpe()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">execvp()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">execvpe()</span></code>) will use the
+<p>The variants which include a “p” near the end (<a class="reference internal" href="#os.execlp" title="os.execlp"><code class="xref py py-func docutils literal notranslate"><span class="pre">execlp()</span></code></a>,
+<a class="reference internal" href="#os.execlpe" title="os.execlpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">execlpe()</span></code></a>, <a class="reference internal" href="#os.execvp" title="os.execvp"><code class="xref py py-func docutils literal notranslate"><span class="pre">execvp()</span></code></a>, and <a class="reference internal" href="#os.execvpe" title="os.execvpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">execvpe()</span></code></a>) will use the
 <span class="target" id="index-34"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> environment variable to locate the program <em>file</em>.  When the
-environment is being replaced (using one of the <code class="xref py py-func docutils literal notranslate"><span class="pre">exec*e</span></code> variants,
+environment is being replaced (using one of the <a class="reference internal" href="#os.execl" title="os.execl"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec*e</span></code></a> variants,
 discussed in the next paragraph), the new environment is used as the source of
-the <span class="target" id="index-35"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> variable. The other variants, <code class="xref py py-func docutils literal notranslate"><span class="pre">execl()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">execle()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code>, will not use the <span class="target" id="index-36"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> variable to
+the <span class="target" id="index-35"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> variable. The other variants, <a class="reference internal" href="#os.execl" title="os.execl"><code class="xref py py-func docutils literal notranslate"><span class="pre">execl()</span></code></a>, <a class="reference internal" href="#os.execle" title="os.execle"><code class="xref py py-func docutils literal notranslate"><span class="pre">execle()</span></code></a>,
+<a class="reference internal" href="#os.execv" title="os.execv"><code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code></a>, and <a class="reference internal" href="#os.execve" title="os.execve"><code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code></a>, will not use the <span class="target" id="index-36"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> variable to
 locate the executable; <em>path</em> must contain an appropriate absolute or relative
 path. Relative paths must include at least one slash, even on Windows, as
 plain names will not be resolved.</p>
-<p>For <code class="xref py py-func docutils literal notranslate"><span class="pre">execle()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">execlpe()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">execvpe()</span></code> (note
+<p>For <a class="reference internal" href="#os.execle" title="os.execle"><code class="xref py py-func docutils literal notranslate"><span class="pre">execle()</span></code></a>, <a class="reference internal" href="#os.execlpe" title="os.execlpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">execlpe()</span></code></a>, <a class="reference internal" href="#os.execve" title="os.execve"><code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code></a>, and <a class="reference internal" href="#os.execvpe" title="os.execvpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">execvpe()</span></code></a> (note
 that these all end in “e”), the <em>env</em> parameter must be a mapping which is
 used to define the environment variables for the new process (these are used
-instead of the current process’ environment); the functions <code class="xref py py-func docutils literal notranslate"><span class="pre">execl()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">execlp()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">execvp()</span></code> all cause the new process to
+instead of the current process’ environment); the functions <a class="reference internal" href="#os.execl" title="os.execl"><code class="xref py py-func docutils literal notranslate"><span class="pre">execl()</span></code></a>,
+<a class="reference internal" href="#os.execlp" title="os.execlp"><code class="xref py py-func docutils literal notranslate"><span class="pre">execlp()</span></code></a>, <a class="reference internal" href="#os.execv" title="os.execv"><code class="xref py py-func docutils literal notranslate"><span class="pre">execv()</span></code></a>, and <a class="reference internal" href="#os.execvp" title="os.execvp"><code class="xref py py-func docutils literal notranslate"><span class="pre">execvp()</span></code></a> all cause the new process to
 inherit the environment of the current process.</p>
-<p>For <code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code> on some platforms, <em>path</em> may also be specified as an open
+<p>For <a class="reference internal" href="#os.execve" title="os.execve"><code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code></a> on some platforms, <em>path</em> may also be specified as an open
 file descriptor.  This functionality may not be supported on your platform;
 you can check whether or not it is available using <a class="reference internal" href="#os.supports_fd" title="os.supports_fd"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.supports_fd</span></code></a>.
 If it is unavailable, using it will raise a <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>.</p>
@@ -6251,7 +6251,7 @@ If it is unavailable, using it will raise a <a class="reference internal" href="
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.3: </span>Added support for specifying <em>path</em> as an open file descriptor
-for <code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code>.</p>
+for <a class="reference internal" href="#os.execve" title="os.execve"><code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code></a>.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>Accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>.</p>
@@ -6671,8 +6671,8 @@ subprocesses.</p>
 <p class="admonition-title">Note</p>
 <p>The <a class="reference internal" href="#utf8-mode"><span class="std std-ref">Python UTF-8 Mode</span></a> affects encodings used
 for <em>cmd</em> and pipe contents.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">popen()</span></code> is a simple wrapper around <a class="reference internal" href="subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.
-Use <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or <a class="reference internal" href="subprocess.html#subprocess.run" title="subprocess.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">subprocess.run()</span></code></a> to
+<p><a class="reference internal" href="#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">popen()</span></code></a> is a simple wrapper around <a class="reference internal" href="subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.
+Use <a class="reference internal" href="subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> or <a class="reference internal" href="subprocess.html#subprocess.run" title="subprocess.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">subprocess.run()</span></code></a> to
 control options like encodings.</p>
 </div>
 <div class="deprecated">
@@ -6721,7 +6721,7 @@ write new code. The <a class="reference internal" href="subprocess.html#module-s
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1535">typeshed</a>)</p>
 <p>Wraps the <code class="xref c c-func docutils literal notranslate"><span class="pre">posix_spawn()</span></code> C library API for use from Python.</p>
-<p>Most users should use <a class="reference internal" href="subprocess.html#subprocess.run" title="subprocess.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">subprocess.run()</span></code></a> instead of <code class="xref py py-func docutils literal notranslate"><span class="pre">posix_spawn()</span></code>.</p>
+<p>Most users should use <a class="reference internal" href="subprocess.html#subprocess.run" title="subprocess.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">subprocess.run()</span></code></a> instead of <a class="reference internal" href="#os.posix_spawn" title="os.posix_spawn"><code class="xref py py-func docutils literal notranslate"><span class="pre">posix_spawn()</span></code></a>.</p>
 <p>The positional-only arguments <em>path</em>, <em>args</em>, and <em>env</em> are similar to
 <a class="reference internal" href="#os.execve" title="os.execve"><code class="xref py py-func docutils literal notranslate"><span class="pre">execve()</span></code></a>. <em>env</em> is allowed to be <code class="docutils literal notranslate"><span class="pre">None</span></code>, in which case current
 process’ environment is used.</p>
@@ -6950,7 +6950,7 @@ process.  On Windows, the process id will actually be the process handle, so can
 be used with the <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a> function.</p>
 <p>Note on VxWorks, this function doesn’t return <code class="docutils literal notranslate"><span class="pre">-signal</span></code> when the new process is
 killed. Instead it raises OSError exception.</p>
-<p>The “l” and “v” variants of the <code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code> functions differ in how
+<p>The “l” and “v” variants of the <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code></a> functions differ in how
 command-line arguments are passed.  The “l” variants are perhaps the easiest
 to work with if the number of parameters is fixed when the code is written; the
 individual parameters simply become additional parameters to the
@@ -6958,24 +6958,24 @@ individual parameters simply become additional parameters to the
 parameters is variable, with the arguments being passed in a list or tuple as
 the <em>args</em> parameter.  In either case, the arguments to the child process must
 start with the name of the command being run.</p>
-<p>The variants which include a second “p” near the end (<code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlpe()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvp()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code>) will use the
+<p>The variants which include a second “p” near the end (<a class="reference internal" href="#os.spawnlp" title="os.spawnlp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code></a>,
+<a class="reference internal" href="#os.spawnlpe" title="os.spawnlpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlpe()</span></code></a>, <a class="reference internal" href="#os.spawnvp" title="os.spawnvp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvp()</span></code></a>, and <a class="reference internal" href="#os.spawnvpe" title="os.spawnvpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code></a>) will use the
 <span class="target" id="index-40"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> environment variable to locate the program <em>file</em>.  When the
-environment is being replaced (using one of the <code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*e</span></code> variants,
+environment is being replaced (using one of the <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*e</span></code></a> variants,
 discussed in the next paragraph), the new environment is used as the source of
-the <span class="target" id="index-41"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> variable.  The other variants, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnl()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">spawnle()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnv()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnve()</span></code>, will not use the
+the <span class="target" id="index-41"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> variable.  The other variants, <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnl()</span></code></a>,
+<a class="reference internal" href="#os.spawnle" title="os.spawnle"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnle()</span></code></a>, <a class="reference internal" href="#os.spawnv" title="os.spawnv"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnv()</span></code></a>, and <a class="reference internal" href="#os.spawnve" title="os.spawnve"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnve()</span></code></a>, will not use the
 <span class="target" id="index-42"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> variable to locate the executable; <em>path</em> must contain an
 appropriate absolute or relative path.</p>
-<p>For <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnle()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlpe()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnve()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code>
+<p>For <a class="reference internal" href="#os.spawnle" title="os.spawnle"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnle()</span></code></a>, <a class="reference internal" href="#os.spawnlpe" title="os.spawnlpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlpe()</span></code></a>, <a class="reference internal" href="#os.spawnve" title="os.spawnve"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnve()</span></code></a>, and <a class="reference internal" href="#os.spawnvpe" title="os.spawnvpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code></a>
 (note that these all end in “e”), the <em>env</em> parameter must be a mapping
 which is used to define the environment variables for the new process (they are
 used instead of the current process’ environment); the functions
-<code class="xref py py-func docutils literal notranslate"><span class="pre">spawnl()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnv()</span></code>, and <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvp()</span></code> all cause
+<a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnl()</span></code></a>, <a class="reference internal" href="#os.spawnlp" title="os.spawnlp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code></a>, <a class="reference internal" href="#os.spawnv" title="os.spawnv"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnv()</span></code></a>, and <a class="reference internal" href="#os.spawnvp" title="os.spawnvp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvp()</span></code></a> all cause
 the new process to inherit the environment of the current process.  Note that
 keys and values in the <em>env</em> dictionary must be strings; invalid keys or
 values will cause the function to fail, with a return value of <code class="docutils literal notranslate"><span class="pre">127</span></code>.</p>
-<p>As an example, the following calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code> are
+<p>As an example, the following calls to <a class="reference internal" href="#os.spawnlp" title="os.spawnlp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code></a> and <a class="reference internal" href="#os.spawnvpe" title="os.spawnvpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code></a> are
 equivalent:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">spawnlp</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_WAIT</span><span class="p">,</span> <span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;/dev/null&#39;</span><span class="p">)</span>
@@ -6987,9 +6987,9 @@ equivalent:</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">os.spawn</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">mode</span></code>, <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">args</span></code>, <code class="docutils literal notranslate"><span class="pre">env</span></code>.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Unix, Windows, not WASI, not Android, not iOS.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlpe()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvp()</span></code>
-and <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code> are not available on Windows.  <code class="xref py py-func docutils literal notranslate"><span class="pre">spawnle()</span></code> and
-<code class="xref py py-func docutils literal notranslate"><span class="pre">spawnve()</span></code> are not thread-safe on Windows; we advise you to use the
+<p><a class="reference internal" href="#os.spawnlp" title="os.spawnlp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlp()</span></code></a>, <a class="reference internal" href="#os.spawnlpe" title="os.spawnlpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnlpe()</span></code></a>, <a class="reference internal" href="#os.spawnvp" title="os.spawnvp"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvp()</span></code></a>
+and <a class="reference internal" href="#os.spawnvpe" title="os.spawnvpe"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnvpe()</span></code></a> are not available on Windows.  <a class="reference internal" href="#os.spawnle" title="os.spawnle"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnle()</span></code></a> and
+<a class="reference internal" href="#os.spawnve" title="os.spawnve"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawnve()</span></code></a> are not thread-safe on Windows; we advise you to use the
 <a class="reference internal" href="subprocess.html#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> module instead.</p>
 </div>
 <div class="versionchanged">
@@ -7008,7 +7008,7 @@ to write new code. The <a class="reference internal" href="subprocess.html#modul
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">P_NOWAITO</span></span><a class="headerlink" href="#os.P_NOWAITO" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L777">typeshed</a>)</p>
 <p>Possible values for the <em>mode</em> parameter to the <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code></a> family of
-functions.  If either of these values is given, the <code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code> functions
+functions.  If either of these values is given, the <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code></a> functions
 will return as soon as the new process has been created, with the process id as
 the return value.</p>
 <div class="availability docutils container">
@@ -7021,7 +7021,7 @@ the return value.</p>
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">P_WAIT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#os.P_WAIT" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L779">typeshed</a>)</p>
 <p>Possible value for the <em>mode</em> parameter to the <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code></a> family of
-functions.  If this is given as <em>mode</em>, the <code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code> functions will not
+functions.  If this is given as <em>mode</em>, the <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code></a> functions will not
 return until the new process has run to completion and will return the exit code
 of the process the run is successful, or <code class="docutils literal notranslate"><span class="pre">-signal</span></code> if a signal kills the
 process.</p>
@@ -7039,7 +7039,7 @@ process.</p>
 functions.  These are less portable than those listed above. <a class="reference internal" href="#os.P_DETACH" title="os.P_DETACH"><code class="xref py py-const docutils literal notranslate"><span class="pre">P_DETACH</span></code></a>
 is similar to <a class="reference internal" href="#os.P_NOWAIT" title="os.P_NOWAIT"><code class="xref py py-const docutils literal notranslate"><span class="pre">P_NOWAIT</span></code></a>, but the new process is detached from the
 console of the calling process. If <a class="reference internal" href="#os.P_OVERLAY" title="os.P_OVERLAY"><code class="xref py py-const docutils literal notranslate"><span class="pre">P_OVERLAY</span></code></a> is used, the current
-process will be replaced; the <code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code> function will not return.</p>
+process will be replaced; the <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code></a> function will not return.</p>
 <div class="availability docutils container">
 <p><a class="reference internal" href="intro.html#availability"><span class="std std-ref">Availability</span></a>: Windows.</p>
 </div>
@@ -7066,7 +7066,7 @@ against this argument.</p>
 <p>Use <em>show_cmd</em> to override the default window style. Whether this has any
 effect will depend on the application being launched. Values are integers as
 supported by the Win32 <code class="xref c c-func docutils literal notranslate"><span class="pre">ShellExecute()</span></code> function.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">startfile()</span></code> returns as soon as the associated application is launched.
+<p><a class="reference internal" href="#os.startfile" title="os.startfile"><code class="xref py py-func docutils literal notranslate"><span class="pre">startfile()</span></code></a> returns as soon as the associated application is launched.
 There is no option to wait for the application to close, and no way to retrieve
 the application’s exit status.  The <em>path</em> parameter is relative to the current
 directory or <em>cwd</em>.  If you want to use an absolute path, make sure the first
@@ -7110,7 +7110,7 @@ shell documentation.</p>
 <p>The <a class="reference internal" href="subprocess.html#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> module provides more powerful facilities for spawning
 new processes and retrieving their results; using that module is recommended
 to using this function.  See the <a class="reference internal" href="subprocess.html#subprocess-replacements"><span class="std std-ref">Replacing Older Functions with the subprocess Module</span></a> section in
-the <code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code> documentation for some helpful recipes.</p>
+the <a class="reference internal" href="subprocess.html#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> documentation for some helpful recipes.</p>
 <p>On Unix, <a class="reference internal" href="#os.waitstatus_to_exitcode" title="os.waitstatus_to_exitcode"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitstatus_to_exitcode()</span></code></a> can be used to convert the result
 (exit status) into an exit code. On Windows, the result is directly the exit
 code.</p>
@@ -7223,7 +7223,7 @@ that could be waited for, <a class="reference internal" href="exceptions.html#Ch
 return a tuple containing its process id and exit status indication (encoded as
 for <a class="reference internal" href="#os.wait" title="os.wait"><code class="xref py py-func docutils literal notranslate"><span class="pre">wait()</span></code></a>).  The semantics of the call are affected by the value of the
 integer <em>options</em>, which should be <code class="docutils literal notranslate"><span class="pre">0</span></code> for normal operation.</p>
-<p>If <em>pid</em> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code> requests status information for
+<p>If <em>pid</em> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a> requests status information for
 that specific process.  If <em>pid</em> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the request is for the status of any
 child in the process group of the current process.  If <em>pid</em> is <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the
 request pertains to any child of the current process.  If <em>pid</em> is less than
@@ -7263,7 +7263,7 @@ exception, the function now retries the system call instead of raising an
 3-element tuple containing the child’s process id, exit status indication,
 and resource usage information is returned.  Refer to
 <a class="reference internal" href="resource.html#resource.getrusage" title="resource.getrusage"><code class="xref py py-func docutils literal notranslate"><span class="pre">resource.getrusage()</span></code></a> for details on resource usage information.  The
-<em>options</em> argument is the same as that provided to <code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code> and
+<em>options</em> argument is the same as that provided to <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a> and
 <a class="reference internal" href="#os.wait4" title="os.wait4"><code class="xref py py-func docutils literal notranslate"><span class="pre">wait4()</span></code></a>.</p>
 <p><a class="reference internal" href="#os.waitstatus_to_exitcode" title="os.waitstatus_to_exitcode"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitstatus_to_exitcode()</span></code></a> can be used to convert the exit status into an
 exitcode.</p>
@@ -7281,8 +7281,8 @@ exitcode.</p>
 <p>Similar to <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a>, except a 3-element tuple, containing the child’s
 process id, exit status indication, and resource usage information is
 returned.  Refer to <a class="reference internal" href="resource.html#resource.getrusage" title="resource.getrusage"><code class="xref py py-func docutils literal notranslate"><span class="pre">resource.getrusage()</span></code></a> for details on resource usage
-information.  The arguments to <code class="xref py py-func docutils literal notranslate"><span class="pre">wait4()</span></code> are the same as those provided
-to <code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code>.</p>
+information.  The arguments to <a class="reference internal" href="#os.wait4" title="os.wait4"><code class="xref py py-func docutils literal notranslate"><span class="pre">wait4()</span></code></a> are the same as those provided
+to <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a>.</p>
 <p><a class="reference internal" href="#os.waitstatus_to_exitcode" title="os.waitstatus_to_exitcode"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitstatus_to_exitcode()</span></code></a> can be used to convert the exit status into an
 exitcode.</p>
 <div class="availability docutils container">
@@ -7427,7 +7427,7 @@ a later <code class="xref py py-func docutils literal notranslate"><span class="
 <p><span class="versionmodified added">Added in version 3.3.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.9: </span>Added <code class="xref py py-data docutils literal notranslate"><span class="pre">CLD_KILLED</span></code> and <code class="xref py py-data docutils literal notranslate"><span class="pre">CLD_STOPPED</span></code> values.</p>
+<p><span class="versionmodified changed">Changed in version 3.9: </span>Added <a class="reference internal" href="#os.CLD_KILLED" title="os.CLD_KILLED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLD_KILLED</span></code></a> and <a class="reference internal" href="#os.CLD_STOPPED" title="os.CLD_STOPPED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CLD_STOPPED</span></code></a> values.</p>
 </div>
 </dd></dl>
 
@@ -7507,7 +7507,7 @@ control stop), otherwise return <code class="docutils literal notranslate"><span
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/os/__init__.pyi#L1527">typeshed</a>)</p>
 <p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the process was stopped by delivery of a signal,
 otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">WIFSTOPPED()</span></code> only returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a> call was
+<p><a class="reference internal" href="#os.WIFSTOPPED" title="os.WIFSTOPPED"><code class="xref py py-func docutils literal notranslate"><span class="pre">WIFSTOPPED()</span></code></a> only returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <a class="reference internal" href="#os.waitpid" title="os.waitpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">waitpid()</span></code></a> call was
 done using <a class="reference internal" href="#os.WUNTRACED" title="os.WUNTRACED"><code class="xref py py-data docutils literal notranslate"><span class="pre">WUNTRACED</span></code></a> option or when the process is being traced (see
 <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/ptrace(2)">ptrace(2)</a></em>).</p>
 <div class="availability docutils container">
@@ -7840,7 +7840,7 @@ logical CPUs usable by the calling thread of the <strong>current process</strong
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.13: </span>If <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span> <span class="pre">cpu_count</span></code></a> is given or <span class="target" id="index-45"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHON_CPU_COUNT"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_CPU_COUNT</span></code></a> is set,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">cpu_count()</span></code> returns the override value <em>n</em>.</p>
+<a class="reference internal" href="#os.cpu_count" title="os.cpu_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">cpu_count()</span></code></a> returns the override value <em>n</em>.</p>
 </div>
 </dd></dl>
 
@@ -7870,7 +7870,7 @@ process</strong>. Returns <code class="docutils literal notranslate"><span class
 <p>The <a class="reference internal" href="#os.cpu_count" title="os.cpu_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">cpu_count()</span></code></a> function can be used to get the number of logical CPUs
 in the <strong>system</strong>.</p>
 <p>If <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span> <span class="pre">cpu_count</span></code></a> is given or <span class="target" id="index-46"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHON_CPU_COUNT"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_CPU_COUNT</span></code></a> is set,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">process_cpu_count()</span></code> returns the override value <em>n</em>.</p>
+<a class="reference internal" href="#os.process_cpu_count" title="os.process_cpu_count"><code class="xref py py-func docutils literal notranslate"><span class="pre">process_cpu_count()</span></code></a> returns the override value <em>n</em>.</p>
 <p>See also the <a class="reference internal" href="#os.sched_getaffinity" title="os.sched_getaffinity"><code class="xref py py-func docutils literal notranslate"><span class="pre">sched_getaffinity()</span></code></a> function.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.13.</span></p>
@@ -8100,7 +8100,7 @@ which is deprecated.</p>
 <p>By  default, when reading from <code class="docutils literal notranslate"><span class="pre">/dev/random</span></code>, <a class="reference internal" href="#os.getrandom" title="os.getrandom"><code class="xref py py-func docutils literal notranslate"><span class="pre">getrandom()</span></code></a> blocks if
 no random bytes are available, and when reading from <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code>, it blocks
 if the entropy pool has not yet been initialized.</p>
-<p>If the <code class="xref py py-data docutils literal notranslate"><span class="pre">GRND_NONBLOCK</span></code> flag is set, then <a class="reference internal" href="#os.getrandom" title="os.getrandom"><code class="xref py py-func docutils literal notranslate"><span class="pre">getrandom()</span></code></a> does not
+<p>If the <a class="reference internal" href="#os.GRND_NONBLOCK" title="os.GRND_NONBLOCK"><code class="xref py py-data docutils literal notranslate"><span class="pre">GRND_NONBLOCK</span></code></a> flag is set, then <a class="reference internal" href="#os.getrandom" title="os.getrandom"><code class="xref py py-func docutils literal notranslate"><span class="pre">getrandom()</span></code></a> does not
 block in these cases, but instead immediately raises <a class="reference internal" href="exceptions.html#BlockingIOError" title="BlockingIOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BlockingIOError</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.6.</span></p>

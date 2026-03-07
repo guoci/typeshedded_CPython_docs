@@ -395,7 +395,7 @@ different, updated answers each time:</p>
 reveals the purpose of the parameters to <a class="reference internal" href="../reference/datamodel.html#object.__get__" title="object.__get__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__get__()</span></code></a>.  The <em>self</em>
 parameter is <em>size</em>, an instance of <em>DirectorySize</em>.  The <em>obj</em> parameter is
 either <em>g</em> or <em>s</em>, an instance of <em>Directory</em>.  It is the <em>obj</em> parameter that
-lets the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__get__()</span></code> method learn the target directory.  The <em>objtype</em>
+lets the <a class="reference internal" href="../reference/datamodel.html#object.__get__" title="object.__get__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__get__()</span></code></a> method learn the target directory.  The <em>objtype</em>
 parameter is the class <em>Directory</em>.</p>
 </section>
 <section id="managed-attributes">
@@ -746,8 +746,8 @@ has an entry with the same name as a data descriptor, the data descriptor
 takes precedence.  If an instance’s dictionary has an entry with the same
 name as a non-data descriptor, the dictionary entry takes precedence.</p>
 <p>To make a read-only data descriptor, define both <a class="reference internal" href="../reference/datamodel.html#object.__get__" title="object.__get__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__get__()</span></code></a> and
-<a class="reference internal" href="../reference/datamodel.html#object.__set__" title="object.__set__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code></a> with the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code> raising an <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> when
-called.  Defining the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code> method with an exception raising
+<a class="reference internal" href="../reference/datamodel.html#object.__set__" title="object.__set__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code></a> with the <a class="reference internal" href="../reference/datamodel.html#object.__set__" title="object.__set__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code></a> raising an <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> when
+called.  Defining the <a class="reference internal" href="../reference/datamodel.html#object.__set__" title="object.__set__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code></a> method with an exception raising
 placeholder is enough to make it a data descriptor.</p>
 </section>
 <section id="overview-of-descriptor-invocation">
@@ -800,8 +800,8 @@ a pure Python equivalent:</p>
 </pre></div>
 </div>
 <p>Note, there is no <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> hook in the <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a>
-code.  That is why calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code> directly or with
-<code class="docutils literal notranslate"><span class="pre">super().__getattribute__</span></code> will bypass <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> entirely.</p>
+code.  That is why calling <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a> directly or with
+<code class="docutils literal notranslate"><span class="pre">super().__getattribute__</span></code> will bypass <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> entirely.</p>
 <p>Instead, it is the dot operator and the <a class="reference internal" href="../library/functions.html#getattr" title="getattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a> function that are
 responsible for invoking <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> whenever <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a>
 raises an <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>.  Their logic is encapsulated in a helper

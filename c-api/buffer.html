@@ -480,7 +480,7 @@ be filled in correctly. Otherwise, this field MUST be <code class="docutils lite
 
 </div></blockquote>
 <p><a class="reference internal" href="#c.PyBUF_WRITABLE" title="PyBUF_WRITABLE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_WRITABLE</span></code></a> can be |’d to any of the flags in the next section.
-Since <a class="reference internal" href="#c.PyBUF_SIMPLE" title="PyBUF_SIMPLE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_SIMPLE</span></code></a> is defined as 0, <code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_WRITABLE</span></code>
+Since <a class="reference internal" href="#c.PyBUF_SIMPLE" title="PyBUF_SIMPLE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_SIMPLE</span></code></a> is defined as 0, <a class="reference internal" href="#c.PyBUF_WRITABLE" title="PyBUF_WRITABLE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_WRITABLE</span></code></a>
 can be used as a stand-alone flag to request a simple writable buffer.</p>
 <p><a class="reference internal" href="#c.PyBUF_FORMAT" title="PyBUF_FORMAT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_FORMAT</span></code></a> must be |’d to any of the flags except <a class="reference internal" href="#c.PyBUF_SIMPLE" title="PyBUF_SIMPLE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_SIMPLE</span></code></a>, because
 the latter already implies format <code class="docutils literal notranslate"><span class="pre">B</span></code> (unsigned bytes). <code class="xref c c-macro docutils literal notranslate"><span class="pre">PyBUF_FORMAT</span></code> cannot be
@@ -825,7 +825,7 @@ that redirect requests to a single object, <code class="docutils literal notrans
 refer to this object instead of <em>exporter</em> (See <a class="reference internal" href="typeobj.html#buffer-structs"><span class="std std-ref">Buffer Object Structures</span></a>).</p>
 <p>Successful calls to <a class="reference internal" href="#c.PyObject_GetBuffer" title="PyObject_GetBuffer"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetBuffer()</span></code></a> must be paired with calls
 to <a class="reference internal" href="#c.PyBuffer_Release" title="PyBuffer_Release"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyBuffer_Release()</span></code></a>, similar to <code class="xref c c-func docutils literal notranslate"><span class="pre">malloc()</span></code> and <code class="xref c c-func docutils literal notranslate"><span class="pre">free()</span></code>.
-Thus, after the consumer is done with the buffer, <code class="xref c c-func docutils literal notranslate"><span class="pre">PyBuffer_Release()</span></code>
+Thus, after the consumer is done with the buffer, <a class="reference internal" href="#c.PyBuffer_Release" title="PyBuffer_Release"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyBuffer_Release()</span></code></a>
 must be called exactly once.</p>
 </dd></dl>
 

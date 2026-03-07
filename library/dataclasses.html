@@ -384,7 +384,7 @@ identical type.  If <em>order</em> is true and <em>eq</em> is false, a
 </li>
 <li><p><em>unsafe_hash</em>: If true, force <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code> to create a
 <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> method, even though it may not be safe to do so.
-Otherwise, generate a <code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code> method according to how
+Otherwise, generate a <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> method according to how
 <em>eq</em> and <em>frozen</em> are set.
 The default value is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code> is used by built-in <a class="reference internal" href="functions.html#hash" title="hash"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hash()</span></code></a>, and when objects are
@@ -594,7 +594,7 @@ with a call to the provided <code class="xref py py-func docutils literal notran
 <p>As shown above, the <a class="reference internal" href="#dataclasses.MISSING" title="dataclasses.MISSING"><code class="xref py py-const docutils literal notranslate"><span class="pre">MISSING</span></code></a> value is a sentinel object used to
 detect if some parameters are provided by the user. This sentinel is
 used because <code class="docutils literal notranslate"><span class="pre">None</span></code> is a valid value for some parameters with
-a distinct meaning.  No code should directly use the <code class="xref py py-const docutils literal notranslate"><span class="pre">MISSING</span></code> value.</p>
+a distinct meaning.  No code should directly use the <a class="reference internal" href="#dataclasses.MISSING" title="dataclasses.MISSING"><code class="xref py py-const docutils literal notranslate"><span class="pre">MISSING</span></code></a> value.</p>
 <p>The parameters to <code class="xref py py-func docutils literal notranslate"><span class="pre">field()</span></code> are:</p>
 <ul>
 <li><p><em>default</em>: If provided, this will be the default value for this
@@ -611,7 +611,7 @@ parameter to the generated <a class="reference internal" href="../reference/data
 string returned by the generated <a class="reference internal" href="../reference/datamodel.html#object.__repr__" title="object.__repr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method.</p></li>
 <li><p><em>hash</em>: This can be a bool or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If true, this field is
 included in the generated <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> method.  If false,
-this field is excluded from the generated <code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code>.
+this field is excluded from the generated <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a>.
 If <code class="docutils literal notranslate"><span class="pre">None</span></code> (the default), use the value of <em>compare</em>: this would
 normally be the expected behavior, since a field should be included
 in the hash if it’s used for comparisons.  Setting this value to anything
@@ -886,7 +886,7 @@ of the dataclass is set to that value.
 By default, it is set to the module name of the caller.</p>
 <p>The <em>decorator</em> parameter is a callable that will be used to create the dataclass.
 It should take the class object as a first argument and the same keyword arguments
-as <a class="reference internal" href="#dataclasses.dataclass" title="dataclasses.dataclass"><code class="xref py py-deco docutils literal notranslate"><span class="pre">&#64;dataclass</span></code></a>. By default, the <code class="xref py py-deco docutils literal notranslate"><span class="pre">&#64;dataclass</span></code>
+as <a class="reference internal" href="#dataclasses.dataclass" title="dataclasses.dataclass"><code class="xref py py-deco docutils literal notranslate"><span class="pre">&#64;dataclass</span></code></a>. By default, the <a class="reference internal" href="#dataclasses.dataclass" title="dataclasses.dataclass"><code class="xref py py-deco docutils literal notranslate"><span class="pre">&#64;dataclass</span></code></a>
 function is used.</p>
 <p>This function is not strictly required, because any Python
 mechanism for creating a new class with <a class="reference internal" href="../reference/datamodel.html#object.__annotations__" title="object.__annotations__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__annotations__</span></code></a> can
@@ -925,7 +925,7 @@ example:</p>
 <p>Creates a new object of the same type as <em>obj</em>, replacing
 fields with values from <em>changes</em>.  If <em>obj</em> is not a Data
 Class, raises <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>.  If keys in <em>changes</em> are not
-field names of the given dataclass, raises <code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+field names of the given dataclass, raises <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>.</p>
 <p>The newly returned object is created by calling the <a class="reference internal" href="../reference/datamodel.html#object.__init__" title="object.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>
 method of the dataclass.  This ensures that
 <a class="reference internal" href="#dataclasses.__post_init__" title="dataclasses.__post_init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__post_init__()</span></code></a>, if present, is also called.</p>
@@ -1101,7 +1101,7 @@ module-level <a class="reference internal" href="#dataclasses.fields" title="dat
 <p>Another place where <a class="reference internal" href="#dataclasses.dataclass" title="dataclasses.dataclass"><code class="xref py py-deco docutils literal notranslate"><span class="pre">&#64;dataclass</span></code></a> inspects a type annotation is to
 determine if a field is an init-only variable.  It does this by seeing
 if the type of a field is of type <a class="reference internal" href="#dataclasses.InitVar" title="dataclasses.InitVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">InitVar</span></code></a>.  If a field
-is an <code class="xref py py-class docutils literal notranslate"><span class="pre">InitVar</span></code>, it is considered a pseudo-field called an init-only
+is an <a class="reference internal" href="#dataclasses.InitVar" title="dataclasses.InitVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">InitVar</span></code></a>, it is considered a pseudo-field called an init-only
 field.  As it is not a true field, it is not returned by the
 module-level <a class="reference internal" href="#dataclasses.fields" title="dataclasses.fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">fields()</span></code></a> function.  Init-only fields are added as
 parameters to the generated <a class="reference internal" href="../reference/datamodel.html#object.__init__" title="object.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method, and are passed to

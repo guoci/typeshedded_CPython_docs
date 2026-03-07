@@ -536,14 +536,14 @@ in the task at the next opportunity.</p>
 <p>It is recommended that coroutines use <code class="docutils literal notranslate"><span class="pre">try/finally</span></code> blocks to robustly
 perform clean-up logic. In case <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a>
 is explicitly caught, it should generally be propagated when
-clean-up is complete. <code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code> directly subclasses
+clean-up is complete. <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> directly subclasses
 <a class="reference internal" href="exceptions.html#BaseException" title="BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a> so most code will not need to be aware of it.</p>
 <p>The asyncio components that enable structured concurrency, like
 <a class="reference internal" href="#asyncio.TaskGroup" title="asyncio.TaskGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.TaskGroup</span></code></a> and <a class="reference internal" href="#asyncio.timeout" title="asyncio.timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.timeout()</span></code></a>,
 are implemented using cancellation internally and might misbehave if
 a coroutine swallows <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a>. Similarly, user code
 should not generally call <a class="reference internal" href="#asyncio.Task.uncancel" title="asyncio.Task.uncancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uncancel</span></code></a>.
-However, in cases when suppressing <code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code> is
+However, in cases when suppressing <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> is
 truly desired, it is necessary to also call <code class="docutils literal notranslate"><span class="pre">uncancel()</span></code> to completely
 remove the cancellation state.</p>
 </section>
@@ -616,7 +616,7 @@ No further tasks can then be added to the group.
 At this point, if the body of the <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> statement is still active
 (i.e., <a class="reference internal" href="../reference/datamodel.html#object.__aexit__" title="object.__aexit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code></a> hasn’t been called yet),
 the task directly containing the <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> statement is also cancelled.
-The resulting <code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code> will interrupt an <code class="docutils literal notranslate"><span class="pre">await</span></code>,
+The resulting <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> will interrupt an <code class="docutils literal notranslate"><span class="pre">await</span></code>,
 but it will not bubble out of the containing <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> statement.</p>
 <p>Once all tasks have finished, if any tasks have failed
 with an exception other than <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a>,
@@ -627,7 +627,7 @@ which is then raised.</p>
 <p>Two base exceptions are treated specially:
 If any task fails with <a class="reference internal" href="exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> or <a class="reference internal" href="exceptions.html#SystemExit" title="SystemExit"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code></a>,
 the task group still cancels the remaining tasks and waits for them,
-but then the initial <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> or <code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code>
+but then the initial <a class="reference internal" href="exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> or <a class="reference internal" href="exceptions.html#SystemExit" title="SystemExit"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code></a>
 is re-raised instead of <a class="reference internal" href="exceptions.html#ExceptionGroup" title="ExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ExceptionGroup</span></code></a> or <a class="reference internal" href="exceptions.html#BaseExceptionGroup" title="BaseExceptionGroup"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code></a>.</p>
 <p>If the body of the <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> statement exits with an exception
 (so <a class="reference internal" href="../reference/datamodel.html#object.__aexit__" title="object.__aexit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code></a> is called with an exception set),
@@ -635,7 +635,7 @@ this is treated the same as if one of the tasks failed:
 the remaining tasks are cancelled and then waited for,
 and non-cancellation exceptions are grouped into an
 exception group and raised.
-The exception passed into <code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code>,
+The exception passed into <a class="reference internal" href="../reference/datamodel.html#object.__aexit__" title="object.__aexit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code></a>,
 unless it is <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a>,
 is also included in the exception group.
 The same special case is made for
@@ -1194,7 +1194,7 @@ into a <a class="reference internal" href="exceptions.html#TimeoutError" title="
 <p class="admonition-title">Note</p>
 <p>The <a class="reference internal" href="#asyncio.timeout" title="asyncio.timeout"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.timeout()</span></code></a> context manager is what transforms
 the <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> into a <a class="reference internal" href="exceptions.html#TimeoutError" title="TimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code></a>,
-which means the <code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code> can only be caught
+which means the <a class="reference internal" href="exceptions.html#TimeoutError" title="TimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code></a> can only be caught
 <em>outside</em> of the context manager.</p>
 </div>
 <p>Example of catching <a class="reference internal" href="exceptions.html#TimeoutError" title="TimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TimeoutError</span></code></a>:</p>
@@ -1952,7 +1952,7 @@ is written; by default output is written to <a class="reference internal" href="
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Coroutine" title="collections.abc.Coroutine"><span class="pre">Coroutine</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_T_co</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_asyncio.pyi#L80">typeshed</a>)</p>
-<p>Return the coroutine object wrapped by the <code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code>.</p>
+<p>Return the coroutine object wrapped by the <a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This will return <code class="docutils literal notranslate"><span class="pre">None</span></code> for Tasks which have already
@@ -2024,7 +2024,7 @@ into the wrapped coroutine on the next cycle of the event loop.</p>
 <p>The coroutine then has a chance to clean up or even deny the
 request by suppressing the exception with a <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> …
 … <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">CancelledError</span></code> … <a class="reference internal" href="../reference/compound_stmts.html#finally"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> block.
-Therefore, unlike <a class="reference internal" href="asyncio-future.html#asyncio.Future.cancel" title="asyncio.Future.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Future.cancel()</span></code></a>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">Task.cancel()</span></code> does
+Therefore, unlike <a class="reference internal" href="asyncio-future.html#asyncio.Future.cancel" title="asyncio.Future.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Future.cancel()</span></code></a>, <a class="reference internal" href="#asyncio.Task.cancel" title="asyncio.Task.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Task.cancel()</span></code></a> does
 not guarantee that the Task will be cancelled, although
 suppressing cancellation completely is not common and is actively
 discouraged.  Should the coroutine nevertheless decide to suppress
@@ -2099,7 +2099,7 @@ the cancellation request:</p>
 <p>Decrement the count of cancellation requests to this Task.</p>
 <p>Returns the remaining number of cancellation requests.</p>
 <p>Note that once execution of a cancelled task completed, further
-calls to <code class="xref py py-meth docutils literal notranslate"><span class="pre">uncancel()</span></code> are ineffective.</p>
+calls to <a class="reference internal" href="#asyncio.Task.uncancel" title="asyncio.Task.uncancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uncancel()</span></code></a> are ineffective.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.11.</span></p>
 </div>
@@ -2124,7 +2124,7 @@ For example:</p>
 <p>While the block with <code class="docutils literal notranslate"><span class="pre">make_request()</span></code> and <code class="docutils literal notranslate"><span class="pre">make_another_request()</span></code>
 might get cancelled due to the timeout, <code class="docutils literal notranslate"><span class="pre">unrelated_code()</span></code> should
 continue running even in case of the timeout.  This is implemented
-with <code class="xref py py-meth docutils literal notranslate"><span class="pre">uncancel()</span></code>.  <a class="reference internal" href="#asyncio.TaskGroup" title="asyncio.TaskGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaskGroup</span></code></a> context managers use
+with <a class="reference internal" href="#asyncio.Task.uncancel" title="asyncio.Task.uncancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uncancel()</span></code></a>.  <a class="reference internal" href="#asyncio.TaskGroup" title="asyncio.TaskGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaskGroup</span></code></a> context managers use
 <a class="reference internal" href="#asyncio.Task.uncancel" title="asyncio.Task.uncancel"><code class="xref py py-func docutils literal notranslate"><span class="pre">uncancel()</span></code></a> in a similar fashion.</p>
 <p>If end-user code is, for some reason, suppressing cancellation by
 catching <a class="reference internal" href="asyncio-exceptions.html#asyncio.CancelledError" title="asyncio.CancelledError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CancelledError</span></code></a>, it needs to call this method to remove

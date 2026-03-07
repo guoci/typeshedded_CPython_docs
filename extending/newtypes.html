@@ -430,9 +430,9 @@ done.  This can be done using the <a class="reference internal" href="../c-api/e
 First, if your type supports garbage collection (using <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a>
 and/or <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_clear" title="PyTypeObject.tp_clear"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_clear</span></code></a>), some of the object’s members can have been
 cleared or finalized by the time <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> is called.  Second, in
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code>, your object is in an unstable state: its reference
+<a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a>, your object is in an unstable state: its reference
 count is equal to zero.  Any call to a non-trivial object or API (as in the
-example above) might end up calling <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code> again, causing a
+example above) might end up calling <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a> again, causing a
 double free and a crash.</p>
 <p>Starting with Python 3.4, it is recommended not to put any complex
 finalization code in <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_dealloc" title="PyTypeObject.tp_dealloc"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_dealloc</span></code></a>, and instead use the new
@@ -447,7 +447,7 @@ finalization code in <a class="reference internal" href="../c-api/typeobj.html#c
 <span id="index-3"></span><h2>Object Presentation<a class="headerlink" href="#object-presentation" title="Link to this heading">¶</a></h2>
 <p>In Python, there are two ways to generate a textual representation of an object:
 the <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> function, and the <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> function.  (The <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a>
-function just calls <code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code>.)  These handlers are both optional.</p>
+function just calls <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a>.)  These handlers are both optional.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">reprfunc</span><span class="w"> </span><span class="n">tp_repr</span><span class="p">;</span>
 <span class="n">reprfunc</span><span class="w"> </span><span class="n">tp_str</span><span class="p">;</span>
 </pre></div>
@@ -469,9 +469,9 @@ representation that uses the type’s <a class="reference internal" href="../c-a
 value for the object.</p>
 <p>The <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_str" title="PyTypeObject.tp_str"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_str</span></code></a> handler is to <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> what the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_repr" title="PyTypeObject.tp_repr"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code></a> handler
 described above is to <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>; that is, it is called when Python code calls
-<code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code> on an instance of your object.  Its implementation is very similar
-to the <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code> function, but the resulting string is intended for human
-consumption.  If <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_str</span></code> is not specified, the <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code> handler is
+<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> on an instance of your object.  Its implementation is very similar
+to the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_repr" title="PyTypeObject.tp_repr"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code></a> function, but the resulting string is intended for human
+consumption.  If <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_str" title="PyTypeObject.tp_str"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_str</span></code></a> is not specified, the <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_repr" title="PyTypeObject.tp_repr"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code></a> handler is
 used instead.</p>
 <p>Here is a simple example:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span>
@@ -608,7 +608,7 @@ method of a class would be called.</p>
 <a class="reference internal" href="../reference/datamodel.html#object.__delattr__" title="object.__delattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__delattr__()</span></code></a> method of a class instance would be called.  When an
 attribute should be deleted, the third parameter will be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.  Here is an
 example that simply raises an exception; if this were really all you wanted, the
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_setattr</span></code> handler should be set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_setattr" title="PyTypeObject.tp_setattr"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_setattr</span></code></a> handler should be set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span>
 <span class="nf">newdatatype_setattr</span><span class="p">(</span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
 <span class="p">{</span>
@@ -776,14 +776,14 @@ implement the <a class="reference internal" href="../c-api/typeobj.html#c.PyType
 </ul>
 <p>Any <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> object should implement both <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a>
 and <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a>.  An iterator’s
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code> handler should return a new reference
-to the iterator.  Its <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code> handler should
+<a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a> handler should return a new reference
+to the iterator.  Its <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a> handler should
 return a new reference to the next object in the iteration, if there is one.
-If the iteration has reached the end, <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code>
+If the iteration has reached the end, <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a>
 may return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> without setting an exception, or it may set
 <a class="reference internal" href="../library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> <em>in addition</em> to returning <code class="docutils literal notranslate"><span class="pre">NULL</span></code>; avoiding
 the exception can yield slightly better performance.  If an actual error
-occurs, <code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code> should always set an exception
+occurs, <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a> should always set an exception
 and return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 </section>
 <section id="weak-reference-support">

@@ -237,7 +237,7 @@ interpreter stack.</p>
 <span id="inspect-types"></span><h2>Types and members<a class="headerlink" href="#types-and-members" title="Link to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="#inspect.getmembers" title="inspect.getmembers"><code class="xref py py-func docutils literal notranslate"><span class="pre">getmembers()</span></code></a> function retrieves the members of an object such as a
 class or module. The functions whose names begin with “is” are mainly
-provided as convenient choices for the second argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">getmembers()</span></code>.
+provided as convenient choices for the second argument to <a class="reference internal" href="#inspect.getmembers" title="inspect.getmembers"><code class="xref py py-func docutils literal notranslate"><span class="pre">getmembers()</span></code></a>.
 They also help you determine when you can expect to find the following special
 attributes (see <a class="reference internal" href="../reference/datamodel.html#import-mod-attrs"><span class="std std-ref">Import-related attributes on module objects</span></a> for module attributes):</p>
 <table class="docutils align-default">
@@ -768,7 +768,7 @@ called with the <code class="docutils literal notranslate"><span class="pre">val
 for which the predicate returns a true value are included.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">getmembers()</span></code> will only return class attributes defined in the
+<p><a class="reference internal" href="#inspect.getmembers" title="inspect.getmembers"><code class="xref py py-func docutils literal notranslate"><span class="pre">getmembers()</span></code></a> will only return class attributes defined in the
 metaclass when the argument is a class and those attributes have been
 listed in the metaclass’ custom <a class="reference internal" href="../reference/datamodel.html#object.__dir__" title="object.__dir__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__dir__()</span></code></a>.</p>
 </div>
@@ -812,7 +812,7 @@ protocol, __getattr__ or __getattribute__. Optionally, only return members
 that satisfy a given predicate.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">getmembers_static()</span></code> may not be able to retrieve all members
+<p><a class="reference internal" href="#inspect.getmembers_static" title="inspect.getmembers_static"><code class="xref py py-func docutils literal notranslate"><span class="pre">getmembers_static()</span></code></a> may not be able to retrieve all members
 that getmembers can fetch (like dynamically created attributes)
 and may find members that getmembers can’t (like descriptors
 that raise AttributeError). It can also return descriptor objects
@@ -985,7 +985,7 @@ if the wrapped function is a Python generator function.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/inspect.pyi#L227">typeshed</a>)</p>
 <p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the object is a <a class="reference internal" href="../glossary.html#term-coroutine-function"><span class="xref std std-term">coroutine function</span></a> (a function
 defined with an <a class="reference internal" href="../reference/compound_stmts.html#async-def"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span></code></a> syntax), a <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a>
-wrapping a <span class="xref std std-term">coroutine function</span>, or a sync function marked with
+wrapping a <a class="reference internal" href="../glossary.html#term-coroutine-function"><span class="xref std std-term">coroutine function</span></a>, or a sync function marked with
 <a class="reference internal" href="#inspect.markcoroutinefunction" title="inspect.markcoroutinefunction"><code class="xref py py-func docutils literal notranslate"><span class="pre">markcoroutinefunction()</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.5.</span></p>
@@ -1231,7 +1231,7 @@ method or a <a class="reference internal" href="../reference/datamodel.html#obje
 attributes varies.  A <a class="reference internal" href="stdtypes.html#definition.__name__" title="definition.__name__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__name__</span></code></a> attribute is usually
 sensible, and <a class="reference internal" href="stdtypes.html#definition.__doc__" title="definition.__doc__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__doc__</span></code></a> often is.</p>
 <p>Methods implemented via descriptors that also pass one of the other tests
-return <code class="docutils literal notranslate"><span class="pre">False</span></code> from the <code class="xref py py-func docutils literal notranslate"><span class="pre">ismethoddescriptor()</span></code> test, simply because the
+return <code class="docutils literal notranslate"><span class="pre">False</span></code> from the <a class="reference internal" href="#inspect.ismethoddescriptor" title="inspect.ismethoddescriptor"><code class="xref py py-func docutils literal notranslate"><span class="pre">ismethoddescriptor()</span></code></a> test, simply because the
 other tests promise more – you can, e.g., count on having the
 <a class="reference internal" href="../reference/datamodel.html#method.__func__" title="method.__func__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__func__</span></code></a> attribute (etc) when an object passes
 <a class="reference internal" href="#inspect.ismethod" title="inspect.ismethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">ismethod()</span></code></a>.</p>
@@ -1487,7 +1487,7 @@ function.</p>
 <p>Accepts a wide range of Python callables, from plain functions and classes to
 <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> objects.</p>
 <p>If some of the annotations are strings (e.g., because
-<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> was used), <code class="xref py py-func docutils literal notranslate"><span class="pre">signature()</span></code> will
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code> was used), <a class="reference internal" href="#inspect.signature" title="inspect.signature"><code class="xref py py-func docutils literal notranslate"><span class="pre">signature()</span></code></a> will
 attempt to automatically un-stringize the annotations using
 <a class="reference internal" href="annotationlib.html#annotationlib.get_annotations" title="annotationlib.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">annotationlib.get_annotations()</span></code></a>.  The
 <em>globals</em>, <em>locals</em>, and <em>eval_str</em> parameters are passed
@@ -1644,8 +1644,8 @@ passed arguments do not match the signature.</p>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#inspect.Signature" title="inspect.Signature"><span class="pre">Signature</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/inspect.pyi#L350">typeshed</a>)</p>
-<p>Create a new <code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code> instance based on the instance
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">replace()</span></code> was invoked on.
+<p>Create a new <a class="reference internal" href="#inspect.Signature" title="inspect.Signature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> instance based on the instance
+<a class="reference internal" href="#inspect.Signature.replace" title="inspect.Signature.replace"><code class="xref py py-meth docutils literal notranslate"><span class="pre">replace()</span></code></a> was invoked on.
 It is possible to pass different <em>parameters</em> and/or
 <em>return_annotation</em> to override the corresponding properties of the base
 signature.  To remove <code class="docutils literal notranslate"><span class="pre">return_annotation</span></code> from the copied
@@ -1660,7 +1660,7 @@ signature.  To remove <code class="docutils literal notranslate"><span class="pr
 <span class="go">&quot;(a, b) -&gt; &#39;new return anno&#39;&quot;</span>
 </pre></div>
 </div>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code> objects are also supported by the generic function
+<p><a class="reference internal" href="#inspect.Signature" title="inspect.Signature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> objects are also supported by the generic function
 <a class="reference internal" href="copy.html#copy.replace" title="copy.replace"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy.replace()</span></code></a>.</p>
 </dd></dl>
 
@@ -1678,7 +1678,7 @@ signature.  To remove <code class="docutils literal notranslate"><span class="pr
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/inspect.pyi#L379">typeshed</a>)</p>
-<p>Create a string representation of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code> object.</p>
+<p>Create a string representation of the <a class="reference internal" href="#inspect.Signature" title="inspect.Signature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> object.</p>
 <p>If <em>max_width</em> is passed, the method will attempt to fit
 the signature into lines of at most <em>max_width</em> characters.
 If the signature is longer than <em>max_width</em>,
@@ -1727,9 +1727,9 @@ marks if they are strings. This is useful if the signature was created with the
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#inspect.Signature" title="inspect.Signature"><span class="pre">Signature</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/inspect.pyi#L354">typeshed</a>)</p>
 <blockquote>
-<div><p>Return a <code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code> (or its subclass) object for a given callable
+<div><p>Return a <a class="reference internal" href="#inspect.Signature" title="inspect.Signature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> (or its subclass) object for a given callable
 <em>obj</em>.</p>
-<p>This method simplifies subclassing of <code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code>:</p>
+<p>This method simplifies subclassing of <a class="reference internal" href="#inspect.Signature" title="inspect.Signature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MySignature</span><span class="p">(</span><span class="n">Signature</span><span class="p">):</span>
     <span class="k">pass</span>
 <span class="n">sig</span> <span class="o">=</span> <span class="n">MySignature</span><span class="o">.</span><span class="n">from_callable</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
@@ -1816,7 +1816,7 @@ this attribute is set to <a class="reference internal" href="#inspect.Parameter.
 <span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">kind(self:</span> <span class="pre">inspect.Parameter)</span> <span class="pre">-&gt;</span> <span class="pre">inspect._ParameterKind</span></em><a class="headerlink" href="#inspect.Parameter.kind" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/inspect.pyi#L434">typeshed</a>)</p>
 <p>Describes how argument values are bound to the parameter.  The possible
-values are accessible via <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> (like <code class="docutils literal notranslate"><span class="pre">Parameter.KEYWORD_ONLY</span></code>),
+values are accessible via <a class="reference internal" href="#inspect.Parameter" title="inspect.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> (like <code class="docutils literal notranslate"><span class="pre">Parameter.KEYWORD_ONLY</span></code>),
 and support comparison and ordering, in the following order:</p>
 <table class="docutils align-default">
 <thead>
@@ -1910,7 +1910,7 @@ definition.</p></td>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#inspect.Parameter" title="inspect.Parameter"><span class="pre">Parameter</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/inspect.pyi#L437">typeshed</a>)</p>
-<p>Create a new <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> instance based on the instance replaced was invoked
+<p>Create a new <a class="reference internal" href="#inspect.Parameter" title="inspect.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> instance based on the instance replaced was invoked
 on.  To override a <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> attribute, pass the corresponding
 argument.  To remove a default value or/and an annotation from a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code>, pass <a class="reference internal" href="#inspect.Parameter.empty" title="inspect.Parameter.empty"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Parameter.empty</span></code></a>.</p>
@@ -1926,12 +1926,12 @@ argument.  To remove a default value or/and an annotation from a
 <span class="go">&quot;foo: &#39;spam&#39;&quot;</span>
 </pre></div>
 </div>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> objects are also supported by the generic function
+<p><a class="reference internal" href="#inspect.Parameter" title="inspect.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> objects are also supported by the generic function
 <a class="reference internal" href="copy.html#copy.replace" title="copy.replace"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy.replace()</span></code></a>.</p>
 </dd></dl>
 
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.4: </span>In Python 3.3 <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code> objects were allowed to have <code class="docutils literal notranslate"><span class="pre">name</span></code> set
+<p><span class="versionmodified changed">Changed in version 3.4: </span>In Python 3.3 <a class="reference internal" href="#inspect.Parameter" title="inspect.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> objects were allowed to have <code class="docutils literal notranslate"><span class="pre">name</span></code> set
 to <code class="docutils literal notranslate"><span class="pre">None</span></code> if their <code class="docutils literal notranslate"><span class="pre">kind</span></code> was set to <code class="docutils literal notranslate"><span class="pre">POSITIONAL_ONLY</span></code>.
 This is no longer permitted.</p>
 </div>

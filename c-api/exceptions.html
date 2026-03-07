@@ -453,7 +453,7 @@ encoding and error handler</span></a>.</p>
 <em>ierr</em> of <code class="docutils literal notranslate"><span class="pre">0</span></code>, the error code returned by a call to <code class="xref c c-func docutils literal notranslate"><span class="pre">GetLastError()</span></code>
 is used instead.  It calls the Win32 function <code class="xref c c-func docutils literal notranslate"><span class="pre">FormatMessage()</span></code> to retrieve
 the Windows description of error code given by <em>ierr</em> or <code class="xref c c-func docutils literal notranslate"><span class="pre">GetLastError()</span></code>,
-then it constructs a <code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code> object with the <a class="reference internal" href="../library/exceptions.html#OSError.winerror" title="OSError.winerror"><code class="xref py py-attr docutils literal notranslate"><span class="pre">winerror</span></code></a>
+then it constructs a <a class="reference internal" href="../library/exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> object with the <a class="reference internal" href="../library/exceptions.html#OSError.winerror" title="OSError.winerror"><code class="xref py py-attr docutils literal notranslate"><span class="pre">winerror</span></code></a>
 attribute set to the error code, the <a class="reference internal" href="../library/exceptions.html#OSError.strerror" title="OSError.strerror"><code class="xref py py-attr docutils literal notranslate"><span class="pre">strerror</span></code></a> attribute
 set to the corresponding error message (gotten from
 <code class="xref c c-func docutils literal notranslate"><span class="pre">FormatMessage()</span></code>), and then calls <code class="docutils literal notranslate"><span class="pre">PyErr_SetObject(PyExc_OSError,</span>
@@ -526,7 +526,7 @@ parameter specifying the exception type to be raised.</p>
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyErr_SetImportError</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">msg</span></span>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyErr_SetImportError" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount return_null">Return value: Always NULL.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.7.</em><p>This is a convenience function to raise <a class="reference internal" href="../library/exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a>. <em>msg</em> will be
 set as the exception’s message string. <em>name</em> and <em>path</em>, both of which can
-be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, will be set as the <code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code>’s respective <code class="docutils literal notranslate"><span class="pre">name</span></code>
+be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, will be set as the <a class="reference internal" href="../library/exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a>’s respective <code class="docutils literal notranslate"><span class="pre">name</span></code>
 and <code class="docutils literal notranslate"><span class="pre">path</span></code> attributes.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.3.</span></p>
@@ -549,7 +549,7 @@ specifying a subclass of <a class="reference internal" href="../library/exceptio
 <dd><p>Set file, line, and offset information for the current exception.  If the
 current exception is not a <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>, then it sets additional
 attributes, which make the exception printing subsystem think the exception
-is a <code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p>
+is a <a class="reference internal" href="../library/exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
@@ -634,7 +634,7 @@ the  currently executing line of code in that stack frame.  A <em>stack_level</e
 is the function calling <a class="reference internal" href="#c.PyErr_WarnEx" title="PyErr_WarnEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_WarnEx()</span></code></a>, 2 is  the function above that,
 and so forth.</p>
 <p>Warning categories must be subclasses of <a class="reference internal" href="#c.PyExc_Warning" title="PyExc_Warning"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_Warning</span></code></a>;
-<code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_Warning</span></code> is a subclass of <a class="reference internal" href="#c.PyExc_Exception" title="PyExc_Exception"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_Exception</span></code></a>;
+<a class="reference internal" href="#c.PyExc_Warning" title="PyExc_Warning"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_Warning</span></code></a> is a subclass of <a class="reference internal" href="#c.PyExc_Exception" title="PyExc_Exception"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_Exception</span></code></a>;
 the default warning category is <a class="reference internal" href="#c.PyExc_RuntimeWarning" title="PyExc_RuntimeWarning"><code class="xref c c-data docutils literal notranslate"><span class="pre">PyExc_RuntimeWarning</span></code></a>. The standard
 Python warning categories are available as global variables whose names are
 enumerated at <a class="reference internal" href="#standardwarningcategories"><span class="std std-ref">Warning types</span></a>.</p>
@@ -1334,7 +1334,7 @@ depth limit.</p>
 <dt class="sig sig-object c" id="c.Py_LeaveRecursiveCall">
 <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_LeaveRecursiveCall</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_LeaveRecursiveCall" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.9.</em><p>Ends a <a class="reference internal" href="#c.Py_EnterRecursiveCall" title="Py_EnterRecursiveCall"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_EnterRecursiveCall()</span></code></a>.  Must be called once for each
-<em>successful</em> invocation of <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_EnterRecursiveCall()</span></code>.</p>
+<em>successful</em> invocation of <a class="reference internal" href="#c.Py_EnterRecursiveCall" title="Py_EnterRecursiveCall"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_EnterRecursiveCall()</span></code></a>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.9: </span>This function is now also available in the <a class="reference internal" href="stable.html#limited-c-api"><span class="std std-ref">limited API</span></a>.</p>
 </div>
@@ -1342,7 +1342,7 @@ depth limit.</p>
 
 <p>Properly implementing <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_repr" title="PyTypeObject.tp_repr"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code></a> for container types requires
 special recursion handling.  In addition to protecting the stack,
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code> also needs to track objects to prevent cycles.  The
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_repr" title="PyTypeObject.tp_repr"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_repr</span></code></a> also needs to track objects to prevent cycles.  The
 following two functions facilitate this functionality.  Effectively,
 these are the C equivalent to <a class="reference internal" href="../library/reprlib.html#reprlib.recursive_repr" title="reprlib.recursive_repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">reprlib.recursive_repr()</span></code></a>.</p>
 <dl class="c function">
@@ -1366,7 +1366,7 @@ implementation can continue normally.</p>
 <dt class="sig sig-object c" id="c.Py_ReprLeave">
 <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_ReprLeave</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">object</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_ReprLeave" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Ends a <a class="reference internal" href="#c.Py_ReprEnter" title="Py_ReprEnter"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_ReprEnter()</span></code></a>.  Must be called once for each
-invocation of <code class="xref c c-func docutils literal notranslate"><span class="pre">Py_ReprEnter()</span></code> that returns zero.</p>
+invocation of <a class="reference internal" href="#c.Py_ReprEnter" title="Py_ReprEnter"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_ReprEnter()</span></code></a> that returns zero.</p>
 </dd></dl>
 
 <dl class="c function">

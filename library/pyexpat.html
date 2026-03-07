@@ -385,7 +385,7 @@ value will be passed through as the <em>base</em> argument to the
 <span class="sig-prename descclassname"><span class="pre">xmlparser.</span></span><span class="sig-name descname"><span class="pre">GetBase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/pyexpat/__init__.pyi#L26">typeshed</a>)</p>
 <p>Returns a string containing the base set by a previous call to <a class="reference internal" href="#xml.parsers.expat.xmlparser.SetBase" title="xml.parsers.expat.xmlparser.SetBase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SetBase()</span></code></a>,
-or <code class="docutils literal notranslate"><span class="pre">None</span></code> if  <code class="xref py py-meth docutils literal notranslate"><span class="pre">SetBase()</span></code> hasn’t been called.</p>
+or <code class="docutils literal notranslate"><span class="pre">None</span></code> if  <a class="reference internal" href="#xml.parsers.expat.xmlparser.SetBase" title="xml.parsers.expat.xmlparser.SetBase"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SetBase()</span></code></a> hasn’t been called.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -443,7 +443,7 @@ was successful.</p>
 <p>Calling this with a true value for <em>flag</em> (the default) will cause Expat to call
 the <a class="reference internal" href="#xml.parsers.expat.xmlparser.ExternalEntityRefHandler" title="xml.parsers.expat.xmlparser.ExternalEntityRefHandler"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ExternalEntityRefHandler</span></code></a> with <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> for all arguments to
 allow an alternate DTD to be loaded.  If the document does not contain a
-document type declaration, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">ExternalEntityRefHandler</span></code> will still be
+document type declaration, the <a class="reference internal" href="#xml.parsers.expat.xmlparser.ExternalEntityRefHandler" title="xml.parsers.expat.xmlparser.ExternalEntityRefHandler"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ExternalEntityRefHandler</span></code></a> will still be
 called, but the <a class="reference internal" href="#xml.parsers.expat.xmlparser.StartDoctypeDeclHandler" title="xml.parsers.expat.xmlparser.StartDoctypeDeclHandler"><code class="xref py py-attr docutils literal notranslate"><span class="pre">StartDoctypeDeclHandler</span></code></a> and
 <a class="reference internal" href="#xml.parsers.expat.xmlparser.EndDoctypeDeclHandler" title="xml.parsers.expat.xmlparser.EndDoctypeDeclHandler"><code class="xref py py-attr docutils literal notranslate"><span class="pre">EndDoctypeDeclHandler</span></code></a> will not be called.</p>
 <p>Passing a false value for <em>flag</em> will cancel a previous call that passed a true
@@ -654,7 +654,7 @@ may be chunked too.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/pyexpat/__init__.pyi#L42">typeshed</a>)</p>
 <p>If <a class="reference internal" href="#xml.parsers.expat.xmlparser.buffer_text" title="xml.parsers.expat.xmlparser.buffer_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">buffer_text</span></code></a> is enabled, the number of bytes stored in the buffer.
 These bytes represent UTF-8 encoded text.  This attribute has no meaningful
-interpretation when <code class="xref py py-attr docutils literal notranslate"><span class="pre">buffer_text</span></code> is false.</p>
+interpretation when <a class="reference internal" href="#xml.parsers.expat.xmlparser.buffer_text" title="xml.parsers.expat.xmlparser.buffer_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">buffer_text</span></code></a> is false.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -832,7 +832,7 @@ true. This requires Expat version 1.95.0 or newer.</p>
 <p>Called for the start of every element.  <em>name</em> is a string containing the
 element name, and <em>attributes</em> is the element attributes. If
 <a class="reference internal" href="#xml.parsers.expat.xmlparser.ordered_attributes" title="xml.parsers.expat.xmlparser.ordered_attributes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ordered_attributes</span></code></a> is true, this is a list (see
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">ordered_attributes</span></code> for a full description). Otherwise it’s a
+<a class="reference internal" href="#xml.parsers.expat.xmlparser.ordered_attributes" title="xml.parsers.expat.xmlparser.ordered_attributes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ordered_attributes</span></code></a> for a full description). Otherwise it’s a
 dictionary mapping names to values.</p>
 </dd></dl>
 
@@ -866,7 +866,7 @@ these cases can use the <a class="reference internal" href="#xml.parsers.expat.x
 <a class="reference internal" href="#xml.parsers.expat.xmlparser.EndCdataSectionHandler" title="xml.parsers.expat.xmlparser.EndCdataSectionHandler"><code class="xref py py-attr docutils literal notranslate"><span class="pre">EndCdataSectionHandler</span></code></a>, and <a class="reference internal" href="#xml.parsers.expat.xmlparser.ElementDeclHandler" title="xml.parsers.expat.xmlparser.ElementDeclHandler"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ElementDeclHandler</span></code></a> callbacks to
 collect the required information. Note that the character data may be
 chunked even if it is short and so you may receive more than one call to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">CharacterDataHandler()</span></code>. Set the <a class="reference internal" href="#xml.parsers.expat.xmlparser.buffer_text" title="xml.parsers.expat.xmlparser.buffer_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">buffer_text</span></code></a> instance attribute
+<a class="reference internal" href="#xml.parsers.expat.xmlparser.CharacterDataHandler" title="xml.parsers.expat.xmlparser.CharacterDataHandler"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CharacterDataHandler()</span></code></a>. Set the <a class="reference internal" href="#xml.parsers.expat.xmlparser.buffer_text" title="xml.parsers.expat.xmlparser.buffer_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">buffer_text</span></code></a> instance attribute
 to <code class="docutils literal notranslate"><span class="pre">True</span></code> to avoid that.</p>
 </dd></dl>
 

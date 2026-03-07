@@ -234,16 +234,16 @@ interface.</p>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cmd.Cmd" title="cmd.Cmd"><span class="pre">Cmd</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/cmd.pyi#L10">typeshed</a>)</p>
-<p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code> instance or subclass instance is a line-oriented interpreter
-framework.  There is no good reason to instantiate <code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code> itself; rather,
+<p>A <a class="reference internal" href="#cmd.Cmd" title="cmd.Cmd"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code></a> instance or subclass instance is a line-oriented interpreter
+framework.  There is no good reason to instantiate <a class="reference internal" href="#cmd.Cmd" title="cmd.Cmd"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code></a> itself; rather,
 it’s useful as a superclass of an interpreter class you define yourself in order
-to inherit <code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code>’s methods and encapsulate action methods.</p>
+to inherit <a class="reference internal" href="#cmd.Cmd" title="cmd.Cmd"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code></a>’s methods and encapsulate action methods.</p>
 <p>The optional argument <em>completekey</em> is the <a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code></a> name of a completion
 key; it defaults to <kbd class="kbd docutils literal notranslate">Tab</kbd>. If <em>completekey</em> is not <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> and
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code> is available, command completion is done automatically.</p>
+<a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code></a> is available, command completion is done automatically.</p>
 <p>The default, <code class="docutils literal notranslate"><span class="pre">'tab'</span></code>, is treated specially, so that it refers to the
 <kbd class="kbd docutils literal notranslate">Tab</kbd> key on every <a class="reference internal" href="readline.html#readline.backend" title="readline.backend"><code class="xref py py-data docutils literal notranslate"><span class="pre">readline.backend</span></code></a>.
-Specifically, if <code class="xref py py-data docutils literal notranslate"><span class="pre">readline.backend</span></code> is <code class="docutils literal notranslate"><span class="pre">editline</span></code>,
+Specifically, if <a class="reference internal" href="readline.html#readline.backend" title="readline.backend"><code class="xref py py-data docutils literal notranslate"><span class="pre">readline.backend</span></code></a> is <code class="docutils literal notranslate"><span class="pre">editline</span></code>,
 <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> will use <code class="docutils literal notranslate"><span class="pre">'^I'</span></code> instead of <code class="docutils literal notranslate"><span class="pre">'tab'</span></code>.
 Note that other values are not treated this way, and might only work
 with a specific backend.</p>
@@ -285,7 +285,7 @@ character <code class="docutils literal notranslate"><span class="pre">'?'</span
 special case, a line beginning with the character <code class="docutils literal notranslate"><span class="pre">'!'</span></code> is dispatched to the
 method <code class="xref py py-meth docutils literal notranslate"><span class="pre">do_shell()</span></code> (if such a method is defined).</p>
 <p>This method will return when the <a class="reference internal" href="#cmd.Cmd.postcmd" title="cmd.Cmd.postcmd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">postcmd()</span></code></a> method returns a true value.
-The <em>stop</em> argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">postcmd()</span></code> is the return value from the command’s
+The <em>stop</em> argument to <a class="reference internal" href="#cmd.Cmd.postcmd" title="cmd.Cmd.postcmd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">postcmd()</span></code></a> is the return value from the command’s
 corresponding <code class="xref py py-meth docutils literal notranslate"><span class="pre">do_*()</span></code> method.</p>
 <p>If completion is enabled, completing commands will be done automatically, and
 completing of commands args is done by calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">complete_foo()</span></code> with
@@ -377,7 +377,7 @@ Columns are separated by two spaces for readability.</p>
 after the input prompt is generated and issued.  This method is a stub in
 <a class="reference internal" href="#cmd.Cmd" title="cmd.Cmd"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code></a>; it exists to be overridden by subclasses.  The return value is
 used as the command which will be executed by the <a class="reference internal" href="#cmd.Cmd.onecmd" title="cmd.Cmd.onecmd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">onecmd()</span></code></a> method; the
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">precmd()</span></code> implementation may re-write the command or simply return <em>line</em>
+<a class="reference internal" href="#cmd.Cmd.precmd" title="cmd.Cmd.precmd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">precmd()</span></code></a> implementation may re-write the command or simply return <em>line</em>
 unchanged.</p>
 </dd></dl>
 
@@ -390,7 +390,7 @@ unchanged.</p>
 <p>Hook method executed just after a command dispatch is finished.  This method is
 a stub in <a class="reference internal" href="#cmd.Cmd" title="cmd.Cmd"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cmd</span></code></a>; it exists to be overridden by subclasses.  <em>line</em> is the
 command line which was executed, and <em>stop</em> is a flag which indicates whether
-execution will be terminated after the call to <code class="xref py py-meth docutils literal notranslate"><span class="pre">postcmd()</span></code>; this will be the
+execution will be terminated after the call to <a class="reference internal" href="#cmd.Cmd.postcmd" title="cmd.Cmd.postcmd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">postcmd()</span></code></a>; this will be the
 return value of the <a class="reference internal" href="#cmd.Cmd.onecmd" title="cmd.Cmd.onecmd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">onecmd()</span></code></a> method.  The return value of this method will
 be used as the new value for the internal flag which corresponds to <em>stop</em>;
 returning false will cause interpretation to continue.</p>

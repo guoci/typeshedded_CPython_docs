@@ -549,7 +549,7 @@ whether an object is <a class="reference internal" href="../glossary.html#term-i
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/typing.pyi#L527">typeshed</a>)</p>
 <p>ABC for classes that provide the <a class="reference internal" href="stdtypes.html#container.__iter__" title="container.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method.</p>
 <p>Checking <code class="docutils literal notranslate"><span class="pre">isinstance(obj,</span> <span class="pre">Iterable)</span></code> detects classes that are registered
-as <code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code> or that have an <a class="reference internal" href="stdtypes.html#container.__iter__" title="container.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method,
+as <a class="reference internal" href="#collections.abc.Iterable" title="collections.abc.Iterable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a> or that have an <a class="reference internal" href="stdtypes.html#container.__iter__" title="container.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method,
 but it does
 not detect classes that iterate with the <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method.
 The only reliable way to determine whether an object is <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a>
@@ -622,7 +622,7 @@ for details on using <code class="xref py py-class docutils literal notranslate"
 <a class="reference internal" href="stdtypes.html#container.__iter__" title="container.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, <a class="reference internal" href="../reference/datamodel.html#object.__reversed__" title="object.__reversed__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__reversed__()</span></code></a>,
 and <a class="reference internal" href="stdtypes.html#sequence.index" title="sequence.index"><code class="xref py py-meth docutils literal notranslate"><span class="pre">index()</span></code></a> make repeated calls to the underlying
 <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method.
-Consequently, if <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> is implemented with constant
+Consequently, if <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> is implemented with constant
 access speed, the mixin methods will have linear performance;
 however, if the underlying method is linear (as it would be with a
 linked list), the mixins will have quadratic performance and will
@@ -660,7 +660,7 @@ the <em>stop</em> and <em>start</em> arguments.</p>
 </dd></dl>
 
 <div class="deprecated-removed">
-<p><span class="versionmodified deprecated">Deprecated since version 3.12, will be removed in version 3.17: </span>The <code class="xref py py-class docutils literal notranslate"><span class="pre">ByteString</span></code> ABC has been deprecated.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 3.12, will be removed in version 3.17: </span>The <a class="reference internal" href="#collections.abc.ByteString" title="collections.abc.ByteString"><code class="xref py py-class docutils literal notranslate"><span class="pre">ByteString</span></code></a> ABC has been deprecated.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">isinstance(obj,</span> <span class="pre">collections.abc.Buffer)</span></code> to test if <code class="docutils literal notranslate"><span class="pre">obj</span></code>
 implements the <a class="reference internal" href="../c-api/buffer.html#bufferobjects"><span class="std std-ref">buffer protocol</span></a> at runtime. For use
 in type annotations, either use <a class="reference internal" href="#collections.abc.Buffer" title="collections.abc.Buffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Buffer</span></code></a> or a union that
@@ -742,7 +742,7 @@ Use <a class="reference internal" href="inspect.html#inspect.isawaitable" title=
 following methods, defined in <a class="reference internal" href="../reference/datamodel.html#coroutine-objects"><span class="std std-ref">Coroutine Objects</span></a>:
 <a class="reference internal" href="../reference/datamodel.html#coroutine.send" title="coroutine.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a>, <a class="reference internal" href="../reference/datamodel.html#coroutine.throw" title="coroutine.throw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">throw()</span></code></a>, and
 <a class="reference internal" href="../reference/datamodel.html#coroutine.close" title="coroutine.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a>.  Custom implementations must also implement
-<a class="reference internal" href="../reference/datamodel.html#object.__await__" title="object.__await__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__await__()</span></code></a>.  All <code class="xref py py-class docutils literal notranslate"><span class="pre">Coroutine</span></code> instances are also
+<a class="reference internal" href="../reference/datamodel.html#object.__await__" title="object.__await__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__await__()</span></code></a>.  All <a class="reference internal" href="#collections.abc.Coroutine" title="collections.abc.Coroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coroutine</span></code></a> instances are also
 instances of <a class="reference internal" href="#collections.abc.Awaitable" title="collections.abc.Awaitable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Awaitable</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

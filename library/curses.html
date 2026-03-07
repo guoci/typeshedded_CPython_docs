@@ -341,7 +341,7 @@ displayed by the terminal.</p>
 line buffering is turned off and characters are available to be read one by one.
 However, unlike raw mode, special characters (interrupt, quit, suspend, and flow
 control) retain their effects on the tty driver and calling program.  Calling
-first <a class="reference internal" href="#curses.raw" title="curses.raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">raw()</span></code></a> then <code class="xref py py-func docutils literal notranslate"><span class="pre">cbreak()</span></code> leaves the terminal in cbreak mode.</p>
+first <a class="reference internal" href="#curses.raw" title="curses.raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">raw()</span></code></a> then <a class="reference internal" href="#curses.cbreak" title="curses.cbreak"><code class="xref py py-func docutils literal notranslate"><span class="pre">cbreak()</span></code></a> leaves the terminal in cbreak mode.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -423,7 +423,7 @@ program is using curses capabilities.) Subsequent calls to
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_curses.pyi#L289">typeshed</a>)</p>
 <p>Update the physical screen.  The curses library keeps two data structures, one
 representing the current physical screen contents and a virtual screen
-representing the desired next state.  The <code class="xref py py-func docutils literal notranslate"><span class="pre">doupdate()</span></code> ground updates the
+representing the desired next state.  The <a class="reference internal" href="#curses.doupdate" title="curses.doupdate"><code class="xref py py-func docutils literal notranslate"><span class="pre">doupdate()</span></code></a> ground updates the
 physical screen to match the virtual screen.</p>
 <p>The virtual screen may be updated by a <a class="reference internal" href="#curses.window.noutrefresh" title="curses.window.noutrefresh"><code class="xref py py-meth docutils literal notranslate"><span class="pre">noutrefresh()</span></code></a> call after write
 operations such as <a class="reference internal" href="#curses.window.addstr" title="curses.window.addstr"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addstr()</span></code></a> have been performed on a window.  The normal
@@ -469,7 +469,7 @@ the curses library itself.</p>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">curses.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_curses.pyi#L293">typeshed</a>)</p>
-<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code> routine, if used, must be called before <a class="reference internal" href="#curses.initscr" title="curses.initscr"><code class="xref py py-func docutils literal notranslate"><span class="pre">initscr()</span></code></a> is
+<p>The <a class="reference internal" href="#curses.filter" title="curses.filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a> routine, if used, must be called before <a class="reference internal" href="#curses.initscr" title="curses.initscr"><code class="xref py py-func docutils literal notranslate"><span class="pre">initscr()</span></code></a> is
 called.  The effect is that, during those calls, <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LINES</span></code> is set to <code class="docutils literal notranslate"><span class="pre">1</span></code>; the
 capabilities <code class="docutils literal notranslate"><span class="pre">clear</span></code>, <code class="docutils literal notranslate"><span class="pre">cup</span></code>, <code class="docutils literal notranslate"><span class="pre">cud</span></code>, <code class="docutils literal notranslate"><span class="pre">cud1</span></code>, <code class="docutils literal notranslate"><span class="pre">cuu1</span></code>, <code class="docutils literal notranslate"><span class="pre">cuu</span></code>, <code class="docutils literal notranslate"><span class="pre">vpa</span></code> are disabled; and the <code class="docutils literal notranslate"><span class="pre">home</span></code>
 string is set to the value of <code class="docutils literal notranslate"><span class="pre">cr</span></code>. The effect is that the cursor is confined to
@@ -621,7 +621,7 @@ been typed.  The value of <em>tenths</em> must be a number between <code class="
 followed by three RGB values (for the amounts of red, green, and blue
 components).  The value of <em>color_number</em> must be between <code class="docutils literal notranslate"><span class="pre">0</span></code> and
 <code class="docutils literal notranslate"><span class="pre">COLORS</span> <span class="pre">-</span> <span class="pre">1</span></code>.  Each of <em>r</em>, <em>g</em>, <em>b</em>, must be a value between <code class="docutils literal notranslate"><span class="pre">0</span></code> and
-<code class="docutils literal notranslate"><span class="pre">1000</span></code>.  When <code class="xref py py-func docutils literal notranslate"><span class="pre">init_color()</span></code> is used, all occurrences of that color on the
+<code class="docutils literal notranslate"><span class="pre">1000</span></code>.  When <a class="reference internal" href="#curses.init_color" title="curses.init_color"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_color()</span></code></a> is used, all occurrences of that color on the
 screen immediately change to the new definition.  This function is a no-op on
 most terminals; it is active only if <a class="reference internal" href="#curses.can_change_color" title="curses.can_change_color"><code class="xref py py-func docutils literal notranslate"><span class="pre">can_change_color()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </dd></dl>
@@ -895,7 +895,7 @@ The value of <em>pair_number</em> must be between <code class="docutils literal 
 <span class="sig-prename descclassname"><span class="pre">curses.</span></span><span class="sig-name descname"><span class="pre">putp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Buffer" title="collections.abc.Buffer"><span class="pre">Buffer</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_curses.pyi#L336">typeshed</a>)</p>
 <p>Equivalent to <code class="docutils literal notranslate"><span class="pre">tputs(str,</span> <span class="pre">1,</span> <span class="pre">putchar)</span></code>; emit the value of a specified
-terminfo capability for the current terminal.  Note that the output of <code class="xref py py-func docutils literal notranslate"><span class="pre">putp()</span></code>
+terminfo capability for the current terminal.  Note that the output of <a class="reference internal" href="#curses.putp" title="curses.putp"><code class="xref py py-func docutils literal notranslate"><span class="pre">putp()</span></code></a>
 always goes to standard output.</p>
 </dd></dl>
 
@@ -958,7 +958,7 @@ presented to curses input functions one by one.</p>
 <span class="sig-prename descclassname"><span class="pre">curses.</span></span><span class="sig-name descname"><span class="pre">resize_term</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_curses.pyi#L342">typeshed</a>)</p>
 <p>Backend function used by <a class="reference internal" href="#curses.resizeterm" title="curses.resizeterm"><code class="xref py py-func docutils literal notranslate"><span class="pre">resizeterm()</span></code></a>, performing most of the work;
-when resizing the windows, <code class="xref py py-func docutils literal notranslate"><span class="pre">resize_term()</span></code> blank-fills the areas that are
+when resizing the windows, <a class="reference internal" href="#curses.resize_term" title="curses.resize_term"><code class="xref py py-func docutils literal notranslate"><span class="pre">resize_term()</span></code></a> blank-fills the areas that are
 extended.  The calling application should fill in these areas with
 appropriate data.  The <code class="xref py py-func docutils literal notranslate"><span class="pre">resize_term()</span></code> function attempts to resize all
 windows.  However, due to the calling convention of pads, it is not possible
@@ -1069,7 +1069,7 @@ supplied or <code class="docutils literal notranslate"><span class="pre">-1</spa
 <p>Must be called if the programmer wants to use colors, and before any other color
 manipulation routine is called.  It is good practice to call this routine right
 after <a class="reference internal" href="#curses.initscr" title="curses.initscr"><code class="xref py py-func docutils literal notranslate"><span class="pre">initscr()</span></code></a>.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">start_color()</span></code> initializes eight basic colors (black, red,  green, yellow,
+<p><a class="reference internal" href="#curses.start_color" title="curses.start_color"><code class="xref py py-func docutils literal notranslate"><span class="pre">start_color()</span></code></a> initializes eight basic colors (black, red,  green, yellow,
 blue, magenta, cyan, and white), and two global variables in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">curses</span></code>
 module, <a class="reference internal" href="#curses.COLORS" title="curses.COLORS"><code class="xref py py-const docutils literal notranslate"><span class="pre">COLORS</span></code></a> and <a class="reference internal" href="#curses.COLOR_PAIRS" title="curses.COLOR_PAIRS"><code class="xref py py-const docutils literal notranslate"><span class="pre">COLOR_PAIRS</span></code></a>, containing the maximum number
 of colors and color-pairs the terminal can support.  It also restores the colors
@@ -1350,7 +1350,7 @@ or pad will cause an exception to be raised after the string is printed.</p></li
 for this Python module, can cause SegFaults when resizing windows. This
 is fixed in ncurses-6.1-20190511.  If you are stuck with an earlier
 ncurses, you can avoid triggering this if you do not call <a class="reference internal" href="#curses.window.addstr" title="curses.window.addstr"><code class="xref py py-func docutils literal notranslate"><span class="pre">addstr()</span></code></a>
-with a <em>str</em> that has embedded newlines.  Instead, call <code class="xref py py-func docutils literal notranslate"><span class="pre">addstr()</span></code>
+with a <em>str</em> that has embedded newlines.  Instead, call <a class="reference internal" href="#curses.window.addstr" title="curses.window.addstr"><code class="xref py py-func docutils literal notranslate"><span class="pre">addstr()</span></code></a>
 separately for each line.</p></li>
 </ul>
 </div>
@@ -1615,7 +1615,7 @@ reflect the current cursor position of the window.</p>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_curses.window</span></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_curses.pyi#L433">typeshed</a>)</p>
-<p>An abbreviation for “derive window”, <code class="xref py py-meth docutils literal notranslate"><span class="pre">derwin()</span></code> is the same as calling
+<p>An abbreviation for “derive window”, <a class="reference internal" href="#curses.window.derwin" title="curses.window.derwin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">derwin()</span></code></a> is the same as calling
 <a class="reference internal" href="#curses.window.subwin" title="curses.window.subwin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subwin()</span></code></a>, except that <em>begin_y</em> and <em>begin_x</em> are relative to the origin
 of the window, rather than relative to the entire screen.  Return a window
 object for the derived window.</p>
@@ -1927,7 +1927,7 @@ position does not change (after moving to <em>y</em>, <em>x</em>, if specified).
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_curses.pyi#L490">typeshed</a>)</p>
 <p>Return a bytes object of characters, extracted from the window starting at the
 current cursor position, or at <em>y</em>, <em>x</em> if specified. Attributes are stripped
-from the characters.  If <em>n</em> is specified, <code class="xref py py-meth docutils literal notranslate"><span class="pre">instr()</span></code> returns a string
+from the characters.  If <em>n</em> is specified, <a class="reference internal" href="#curses.window.instr" title="curses.window.instr"><code class="xref py py-meth docutils literal notranslate"><span class="pre">instr()</span></code></a> returns a string
 at most <em>n</em> characters long (exclusive of the trailing NUL).
 The maximum value for <em>n</em> is 2047.</p>
 <div class="versionchanged">
@@ -2077,7 +2077,7 @@ only the overlapping region is copied. This copy is non-destructive, which means
 that the current background character does not overwrite the old contents of
 <em>destwin</em>.</p>
 <p>To get fine-grained control over the copied region, the second form of
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">overlay()</span></code> can be used. <em>sminrow</em> and <em>smincol</em> are the upper-left
+<a class="reference internal" href="#curses.window.overlay" title="curses.window.overlay"><code class="xref py py-meth docutils literal notranslate"><span class="pre">overlay()</span></code></a> can be used. <em>sminrow</em> and <em>smincol</em> are the upper-left
 coordinates of the source window, and the other variables mark a rectangle in
 the destination window.</p>
 </dd></dl>
@@ -2119,7 +2119,7 @@ in which case only the overlapping region is copied. This copy is destructive,
 which means that the current background character overwrites the old contents of
 <em>destwin</em>.</p>
 <p>To get fine-grained control over the copied region, the second form of
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">overwrite()</span></code> can be used. <em>sminrow</em> and <em>smincol</em> are the upper-left
+<a class="reference internal" href="#curses.window.overwrite" title="curses.window.overwrite"><code class="xref py py-meth docutils literal notranslate"><span class="pre">overwrite()</span></code></a> can be used. <em>sminrow</em> and <em>smincol</em> are the upper-left
 coordinates of the source window, the other variables mark a rectangle in the
 destination window.</p>
 </dd></dl>
@@ -2340,7 +2340,7 @@ window.</p>
 negative, blocking read is used (which will wait indefinitely for input).  If
 <em>delay</em> is zero, then non-blocking read is used, and <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getch()</span></code></a> will
 return <code class="docutils literal notranslate"><span class="pre">-1</span></code> if no input is waiting.  If <em>delay</em> is positive, then
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">getch()</span></code> will block for <em>delay</em> milliseconds, and return <code class="docutils literal notranslate"><span class="pre">-1</span></code> if there is
+<a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getch()</span></code></a> will block for <em>delay</em> milliseconds, and return <code class="docutils literal notranslate"><span class="pre">-1</span></code> if there is
 still no input at the end of that time.</p>
 </dd></dl>
 
@@ -3420,8 +3420,8 @@ supported.</p></td>
 </tbody>
 </table>
 <p>On VT100s and their software emulations, such as X terminal emulators, there are
-normally at least four function keys (<a class="reference internal" href="#curses.KEY_Fn" title="curses.KEY_Fn"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F1</span></code></a>, <code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F2</span></code>,
-<code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F3</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F4</span></code>) available, and the arrow keys mapped to
+normally at least four function keys (<a class="reference internal" href="#curses.KEY_Fn" title="curses.KEY_Fn"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F1</span></code></a>, <a class="reference internal" href="#curses.KEY_Fn" title="curses.KEY_Fn"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F2</span></code></a>,
+<a class="reference internal" href="#curses.KEY_Fn" title="curses.KEY_Fn"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F3</span></code></a>, <a class="reference internal" href="#curses.KEY_Fn" title="curses.KEY_Fn"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_F4</span></code></a>) available, and the arrow keys mapped to
 <a class="reference internal" href="#curses.KEY_UP" title="curses.KEY_UP"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_UP</span></code></a>, <a class="reference internal" href="#curses.KEY_DOWN" title="curses.KEY_DOWN"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_DOWN</span></code></a>, <a class="reference internal" href="#curses.KEY_LEFT" title="curses.KEY_LEFT"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_LEFT</span></code></a> and <a class="reference internal" href="#curses.KEY_RIGHT" title="curses.KEY_RIGHT"><code class="xref py py-const docutils literal notranslate"><span class="pre">KEY_RIGHT</span></code></a> in
 the obvious way.  If your machine has a PC keyboard, it is safe to expect arrow
 keys and twelve function keys (older PC keyboards may have only ten function
@@ -4013,7 +4013,7 @@ with ASCII  dashes, vertical bars, and plus signs.</p>
 be contained. The edit cursor of the textbox is initially located at the
 upper left hand corner of the containing window, with coordinates <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code>.
 The instance’s <a class="reference internal" href="#curses.textpad.Textbox.stripspaces" title="curses.textpad.Textbox.stripspaces"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stripspaces</span></code></a> flag is initially on.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Textbox</span></code> objects have the following methods:</p>
+<p><a class="reference internal" href="#curses.textpad.Textbox" title="curses.textpad.Textbox"><code class="xref py py-class docutils literal notranslate"><span class="pre">Textbox</span></code></a> objects have the following methods:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="curses.textpad.Textbox.edit">
 <span class="sig-name descname"><span class="pre">edit</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">validator</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.textpad.Textbox.edit" title="Link to this definition">¶</a></dt>

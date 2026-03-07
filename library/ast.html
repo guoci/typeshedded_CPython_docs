@@ -247,7 +247,7 @@ grammar looks like.</p>
 a flag to the <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> built-in function, or using the <a class="reference internal" href="#ast.parse" title="ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse()</span></code></a>
 helper provided in this module.  The result will be a tree of objects whose
 classes all inherit from <a class="reference internal" href="#ast.AST" title="ast.AST"><code class="xref py py-class docutils literal notranslate"><span class="pre">ast.AST</span></code></a>.  An abstract syntax tree can be
-compiled into a Python code object using the built-in <code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code> function.</p>
+compiled into a Python code object using the built-in <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> function.</p>
 <section id="abstract-grammar">
 <span id="id1"></span><h2>Abstract grammar<a class="headerlink" href="#abstract-grammar" title="Link to this heading">¶</a></h2>
 <p>The abstract grammar is currently defined as follows:</p>
@@ -470,9 +470,9 @@ mapping field names (as also listed in <a class="reference internal" href="#ast.
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/ast.pyi#L105">typeshed</a>)</p>
 <p>Instances of <code class="xref py py-class docutils literal notranslate"><span class="pre">ast.expr</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">ast.stmt</span></code> subclasses have
 <a class="reference internal" href="#ast.AST.lineno" title="ast.AST.lineno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lineno</span></code></a>, <a class="reference internal" href="#ast.AST.col_offset" title="ast.AST.col_offset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">col_offset</span></code></a>, <a class="reference internal" href="#ast.AST.end_lineno" title="ast.AST.end_lineno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">end_lineno</span></code></a>, and
-<a class="reference internal" href="#ast.AST.end_col_offset" title="ast.AST.end_col_offset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">end_col_offset</span></code></a> attributes.  The <code class="xref py py-attr docutils literal notranslate"><span class="pre">lineno</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">end_lineno</span></code>
+<a class="reference internal" href="#ast.AST.end_col_offset" title="ast.AST.end_col_offset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">end_col_offset</span></code></a> attributes.  The <a class="reference internal" href="#ast.AST.lineno" title="ast.AST.lineno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lineno</span></code></a> and <a class="reference internal" href="#ast.AST.end_lineno" title="ast.AST.end_lineno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">end_lineno</span></code></a>
 are the first and last line numbers of source text span (1-indexed so the
-first line is line 1) and the <code class="xref py py-attr docutils literal notranslate"><span class="pre">col_offset</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">end_col_offset</span></code>
+first line is line 1) and the <a class="reference internal" href="#ast.AST.col_offset" title="ast.AST.col_offset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">col_offset</span></code></a> and <a class="reference internal" href="#ast.AST.end_col_offset" title="ast.AST.end_col_offset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">end_col_offset</span></code></a>
 are the corresponding UTF-8 byte offsets of the first and last tokens that
 generated the node. The UTF-8 offset is recorded because the parser uses
 UTF-8 internally.</p>
@@ -1068,7 +1068,7 @@ node.</p>
 <dt class="sig sig-object py" id="ast.Invert">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ast.</span></span><span class="sig-name descname"><span class="pre">Invert</span></span><a class="headerlink" href="#ast.Invert" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/ast.pyi#L1262">typeshed</a>)</p>
-<p>Unary operator tokens. <code class="xref py py-class docutils literal notranslate"><span class="pre">Not</span></code> is the <code class="docutils literal notranslate"><span class="pre">not</span></code> keyword, <code class="xref py py-class docutils literal notranslate"><span class="pre">Invert</span></code>
+<p>Unary operator tokens. <a class="reference internal" href="#ast.Not" title="ast.Not"><code class="xref py py-class docutils literal notranslate"><span class="pre">Not</span></code></a> is the <code class="docutils literal notranslate"><span class="pre">not</span></code> keyword, <a class="reference internal" href="#ast.Invert" title="ast.Invert"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invert</span></code></a>
 is the <code class="docutils literal notranslate"><span class="pre">~</span></code> operator.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;not x&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;eval&#39;</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 <span class="go">Expression(</span>
@@ -1705,7 +1705,7 @@ within <code class="docutils literal notranslate"><span class="pre">targets</spa
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/ast.pyi#L422">typeshed</a>)</p>
 <p>An assignment with a type annotation. <code class="docutils literal notranslate"><span class="pre">target</span></code> is a single node and can
 be a <a class="reference internal" href="#ast.Name" title="ast.Name"><code class="xref py py-class docutils literal notranslate"><span class="pre">Name</span></code></a>, an <a class="reference internal" href="#ast.Attribute" title="ast.Attribute"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attribute</span></code></a> or a <a class="reference internal" href="#ast.Subscript" title="ast.Subscript"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subscript</span></code></a>.
-<code class="docutils literal notranslate"><span class="pre">annotation</span></code> is the annotation, such as a <a class="reference internal" href="#ast.Constant" title="ast.Constant"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constant</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">Name</span></code>
+<code class="docutils literal notranslate"><span class="pre">annotation</span></code> is the annotation, such as a <a class="reference internal" href="#ast.Constant" title="ast.Constant"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constant</span></code></a> or <a class="reference internal" href="#ast.Name" title="ast.Name"><code class="xref py py-class docutils literal notranslate"><span class="pre">Name</span></code></a>
 node. <code class="docutils literal notranslate"><span class="pre">value</span></code> is a single optional node.</p>
 <p><code class="docutils literal notranslate"><span class="pre">simple</span></code> is always either 0 (indicating a “complex” target) or 1
 (indicating a “simple” target). A “simple” target consists solely of a
@@ -2059,7 +2059,7 @@ not present.</p>
 <p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. <code class="docutils literal notranslate"><span class="pre">test</span></code> holds a single node, such as a <a class="reference internal" href="#ast.Compare" title="ast.Compare"><code class="xref py py-class docutils literal notranslate"><span class="pre">Compare</span></code></a>
 node. <code class="docutils literal notranslate"><span class="pre">body</span></code> and <code class="docutils literal notranslate"><span class="pre">orelse</span></code> each hold a list of nodes.</p>
 <p><code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses don’t have a special representation in the AST, but rather
-appear as extra <code class="xref py py-class docutils literal notranslate"><span class="pre">If</span></code> nodes within the <code class="docutils literal notranslate"><span class="pre">orelse</span></code> section of the
+appear as extra <a class="reference internal" href="#ast.If" title="ast.If"><code class="xref py py-class docutils literal notranslate"><span class="pre">If</span></code></a> nodes within the <code class="docutils literal notranslate"><span class="pre">orelse</span></code> section of the
 previous one.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s2">if x:</span>
@@ -3709,7 +3709,7 @@ The <code class="docutils literal notranslate"><span class="pre">optimize</span>
 <span class="sig-prename descclassname"><span class="pre">ast.</span></span><span class="sig-name descname"><span class="pre">unparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ast_obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ast.AST" title="ast.AST"><span class="pre">AST</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/ast.pyi#L2093">typeshed</a>)</p>
 <p>Unparse an <a class="reference internal" href="#ast.AST" title="ast.AST"><code class="xref py py-class docutils literal notranslate"><span class="pre">ast.AST</span></code></a> object and generate a string with code
-that would produce an equivalent <code class="xref py py-class docutils literal notranslate"><span class="pre">ast.AST</span></code> object if parsed
+that would produce an equivalent <a class="reference internal" href="#ast.AST" title="ast.AST"><code class="xref py py-class docutils literal notranslate"><span class="pre">ast.AST</span></code></a> object if parsed
 back with <a class="reference internal" href="#ast.parse" title="ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3912,7 +3912,7 @@ class, or <a class="reference internal" href="#ast.NodeVisitor.generic_visit" ti
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/ast.pyi#L1948">typeshed</a>)</p>
 <p>This visitor calls <a class="reference internal" href="#ast.NodeVisitor.visit" title="ast.NodeVisitor.visit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">visit()</span></code></a> on all children of the node.</p>
 <p>Note that child nodes of nodes that have a custom visitor method won’t be
-visited unless the visitor calls <code class="xref py py-meth docutils literal notranslate"><span class="pre">generic_visit()</span></code> or visits them
+visited unless the visitor calls <a class="reference internal" href="#ast.NodeVisitor.generic_visit" title="ast.NodeVisitor.generic_visit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">generic_visit()</span></code></a> or visits them
 itself.</p>
 </dd></dl>
 
@@ -3925,7 +3925,7 @@ itself.</p>
 <p>Handles all constant nodes.</p>
 </dd></dl>
 
-<p>Don’t use the <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeVisitor</span></code> if you want to apply changes to nodes
+<p>Don’t use the <a class="reference internal" href="#ast.NodeVisitor" title="ast.NodeVisitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeVisitor</span></code></a> if you want to apply changes to nodes
 during traversal.  For this a special visitor exists
 (<a class="reference internal" href="#ast.NodeTransformer" title="ast.NodeTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTransformer</span></code></a>) that allows modifications.</p>
 <div class="deprecated-removed">
@@ -3944,7 +3944,7 @@ all constant nodes.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/ast.pyi#L2087">typeshed</a>)</p>
 <p>A <a class="reference internal" href="#ast.NodeVisitor" title="ast.NodeVisitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeVisitor</span></code></a> subclass that walks the abstract syntax tree and
 allows modification of nodes.</p>
-<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTransformer</span></code> will walk the AST and use the return value of
+<p>The <a class="reference internal" href="#ast.NodeTransformer" title="ast.NodeTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTransformer</span></code></a> will walk the AST and use the return value of
 the visitor methods to replace or remove the old node.  If the return value
 of the visitor method is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the node will be removed from its
 location, otherwise it is replaced with the return value.  The return value
@@ -3967,7 +3967,7 @@ method for the node first.</p>
 <p>For nodes that were part of a collection of statements (that applies to all
 statement nodes), the visitor may also return a list of nodes rather than
 just a single node.</p>
-<p>If <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTransformer</span></code> introduces new nodes (that weren’t part of
+<p>If <a class="reference internal" href="#ast.NodeTransformer" title="ast.NodeTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeTransformer</span></code></a> introduces new nodes (that weren’t part of
 original tree) without giving them location information (such as
 <a class="reference internal" href="#ast.AST.lineno" title="ast.AST.lineno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lineno</span></code></a>), <a class="reference internal" href="#ast.fix_missing_locations" title="ast.fix_missing_locations"><code class="xref py py-func docutils literal notranslate"><span class="pre">fix_missing_locations()</span></code></a> should be called with
 the new sub-tree to recalculate the location information:</p>

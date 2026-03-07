@@ -389,7 +389,7 @@ guarantee that a subsequent call to put() will not block.</p>
 <em>timeout</em> is a positive number, it blocks at most <em>timeout</em> seconds and raises
 the <a class="reference internal" href="#queue.Full" title="queue.Full"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Full</span></code></a> exception if no free slot was available within that time.
 Otherwise (<em>block</em> is false), put an item on the queue if a free slot is
-immediately available, else raise the <code class="xref py py-exc docutils literal notranslate"><span class="pre">Full</span></code> exception (<em>timeout</em> is
+immediately available, else raise the <a class="reference internal" href="#queue.Full" title="queue.Full"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Full</span></code></a> exception (<em>timeout</em> is
 ignored in that case).</p>
 <p>Raises <a class="reference internal" href="#queue.ShutDown" title="queue.ShutDown"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ShutDown</span></code></a> if the queue has been shut down.</p>
 </dd></dl>
@@ -414,7 +414,7 @@ ignored in that case).</p>
 If <em>timeout</em> is a positive number, it blocks at most <em>timeout</em> seconds and
 raises the <a class="reference internal" href="#queue.Empty" title="queue.Empty"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Empty</span></code></a> exception if no item was available within that time.
 Otherwise (<em>block</em> is false), return an item if one is immediately available,
-else raise the <code class="xref py py-exc docutils literal notranslate"><span class="pre">Empty</span></code> exception (<em>timeout</em> is ignored in that case).</p>
+else raise the <a class="reference internal" href="#queue.Empty" title="queue.Empty"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Empty</span></code></a> exception (<em>timeout</em> is ignored in that case).</p>
 <p>Prior to 3.0 on POSIX systems, and for all versions on Windows, if
 <em>block</em> is true and <em>timeout</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, this operation goes into
 an uninterruptible wait on an underlying lock.  This means that no exceptions
@@ -442,9 +442,9 @@ fully processed by daemon consumer threads.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/queue.pyi#L48">typeshed</a>)</p>
 <p>Indicate that a formerly enqueued task is complete.  Used by queue consumer
 threads.  For each <a class="reference internal" href="#queue.Queue.get" title="queue.Queue.get"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get()</span></code></a> used to fetch a task, a subsequent call to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">task_done()</span></code> tells the queue that the processing on the task is complete.</p>
+<a class="reference internal" href="#queue.Queue.task_done" title="queue.Queue.task_done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">task_done()</span></code></a> tells the queue that the processing on the task is complete.</p>
 <p>If a <a class="reference internal" href="#queue.Queue.join" title="queue.Queue.join"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code></a> is currently blocking, it will resume when all items have been
-processed (meaning that a <code class="xref py py-meth docutils literal notranslate"><span class="pre">task_done()</span></code> call was received for every item
+processed (meaning that a <a class="reference internal" href="#queue.Queue.task_done" title="queue.Queue.task_done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">task_done()</span></code></a> call was received for every item
 that had been <a class="reference internal" href="#queue.Queue.put" title="queue.Queue.put"><code class="xref py py-meth docutils literal notranslate"><span class="pre">put()</span></code></a> into the queue).</p>
 <p>Raises a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if called more times than there were items placed in
 the queue.</p>
@@ -460,7 +460,7 @@ the queue.</p>
 <p>The count of unfinished tasks goes up whenever an item is added to the queue.
 The count goes down whenever a consumer thread calls <a class="reference internal" href="#queue.Queue.task_done" title="queue.Queue.task_done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">task_done()</span></code></a> to
 indicate that the item was retrieved and all work on it is complete.  When the
-count of unfinished tasks drops to zero, <code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code> unblocks.</p>
+count of unfinished tasks drops to zero, <a class="reference internal" href="#queue.Queue.join" title="queue.Queue.join"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code></a> unblocks.</p>
 </dd></dl>
 
 <section id="waiting-for-task-completion">
@@ -504,8 +504,8 @@ until empty or terminated immediately with a hard shutdown.</p>
 <p>Put a <a class="reference internal" href="#queue.Queue" title="queue.Queue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Queue</span></code></a> instance into a shutdown mode.</p>
 <p>The queue can no longer grow.
 Future calls to <a class="reference internal" href="#queue.Queue.put" title="queue.Queue.put"><code class="xref py py-meth docutils literal notranslate"><span class="pre">put()</span></code></a> raise <a class="reference internal" href="#queue.ShutDown" title="queue.ShutDown"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ShutDown</span></code></a>.
-Currently blocked callers of <code class="xref py py-meth docutils literal notranslate"><span class="pre">put()</span></code> will be unblocked
-and will raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">ShutDown</span></code> in the formerly blocked thread.</p>
+Currently blocked callers of <a class="reference internal" href="#queue.Queue.put" title="queue.Queue.put"><code class="xref py py-meth docutils literal notranslate"><span class="pre">put()</span></code></a> will be unblocked
+and will raise <a class="reference internal" href="#queue.ShutDown" title="queue.ShutDown"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ShutDown</span></code></a> in the formerly blocked thread.</p>
 <p>If <em>immediate</em> is false (the default), the queue can be wound
 down normally with <a class="reference internal" href="#queue.Queue.get" title="queue.Queue.get"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get()</span></code></a> calls to extract tasks
 that have already been loaded.</p>
@@ -602,7 +602,7 @@ destructors such as <code class="docutils literal notranslate"><span class="pre"
 If <em>timeout</em> is a positive number, it blocks at most <em>timeout</em> seconds and
 raises the <a class="reference internal" href="#queue.Empty" title="queue.Empty"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Empty</span></code></a> exception if no item was available within that time.
 Otherwise (<em>block</em> is false), return an item if one is immediately available,
-else raise the <code class="xref py py-exc docutils literal notranslate"><span class="pre">Empty</span></code> exception (<em>timeout</em> is ignored in that case).</p>
+else raise the <a class="reference internal" href="#queue.Empty" title="queue.Empty"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Empty</span></code></a> exception (<em>timeout</em> is ignored in that case).</p>
 </dd></dl>
 
 <dl class="py method">

@@ -429,12 +429,12 @@ handling behavior, and line endings.</p>
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">compression.zstd._zstdfile.ZstdFile</span></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/compression/zstd/_zstdfile.pyi#L26">typeshed</a>)</p>
 <p>Open a Zstandard-compressed file in binary mode.</p>
-<p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code> can wrap an already-open <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>, or operate
+<p>A <a class="reference internal" href="#compression.zstd.ZstdFile" title="compression.zstd.ZstdFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code></a> can wrap an already-open <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>, or operate
 directly on a named file. The <em>file</em> argument specifies either the file
 object to wrap, or the name of the file to open (as a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like</span></a> object). If
 wrapping an existing file object, the wrapped file will not be closed when
-the <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code> is closed.</p>
+the <a class="reference internal" href="#compression.zstd.ZstdFile" title="compression.zstd.ZstdFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code></a> is closed.</p>
 <p>The <em>mode</em> argument can be either <code class="docutils literal notranslate"><span class="pre">'rb'</span></code> for reading (default), <code class="docutils literal notranslate"><span class="pre">'wb'</span></code>
 for overwriting, <code class="docutils literal notranslate"><span class="pre">'xb'</span></code> for exclusive creation, or <code class="docutils literal notranslate"><span class="pre">'ab'</span></code> for appending.
 These can equivalently be given as <code class="docutils literal notranslate"><span class="pre">'r'</span></code>, <code class="docutils literal notranslate"><span class="pre">'w'</span></code>, <code class="docutils literal notranslate"><span class="pre">'x'</span></code> and <code class="docutils literal notranslate"><span class="pre">'a'</span></code>
@@ -470,9 +470,9 @@ byte of data will be returned, unless EOF has been reached. The exact
 number of bytes returned is unspecified (the <em>size</em> argument is ignored).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>While calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">peek()</span></code> does not change the file position of
-the <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code>, it may change the position of the underlying
-file object (for example, if the <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code> was constructed by
+<p>While calling <a class="reference internal" href="#compression.zstd.ZstdFile.peek" title="compression.zstd.ZstdFile.peek"><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek()</span></code></a> does not change the file position of
+the <a class="reference internal" href="#compression.zstd.ZstdFile" title="compression.zstd.ZstdFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code></a>, it may change the position of the underlying
+file object (for example, if the <a class="reference internal" href="#compression.zstd.ZstdFile" title="compression.zstd.ZstdFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code></a> was constructed by
 passing a file object for <em>file</em>).</p>
 </div>
 </dd></dl>
@@ -518,7 +518,7 @@ data as a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"
 compression. <em>level</em> is an alternative to setting
 <a class="reference internal" href="#compression.zstd.CompressionParameter.compression_level" title="compression.zstd.CompressionParameter.compression_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CompressionParameter.compression_level</span></code></a> in <em>options</em>. Use
 <a class="reference internal" href="#compression.zstd.CompressionParameter.bounds" title="compression.zstd.CompressionParameter.bounds"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bounds()</span></code></a> on
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">compression_level</span></code> to get the values that can
+<a class="reference internal" href="#compression.zstd.CompressionParameter.compression_level" title="compression.zstd.CompressionParameter.compression_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">compression_level</span></code></a> to get the values that can
 be passed for <em>level</em>. If advanced compression options are needed, the
 <em>level</em> argument must be omitted and in the <em>options</em> dictionary the
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">CompressionParameter.compression_level</span></code> parameter should be set.</p>
@@ -579,7 +579,7 @@ module-level function <a class="reference internal" href="#compression.zstd.comp
 compression. <em>level</em> is an alternative to setting
 <a class="reference internal" href="#compression.zstd.CompressionParameter.compression_level" title="compression.zstd.CompressionParameter.compression_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CompressionParameter.compression_level</span></code></a> in <em>options</em>. Use
 <a class="reference internal" href="#compression.zstd.CompressionParameter.bounds" title="compression.zstd.CompressionParameter.bounds"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bounds()</span></code></a> on
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">compression_level</span></code> to get the values that can
+<a class="reference internal" href="#compression.zstd.CompressionParameter.compression_level" title="compression.zstd.CompressionParameter.compression_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">compression_level</span></code></a> to get the values that can
 be passed for <em>level</em>. If advanced compression options are needed, the
 <em>level</em> argument must be omitted and in the <em>options</em> dictionary the
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">CompressionParameter.compression_level</span></code> parameter should be set.</p>
@@ -610,14 +610,14 @@ object with compressed data if possible, or otherwise an empty
 <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> object. Some of <em>data</em> may be buffered internally, for
 use in later calls to <code class="xref py py-meth docutils literal notranslate"><span class="pre">compress()</span></code> and <a class="reference internal" href="#compression.zstd.ZstdCompressor.flush" title="compression.zstd.ZstdCompressor.flush"><code class="xref py py-meth docutils literal notranslate"><span class="pre">flush()</span></code></a>. The returned
 data should be concatenated with the output of any previous calls to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">compress()</span></code>.</p>
-<p>The <em>mode</em> argument is a <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdCompressor</span></code> attribute, either
+<a class="reference internal" href="#compression.zstd.ZstdCompressor.compress" title="compression.zstd.ZstdCompressor.compress"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compress()</span></code></a>.</p>
+<p>The <em>mode</em> argument is a <a class="reference internal" href="#compression.zstd.ZstdCompressor" title="compression.zstd.ZstdCompressor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdCompressor</span></code></a> attribute, either
 <a class="reference internal" href="#compression.zstd.ZstdCompressor.CONTINUE" title="compression.zstd.ZstdCompressor.CONTINUE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CONTINUE</span></code></a>, <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_BLOCK" title="compression.zstd.ZstdCompressor.FLUSH_BLOCK"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_BLOCK</span></code></a>,
 or <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_FRAME" title="compression.zstd.ZstdCompressor.FLUSH_FRAME"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code></a>.</p>
 <p>When all data has been provided to the compressor, call the
 <a class="reference internal" href="#compression.zstd.ZstdCompressor.flush" title="compression.zstd.ZstdCompressor.flush"><code class="xref py py-meth docutils literal notranslate"><span class="pre">flush()</span></code></a> method to finish the compression process. If
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">compress()</span></code> is called with <em>mode</em> set to <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_FRAME" title="compression.zstd.ZstdCompressor.FLUSH_FRAME"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code></a>,
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">flush()</span></code> should not be called, as it would write out a new empty
+<a class="reference internal" href="#compression.zstd.ZstdCompressor.compress" title="compression.zstd.ZstdCompressor.compress"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compress()</span></code></a> is called with <em>mode</em> set to <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_FRAME" title="compression.zstd.ZstdCompressor.FLUSH_FRAME"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code></a>,
+<a class="reference internal" href="#compression.zstd.ZstdCompressor.flush" title="compression.zstd.ZstdCompressor.flush"><code class="xref py py-meth docutils literal notranslate"><span class="pre">flush()</span></code></a> should not be called, as it would write out a new empty
 frame.</p>
 </dd></dl>
 
@@ -629,7 +629,7 @@ frame.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_zstd.pyi#L57">typeshed</a>)</p>
 <p>Finish the compression process, returning a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> object
 containing any data stored in the compressor’s internal buffers.</p>
-<p>The <em>mode</em> argument is a <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdCompressor</span></code> attribute, either
+<p>The <em>mode</em> argument is a <a class="reference internal" href="#compression.zstd.ZstdCompressor" title="compression.zstd.ZstdCompressor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdCompressor</span></code></a> attribute, either
 <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_BLOCK" title="compression.zstd.ZstdCompressor.FLUSH_BLOCK"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_BLOCK</span></code></a>, or <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_FRAME" title="compression.zstd.ZstdCompressor.FLUSH_FRAME"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code></a>.</p>
 </dd></dl>
 
@@ -691,7 +691,7 @@ improving compression.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/_zstd.pyi#L60">typeshed</a>)</p>
 <p>The last mode passed to either <a class="reference internal" href="#compression.zstd.ZstdCompressor.compress" title="compression.zstd.ZstdCompressor.compress"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compress()</span></code></a> or <a class="reference internal" href="#compression.zstd.ZstdCompressor.flush" title="compression.zstd.ZstdCompressor.flush"><code class="xref py py-meth docutils literal notranslate"><span class="pre">flush()</span></code></a>.
 The value can be one of <a class="reference internal" href="#compression.zstd.ZstdCompressor.CONTINUE" title="compression.zstd.ZstdCompressor.CONTINUE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CONTINUE</span></code></a>, <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_BLOCK" title="compression.zstd.ZstdCompressor.FLUSH_BLOCK"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_BLOCK</span></code></a>, or
-<a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_FRAME" title="compression.zstd.ZstdCompressor.FLUSH_FRAME"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code></a>. The initial value is <code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code>,
+<a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_FRAME" title="compression.zstd.ZstdCompressor.FLUSH_FRAME"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code></a>. The initial value is <a class="reference internal" href="#compression.zstd.ZstdCompressor.FLUSH_FRAME" title="compression.zstd.ZstdCompressor.FLUSH_FRAME"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FLUSH_FRAME</span></code></a>,
 signifying that the compressor is at the start of a new frame.</p>
 </dd></dl>
 
@@ -726,7 +726,7 @@ the same Zstandard dictionary used during compression.</p>
 <p>This class does not transparently handle inputs containing multiple
 compressed frames, unlike the <a class="reference internal" href="#compression.zstd.decompress" title="compression.zstd.decompress"><code class="xref py py-func docutils literal notranslate"><span class="pre">decompress()</span></code></a> function and
 <a class="reference internal" href="#compression.zstd.ZstdFile" title="compression.zstd.ZstdFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code></a> class. To decompress a multi-frame input, you should
-use <code class="xref py py-func docutils literal notranslate"><span class="pre">decompress()</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code> if working with a
+use <a class="reference internal" href="#compression.zstd.decompress" title="compression.zstd.decompress"><code class="xref py py-func docutils literal notranslate"><span class="pre">decompress()</span></code></a>, <a class="reference internal" href="#compression.zstd.ZstdFile" title="compression.zstd.ZstdFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdFile</span></code></a> if working with a
 <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>, or multiple <code class="xref py py-class docutils literal notranslate"><span class="pre">ZstdDecompressor</span></code> instances.</p>
 </div>
 <dl class="py method">
@@ -744,7 +744,7 @@ calls to <code class="xref py py-meth docutils literal notranslate"><span class=
 bytes of decompressed data. If this limit is reached and further
 output can be produced, the <a class="reference internal" href="#compression.zstd.ZstdDecompressor.needs_input" title="compression.zstd.ZstdDecompressor.needs_input"><code class="xref py py-attr docutils literal notranslate"><span class="pre">needs_input</span></code></a> attribute will
 be set to <code class="docutils literal notranslate"><span class="pre">False</span></code>. In this case, the next call to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">decompress()</span></code> may provide <em>data</em> as <code class="docutils literal notranslate"><span class="pre">b''</span></code> to obtain
+<a class="reference internal" href="#compression.zstd.ZstdDecompressor.decompress" title="compression.zstd.ZstdDecompressor.decompress"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decompress()</span></code></a> may provide <em>data</em> as <code class="docutils literal notranslate"><span class="pre">b''</span></code> to obtain
 more of the output.</p>
 <p>If all of the input data was decompressed and returned (either
 because this was less than <em>max_length</em> bytes, or because
@@ -1027,7 +1027,7 @@ values require more memory but gain better compression values.</p>
 <p>Size of the initial probe table, as a power of two. The resulting memory
 usage is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;&lt;</span> <span class="pre">(hash_log+2)</span></code> bytes. Larger tables improve compression
 ratio of strategies &lt;= <a class="reference internal" href="#compression.zstd.Strategy.dfast" title="compression.zstd.Strategy.dfast"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dfast</span></code></a>, and improve compression
-speed of strategies &gt; <code class="xref py py-attr docutils literal notranslate"><span class="pre">dfast</span></code>.</p>
+speed of strategies &gt; <a class="reference internal" href="#compression.zstd.Strategy.dfast" title="compression.zstd.Strategy.dfast"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dfast</span></code></a>.</p>
 <p>A value of zero causes the value to be selected automatically.</p>
 </dd></dl>
 

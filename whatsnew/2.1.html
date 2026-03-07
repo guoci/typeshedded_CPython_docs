@@ -268,7 +268,7 @@ the binding of the name <code class="docutils literal notranslate"><span class="
 module-level namespace.  This isn’t much of a problem in practice (how often do
 you recursively define interior functions like this?), but this also made using
 the <a class="reference internal" href="../reference/expressions.html#lambda"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">lambda</span></code></a> expression clumsier, and this was a problem in practice.
-In code which uses <code class="xref std std-keyword docutils literal notranslate"><span class="pre">lambda</span></code> you can often find local variables being
+In code which uses <a class="reference internal" href="../reference/expressions.html#lambda"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">lambda</span></code></a> you can often find local variables being
 copied by passing them as the default values of arguments.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="s2">&quot;Return list of any entries equal to &#39;name&#39;&quot;</span>
@@ -627,7 +627,7 @@ Python syntax:</p>
 </div>
 <p>The dictionary containing attributes can be accessed as the function’s
 <a class="reference internal" href="../reference/datamodel.html#function.__dict__" title="function.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>. Unlike the <a class="reference internal" href="../reference/datamodel.html#type.__dict__" title="type.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a> attribute of class instances, in
-functions you can actually assign a new dictionary to <code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code>, though
+functions you can actually assign a new dictionary to <a class="reference internal" href="../reference/datamodel.html#function.__dict__" title="function.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>, though
 the new value is restricted to a regular Python dictionary; you <em>can’t</em> be
 tricky and set it to a <code class="xref py py-class docutils literal notranslate"><span class="pre">UserDict</span></code> instance, or any other random object
 that behaves like a mapping.</p>
@@ -657,7 +657,7 @@ environment variable before starting the Python interpreter.</p>
 <p>When using the Python interpreter interactively, the output of commands is
 displayed using the built-in <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> function. In Python 2.1, the variable
 <a class="reference internal" href="../library/sys.html#sys.displayhook" title="sys.displayhook"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.displayhook()</span></code></a> can be set to a callable object which will be called
-instead of <code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code>. For example, you can set it to a special
+instead of <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>. For example, you can set it to a special
 pretty-printing function:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a recursive data structure</span>
 <span class="gp">... </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
@@ -696,7 +696,7 @@ The numeric functions of the other type will then be tried, and perhaps they can
 handle the operation; if the other type also returns <code class="docutils literal notranslate"><span class="pre">Py_NotImplemented</span></code>, then
 a <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> will be raised.  Numeric methods written in Python can also
 return <code class="docutils literal notranslate"><span class="pre">Py_NotImplemented</span></code>, causing the interpreter to act as if the method
-did not exist (perhaps raising a <code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code>, perhaps trying another
+did not exist (perhaps raising a <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>, perhaps trying another
 object’s numeric methods).</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -797,7 +797,7 @@ various bugfixes for SAX, DOM, and the <code class="xref py py-mod docutils lite
 <li><p>Ping also contributed another hook for handling uncaught exceptions.
 <a class="reference internal" href="../library/sys.html#sys.excepthook" title="sys.excepthook"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.excepthook()</span></code></a> can be set to a callable object.  When an exception isn’t
 caught by any <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a>…<a class="reference internal" href="../reference/compound_stmts.html#except"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> blocks, the exception will be
-passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">sys.excepthook()</span></code>, which can then do whatever it likes.  At the
+passed to <a class="reference internal" href="../library/sys.html#sys.excepthook" title="sys.excepthook"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.excepthook()</span></code></a>, which can then do whatever it likes.  At the
 Ninth Python Conference, Ping demonstrated an application for this hook:
 printing an extended traceback that not only lists the stack frames, but also
 lists the function arguments and the local variables for each frame.</p></li>
@@ -814,7 +814,7 @@ entries usually need a string containing the current time; in Python 2.1,
 <li><p>The <a class="reference internal" href="../library/ftplib.html#module-ftplib" title="ftplib: FTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftplib</span></code></a> module now defaults to retrieving files in passive mode,
 because passive mode is more likely to work from behind a firewall.  This
 request came from the Debian bug tracking system, since other Debian packages
-use <code class="xref py py-mod docutils literal notranslate"><span class="pre">ftplib</span></code> to retrieve files and then don’t work from behind a firewall.
+use <a class="reference internal" href="../library/ftplib.html#module-ftplib" title="ftplib: FTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftplib</span></code></a> to retrieve files and then don’t work from behind a firewall.
 It’s deemed unlikely that this will cause problems for anyone, because Netscape
 defaults to passive mode and few people complain, but if passive mode is
 unsuitable for your application or network setup, call <code class="docutils literal notranslate"><span class="pre">set_pasv(0)</span></code> on

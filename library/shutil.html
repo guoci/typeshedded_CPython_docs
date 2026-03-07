@@ -263,7 +263,7 @@ chunks; by default the data is read in chunks to avoid uncontrolled memory
 consumption. Note that if the current file position of the <em>fsrc</em> object is not
 0, only the contents from the current file position to the end of the file will
 be copied.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">copyfileobj()</span></code> will <em>not</em> guarantee that the destination stream has
+<p><a class="reference internal" href="#shutil.copyfileobj" title="shutil.copyfileobj"><code class="xref py py-func docutils literal notranslate"><span class="pre">copyfileobj()</span></code></a> will <em>not</em> guarantee that the destination stream has
 been flushed on completion of the copy. If you want to read from the
 destination at the completion of the copy operation (for example, reading
 the contents of a temporary file that has been copied from a HTTP stream),
@@ -368,10 +368,10 @@ are the same file.</p>
 group are unaffected.  <em>src</em> and <em>dst</em> are <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like objects</span></a> or path names
 given as strings.
 If <em>follow_symlinks</em> is false, and both <em>src</em> and <em>dst</em> are symbolic links,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">copymode()</span></code> will attempt to modify the mode of <em>dst</em> itself (rather
+<a class="reference internal" href="#shutil.copymode" title="shutil.copymode"><code class="xref py py-func docutils literal notranslate"><span class="pre">copymode()</span></code></a> will attempt to modify the mode of <em>dst</em> itself (rather
 than the file it points to).  This functionality is not available on every
 platform; please see <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> for more information.  If
-<code class="xref py py-func docutils literal notranslate"><span class="pre">copymode()</span></code> cannot modify symbolic links on the local platform, and it
+<a class="reference internal" href="#shutil.copymode" title="shutil.copymode"><code class="xref py py-func docutils literal notranslate"><span class="pre">copymode()</span></code></a> cannot modify symbolic links on the local platform, and it
 is asked to do so, it will do nothing and return.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copymode</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <div class="versionchanged">
@@ -395,12 +395,12 @@ is asked to do so, it will do nothing and return.</p>
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/shutil.pyi#L59">typeshed</a>)</p>
 <p>Copy the permission bits, last access time, last modification time, and
-flags from <em>src</em> to <em>dst</em>.  On Linux, <code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> also copies the
+flags from <em>src</em> to <em>dst</em>.  On Linux, <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> also copies the
 “extended attributes” where possible.  The file contents, owner, and
 group are unaffected.  <em>src</em> and <em>dst</em> are <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like objects</span></a> or path
 names given as strings.</p>
 <p>If <em>follow_symlinks</em> is false, and <em>src</em> and <em>dst</em> both
-refer to symbolic links, <code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> will operate on
+refer to symbolic links, <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> will operate on
 the symbolic links themselves rather than the files the
 symbolic links refer to—reading the information from the
 <em>src</em> symbolic link, and writing the information to the
@@ -412,20 +412,20 @@ modify symbolic links.  Python itself can tell you what
 functionality is locally available.</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">os.chmod</span> <span class="pre">in</span> <span class="pre">os.supports_follow_symlinks</span></code> is
-<code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> can modify the permission
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> can modify the permission
 bits of a symbolic link.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">os.utime</span> <span class="pre">in</span> <span class="pre">os.supports_follow_symlinks</span></code> is
-<code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> can modify the last access
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> can modify the last access
 and modification times of a symbolic link.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">os.chflags</span> <span class="pre">in</span> <span class="pre">os.supports_follow_symlinks</span></code> is
-<code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> can modify the flags of
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> can modify the flags of
 a symbolic link.  (<code class="docutils literal notranslate"><span class="pre">os.chflags</span></code> is not available on
 all platforms.)</p></li>
 </ul>
 <p>On platforms where some or all of this functionality
 is unavailable, when asked to modify a symbolic link,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> will copy everything it can.
-<code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> never returns failure.</p>
+<a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> will copy everything it can.
+<a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> never returns failure.</p>
 <p>Please see <a class="reference internal" href="os.html#os.supports_follow_symlinks" title="os.supports_follow_symlinks"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.supports_follow_symlinks</span></code></a>
 for more information.</p>
 </div>
@@ -514,18 +514,18 @@ copy the file more efficiently. See
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_BytesPathT</span></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/shutil.pyi#L65">typeshed</a>)</p>
-<p>Identical to <a class="reference internal" href="#shutil.copy" title="shutil.copy"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy()</span></code></a> except that <code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code>
+<p>Identical to <a class="reference internal" href="#shutil.copy" title="shutil.copy"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy()</span></code></a> except that <a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a>
 also attempts to preserve file metadata.</p>
 <p>When <em>follow_symlinks</em> is false, and <em>src</em> is a symbolic
-link, <code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code> attempts to copy all metadata from the
+link, <a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a> attempts to copy all metadata from the
 <em>src</em> symbolic link to the newly created <em>dst</em> symbolic link.
 However, this functionality is not available on all platforms.
 On platforms where some or all of this functionality is
-unavailable, <code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code> will preserve all the metadata
-it can; <code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code> never raises an exception because it
+unavailable, <a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a> will preserve all the metadata
+it can; <a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a> never raises an exception because it
 cannot preserve file metadata.</p>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code> uses <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> to copy the file metadata.
-Please see <code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code> for more information
+<p><a class="reference internal" href="#shutil.copy2" title="shutil.copy2"><code class="xref py py-func docutils literal notranslate"><span class="pre">copy2()</span></code></a> uses <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> to copy the file metadata.
+Please see <a class="reference internal" href="#shutil.copystat" title="shutil.copystat"><code class="xref py py-func docutils literal notranslate"><span class="pre">copystat()</span></code></a> for more information
 about platform support for modifying symbolic link metadata.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copyfile</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
 <p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">shutil.copystat</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>.</p>
@@ -604,8 +604,8 @@ You can set the optional <em>ignore_dangling_symlinks</em> flag to true if you
 want to silence this exception. Notice that this option has no effect
 on platforms that don’t support <a class="reference internal" href="os.html#os.symlink" title="os.symlink"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.symlink()</span></code></a>.</p>
 <p>If <em>ignore</em> is given, it must be a callable that will receive as its
-arguments the directory being visited by <code class="xref py py-func docutils literal notranslate"><span class="pre">copytree()</span></code>, and a list of its
-contents, as returned by <a class="reference internal" href="os.html#os.listdir" title="os.listdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.listdir()</span></code></a>.  Since <code class="xref py py-func docutils literal notranslate"><span class="pre">copytree()</span></code> is
+arguments the directory being visited by <a class="reference internal" href="#shutil.copytree" title="shutil.copytree"><code class="xref py py-func docutils literal notranslate"><span class="pre">copytree()</span></code></a>, and a list of its
+contents, as returned by <a class="reference internal" href="os.html#os.listdir" title="os.listdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.listdir()</span></code></a>.  Since <a class="reference internal" href="#shutil.copytree" title="shutil.copytree"><code class="xref py py-func docutils literal notranslate"><span class="pre">copytree()</span></code></a> is
 called recursively, the <em>ignore</em> callable will be called once for each
 directory that is copied.  The callable must return a sequence of directory
 and file names relative to the current directory (i.e. a subset of the items
@@ -694,8 +694,8 @@ are omitted, exceptions are propagated to the caller.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On platforms that support the necessary fd-based functions a symlink
-attack resistant version of <code class="xref py py-func docutils literal notranslate"><span class="pre">rmtree()</span></code> is used by default.  On other
-platforms, the <code class="xref py py-func docutils literal notranslate"><span class="pre">rmtree()</span></code> implementation is susceptible to a symlink
+attack resistant version of <a class="reference internal" href="#shutil.rmtree" title="shutil.rmtree"><code class="xref py py-func docutils literal notranslate"><span class="pre">rmtree()</span></code></a> is used by default.  On other
+platforms, the <a class="reference internal" href="#shutil.rmtree" title="shutil.rmtree"><code class="xref py py-func docutils literal notranslate"><span class="pre">rmtree()</span></code></a> implementation is susceptible to a symlink
 attack: given proper timing and circumstances, attackers can manipulate
 symlinks on the filesystem to delete files they wouldn’t be able to access
 otherwise.  Applications can use the <a class="reference internal" href="#shutil.rmtree.avoids_symlink_attacks" title="shutil.rmtree.avoids_symlink_attacks"><code class="xref py py-data docutils literal notranslate"><span class="pre">rmtree.avoids_symlink_attacks</span></code></a>
@@ -741,7 +741,7 @@ are now always propagated to the caller.</p>
 <span class="sig-prename descclassname"><span class="pre">rmtree.</span></span><span class="sig-name descname"><span class="pre">avoids_symlink_attacks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></em><a class="headerlink" href="#shutil.rmtree.avoids_symlink_attacks" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/shutil.pyi#L84">typeshed</a>)</p>
 <p>Indicates whether the current platform and implementation provides a
-symlink attack resistant version of <code class="xref py py-func docutils literal notranslate"><span class="pre">rmtree()</span></code>.  Currently this is
+symlink attack resistant version of <a class="reference internal" href="#shutil.rmtree" title="shutil.rmtree"><code class="xref py py-func docutils literal notranslate"><span class="pre">rmtree()</span></code></a>.  Currently this is
 only true for platforms supporting fd-based directory access functions.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.3.</span></p>
@@ -954,7 +954,7 @@ consulting the current working directory for executables: set the environment
 variable <code class="docutils literal notranslate"><span class="pre">NoDefaultCurrentDirectoryInExePath</span></code>.</p>
 <p>Also on Windows, the <span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATHEXT</span></code> environment variable is used to
 resolve commands that may not already include an extension. For example,
-if you call <code class="docutils literal notranslate"><span class="pre">shutil.which(&quot;python&quot;)</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">which()</span></code> will search <code class="docutils literal notranslate"><span class="pre">PATHEXT</span></code>
+if you call <code class="docutils literal notranslate"><span class="pre">shutil.which(&quot;python&quot;)</span></code>, <a class="reference internal" href="#shutil.which" title="shutil.which"><code class="xref py py-func docutils literal notranslate"><span class="pre">which()</span></code></a> will search <code class="docutils literal notranslate"><span class="pre">PATHEXT</span></code>
 to know that it should look for <code class="docutils literal notranslate"><span class="pre">python.exe</span></code> within the <em>path</em>
 directories. For example, on Windows:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">)</span>
@@ -972,7 +972,7 @@ component:</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.8: </span>The <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> type is now accepted.  If <em>cmd</em> type is
-<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>, the result type is also <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>.</p>
+<a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, the result type is also <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.12: </span>On Windows, the current directory is no longer prepended to the search
@@ -1117,7 +1117,7 @@ provided.  They rely on the <a class="reference internal" href="zipfile.html#mod
 the file to create, including the path, minus any format-specific extension.</p>
 <p><em>format</em> is the archive format: one of
 “zip” (if the <a class="reference internal" href="zlib.html#module-zlib" title="zlib: Low-level interface to compression and decompression routines compatible with gzip."><code class="xref py py-mod docutils literal notranslate"><span class="pre">zlib</span></code></a> module is available), “tar”, “gztar” (if the
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">zlib</span></code> module is available), “bztar” (if the <a class="reference internal" href="bz2.html#module-bz2" title="bz2: Interfaces for bzip2 compression and decompression."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bz2</span></code></a> module is
+<a class="reference internal" href="zlib.html#module-zlib" title="zlib: Low-level interface to compression and decompression routines compatible with gzip."><code class="xref py py-mod docutils literal notranslate"><span class="pre">zlib</span></code></a> module is available), “bztar” (if the <a class="reference internal" href="bz2.html#module-bz2" title="bz2: Interfaces for bzip2 compression and decompression."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bz2</span></code></a> module is
 available), “xztar” (if the <a class="reference internal" href="lzma.html#module-lzma" title="lzma: A Python wrapper for the liblzma compression library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">lzma</span></code></a> module is available), or “zstdtar”
 (if the <a class="reference internal" href="compression.zstd.html#module-compression.zstd" title="compression.zstd: Low-level interface to compression and decompression routines in the zstd library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">compression.zstd</span></code></a> module is available).</p>
 <p><em>root_dir</em> is a string or <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a> specifying a directory
@@ -1258,7 +1258,7 @@ list of archivers.  Defaults to an empty string.</p>
 unpacked. If not provided, the current working directory is used.</p>
 <p><em>format</em> is the archive format: one of “zip”, “tar”, “gztar”, “bztar”,
 “xztar”, or “zstdtar”.  Or any other format registered with
-<a class="reference internal" href="#shutil.register_unpack_format" title="shutil.register_unpack_format"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_unpack_format()</span></code></a>.  If not provided, <code class="xref py py-func docutils literal notranslate"><span class="pre">unpack_archive()</span></code>
+<a class="reference internal" href="#shutil.register_unpack_format" title="shutil.register_unpack_format"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_unpack_format()</span></code></a>.  If not provided, <a class="reference internal" href="#shutil.unpack_archive" title="shutil.unpack_archive"><code class="xref py py-func docutils literal notranslate"><span class="pre">unpack_archive()</span></code></a>
 will use the archive file name extension and see if an unpacker was
 registered for that extension.  In case none is found,
 a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised.</p>

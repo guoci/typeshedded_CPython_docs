@@ -352,15 +352,15 @@ Note that no actual thread is created; see the discussion of thread states
 below.  If creation of the new interpreter is unsuccessful,
 <em>tstate_p</em> is set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>;
 no exception is set since the exception state is stored in the
-<span class="xref std std-term">attached thread state</span>, which might not exist.</p>
+<a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>, which might not exist.</p>
 <p>Like all other Python/C API functions, an <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>
 must be present before calling this function, but it might be detached upon
-returning. On success, the returned thread state will be <span class="xref std std-term">attached</span>.
+returning. On success, the returned thread state will be <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached</span></a>.
 If the sub-interpreter is created with its own <a class="reference internal" href="../glossary.html#term-GIL"><span class="xref std std-term">GIL</span></a> then the
-<span class="xref std std-term">attached thread state</span> of the calling interpreter will be detached.
+<a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a> of the calling interpreter will be detached.
 When the function returns, the new interpreter’s <a class="reference internal" href="../glossary.html#term-thread-state"><span class="xref std std-term">thread state</span></a>
-will be <span class="xref std std-term">attached</span> to the current thread and
-the previous interpreter’s <span class="xref std std-term">attached thread state</span> will remain detached.</p>
+will be <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached</span></a> to the current thread and
+the previous interpreter’s <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a> will remain detached.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.12.</span></p>
 </div>
@@ -385,7 +385,7 @@ with certain functionality restricted:</p>
 <p>Note that the config is used only briefly and does not get modified.
 During initialization the config’s values are converted into various
 <a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyInterpreterState</span></code></a> values.  A read-only copy of the config
-may be stored internally on the <code class="xref c c-type docutils literal notranslate"><span class="pre">PyInterpreterState</span></code>.</p>
+may be stored internally on the <a class="reference internal" href="#c.PyInterpreterState" title="PyInterpreterState"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyInterpreterState</span></code></a>.</p>
 <p id="index-2">Extension modules are shared between (sub-)interpreters as follows:</p>
 <ul>
 <li><p>For modules using multi-phase initialization,
@@ -430,7 +430,7 @@ modules.</p>
 <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Py_EndInterpreter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="threads.html#c.PyThreadState" title="PyThreadState"><span class="n"><span class="pre">PyThreadState</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">tstate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.Py_EndInterpreter" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-5">Destroy the (sub-)interpreter represented by the given <a class="reference internal" href="../glossary.html#term-thread-state"><span class="xref std std-term">thread state</span></a>.
 The given thread state must be <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached</span></a>.
-When the call returns, there will be no <span class="xref std std-term">attached thread state</span>.
+When the call returns, there will be no <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a>.
 All thread states associated with this interpreter are destroyed.</p>
 <p><a class="reference internal" href="interp-lifecycle.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_FinalizeEx()</span></code></a> will destroy all sub-interpreters that
 haven’t been explicitly destroyed at that point.</p>

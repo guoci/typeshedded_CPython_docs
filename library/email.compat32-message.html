@@ -208,7 +208,7 @@
 <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> class, without the methods added by that
 class, and with the default behavior of certain other methods being slightly
 different.  We also document here some methods that, while supported by the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code> class, are not recommended unless you are
+<a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> class, are not recommended unless you are
 dealing with legacy code.</p>
 <p>The philosophy and structure of the two classes is otherwise the same.</p>
 <p>This document describes the behavior under the default (for <a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>)
@@ -236,7 +236,7 @@ are stored and returned in case-preserving form, but field names are matched
 case-insensitively.  There may also be a single envelope header, also known as
 the <em>Unix-From</em> header or the <code class="docutils literal notranslate"><span class="pre">From_</span></code> header.  The <em>payload</em> is either a
 string or bytes, in the case of simple message objects, or a list of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> objects, for MIME container documents (e.g.
+<a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects, for MIME container documents (e.g.
 <em class="mimetype">multipart/*</em> and <em class="mimetype">message/rfc822</em>).</p>
 <p>Here are the methods of the <a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> class:</p>
 <dl class="py class">
@@ -255,7 +255,7 @@ string or bytes, in the case of simple message objects, or a list of
 class) use the rules it specifies to update and serialize the representation
 of the message.  If <em>policy</em> is not set, use the <a class="reference internal" href="email.policy.html#email.policy.Compat32" title="email.policy.Compat32"><code class="xref py py-class docutils literal notranslate"><span class="pre">compat32</span></code></a> policy, which maintains backward compatibility with
 the Python 3.2 version of the email package.  For more information see the
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code> documentation.</p>
+<a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal notranslate"><span class="pre">policy</span></code></a> documentation.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.3: </span>The <em>policy</em> keyword argument was added.</p>
 </div>
@@ -282,7 +282,7 @@ the policy will be ignored by this method).  The <em>policy</em> argument may be
 used to override the default policy obtained from the message instance.
 This can be used to control some of the formatting produced by the
 method, since the specified <em>policy</em> will be passed to the <code class="docutils literal notranslate"><span class="pre">Generator</span></code>.</p>
-<p>Flattening the message may trigger changes to the <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> if
+<p>Flattening the message may trigger changes to the <a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> if
 defaults need to be filled in to complete the transformation to a string
 (for example, MIME boundaries may be generated or modified).</p>
 <p>Note that this method is provided as a convenience and may not always
@@ -335,7 +335,7 @@ used to override the default policy obtained from the message instance.
 This can be used to control some of the formatting produced by the
 method, since the specified <em>policy</em> will be passed to the
 <code class="docutils literal notranslate"><span class="pre">BytesGenerator</span></code>.</p>
-<p>Flattening the message may trigger changes to the <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> if
+<p>Flattening the message may trigger changes to the <a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> if
 defaults need to be filled in to complete the transformation to a string
 (for example, MIME boundaries may be generated or modified).</p>
 <p>Note that this method is provided as a convenience and may not always
@@ -378,13 +378,13 @@ bytes object containing the formatted message.</p>
 <span class="sig-name descname"><span class="pre">is_multipart</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_HeaderT_co</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_HeaderParamT_contra</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">str</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#bool" title="bool"><span class="pre">bool</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/email/message.pyi#L43">typeshed</a>)</p>
 <p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the message’s payload is a list of
-sub-<code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> objects, otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.  When
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>, the payload should be a string
+sub-<a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects, otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.  When
+<a class="reference internal" href="#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>, the payload should be a string
 object (which might be a CTE encoded binary payload).  (Note that
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code> returning <code class="docutils literal notranslate"><span class="pre">True</span></code> does not necessarily mean that
+<a class="reference internal" href="#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code></a> returning <code class="docutils literal notranslate"><span class="pre">True</span></code> does not necessarily mean that
 “msg.get_content_maintype() == ‘multipart’” will return the <code class="docutils literal notranslate"><span class="pre">True</span></code>.
 For example, <code class="docutils literal notranslate"><span class="pre">is_multipart</span></code> will return <code class="docutils literal notranslate"><span class="pre">True</span></code> when the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> is of type <code class="docutils literal notranslate"><span class="pre">message/rfc822</span></code>.)</p>
+<a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> is of type <code class="docutils literal notranslate"><span class="pre">message/rfc822</span></code>.)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -413,8 +413,8 @@ envelope header was never set.</p>
 <span class="sig-name descname"><span class="pre">attach</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_HeaderT_co</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_HeaderParamT_contra</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">str</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_PayloadType</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/email/message.pyi#L46">typeshed</a>)</p>
 <p>Add the given <em>payload</em> to the current payload, which must be <code class="docutils literal notranslate"><span class="pre">None</span></code> or
-a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> objects before the call. After the call, the
-payload will always be a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> objects.  If you want to
+a list of <a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects before the call. After the call, the
+payload will always be a list of <a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects.  If you want to
 set the payload to a scalar object (e.g. a string), use
 <a class="reference internal" href="#email.message.Message.set_payload" title="email.message.Message.set_payload"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_payload()</span></code></a> instead.</p>
 <p>This is a legacy method.  On the
@@ -467,14 +467,14 @@ related <code class="docutils literal notranslate"><span class="pre">make</span>
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">email.message.email.message.Message</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="typing.html#typing.Any" title="typing.Any"><span class="pre">Any</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/email/message.pyi#L50">typeshed</a>)</p>
 <p>Return the current payload, which will be a list of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> objects when <a class="reference internal" href="#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, or a
-string when <code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If the payload is a list
+<a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects when <a class="reference internal" href="#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, or a
+string when <a class="reference internal" href="#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code></a> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If the payload is a list
 and you mutate the list object, you modify the message’s payload in place.</p>
-<p>With optional argument <em>i</em>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_payload()</span></code> will return the <em>i</em>-th
+<p>With optional argument <em>i</em>, <a class="reference internal" href="#email.message.Message.get_payload" title="email.message.Message.get_payload"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_payload()</span></code></a> will return the <em>i</em>-th
 element of the payload, counting from zero, if <a class="reference internal" href="#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code></a> is
 <code class="docutils literal notranslate"><span class="pre">True</span></code>.  An <a class="reference internal" href="exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> will be raised if <em>i</em> is less than 0 or
 greater than or equal to the number of items in the payload.  If the
-payload is a string (i.e.  <code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>) and <em>i</em> is
+payload is a string (i.e.  <a class="reference internal" href="#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_multipart()</span></code></a> is <code class="docutils literal notranslate"><span class="pre">False</span></code>) and <em>i</em> is
 given, a <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is raised.</p>
 <p>Optional <em>decode</em> is a flag indicating whether the payload should be
 decoded or not, according to the <em class="mailheader">Content-Transfer-Encoding</em>
@@ -542,7 +542,7 @@ replaced by <a class="reference internal" href="email.message.html#email.message
 <p>Set the character set of the payload to <em>charset</em>, which can either be a
 <a class="reference internal" href="email.charset.html#email.charset.Charset" title="email.charset.Charset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Charset</span></code></a> instance (see <a class="reference internal" href="email.charset.html#module-email.charset" title="email.charset: Character Sets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.charset</span></code></a>), a
 string naming a character set, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If it is a string, it will
-be converted to a <code class="xref py py-class docutils literal notranslate"><span class="pre">Charset</span></code> instance.  If <em>charset</em>
+be converted to a <a class="reference internal" href="email.charset.html#email.charset.Charset" title="email.charset.Charset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Charset</span></code></a> instance.  If <em>charset</em>
 is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the <code class="docutils literal notranslate"><span class="pre">charset</span></code> parameter will be removed from the
 <em class="mailheader">Content-Type</em> header (the message will not be otherwise
 modified).  Anything else will generate a <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>.</p>
@@ -583,7 +583,7 @@ message’s <span class="target" id="index-1"></span><a class="rfc reference ext
 between these methods and a normal mapping (i.e. dictionary) interface.  For
 example, in a dictionary there are no duplicate keys, but here there may be
 duplicate message headers.  Also, in dictionaries there is no guaranteed
-order to the keys returned by <a class="reference internal" href="#email.message.Message.keys" title="email.message.Message.keys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">keys()</span></code></a>, but in a <code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> object,
+order to the keys returned by <a class="reference internal" href="#email.message.Message.keys" title="email.message.Message.keys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">keys()</span></code></a>, but in a <a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> object,
 headers are always returned in the order they appeared in the original
 message, or were added to the message later.  Any header deleted and then
 re-added are always appended to the end of the header list.</p>
@@ -794,7 +794,7 @@ matching header was found, a <a class="reference internal" href="exceptions.html
 lower case of the form <em class="mimetype">maintype/subtype</em>.  If there was no
 <em class="mailheader">Content-Type</em> header in the message the default type as given
 by <a class="reference internal" href="#email.message.Message.get_default_type" title="email.message.Message.get_default_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_default_type()</span></code></a> will be returned.  Since according to
-<span class="target" id="index-4"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2045.html"><strong>RFC 2045</strong></a>, messages always have a default type, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_content_type()</span></code>
+<span class="target" id="index-4"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2045.html"><strong>RFC 2045</strong></a>, messages always have a default type, <a class="reference internal" href="#email.message.Message.get_content_type" title="email.message.Message.get_content_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_content_type()</span></code></a>
 will always return a value.</p>
 <p><span class="target" id="index-5"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2045.html"><strong>RFC 2045</strong></a> defines a message’s default type to be <em class="mimetype">text/plain</em>
 unless it appears inside a <em class="mimetype">multipart/digest</em> container, in
@@ -929,7 +929,7 @@ to be encoded in the <code class="docutils literal notranslate"><span class="pre
 <p>If your application doesn’t care whether the parameter was encoded as in
 <span class="target" id="index-8"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2231.html"><strong>RFC 2231</strong></a>, you can collapse the parameter value by calling
 <a class="reference internal" href="email.utils.html#email.utils.collapse_rfc2231_value" title="email.utils.collapse_rfc2231_value"><code class="xref py py-func docutils literal notranslate"><span class="pre">email.utils.collapse_rfc2231_value()</span></code></a>, passing in the return value
-from <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_param()</span></code>.  This will return a suitably decoded Unicode
+from <a class="reference internal" href="#email.message.Message.get_param" title="email.message.Message.get_param"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_param()</span></code></a>.  This will return a suitably decoded Unicode
 string when the value is a tuple, or the original string unquoted if it
 isn’t.  For example:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">rawparam</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
@@ -1083,12 +1083,12 @@ string will always be unquoted as per <a class="reference internal" href="email.
 <span class="sig-name descname"><span class="pre">set_boundary</span></span><span class="sig-paren">[</span><em class="sig-param"><span class="n"><span class="pre">_HeaderT_co</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_HeaderParamT_contra</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">str</span></span></em><span class="sig-paren">]</span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/email/message.pyi#L124">typeshed</a>)</p>
 <p>Set the <code class="docutils literal notranslate"><span class="pre">boundary</span></code> parameter of the <em class="mailheader">Content-Type</em> header to
-<em>boundary</em>.  <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_boundary()</span></code> will always quote <em>boundary</em> if
+<em>boundary</em>.  <a class="reference internal" href="#email.message.Message.set_boundary" title="email.message.Message.set_boundary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_boundary()</span></code></a> will always quote <em>boundary</em> if
 necessary.  A <a class="reference internal" href="email.errors.html#email.errors.HeaderParseError" title="email.errors.HeaderParseError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HeaderParseError</span></code></a> is raised if the
 message object has no <em class="mailheader">Content-Type</em> header.</p>
 <p>Note that using this method is subtly different than deleting the old
 <em class="mailheader">Content-Type</em> header and adding a new one with the new
-boundary via <a class="reference internal" href="#email.message.Message.add_header" title="email.message.Message.add_header"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_header()</span></code></a>, because <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_boundary()</span></code> preserves
+boundary via <a class="reference internal" href="#email.message.Message.add_header" title="email.message.Message.add_header"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_header()</span></code></a>, because <a class="reference internal" href="#email.message.Message.set_boundary" title="email.message.Message.set_boundary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_boundary()</span></code></a> preserves
 the order of the <em class="mailheader">Content-Type</em> header in the list of
 headers. However, it does <em>not</em> preserve any continuation lines which may
 have been present in the original <em class="mailheader">Content-Type</em> header.</p>
@@ -1163,9 +1163,9 @@ if the message follows <span class="target" id="index-11"></span><a class="rfc r
 
 <span class="sig-paren">]</span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Generator" title="collections.abc.Generator"><span class="pre">Generator</span></a><span class="p"><span class="pre">[</span></span><span class="pre">email.message.email.message.Message</span><span class="p"><span class="pre">[</span></span><span class="pre">_HeaderT_co</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_HeaderParamT_contra</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/email/message.pyi#L133">typeshed</a>)</p>
-<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">walk()</span></code> method is an all-purpose generator which can be used to
+<p>The <a class="reference internal" href="#email.message.Message.walk" title="email.message.Message.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">walk()</span></code></a> method is an all-purpose generator which can be used to
 iterate over all the parts and subparts of a message object tree, in
-depth-first traversal order.  You will typically use <code class="xref py py-meth docutils literal notranslate"><span class="pre">walk()</span></code> as the
+depth-first traversal order.  You will typically use <a class="reference internal" href="#email.message.Message.walk" title="email.message.Message.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">walk()</span></code></a> as the
 iterator in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop; each iteration returns the next subpart.</p>
 <p>Here’s an example that prints the MIME type of every part of a multipart
 message structure:</p>
@@ -1210,7 +1210,7 @@ subparts. <code class="docutils literal notranslate"><span class="pre">is_multip
 into the subparts.</p>
 </dd></dl>
 
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code> objects can also optionally contain two instance attributes,
+<p><a class="reference internal" href="#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects can also optionally contain two instance attributes,
 which can be used when generating the plain text of a MIME message.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="email.message.Message.preamble">

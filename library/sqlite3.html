@@ -544,7 +544,7 @@ write operations may need to be serialized by the user
 to avoid data corruption.
 See <a class="reference internal" href="#sqlite3.threadsafety" title="sqlite3.threadsafety"><code class="xref py py-attr docutils literal notranslate"><span class="pre">threadsafety</span></code></a> for more information.</p></li>
 <li><p><strong>factory</strong> (<a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><em>Connection</em></a>) – A custom subclass of <a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a> to create the connection with,
-if not the default <code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code> class.</p></li>
+if not the default <a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a> class.</p></li>
 <li><p><strong>cached_statements</strong> (<a class="reference internal" href="functions.html#int" title="int"><em>int</em></a>) – The number of statements that <code class="xref py py-mod docutils literal notranslate"><span class="pre">sqlite3</span></code>
 should internally cache for this connection, to avoid parsing overhead.
 By default, 128 statements.</p></li>
@@ -960,7 +960,7 @@ a <code class="xref py py-class docutils literal notranslate"><span class="pre">
 <p>Create and return a <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a> object.
 The cursor method accepts a single optional parameter <em>factory</em>. If
 supplied, this must be a <a class="reference internal" href="../glossary.html#term-callable"><span class="xref std std-term">callable</span></a> returning
-an instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code> or its subclasses.</p>
+an instance of <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a> or its subclasses.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1693,7 +1693,7 @@ to back up remaining pages.</p></li>
 </dd>
 </dl>
 <p>Example, query the maximum length of an SQL statement
-for <code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code> <code class="docutils literal notranslate"><span class="pre">con</span></code> (the default is 1000000000):</p>
+for <a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a> <code class="docutils literal notranslate"><span class="pre">con</span></code> (the default is 1000000000):</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">con</span><span class="o">.</span><span class="n">getlimit</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">SQLITE_LIMIT_SQL_LENGTH</span><span class="p">)</span>
 <span class="go">1000000000</span>
 </pre></div>
@@ -1729,7 +1729,7 @@ If negative, the current limit is unchanged.</p></li>
 </dd>
 </dl>
 <p>Example, limit the number of attached databases to 1
-for <code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code> <code class="docutils literal notranslate"><span class="pre">con</span></code> (the default limit is 10):</p>
+for <a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a> <code class="docutils literal notranslate"><span class="pre">con</span></code> (the default limit is 10):</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">con</span><span class="o">.</span><span class="n">setlimit</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">SQLITE_LIMIT_ATTACHED</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">con</span><span class="o">.</span><span class="n">getlimit</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">SQLITE_LIMIT_ATTACHED</span><span class="p">)</span>
@@ -1819,7 +1819,7 @@ serialize API.</p>
 <span class="sig-name descname"><span class="pre">deserialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collections.abc.html#collections.abc.Buffer" title="collections.abc.Buffer"><span class="pre">Buffer</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'main'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/sqlite3/__init__.pyi#L399">typeshed</a>)</p>
 <p>Deserialize a <a class="reference internal" href="#sqlite3.Connection.serialize" title="sqlite3.Connection.serialize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">serialized</span></code></a> database into a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code>.
+<a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a>.
 This method causes the database connection to disconnect from database
 <em>name</em>, and reopen <em>name</em> as an in-memory database based on the
 serialization contained in <em>data</em>.</p>
@@ -1904,14 +1904,14 @@ and changing it to <code class="docutils literal notranslate"><span class="pre">
 If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, transactions are never implicitly opened.
 If set to one of <code class="docutils literal notranslate"><span class="pre">&quot;DEFERRED&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;IMMEDIATE&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;EXCLUSIVE&quot;</span></code>,
 corresponding to the underlying <a class="reference external" href="https://www.sqlite.org/lang_transaction.html#deferred_immediate_and_exclusive_transactions">SQLite transaction behaviour</a>,
-<span class="xref std std-ref">implicit transaction management</span> is performed.</p>
+<a class="reference internal" href="#sqlite3-transaction-control-isolation-level"><span class="std std-ref">implicit transaction management</span></a> is performed.</p>
 <p>If not overridden by the <em>isolation_level</em> parameter of <a class="reference internal" href="#sqlite3.connect" title="sqlite3.connect"><code class="xref py py-func docutils literal notranslate"><span class="pre">connect()</span></code></a>,
 the default is <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, which is an alias for <code class="docutils literal notranslate"><span class="pre">&quot;DEFERRED&quot;</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Using <a class="reference internal" href="#sqlite3.Connection.autocommit" title="sqlite3.Connection.autocommit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">autocommit</span></code></a> to control transaction handling is
 recommended over using <code class="xref py py-attr docutils literal notranslate"><span class="pre">isolation_level</span></code>.
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">isolation_level</span></code> has no effect unless <code class="xref py py-attr docutils literal notranslate"><span class="pre">autocommit</span></code> is
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">isolation_level</span></code> has no effect unless <a class="reference internal" href="#sqlite3.Connection.autocommit" title="sqlite3.Connection.autocommit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">autocommit</span></code></a> is
 set to <a class="reference internal" href="#sqlite3.LEGACY_TRANSACTION_CONTROL" title="sqlite3.LEGACY_TRANSACTION_CONTROL"><code class="xref py py-data docutils literal notranslate"><span class="pre">LEGACY_TRANSACTION_CONTROL</span></code></a> (the default).</p>
 </div>
 </dd></dl>
@@ -1973,7 +1973,7 @@ you can simply iterate over the cursor to fetch the resulting rows:</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sqlite3.</span></span><span class="sig-name descname"><span class="pre">Cursor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><span class="pre">Connection</span></a></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><span class="pre">Cursor</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/sqlite3/__init__.pyi#L411">typeshed</a>)</p>
-<p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code> instance has the following attributes and methods.</p>
+<p>A <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a> instance has the following attributes and methods.</p>
 <dl class="py method" id="index-8">
 <span id="index-7"></span><dt class="sig sig-object py" id="sqlite3.Cursor.execute">
 <span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sql</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sqlite3.Cursor.execute" title="Link to this definition">¶</a></dt>
@@ -2124,7 +2124,7 @@ as many rows as are available are returned.</p>
 <p>Note there are performance considerations involved with the <em>size</em> parameter.
 For optimal performance, it is usually best to use the arraysize attribute.
 If the <em>size</em> parameter is used, then it is best for it to retain the same
-value from one <code class="xref py py-meth docutils literal notranslate"><span class="pre">fetchmany()</span></code> call to the next.</p>
+value from one <a class="reference internal" href="#sqlite3.Cursor.fetchmany" title="sqlite3.Cursor.fetchmany"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetchmany()</span></code></a> call to the next.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.15: </span>Negative <em>size</em> values are rejected by raising <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
 </div>
@@ -2187,7 +2187,7 @@ The default value is 1 which means a single row would be fetched per call.</p>
 <span class="sig-name descname"><span class="pre">connection</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">connection(self:</span> <span class="pre">sqlite3.Cursor)</span> <span class="pre">-&gt;</span> <span class="pre">sqlite3.Connection</span></em><a class="headerlink" href="#sqlite3.Cursor.connection" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/sqlite3/__init__.pyi#L414">typeshed</a>)</p>
 <p>Read-only attribute that provides the SQLite database <a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a>
-belonging to the cursor.  A <code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code> object created by
+belonging to the cursor.  A <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a> object created by
 calling <a class="reference internal" href="#sqlite3.Connection.cursor" title="sqlite3.Connection.cursor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">con.cursor()</span></code></a> will have a
 <a class="reference internal" href="#sqlite3.Cursor.connection" title="sqlite3.Cursor.connection"><code class="xref py py-attr docutils literal notranslate"><span class="pre">connection</span></code></a> attribute that refers to <em>con</em>:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
@@ -2250,12 +2250,12 @@ This means that any resulting rows must be fetched in order for
 If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a row is represented as a <a class="reference internal" href="stdtypes.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>.
 Can be set to the included <a class="reference internal" href="#sqlite3.Row" title="sqlite3.Row"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlite3.Row</span></code></a>;
 or a <a class="reference internal" href="../glossary.html#term-callable"><span class="xref std std-term">callable</span></a> that accepts two arguments,
-a <code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code> object and the <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of row values,
+a <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a> object and the <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of row values,
 and returns a custom object representing an SQLite row.</p>
 <p>Defaults to what <a class="reference internal" href="#sqlite3.Connection.row_factory" title="sqlite3.Connection.row_factory"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Connection.row_factory</span></code></a> was set to
 when the <code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code> was created.
 Assigning to this attribute does not affect
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">Connection.row_factory</span></code> of the parent connection.</p>
+<a class="reference internal" href="#sqlite3.Connection.row_factory" title="sqlite3.Connection.row_factory"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Connection.row_factory</span></code></a> of the parent connection.</p>
 <p>See <a class="reference internal" href="#sqlite3-howto-row-factory"><span class="std std-ref">How to create and use row factories</span></a> for more details.</p>
 </dd></dl>
 
@@ -2305,11 +2305,11 @@ it is the first member of each tuple in <a class="reference internal" href="#sql
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.11.</span></p>
 </div>
-<p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code> instance is a <a class="reference internal" href="../glossary.html#term-file-like-object"><span class="xref std std-term">file-like object</span></a>
+<p>A <a class="reference internal" href="#sqlite3.Blob" title="sqlite3.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a> instance is a <a class="reference internal" href="../glossary.html#term-file-like-object"><span class="xref std std-term">file-like object</span></a>
 that can read and write data in an SQLite <abbr title="Binary Large OBject">BLOB</abbr>.
 Call <a class="reference internal" href="functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len(blob)</span></code></a> to get the size (number of bytes) of the blob.
 Use indices and <a class="reference internal" href="../glossary.html#term-slice"><span class="xref std std-term">slices</span></a> for direct access to the blob data.</p>
-<p>Use the <code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code> as a <a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> to ensure that the blob
+<p>Use the <a class="reference internal" href="#sqlite3.Blob" title="sqlite3.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a> as a <a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> to ensure that the blob
 handle is closed after use.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
 <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE test(blob_col blob)&quot;</span><span class="p">)</span>
@@ -2352,7 +2352,7 @@ further operation is attempted with the blob.</p>
 <p>Read <em>length</em> bytes of data from the blob at the current offset position.
 If the end of the blob is reached, the data up to
 <abbr title="End of File">EOF</abbr> will be returned.  When <em>length</em> is not
-specified, or is negative, <code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code> will read until the end of
+specified, or is negative, <a class="reference internal" href="#sqlite3.Blob.read" title="sqlite3.Blob.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a> will read until the end of
 the blob.</p>
 </dd></dl>
 
@@ -2906,10 +2906,10 @@ Column names take precedence over declared types.</p></li>
 <a class="reference internal" href="#sqlite3.Connection.executemany" title="sqlite3.Connection.executemany"><code class="xref py py-meth docutils literal notranslate"><span class="pre">executemany()</span></code></a>, and <a class="reference internal" href="#sqlite3.Connection.executescript" title="sqlite3.Connection.executescript"><code class="xref py py-meth docutils literal notranslate"><span class="pre">executescript()</span></code></a>
 methods of the <a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a> class, your code can
 be written more concisely because you don’t have to create the (often
-superfluous) <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a> objects explicitly. Instead, the <code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code>
+superfluous) <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a> objects explicitly. Instead, the <a class="reference internal" href="#sqlite3.Cursor" title="sqlite3.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a>
 objects are created implicitly and these shortcut methods return the cursor
 objects. This way, you can execute a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement and iterate over it
-directly using only a single call on the <code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code> object.</p>
+directly using only a single call on the <a class="reference internal" href="#sqlite3.Connection" title="sqlite3.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a> object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and fill the table.</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
 <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE lang(name, first_appeared)&quot;</span><span class="p">)</span>
@@ -3195,7 +3195,7 @@ to respectively commit and roll back pending transactions.
 You can choose the underlying <a class="reference external" href="https://www.sqlite.org/lang_transaction.html#deferred_immediate_and_exclusive_transactions">SQLite transaction behaviour</a> —
 that is, whether and what type of <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code> statements <code class="xref py py-mod docutils literal notranslate"><span class="pre">sqlite3</span></code>
 implicitly executes –
-via the <code class="xref py py-attr docutils literal notranslate"><span class="pre">isolation_level</span></code> attribute.</p>
+via the <a class="reference internal" href="#sqlite3.Connection.isolation_level" title="sqlite3.Connection.isolation_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isolation_level</span></code></a> attribute.</p>
 <p>If <a class="reference internal" href="#sqlite3.Connection.isolation_level" title="sqlite3.Connection.isolation_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isolation_level</span></code></a> is set to <code class="docutils literal notranslate"><span class="pre">None</span></code>,
 no transactions are implicitly opened at all.
 This leaves the underlying SQLite library in <a class="reference external" href="https://www.sqlite.org/lang_transaction.html#implicit_versus_explicit_transactions">autocommit mode</a>,

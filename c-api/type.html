@@ -254,7 +254,7 @@ always succeeds.</p>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return the <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_flags" title="PyTypeObject.tp_flags"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_flags</span></code></a> member of <em>type</em>. This function is primarily
 meant for use with <code class="docutils literal notranslate"><span class="pre">Py_LIMITED_API</span></code>; the individual flag bits are
 guaranteed to be stable across Python releases, but access to
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_flags</span></code> itself is not part of the <a class="reference internal" href="stable.html#limited-c-api"><span class="std std-ref">limited API</span></a>.</p>
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_flags" title="PyTypeObject.tp_flags"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_flags</span></code></a> itself is not part of the <a class="reference internal" href="stable.html#limited-c-api"><span class="std std-ref">limited API</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.2.</span></p>
 </div>
@@ -414,7 +414,7 @@ paired with <a class="reference internal" href="gcsupport.html#c.PyObject_GC_Del
 Otherwise, it behaves like <a class="reference internal" href="allocation.html#c.PyObject_New" title="PyObject_New"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyObject_New</span></code></a> or
 <a class="reference internal" href="allocation.html#c.PyObject_NewVar" title="PyObject_NewVar"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PyObject_NewVar</span></code></a> (except the memory is guaranteed to be zeroed
 before initialization) and should be paired with <a class="reference internal" href="memory.html#c.PyObject_Free" title="PyObject_Free"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Free()</span></code></a> in
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_free</span></code>.</p>
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_free" title="PyTypeObject.tp_free"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_free</span></code></a>.</p>
 </dd></dl>
 
 <dl class="c function">
@@ -438,7 +438,7 @@ exception on error.</p>
 type does not include the <a class="reference internal" href="typeobj.html#c.Py_TPFLAGS_HAVE_GC" title="Py_TPFLAGS_HAVE_GC"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_GC</span></code></a> in its flags, then
 the GC protocol will be automatically implemented from its parents. On
 the contrary, if the type being created does include
-<code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_GC</span></code> in its flags then it <strong>must</strong> implement the
+<a class="reference internal" href="typeobj.html#c.Py_TPFLAGS_HAVE_GC" title="Py_TPFLAGS_HAVE_GC"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_GC</span></code></a> in its flags then it <strong>must</strong> implement the
 GC protocol itself by at least implementing the
 <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> handle.</p>
 </div>
@@ -561,7 +561,7 @@ and other places where a method’s defining class cannot be passed using the
 <a class="reference internal" href="module.html#c.PyModuleDef" title="PyModuleDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code></a> <em>def</em>, or whose <a class="reference internal" href="module.html#ext-module-token"><span class="std std-ref">module token</span></a>
 is equal to <em>def</em>, and return that module.</p>
 <p>Note that modules created from a <a class="reference internal" href="module.html#c.PyModuleDef" title="PyModuleDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code></a> always have their
-token set to the <code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code>’s address.
+token set to the <a class="reference internal" href="module.html#c.PyModuleDef" title="PyModuleDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef</span></code></a>’s address.
 In other words, this function is equivalent to
 <a class="reference internal" href="#c.PyType_GetModuleByToken" title="PyType_GetModuleByToken"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GetModuleByToken()</span></code></a>, except that it:</p>
 <ul class="simple">
@@ -652,7 +652,7 @@ for each class individually.</p>
 <p>Note that this function does <em>not</em> fully match the behavior of
 calling <a class="reference internal" href="../library/functions.html#type" title="type"><code class="xref py py-class docutils literal notranslate"><span class="pre">type()</span></code></a> or using the <a class="reference internal" href="../reference/compound_stmts.html#class"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> statement.
 With user-provided base types or metaclasses, prefer
-<a class="reference internal" href="call.html#capi-call"><span class="std std-ref">calling</span></a> <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code> (or the metaclass)
+<a class="reference internal" href="call.html#capi-call"><span class="std std-ref">calling</span></a> <a class="reference internal" href="../library/functions.html#type" title="type"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> (or the metaclass)
 over <code class="docutils literal notranslate"><span class="pre">PyType_From*</span></code> functions.
 Specifically:</p>
 <ul class="simple">
@@ -684,7 +684,7 @@ base classes.  Previously, only <a class="reference internal" href="../library/f
 <p>The <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> of the metaclass is <em>ignored</em>.
 which may result in incomplete initialization.
 Creating classes whose metaclass overrides
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code> is deprecated.</p>
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> is deprecated.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.14: </span>Creating classes whose metaclass overrides
@@ -705,7 +705,7 @@ base classes.  Previously, only <a class="reference internal" href="../library/f
 <p>The <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> of the metaclass is <em>ignored</em>.
 which may result in incomplete initialization.
 Creating classes whose metaclass overrides
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code> is deprecated.</p>
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> is deprecated.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.14: </span>Creating classes whose metaclass overrides
@@ -724,7 +724,7 @@ Previously, only <a class="reference internal" href="../library/functions.html#t
 <p>The <a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> of the metaclass is <em>ignored</em>.
 which may result in incomplete initialization.
 Creating classes whose metaclass overrides
-<code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code> is deprecated.</p>
+<a class="reference internal" href="typeobj.html#c.PyTypeObject.tp_new" title="PyTypeObject.tp_new"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_new</span></code></a> is deprecated.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.14: </span>Creating classes whose metaclass overrides

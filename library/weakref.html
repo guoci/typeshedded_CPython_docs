@@ -238,7 +238,7 @@ they appeared as values or keys in the dictionaries.  The
 the <code class="xref py py-mod docutils literal notranslate"><span class="pre">weakref</span></code> module are an alternative, using weak references to construct
 mappings that don’t keep objects alive solely because they appear in the mapping
 objects.  If, for example, an image object is a value in a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">WeakValueDictionary</span></code>, then when the last remaining references to that
+<a class="reference internal" href="#weakref.WeakValueDictionary" title="weakref.WeakValueDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeakValueDictionary</span></code></a>, then when the last remaining references to that
 image object are the weak references held by weak mappings, garbage collection
 can reclaim the object, and its corresponding entries in weak mappings are
 simply deleted.</p>
@@ -247,7 +247,7 @@ in their implementation, setting up callback functions on the weak references
 that notify the weak dictionaries when a key or value has been reclaimed by
 garbage collection.  <a class="reference internal" href="#weakref.WeakSet" title="weakref.WeakSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeakSet</span></code></a> implements the <a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> interface,
 but keeps weak references to its elements, just like a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">WeakKeyDictionary</span></code> does.</p>
+<a class="reference internal" href="#weakref.WeakKeyDictionary" title="weakref.WeakKeyDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeakKeyDictionary</span></code></a> does.</p>
 <p><a class="reference internal" href="#weakref.finalize" title="weakref.finalize"><code class="xref py py-class docutils literal notranslate"><span class="pre">finalize</span></code></a> provides a straight forward way to register a
 cleanup function to be called when an object is garbage collected.
 This is simpler to use than setting up a callback function on a raw
@@ -300,7 +300,7 @@ See <a class="reference internal" href="../reference/datamodel.html#slots"><span
 <p>Return a weak reference to <em>object</em>.  The original object can be retrieved by
 calling the reference object if the referent is still alive; if the referent is
 no longer alive, calling the reference object will cause <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> to be
-returned.  If <em>callback</em> is provided and not <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, and the returned
+returned.  If <em>callback</em> is provided and not <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>, and the returned
 weakref object is still alive, the callback will be called when the object is
 about to be finalized; the weak reference object will be passed as the only
 parameter to the callback; the referent will no longer be available.</p>
@@ -525,7 +525,7 @@ discarded when no strong reference to it exists any more.</p>
 <p>A custom <a class="reference internal" href="#weakref.ref" title="weakref.ref"><code class="xref py py-class docutils literal notranslate"><span class="pre">ref</span></code></a> subclass which simulates a weak reference to a bound
 method (i.e., a method defined on a class and looked up on an instance).
 Since a bound method is ephemeral, a standard weak reference cannot keep
-hold of it.  <code class="xref py py-class docutils literal notranslate"><span class="pre">WeakMethod</span></code> has special code to recreate the bound
+hold of it.  <a class="reference internal" href="#weakref.WeakMethod" title="weakref.WeakMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeakMethod</span></code></a> has special code to recreate the bound
 method until either the object or the original function dies:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

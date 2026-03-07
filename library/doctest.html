@@ -386,7 +386,7 @@ number of examples that failed.</p>
 with assorted summaries at the end.</p>
 <p>You can force verbose mode by passing <code class="docutils literal notranslate"><span class="pre">verbose=True</span></code> to <a class="reference internal" href="#doctest.testmod" title="doctest.testmod"><code class="xref py py-func docutils literal notranslate"><span class="pre">testmod()</span></code></a>, or
 prohibit it by passing <code class="docutils literal notranslate"><span class="pre">verbose=False</span></code>.  In either of those cases,
-<a class="reference internal" href="sys.html#sys.argv" title="sys.argv"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.argv</span></code></a> is not examined by <code class="xref py py-func docutils literal notranslate"><span class="pre">testmod()</span></code> (so passing <code class="docutils literal notranslate"><span class="pre">-v</span></code> or not
+<a class="reference internal" href="sys.html#sys.argv" title="sys.argv"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.argv</span></code></a> is not examined by <a class="reference internal" href="#doctest.testmod" title="doctest.testmod"><code class="xref py py-func docutils literal notranslate"><span class="pre">testmod()</span></code></a> (so passing <code class="docutils literal notranslate"><span class="pre">-v</span></code> or not
 has no effect).</p>
 <p>There is also a command line shortcut for running <a class="reference internal" href="#doctest.testmod" title="doctest.testmod"><code class="xref py py-func docutils literal notranslate"><span class="pre">testmod()</span></code></a>, see section
 <a class="reference internal" href="#doctest-cli"><span class="std std-ref">Command-line Usage</span></a>.</p>
@@ -903,9 +903,9 @@ useful unless you intend to extend <code class="xref py py-mod docutils literal 
 <span class="sig-prename descclassname"><span class="pre">doctest.</span></span><span class="sig-name descname"><span class="pre">register_optionflag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L62">typeshed</a>)</p>
 <p>Create a new option flag with a given name, and return the new flag’s integer
-value.  <code class="xref py py-func docutils literal notranslate"><span class="pre">register_optionflag()</span></code> can be used when subclassing
+value.  <a class="reference internal" href="#doctest.register_optionflag" title="doctest.register_optionflag"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_optionflag()</span></code></a> can be used when subclassing
 <a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code></a> or <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to create new options that are
-supported by your subclasses.  <code class="xref py py-func docutils literal notranslate"><span class="pre">register_optionflag()</span></code> should always be
+supported by your subclasses.  <a class="reference internal" href="#doctest.register_optionflag" title="doctest.register_optionflag"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_optionflag()</span></code></a> should always be
 called using the following idiom:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">MY_FLAG</span> <span class="o">=</span> <span class="n">register_optionflag</span><span class="p">(</span><span class="s1">&#39;MY_FLAG&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1180,7 +1180,7 @@ searched directly, as if they were docstrings.</p>
 no doctests are found are excluded from consideration. The default is a backward
 compatibility hack, so that code still using
 <a class="reference internal" href="#doctest.DocTestRunner.summarize" title="doctest.DocTestRunner.summarize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">doctest.master.summarize</span></code></a> in
-conjunction with <code class="xref py py-func docutils literal notranslate"><span class="pre">testmod()</span></code> continues to get output for objects with no
+conjunction with <a class="reference internal" href="#doctest.testmod" title="doctest.testmod"><code class="xref py py-func docutils literal notranslate"><span class="pre">testmod()</span></code></a> continues to get output for objects with no
 tests. The <em>exclude_empty</em> argument to the newer <a class="reference internal" href="#doctest.DocTestFinder" title="doctest.DocTestFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestFinder</span></code></a>
 constructor defaults to true.</p>
 <p>Optional arguments <em>extraglobs</em>, <em>verbose</em>, <em>report</em>, <em>optionflags</em>,
@@ -1235,7 +1235,7 @@ flags are deduced corresponding to the set of future features found in <em>globs
 <p>As your collection of doctest’ed modules grows, you’ll want a way to run all
 their doctests systematically.  <code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code> provides two functions that can
 be used to create <a class="reference internal" href="unittest.html#module-unittest" title="unittest: Unit testing framework for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a> test suites from modules and text files
-containing doctests.  To integrate with <code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code> test discovery, include
+containing doctests.  To integrate with <a class="reference internal" href="unittest.html#module-unittest" title="unittest: Unit testing framework for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a> test discovery, include
 a <a class="reference internal" href="unittest.html#load-tests-protocol"><span class="std std-ref">load_tests</span></a> function in your test module:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
@@ -1323,7 +1323,7 @@ parser (i.e., <code class="docutils literal notranslate"><span class="pre">DocTe
 <p>Optional argument <em>encoding</em> specifies an encoding that should be used to
 convert the file to unicode.</p>
 <p>The global <code class="docutils literal notranslate"><span class="pre">__file__</span></code> is added to the globals provided to doctests loaded
-from a text file using <code class="xref py py-func docutils literal notranslate"><span class="pre">DocFileSuite()</span></code>.</p>
+from a text file using <a class="reference internal" href="#doctest.DocFileSuite" title="doctest.DocFileSuite"><code class="xref py py-func docutils literal notranslate"><span class="pre">DocFileSuite()</span></code></a>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.15: </span>Run each example as a <a class="reference internal" href="unittest.html#subtests"><span class="std std-ref">subtest</span></a>.</p>
 </div>
@@ -1382,7 +1382,7 @@ drop-in replacement) that is used to extract doctests from the module.</p>
 function <a class="reference internal" href="#doctest.DocFileSuite" title="doctest.DocFileSuite"><code class="xref py py-func docutils literal notranslate"><span class="pre">DocFileSuite()</span></code></a> above, but they are called for each docstring.</p>
 <p>This function uses the same search technique as <a class="reference internal" href="#doctest.testmod" title="doctest.testmod"><code class="xref py py-func docutils literal notranslate"><span class="pre">testmod()</span></code></a>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.5: </span><code class="xref py py-func docutils literal notranslate"><span class="pre">DocTestSuite()</span></code> returns an empty <a class="reference internal" href="unittest.html#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestSuite</span></code></a> if <em>module</em>
+<p><span class="versionmodified changed">Changed in version 3.5: </span><a class="reference internal" href="#doctest.DocTestSuite" title="doctest.DocTestSuite"><code class="xref py py-func docutils literal notranslate"><span class="pre">DocTestSuite()</span></code></a> returns an empty <a class="reference internal" href="unittest.html#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestSuite</span></code></a> if <em>module</em>
 contains no docstrings instead of raising <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
 </div>
 <div class="versionchanged">
@@ -1493,7 +1493,7 @@ diagram:</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L103">typeshed</a>)</p>
 <p>A collection of doctest examples that should be run in a single namespace.  The
 constructor arguments are used to initialize the attributes of the same names.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code> defines the following attributes.  They are initialized by
+<p><a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> defines the following attributes.  They are initialized by
 the constructor, and should not be modified directly.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="doctest.DocTest.examples">
@@ -1517,7 +1517,7 @@ after the test is run.</p>
 <dt class="sig sig-object py" id="doctest.DocTest.name">
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#doctest.DocTest.name" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L106">typeshed</a>)</p>
-<p>A string name identifying the <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code>.  Typically, this is the name
+<p>A string name identifying the <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>.  Typically, this is the name
 of the object or file that the test was extracted from.</p>
 </dd></dl>
 
@@ -1525,7 +1525,7 @@ of the object or file that the test was extracted from.</p>
 <dt class="sig sig-object py" id="doctest.DocTest.filename">
 <span class="sig-name descname"><span class="pre">filename</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#doctest.DocTest.filename" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L107">typeshed</a>)</p>
-<p>The name of the file that this <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code> was extracted from; or
+<p>The name of the file that this <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> was extracted from; or
 <code class="docutils literal notranslate"><span class="pre">None</span></code> if the filename is unknown, or if the <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code> was not
 extracted from a file.</p>
 </dd></dl>
@@ -1534,7 +1534,7 @@ extracted from a file.</p>
 <dt class="sig sig-object py" id="doctest.DocTest.lineno">
 <span class="sig-name descname"><span class="pre">lineno</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="functions.html#int" title="int"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#doctest.DocTest.lineno" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L108">typeshed</a>)</p>
-<p>The line number within <a class="reference internal" href="#doctest.DocTest.filename" title="doctest.DocTest.filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">filename</span></code></a> where this <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code> begins, or
+<p>The line number within <a class="reference internal" href="#doctest.DocTest.filename" title="doctest.DocTest.filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">filename</span></code></a> where this <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> begins, or
 <code class="docutils literal notranslate"><span class="pre">None</span></code> if the line number is unavailable.  This line number is zero-based
 with respect to the beginning of the file.</p>
 </dd></dl>
@@ -1572,7 +1572,7 @@ unavailable, or if the test was not extracted from a string.</p>
 <p>A single interactive example, consisting of a Python statement and its expected
 output.  The constructor arguments are used to initialize the attributes of
 the same names.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code> defines the following attributes.  They are initialized by
+<p><a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a> defines the following attributes.  They are initialized by
 the constructor, and should not be modified directly.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="doctest.Example.source">
@@ -1663,7 +1663,7 @@ By default, no options are set.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L128">typeshed</a>)</p>
 <p>A processing class used to extract the <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>s that are relevant to
 a given object, from its docstring and the docstrings of its contained objects.
-<code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code>s can be extracted from modules, classes, functions,
+<a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>s can be extracted from modules, classes, functions,
 methods, staticmethods, classmethods, and properties.</p>
 <p>The optional argument <em>verbose</em> can be used to display the objects searched by
 the finder.  It defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code> (no output).</p>
@@ -1673,7 +1673,7 @@ drop-in replacement) that is used to extract doctests from docstrings.</p>
 will only examine the given object, and not any contained objects.</p>
 <p>If the optional argument <em>exclude_empty</em> is false, then
 <a class="reference internal" href="#doctest.DocTestFinder.find" title="doctest.DocTestFinder.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestFinder.find()</span></code></a> will include tests for objects with empty docstrings.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestFinder</span></code> defines the following method:</p>
+<p><a class="reference internal" href="#doctest.DocTestFinder" title="doctest.DocTestFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestFinder</span></code></a> defines the following method:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="doctest.DocTestFinder.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obj[,</span> <span class="pre">name][,</span> <span class="pre">module][,</span> <span class="pre">globs][,</span> <span class="pre">extraglobs]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestFinder.find" title="Link to this definition">¶</a></dt>
@@ -1732,7 +1732,7 @@ If <em>extraglobs</em> is not specified, then it defaults to <code class="docuti
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L123">typeshed</a>)</p>
 <p>A processing class used to extract interactive examples from a string, and use
 them to create a <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> object.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestParser</span></code> defines the following methods:</p>
+<p><a class="reference internal" href="#doctest.DocTestParser" title="doctest.DocTestParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestParser</span></code></a> defines the following methods:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="doctest.DocTestParser.get_doctest">
 <span class="sig-name descname"><span class="pre">get_doctest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">globs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lineno</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestParser.get_doctest" title="Link to this definition">¶</a></dt>
@@ -1850,7 +1850,7 @@ customized by subclassing DocTestRunner, and overriding the methods
 <p>The optional keyword argument <em>checker</em> specifies the <a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code></a>
 object (or drop-in replacement) that should be used to compare the expected
 outputs to the actual outputs of doctest examples.</p>
-<p>The optional keyword argument <em>verbose</em> controls the <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code>’s
+<p>The optional keyword argument <em>verbose</em> controls the <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a>’s
 verbosity.  If <em>verbose</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, then information is printed about each
 example, as it is run.  If <em>verbose</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, then only failures are
 printed.  If <em>verbose</em> is unspecified, or <code class="docutils literal notranslate"><span class="pre">None</span></code>, then verbose output is used
@@ -1862,12 +1862,12 @@ For more information, see section <a class="reference internal" href="#doctest-o
 failed and skipped examples is also available via the <a class="reference internal" href="#doctest.DocTestRunner.tries" title="doctest.DocTestRunner.tries"><code class="xref py py-attr docutils literal notranslate"><span class="pre">tries</span></code></a>,
 <a class="reference internal" href="#doctest.DocTestRunner.failures" title="doctest.DocTestRunner.failures"><code class="xref py py-attr docutils literal notranslate"><span class="pre">failures</span></code></a> and <a class="reference internal" href="#doctest.DocTestRunner.skips" title="doctest.DocTestRunner.skips"><code class="xref py py-attr docutils literal notranslate"><span class="pre">skips</span></code></a> attributes. The <a class="reference internal" href="#doctest.DocTestRunner.run" title="doctest.DocTestRunner.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> and
 <a class="reference internal" href="#doctest.DocTestRunner.summarize" title="doctest.DocTestRunner.summarize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summarize()</span></code></a> methods return a <a class="reference internal" href="#doctest.TestResults" title="doctest.TestResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestResults</span></code></a> instance.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code> defines the following methods:</p>
+<p><a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> defines the following methods:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="doctest.DocTestRunner.report_skip">
 <span class="sig-name descname"><span class="pre">report_skip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">example</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_skip" title="Link to this definition">¶</a></dt>
 <dd><p>Report that the given example was skipped.  This method is provided to
-allow subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code> to customize their output; it
+allow subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their output; it
 should not be called directly.</p>
 <p><em>example</em> is the example about to be processed.  <em>test</em> is the test
 containing <em>example</em>.  <em>out</em> is the output function that was passed to
@@ -1892,7 +1892,7 @@ containing <em>example</em>.  <em>out</em> is the output function that was passe
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L153">typeshed</a>)</p>
 <p>Report that the test runner is about to process the given example. This method
-is provided to allow subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code> to customize their
+is provided to allow subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their
 output; it should not be called directly.</p>
 <p><em>example</em> is the example about to be processed.  <em>test</em> is the test
 containing <em>example</em>.  <em>out</em> is the output function that was passed to
@@ -1915,7 +1915,7 @@ containing <em>example</em>.  <em>out</em> is the output function that was passe
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L154">typeshed</a>)</p>
 <p>Report that the given example ran successfully.  This method is provided to
-allow subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code> to customize their output; it
+allow subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their output; it
 should not be called directly.</p>
 <p><em>example</em> is the example about to be processed.  <em>got</em> is the actual output
 from the example.  <em>test</em> is the test containing <em>example</em>.  <em>out</em> is the
@@ -1938,7 +1938,7 @@ output function that was passed to <a class="reference internal" href="#doctest.
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L155">typeshed</a>)</p>
 <p>Report that the given example failed.  This method is provided to allow
-subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code> to customize their output; it should not
+subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their output; it should not
 be called directly.</p>
 <p><em>example</em> is the example about to be processed.  <em>got</em> is the actual output
 from the example.  <em>test</em> is the test containing <em>example</em>.  <em>out</em> is the
@@ -1961,7 +1961,7 @@ output function that was passed to <a class="reference internal" href="#doctest.
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L156">typeshed</a>)</p>
 <p>Report that the given example raised an unexpected exception. This method is
-provided to allow subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code> to customize their
+provided to allow subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their
 output; it should not be called directly.</p>
 <p><em>example</em> is the example about to be processed. <em>exc_info</em> is a tuple
 containing information about the unexpected exception (as returned by
@@ -1994,7 +1994,7 @@ after the test completes, then use <em>clear_globs=False</em>.</p>
 <p><em>compileflags</em> gives the set of flags that should be used by the Python
 compiler when running the examples.  If not specified, then it will default to
 the set of future-import flags that apply to <em>globs</em>.</p>
-<p>The output of each example is checked using the <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code>’s
+<p>The output of each example is checked using the <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a>’s
 output checker, and the results are formatted by the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestRunner.report_*()</span></code> methods.</p>
 </dd></dl>
@@ -2008,7 +2008,7 @@ output checker, and the results are formatted by the
 <p>Print a summary of all the test cases that have been run by this DocTestRunner,
 and return a <a class="reference internal" href="#doctest.TestResults" title="doctest.TestResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestResults</span></code></a> instance.</p>
 <p>The optional <em>verbose</em> argument controls how detailed the summary is.  If the
-verbosity is not specified, then the <code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code>’s verbosity is
+verbosity is not specified, then the <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a>’s verbosity is
 used.</p>
 </dd></dl>
 
@@ -2049,11 +2049,11 @@ used.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">doctest.</span></span><span class="sig-name descname"><span class="pre">OutputChecker</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><span class="pre">OutputChecker</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/doctest.pyi#L163">typeshed</a>)</p>
 <p>A class used to check the whether the actual output from a doctest example
-matches the expected output.  <code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code> defines two methods:
+matches the expected output.  <a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code></a> defines two methods:
 <a class="reference internal" href="#doctest.OutputChecker.check_output" title="doctest.OutputChecker.check_output"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check_output()</span></code></a>, which compares a given pair of outputs, and returns <code class="docutils literal notranslate"><span class="pre">True</span></code>
 if they match; and <a class="reference internal" href="#doctest.OutputChecker.output_difference" title="doctest.OutputChecker.output_difference"><code class="xref py py-meth docutils literal notranslate"><span class="pre">output_difference()</span></code></a>, which returns a string describing
 the differences between two outputs.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code> defines the following methods:</p>
+<p><a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code></a> defines the following methods:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="doctest.OutputChecker.check_output">
 <span class="sig-name descname"><span class="pre">check_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">want</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">got</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optionflags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.OutputChecker.check_output" title="Link to this definition">¶</a></dt>
@@ -2258,7 +2258,7 @@ If specified, a shallow copy of the dictionary is used.</p>
 
 <p>The <a class="reference internal" href="#doctest.DebugRunner" title="doctest.DebugRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DebugRunner</span></code></a> class, and the special exceptions it may raise, are of
 most interest to testing framework authors, and will only be sketched here.  See
-the source code, and especially <code class="xref py py-class docutils literal notranslate"><span class="pre">DebugRunner</span></code>’s docstring (which is a
+the source code, and especially <a class="reference internal" href="#doctest.DebugRunner" title="doctest.DebugRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DebugRunner</span></code></a>’s docstring (which is a
 doctest!) for more details:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="doctest.DebugRunner">

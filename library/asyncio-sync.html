@@ -284,7 +284,7 @@ statement:</p>
 <p>Acquire the lock.</p>
 <p>This method waits until the lock is <em>unlocked</em>, sets it to
 <em>locked</em> and returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p>When more than one coroutine is blocked in <code class="xref py py-meth docutils literal notranslate"><span class="pre">acquire()</span></code>
+<p>When more than one coroutine is blocked in <a class="reference internal" href="#asyncio.Lock.acquire" title="asyncio.Lock.acquire"><code class="xref py py-meth docutils literal notranslate"><span class="pre">acquire()</span></code></a>
 waiting for the lock to be unlocked, only one coroutine
 eventually proceeds.</p>
 <p>Acquiring a lock is <em>fair</em>: the coroutine that proceeds will be
@@ -516,7 +516,7 @@ Once awakened, the Condition re-acquires its lock and this method
 returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <p>Note that a task <em>may</em> return from this call spuriously,
 which is why the caller should always re-check the state
-and be prepared to <code class="xref py py-meth docutils literal notranslate"><span class="pre">wait()</span></code> again. For this reason, you may
+and be prepared to <a class="reference internal" href="#asyncio.Condition.wait" title="asyncio.Condition.wait"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wait()</span></code></a> again. For this reason, you may
 prefer to use <a class="reference internal" href="#asyncio.Condition.wait_for" title="asyncio.Condition.wait_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wait_for()</span></code></a> instead.</p>
 </dd></dl>
 
@@ -553,9 +553,9 @@ return value.</p>
 <p>A Semaphore object.  Not thread-safe.</p>
 <p>A semaphore manages an internal counter which is decremented by each
 <a class="reference internal" href="#asyncio.Semaphore.acquire" title="asyncio.Semaphore.acquire"><code class="xref py py-meth docutils literal notranslate"><span class="pre">acquire()</span></code></a> call and incremented by each <a class="reference internal" href="#asyncio.Semaphore.release" title="asyncio.Semaphore.release"><code class="xref py py-meth docutils literal notranslate"><span class="pre">release()</span></code></a> call.
-The counter can never go below zero; when <code class="xref py py-meth docutils literal notranslate"><span class="pre">acquire()</span></code> finds
+The counter can never go below zero; when <a class="reference internal" href="#asyncio.Semaphore.acquire" title="asyncio.Semaphore.acquire"><code class="xref py py-meth docutils literal notranslate"><span class="pre">acquire()</span></code></a> finds
 that it is zero, it blocks, waiting until some task calls
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">release()</span></code>.</p>
+<a class="reference internal" href="#asyncio.Semaphore.release" title="asyncio.Semaphore.release"><code class="xref py py-meth docutils literal notranslate"><span class="pre">release()</span></code></a>.</p>
 <p>The optional <em>value</em> argument gives the initial value for the
 internal counter (<code class="docutils literal notranslate"><span class="pre">1</span></code> by default). If the given value is
 less than <code class="docutils literal notranslate"><span class="pre">0</span></code> a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised.</p>
@@ -611,7 +611,7 @@ until a <a class="reference internal" href="#asyncio.Semaphore.release" title="a
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/asyncio/locks.pyi#L80">typeshed</a>)</p>
 <p>Release a semaphore, incrementing the internal counter by one.
 Can wake up a task waiting to acquire the semaphore.</p>
-<p>Unlike <a class="reference internal" href="#asyncio.BoundedSemaphore" title="asyncio.BoundedSemaphore"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoundedSemaphore</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Semaphore</span></code> allows
+<p>Unlike <a class="reference internal" href="#asyncio.BoundedSemaphore" title="asyncio.BoundedSemaphore"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoundedSemaphore</span></code></a>, <a class="reference internal" href="#asyncio.Semaphore" title="asyncio.Semaphore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Semaphore</span></code></a> allows
 making more <code class="docutils literal notranslate"><span class="pre">release()</span></code> calls than <code class="docutils literal notranslate"><span class="pre">acquire()</span></code> calls.</p>
 </dd></dl>
 
@@ -648,7 +648,7 @@ increases the internal counter above the initial <em>value</em>.</p>
 <p>A barrier is a simple synchronization primitive that allows to block until
 <em>parties</em> number of tasks are waiting on it.
 Tasks can wait on the <a class="reference internal" href="#asyncio.Barrier.wait" title="asyncio.Barrier.wait"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wait()</span></code></a> method and would be blocked until
-the specified number of tasks end up waiting on <code class="xref py py-meth docutils literal notranslate"><span class="pre">wait()</span></code>.
+the specified number of tasks end up waiting on <a class="reference internal" href="#asyncio.Barrier.wait" title="asyncio.Barrier.wait"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wait()</span></code></a>.
 At that point all of the waiting tasks would unblock simultaneously.</p>
 <p><a class="reference internal" href="../reference/compound_stmts.html#async-with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code></a> can be used as an alternative to awaiting on
 <a class="reference internal" href="#asyncio.Barrier.wait" title="asyncio.Barrier.wait"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wait()</span></code></a>.</p>

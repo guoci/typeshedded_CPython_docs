@@ -385,7 +385,7 @@ purposes.</p>
 <p>Return a new <a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> object with default settings for
 the given <em>purpose</em>.  The settings are chosen by the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ssl</span></code> module,
 and usually represent a higher security level than when calling the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code> constructor directly.</p>
+<a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> constructor directly.</p>
 <p><em>cafile</em>, <em>capath</em>, <em>cadata</em> represent optional CA certificates to
 trust for certificate verification, as in
 <a class="reference internal" href="#ssl.SSLContext.load_verify_locations" title="ssl.SSLContext.load_verify_locations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.load_verify_locations()</span></code></a>.  If all three are
@@ -400,7 +400,7 @@ and either loads CA certificates (when at least one of <em>cafile</em>, <em>capa
 <em>cadata</em> is given) or uses <a class="reference internal" href="#ssl.SSLContext.load_default_certs" title="ssl.SSLContext.load_default_certs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.load_default_certs()</span></code></a> to load
 default CA certificates.</p>
 <p>When <a class="reference internal" href="#ssl.SSLContext.keylog_filename" title="ssl.SSLContext.keylog_filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">keylog_filename</span></code></a> is supported and the environment
-variable <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">SSLKEYLOGFILE</span></code> is set, <code class="xref py py-func docutils literal notranslate"><span class="pre">create_default_context()</span></code>
+variable <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">SSLKEYLOGFILE</span></code> is set, <a class="reference internal" href="#ssl.create_default_context" title="ssl.create_default_context"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_default_context()</span></code></a>
 enables key logging.</p>
 <p>The default settings for this context include
 <a class="reference internal" href="#ssl.VERIFY_X509_PARTIAL_CHAIN" title="ssl.VERIFY_X509_PARTIAL_CHAIN"><code class="xref py py-data docutils literal notranslate"><span class="pre">VERIFY_X509_PARTIAL_CHAIN</span></code></a> and <a class="reference internal" href="#ssl.VERIFY_X509_STRICT" title="ssl.VERIFY_X509_STRICT"><code class="xref py py-data docutils literal notranslate"><span class="pre">VERIFY_X509_STRICT</span></code></a>.
@@ -499,9 +499,9 @@ certificate-based authentication. For example:</p>
 problem in the higher-level encryption and authentication layer that’s
 superimposed on the underlying network connection.  This error
 is a subtype of <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>.  The error code and message of
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLError</span></code> instances are provided by the OpenSSL library.</p>
+<a class="reference internal" href="#ssl.SSLError" title="ssl.SSLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLError</span></code></a> instances are provided by the OpenSSL library.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.3: </span><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLError</span></code> used to be a subtype of <a class="reference internal" href="socket.html#socket.error" title="socket.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">socket.error</span></code></a>.</p>
+<p><span class="versionmodified changed">Changed in version 3.3: </span><a class="reference internal" href="#ssl.SSLError" title="ssl.SSLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLError</span></code></a> used to be a subtype of <a class="reference internal" href="socket.html#socket.error" title="socket.error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">socket.error</span></code></a>.</p>
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ssl.SSLError.library">
@@ -882,7 +882,7 @@ does not send any for client cert authentication.</p>
 <p>Possible value for <a class="reference internal" href="#ssl.SSLContext.verify_mode" title="ssl.SSLContext.verify_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a>.
 In client mode, <a class="reference internal" href="#ssl.CERT_OPTIONAL" title="ssl.CERT_OPTIONAL"><code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_OPTIONAL</span></code></a>
 has the same meaning as <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a>. It is recommended to
-use <code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code> for client-side sockets instead.</p>
+use <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a> for client-side sockets instead.</p>
 <p>In server mode, a client certificate request is sent to the client.  The
 client may either ignore the request or send a certificate in order
 perform TLS client cert authentication.  If the client chooses to send
@@ -904,7 +904,7 @@ This mode is <strong>not</strong> sufficient to verify a certificate in client m
 it does not match hostnames.  <a class="reference internal" href="#ssl.SSLContext.check_hostname" title="ssl.SSLContext.check_hostname"><code class="xref py py-attr docutils literal notranslate"><span class="pre">check_hostname</span></code></a> must be
 enabled as well to verify the authenticity of a cert.
 <a class="reference internal" href="#ssl.PROTOCOL_TLS_CLIENT" title="ssl.PROTOCOL_TLS_CLIENT"><code class="xref py py-const docutils literal notranslate"><span class="pre">PROTOCOL_TLS_CLIENT</span></code></a> uses <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a> and
-enables <code class="xref py py-attr docutils literal notranslate"><span class="pre">check_hostname</span></code> by default.</p>
+enables <a class="reference internal" href="#ssl.SSLContext.check_hostname" title="ssl.SSLContext.check_hostname"><code class="xref py py-attr docutils literal notranslate"><span class="pre">check_hostname</span></code></a> by default.</p>
 <p>With server socket, this mode provides mandatory TLS client cert
 authentication.  A client certificate request is sent to the client and
 the client must provide a valid and trusted certificate.</p>
@@ -1696,7 +1696,7 @@ TLS/SSL versions.</p>
 <p>SSL 3.0 to TLS 1.3.</p>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.10: </span>All <a class="reference internal" href="#ssl.TLSVersion" title="ssl.TLSVersion"><code class="xref py py-class docutils literal notranslate"><span class="pre">TLSVersion</span></code></a> members except <a class="reference internal" href="#ssl.TLSVersion.TLSv1_2" title="ssl.TLSVersion.TLSv1_2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TLSVersion.TLSv1_2</span></code></a> and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">TLSVersion.TLSv1_3</span></code> are deprecated.</p>
+<a class="reference internal" href="#ssl.TLSVersion.TLSv1_3" title="ssl.TLSVersion.TLSv1_3"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TLSVersion.TLSv1_3</span></code></a> are deprecated.</p>
 </div>
 </dd></dl>
 
@@ -1737,7 +1737,7 @@ socket is plain-text, else <a class="reference internal" href="socket.html#socke
 of TCP, the SSL sockets abstraction can, in certain respects, diverge from
 the specification of normal, OS-level sockets.  See especially the
 <a class="reference internal" href="#ssl-nonblocking"><span class="std std-ref">notes on non-blocking sockets</span></a>.</p>
-<p>Instances of <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code> must be created using the
+<p>Instances of <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a> must be created using the
 <a class="reference internal" href="#ssl.SSLContext.wrap_socket" title="ssl.SSLContext.wrap_socket"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.wrap_socket()</span></code></a> method.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">sendfile()</span></code> method was added.</p>
@@ -1748,11 +1748,11 @@ are received or sent. The socket timeout is now the maximum total duration
 of the shutdown.</p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 3.6: </span>It is deprecated to create a <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code> instance directly, use
+<p><span class="versionmodified deprecated">Deprecated since version 3.6: </span>It is deprecated to create a <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a> instance directly, use
 <a class="reference internal" href="#ssl.SSLContext.wrap_socket" title="ssl.SSLContext.wrap_socket"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.wrap_socket()</span></code></a> to wrap a socket.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.7: </span><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code> instances must to created with
+<p><span class="versionmodified changed">Changed in version 3.7: </span><a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a> instances must to created with
 <a class="reference internal" href="#ssl.SSLContext.wrap_socket" title="ssl.SSLContext.wrap_socket"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wrap_socket()</span></code></a>. In earlier versions, it was possible
 to create instances directly. This was never documented or officially
 supported.</p>
@@ -1781,7 +1781,7 @@ a <code class="docutils literal notranslate"><span class="pre">bytes</span></cod
 instead, and return the number of bytes read.</p>
 <p>Raise <a class="reference internal" href="#ssl.SSLWantReadError" title="ssl.SSLWantReadError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantReadError</span></code></a> or <a class="reference internal" href="#ssl.SSLWantWriteError" title="ssl.SSLWantWriteError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantWriteError</span></code></a> if the socket is
 <a class="reference internal" href="#ssl-nonblocking"><span class="std std-ref">non-blocking</span></a> and the read would block.</p>
-<p>As at any time a re-negotiation is possible, a call to <code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code> can also
+<p>As at any time a re-negotiation is possible, a call to <a class="reference internal" href="#ssl.SSLSocket.read" title="ssl.SSLSocket.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a> can also
 cause write operations.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>The socket timeout is no longer reset each time bytes are received or sent.
@@ -1789,7 +1789,7 @@ The socket timeout is now the maximum total duration to read up to <em>len</em>
 bytes.</p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 3.6: </span>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code> instead of <code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code>.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 3.6: </span>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code> instead of <a class="reference internal" href="#ssl.SSLSocket.read" title="ssl.SSLSocket.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a>.</p>
 </div>
 </dd></dl>
 
@@ -1803,14 +1803,14 @@ bytes.</p>
 <em>data</em> argument must be an object supporting the buffer interface.</p>
 <p>Raise <a class="reference internal" href="#ssl.SSLWantReadError" title="ssl.SSLWantReadError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantReadError</span></code></a> or <a class="reference internal" href="#ssl.SSLWantWriteError" title="ssl.SSLWantWriteError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantWriteError</span></code></a> if the socket is
 <a class="reference internal" href="#ssl-nonblocking"><span class="std std-ref">non-blocking</span></a> and the write would block.</p>
-<p>As at any time a re-negotiation is possible, a call to <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code> can
+<p>As at any time a re-negotiation is possible, a call to <a class="reference internal" href="#ssl.SSLSocket.write" title="ssl.SSLSocket.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> can
 also cause read operations.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>The socket timeout is no longer reset each time bytes are received or sent.
 The socket timeout is now the maximum total duration to write <em>data</em>.</p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 3.6: </span>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code> instead of <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code>.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 3.6: </span>Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code> instead of <a class="reference internal" href="#ssl.SSLSocket.write" title="ssl.SSLSocket.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>.</p>
 </div>
 </dd></dl>
 
@@ -1911,7 +1911,7 @@ socket’s role:</p>
 <li><p>for a client SSL socket, the server will always provide a certificate,
 regardless of whether validation was required;</p></li>
 <li><p>for a server SSL socket, the client will only provide a certificate
-when requested by the server; therefore <code class="xref py py-meth docutils literal notranslate"><span class="pre">getpeercert()</span></code> will return
+when requested by the server; therefore <a class="reference internal" href="#ssl.SSLSocket.getpeercert" title="ssl.SSLSocket.getpeercert"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getpeercert()</span></code></a> will return
 <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if you used <a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a> (rather than
 <a class="reference internal" href="#ssl.CERT_OPTIONAL" title="ssl.CERT_OPTIONAL"><code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_OPTIONAL</span></code></a> or <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-const docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a>).</p></li>
 </ul>
@@ -1978,7 +1978,7 @@ bits being used.  If no connection has been established, returns <code class="do
 <p>Return the list of ciphers available in both the client and server.  Each
 entry of the returned list is a three-value tuple containing the name of the
 cipher, the version of the SSL protocol that defines its use, and the number
-of secret bits the cipher uses.  <code class="xref py py-meth docutils literal notranslate"><span class="pre">shared_ciphers()</span></code> returns
+of secret bits the cipher uses.  <a class="reference internal" href="#ssl.SSLSocket.shared_ciphers" title="ssl.SSLSocket.shared_ciphers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shared_ciphers()</span></code></a> returns
 <code class="docutils literal notranslate"><span class="pre">None</span></code> if no connection has been established or the socket is a client
 socket.</p>
 <div class="versionadded">
@@ -2318,12 +2318,12 @@ to which versions in a server (along the top):</p>
 <aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id5">2</a>)</span>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code> disables SSLv2 with <a class="reference internal" href="#ssl.OP_NO_SSLv2" title="ssl.OP_NO_SSLv2"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP_NO_SSLv2</span></code></a> by default.</p>
+<p><a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> disables SSLv2 with <a class="reference internal" href="#ssl.OP_NO_SSLv2" title="ssl.OP_NO_SSLv2"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP_NO_SSLv2</span></code></a> by default.</p>
 </aside>
 <aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id6">2</a>)</span>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code> disables SSLv3 with <a class="reference internal" href="#ssl.OP_NO_SSLv3" title="ssl.OP_NO_SSLv3"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP_NO_SSLv3</span></code></a> by default.</p>
+<p><a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> disables SSLv3 with <a class="reference internal" href="#ssl.OP_NO_SSLv3" title="ssl.OP_NO_SSLv3"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP_NO_SSLv3</span></code></a> by default.</p>
 </aside>
 <aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
@@ -2348,7 +2348,7 @@ set by default. The initial cipher suite list contains only <code class="docutil
 ciphers, no <code class="docutils literal notranslate"><span class="pre">NULL</span></code> ciphers and no <code class="docutils literal notranslate"><span class="pre">MD5</span></code> ciphers.</p>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 3.10: </span><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code> without protocol argument is deprecated. The
+<p><span class="versionmodified deprecated">Deprecated since version 3.10: </span><a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> without protocol argument is deprecated. The
 context class will either require <a class="reference internal" href="#ssl.PROTOCOL_TLS_CLIENT" title="ssl.PROTOCOL_TLS_CLIENT"><code class="xref py py-data docutils literal notranslate"><span class="pre">PROTOCOL_TLS_CLIENT</span></code></a> or
 <a class="reference internal" href="#ssl.PROTOCOL_TLS_SERVER" title="ssl.PROTOCOL_TLS_SERVER"><code class="xref py py-data docutils literal notranslate"><span class="pre">PROTOCOL_TLS_SERVER</span></code></a> protocol in the future.</p>
 </div>
@@ -2361,14 +2361,14 @@ less than 2048 bits and ECC keys with less than 224 bits are prohibited.
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code> only supports limited mutation once it has been used
+<p><a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> only supports limited mutation once it has been used
 by a connection. Adding new certificates to the internal trust store is
 allowed, but changing ciphers, verification settings, or mTLS
 certificates may result in surprising behavior.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code> is designed to be shared and used by multiple
+<p><a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> is designed to be shared and used by multiple
 connections.
 Thus, it is thread-safe as long as it is not reconfigured after being
 used by a connection.</p>
@@ -2782,7 +2782,7 @@ will not return meaningful values nor can they be called safely.</p>
 TLS negotiation to continue.  If a TLS failure is required, a constant
 <a class="reference internal" href="#ssl.ALERT_DESCRIPTION_INTERNAL_ERROR" title="ssl.ALERT_DESCRIPTION_INTERNAL_ERROR"><code class="xref py py-const docutils literal notranslate"><span class="pre">ALERT_DESCRIPTION_*</span></code></a> can be
 returned.  Other return values will result in a TLS fatal error with
-<code class="xref py py-const docutils literal notranslate"><span class="pre">ALERT_DESCRIPTION_INTERNAL_ERROR</span></code>.</p>
+<a class="reference internal" href="#ssl.ALERT_DESCRIPTION_INTERNAL_ERROR" title="ssl.ALERT_DESCRIPTION_INTERNAL_ERROR"><code class="xref py py-const docutils literal notranslate"><span class="pre">ALERT_DESCRIPTION_INTERNAL_ERROR</span></code></a>.</p>
 <p>If an exception is raised from the <em>sni_callback</em> function the TLS
 connection will terminate with a fatal TLS alert message
 <a class="reference internal" href="#ssl.ALERT_DESCRIPTION_HANDSHAKE_FAILURE" title="ssl.ALERT_DESCRIPTION_HANDSHAKE_FAILURE"><code class="xref py py-const docutils literal notranslate"><span class="pre">ALERT_DESCRIPTION_HANDSHAKE_FAILURE</span></code></a>.</p>
@@ -2904,7 +2904,7 @@ raise a <a class="reference internal" href="exceptions.html#ValueError" title="V
 handshake automatically after doing a <code class="xref py py-meth docutils literal notranslate"><span class="pre">socket.connect()</span></code>, or whether the
 application program will call it explicitly, by invoking the
 <a class="reference internal" href="#ssl.SSLSocket.do_handshake" title="ssl.SSLSocket.do_handshake"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLSocket.do_handshake()</span></code></a> method.  Calling
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLSocket.do_handshake()</span></code> explicitly gives the program control over the
+<a class="reference internal" href="#ssl.SSLSocket.do_handshake" title="ssl.SSLSocket.do_handshake"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLSocket.do_handshake()</span></code></a> explicitly gives the program control over the
 blocking behavior of the socket I/O involved in the handshake.</p>
 <p>The parameter <code class="docutils literal notranslate"><span class="pre">suppress_ragged_eofs</span></code> specifies how the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLSocket.recv()</span></code> method should signal unexpected EOF from the other end
@@ -2913,7 +2913,7 @@ normal EOF (an empty bytes object) in response to unexpected EOF errors
 raised from the underlying socket; if <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a>, it will raise the
 exceptions back to the caller.</p>
 <p><em>session</em>, see <a class="reference internal" href="#ssl.SSLSocket.session" title="ssl.SSLSocket.session"><code class="xref py py-attr docutils literal notranslate"><span class="pre">session</span></code></a>.</p>
-<p>To wrap an <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a> in another <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code>, use
+<p>To wrap an <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a> in another <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a>, use
 <a class="reference internal" href="#ssl.SSLContext.wrap_bio" title="ssl.SSLContext.wrap_bio"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.wrap_bio()</span></code></a>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>Always allow a server_hostname to be passed, even if OpenSSL does not
@@ -2935,7 +2935,7 @@ instead of hard-coded <a class="reference internal" href="#ssl.SSLSocket" title=
 <p>The return type of <a class="reference internal" href="#ssl.SSLContext.wrap_socket" title="ssl.SSLContext.wrap_socket"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.wrap_socket()</span></code></a>, defaults to
 <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a>. The attribute can be assigned to on instances of
 <a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> in order to return a custom subclass of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code>.</p>
+<a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
@@ -2988,7 +2988,7 @@ instead of hard-coded <a class="reference internal" href="#ssl.SSLObject" title=
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/ssl.pyi#L384">typeshed</a>)</p>
 <p>The return type of <a class="reference internal" href="#ssl.SSLContext.wrap_bio" title="ssl.SSLContext.wrap_bio"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.wrap_bio()</span></code></a>, defaults to
 <a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a>. The attribute can be overridden on instance of class
-in order to return a custom subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code>.</p>
+in order to return a custom subclass of <a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
@@ -3020,9 +3020,9 @@ in the session cache since the context was created:</p>
 <a class="reference internal" href="#ssl.SSLContext.verify_mode" title="ssl.SSLContext.verify_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">verify_mode</span></code></a> must be set to <a class="reference internal" href="#ssl.CERT_OPTIONAL" title="ssl.CERT_OPTIONAL"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_OPTIONAL</span></code></a> or
 <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a>, and you must pass <em>server_hostname</em> to
 <a class="reference internal" href="#ssl.SSLContext.wrap_socket" title="ssl.SSLContext.wrap_socket"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wrap_socket()</span></code></a> in order to match the hostname.  Enabling
-hostname checking automatically sets <code class="xref py py-attr docutils literal notranslate"><span class="pre">verify_mode</span></code> from
-<a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a> to <code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code>.  It cannot be set back to
-<code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_NONE</span></code> as long as hostname checking is enabled. The
+hostname checking automatically sets <a class="reference internal" href="#ssl.SSLContext.verify_mode" title="ssl.SSLContext.verify_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">verify_mode</span></code></a> from
+<a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a> to <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a>.  It cannot be set back to
+<a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a> as long as hostname checking is enabled. The
 <a class="reference internal" href="#ssl.PROTOCOL_TLS_CLIENT" title="ssl.PROTOCOL_TLS_CLIENT"><code class="xref py py-data docutils literal notranslate"><span class="pre">PROTOCOL_TLS_CLIENT</span></code></a> protocol enables hostname checking by default.
 With other protocols, hostname checking must be enabled explicitly.</p>
 <p>Example:</p>
@@ -3044,7 +3044,7 @@ With other protocols, hostname checking must be enabled explicitly.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.7: </span><a class="reference internal" href="#ssl.SSLContext.verify_mode" title="ssl.SSLContext.verify_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">verify_mode</span></code></a> is now automatically changed
 to <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a>  when hostname checking is enabled and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">verify_mode</span></code> is <a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a>. Previously
+<a class="reference internal" href="#ssl.SSLContext.verify_mode" title="ssl.SSLContext.verify_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">verify_mode</span></code></a> is <a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a>. Previously
 the same operation would have failed with a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -3071,13 +3071,13 @@ synchronized between threads, but not between processes.</p>
 TLS version. The value defaults to <a class="reference internal" href="#ssl.TLSVersion.MAXIMUM_SUPPORTED" title="ssl.TLSVersion.MAXIMUM_SUPPORTED"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TLSVersion.MAXIMUM_SUPPORTED</span></code></a>.
 The attribute is read-only for protocols other than <a class="reference internal" href="#ssl.PROTOCOL_TLS" title="ssl.PROTOCOL_TLS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PROTOCOL_TLS</span></code></a>,
 <a class="reference internal" href="#ssl.PROTOCOL_TLS_CLIENT" title="ssl.PROTOCOL_TLS_CLIENT"><code class="xref py py-const docutils literal notranslate"><span class="pre">PROTOCOL_TLS_CLIENT</span></code></a>, and <a class="reference internal" href="#ssl.PROTOCOL_TLS_SERVER" title="ssl.PROTOCOL_TLS_SERVER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PROTOCOL_TLS_SERVER</span></code></a>.</p>
-<p>The attributes <code class="xref py py-attr docutils literal notranslate"><span class="pre">maximum_version</span></code>,
+<p>The attributes <a class="reference internal" href="#ssl.SSLContext.maximum_version" title="ssl.SSLContext.maximum_version"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maximum_version</span></code></a>,
 <a class="reference internal" href="#ssl.SSLContext.minimum_version" title="ssl.SSLContext.minimum_version"><code class="xref py py-attr docutils literal notranslate"><span class="pre">minimum_version</span></code></a> and
 <a class="reference internal" href="#ssl.SSLContext.options" title="ssl.SSLContext.options"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.options</span></code></a> all affect the supported SSL
 and TLS versions of the context. The implementation does not prevent
 invalid combination. For example a context with
-<a class="reference internal" href="#ssl.OP_NO_TLSv1_2" title="ssl.OP_NO_TLSv1_2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">OP_NO_TLSv1_2</span></code></a> in <code class="xref py py-attr docutils literal notranslate"><span class="pre">options</span></code> and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">maximum_version</span></code> set to <a class="reference internal" href="#ssl.TLSVersion.TLSv1_2" title="ssl.TLSVersion.TLSv1_2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TLSVersion.TLSv1_2</span></code></a>
+<a class="reference internal" href="#ssl.OP_NO_TLSv1_2" title="ssl.OP_NO_TLSv1_2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">OP_NO_TLSv1_2</span></code></a> in <a class="reference internal" href="#ssl.SSLContext.options" title="ssl.SSLContext.options"><code class="xref py py-attr docutils literal notranslate"><span class="pre">options</span></code></a> and
+<a class="reference internal" href="#ssl.SSLContext.maximum_version" title="ssl.SSLContext.maximum_version"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maximum_version</span></code></a> set to <a class="reference internal" href="#ssl.TLSVersion.TLSv1_2" title="ssl.TLSVersion.TLSv1_2"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TLSVersion.TLSv1_2</span></code></a>
 will not be able to establish a TLS 1.2 connection.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.7.</span></p>
@@ -3115,7 +3115,7 @@ supported version or <a class="reference internal" href="#ssl.TLSVersion.MINIMUM
 The default value is <a class="reference internal" href="#ssl.OP_ALL" title="ssl.OP_ALL"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP_ALL</span></code></a>, but you can specify other options
 such as <a class="reference internal" href="#ssl.OP_NO_SSLv2" title="ssl.OP_NO_SSLv2"><code class="xref py py-data docutils literal notranslate"><span class="pre">OP_NO_SSLv2</span></code></a> by ORing them together.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.6: </span><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.options</span></code> returns <a class="reference internal" href="#ssl.Options" title="ssl.Options"><code class="xref py py-class docutils literal notranslate"><span class="pre">Options</span></code></a> flags:</p>
+<p><span class="versionmodified changed">Changed in version 3.6: </span><a class="reference internal" href="#ssl.SSLContext.options" title="ssl.SSLContext.options"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.options</span></code></a> returns <a class="reference internal" href="#ssl.Options" title="ssl.Options"><code class="xref py py-class docutils literal notranslate"><span class="pre">Options</span></code></a> flags:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">()</span><span class="o">.</span><span class="n">options</span>
 <span class="go">&lt;Options.OP_ALL|OP_NO_SSLv3|OP_NO_SSLv2|OP_NO_COMPRESSION: 2197947391&gt;</span>
 </pre></div>
@@ -3194,7 +3194,7 @@ does neither require nor verify certificate revocation lists (CRLs).</p>
 <p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.6: </span><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_flags</span></code> returns <a class="reference internal" href="#ssl.VerifyFlags" title="ssl.VerifyFlags"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerifyFlags</span></code></a> flags:</p>
+<p><span class="versionmodified changed">Changed in version 3.6: </span><a class="reference internal" href="#ssl.SSLContext.verify_flags" title="ssl.SSLContext.verify_flags"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_flags</span></code></a> returns <a class="reference internal" href="#ssl.VerifyFlags" title="ssl.VerifyFlags"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerifyFlags</span></code></a> flags:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">()</span><span class="o">.</span><span class="n">verify_flags</span>
 <span class="go">&lt;VerifyFlags.VERIFY_X509_TRUSTED_FIRST: 32768&gt;</span>
 </pre></div>
@@ -3210,7 +3210,7 @@ does neither require nor verify certificate revocation lists (CRLs).</p>
 if verification fails.  This attribute must be one of
 <a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a>, <a class="reference internal" href="#ssl.CERT_OPTIONAL" title="ssl.CERT_OPTIONAL"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_OPTIONAL</span></code></a> or <a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-data docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.6: </span><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code> returns <a class="reference internal" href="#ssl.VerifyMode" title="ssl.VerifyMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerifyMode</span></code></a> enum:</p>
+<p><span class="versionmodified changed">Changed in version 3.6: </span><a class="reference internal" href="#ssl.SSLContext.verify_mode" title="ssl.SSLContext.verify_mode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a> returns <a class="reference internal" href="#ssl.VerifyMode" title="ssl.VerifyMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerifyMode</span></code></a> enum:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">()</span><span class="o">.</span><span class="n">verify_mode</span>
 <span class="go">&lt;VerifyMode.CERT_REQUIRED: 2&gt;</span>
 </pre></div>
@@ -3631,8 +3631,8 @@ thus several things you need to be aware of:</p>
 <li><p>Most <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a> methods will raise either
 <a class="reference internal" href="#ssl.SSLWantWriteError" title="ssl.SSLWantWriteError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantWriteError</span></code></a> or <a class="reference internal" href="#ssl.SSLWantReadError" title="ssl.SSLWantReadError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantReadError</span></code></a> instead of
 <a class="reference internal" href="exceptions.html#BlockingIOError" title="BlockingIOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BlockingIOError</span></code></a> if an I/O operation would
-block. <code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantReadError</span></code> will be raised if a read operation on
-the underlying socket is necessary, and <code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantWriteError</span></code> for
+block. <a class="reference internal" href="#ssl.SSLWantReadError" title="ssl.SSLWantReadError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantReadError</span></code></a> will be raised if a read operation on
+the underlying socket is necessary, and <a class="reference internal" href="#ssl.SSLWantWriteError" title="ssl.SSLWantWriteError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantWriteError</span></code></a> for
 a write operation on the underlying socket. Note that attempts to
 <em>write</em> to an SSL socket may require <em>reading</em> from the underlying
 socket first, and attempts to <em>read</em> from the SSL socket may require
@@ -3648,12 +3648,12 @@ read from (or written to), but it does not imply that there is sufficient
 data at the upper SSL layer.  For example, only part of an SSL frame might
 have arrived.  Therefore, you must be ready to handle <code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLSocket.recv()</span></code>
 and <code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLSocket.send()</span></code> failures, and retry after another call to
-<code class="xref py py-func docutils literal notranslate"><span class="pre">select()</span></code>.</p></li>
+<a class="reference internal" href="select.html#select.select" title="select.select"><code class="xref py py-func docutils literal notranslate"><span class="pre">select()</span></code></a>.</p></li>
 <li><p>Conversely, since the SSL layer has its own framing, a SSL socket may
 still have data available for reading without <a class="reference internal" href="select.html#select.select" title="select.select"><code class="xref py py-func docutils literal notranslate"><span class="pre">select()</span></code></a>
 being aware of it.  Therefore, you should first call
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLSocket.recv()</span></code> to drain any potentially available data, and then
-only block on a <code class="xref py py-func docutils literal notranslate"><span class="pre">select()</span></code> call if still necessary.</p>
+only block on a <a class="reference internal" href="select.html#select.select" title="select.select"><code class="xref py py-func docutils literal notranslate"><span class="pre">select()</span></code></a> call if still necessary.</p>
 <p>(of course, similar provisions apply when using other primitives such as
 <a class="reference internal" href="select.html#select.poll" title="select.poll"><code class="xref py py-func docutils literal notranslate"><span class="pre">poll()</span></code></a>, or those in the <a class="reference internal" href="selectors.html#module-selectors" title="selectors: High-level I/O multiplexing."><code class="xref py py-mod docutils literal notranslate"><span class="pre">selectors</span></code></a> module)</p>
 </li>
@@ -3719,9 +3719,9 @@ for SSL through memory buffers.</p>
 implemented by OpenSSL. This object captures the state of an SSL connection
 but does not provide any network IO itself. IO needs to be performed through
 separate “BIO” objects which are OpenSSL’s IO abstraction layer.</p>
-<p>This class has no public constructor.  An <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code> instance
+<p>This class has no public constructor.  An <a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a> instance
 must be created using the <a class="reference internal" href="#ssl.SSLContext.wrap_bio" title="ssl.SSLContext.wrap_bio"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wrap_bio()</span></code></a> method. This
-method will create the <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code> instance and bind it to a
+method will create the <a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a> instance and bind it to a
 pair of BIOs. The <em>incoming</em> BIO is used to pass data from Python to the
 SSL protocol instance, while the <em>outgoing</em> BIO is used to pass data the
 other way around.</p>
@@ -3762,18 +3762,18 @@ that are in violation of the protocol are reported via the
 <li><p>The method <a class="reference internal" href="#ssl.SSLSocket.unwrap" title="ssl.SSLSocket.unwrap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unwrap()</span></code></a> call does not return anything,
 unlike for an SSL socket where it returns the underlying socket.</p></li>
 <li><p>The <em>server_name_callback</em> callback passed to
-<a class="reference internal" href="#ssl.SSLContext.set_servername_callback" title="ssl.SSLContext.set_servername_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.set_servername_callback()</span></code></a> will get an <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code>
+<a class="reference internal" href="#ssl.SSLContext.set_servername_callback" title="ssl.SSLContext.set_servername_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.set_servername_callback()</span></code></a> will get an <a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a>
 instance instead of a <a class="reference internal" href="#ssl.SSLSocket" title="ssl.SSLSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLSocket</span></code></a> instance as its first parameter.</p></li>
 </ul>
-<p>Some notes related to the use of <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code>:</p>
+<p>Some notes related to the use of <a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a>:</p>
 <ul class="simple">
-<li><p>All IO on an <code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code> is <a class="reference internal" href="#ssl-nonblocking"><span class="std std-ref">non-blocking</span></a>.
+<li><p>All IO on an <a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a> is <a class="reference internal" href="#ssl-nonblocking"><span class="std std-ref">non-blocking</span></a>.
 This means that for example <a class="reference internal" href="#ssl.SSLSocket.read" title="ssl.SSLSocket.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a> will raise an
 <a class="reference internal" href="#ssl.SSLWantReadError" title="ssl.SSLWantReadError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SSLWantReadError</span></code></a> if it needs more data than the incoming BIO has
 available.</p></li>
 </ul>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.7: </span><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code> instances must be created with
+<p><span class="versionmodified changed">Changed in version 3.7: </span><a class="reference internal" href="#ssl.SSLObject" title="ssl.SSLObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSLObject</span></code></a> instances must be created with
 <a class="reference internal" href="#ssl.SSLContext.wrap_bio" title="ssl.SSLContext.wrap_bio"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wrap_bio()</span></code></a>. In earlier versions, it was possible to
 create instances directly. This was never documented or officially
 supported.</p>

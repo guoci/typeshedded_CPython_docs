@@ -1,0 +1,1273 @@
+:mod:`!errno` --- Standard errno system symbols
+===============================================
+
+.. module:: errno
+   :synopsis: Standard errno system symbols.
+
+----------------
+
+This module makes available standard ``errno`` system symbols. The value of each
+symbol is the corresponding integer value. The names and descriptions are
+borrowed from :file:`linux/include/errno.h`, which should be
+all-inclusive.
+
+
+.. data:: errorcode
+   :type: collections.abc.Mapping[int, str]
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L5>`__)
+
+   Dictionary providing a mapping from the errno value to the string name in the
+   underlying system.  For instance, ``errno.errorcode[errno.EPERM]`` maps to
+   ``'EPERM'``.
+
+To translate a numeric error code to an error message, use :func:`os.strerror`.
+
+Of the following list, symbols that are not used on the current platform are not
+defined by the module.  The specific list of defined symbols is available as
+``errno.errorcode.keys()``.  Symbols available can include:
+
+
+.. data:: EPERM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L7>`__)
+
+   Operation not permitted. This error is mapped to the exception
+   :exc:`PermissionError`.
+
+
+.. data:: ENOENT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L8>`__)
+
+   No such file or directory. This error is mapped to the exception
+   :exc:`FileNotFoundError`.
+
+
+.. data:: ESRCH
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L9>`__)
+
+   No such process. This error is mapped to the exception
+   :exc:`ProcessLookupError`.
+
+
+.. data:: EINTR
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L10>`__)
+
+   Interrupted system call. This error is mapped to the exception
+   :exc:`InterruptedError`.
+
+
+.. data:: EIO
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L11>`__)
+
+   I/O error
+
+
+.. data:: ENXIO
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L12>`__)
+
+   No such device or address
+
+
+.. data:: E2BIG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L13>`__)
+
+   Arg list too long
+
+
+.. data:: ENOEXEC
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L14>`__)
+
+   Exec format error
+
+
+.. data:: EBADF
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L15>`__)
+
+   Bad file number
+
+
+.. data:: ECHILD
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L16>`__)
+
+   No child processes. This error is mapped to the exception
+   :exc:`ChildProcessError`.
+
+
+.. data:: EAGAIN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L17>`__)
+
+   Try again. This error is mapped to the exception :exc:`BlockingIOError`.
+
+
+.. data:: ENOMEM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L18>`__)
+
+   Out of memory
+
+
+.. data:: EACCES
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L19>`__)
+
+   Permission denied.  This error is mapped to the exception
+   :exc:`PermissionError`.
+
+
+.. data:: EFAULT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L20>`__)
+
+   Bad address
+
+
+.. data:: ENOTBLK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L100>`__)
+
+   Block device required
+
+
+.. data:: EBUSY
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L21>`__)
+
+   Device or resource busy
+
+
+.. data:: EEXIST
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L22>`__)
+
+   File exists. This error is mapped to the exception
+   :exc:`FileExistsError`.
+
+
+.. data:: EXDEV
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L23>`__)
+
+   Cross-device link
+
+
+.. data:: ENODEV
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L24>`__)
+
+   No such device
+
+
+.. data:: ENOTDIR
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L25>`__)
+
+   Not a directory. This error is mapped to the exception
+   :exc:`NotADirectoryError`.
+
+
+.. data:: EISDIR
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L26>`__)
+
+   Is a directory. This error is mapped to the exception
+   :exc:`IsADirectoryError`.
+
+
+.. data:: EINVAL
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L27>`__)
+
+   Invalid argument
+
+
+.. data:: ENFILE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L28>`__)
+
+   File table overflow
+
+
+.. data:: EMFILE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L29>`__)
+
+   Too many open files
+
+
+.. data:: ENOTTY
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L30>`__)
+
+   Not a typewriter
+
+
+.. data:: ETXTBSY
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L31>`__)
+
+   Text file busy
+
+
+.. data:: EFBIG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L32>`__)
+
+   File too large
+
+
+.. data:: ENOSPC
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L33>`__)
+
+   No space left on device
+
+
+.. data:: ESPIPE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L34>`__)
+
+   Illegal seek
+
+
+.. data:: EROFS
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L35>`__)
+
+   Read-only file system
+
+
+.. data:: EMLINK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L36>`__)
+
+   Too many links
+
+
+.. data:: EPIPE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L37>`__)
+
+   Broken pipe. This error is mapped to the exception
+   :exc:`BrokenPipeError`.
+
+
+.. data:: EDOM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L38>`__)
+
+   Math argument out of domain of func
+
+
+.. data:: ERANGE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L39>`__)
+
+   Math result not representable
+
+
+.. data:: EDEADLK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L40>`__)
+
+   Resource deadlock would occur
+
+
+.. data:: ENAMETOOLONG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L41>`__)
+
+   File name too long
+
+
+.. data:: ENOLCK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L42>`__)
+
+   No record locks available
+
+
+.. data:: ENOSYS
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L43>`__)
+
+   Function not implemented
+
+
+.. data:: ENOTEMPTY
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L44>`__)
+
+   Directory not empty
+
+
+.. data:: ELOOP
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L45>`__)
+
+   Too many symbolic links encountered
+
+
+.. data:: EWOULDBLOCK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L46>`__)
+
+   Operation would block. This error is mapped to the exception
+   :exc:`BlockingIOError`.
+
+
+.. data:: ENOMSG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L47>`__)
+
+   No message of desired type
+
+
+.. data:: EIDRM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L48>`__)
+
+   Identifier removed
+
+
+.. data:: ECHRNG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L130>`__)
+
+   Channel number out of range
+
+
+.. data:: EL2NSYNC
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L131>`__)
+
+   Level 2 not synchronized
+
+
+.. data:: EL3HLT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L132>`__)
+
+   Level 3 halted
+
+
+.. data:: EL3RST
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L133>`__)
+
+   Level 3 reset
+
+
+.. data:: ELNRNG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L134>`__)
+
+   Link number out of range
+
+
+.. data:: EUNATCH
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L135>`__)
+
+   Protocol driver not attached
+
+
+.. data:: ENOCSI
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L136>`__)
+
+   No CSI structure available
+
+
+.. data:: EL2HLT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L137>`__)
+
+   Level 2 halted
+
+
+.. data:: EBADE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L138>`__)
+
+   Invalid exchange
+
+
+.. data:: EBADR
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L139>`__)
+
+   Invalid request descriptor
+
+
+.. data:: EXFULL
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L140>`__)
+
+   Exchange full
+
+
+.. data:: ENOANO
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L141>`__)
+
+   No anode
+
+
+.. data:: EBADRQC
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L142>`__)
+
+   Invalid request code
+
+
+.. data:: EBADSLT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L143>`__)
+
+   Invalid slot
+
+
+.. data:: EDEADLOCK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L127>`__)
+
+   File locking deadlock error
+
+
+.. data:: EBFONT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L144>`__)
+
+   Bad font file format
+
+
+.. data:: ENOSTR
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L49>`__)
+
+   Device not a stream
+
+
+.. data:: ENODATA
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L50>`__)
+
+   No data available
+
+
+.. data:: ETIME
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L51>`__)
+
+   Timer expired
+
+
+.. data:: ENOSR
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L52>`__)
+
+   Out of streams resources
+
+
+.. data:: ENONET
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L145>`__)
+
+   Machine is not on the network
+
+
+.. data:: ENOPKG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L146>`__)
+
+   Package not installed
+
+
+.. data:: EREMOTE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L53>`__)
+
+   Object is remote
+
+
+.. data:: ENOLINK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L54>`__)
+
+   Link has been severed
+
+
+.. data:: EADV
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L147>`__)
+
+   Advertise error
+
+
+.. data:: ESRMNT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L148>`__)
+
+   Srmount error
+
+
+.. data:: ECOMM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L149>`__)
+
+   Communication error on send
+
+
+.. data:: EPROTO
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L55>`__)
+
+   Protocol error
+
+
+.. data:: EMULTIHOP
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L101>`__)
+
+   Multihop attempted
+
+
+.. data:: EDOTDOT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L150>`__)
+
+   RFS specific error
+
+
+.. data:: EBADMSG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L56>`__)
+
+   Not a data message
+
+
+.. data:: EOVERFLOW
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L57>`__)
+
+   Value too large for defined data type
+
+
+.. data:: ENOTUNIQ
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L151>`__)
+
+   Name not unique on network
+
+
+.. data:: EBADFD
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L152>`__)
+
+   File descriptor in bad state
+
+
+.. data:: EREMCHG
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L153>`__)
+
+   Remote address changed
+
+
+.. data:: ELIBACC
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L154>`__)
+
+   Can not access a needed shared library
+
+
+.. data:: ELIBBAD
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L155>`__)
+
+   Accessing a corrupted shared library
+
+
+.. data:: ELIBSCN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L156>`__)
+
+   .lib section in a.out corrupted
+
+
+.. data:: ELIBMAX
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L157>`__)
+
+   Attempting to link in too many shared libraries
+
+
+.. data:: ELIBEXEC
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L158>`__)
+
+   Cannot exec a shared library directly
+
+
+.. data:: EILSEQ
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L58>`__)
+
+   Illegal byte sequence
+
+
+.. data:: ERESTART
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L159>`__)
+
+   Interrupted system call should be restarted
+
+
+.. data:: ESTRPIPE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L160>`__)
+
+   Streams pipe error
+
+
+.. data:: EUSERS
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L59>`__)
+
+   Too many users
+
+
+.. data:: ENOTSOCK
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L60>`__)
+
+   Socket operation on non-socket
+
+
+.. data:: EDESTADDRREQ
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L61>`__)
+
+   Destination address required
+
+
+.. data:: EMSGSIZE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L62>`__)
+
+   Message too long
+
+
+.. data:: EPROTOTYPE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L63>`__)
+
+   Protocol wrong type for socket
+
+
+.. data:: ENOPROTOOPT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L64>`__)
+
+   Protocol not available
+
+
+.. data:: EPROTONOSUPPORT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L65>`__)
+
+   Protocol not supported
+
+
+.. data:: ESOCKTNOSUPPORT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L66>`__)
+
+   Socket type not supported
+
+
+.. data:: EOPNOTSUPP
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L68>`__)
+
+   Operation not supported on transport endpoint
+
+
+.. data:: ENOTSUP
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L67>`__)
+
+   Operation not supported
+
+   .. versionadded:: 3.2
+
+
+.. data:: EPFNOSUPPORT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L69>`__)
+
+   Protocol family not supported
+
+
+.. data:: EAFNOSUPPORT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L70>`__)
+
+   Address family not supported by protocol
+
+
+.. data:: EADDRINUSE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L71>`__)
+
+   Address already in use
+
+
+.. data:: EADDRNOTAVAIL
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L72>`__)
+
+   Cannot assign requested address
+
+
+.. data:: ENETDOWN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L73>`__)
+
+   Network is down
+
+
+.. data:: ENETUNREACH
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L74>`__)
+
+   Network is unreachable
+
+
+.. data:: ENETRESET
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L75>`__)
+
+   Network dropped connection because of reset
+
+
+.. data:: ECONNABORTED
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L76>`__)
+
+   Software caused connection abort. This error is mapped to the
+   exception :exc:`ConnectionAbortedError`.
+
+
+.. data:: ECONNRESET
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L77>`__)
+
+   Connection reset by peer. This error is mapped to the exception
+   :exc:`ConnectionResetError`.
+
+
+.. data:: ENOBUFS
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L78>`__)
+
+   No buffer space available
+
+
+.. data:: EISCONN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L79>`__)
+
+   Transport endpoint is already connected
+
+
+.. data:: ENOTCONN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L80>`__)
+
+   Transport endpoint is not connected
+
+
+.. data:: ESHUTDOWN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L81>`__)
+
+   Cannot send after transport endpoint shutdown. This error is mapped
+   to the exception :exc:`BrokenPipeError`.
+
+
+.. data:: ETOOMANYREFS
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L82>`__)
+
+   Too many references: cannot splice
+
+
+.. data:: ETIMEDOUT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L83>`__)
+
+   Connection timed out. This error is mapped to the exception
+   :exc:`TimeoutError`.
+
+
+.. data:: ECONNREFUSED
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L84>`__)
+
+   Connection refused. This error is mapped to the exception
+   :exc:`ConnectionRefusedError`.
+
+
+.. data:: EHOSTDOWN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L85>`__)
+
+   Host is down
+
+
+.. data:: EHOSTUNREACH
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L86>`__)
+
+   No route to host
+
+
+.. data:: EHWPOISON
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L176>`__)
+
+   Memory page has hardware error.
+
+   .. versionadded:: 3.14
+
+
+.. data:: EALREADY
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L87>`__)
+
+   Operation already in progress. This error is mapped to the
+   exception :exc:`BlockingIOError`.
+
+
+.. data:: EINPROGRESS
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L88>`__)
+
+   Operation now in progress. This error is mapped to the exception
+   :exc:`BlockingIOError`.
+
+
+.. data:: ESTALE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L89>`__)
+
+   Stale NFS file handle
+
+
+.. data:: EUCLEAN
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L161>`__)
+
+   Structure needs cleaning
+
+
+.. data:: ENOTNAM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L162>`__)
+
+   Not a XENIX named type file
+
+
+.. data:: ENAVAIL
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L163>`__)
+
+   No XENIX semaphores available
+
+
+.. data:: EISNAM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L164>`__)
+
+   Is a named type file
+
+
+.. data:: EREMOTEIO
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L165>`__)
+
+   Remote I/O error
+
+
+.. data:: EDQUOT
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L90>`__)
+
+   Quota exceeded
+
+.. data:: EQFULL
+
+   Interface output queue is full
+
+   .. versionadded:: 3.11
+
+
+.. data:: ENOMEDIUM
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L172>`__)
+
+   No medium found
+
+
+.. data:: EMEDIUMTYPE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L170>`__)
+
+   Wrong medium type
+
+
+.. data:: ENOKEY
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L171>`__)
+
+   Required key not available
+
+
+.. data:: EKEYEXPIRED
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L167>`__)
+
+   Key has expired
+
+
+.. data:: EKEYREVOKED
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L169>`__)
+
+   Key has been revoked
+
+
+.. data:: EKEYREJECTED
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L168>`__)
+
+   Key was rejected by service
+
+
+.. data:: ERFKILL
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L173>`__)
+
+   Operation not possible due to RF-kill
+
+
+.. data:: ELOCKUNMAPPED
+
+   Locked lock was unmapped
+
+
+.. data:: ENOTACTIVE
+
+   Facility is not active
+
+
+.. data:: EAUTH
+
+   Authentication error
+
+   .. versionadded:: 3.2
+
+
+.. data:: EBADARCH
+
+   Bad CPU type in executable
+
+   .. versionadded:: 3.2
+
+
+.. data:: EBADEXEC
+
+   Bad executable (or shared library)
+
+   .. versionadded:: 3.2
+
+
+.. data:: EBADMACHO
+
+   Malformed Mach-o file
+
+   .. versionadded:: 3.2
+
+
+.. data:: EDEVERR
+
+   Device error
+
+   .. versionadded:: 3.2
+
+
+.. data:: EFTYPE
+
+   Inappropriate file type or format
+
+   .. versionadded:: 3.2
+
+
+.. data:: ENEEDAUTH
+
+   Need authenticator
+
+   .. versionadded:: 3.2
+
+
+.. data:: ENOATTR
+
+   Attribute not found
+
+   .. versionadded:: 3.2
+
+
+.. data:: ENOPOLICY
+
+   Policy not found
+
+   .. versionadded:: 3.2
+
+
+.. data:: EPROCLIM
+
+   Too many processes
+
+   .. versionadded:: 3.2
+
+
+.. data:: EPROCUNAVAIL
+
+   Bad procedure for program
+
+   .. versionadded:: 3.2
+
+
+.. data:: EPROGMISMATCH
+
+   Program version wrong
+
+   .. versionadded:: 3.2
+
+
+.. data:: EPROGUNAVAIL
+
+   RPC prog. not avail
+
+   .. versionadded:: 3.2
+
+
+.. data:: EPWROFF
+
+   Device power is off
+
+   .. versionadded:: 3.2
+
+
+.. data:: EBADRPC
+
+   RPC struct is bad
+
+   .. versionadded:: 3.2
+
+
+.. data:: ERPCMISMATCH
+
+   RPC version wrong
+
+   .. versionadded:: 3.2
+
+
+.. data:: ESHLIBVERS
+
+   Shared library version mismatch
+
+   .. versionadded:: 3.2
+
+
+.. data:: ENOTCAPABLE
+
+   Capabilities insufficient. This error is mapped to the exception
+   :exc:`PermissionError`.
+
+   .. availability:: WASI, FreeBSD
+
+   .. versionadded:: 3.11.1
+
+
+.. data:: ECANCELED
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L91>`__)
+
+   Operation canceled
+
+   .. versionadded:: 3.2
+
+
+.. data:: EOWNERDEAD
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L93>`__)
+
+   Owner died
+
+   .. versionadded:: 3.2
+
+
+.. data:: ENOTRECOVERABLE
+   :type: int
+
+   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/errno.pyi#L92>`__)
+
+   State not recoverable
+
+   .. versionadded:: 3.2

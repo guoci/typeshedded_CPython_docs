@@ -312,7 +312,7 @@ new-style class.  Most of Python’s built-in types, such as integers, lists,
 dictionaries, and even files, are new-style classes now.  A new-style class
 named <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>, the base class for all built-in types, has also been
 added so if no built-in type is suitable, you can just subclass
-<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>:</p>
+<a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
@@ -546,7 +546,7 @@ attributes run at their usual speed.</p>
 referenced on an object using the new <a class="reference internal" href="../reference/datamodel.html#object.__slots__" title="object.__slots__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__slots__</span></code></a> class attribute. Python
 objects are usually very dynamic; at any time it’s possible to define a new
 attribute on an instance by just doing <code class="docutils literal notranslate"><span class="pre">obj.new_attr=1</span></code>.   A new-style class
-can define a class attribute named <code class="xref py py-attr docutils literal notranslate"><span class="pre">__slots__</span></code> to limit the legal
+can define a class attribute named <a class="reference internal" href="../reference/datamodel.html#object.__slots__" title="object.__slots__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__slots__</span></code></a> to limit the legal
 attributes  to a particular set of names.  An example will make this clear:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;template&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span>
@@ -604,8 +604,8 @@ object so that you can write <code class="docutils literal notranslate"><span cl
 bit misleading when you’re using this only to support <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> loops.
 Consider some file-like object that wants to be looped over; the <em>index</em>
 parameter is essentially meaningless, as the class probably assumes that a
-series of <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> calls will be made with <em>index</em> incrementing by
-one each time.  In other words, the presence of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> method
+series of <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> calls will be made with <em>index</em> incrementing by
+one each time.  In other words, the presence of the <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method
 doesn’t mean that using <code class="docutils literal notranslate"><span class="pre">file[5]</span></code>  to randomly access the sixth element will
 work, though it really should.</p>
 <p>In Python 2.2, iteration can be implemented separately, and <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a>
@@ -623,7 +623,7 @@ function in order to return an iterator, and extension types that want to behave
 as iterators can define a <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iternext" title="PyTypeObject.tp_iternext"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iternext</span></code></a> function.</p>
 <p>So, after all this, what do iterators actually do?  They have one required
 method, <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code></a>, which takes no arguments and returns the next value.  When
-there are no more values to be returned, calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code> should raise the
+there are no more values to be returned, calling <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code></a> should raise the
 <a class="reference internal" href="../library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -1108,10 +1108,10 @@ returned in Python’s long integer type.  (Contributed by Tim Peters.)</p></li>
 <li><p>In the interpreter’s interactive mode, there’s a new built-in function
 <a class="reference internal" href="../library/functions.html#help" title="help"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> that uses the <a class="reference internal" href="../library/pydoc.html#module-pydoc" title="pydoc: Documentation generator and online help system."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydoc</span></code></a> module introduced in Python 2.1 to
 provide interactive help. <code class="docutils literal notranslate"><span class="pre">help(object)</span></code> displays any available help text
-about <em>object</em>.  <code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code> with no argument puts you in an online help
+about <em>object</em>.  <a class="reference internal" href="../library/functions.html#help" title="help"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> with no argument puts you in an online help
 utility, where you can enter the names of functions, classes, or modules to read
 their help text. (Contributed by Guido van Rossum, using Ka-Ping Yee’s
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">pydoc</span></code> module.)</p></li>
+<a class="reference internal" href="../library/pydoc.html#module-pydoc" title="pydoc: Documentation generator and online help system."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydoc</span></code></a> module.)</p></li>
 <li><p>Various bugfixes and performance improvements have been made to the SRE engine
 underlying the <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a> module.  For example, the <a class="reference internal" href="../library/re.html#re.sub" title="re.sub"><code class="xref py py-func docutils literal notranslate"><span class="pre">re.sub()</span></code></a> and
 <a class="reference internal" href="../library/re.html#re.split" title="re.split"><code class="xref py py-func docutils literal notranslate"><span class="pre">re.split()</span></code></a> functions have been rewritten in C.  Another contributed patch
@@ -1121,7 +1121,7 @@ matches in  a given string.  (SRE is maintained by Fredrik Lundh.  The
 BIGCHARSET patch was contributed by Martin von Löwis.)</p></li>
 <li><p>The <a class="reference internal" href="../library/smtplib.html#module-smtplib" title="smtplib: SMTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtplib</span></code></a> module now supports <span class="target" id="index-18"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2487.html"><strong>RFC 2487</strong></a>, “Secure SMTP over TLS”, so
 it’s now possible to encrypt the SMTP traffic between a Python program and the
-mail transport agent being handed a message.  <code class="xref py py-mod docutils literal notranslate"><span class="pre">smtplib</span></code> also supports SMTP
+mail transport agent being handed a message.  <a class="reference internal" href="../library/smtplib.html#module-smtplib" title="smtplib: SMTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">smtplib</span></code></a> also supports SMTP
 authentication.  (Contributed by Gerhard Häring.)</p></li>
 <li><p>The <a class="reference internal" href="../library/imaplib.html#module-imaplib" title="imaplib: IMAP4 protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">imaplib</span></code></a> module, maintained by Piers Lauder, has support for several
 new extensions: the NAMESPACE extension defined in <span class="target" id="index-19"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2342.html"><strong>RFC 2342</strong></a>, SORT, GETACL and

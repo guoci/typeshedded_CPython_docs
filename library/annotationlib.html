@@ -360,7 +360,7 @@ the functions in this module.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/annotationlib.pyi#L26">typeshed</a>)</p>
 <p>Values are real annotation values (as per <a class="reference internal" href="#annotationlib.Format.VALUE" title="annotationlib.Format.VALUE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Format.VALUE</span></code></a> format)
 for defined values, and <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a> proxies for undefined
-values. Real objects may contain references to <code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code>
+values. Real objects may contain references to <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a>
 proxy objects.</p>
 </dd></dl>
 
@@ -406,7 +406,7 @@ when a class is referenced before it is defined.</p>
 <span class="sig-name descname"><span class="pre">__forward_arg__</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">__forward_arg__(self:</span> <span class="pre">annotationlib.ForwardRef)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></em><a class="headerlink" href="#annotationlib.ForwardRef.__forward_arg__" title="Link to this definition">¶</a></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/annotationlib.pyi#L91">typeshed</a>)</p>
 <p>A string containing the code that was evaluated to produce the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code>. The string may not be exactly equivalent
+<a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a>. The string may not be exactly equivalent
 to the original source.</p>
 </dd></dl>
 
@@ -470,34 +470,34 @@ this method may throw an exception, such as <a class="reference internal" href="
 reference refers to a name that cannot be resolved. The arguments to this
 method can be used to provide bindings for names that would otherwise
 be undefined. If the <em>format</em> argument is <a class="reference internal" href="#annotationlib.Format.FORWARDREF" title="annotationlib.Format.FORWARDREF"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FORWARDREF</span></code></a>,
-the method will never throw an exception, but may return a <code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code>
+the method will never throw an exception, but may return a <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a>
 instance. For example, if the forward reference object contains the code
 <code class="docutils literal notranslate"><span class="pre">list[undefined]</span></code>, where <code class="docutils literal notranslate"><span class="pre">undefined</span></code> is a name that is not defined,
-evaluating it with the <code class="xref py py-attr docutils literal notranslate"><span class="pre">FORWARDREF</span></code> format will return
+evaluating it with the <a class="reference internal" href="#annotationlib.Format.FORWARDREF" title="annotationlib.Format.FORWARDREF"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FORWARDREF</span></code></a> format will return
 <code class="docutils literal notranslate"><span class="pre">list[ForwardRef('undefined')]</span></code>. If the <em>format</em> argument is
 <a class="reference internal" href="#annotationlib.Format.STRING" title="annotationlib.Format.STRING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">STRING</span></code></a>, the method will return <a class="reference internal" href="#annotationlib.ForwardRef.__forward_arg__" title="annotationlib.ForwardRef.__forward_arg__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__forward_arg__</span></code></a>.</p>
 <p>The <em>owner</em> parameter provides the preferred mechanism for passing scope
-information to this method. The owner of a <code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code> is the
-object that contains the annotation from which the <code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code>
+information to this method. The owner of a <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a> is the
+object that contains the annotation from which the <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a>
 derives, such as a module object, type object, or function object.</p>
 <p>The <em>globals</em>, <em>locals</em>, and <em>type_params</em> parameters provide a more precise
-mechanism for influencing the names that are available when the <code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code>
+mechanism for influencing the names that are available when the <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a>
 is evaluated. <em>globals</em> and <em>locals</em> are passed to <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>, representing
 the global and local namespaces in which the name is evaluated.
 The <em>type_params</em> parameter is relevant for objects created using the native
 syntax for <a class="reference internal" href="../reference/compound_stmts.html#generic-classes"><span class="std std-ref">generic classes</span></a> and <a class="reference internal" href="../reference/compound_stmts.html#generic-functions"><span class="std std-ref">functions</span></a>.
 It is a tuple of <a class="reference internal" href="../reference/compound_stmts.html#type-params"><span class="std std-ref">type parameters</span></a> that are in scope
 while the forward reference is being evaluated. For example, if evaluating a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code> retrieved from an annotation found in the class namespace
+<a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a> retrieved from an annotation found in the class namespace
 of a generic class <code class="docutils literal notranslate"><span class="pre">C</span></code>, <em>type_params</em> should be set to <code class="docutils literal notranslate"><span class="pre">C.__type_params__</span></code>.</p>
-<p><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code> instances returned by <a class="reference internal" href="#annotationlib.get_annotations" title="annotationlib.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_annotations()</span></code></a>
+<p><a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a> instances returned by <a class="reference internal" href="#annotationlib.get_annotations" title="annotationlib.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_annotations()</span></code></a>
 retain references to information about the scope they originated from,
 so calling this method with no further arguments may be sufficient to
-evaluate such objects. <code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code> instances created by other
+evaluate such objects. <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a> instances created by other
 means may not have any information about their scope, so passing
 arguments to this method may be necessary to evaluate them successfully.</p>
 <p>If no <em>owner</em>, <em>globals</em>, <em>locals</em>, or <em>type_params</em> are provided and the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code> does not contain information about its origin,
+<a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a> does not contain information about its origin,
 empty globals and locals dictionaries are used.</p>
 </dd></dl>
 
@@ -773,7 +773,7 @@ from accessing it is re-raised.</p>
 If this is not implemented, it will then check if <a class="reference internal" href="#annotationlib.Format.VALUE_WITH_FAKE_GLOBALS" title="annotationlib.Format.VALUE_WITH_FAKE_GLOBALS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VALUE_WITH_FAKE_GLOBALS</span></code></a>
 is supported and use that in the fake globals environment.
 If neither of these formats are supported, it will fall back to using <a class="reference internal" href="#annotationlib.Format.VALUE" title="annotationlib.Format.VALUE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VALUE</span></code></a>.
-If <code class="xref py py-attr docutils literal notranslate"><span class="pre">VALUE</span></code> fails, the error from this call will be raised.</p></li>
+If <a class="reference internal" href="#annotationlib.Format.VALUE" title="annotationlib.Format.VALUE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VALUE</span></code></a> fails, the error from this call will be raised.</p></li>
 </ul>
 </li>
 <li><p>STRING: If <code class="xref py py-attr docutils literal notranslate"><span class="pre">object.__annotate__</span></code> exists, it is called first;
@@ -785,7 +785,7 @@ If this is not implemented, it will then check if <a class="reference internal" 
 is supported and use that in the fake globals environment.
 If neither of these formats are supported, it will fall back to using <a class="reference internal" href="#annotationlib.Format.VALUE" title="annotationlib.Format.VALUE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VALUE</span></code></a>
 with the result converted using <a class="reference internal" href="#annotationlib.annotations_to_string" title="annotationlib.annotations_to_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">annotations_to_string()</span></code></a>.
-If <code class="xref py py-attr docutils literal notranslate"><span class="pre">VALUE</span></code> fails, the error from this call will be raised.</p></li>
+If <a class="reference internal" href="#annotationlib.Format.VALUE" title="annotationlib.Format.VALUE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VALUE</span></code></a> fails, the error from this call will be raised.</p></li>
 </ul>
 </li>
 </ul>
@@ -814,13 +814,13 @@ replaced with the result of calling <a class="reference internal" href="function
 <ul class="simple">
 <li><p>If eval_str is true, <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> is called on values of type
 <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>. (Note that <code class="xref py py-func docutils literal notranslate"><span class="pre">get_annotations()</span></code> doesn’t catch
-exceptions; if <code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code> raises an exception, it will unwind
+exceptions; if <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> raises an exception, it will unwind
 the stack past the <code class="xref py py-func docutils literal notranslate"><span class="pre">get_annotations()</span></code> call.)</p></li>
 <li><p>If <em>eval_str</em> is false (the default), values of type <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> are
 unchanged.</p></li>
 </ul>
 <p><em>globals</em> and <em>locals</em> are passed in to <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>; see the documentation
-for <code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code> for more information. If <em>globals</em> or <em>locals</em>
+for <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> for more information. If <em>globals</em> or <em>locals</em>
 is <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, this function may replace that value with a
 context-specific default, contingent on <code class="docutils literal notranslate"><span class="pre">type(obj)</span></code>:</p>
 <ul class="simple">
@@ -1024,7 +1024,7 @@ as possible, with anything that cannot be resolved replaced with
 <a class="reference internal" href="#annotationlib.ForwardRef" title="annotationlib.ForwardRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code></a> objects. It is affected by broadly the same Limitations
 as the <a class="reference internal" href="#annotationlib.Format.STRING" title="annotationlib.Format.STRING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">STRING</span></code></a> format: annotations that perform operations on
 literals or that use unsupported expression types may raise exceptions when
-evaluated using the <code class="xref py py-attr docutils literal notranslate"><span class="pre">FORWARDREF</span></code> format.</p>
+evaluated using the <a class="reference internal" href="#annotationlib.Format.FORWARDREF" title="annotationlib.Format.FORWARDREF"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FORWARDREF</span></code></a> format.</p>
 <p>Below are a few examples of the behavior with unsupported expressions:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">annotationlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_annotations</span><span class="p">,</span> <span class="n">Format</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">zerodiv</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span><span class="p">):</span> <span class="o">...</span>

@@ -503,7 +503,7 @@ also <code class="docutils literal notranslate"><span class="pre">'xmlcharrefrep
 </div>
 <p>The low-level routines for registering and accessing the available
 encodings are found in the <a class="reference internal" href="../library/codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code></a> module.  Implementing new
-encodings also requires understanding the <code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code> module.
+encodings also requires understanding the <a class="reference internal" href="../library/codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code></a> module.
 However, the encoding and decoding functions returned by this module
 are usually more low-level than is comfortable, and writing new encodings
 is a specialized task, so the module won’t be covered in this HOWTO.</p>
@@ -613,7 +613,7 @@ lowercase letters ‘ss’.</p>
 <p>A second tool is the <a class="reference internal" href="../library/unicodedata.html#module-unicodedata" title="unicodedata: Access the Unicode Database."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code></a> module’s
 <a class="reference internal" href="../library/unicodedata.html#unicodedata.normalize" title="unicodedata.normalize"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalize()</span></code></a> function that converts strings to one
 of several normal forms, where letters followed by a combining character are
-replaced with single characters.  <code class="xref py py-func docutils literal notranslate"><span class="pre">normalize()</span></code> can
+replaced with single characters.  <a class="reference internal" href="../library/unicodedata.html#unicodedata.normalize" title="unicodedata.normalize"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalize()</span></code></a> can
 be used to perform string comparisons that won’t falsely report
 inequality if two strings use combining characters differently:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unicodedata</span>
@@ -733,7 +733,7 @@ of partial coding sequences.  The work of implementing this has already been
 done for you: the built-in <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function can return a file-like object
 that assumes the file’s contents are in a specified encoding and accepts Unicode
 parameters for methods such as <a class="reference internal" href="../library/io.html#io.TextIOBase.read" title="io.TextIOBase.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a> and
-<a class="reference internal" href="../library/io.html#io.TextIOBase.write" title="io.TextIOBase.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>.  This works through <code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code>'s <em>encoding</em> and
+<a class="reference internal" href="../library/io.html#io.TextIOBase.write" title="io.TextIOBase.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>.  This works through <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>'s <em>encoding</em> and
 <em>errors</em> parameters which are interpreted just like those in <a class="reference internal" href="../library/stdtypes.html#str.encode" title="str.encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a>
 and <a class="reference internal" href="../library/stdtypes.html#bytes.decode" title="bytes.decode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytes.decode()</span></code></a>.</p>
 <p>Reading Unicode from a file is therefore simple:</p>
@@ -786,7 +786,7 @@ automatically converted to the right encoding for you:</p>
 filenames.</p>
 <p>The <a class="reference internal" href="../library/os.html#os.listdir" title="os.listdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.listdir()</span></code></a> function returns filenames, which raises an issue: should it return
 the Unicode version of filenames, or should it return bytes containing
-the encoded versions?  <code class="xref py py-func docutils literal notranslate"><span class="pre">os.listdir()</span></code> can do both, depending on whether you
+the encoded versions?  <a class="reference internal" href="../library/os.html#os.listdir" title="os.listdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.listdir()</span></code></a> can do both, depending on whether you
 provided the directory path as bytes or a Unicode string.  If you pass a
 Unicode string as the path, filenames will be decoded using the filesystem’s
 encoding and a list of Unicode strings will be returned, while passing a byte

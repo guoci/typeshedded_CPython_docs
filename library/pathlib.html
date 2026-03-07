@@ -1375,7 +1375,7 @@ unrepresentable at the OS level.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.14: </span>The methods given above now return <code class="docutils literal notranslate"><span class="pre">False</span></code> instead of raising any
 <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> exception from the operating system. In previous versions,
-some kinds of <code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code> exception are raised, and others suppressed.
+some kinds of <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> exception are raised, and others suppressed.
 The new behaviour is consistent with <a class="reference internal" href="os.path.html#os.path.exists" title="os.path.exists"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.exists()</span></code></a>,
 <a class="reference internal" href="os.path.html#os.path.isdir" title="os.path.isdir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.isdir()</span></code></a>, etc. Use <a class="reference internal" href="#pathlib.Path.stat" title="pathlib.Path.stat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stat()</span></code></a> to retrieve the file
 status without suppressing exceptions.</p>
@@ -1614,7 +1614,7 @@ For example:</p>
 </div>
 <p>If the path was generated from <a class="reference internal" href="#pathlib.Path.iterdir" title="pathlib.Path.iterdir"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.iterdir()</span></code></a> then this attribute is
 initialized with some information about the file type gleaned from scanning
-the parent directory. Merely accessing <code class="xref py py-attr docutils literal notranslate"><span class="pre">Path.info</span></code> does not perform
+the parent directory. Merely accessing <a class="reference internal" href="#pathlib.Path.info" title="pathlib.Path.info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Path.info</span></code></a> does not perform
 any filesystem queries.</p>
 <p>To fetch up-to-date information, it’s best to call <a class="reference internal" href="#pathlib.Path.is_dir" title="pathlib.Path.is_dir"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.is_dir()</span></code></a>,
 <a class="reference internal" href="#pathlib.Path.is_file" title="pathlib.Path.is_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_file()</span></code></a> and <a class="reference internal" href="#pathlib.Path.is_symlink" title="pathlib.Path.is_symlink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_symlink()</span></code></a> rather than methods of
@@ -1998,12 +1998,12 @@ for a directory is generated after the triples for all of its subdirectories
 list of subdirectories is retrieved before the triples for the directory and
 its subdirectories are walked.</p>
 <p>When <em>top_down</em> is true, the caller can modify the <em>dirnames</em> list in-place
-(for example, using <a class="reference internal" href="../reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> or slice assignment), and <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code>
+(for example, using <a class="reference internal" href="../reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> or slice assignment), and <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a>
 will only recurse into the subdirectories whose names remain in <em>dirnames</em>.
 This can be used to prune the search, or to impose a specific order of visiting,
-or even to inform <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code> about directories the caller creates or
-renames before it resumes <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code> again. Modifying <em>dirnames</em> when
-<em>top_down</em> is false has no effect on the behavior of <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code> since the
+or even to inform <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a> about directories the caller creates or
+renames before it resumes <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a> again. Modifying <em>dirnames</em> when
+<em>top_down</em> is false has no effect on the behavior of <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a> since the
 directories in <em>dirnames</em> have already been generated by the time <em>dirnames</em>
 is yielded to the caller.</p>
 <p>By default, errors from <a class="reference internal" href="os.html#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.scandir()</span></code></a> are ignored.  If the optional
@@ -2011,27 +2011,27 @@ argument <em>on_error</em> is specified, it should be a callable; it will be
 called with one argument, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> instance. The callable can handle the
 error to continue the walk or re-raise it to stop the walk. Note that the
 filename is available as the <code class="docutils literal notranslate"><span class="pre">filename</span></code> attribute of the exception object.</p>
-<p>By default, <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code> does not follow symbolic links, and instead adds them
+<p>By default, <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a> does not follow symbolic links, and instead adds them
 to the <em>filenames</em> list. Set <em>follow_symlinks</em> to true to resolve symlinks
 and place them in <em>dirnames</em> and <em>filenames</em> as appropriate for their targets, and
 consequently visit directories pointed to by symlinks (where supported).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Be aware that setting <em>follow_symlinks</em> to true can lead to infinite
-recursion if a link points to a parent directory of itself. <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code>
+recursion if a link points to a parent directory of itself. <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a>
 does not keep track of the directories it has already visited.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code> assumes the directories it walks are not modified during
+<p><a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a> assumes the directories it walks are not modified during
 execution. For example, if a directory from <em>dirnames</em> has been replaced
-with a symlink and <em>follow_symlinks</em> is false, <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code> will
+with a symlink and <em>follow_symlinks</em> is false, <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a> will
 still try to descend into it. To prevent such behavior, remove directories
 from <em>dirnames</em> as appropriate.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Unlike <a class="reference internal" href="os.html#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.walk()</span></code></a>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code> lists symlinks to directories in
+<p>Unlike <a class="reference internal" href="os.html#os.walk" title="os.walk"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.walk()</span></code></a>, <a class="reference internal" href="#pathlib.Path.walk" title="pathlib.Path.walk"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Path.walk()</span></code></a> lists symlinks to directories in
 <em>filenames</em> if <em>follow_symlinks</em> is false.</p>
 </div>
 <p>This example displays the number of bytes used by all files in each directory,

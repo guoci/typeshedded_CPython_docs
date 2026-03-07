@@ -280,7 +280,7 @@ cases where you cannot use a list.</p>
 <div class="admonition warning" id="shlex-quote-warning">
 <p class="admonition-title">Warning</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">shlex</span></code> module is <strong>only designed for Unix shells</strong>.</p>
-<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code> function is not guaranteed to be correct on non-POSIX
+<p>The <a class="reference internal" href="#shlex.quote" title="shlex.quote"><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code></a> function is not guaranteed to be correct on non-POSIX
 compliant shells or shells from other operating systems such as Windows.
 Executing commands quoted by this module on such shells can open up the
 possibility of a command injection vulnerability.</p>
@@ -294,7 +294,7 @@ possibility of a command injection vulnerability.</p>
 <span class="go">ls -l somefile; rm -rf ~</span>
 </pre></div>
 </div>
-<p><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code> lets you plug the security hole:</p>
+<p><a class="reference internal" href="#shlex.quote" title="shlex.quote"><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code></a> lets you plug the security hole:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">shlex</span><span class="w"> </span><span class="kn">import</span> <span class="n">quote</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;ls -l </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quote</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
@@ -344,9 +344,9 @@ The second optional argument is a filename string, which sets the initial
 value of the <a class="reference internal" href="#shlex.shlex.infile" title="shlex.shlex.infile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">infile</span></code></a> attribute.  If the <em>instream</em>
 argument is omitted or equal to <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code>, this second argument
 defaults to “stdin”.  The <em>posix</em> argument defines the operational mode:
-when <em>posix</em> is not true (default), the <code class="xref py py-class docutils literal notranslate"><span class="pre">shlex</span></code> instance will
+when <em>posix</em> is not true (default), the <a class="reference internal" href="#shlex.shlex" title="shlex.shlex"><code class="xref py py-class docutils literal notranslate"><span class="pre">shlex</span></code></a> instance will
 operate in compatibility mode.  When operating in POSIX mode,
-<code class="xref py py-class docutils literal notranslate"><span class="pre">shlex</span></code> will try to be as close as possible to the POSIX shell
+<a class="reference internal" href="#shlex.shlex" title="shlex.shlex"><code class="xref py py-class docutils literal notranslate"><span class="pre">shlex</span></code></a> will try to be as close as possible to the POSIX shell
 parsing rules.  The <em>punctuation_chars</em> argument provides a way to make the
 behaviour even closer to how real shells parse.  This can take a number of
 values: the default value, <code class="docutils literal notranslate"><span class="pre">False</span></code>, preserves the behaviour seen under
@@ -355,9 +355,9 @@ Python 3.5 and earlier.  If set to <code class="docutils literal notranslate"><s
 characters) is returned as a single token.  If set to a non-empty string of
 characters, those characters will be used as the punctuation characters.  Any
 characters in the <a class="reference internal" href="#shlex.shlex.wordchars" title="shlex.shlex.wordchars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">wordchars</span></code></a> attribute that appear in
-<em>punctuation_chars</em> will be removed from <code class="xref py py-attr docutils literal notranslate"><span class="pre">wordchars</span></code>.  See
+<em>punctuation_chars</em> will be removed from <a class="reference internal" href="#shlex.shlex.wordchars" title="shlex.shlex.wordchars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">wordchars</span></code></a>.  See
 <a class="reference internal" href="#improved-shell-compatibility"><span class="std std-ref">Improved Compatibility with Shells</span></a> for more information. <em>punctuation_chars</em>
-can be set only upon <code class="xref py py-class docutils literal notranslate"><span class="pre">shlex</span></code> instance creation and can’t be
+can be set only upon <a class="reference internal" href="#shlex.shlex" title="shlex.shlex"><code class="xref py py-class docutils literal notranslate"><span class="pre">shlex</span></code></a> instance creation and can’t be
 modified later.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>The <em>punctuation_chars</em> parameter was added.</p>

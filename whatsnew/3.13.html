@@ -789,7 +789,7 @@ the value of the <em>optimize</em> argument.
 <a class="reference internal" href="../library/exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> and used to signal when operations are blocked
 during <a class="reference internal" href="../glossary.html#term-interpreter-shutdown"><span class="xref std std-term">finalization</span></a>.
 The following callables now raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">PythonFinalizationError</span></code>,
-instead of <code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code>:</p>
+instead of <a class="reference internal" href="../library/exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../library/_thread.html#thread.start_new_thread" title="_thread.start_new_thread"><code class="xref py py-func docutils literal notranslate"><span class="pre">_thread.start_new_thread()</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a></p></li>
@@ -978,7 +978,7 @@ This can be enabled with the new <em>allow_unnamed_section</em> parameter.
 <ul>
 <li><p>The new <a class="reference internal" href="../library/copy.html#copy.replace" title="copy.replace"><code class="xref py py-func docutils literal notranslate"><span class="pre">replace()</span></code></a> function and the <a class="reference internal" href="../library/copy.html#object.__replace__" title="object.__replace__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">replace</span> <span class="pre">protocol</span></code></a> make creating modified copies of objects much simpler.
 This is especially useful when working with immutable objects.
-The following types support the <code class="xref py py-func docutils literal notranslate"><span class="pre">replace()</span></code> function
+The following types support the <a class="reference internal" href="../library/copy.html#copy.replace" title="copy.replace"><code class="xref py py-func docutils literal notranslate"><span class="pre">replace()</span></code></a> function
 and implement the replace protocol:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../library/collections.html#collections.namedtuple" title="collections.namedtuple"><code class="xref py py-func docutils literal notranslate"><span class="pre">collections.namedtuple()</span></code></a></p></li>
@@ -1041,7 +1041,7 @@ or the <em>show_offsets</em> argument.
 as separate instructions.
 Instead, it returns them as part of the <a class="reference internal" href="../library/dis.html#dis.Instruction" title="dis.Instruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instruction</span></code></a>,
 in the new <em>cache_info</em> field.
-The <em>show_caches</em> argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_instructions()</span></code> is deprecated
+The <em>show_caches</em> argument to <a class="reference internal" href="../library/dis.html#dis.get_instructions" title="dis.get_instructions"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_instructions()</span></code></a> is deprecated
 and no longer has any effect.
 (Contributed by Irit Katriel in <a class="reference external" href="https://github.com/python/cpython/issues/112962">gh-112962</a>.)</p></li>
 </ul>
@@ -1809,7 +1809,7 @@ previously deprecated in Python 3.11.
 These can no longer be used to wrap other descriptors,
 such as <a class="reference internal" href="../library/functions.html#property" title="property"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a>.
 The core design of this feature was flawed and led to several problems.
-To “pass-through” a <code class="xref py py-class docutils literal notranslate"><span class="pre">classmethod</span></code>, consider using
+To “pass-through” a <a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">classmethod</span></code></a>, consider using
 the <code class="xref py py-attr docutils literal notranslate"><span class="pre">__wrapped__</span></code> attribute that was added in Python 3.10.
 (Contributed by Raymond Hettinger in <a class="reference external" href="https://github.com/python/cpython/issues/89519">gh-89519</a>.)</p></li>
 <li><p>Raise a <a class="reference internal" href="../library/exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> when calling <a class="reference internal" href="../reference/datamodel.html#frame.clear" title="frame.clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">frame.clear()</span></code></a>
@@ -2662,10 +2662,10 @@ these methods will be required to return an instance of a strict subclass of
 <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.</p></li>
 <li><p>Support for <code class="docutils literal notranslate"><span class="pre">__float__()</span></code> method returning a strict subclass of
 <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>: these methods will be required to return an instance of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>.</p></li>
 <li><p>Support for <code class="docutils literal notranslate"><span class="pre">__complex__()</span></code> method returning a strict subclass of
 <a class="reference internal" href="../library/functions.html#complex" title="complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>: these methods will be required to return an instance of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code>.</p></li>
+<a class="reference internal" href="../library/functions.html#complex" title="complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>.</p></li>
 <li><p>Passing a complex number as the <em>real</em> or <em>imag</em> argument in the
 <a class="reference internal" href="../library/functions.html#complex" title="complex"><code class="xref py py-func docutils literal notranslate"><span class="pre">complex()</span></code></a> constructor is now deprecated; it should only be passed
 as a single positional argument.
@@ -2706,7 +2706,7 @@ since Python 3.3, use <a class="reference internal" href="../library/logging.htm
 BytesIO and binary mode instead.</p></li>
 <li><p><a class="reference internal" href="../library/os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a>: Calling <a class="reference internal" href="../library/os.html#os.register_at_fork" title="os.register_at_fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.register_at_fork()</span></code></a> in a multi-threaded process.</p></li>
 <li><p><a class="reference internal" href="../library/os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a>: <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a> is deprecated, use
-<a class="reference internal" href="../library/os.path.html#os.path.commonpath" title="os.path.commonpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonpath()</span></code></a> for path prefixes. The <code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code>
+<a class="reference internal" href="../library/os.path.html#os.path.commonpath" title="os.path.commonpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonpath()</span></code></a> for path prefixes. The <a class="reference internal" href="../library/os.path.html#os.path.commonprefix" title="os.path.commonprefix"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.path.commonprefix()</span></code></a>
 function is being deprecated due to having a misleading name and module.
 The function is not safe to use for path prefixes despite being included in a
 module about path manipulation, meaning it is easy to accidentally
@@ -3083,10 +3083,10 @@ Use <a class="reference internal" href="../c-api/buffer.html#bufferobjects"><spa
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CheckReadBuffer()</span></code>:
 Use <a class="reference internal" href="../c-api/buffer.html#c.PyObject_CheckBuffer" title="PyObject_CheckBuffer"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CheckBuffer()</span></code></a> to test
 whether the object supports the buffer protocol.
-Note that <code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CheckBuffer()</span></code> doesn’t guarantee
+Note that <a class="reference internal" href="../c-api/buffer.html#c.PyObject_CheckBuffer" title="PyObject_CheckBuffer"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_CheckBuffer()</span></code></a> doesn’t guarantee
 that <a class="reference internal" href="../c-api/buffer.html#c.PyObject_GetBuffer" title="PyObject_GetBuffer"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetBuffer()</span></code></a> will succeed.
 To test if the object is actually readable,
-see the next example of <code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetBuffer()</span></code>.</p></li>
+see the next example of <a class="reference internal" href="../c-api/buffer.html#c.PyObject_GetBuffer" title="PyObject_GetBuffer"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetBuffer()</span></code></a>.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_AsCharBuffer()</span></code>, <code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_AsReadBuffer()</span></code>:
 Use <a class="reference internal" href="../c-api/buffer.html#c.PyObject_GetBuffer" title="PyObject_GetBuffer"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetBuffer()</span></code></a> and <a class="reference internal" href="../c-api/buffer.html#c.PyBuffer_Release" title="PyBuffer_Release"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyBuffer_Release()</span></code></a> instead:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Py_buffer</span><span class="w"> </span><span class="n">view</span><span class="p">;</span>
@@ -3125,7 +3125,7 @@ and keyword arguments must be a <a class="reference internal" href="../library/s
 whereas the removed functions checked argument types
 and accepted <code class="docutils literal notranslate"><span class="pre">NULL</span></code> positional and keyword arguments.
 To replace <code class="docutils literal notranslate"><span class="pre">PyEval_CallObjectWithKeywords(func,</span> <span class="pre">NULL,</span> <span class="pre">kwargs)</span></code> with
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Call()</span></code>,
+<a class="reference internal" href="../c-api/call.html#c.PyObject_Call" title="PyObject_Call"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Call()</span></code></a>,
 pass an empty tuple as positional arguments using
 <a class="reference internal" href="../c-api/tuple.html#c.PyTuple_New" title="PyTuple_New"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_New(0)</span></code></a>.</p>
 </div>
@@ -3185,7 +3185,7 @@ calling <code class="xref c c-func docutils literal notranslate"><span class="pr
 <a class="reference internal" href="../c-api/subinterpreters.html#c.PyInterpreterState_Get" title="PyInterpreterState_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyInterpreterState_Get()</span></code></a>
 which was kept for backward compatibility with Python 3.8.
 The <a class="reference external" href="https://github.com/python/pythoncapi-compat/">pythoncapi-compat project</a> can be used to get
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyInterpreterState_Get()</span></code> on Python 3.8 and older.
+<a class="reference internal" href="../c-api/subinterpreters.html#c.PyInterpreterState_Get" title="PyInterpreterState_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyInterpreterState_Get()</span></code></a> on Python 3.8 and older.
 (Contributed by Victor Stinner in <a class="reference external" href="https://github.com/python/cpython/issues/106320">gh-106320</a>.)</p></li>
 <li><p>Remove the private <code class="xref c c-func docutils literal notranslate"><span class="pre">_PyObject_FastCall()</span></code> function:
 use <code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Vectorcall()</span></code> which is available since Python 3.8
@@ -3251,7 +3251,7 @@ which return a <a class="reference internal" href="../glossary.html#term-borrowe
 Replace them with the new <a class="reference internal" href="../c-api/weakref.html#c.PyWeakref_GetRef" title="PyWeakref_GetRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GetRef()</span></code></a> function,
 which returns a <a class="reference internal" href="../glossary.html#term-strong-reference"><span class="xref std std-term">strong reference</span></a>.
 The <a class="reference external" href="https://github.com/python/pythoncapi-compat/">pythoncapi-compat project</a> can be used to get
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GetRef()</span></code> on Python 3.12 and older.
+<a class="reference internal" href="../c-api/weakref.html#c.PyWeakref_GetRef" title="PyWeakref_GetRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GetRef()</span></code></a> on Python 3.12 and older.
 (Contributed by Victor Stinner in <a class="reference external" href="https://github.com/python/cpython/issues/105927">gh-105927</a>.)</p></li>
 </ul>
 <section id="id8">
@@ -3270,7 +3270,7 @@ bases (<a class="reference external" href="https://github.com/python/cpython/iss
 Use <a class="reference internal" href="../c-api/import.html#c.PyImport_ImportModule" title="PyImport_ImportModule"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyImport_ImportModule()</span></code></a> instead.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GetObject()</span></code> and <code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GET_OBJECT()</span></code>:
 Use <a class="reference internal" href="../c-api/weakref.html#c.PyWeakref_GetRef" title="PyWeakref_GetRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GetRef()</span></code></a> instead. The <a class="reference external" href="https://github.com/python/pythoncapi-compat/">pythoncapi-compat project</a> can be used to get
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GetRef()</span></code> on Python 3.12 and older.</p></li>
+<a class="reference internal" href="../c-api/weakref.html#c.PyWeakref_GetRef" title="PyWeakref_GetRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyWeakref_GetRef()</span></code></a> on Python 3.12 and older.</p></li>
 <li><p><a class="reference internal" href="../c-api/unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal notranslate"><span class="pre">Py_UNICODE</span></code></a> type and the <code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_UNICODE_WIDE</span></code> macro:
 Use <code class="xref c c-type docutils literal notranslate"><span class="pre">wchar_t</span></code> instead.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_AsDecodedObject()</span></code>:
@@ -3290,11 +3290,11 @@ Use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get
 (<a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>) instead.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetPrefix()</span></code>:
 Use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;base_prefix&quot;)</span></code></a>
-(<a class="reference internal" href="../library/sys.html#sys.base_prefix" title="sys.base_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.base_prefix</span></code></a>) instead. Use <code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;prefix&quot;)</span></code> (<a class="reference internal" href="../library/sys.html#sys.prefix" title="sys.prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.prefix</span></code></a>) if <a class="reference internal" href="../library/venv.html#venv-def"><span class="std std-ref">virtual environments</span></a> need to be handled.</p></li>
+(<a class="reference internal" href="../library/sys.html#sys.base_prefix" title="sys.base_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.base_prefix</span></code></a>) instead. Use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;prefix&quot;)</span></code></a> (<a class="reference internal" href="../library/sys.html#sys.prefix" title="sys.prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.prefix</span></code></a>) if <a class="reference internal" href="../library/venv.html#venv-def"><span class="std std-ref">virtual environments</span></a> need to be handled.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetExecPrefix()</span></code>:
 Use <a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;base_exec_prefix&quot;)</span></code></a>
 (<a class="reference internal" href="../library/sys.html#sys.base_exec_prefix" title="sys.base_exec_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.base_exec_prefix</span></code></a>) instead. Use
-<code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;exec_prefix&quot;)</span></code>
+<a class="reference internal" href="../c-api/init_config.html#c.PyConfig_Get" title="PyConfig_Get"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyConfig_Get(&quot;exec_prefix&quot;)</span></code></a>
 (<a class="reference internal" href="../library/sys.html#sys.exec_prefix" title="sys.exec_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.exec_prefix</span></code></a>) if <a class="reference internal" href="../library/venv.html#venv-def"><span class="std std-ref">virtual environments</span></a> need to
 be handled.</p></li>
 <li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_GetProgramFullPath()</span></code>:
@@ -3671,13 +3671,13 @@ to frame-related functions:</p>
 <li><p>The effects of mutating the dictionary returned from
 <a class="reference internal" href="../c-api/reflection.html#c.PyEval_GetLocals" title="PyEval_GetLocals"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_GetLocals()</span></code></a> in an <a class="reference internal" href="../glossary.html#term-optimized-scope"><span class="xref std std-term">optimized scope</span></a> have changed.
 New dict entries added this way will now <em>only</em> be visible to
-subsequent <code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_GetLocals()</span></code> calls in that frame,
+subsequent <a class="reference internal" href="../c-api/reflection.html#c.PyEval_GetLocals" title="PyEval_GetLocals"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_GetLocals()</span></code></a> calls in that frame,
 as <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetLocals" title="PyFrame_GetLocals"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetLocals()</span></code></a>, <a class="reference internal" href="../library/functions.html#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a>,
 and <a class="reference internal" href="../reference/datamodel.html#frame.f_locals" title="frame.f_locals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">FrameType.f_locals</span></code></a> no longer access
 the same underlying cached dictionary.
 Changes made to entries for actual variable names and names added via
 the write-through proxy interfaces will be overwritten on subsequent calls
-to <code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_GetLocals()</span></code> in that frame.
+to <a class="reference internal" href="../c-api/reflection.html#c.PyEval_GetLocals" title="PyEval_GetLocals"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_GetLocals()</span></code></a> in that frame.
 The recommended code update depends on how the function was being used,
 so refer to the deprecation notice on the function for details.</p></li>
 <li><p>Calling <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetLocals" title="PyFrame_GetLocals"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetLocals()</span></code></a> in an <a class="reference internal" href="../glossary.html#term-optimized-scope"><span class="xref std std-term">optimized scope</span></a>

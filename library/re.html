@@ -320,7 +320,7 @@ matches immediately after each newline.</p>
 string, and in <a class="reference internal" href="#re.MULTILINE" title="re.MULTILINE"><code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code></a> mode also matches before a newline.  <code class="docutils literal notranslate"><span class="pre">foo</span></code>
 matches both ‘foo’ and ‘foobar’, while the regular expression <code class="docutils literal notranslate"><span class="pre">foo$</span></code> matches
 only ‘foo’.  More interestingly, searching for <code class="docutils literal notranslate"><span class="pre">foo.$</span></code> in <code class="docutils literal notranslate"><span class="pre">'foo1\nfoo2\n'</span></code>
-matches ‘foo2’ normally, but ‘foo1’ in <code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code> mode; searching for
+matches ‘foo2’ normally, but ‘foo1’ in <a class="reference internal" href="#re.MULTILINE" title="re.MULTILINE"><code class="xref py py-const docutils literal notranslate"><span class="pre">MULTILINE</span></code></a> mode; searching for
 a single <code class="docutils literal notranslate"><span class="pre">$</span></code> in <code class="docutils literal notranslate"><span class="pre">'foo\n'</span></code> will find two (empty) matches: one just before
 the newline, and one at the end of the string.</p>
 </dd>
@@ -1756,11 +1756,11 @@ beginning of the string and not at the beginning of each line.</p>
 <p>If you want to locate a match anywhere in <em>string</em>, use
 <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> instead (see also <a class="reference internal" href="#search-vs-match"><span class="std std-ref">search() vs. prefixmatch()</span></a>).</p>
 <p>This method now has two names and has long been known as
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code>.  Use that name when you need to retain compatibility
+<a class="reference internal" href="#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code></a>.  Use that name when you need to retain compatibility
 with older Python versions.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.15.0a6 (unreleased): </span>The alternate <a class="reference internal" href="#re.Pattern.prefixmatch" title="re.Pattern.prefixmatch"><code class="xref py py-meth docutils literal notranslate"><span class="pre">prefixmatch()</span></code></a> name of this API was added as
-a more explicitly descriptive name than <code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code>. Use it to
+a more explicitly descriptive name than <a class="reference internal" href="#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code></a>. Use it to
 better express intent. The norm in other languages and regular expression
 implementations is to use the term <em>match</em> to refer to the behavior of
 what Python has always called <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a>.
@@ -2526,7 +2526,7 @@ house number from the street name:</p>
 <section id="text-munging">
 <h3>Text Munging<a class="headerlink" href="#text-munging" title="Link to this heading">¶</a></h3>
 <p><a class="reference internal" href="#re.sub" title="re.sub"><code class="xref py py-func docutils literal notranslate"><span class="pre">sub()</span></code></a> replaces every occurrence of a pattern with a string or the
-result of a function.  This example demonstrates using <code class="xref py py-func docutils literal notranslate"><span class="pre">sub()</span></code> with
+result of a function.  This example demonstrates using <a class="reference internal" href="#re.sub" title="re.sub"><code class="xref py py-func docutils literal notranslate"><span class="pre">sub()</span></code></a> with
 a function to “munge” text, or randomize the order of all the characters
 in each word of a sentence except for the first and last characters:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">repl</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
@@ -2546,7 +2546,7 @@ in each word of a sentence except for the first and last characters:</p>
 <h3>Finding all Adverbs<a class="headerlink" href="#finding-all-adverbs" title="Link to this heading">¶</a></h3>
 <p><a class="reference internal" href="#re.findall" title="re.findall"><code class="xref py py-func docutils literal notranslate"><span class="pre">findall()</span></code></a> matches <em>all</em> occurrences of a pattern, not just the first
 one as <a class="reference internal" href="#re.search" title="re.search"><code class="xref py py-func docutils literal notranslate"><span class="pre">search()</span></code></a> does.  For example, if a writer wanted to
-find all of the adverbs in some text, they might use <code class="xref py py-func docutils literal notranslate"><span class="pre">findall()</span></code> in
+find all of the adverbs in some text, they might use <a class="reference internal" href="#re.findall" title="re.findall"><code class="xref py py-func docutils literal notranslate"><span class="pre">findall()</span></code></a> in
 the following manner:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;He was carefully disguised but captured quickly by police.&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly\b&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
@@ -2560,7 +2560,7 @@ the following manner:</p>
 text, <a class="reference internal" href="#re.finditer" title="re.finditer"><code class="xref py py-func docutils literal notranslate"><span class="pre">finditer()</span></code></a> is useful as it provides <a class="reference internal" href="#re.Match" title="re.Match"><code class="xref py py-class docutils literal notranslate"><span class="pre">Match</span></code></a> objects
 instead of strings.  Continuing with the previous example, if a writer wanted
 to find all of the adverbs <em>and their positions</em> in some text, they would use
-<code class="xref py py-func docutils literal notranslate"><span class="pre">finditer()</span></code> in the following manner:</p>
+<a class="reference internal" href="#re.finditer" title="re.finditer"><code class="xref py py-func docutils literal notranslate"><span class="pre">finditer()</span></code></a> in the following manner:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;He was carefully disguised but captured quickly by police.&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly\b&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%02d</span><span class="s1">-</span><span class="si">%02d</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>

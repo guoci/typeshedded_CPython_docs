@@ -297,7 +297,7 @@ automatically deletes shared memory when all handles to it have been closed.</p>
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/multiprocessing/shared_memory.pyi#L23">typeshed</a>)</p>
 <p>Close the file descriptor/handle to the shared memory from this
-instance.  <code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code> should be called once access to the shared
+instance.  <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.close" title="multiprocessing.shared_memory.SharedMemory.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> should be called once access to the shared
 memory block from this instance is no longer needed.  Depending
 on operating system, the underlying memory may or may not be freed
 even if all handles to it have been closed.  To ensure proper cleanup,
@@ -313,8 +313,8 @@ use the <a class="reference internal" href="#multiprocessing.shared_memory.Share
 <p>Delete the underlying shared memory block.  This should be called only
 once per shared memory block regardless of the number of handles to it,
 even in other processes.
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">unlink()</span></code> and <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.close" title="multiprocessing.shared_memory.SharedMemory.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> can be called in any order, but
-trying to access data inside a shared memory block after <code class="xref py py-meth docutils literal notranslate"><span class="pre">unlink()</span></code>
+<a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.unlink" title="multiprocessing.shared_memory.SharedMemory.unlink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unlink()</span></code></a> and <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.close" title="multiprocessing.shared_memory.SharedMemory.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> can be called in any order, but
+trying to access data inside a shared memory block after <a class="reference internal" href="#multiprocessing.shared_memory.SharedMemory.unlink" title="multiprocessing.shared_memory.SharedMemory.unlink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unlink()</span></code></a>
 may result in memory access errors, depending on platform.</p>
 <p>This method has no effect on Windows, where the only way to delete a
 shared memory block is to close all handles.</p>

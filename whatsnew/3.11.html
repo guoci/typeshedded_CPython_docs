@@ -493,7 +493,7 @@ the <a class="reference internal" href="../library/typing.html#module-typing" ti
 of generics parameterised with a single type. <span class="target" id="index-13"></span><a class="pep reference external" href="https://peps.python.org/pep-0646/"><strong>PEP 646</strong></a> adds
 <a class="reference internal" href="../library/typing.html#typing.TypeVarTuple" title="typing.TypeVarTuple"><code class="xref py py-data docutils literal notranslate"><span class="pre">TypeVarTuple</span></code></a>, enabling parameterisation
 with an <em>arbitrary</em> number of types. In other words,
-a <code class="xref py py-data docutils literal notranslate"><span class="pre">TypeVarTuple</span></code> is a <em>variadic</em> type variable,
+a <a class="reference internal" href="../library/typing.html#typing.TypeVarTuple" title="typing.TypeVarTuple"><code class="xref py py-data docutils literal notranslate"><span class="pre">TypeVarTuple</span></code></a> is a <em>variadic</em> type variable,
 enabling <em>variadic</em> generics.</p>
 <p>This enables a wide variety of use cases.
 In particular, it allows the type of array-like structures
@@ -660,7 +660,7 @@ and <a class="reference internal" href="../library/pickle.html#module-pickle" ti
 <a class="reference internal" href="../library/weakref.html#weakref.WeakSet" title="weakref.WeakSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">weakref.WeakSet</span></code></a>, and <a class="reference internal" href="../library/datetime.html#datetime.tzinfo" title="datetime.tzinfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.tzinfo</span></code></a> now copies and
 pickles instance attributes implemented as <a class="reference internal" href="../glossary.html#term-__slots__"><span class="xref std std-term">slots</span></a>.
 This change has an unintended side effect: It trips up a small minority
-of existing Python projects not expecting <code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__getstate__()</span></code> to
+of existing Python projects not expecting <a class="reference internal" href="../library/pickle.html#object.__getstate__" title="object.__getstate__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__getstate__()</span></code></a> to
 exist. See the later comments on <a class="reference external" href="https://github.com/python/cpython/issues/70766">gh-70766</a> for discussions of what
 workarounds such code may need.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=26579">bpo-26579</a>.)</p></li>
@@ -923,7 +923,7 @@ and <a class="reference internal" href="../library/typing.html#typing.Union" tit
 <a class="reference internal" href="../library/zlib.html#zlib.compress" title="zlib.compress"><code class="xref py py-func docutils literal notranslate"><span class="pre">zlib.compress()</span></code></a> operation. There is one side effect of this change: The
 gzip file header contains an “OS” byte in its header. That was traditionally
 always set to a value of 255 representing “unknown” by the <a class="reference internal" href="../library/gzip.html#module-gzip" title="gzip: Interfaces for gzip compression and decompression using file objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gzip</span></code></a>
-module. Now, when using <code class="xref py py-func docutils literal notranslate"><span class="pre">compress()</span></code> with <strong>mtime=0</strong>, it may be
+module. Now, when using <a class="reference internal" href="../library/gzip.html#gzip.compress" title="gzip.compress"><code class="xref py py-func docutils literal notranslate"><span class="pre">compress()</span></code></a> with <strong>mtime=0</strong>, it may be
 set to a different value by the underlying zlib C library Python was linked
 against.
 (See <a class="reference external" href="https://github.com/python/cpython/issues/112346">gh-112346</a> for details on the side effect.)</p></li>
@@ -1216,7 +1216,7 @@ formatted <a class="reference internal" href="../library/traceback.html#tracebac
 <p>For major changes, see <a class="reference internal" href="#new-feat-related-type-hints-311"><span class="std std-ref">New Features Related to Type Hints</span></a>.</p>
 <ul class="simple">
 <li><p>Add <a class="reference internal" href="../library/typing.html#typing.assert_never" title="typing.assert_never"><code class="xref py py-func docutils literal notranslate"><span class="pre">typing.assert_never()</span></code></a> and <a class="reference internal" href="../library/typing.html#typing.Never" title="typing.Never"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Never</span></code></a>.
-<code class="xref py py-func docutils literal notranslate"><span class="pre">typing.assert_never()</span></code> is useful for asking a type checker to confirm
+<a class="reference internal" href="../library/typing.html#typing.assert_never" title="typing.assert_never"><code class="xref py py-func docutils literal notranslate"><span class="pre">typing.assert_never()</span></code></a> is useful for asking a type checker to confirm
 that a line of code is not reachable. At runtime, it raises an
 <a class="reference internal" href="../library/exceptions.html#AssertionError" title="AssertionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AssertionError</span></code></a>.
 (Contributed by Jelle Zijlstra in <a class="reference external" href="https://github.com/python/cpython/issues/90633">gh-90633</a>.)</p></li>
@@ -1789,7 +1789,7 @@ now being represented as one item on the stack instead of three
 is now deprecated.  It can no longer be used to wrap other descriptors
 such as <a class="reference internal" href="../library/functions.html#property" title="property"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a>.  The core design of this feature was flawed
 and caused a number of downstream problems.  To “pass-through” a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">classmethod</span></code>, consider using the <code class="xref py py-attr docutils literal notranslate"><span class="pre">__wrapped__</span></code> attribute
+<a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">classmethod</span></code></a>, consider using the <code class="xref py py-attr docutils literal notranslate"><span class="pre">__wrapped__</span></code> attribute
 that was added in Python 3.10.
 (Contributed by Raymond Hettinger in <a class="reference external" href="https://github.com/python/cpython/issues/89519">gh-89519</a>.)</p></li>
 <li><p>Octal escapes in string and bytes literals with values larger than <code class="docutils literal notranslate"><span class="pre">0o377</span></code>

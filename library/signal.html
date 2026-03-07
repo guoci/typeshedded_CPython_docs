@@ -285,7 +285,7 @@ related constants listed below were turned into
 <a class="reference internal" href="enum.html#enum.IntEnum" title="enum.IntEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">enums</span></code></a> (<a class="reference internal" href="#signal.Signals" title="signal.Signals"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signals</span></code></a>, <a class="reference internal" href="#signal.Handlers" title="signal.Handlers"><code class="xref py py-class docutils literal notranslate"><span class="pre">Handlers</span></code></a> and <a class="reference internal" href="#signal.Sigmasks" title="signal.Sigmasks"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sigmasks</span></code></a> respectively).
 <a class="reference internal" href="#signal.getsignal" title="signal.getsignal"><code class="xref py py-func docutils literal notranslate"><span class="pre">getsignal()</span></code></a>, <a class="reference internal" href="#signal.pthread_sigmask" title="signal.pthread_sigmask"><code class="xref py py-func docutils literal notranslate"><span class="pre">pthread_sigmask()</span></code></a>, <a class="reference internal" href="#signal.sigpending" title="signal.sigpending"><code class="xref py py-func docutils literal notranslate"><span class="pre">sigpending()</span></code></a> and
 <a class="reference internal" href="#signal.sigwait" title="signal.sigwait"><code class="xref py py-func docutils literal notranslate"><span class="pre">sigwait()</span></code></a> functions return human-readable
-<code class="xref py py-class docutils literal notranslate"><span class="pre">enums</span></code> as <code class="xref py py-class docutils literal notranslate"><span class="pre">Signals</span></code> objects.</p>
+<a class="reference internal" href="enum.html#enum.IntEnum" title="enum.IntEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">enums</span></code></a> as <a class="reference internal" href="#signal.Signals" title="signal.Signals"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signals</span></code></a> objects.</p>
 </div>
 <p>The signal module defines three enums:</p>
 <dl class="py class">
@@ -694,7 +694,7 @@ indicating that the signal mask is to be replaced.</p>
 <dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/3e9ca33/stdlib/signal.pyi#L120">typeshed</a>)</p>
 <p>Raised to signal an error from the underlying <a class="reference internal" href="#signal.setitimer" title="signal.setitimer"><code class="xref py py-func docutils literal notranslate"><span class="pre">setitimer()</span></code></a> or
 <a class="reference internal" href="#signal.getitimer" title="signal.getitimer"><code class="xref py py-func docutils literal notranslate"><span class="pre">getitimer()</span></code></a> implementation. Expect this error if an invalid
-interval timer or a negative time is passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">setitimer()</span></code>.
+interval timer or a negative time is passed to <a class="reference internal" href="#signal.setitimer" title="signal.setitimer"><code class="xref py py-func docutils literal notranslate"><span class="pre">setitimer()</span></code></a>.
 This error is a subtype of <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.3: </span>This error used to be a subtype of <a class="reference internal" href="exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>, which is now an
@@ -730,8 +730,8 @@ canceled.  If the return value is zero, no alarm is currently scheduled.</p>
 <p>Return the current signal handler for the signal <em>signalnum</em>. The returned value
 may be a callable Python object, or one of the special values
 <a class="reference internal" href="#signal.SIG_IGN" title="signal.SIG_IGN"><code class="xref py py-const docutils literal notranslate"><span class="pre">signal.SIG_IGN</span></code></a>, <a class="reference internal" href="#signal.SIG_DFL" title="signal.SIG_DFL"><code class="xref py py-const docutils literal notranslate"><span class="pre">signal.SIG_DFL</span></code></a> or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.  Here,
-<code class="xref py py-const docutils literal notranslate"><span class="pre">signal.SIG_IGN</span></code> means that the signal was previously ignored,
-<code class="xref py py-const docutils literal notranslate"><span class="pre">signal.SIG_DFL</span></code> means that the default way of handling the signal was
+<a class="reference internal" href="#signal.SIG_IGN" title="signal.SIG_IGN"><code class="xref py py-const docutils literal notranslate"><span class="pre">signal.SIG_IGN</span></code></a> means that the signal was previously ignored,
+<a class="reference internal" href="#signal.SIG_DFL" title="signal.SIG_DFL"><code class="xref py py-const docutils literal notranslate"><span class="pre">signal.SIG_DFL</span></code></a> means that the default way of handling the signal was
 previously in use, and <code class="docutils literal notranslate"><span class="pre">None</span></code> means that the previous signal handler was not
 installed from Python.</p>
 </dd></dl>
@@ -1020,7 +1020,7 @@ exception to be raised.</p>
 stack frame (<code class="docutils literal notranslate"><span class="pre">None</span></code> or a frame object; for a description of frame objects,
 see the <a class="reference internal" href="../reference/datamodel.html#frame-objects"><span class="std std-ref">description in the type hierarchy</span></a> or see the
 attribute descriptions in the <a class="reference internal" href="inspect.html#module-inspect" title="inspect: Extract information and source code from live objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">inspect</span></code></a> module).</p>
-<p>On Windows, <code class="xref py py-func docutils literal notranslate"><span class="pre">signal()</span></code> can only be called with <a class="reference internal" href="#signal.SIGABRT" title="signal.SIGABRT"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGABRT</span></code></a>,
+<p>On Windows, <a class="reference internal" href="#module-signal" title="signal: Set handlers for asynchronous events."><code class="xref py py-func docutils literal notranslate"><span class="pre">signal()</span></code></a> can only be called with <a class="reference internal" href="#signal.SIGABRT" title="signal.SIGABRT"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGABRT</span></code></a>,
 <a class="reference internal" href="#signal.SIGFPE" title="signal.SIGFPE"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGFPE</span></code></a>, <a class="reference internal" href="#signal.SIGILL" title="signal.SIGILL"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGILL</span></code></a>, <a class="reference internal" href="#signal.SIGINT" title="signal.SIGINT"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGINT</span></code></a>, <a class="reference internal" href="#signal.SIGSEGV" title="signal.SIGSEGV"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGSEGV</span></code></a>,
 <a class="reference internal" href="#signal.SIGTERM" title="signal.SIGTERM"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGTERM</span></code></a>, or <a class="reference internal" href="#signal.SIGBREAK" title="signal.SIGBREAK"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGBREAK</span></code></a>.
 A <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> will be raised in any other case.
@@ -1203,7 +1203,7 @@ it.</p>
 the main thread and may be raised after any <a class="reference internal" href="../glossary.html#term-bytecode"><span class="xref std std-term">bytecode</span></a> instruction. Most
 notably, a <a class="reference internal" href="exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> may appear at any point during execution.
 Most Python code, including the standard library, cannot be made robust against
-this, and so a <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> (or any other exception resulting from
+this, and so a <a class="reference internal" href="exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> (or any other exception resulting from
 a signal handler) may on rare occasions put the program in an unexpected state.</p>
 <p>To illustrate this issue, consider the following code:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SpamContext</span><span class="p">:</span>
@@ -1225,10 +1225,10 @@ a signal handler) may on rare occasions put the program in an unexpected state.<
 <p>For many programs, especially those that merely want to exit on
 <a class="reference internal" href="exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a>, this is not a problem, but applications that are
 complex or require high reliability should avoid raising exceptions from signal
-handlers. They should also avoid catching <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> as a means
+handlers. They should also avoid catching <a class="reference internal" href="exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> as a means
 of gracefully shutting down.  Instead, they should install their own
 <a class="reference internal" href="#signal.SIGINT" title="signal.SIGINT"><code class="xref py py-const docutils literal notranslate"><span class="pre">SIGINT</span></code></a> handler. Below is an example of an HTTP server that avoids
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code>:</p>
+<a class="reference internal" href="exceptions.html#KeyboardInterrupt" title="KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">selectors</span><span class="w"> </span><span class="kn">import</span> <span class="n">DefaultSelector</span><span class="p">,</span> <span class="n">EVENT_READ</span>
