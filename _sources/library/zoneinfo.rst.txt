@@ -171,7 +171,7 @@ The ``ZoneInfo`` class
 .. class:: ZoneInfo(key)
            ZoneInfo(key: str) -> zoneinfo.ZoneInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/__init__.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/__init__.pyi#L16>`__)
 
     A concrete :class:`datetime.tzinfo` subclass that represents an IANA time
     zone specified by the string ``key``. Calls to the primary constructor will
@@ -198,7 +198,7 @@ The ``ZoneInfo`` class has two alternate constructors:
 .. classmethod:: ZoneInfo.from_file(file_obj, /, key=None)
                  ZoneInfo.from_file(cls: type[zoneinfo.ZoneInfo], file_obj: zoneinfo._common._IOBytes, /, key: str | None = None) -> zoneinfo.ZoneInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/__init__.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/__init__.pyi#L24>`__)
 
     Constructs a ``ZoneInfo`` object from a file-like object returning bytes
     (e.g. a file opened in binary mode or an :class:`io.BytesIO` object).
@@ -215,7 +215,7 @@ The ``ZoneInfo`` class has two alternate constructors:
 .. classmethod:: ZoneInfo.no_cache(key)
                  ZoneInfo.no_cache(cls: type[zoneinfo.ZoneInfo], key: str) -> zoneinfo.ZoneInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/__init__.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/__init__.pyi#L21>`__)
 
     An alternate constructor that bypasses the constructor's cache. It is
     identical to the primary constructor, but returns a new object on each
@@ -238,7 +238,7 @@ The following class methods are also available:
 .. classmethod:: ZoneInfo.clear_cache(*, only_keys=None)
                  ZoneInfo.clear_cache(cls: type[zoneinfo.ZoneInfo], *, only_keys: collections.abc.Iterable[str] | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/__init__.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/__init__.pyi#L30>`__)
 
     A method for invalidating the cache on the ``ZoneInfo`` class. If no
     arguments are passed, all caches are invalidated and the next call to
@@ -262,7 +262,7 @@ The class has one attribute:
 .. attribute:: ZoneInfo.key
    :type: key(self: zoneinfo.ZoneInfo) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/__init__.pyi#L18>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/__init__.pyi#L18>`__)
 
     This is a read-only :term:`attribute` that returns the value of ``key``
     passed to the constructor, which should be a lookup key in the IANA time
@@ -359,7 +359,7 @@ Functions
 .. function:: available_timezones()
               available_timezones() -> set[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/_tzpath.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/_tzpath.pyi#L9>`__)
 
     Get a set containing all the valid keys for IANA time zones available
     anywhere on the time zone path. This is recalculated on every call to the
@@ -385,7 +385,7 @@ Functions
 .. function:: reset_tzpath(to=None)
               reset_tzpath(to: collections.abc.Sequence[StrPath] | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/_tzpath.pyi#L7>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/_tzpath.pyi#L7>`__)
 
     Sets or resets the time zone search path (:data:`TZPATH`) for the module.
     When called with no arguments, :data:`TZPATH` is set to the default value.
@@ -405,7 +405,7 @@ Globals
 .. data:: TZPATH
    :type: tuple[str, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/_tzpath.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/_tzpath.pyi#L11>`__)
 
     A read-only sequence representing the time zone search path -- when
     constructing a ``ZoneInfo`` from a key, the key is joined to each entry in
@@ -428,7 +428,7 @@ Exceptions and warnings
 .. exception:: ZoneInfoNotFoundError
                ZoneInfoNotFoundError(*args: object) -> zoneinfo._common.ZoneInfoNotFoundError
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/_common.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/_common.pyi#L14>`__)
 
     Raised when construction of a :class:`ZoneInfo` object fails because the
     specified key could not be found on the system. This is a subclass of
@@ -437,7 +437,7 @@ Exceptions and warnings
 .. exception:: InvalidTZPathWarning
                InvalidTZPathWarning(*args: object) -> zoneinfo._tzpath.InvalidTZPathWarning
 
-   (`typeshed <https://github.com/python/typeshed/blob/3e9ca33/stdlib/zoneinfo/_tzpath.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/zoneinfo/_tzpath.pyi#L13>`__)
 
     Raised when :envvar:`PYTHONTZPATH` contains an invalid component that will
     be filtered out, such as a relative path.
