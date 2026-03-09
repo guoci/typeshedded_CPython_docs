@@ -54,7 +54,7 @@ The :mod:`!csv` module defines the following functions:
 .. function:: reader(csvfile, /, dialect='excel', **fmtparams)
               reader(iterable: collections.abc.Iterable[str], /, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> _csv.Reader
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L108>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L108>`__)
 
    Return a :ref:`reader object <reader-objects>` that will process
    lines from the given *csvfile*.  A csvfile must be an iterable of
@@ -88,7 +88,7 @@ The :mod:`!csv` module defines the following functions:
 .. function:: writer(csvfile, /, dialect='excel', **fmtparams)
               writer(fileobj: _typeshed.SupportsWrite[str], /, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> _csv.Writer
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L94>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L94>`__)
 
    Return a writer object responsible for converting the user's data into delimited
    strings on the given file-like object.  *csvfile* can be any object with a
@@ -120,7 +120,7 @@ The :mod:`!csv` module defines the following functions:
 .. function:: register_dialect(name, /, dialect='excel', **fmtparams)
               register_dialect(name: str, /, dialect: str | type[_csv.Dialect | csv.Dialect] = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L122>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L122>`__)
 
    Associate *dialect* with *name*.  *name* must be a string. The
    dialect can be specified either by passing a sub-class of :class:`Dialect`, or
@@ -132,7 +132,7 @@ The :mod:`!csv` module defines the following functions:
 .. function:: unregister_dialect(name)
               unregister_dialect(name: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L136>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L136>`__)
 
    Delete the dialect associated with *name* from the dialect registry.  An
    :exc:`Error` is raised if *name* is not a registered dialect name.
@@ -141,7 +141,7 @@ The :mod:`!csv` module defines the following functions:
 .. function:: get_dialect(name)
               get_dialect(name: str) -> _csv.Dialect
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L137>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L137>`__)
 
    Return the dialect associated with *name*.  An :exc:`Error` is raised if
    *name* is not a registered dialect name.  This function returns an immutable
@@ -150,7 +150,7 @@ The :mod:`!csv` module defines the following functions:
 .. function:: list_dialects()
               list_dialects() -> list[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L138>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L138>`__)
 
    Return the names of all registered dialects.
 
@@ -159,7 +159,7 @@ The :mod:`!csv` module defines the following functions:
               field_size_limit(new_limit)
               field_size_limit(new_limit: int = ...) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L139>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L139>`__)
 
    Returns the current maximum field size allowed by the parser. If *new_limit* is
    given, this becomes the new limit.
@@ -172,7 +172,7 @@ The :mod:`!csv` module defines the following classes:
            DictReader(f: collections.abc.Iterable[str], fieldnames: collections.abc.Sequence[_T], restkey: _T | None = None, restval: str | typing.Any | None = None, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictReader[_T]
            DictReader(f: collections.abc.Iterable[str], fieldnames: collections.abc.Sequence[str] | None = None, restkey: str | None = None, restval: str | None = None, dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictReader[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L76>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L76>`__)
 
    Create an object that operates like a regular reader but maps the
    information in each row to a :class:`dict` whose keys are given by the
@@ -221,7 +221,7 @@ The :mod:`!csv` module defines the following classes:
                       dialect='excel', *args, **kwds)
            DictWriter(f: _typeshed.SupportsWrite[str], fieldnames: collections.abc.Collection[_T], restval: typing.Any | None = '', extrasaction: typing.Literal['ignore', 'raise'] = 'raise', dialect: _DialectLike = 'excel', *, delimiter: str = ',', quotechar: str | None = '"', escapechar: str | None = None, doublequote: bool = True, skipinitialspace: bool = False, lineterminator: str = '\r\n', quoting: _QuotingType = 0, strict: bool = False) -> csv.DictWriter[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L124>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L124>`__)
 
    Create an object which operates like a regular writer but maps dictionaries
    onto output rows.  The *fieldnames* parameter is a :mod:`sequence
@@ -260,7 +260,7 @@ The :mod:`!csv` module defines the following classes:
 .. class:: Dialect
            Dialect() -> csv.Dialect
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L61>`__)
 
    The :class:`Dialect` class is a container class whose attributes contain
    information for how to handle doublequotes, whitespace, delimiters, etc.
@@ -281,7 +281,7 @@ The :mod:`!csv` module defines the following classes:
 .. class:: excel()
            excel() -> csv.excel
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L72>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L72>`__)
 
    The :class:`excel` class defines the usual properties of an Excel-generated CSV
    file.  It is registered with the dialect name ``'excel'``.
@@ -290,7 +290,7 @@ The :mod:`!csv` module defines the following classes:
 .. class:: excel_tab()
            excel_tab() -> csv.excel_tab
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L73>`__)
 
    The :class:`excel_tab` class defines the usual properties of an Excel-generated
    TAB-delimited file.  It is registered with the dialect name ``'excel-tab'``.
@@ -299,7 +299,7 @@ The :mod:`!csv` module defines the following classes:
 .. class:: unix_dialect()
            unix_dialect() -> csv.unix_dialect
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L74>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L74>`__)
 
    The :class:`unix_dialect` class defines the usual properties of a CSV file
    generated on UNIX systems, i.e. using ``'\n'`` as line terminator and quoting
@@ -311,7 +311,7 @@ The :mod:`!csv` module defines the following classes:
 .. class:: Sniffer()
            Sniffer() -> csv.Sniffer
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L152>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L152>`__)
 
    The :class:`Sniffer` class is used to deduce the format of a CSV file.
 
@@ -320,7 +320,7 @@ The :mod:`!csv` module defines the following classes:
    .. method:: sniff(sample, delimiters=None)
                sniff(sample: str, delimiters: str | None = None) -> type[csv.Dialect]
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L154>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L154>`__)
 
       Analyze the given *sample* and return a :class:`Dialect` subclass
       reflecting the parameters found.  If the optional *delimiters* parameter
@@ -331,7 +331,7 @@ The :mod:`!csv` module defines the following classes:
    .. method:: has_header(sample)
                has_header(sample: str) -> bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L155>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L155>`__)
 
       Analyze the sample text (presumed to be in CSV format) and return
       :const:`True` if the first row appears to be a series of column headers.
@@ -366,7 +366,7 @@ The :mod:`!csv` module defines the following constants:
 .. data:: QUOTE_ALL
    :type: typing.Literal[1]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L10>`__)
 
    Instructs :class:`writer` objects to quote all fields.
 
@@ -374,7 +374,7 @@ The :mod:`!csv` module defines the following constants:
 .. data:: QUOTE_MINIMAL
    :type: typing.Literal[0]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L11>`__)
 
    Instructs :class:`writer` objects to only quote those fields which contain
    special characters such as *delimiter*, *quotechar*, ``'\r'``, ``'\n'``
@@ -384,7 +384,7 @@ The :mod:`!csv` module defines the following constants:
 .. data:: QUOTE_NONNUMERIC
    :type: typing.Literal[2]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L13>`__)
 
    Instructs :class:`writer` objects to quote all non-numeric fields.
 
@@ -400,7 +400,7 @@ The :mod:`!csv` module defines the following constants:
 .. data:: QUOTE_NONE
    :type: typing.Literal[3]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L12>`__)
 
    Instructs :class:`writer` objects to never quote fields.
    When the current *delimiter*, *quotechar*, *escapechar*, ``'\r'``, ``'\n'``
@@ -415,7 +415,7 @@ The :mod:`!csv` module defines the following constants:
 .. data:: QUOTE_NOTNULL
    :type: typing.Literal[5]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L16>`__)
 
    Instructs :class:`writer` objects to quote all fields which are not
    ``None``.  This is similar to :data:`QUOTE_ALL`, except that if a
@@ -429,7 +429,7 @@ The :mod:`!csv` module defines the following constants:
 .. data:: QUOTE_STRINGS
    :type: typing.Literal[4]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L15>`__)
 
    Instructs :class:`writer` objects to always place quotes around fields
    which are strings.  This is similar to :data:`QUOTE_NONNUMERIC`, except that if a
@@ -446,7 +446,7 @@ The :mod:`!csv` module defines the following exception:
 .. exception:: Error
                Error(*args: object) -> _csv.Error
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L23>`__)
 
    Raised by any of the functions when an error is detected.
 
@@ -471,7 +471,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.delimiter
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L62>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L62>`__)
 
    A one-character string used to separate fields.  It defaults to ``','``.
 
@@ -479,7 +479,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.doublequote
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L65>`__)
 
    Controls how instances of *quotechar* appearing inside a field should
    themselves be quoted.  When :const:`True`, the character is doubled. When
@@ -493,7 +493,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.escapechar
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L64>`__)
 
    A one-character string used by the writer to escape characters that
    require escaping:
@@ -513,7 +513,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.lineterminator
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L67>`__)
 
    The string used to terminate lines produced by the :class:`writer`. It defaults
    to ``'\r\n'``.
@@ -528,7 +528,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.quotechar
    :type: str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L63>`__)
 
    A one-character string used to quote fields containing special characters,
    such as the *delimiter* or the *quotechar*, or which contain new-line
@@ -543,7 +543,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.quoting
    :type: typing.Literal[0, 1, 2, 3, 4, 5]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L68>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L68>`__)
 
    Controls when quotes should be generated by the writer and recognised by the
    reader.  It can take on any of the :ref:`QUOTE_\* constants <csv-constants>`
@@ -554,7 +554,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.skipinitialspace
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L66>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L66>`__)
 
    When :const:`True`, spaces immediately following the *delimiter* are ignored.
    The default is :const:`False`.  When combining ``delimiter=' '`` with
@@ -564,7 +564,7 @@ Dialects support the following attributes:
 .. attribute:: Dialect.strict
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L69>`__)
 
    When ``True``, raise exception :exc:`Error` on bad CSV input.
    The default is ``False``.
@@ -580,7 +580,7 @@ Reader objects (:class:`DictReader` instances and objects returned by the
 .. method:: csvreader.__next__()
             csvreader.__next__() -> list[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L58>`__)
 
    Return the next row of the reader's iterable object as a list (if the object
    was returned from :func:`reader`) or a dict (if it is a :class:`DictReader`
@@ -593,7 +593,7 @@ Reader objects have the following public attributes:
 .. attribute:: csvreader.dialect
    :type: _csv.Dialect
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L55>`__)
 
    A read-only description of the dialect in use by the parser.
 
@@ -601,7 +601,7 @@ Reader objects have the following public attributes:
 .. attribute:: csvreader.line_num
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L56>`__)
 
    The number of lines read from the source iterator. This is not the same as the
    number of records returned, as records can span multiple lines.
@@ -612,7 +612,7 @@ DictReader objects have the following public attribute:
 .. attribute:: DictReader.fieldnames
    :type: Unknown
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L77>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L77>`__)
 
    If not passed as a parameter when creating the object, this attribute is
    initialized upon first access or when the first record is read from the
@@ -635,7 +635,7 @@ read CSV files (assuming they support complex numbers at all).
 .. method:: csvwriter.writerow(row, /)
             csvwriter.writerow(row: collections.abc.Iterable[typing.Any], /) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L66>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L66>`__)
 
    Write the *row* parameter to the writer's file object, formatted according
    to the current :class:`Dialect`. Return the return value of the call to the
@@ -647,7 +647,7 @@ read CSV files (assuming they support complex numbers at all).
 .. method:: csvwriter.writerows(rows, /)
             csvwriter.writerows(rows: collections.abc.Iterable[collections.abc.Iterable[typing.Any]], /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L67>`__)
 
    Write all elements in *rows* (an iterable of *row* objects as described
    above) to the writer's file object, formatted according to the current
@@ -659,7 +659,7 @@ Writer objects have the following public attribute:
 .. attribute:: csvwriter.dialect
    :type: _csv.Dialect
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_csv.pyi#L64>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_csv.pyi#L64>`__)
 
    A read-only description of the dialect in use by the writer.
 
@@ -670,7 +670,7 @@ DictWriter objects have the following public method:
 .. method:: DictWriter.writeheader()
             DictWriter.writeheader[_T]() -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/csv.pyi#L146>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/csv.pyi#L146>`__)
 
    Write a row with the field names (as specified in the constructor) to
    the writer's file object, formatted according to the current dialect. Return

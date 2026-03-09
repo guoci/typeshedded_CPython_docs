@@ -20,10 +20,6 @@ used to wrap these libraries in pure Python.
 ctypes tutorial
 ---------------
 
-Note: The code samples in this tutorial use :mod:`doctest` to make sure that
-they actually work.  Since some code samples behave differently under Linux,
-Windows, or macOS, they contain doctest directives in comments.
-
 Note: Some code samples reference the ctypes :class:`c_int` type.  On platforms
 where ``sizeof(long) == sizeof(int)`` it is an alias to :class:`c_long`.
 So, you should not be confused if :class:`c_long` is printed if you would expect
@@ -34,13 +30,16 @@ So, you should not be confused if :class:`c_long` is printed if you would expect
 Loading dynamic link libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:mod:`!ctypes` exports the *cdll*, and on Windows *windll* and *oledll*
+:mod:`!ctypes` exports the :py:data:`~ctypes.cdll`, and on Windows
+:py:data:`~ctypes.windll` and :py:data:`~ctypes.oledll`
 objects, for loading dynamic link libraries.
 
-You load libraries by accessing them as attributes of these objects. *cdll*
-loads libraries which export functions using the standard ``cdecl`` calling
-convention, while *windll* libraries call functions using the ``stdcall``
-calling convention. *oledll* also uses the ``stdcall`` calling convention, and
+You load libraries by accessing them as attributes of these objects.
+:py:data:`!cdll` loads libraries which export functions using the
+standard ``cdecl`` calling convention, while :py:data:`!windll`
+libraries call functions using the ``stdcall``
+calling convention.
+:py:data:`~oledll` also uses the ``stdcall`` calling convention, and
 assumes the functions return a Windows :c:type:`!HRESULT` error code. The error
 code is used to automatically raise an :class:`OSError` exception when the
 function call fails.
@@ -70,11 +69,13 @@ Windows appends the usual ``.dll`` file suffix automatically.
     being used by Python. Where possible, use native Python functionality,
     or else import and use the ``msvcrt`` module.
 
-On Linux, it is required to specify the filename *including* the extension to
+Other systems require the filename *including* the extension to
 load a library, so attribute access can not be used to load libraries. Either the
 :meth:`~LibraryLoader.LoadLibrary` method of the dll loaders should be used,
-or you should load the library by creating an instance of CDLL by calling
-the constructor::
+or you should load the library by creating an instance of :py:class:`CDLL`
+by calling the constructor.
+
+For example, on Linux::
 
    >>> cdll.LoadLibrary("libc.so.6")  # doctest: +LINUX
    <CDLL 'libc.so.6', handle ... at ...>
@@ -83,7 +84,14 @@ the constructor::
    <CDLL 'libc.so.6', handle ... at ...>
    >>>
 
-.. XXX Add section for macOS.
+On macOS::
+
+   >>> cdll.LoadLibrary("libc.dylib")  # doctest: +MACOS
+   <CDLL 'libc.dylib', handle ... at ...>
+   >>> libc = CDLL("libc.dylib")       # doctest: +MACOS
+   >>> libc                            # doctest: +MACOS
+   <CDLL 'libc.dylib', handle ... at ...>
+
 
 
 .. _ctypes-accessing-functions-from-loaded-dlls:
@@ -1376,7 +1384,7 @@ the library to load.
    :module: ctypes.util
    :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/util.pyi#L3>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/util.pyi#L3>`__)
 
    Try to find a library and return a pathname.  *name* is the library name without
    any prefix like *lib*, suffix like ``.so``, ``.dylib`` or version number (this
@@ -1459,17 +1467,85 @@ Loading shared libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are several ways to load shared libraries into the Python process.  One
-way is to instantiate one of the following classes:
+way is to instantiate :py:class:`CDLL` or one of its subclasses:
 
 
 .. class:: CDLL(name, mode=DEFAULT_MODE, handle=None, use_errno=False, use_last_error=False, winmode=None)
            CDLL(name: _NameTypes, mode: int = ..., handle: int | None = None, use_errno: bool = False, use_last_error: bool = False, winmode: int | None = None) -> ctypes.CDLL
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L82>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L82>`__)
 
-   Instances of this class represent loaded shared libraries. Functions in these
-   libraries use the standard C calling convention, and are assumed to return
-   :c:expr:`int`.
+   Represents a loaded shared library.
+
+   Functions in this library use the standard C calling convention, and are
+   assumed to return :c:expr:`int`.
+   The Python :term:`global interpreter lock` is released before calling any
+   function exported by these libraries, and reacquired afterwards.
+   For different function behavior, use a subclass: :py:class:`~ctypes.OleDLL`,
+   :py:class:`~ctypes.WinDLL`, or :py:class:`~ctypes.PyDLL`.
+
+   If you have an existing :py:attr:`handle <ctypes.CDLL._handle>` to an already
+   loaded shared library, it can be passed as the *handle* argument to wrap
+   the opened library in a new :py:class:`!CDLL` object.
+   In this case, *name* is only used to set the :py:attr:`~ctypes.CDLL._name`
+   attribute, but it may be adjusted and/or validated.
+
+   If *handle* is ``None``, the underlying platform's :manpage:`dlopen(3)` or
+   :c:func:`!LoadLibrary` function is used to load the library into
+   the process, and to get a handle to it.
+
+   *name* is the pathname of the shared library to open.
+   If *name* does not contain a path separator, the library is found
+   in a platform-specific way.
+
+   On non-Windows systems, *name* can  be ``None``. In this case,
+   :c:func:`!dlopen` is called with ``NULL``, which opens the main program
+   as a "library".
+   (Some systems do the same is *name* is empty; ``None``/``NULL`` is more
+   portable.)
+
+   .. admonition:: CPython implementation detail
+
+      Since CPython is linked to ``libc``, a ``None`` *name* is often used
+      to access the C standard library::
+
+         >>> printf = ctypes.CDLL(None).printf
+         >>> printf.argtypes = [ctypes.c_char_p]
+         >>> printf(b"hello\n")
+         hello
+         6
+
+      To access the Python C API, prefer :py:data:`ctypes.pythonapi` which
+      works across platforms.
+
+   The *mode* parameter can be used to specify how the library is loaded.  For
+   details, consult the :manpage:`dlopen(3)` manpage.  On Windows, *mode* is
+   ignored.  On posix systems, RTLD_NOW is always added, and is not
+   configurable.
+
+   The *use_errno* parameter, when set to true, enables a ctypes mechanism that
+   allows accessing the system :data:`errno` error number in a safe way.
+   :mod:`!ctypes` maintains a thread-local copy of the system's :data:`errno`
+   variable; if you call foreign functions created with ``use_errno=True`` then the
+   :data:`errno` value before the function call is swapped with the ctypes private
+   copy, the same happens immediately after the function call.
+
+   The function :func:`ctypes.get_errno` returns the value of the ctypes private
+   copy, and the function :func:`ctypes.set_errno` changes the ctypes private copy
+   to a new value and returns the former value.
+
+   The *use_last_error* parameter, when set to true, enables the same mechanism for
+   the Windows error code which is managed by the :func:`GetLastError` and
+   :func:`!SetLastError` Windows API functions; :func:`ctypes.get_last_error` and
+   :func:`ctypes.set_last_error` are used to request and change the ctypes private
+   copy of the windows error code.
+
+   The *winmode* parameter is used on Windows to specify how the library is loaded
+   (since *mode* is ignored). It takes any value that is valid for the Win32 API
+   ``LoadLibraryEx`` flags parameter. When omitted, the default is to use the
+   flags that result in the most secure DLL load, which avoids issues such as DLL
+   hijacking. Passing the full path to the DLL is the safest way to ensure the
+   correct library and dependencies are loaded.
 
    On Windows creating a :class:`CDLL` instance may fail even if the DLL name
    exists. When a dependent DLL of the loaded DLL is not found, a
@@ -1481,20 +1557,53 @@ way is to instantiate one of the following classes:
    DLLs and determine which one is not found using Windows debugging and
    tracing tools.
 
+   .. seealso::
+
+      `Microsoft DUMPBIN tool <https://learn.microsoft.com/en-us/cpp/build/reference/dumpbin-reference?view=msvc-170>`_
+      -- A tool to find DLL dependents.
+
+   .. versionchanged:: 3.8
+      Added *winmode* parameter.
+
    .. versionchanged:: 3.12
 
       The *name* parameter can now be a :term:`path-like object`.
 
-.. seealso::
+   Instances of this class have no public methods.  Functions exported by the
+   shared library can be accessed as attributes or by index.  Please note that
+   accessing the function through an attribute caches the result and therefore
+   accessing it repeatedly returns the same object each time.  On the other hand,
+   accessing it through an index returns a new object each time::
 
-    `Microsoft DUMPBIN tool <https://docs.microsoft.com/cpp/build/reference/dependents>`_
-    -- A tool to find DLL dependents.
+      >>> from ctypes import CDLL
+      >>> libc = CDLL("libc.so.6")  # On Linux
+      >>> libc.time == libc.time
+      True
+      >>> libc['time'] == libc['time']
+      False
 
+   The following public attributes are available. Their name starts with an
+   underscore to not clash with exported function names:
 
-.. class:: OleDLL(name, mode=DEFAULT_MODE, handle=None, use_errno=False, use_last_error=False, winmode=None)
+   .. attribute:: _handle
+      :type: int
 
-   Instances of this class represent loaded shared libraries,
-   functions in these libraries use the ``stdcall`` calling convention, and are
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L86>`__)
+
+      The system handle used to access the library.
+
+   .. attribute:: _name
+      :type: str
+
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L85>`__)
+
+      The name of the library passed in the constructor.
+
+.. class:: OleDLL
+
+   See :py:class:`~ctypes.CDLL`, the superclass, for common information.
+
+   Functions in this library use the ``stdcall`` calling convention, and are
    assumed to return the windows specific :class:`HRESULT` code.  :class:`HRESULT`
    values contain information specifying whether the function call failed or
    succeeded, together with additional error code.  If the return value signals a
@@ -1506,89 +1615,35 @@ way is to instantiate one of the following classes:
       :exc:`WindowsError` used to be raised,
       which is now an alias of :exc:`OSError`.
 
-   .. versionchanged:: 3.12
 
-      The *name* parameter can now be a :term:`path-like object`.
+.. class:: WinDLL
 
+   See :py:class:`~ctypes.CDLL`, the superclass, for common information.
 
-.. class:: WinDLL(name, mode=DEFAULT_MODE, handle=None, use_errno=False, use_last_error=False, winmode=None)
-
-   Instances of this class represent loaded shared libraries,
-   functions in these libraries use the ``stdcall`` calling convention, and are
+   Functions in these libraries use the ``stdcall`` calling convention, and are
    assumed to return :c:expr:`int` by default.
 
    .. availability:: Windows
 
-   .. versionchanged:: 3.12
-
-      The *name* parameter can now be a :term:`path-like object`.
-
-
-The Python :term:`global interpreter lock` is released before calling any
-function exported by these libraries, and reacquired afterwards.
-
-
-.. class:: PyDLL(name, mode=DEFAULT_MODE, handle=None)
+.. class:: PyDLL
            PyDLL(name: _NameTypes, mode: int = ..., handle: int | None = None, use_errno: bool = False, use_last_error: bool = False, winmode: int | None = None) -> ctypes.PyDLL
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L104>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L104>`__)
 
-   Instances of this class behave like :class:`CDLL` instances, except that the
+   See :py:class:`~ctypes.CDLL`, the superclass, for common information.
+
+   When functions in this library are called, the
    Python GIL is *not* released during the function call, and after the function
    execution the Python error flag is checked. If the error flag is set, a Python
    exception is raised.
 
-   Thus, this is only useful to call Python C api functions directly.
-
-   .. versionchanged:: 3.12
-
-      The *name* parameter can now be a :term:`path-like object`.
-
-All these classes can be instantiated by calling them with at least one
-argument, the pathname of the shared library.  If you have an existing handle to
-an already loaded shared library, it can be passed as the ``handle`` named
-parameter, otherwise the underlying platform's :c:func:`!dlopen` or
-:c:func:`!LoadLibrary` function is used to load the library into
-the process, and to get a handle to it.
-
-The *mode* parameter can be used to specify how the library is loaded.  For
-details, consult the :manpage:`dlopen(3)` manpage.  On Windows, *mode* is
-ignored.  On posix systems, RTLD_NOW is always added, and is not
-configurable.
-
-The *use_errno* parameter, when set to true, enables a ctypes mechanism that
-allows accessing the system :data:`errno` error number in a safe way.
-:mod:`!ctypes` maintains a thread-local copy of the system's :data:`errno`
-variable; if you call foreign functions created with ``use_errno=True`` then the
-:data:`errno` value before the function call is swapped with the ctypes private
-copy, the same happens immediately after the function call.
-
-The function :func:`ctypes.get_errno` returns the value of the ctypes private
-copy, and the function :func:`ctypes.set_errno` changes the ctypes private copy
-to a new value and returns the former value.
-
-The *use_last_error* parameter, when set to true, enables the same mechanism for
-the Windows error code which is managed by the :func:`GetLastError` and
-:func:`!SetLastError` Windows API functions; :func:`ctypes.get_last_error` and
-:func:`ctypes.set_last_error` are used to request and change the ctypes private
-copy of the windows error code.
-
-The *winmode* parameter is used on Windows to specify how the library is loaded
-(since *mode* is ignored). It takes any value that is valid for the Win32 API
-``LoadLibraryEx`` flags parameter. When omitted, the default is to use the
-flags that result in the most secure DLL load, which avoids issues such as DLL
-hijacking. Passing the full path to the DLL is the safest way to ensure the
-correct library and dependencies are loaded.
-
-.. versionchanged:: 3.8
-   Added *winmode* parameter.
+   Thus, this is only useful to call Python C API functions directly.
 
 
 .. data:: RTLD_GLOBAL
    :type: int
-   :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L19>`__)
 
    Flag to use as *mode* parameter.  On platforms where this flag is not available,
    it is defined as the integer zero.
@@ -1596,9 +1651,8 @@ correct library and dependencies are loaded.
 
 .. data:: RTLD_LOCAL
    :type: int
-   :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L20>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L20>`__)
 
    Flag to use as *mode* parameter.  On platforms where this is not available, it
    is the same as *RTLD_GLOBAL*.
@@ -1606,55 +1660,22 @@ correct library and dependencies are loaded.
 
 .. data:: DEFAULT_MODE
    :type: int
-   :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L61>`__)
 
    The default mode which is used to load shared libraries.  On OSX 10.3, this is
    *RTLD_GLOBAL*, otherwise it is the same as *RTLD_LOCAL*.
 
-Instances of these classes have no public methods.  Functions exported by the
-shared library can be accessed as attributes or by index.  Please note that
-accessing the function through an attribute caches the result and therefore
-accessing it repeatedly returns the same object each time.  On the other hand,
-accessing it through an index returns a new object each time::
-
-   >>> from ctypes import CDLL
-   >>> libc = CDLL("libc.so.6")  # On Linux
-   >>> libc.time == libc.time
-   True
-   >>> libc['time'] == libc['time']
-   False
-
-The following public attributes are available, their name starts with an
-underscore to not clash with exported function names:
-
-
-.. attribute:: PyDLL._handle
-   :type: int
-
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L86>`__)
-
-   The system handle used to access the library.
-
-
-.. attribute:: PyDLL._name
-   :type: str
-
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L85>`__)
-
-   The name of the library passed in the constructor.
 
 Shared libraries can also be loaded by using one of the prefabricated objects,
 which are instances of the :class:`LibraryLoader` class, either by calling the
 :meth:`~LibraryLoader.LoadLibrary` method, or by retrieving the library as
 attribute of the loader instance.
 
-
 .. class:: LibraryLoader(dlltype)
            LibraryLoader(dlltype: type[_DLLT]) -> ctypes.LibraryLoader[_DLLT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L106>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L106>`__)
 
    Class which loads shared libraries.  *dlltype* should be one of the
    :class:`CDLL`, :class:`PyDLL`, :class:`WinDLL`, or :class:`OleDLL` types.
@@ -1666,7 +1687,7 @@ attribute of the loader instance.
    .. method:: LoadLibrary(name)
                LoadLibrary[_DLLT: CDLL](name: str) -> _DLLT
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L110>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L110>`__)
 
       Load a shared library into the process and return it.  This method always
       returns a new instance of the library.
@@ -1676,15 +1697,13 @@ These prefabricated library loaders are available:
 
 .. data:: cdll
    :type: ctypes.LibraryLoader[ctypes.CDLL]
-   :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L113>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L113>`__)
 
    Creates :class:`CDLL` instances.
 
 
 .. data:: windll
-   :noindex:
 
    Creates :class:`WinDLL` instances.
 
@@ -1692,7 +1711,6 @@ These prefabricated library loaders are available:
 
 
 .. data:: oledll
-   :noindex:
 
    Creates :class:`OleDLL` instances.
 
@@ -1701,9 +1719,8 @@ These prefabricated library loaders are available:
 
 .. data:: pydll
    :type: ctypes.LibraryLoader[ctypes.PyDLL]
-   :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L117>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L117>`__)
 
    Creates :class:`PyDLL` instances.
 
@@ -1713,9 +1730,8 @@ object is available:
 
 .. data:: pythonapi
    :type: ctypes.PyDLL
-   :noindex:
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L118>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L118>`__)
 
    An instance of :class:`PyDLL` that exposes Python C API functions as
    attributes.  Note that all these functions are assumed to return C
@@ -1768,7 +1784,7 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
            _CFuncPtr(callable: collections.abc.Callable[[...], typing.Any], /) -> _ctypes.CFuncPtr
            _CFuncPtr(func_spec: tuple[int | str, ctypes.CDLL], paramflags: tuple[_PF, ...] | None = ..., /) -> _ctypes.CFuncPtr
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L174>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L174>`__)
 
    Base class for C callable foreign functions.
 
@@ -1781,7 +1797,7 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
    .. attribute:: restype
       :type: (self: _ctypes._SimpleCData[typing.Any], value: typing.Any = ...) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L175>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L175>`__)
 
       Assign a ctypes type to specify the result type of the foreign function.
       Use ``None`` for :c:expr:`void`, a function not returning anything.
@@ -1796,7 +1812,7 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
    .. attribute:: argtypes
       :type: collections.abc.Sequence[type[_CDataType]]
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L176>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L176>`__)
 
       Assign a tuple of ctypes types to specify the argument types that the
       function accepts.  Functions using the ``stdcall`` calling convention can
@@ -1819,7 +1835,7 @@ in :mod:`!ctypes`) which inherits from the private :class:`_CFuncPtr` class:
    .. attribute:: errcheck
       :type: (_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | None, _ctypes.CFuncPtr, tuple[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], ...]) -> _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L177>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L177>`__)
 
       Assign a Python function or another callable to this attribute. The
       callable will be called with three or more arguments:
@@ -1875,7 +1891,7 @@ See :ref:`ctypes-callback-functions` for examples.
 .. function:: CFUNCTYPE(restype, *argtypes, use_errno=False, use_last_error=False)
               CFUNCTYPE(restype: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]] | None, *argtypes: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]], *, use_errno: bool = False, use_last_error: bool = False) -> type[ctypes._CFunctionType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L134>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L134>`__)
 
    The returned function prototype creates functions that use the standard C
    calling convention.  The function will release the GIL during the call.  If
@@ -1898,7 +1914,7 @@ See :ref:`ctypes-callback-functions` for examples.
 .. function:: PYFUNCTYPE(restype, *argtypes)
               PYFUNCTYPE(restype: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]] | None, *argtypes: type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]]) -> type[ctypes._CFunctionType]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L149>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L149>`__)
 
    The returned function prototype creates functions that use the Python calling
    convention.  The function will *not* release the GIL during the call.
@@ -2061,7 +2077,7 @@ Utility functions
 .. function:: addressof(obj)
               addressof(obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L356>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L356>`__)
 
    Returns the address of the memory buffer as integer.  *obj* must be an
    instance of a ctypes type.
@@ -2072,7 +2088,7 @@ Utility functions
 .. function:: alignment(obj_or_type)
               alignment(obj_or_type: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]], /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L357>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L357>`__)
 
    Returns the alignment requirements of a ctypes type. *obj_or_type* must be a
    ctypes type or instance.
@@ -2081,7 +2097,7 @@ Utility functions
 .. function:: byref(obj[, offset])
               byref(obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], offset: int = 0, /) -> _ctypes._CArgObject
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L153>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L153>`__)
 
    Returns a light-weight pointer to *obj*, which must be an instance of a
    ctypes type.  *offset* defaults to zero, and must be an integer that will be
@@ -2116,7 +2132,7 @@ Utility functions
 .. function:: cast(obj, type)
               cast[_CastT: _CanCastTo](obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CArgObject | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | int, typ: type[_CastT]) -> _CastT
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L162>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L162>`__)
 
    This function is similar to the cast operator in C. It returns a new instance
    of *type* which points to the same memory block as *obj*.  *type* must be a
@@ -2128,7 +2144,7 @@ Utility functions
               create_string_buffer(size)
               create_string_buffer(init: bytes | int, size: int | None = None) -> _ctypes.Array[ctypes.c_char]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L163>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L163>`__)
 
    This function creates a mutable character buffer. The returned object is a
    ctypes array of :class:`c_char`.
@@ -2172,7 +2188,7 @@ Utility functions
               create_unicode_buffer(size)
               create_unicode_buffer(init: int | str, size: int | None = None) -> _ctypes.Array[ctypes.c_wchar]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L167>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L167>`__)
 
    This function creates a mutable unicode character buffer. The returned object is
    a ctypes array of :class:`c_wchar`.
@@ -2205,7 +2221,7 @@ Utility functions
               find_library(name: str) -> str | None
    :module: ctypes.util
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/util.pyi#L3>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/util.pyi#L3>`__)
 
    Try to find a library and return a pathname.  *name* is the library name
    without any prefix like ``lib``, suffix like ``.so``, ``.dylib`` or version
@@ -2235,7 +2251,7 @@ Utility functions
               dllist() -> list[str]
    :module: ctypes.util
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/util.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/util.pyi#L9>`__)
 
    Try to provide a list of paths of the shared libraries loaded into the current
    process.  These paths are not normalized or processed in any way.  The function
@@ -2269,7 +2285,7 @@ Utility functions
 .. function:: get_errno()
               get_errno() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L358>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L358>`__)
 
    Returns the current value of the ctypes-private copy of the system
    :data:`errno` variable in the calling thread.
@@ -2289,7 +2305,7 @@ Utility functions
 .. function:: memmove(dst, src, count)
               memmove(dst: _CVoidPLike, src: _CVoidConstPLike, count: int) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L197>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L197>`__)
 
    Same as the standard C memmove library function: copies *count* bytes from
    *src* to *dst*. *dst* and *src* must be integers or ctypes instances that can
@@ -2299,7 +2315,7 @@ Utility functions
 .. function:: memset(dst, c, count)
               memset(dst: _CVoidPLike, c: int, count: int) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L205>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L205>`__)
 
    Same as the standard C memset library function: fills the memory block at
    address *dst* with *count* bytes of value *c*. *dst* must be an integer
@@ -2311,7 +2327,7 @@ Utility functions
               POINTER(cls: None) -> type[ctypes.c_void_p]
               POINTER(cls: type[_CT]) -> type[_ctypes._Pointer[_CT]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L48>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L48>`__)
 
    Create or return a ctypes pointer type. Pointer types are cached and
    reused internally, so calling this function repeatedly is cheap.
@@ -2331,7 +2347,7 @@ Utility functions
 .. function:: pointer(obj, /)
               pointer[_CT: _CData](obj: _CT) -> _ctypes._Pointer[_CT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L53>`__)
 
    Create a new pointer instance, pointing to *obj*.
    The returned object is of the type ``POINTER(type(obj))``.
@@ -2343,7 +2359,7 @@ Utility functions
 .. function:: resize(obj, size)
               resize(obj: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any], size: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L359>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L359>`__)
 
    This function resizes the internal memory buffer of *obj*, which must be an
    instance of a ctypes type.  It is not possible to make the buffer smaller
@@ -2354,7 +2370,7 @@ Utility functions
 .. function:: set_errno(value)
               set_errno(value: int, /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L360>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L360>`__)
 
    Set the current value of the ctypes-private copy of the system :data:`errno`
    variable in the calling thread to *value* and return the previous value.
@@ -2376,7 +2392,7 @@ Utility functions
 .. function:: sizeof(obj_or_type)
               sizeof(obj_or_type: _ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any] | type[_ctypes.Array[typing.Any] | _ctypes.CFuncPtr | _ctypes.Structure | _ctypes.Union | _ctypes._CData | _ctypes._Pointer[typing.Any] | _ctypes._SimpleCData[typing.Any]], /) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L361>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L361>`__)
 
    Returns the size in bytes of a ctypes type or instance memory buffer.
    Does the same as the C ``sizeof`` operator.
@@ -2385,7 +2401,7 @@ Utility functions
 .. function:: string_at(ptr, size=-1)
               string_at(ptr: _CVoidConstPLike, size: int = -1) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L207>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L207>`__)
 
    Return the byte string at *void \*ptr*.
    If *size* is specified, it is used as size, otherwise the string is assumed
@@ -2411,7 +2427,7 @@ Utility functions
 .. function:: wstring_at(ptr, size=-1)
               wstring_at(ptr: _CVoidConstPLike, size: int = -1) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L212>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L212>`__)
 
    Return the wide-character string at *void \*ptr*.
    If *size* is specified, it is used as the number of
@@ -2424,7 +2440,7 @@ Utility functions
 .. function:: memoryview_at(ptr, size, readonly=False)
               memoryview_at(ptr: _CVoidConstPLike, size: int, readonly: bool = False) -> memoryview
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L215>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L215>`__)
 
    Return a :class:`memoryview` object of length *size* that references memory
    starting at *void \*ptr*.
@@ -2455,7 +2471,7 @@ Data types
 .. class:: _CData
            _CData() -> _ctypes._CData
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L73>`__)
 
    This non-public class is the common base class of all ctypes data types.
    Among other things, all ctypes type instances contain a memory block that
@@ -2519,7 +2535,7 @@ Data types
 
    .. attribute:: __pointer_type__
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L80>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L80>`__)
 
       The pointer type that was created by calling
       :func:`POINTER` for corresponding ctypes data type. If a pointer type
@@ -2532,7 +2548,7 @@ Data types
    .. attribute:: _b_base_
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L74>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L74>`__)
 
       Sometimes ctypes data instances do not own the memory block they contain,
       instead they share part of the memory block of a base object.  The
@@ -2542,7 +2558,7 @@ Data types
    .. attribute:: _b_needsfree_
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L75>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L75>`__)
 
       This read-only variable is true when the ctypes data instance has
       allocated the memory block itself, false otherwise.
@@ -2550,7 +2566,7 @@ Data types
    .. attribute:: _objects
       :type: collections.abc.Mapping[typing.Any, int] | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L76>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L76>`__)
 
       This member is either ``None`` or a dictionary containing Python objects
       that need to be kept alive so that the memory block contents is kept
@@ -2566,7 +2582,7 @@ Fundamental data types
 .. class:: _SimpleCData
            _SimpleCData(value: _T = ...) -> _ctypes._SimpleCData[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L100>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L100>`__)
 
    This non-public class is the base class of all fundamental ctypes data
    types. It is mentioned here because it contains the common attributes of the
@@ -2579,7 +2595,7 @@ Fundamental data types
    .. attribute:: value
       :type: Unknown
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L101>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L101>`__)
 
       This attribute contains the actual value of the instance. For integer and
       pointer types, it is an integer, for character types, it is a single
@@ -2610,7 +2626,7 @@ These are the fundamental ctypes data types:
 .. class:: c_byte
            c_byte(value: int = ...) -> ctypes.c_byte
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L226>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L226>`__)
 
    Represents the C :c:expr:`signed char` datatype, and interprets the value as
    small integer.  The constructor accepts an optional integer initializer; no
@@ -2620,7 +2636,7 @@ These are the fundamental ctypes data types:
 .. class:: c_char
            c_char(value: bytearray | bytes | int = ...) -> ctypes.c_char
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L302>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L302>`__)
 
    Represents the C :c:expr:`char` datatype, and interprets the value as a single
    character.  The constructor accepts an optional string initializer, the
@@ -2630,7 +2646,7 @@ These are the fundamental ctypes data types:
 .. class:: c_char_p
            c_char_p(value: bytes | int | None = ...) -> ctypes.c_char_p
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L306>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L306>`__)
 
    Represents the C :c:expr:`char *` datatype when it points to a zero-terminated
    string.  For a general character pointer that may also point to binary data,
@@ -2641,7 +2657,7 @@ These are the fundamental ctypes data types:
 .. class:: c_double
            c_double(value: float = ...) -> ctypes.c_double
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L286>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L286>`__)
 
    Represents the C :c:expr:`double` datatype.  The constructor accepts an
    optional float initializer.
@@ -2650,7 +2666,7 @@ These are the fundamental ctypes data types:
 .. class:: c_longdouble
            c_longdouble(value: float = ...) -> ctypes.c_longdouble
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L289>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L289>`__)
 
    Represents the C :c:expr:`long double` datatype.  The constructor accepts an
    optional float initializer.  On platforms where ``sizeof(long double) ==
@@ -2659,7 +2675,7 @@ These are the fundamental ctypes data types:
 .. class:: c_float
            c_float(value: float = ...) -> ctypes.c_float
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L283>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L283>`__)
 
    Represents the C :c:expr:`float` datatype.  The constructor accepts an
    optional float initializer.
@@ -2668,7 +2684,7 @@ These are the fundamental ctypes data types:
 .. class:: c_double_complex
            c_double_complex(value: complex = ...) -> ctypes.c_double_complex
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L293>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L293>`__)
 
    Represents the C :c:expr:`double complex` datatype, if available.  The
    constructor accepts an optional :class:`complex` initializer.
@@ -2679,7 +2695,7 @@ These are the fundamental ctypes data types:
 .. class:: c_float_complex
            c_float_complex(value: complex = ...) -> ctypes.c_float_complex
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L296>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L296>`__)
 
    Represents the C :c:expr:`float complex` datatype, if available.  The
    constructor accepts an optional :class:`complex` initializer.
@@ -2690,7 +2706,7 @@ These are the fundamental ctypes data types:
 .. class:: c_longdouble_complex
            c_longdouble_complex(value: complex = ...) -> ctypes.c_longdouble_complex
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L299>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L299>`__)
 
    Represents the C :c:expr:`long double complex` datatype, if available.  The
    constructor accepts an optional :class:`complex` initializer.
@@ -2701,7 +2717,7 @@ These are the fundamental ctypes data types:
 .. class:: c_int
            c_int(value: int = ...) -> ctypes.c_int
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L244>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L244>`__)
 
    Represents the C :c:expr:`signed int` datatype.  The constructor accepts an
    optional integer initializer; no overflow checking is done.  On platforms
@@ -2711,7 +2727,7 @@ These are the fundamental ctypes data types:
 .. class:: c_int8
            c_int8(value: int = ...) -> ctypes.c_byte
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L256>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L256>`__)
 
    Represents the C 8-bit :c:expr:`signed int` datatype.  It is an alias for
    :class:`c_byte`.
@@ -2720,7 +2736,7 @@ These are the fundamental ctypes data types:
 .. class:: c_int16
            c_int16(value: int = ...) -> ctypes.c_int16
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L259>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L259>`__)
 
    Represents the C 16-bit :c:expr:`signed int` datatype.  Usually an alias for
    :class:`c_short`.
@@ -2729,7 +2745,7 @@ These are the fundamental ctypes data types:
 .. class:: c_int32
            c_int32(value: int = ...) -> ctypes.c_int32
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L265>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L265>`__)
 
    Represents the C 32-bit :c:expr:`signed int` datatype.  Usually an alias for
    :class:`c_int`.
@@ -2738,7 +2754,7 @@ These are the fundamental ctypes data types:
 .. class:: c_int64
            c_int64(value: int = ...) -> ctypes.c_int64
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L271>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L271>`__)
 
    Represents the C 64-bit :c:expr:`signed int` datatype.  Usually an alias for
    :class:`c_longlong`.
@@ -2747,7 +2763,7 @@ These are the fundamental ctypes data types:
 .. class:: c_long
            c_long(value: int = ...) -> ctypes.c_long
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L238>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L238>`__)
 
    Represents the C :c:expr:`signed long` datatype.  The constructor accepts an
    optional integer initializer; no overflow checking is done.
@@ -2756,7 +2772,7 @@ These are the fundamental ctypes data types:
 .. class:: c_longlong
            c_longlong(value: int = ...) -> ctypes.c_longlong
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L250>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L250>`__)
 
    Represents the C :c:expr:`signed long long` datatype.  The constructor accepts
    an optional integer initializer; no overflow checking is done.
@@ -2765,7 +2781,7 @@ These are the fundamental ctypes data types:
 .. class:: c_short
            c_short(value: int = ...) -> ctypes.c_short
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L232>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L232>`__)
 
    Represents the C :c:expr:`signed short` datatype.  The constructor accepts an
    optional integer initializer; no overflow checking is done.
@@ -2774,7 +2790,7 @@ These are the fundamental ctypes data types:
 .. class:: c_size_t
            c_size_t(value: int = ...) -> ctypes.c_size_t
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L280>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L280>`__)
 
    Represents the C :c:type:`size_t` datatype.
 
@@ -2782,7 +2798,7 @@ These are the fundamental ctypes data types:
 .. class:: c_ssize_t
            c_ssize_t(value: int = ...) -> ctypes.c_ssize_t
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L277>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L277>`__)
 
    Represents the C :c:type:`ssize_t` datatype.
 
@@ -2792,7 +2808,7 @@ These are the fundamental ctypes data types:
 .. class:: c_time_t
            c_time_t(value: int = ...) -> ctypes.c_int | ctypes.c_int32 | ctypes.c_int64 | ctypes.c_long | ctypes.c_longlong
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L336>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L336>`__)
 
    Represents the C :c:type:`time_t` datatype.
 
@@ -2802,7 +2818,7 @@ These are the fundamental ctypes data types:
 .. class:: c_ubyte
            c_ubyte(value: int = ...) -> ctypes.c_ubyte
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L229>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L229>`__)
 
    Represents the C :c:expr:`unsigned char` datatype, it interprets the value as
    small integer.  The constructor accepts an optional integer initializer; no
@@ -2812,7 +2828,7 @@ These are the fundamental ctypes data types:
 .. class:: c_uint
            c_uint(value: int = ...) -> ctypes.c_uint
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L247>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L247>`__)
 
    Represents the C :c:expr:`unsigned int` datatype.  The constructor accepts an
    optional integer initializer; no overflow checking is done.  On platforms
@@ -2822,7 +2838,7 @@ These are the fundamental ctypes data types:
 .. class:: c_uint8
            c_uint8(value: int = ...) -> ctypes.c_ubyte
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L257>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L257>`__)
 
    Represents the C 8-bit :c:expr:`unsigned int` datatype.  It is an alias for
    :class:`c_ubyte`.
@@ -2831,7 +2847,7 @@ These are the fundamental ctypes data types:
 .. class:: c_uint16
            c_uint16(value: int = ...) -> ctypes.c_uint16
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L262>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L262>`__)
 
    Represents the C 16-bit :c:expr:`unsigned int` datatype.  Usually an alias for
    :class:`c_ushort`.
@@ -2840,7 +2856,7 @@ These are the fundamental ctypes data types:
 .. class:: c_uint32
            c_uint32(value: int = ...) -> ctypes.c_uint32
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L268>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L268>`__)
 
    Represents the C 32-bit :c:expr:`unsigned int` datatype.  Usually an alias for
    :class:`c_uint`.
@@ -2849,7 +2865,7 @@ These are the fundamental ctypes data types:
 .. class:: c_uint64
            c_uint64(value: int = ...) -> ctypes.c_uint64
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L274>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L274>`__)
 
    Represents the C 64-bit :c:expr:`unsigned int` datatype.  Usually an alias for
    :class:`c_ulonglong`.
@@ -2858,7 +2874,7 @@ These are the fundamental ctypes data types:
 .. class:: c_ulong
            c_ulong(value: int = ...) -> ctypes.c_ulong
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L241>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L241>`__)
 
    Represents the C :c:expr:`unsigned long` datatype.  The constructor accepts an
    optional integer initializer; no overflow checking is done.
@@ -2867,7 +2883,7 @@ These are the fundamental ctypes data types:
 .. class:: c_ulonglong
            c_ulonglong(value: int = ...) -> ctypes.c_ulonglong
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L253>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L253>`__)
 
    Represents the C :c:expr:`unsigned long long` datatype.  The constructor
    accepts an optional integer initializer; no overflow checking is done.
@@ -2876,7 +2892,7 @@ These are the fundamental ctypes data types:
 .. class:: c_ushort
            c_ushort(value: int = ...) -> ctypes.c_ushort
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L235>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L235>`__)
 
    Represents the C :c:expr:`unsigned short` datatype.  The constructor accepts
    an optional integer initializer; no overflow checking is done.
@@ -2885,7 +2901,7 @@ These are the fundamental ctypes data types:
 .. class:: c_void_p
            c_void_p(value: int | None = ...) -> ctypes.c_void_p
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L312>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L312>`__)
 
    Represents the C :c:expr:`void *` type.  The value is represented as integer.
    The constructor accepts an optional integer initializer.
@@ -2894,7 +2910,7 @@ These are the fundamental ctypes data types:
 .. class:: c_wchar
            c_wchar(value: str = ...) -> ctypes.c_wchar
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L319>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L319>`__)
 
    Represents the C :c:type:`wchar_t` datatype, and interprets the value as a
    single character unicode string.  The constructor accepts an optional string
@@ -2904,7 +2920,7 @@ These are the fundamental ctypes data types:
 .. class:: c_wchar_p
            c_wchar_p(value: int | str | None = ...) -> ctypes.c_wchar_p
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L322>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L322>`__)
 
    Represents the C :c:expr:`wchar_t *` datatype, which must be a pointer to a
    zero-terminated wide character string.  The constructor accepts an integer
@@ -2914,7 +2930,7 @@ These are the fundamental ctypes data types:
 .. class:: c_bool
            c_bool(value: _typeshed.SupportsBool | _typeshed.SupportsLen | None = ...) -> ctypes.c_bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L222>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L222>`__)
 
    Represent the C :c:expr:`bool` datatype (more accurately, :c:expr:`_Bool` from
    C99).  Its value can be ``True`` or ``False``, and the constructor accepts any object
@@ -2932,7 +2948,7 @@ These are the fundamental ctypes data types:
 .. class:: py_object
            py_object(value: _T = ...) -> ctypes.py_object[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L217>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L217>`__)
 
    Represents the C :c:expr:`PyObject *` datatype.  Calling this without an
    argument creates a ``NULL`` :c:expr:`PyObject *` pointer.
@@ -2954,7 +2970,7 @@ Structured data types
 .. class:: Union(*args, **kw)
            Union(*args: typing.Any, **kw: typing.Any) -> _ctypes.Union
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L256>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L256>`__)
 
    Abstract base class for unions in native byte order.
 
@@ -2964,7 +2980,7 @@ Structured data types
 .. class:: BigEndianUnion(*args, **kw)
            BigEndianUnion(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.BigEndianUnion
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/_endian.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/_endian.pyi#L13>`__)
 
    Abstract base class for unions in *big endian* byte order.
 
@@ -2973,7 +2989,7 @@ Structured data types
 .. class:: LittleEndianUnion(*args, **kw)
            LittleEndianUnion(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.LittleEndianUnion
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/_endian.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/_endian.pyi#L16>`__)
 
    Abstract base class for unions in *little endian* byte order.
 
@@ -2982,7 +2998,7 @@ Structured data types
 .. class:: BigEndianStructure(*args, **kw)
            BigEndianStructure(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.BigEndianStructure
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/_endian.pyi#L6>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/_endian.pyi#L6>`__)
 
    Abstract base class for structures in *big endian* byte order.
 
@@ -2990,7 +3006,7 @@ Structured data types
 .. class:: LittleEndianStructure(*args, **kw)
            LittleEndianStructure(*args: typing.Any, **kw: typing.Any) -> ctypes._endian.LittleEndianStructure
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/_endian.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/_endian.pyi#L9>`__)
 
    Abstract base class for structures in *little endian* byte order.
 
@@ -3001,7 +3017,7 @@ fields, or any other data types containing pointer type fields.
 .. class:: Structure(*args, **kw)
            Structure(*args: typing.Any, **kw: typing.Any) -> _ctypes.Structure
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L284>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L284>`__)
 
    Abstract base class for structures in *native* byte order.
 
@@ -3014,7 +3030,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: _fields_
       :type: collections.abc.Sequence[tuple[str, type[_CDataType]] | tuple[str, type[_CDataType], int]]
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L285>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L285>`__)
 
       A sequence defining the structure fields.  The items must be 2-tuples or
       3-tuples.  The first item is the name of the field, the second item
@@ -3055,7 +3071,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: _pack_
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L286>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L286>`__)
 
       An optional small integer that allows overriding the alignment of
       structure fields in the instance.
@@ -3083,7 +3099,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: _align_
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L289>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L289>`__)
 
       An optional small integer that allows increasing the alignment of
       the structure when being packed or unpacked to/from memory.
@@ -3107,7 +3123,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: _layout_
       :type: typing.Literal['gcc-sysv', 'ms']
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L293>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L293>`__)
 
       An optional string naming the struct/union layout. It can currently
       be set to:
@@ -3138,7 +3154,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: _anonymous_
       :type: collections.abc.Sequence[str]
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L287>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L287>`__)
 
       An optional sequence that lists the names of unnamed (anonymous) fields.
       :attr:`_anonymous_` must be already defined when :attr:`_fields_` is
@@ -3190,7 +3206,7 @@ fields, or any other data types containing pointer type fields.
 .. class:: CField(*args, **kw)
            CField() -> _ctypes.CField[_CT, _GetT, _SetT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L59>`__)
 
    Descriptor for fields of a :class:`Structure` and :class:`Union`.
    For example::
@@ -3229,21 +3245,21 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: name
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L204>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L204>`__)
 
       Name of the field, as a string.
 
    .. attribute:: type
       :type: Unknown
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L205>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L205>`__)
 
       Type of the field, as a :ref:`ctypes class <ctypes-data-types>`.
 
    .. attribute:: offset
                   byte_offset
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L202>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L202>`__)
 
       Offset of the field, in bytes.
 
@@ -3253,7 +3269,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: byte_size
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L207>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L207>`__)
 
       Size of the field, in bytes.
 
@@ -3263,7 +3279,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: size
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L203>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L203>`__)
 
       For non-bitfields, equivalent to :attr:`~CField.byte_size`.
 
@@ -3275,14 +3291,14 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: is_bitfield
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L208>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L208>`__)
 
       True if this is a bitfield.
 
    .. attribute:: bit_offset
                   bit_size
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L209>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L209>`__)
 
       The location of a bitfield within its *storage unit*, that is, within
       :attr:`~CField.byte_size` bytes of memory starting at
@@ -3298,7 +3314,7 @@ fields, or any other data types containing pointer type fields.
    .. attribute:: is_anonymous
       :type: bool
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L211>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L211>`__)
 
       True if this field is anonymous, that is, it contains nested sub-fields
       that should be merged into a containing structure or union.
@@ -3312,7 +3328,7 @@ Arrays and pointers
 .. class:: Array(*args)
            Array(*args: typing.Any) -> _ctypes.Array[_CT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L312>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L312>`__)
 
    Abstract base class for arrays.
 
@@ -3327,7 +3343,7 @@ Arrays and pointers
    .. attribute:: _length_
       :type: _length_[_CT: _CData](self: _ctypes.Array[_CT], value: int) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L315>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L315>`__)
 
         A positive integer specifying the number of elements in the array.
         Out-of-range subscripts result in an :exc:`IndexError`. Will be
@@ -3337,7 +3353,7 @@ Arrays and pointers
    .. attribute:: _type_
       :type: _type_[_CT: _CData](self: _ctypes.Array[_CT], value: type[_CT]) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L320>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L320>`__)
 
         Specifies the type of each element in the array.
 
@@ -3348,7 +3364,7 @@ Arrays and pointers
 .. function:: ARRAY(type, length)
               ARRAY[_CT: _CData](typ: _CT, len: int) -> _ctypes.Array[_CT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L173>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L173>`__)
 
    Create an array.
    Equivalent to ``type * length``, where *type* is a
@@ -3362,7 +3378,7 @@ Arrays and pointers
            _Pointer() -> _ctypes._Pointer[_CT]
            _Pointer(arg: _CT) -> _ctypes._Pointer[_CT]
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L127>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L127>`__)
 
    Private, abstract base class for pointers.
 
@@ -3381,14 +3397,14 @@ Arrays and pointers
    .. attribute:: _type_
       :type: Unknown
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L128>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L128>`__)
 
         Specifies the type pointed to.
 
    .. attribute:: contents
       :type: Unknown
 
-      (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/_ctypes.pyi#L129>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/_ctypes.pyi#L129>`__)
 
         Returns the object to which to pointer points.  Assigning to this
         attribute changes the pointer to point to the assigned object.
@@ -3402,7 +3418,7 @@ Exceptions
 .. exception:: ArgumentError
                ArgumentError(*args: object) -> ctypes.ArgumentError
 
-   (`typeshed <https://github.com/python/typeshed/blob/4905a32/stdlib/ctypes/__init__.pyi#L63>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/ctypes/__init__.pyi#L63>`__)
 
    This exception is raised when a foreign function call cannot convert one of the
    passed arguments.
