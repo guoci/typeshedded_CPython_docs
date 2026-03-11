@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>C API Extension Support for Free Threading &#8212; Python 3.15.0a6 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C API Extension Support for Free Threading &#8212; Python 3.15.0a7 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=6b7c9ff5"></script>
+    <script src="../_static/documentation_options.js?v=cf041bec"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
@@ -32,7 +32,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a6 documentation"
+          title="Search within Python 3.15.0a7 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -125,6 +125,7 @@
 <li><a class="reference internal" href="#how-critical-sections-work">How Critical Sections Work</a></li>
 <li><a class="reference internal" href="#deadlock-avoidance">Deadlock Avoidance</a></li>
 <li><a class="reference internal" href="#important-considerations">Important Considerations</a></li>
+<li><a class="reference internal" href="#per-object-locks-ob-mutex">Per-Object Locks (<code class="docutils literal notranslate"><span class="pre">ob_mutex</span></code>)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#building-extensions-for-the-free-threaded-build">Building Extensions for the Free-Threaded Build</a><ul>
@@ -205,7 +206,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python HOWTOs</a> &#187;</li>
@@ -585,6 +586,25 @@ internal extension state, standard mutexes or other synchronization
 primitives might be more appropriate.</p></li>
 </ul>
 </section>
+<section id="per-object-locks-ob-mutex">
+<span id="per-object-locks"></span><h3>Per-Object Locks (<code class="docutils literal notranslate"><span class="pre">ob_mutex</span></code>)<a class="headerlink" href="#per-object-locks-ob-mutex" title="Link to this heading">¶</a></h3>
+<p>In the free-threaded build, each Python object contains a <a class="reference internal" href="../c-api/structures.html#c.PyObject.ob_mutex" title="PyObject.ob_mutex"><code class="xref c c-member docutils literal notranslate"><span class="pre">ob_mutex</span></code></a>
+field of type <a class="reference internal" href="../c-api/synchronization.html#c.PyMutex" title="PyMutex"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code></a>.  This mutex is <strong>reserved for use by the
+critical section API</strong> (<a class="reference internal" href="../c-api/synchronization.html#c.Py_BEGIN_CRITICAL_SECTION" title="Py_BEGIN_CRITICAL_SECTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_BEGIN_CRITICAL_SECTION</span></code></a> /
+<a class="reference internal" href="../c-api/synchronization.html#c.Py_END_CRITICAL_SECTION" title="Py_END_CRITICAL_SECTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_END_CRITICAL_SECTION</span></code></a>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do <strong>not</strong> lock <code class="docutils literal notranslate"><span class="pre">ob_mutex</span></code> directly with <code class="docutils literal notranslate"><span class="pre">PyMutex_Lock(&amp;obj-&gt;ob_mutex)</span></code>.
+Mixing direct <code class="docutils literal notranslate"><span class="pre">PyMutex_Lock</span></code> calls with the critical section API on the
+same mutex can cause deadlocks.</p>
+</div>
+<p>Even if your own code never uses critical sections on a particular object type,
+<strong>CPython internals may use the critical section API on any Python object</strong>.</p>
+<p>If your extension type needs its own lock, add a separate <a class="reference internal" href="../c-api/synchronization.html#c.PyMutex" title="PyMutex"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code></a>
+field (or another synchronization primitive) to your object struct.
+<a class="reference internal" href="../c-api/synchronization.html#c.PyMutex" title="PyMutex"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMutex</span></code></a> is very lightweight, so there is negligible cost to having
+an additional one.</p>
+</section>
 </section>
 <section id="building-extensions-for-the-free-threaded-build">
 <h2>Building Extensions for the Free-Threaded Build<a class="headerlink" href="#building-extensions-for-the-free-threaded-build" title="Link to this heading">¶</a></h2>
@@ -660,6 +680,7 @@ A community-maintained porting guide for extension authors.</p>
 <li><a class="reference internal" href="#how-critical-sections-work">How Critical Sections Work</a></li>
 <li><a class="reference internal" href="#deadlock-avoidance">Deadlock Avoidance</a></li>
 <li><a class="reference internal" href="#important-considerations">Important Considerations</a></li>
+<li><a class="reference internal" href="#per-object-locks-ob-mutex">Per-Object Locks (<code class="docutils literal notranslate"><span class="pre">ob_mutex</span></code>)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#building-extensions-for-the-free-threaded-build">Building Extensions for the Free-Threaded Build</a><ul>
@@ -743,7 +764,7 @@ A community-maintained porting guide for extension authors.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python HOWTOs</a> &#187;</li>

@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>Memory Management &#8212; Python 3.15.0a6 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Management &#8212; Python 3.15.0a7 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=6b7c9ff5"></script>
+    <script src="../_static/documentation_options.js?v=cf041bec"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
@@ -32,7 +32,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a6 documentation"
+          title="Search within Python 3.15.0a7 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -193,7 +193,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API reference manual</a> &#187;</li>
@@ -396,14 +396,21 @@ called before, undefined behavior occurs.</p>
 <p>The following function sets, modeled after the ANSI C standard, but specifying
 behavior when requesting zero bytes, are available for allocating and releasing
 memory from the Python heap.</p>
-<p>The <a class="reference internal" href="#default-memory-allocators"><span class="std std-ref">default memory allocator</span></a> uses the
-<a class="reference internal" href="#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a>.</p>
+<p>In the GIL-enabled build (default build) the
+<a class="reference internal" href="#default-memory-allocators"><span class="std std-ref">default memory allocator</span></a> uses the
+<a class="reference internal" href="#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a>, whereas in the
+<a class="reference internal" href="../glossary.html#term-free-threaded-build"><span class="xref std std-term">free-threaded build</span></a>, the default is the
+<a class="reference internal" href="#mimalloc"><span class="std std-ref">mimalloc memory allocator</span></a> instead.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There must be an <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a> when using these functions.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>The default allocator is now pymalloc instead of system <code class="xref c c-func docutils literal notranslate"><span class="pre">malloc()</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.13: </span>In the <a class="reference internal" href="../glossary.html#term-free-threading"><span class="xref std std-term">free-threaded</span></a> build, the default allocator
+is now <a class="reference internal" href="#mimalloc"><span class="std std-ref">mimalloc</span></a>.</p>
 </div>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyMem_Malloc">
@@ -564,7 +571,9 @@ functions in this domain by the methods described in
 the <a class="reference internal" href="#customize-memory-allocators"><span class="std std-ref">Customize Memory Allocators</span></a> section.</p>
 </div>
 <p>The <a class="reference internal" href="#default-memory-allocators"><span class="std std-ref">default object allocator</span></a> uses the
-<a class="reference internal" href="#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a>.</p>
+<a class="reference internal" href="#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a>.  In the
+<a class="reference internal" href="../glossary.html#term-free-threading"><span class="xref std std-term">free-threaded</span></a> build, the default is the
+<a class="reference internal" href="#mimalloc"><span class="std std-ref">mimalloc memory allocator</span></a> instead.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There must be an <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a> when using these functions.</p>
@@ -673,6 +682,18 @@ allocated by types that support garbage collection.</p></li>
 <td><p><code class="docutils literal notranslate"><span class="pre">malloc</span></code> + debug</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">malloc</span></code> + debug</p></td>
 </tr>
+<tr class="row-even"><td><p>Free-threaded build</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;mimalloc&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Free-threaded debug build</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;mimalloc_debug&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code> + debug</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code> + debug</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code> + debug</p></td>
+</tr>
 </tbody>
 </table>
 <p>Legend:</p>
@@ -681,8 +702,7 @@ allocated by types that support garbage collection.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">malloc</span></code>: system allocators from the standard C library, C functions:
 <code class="xref c c-func docutils literal notranslate"><span class="pre">malloc()</span></code>, <code class="xref c c-func docutils literal notranslate"><span class="pre">calloc()</span></code>, <code class="xref c c-func docutils literal notranslate"><span class="pre">realloc()</span></code> and <code class="xref c c-func docutils literal notranslate"><span class="pre">free()</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pymalloc</span></code>: <a class="reference internal" href="#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code>: <a class="reference internal" href="#mimalloc"><span class="std std-ref">mimalloc memory allocator</span></a>.  The pymalloc
-allocator will be used if mimalloc support isn’t available.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mimalloc</span></code>: <a class="reference internal" href="#mimalloc"><span class="std std-ref">mimalloc memory allocator</span></a>.</p></li>
 <li><p>“+ debug”: with <a class="reference internal" href="#pymem-debug-hooks"><span class="std std-ref">debug hooks on the Python memory allocators</span></a>.</p></li>
 <li><p>“Debug build”: <a class="reference internal" href="../using/configure.html#debug-build"><span class="std std-ref">Python build in debug mode</span></a>.</p></li>
 </ul>
@@ -990,9 +1010,24 @@ three fields:</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.13.</span></p>
 </div>
-<p>Python supports the mimalloc allocator when the underlying platform support is available.
-mimalloc “is a general purpose allocator with excellent performance characteristics.
-Initially developed by Daan Leijen for the runtime systems of the Koka and Lean languages.”</p>
+<p>Python supports the <a class="reference external" href="https://github.com/microsoft/mimalloc/">mimalloc</a>
+allocator when the underlying platform support is available.
+mimalloc is a general purpose allocator with excellent performance
+characteristics, initially developed by Daan Leijen for the runtime systems
+of the Koka and Lean languages.</p>
+<p>Unlike <a class="reference internal" href="#pymalloc"><span class="std std-ref">pymalloc</span></a>, which is optimized for small objects (512
+bytes or fewer), mimalloc handles allocations of any size.</p>
+<p>In the <a class="reference internal" href="../glossary.html#term-free-threading"><span class="xref std std-term">free-threaded</span></a> build, mimalloc is the default
+and <strong>required</strong> allocator for the <a class="reference internal" href="#c.PYMEM_DOMAIN_MEM" title="PYMEM_DOMAIN_MEM"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PYMEM_DOMAIN_MEM</span></code></a> and
+<a class="reference internal" href="#c.PYMEM_DOMAIN_OBJ" title="PYMEM_DOMAIN_OBJ"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PYMEM_DOMAIN_OBJ</span></code></a> domains.  It cannot be disabled in free-threaded
+builds.  The free-threaded build uses per-thread mimalloc heaps, which allows
+allocation and deallocation to proceed without locking in most cases.</p>
+<p>In the default (non-free-threaded) build, mimalloc is available but not the
+default allocator.  It can be selected at runtime using
+<span class="target" id="index-6"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONMALLOC"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONMALLOC</span></code></a><code class="docutils literal notranslate"><span class="pre">=mimalloc</span></code> (or <code class="docutils literal notranslate"><span class="pre">mimalloc_debug</span></code> to include
+<a class="reference internal" href="#pymem-debug-hooks"><span class="std std-ref">debug hooks</span></a>).  It can be disabled at build time
+using the <a class="reference internal" href="../using/configure.html#cmdoption-without-mimalloc"><code class="xref std std-option docutils literal notranslate"><span class="pre">--without-mimalloc</span></code></a> configure option, but this option
+cannot be combined with <a class="reference internal" href="../using/configure.html#cmdoption-disable-gil"><code class="xref std std-option docutils literal notranslate"><span class="pre">--disable-gil</span></code></a>.</p>
 </section>
 <section id="tracemalloc-c-api">
 <h2>tracemalloc C API<a class="headerlink" href="#tracemalloc-c-api" title="Link to this heading">¶</a></h2>
@@ -1172,7 +1207,7 @@ object types in C.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API reference manual</a> &#187;</li>

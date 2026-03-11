@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>1. Command line and environment &#8212; Python 3.15.0a6 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Command line and environment &#8212; Python 3.15.0a7 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=6b7c9ff5"></script>
+    <script src="../_static/documentation_options.js?v=cf041bec"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
@@ -32,7 +32,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a6 documentation"
+          title="Search within Python 3.15.0a7 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -186,7 +186,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Setup and Usage</a> &#187;</li>
@@ -253,7 +253,7 @@ reads and executes a script from that file.</p></li>
 appropriately named script from that directory.</p></li>
 <li><p>When called with <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">command</span></code>, it executes the Python statement(s) given as
 <em>command</em>.  Here <em>command</em> may contain multiple statements separated by
-newlines. Leading whitespace is significant in Python statements!</p></li>
+newlines.</p></li>
 <li><p>When called with <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">module-name</span></code>, the given module is located on the
 Python module path and executed as a script.</p></li>
 </ul>
@@ -909,7 +909,7 @@ and to <code class="docutils literal notranslate"><span class="pre">0</span></co
 If false (<code class="docutils literal notranslate"><span class="pre">0</span></code>) suppress these warnings. Set to true by default.
 See also <span class="target" id="index-40"></span><a class="reference internal" href="#envvar-PYTHON_PATHCONFIG_WARNINGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PATHCONFIG_WARNINGS</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 </li>
 <li><p><code class="samp docutils literal notranslate"><span class="pre">-X</span> <span class="pre">tlbc=</span><em><span class="pre">0,1</span></em></code> enables (1, the default) or disables (0) thread-local
@@ -926,7 +926,7 @@ entirely (even explicit <code class="docutils literal notranslate"><span class="
 (the default) respects the <code class="docutils literal notranslate"><span class="pre">lazy</span></code> keyword in source code.
 See also <span class="target" id="index-42"></span><a class="reference internal" href="#envvar-PYTHON_LAZY_IMPORTS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_LAZY_IMPORTS</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 </li>
 </ul>
@@ -1317,6 +1317,13 @@ allocators</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pymalloc_debug</span></code>: same as <code class="docutils literal notranslate"><span class="pre">pymalloc</span></code> but also install debug hooks.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mimalloc_debug</span></code>: same as <code class="docutils literal notranslate"><span class="pre">mimalloc</span></code> but also install debug hooks.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the <a class="reference internal" href="../glossary.html#term-free-threading"><span class="xref std std-term">free-threaded</span></a> build, the <code class="docutils literal notranslate"><span class="pre">malloc</span></code>,
+<code class="docutils literal notranslate"><span class="pre">malloc_debug</span></code>, <code class="docutils literal notranslate"><span class="pre">pymalloc</span></code>, and <code class="docutils literal notranslate"><span class="pre">pymalloc_debug</span></code> values are not
+supported.  Only <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, <code class="docutils literal notranslate"><span class="pre">mimalloc</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">mimalloc_debug</span></code> are accepted.</p>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.6.</span></p>
 </div>
@@ -1329,11 +1336,12 @@ allocators</span></a>.</p></li>
 <dt class="sig sig-object std" id="envvar-PYTHONMALLOCSTATS">
 <span class="sig-name descname"><span class="pre">PYTHONMALLOCSTATS</span></span><a class="headerlink" href="#envvar-PYTHONMALLOCSTATS" title="Link to this definition">¶</a></dt>
 <dd><p>If set to a non-empty string, Python will print statistics of the
-<a class="reference internal" href="../c-api/memory.html#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a> every time a new pymalloc object
-arena is created, and on shutdown.</p>
+<a class="reference internal" href="../c-api/memory.html#pymalloc"><span class="std std-ref">pymalloc memory allocator</span></a> or the
+<a class="reference internal" href="../c-api/memory.html#mimalloc"><span class="std std-ref">mimalloc memory allocator</span></a> (whichever is in use)
+every time a new object arena is created, and on shutdown.</p>
 <p>This variable is ignored if the <span class="target" id="index-57"></span><a class="reference internal" href="#envvar-PYTHONMALLOC"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONMALLOC</span></code></a> environment variable
 is used to force the <code class="xref c c-func docutils literal notranslate"><span class="pre">malloc()</span></code> allocator of the C library, or if
-Python is configured without <code class="docutils literal notranslate"><span class="pre">pymalloc</span></code> support.</p>
+Python is configured without both <code class="docutils literal notranslate"><span class="pre">pymalloc</span></code> and <code class="docutils literal notranslate"><span class="pre">mimalloc</span></code> support.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>This variable can now also be used on Python compiled in release mode.
 It now has no effect if set to an empty string.</p>
@@ -1639,7 +1647,7 @@ free-threaded builds and to <code class="docutils literal notranslate"><span cla
 stderr. If false (<code class="docutils literal notranslate"><span class="pre">0</span></code>) suppress these warnings. Set to true by default.
 See also <a class="reference internal" href="#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span> <span class="pre">pathconfig_warnings</span></code></a>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 </dd></dl>
 
@@ -1675,7 +1683,7 @@ explicit <code class="docutils literal notranslate"><span class="pre">lazy</span
 respects the <code class="docutils literal notranslate"><span class="pre">lazy</span></code> keyword in source code.</p>
 <p>See also the <a class="reference internal" href="#cmdoption-X"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span> <span class="pre">lazy_imports</span></code></a> command-line option.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.15.0a6 (unreleased).</span></p>
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 </dd></dl>
 
@@ -1821,7 +1829,7 @@ which takes precedence over this variable.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a6 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python Setup and Usage</a> &#187;</li>

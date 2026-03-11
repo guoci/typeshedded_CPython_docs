@@ -75,7 +75,7 @@ and switch to DOM-related processing.
 .. class:: PullDOM(documentFactory=None)
            PullDOM(documentFactory: _DocumentFactory = None) -> xml.dom.pulldom.PullDOM
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L34>`__)
 
    Subclass of :class:`xml.sax.handler.ContentHandler`.
 
@@ -83,7 +83,7 @@ and switch to DOM-related processing.
 .. class:: SAX2DOM(documentFactory=None)
            SAX2DOM(documentFactory: _DocumentFactory = None) -> xml.dom.pulldom.SAX2DOM
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L95>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L95>`__)
 
    Subclass of :class:`xml.sax.handler.ContentHandler`.
 
@@ -91,7 +91,7 @@ and switch to DOM-related processing.
 .. function:: parse(stream_or_string, parser=None, bufsize=None)
               parse(stream_or_string: xml.sax._SupportsReadClose[bytes] | xml.sax._SupportsReadClose[str] | str, parser: xml.sax.xmlreader.XMLReader | None = None, bufsize: int | None = None) -> xml.dom.pulldom.DOMEventStream
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L104>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L104>`__)
 
    Return a :class:`DOMEventStream` from the given input. *stream_or_string* may be
    either a file name, or a file-like object. *parser*, if given, must be an
@@ -105,14 +105,14 @@ If you have XML in a string, you can use the :func:`parseString` function instea
 .. function:: parseString(string, parser=None)
               parseString(string: str, parser: xml.sax.xmlreader.XMLReader | None = None) -> xml.dom.pulldom.DOMEventStream
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L109>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L109>`__)
 
    Return a :class:`DOMEventStream` that represents the (Unicode) *string*.
 
 .. data:: default_bufsize
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L102>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L102>`__)
 
    Default value for the *bufsize* parameter to :func:`parse`.
 
@@ -127,7 +127,7 @@ DOMEventStream Objects
 .. class:: DOMEventStream(stream, parser, bufsize)
            DOMEventStream(stream: xml.sax._SupportsReadClose[bytes] | xml.sax._SupportsReadClose[str], parser: xml.sax.xmlreader.XMLReader, bufsize: int) -> xml.dom.pulldom.DOMEventStream
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L79>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L79>`__)
 
    .. versionchanged:: 3.11
       Support for :meth:`~object.__getitem__` method has been removed.
@@ -135,7 +135,7 @@ DOMEventStream Objects
    .. method:: getEvent()
                getEvent() -> tuple[typing.Literal['CHARACTERS'], xml.dom.minidom.Text] | tuple[typing.Literal['COMMENT'], xml.dom.minidom.Comment] | tuple[typing.Literal['END_DOCUMENT'], xml.dom.minidom.Document] | tuple[typing.Literal['END_ELEMENT'], xml.dom.minidom.Element] | tuple[typing.Literal['IGNORABLE_WHITESPACE'], xml.dom.minidom.Text] | tuple[typing.Literal['PROCESSING_INSTRUCTION'], xml.dom.minidom.ProcessingInstruction] | tuple[typing.Literal['START_DOCUMENT'], xml.dom.minidom.Document] | tuple[typing.Literal['START_ELEMENT'], xml.dom.minidom.Element] | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L90>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L90>`__)
 
       Return a tuple containing *event* and the current *node* as
       :class:`xml.dom.minidom.Document` if event equals :data:`START_DOCUMENT`,
@@ -148,7 +148,7 @@ DOMEventStream Objects
    .. method:: expandNode(node)
                expandNode(node: xml.dom.minidom.Document) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L91>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L91>`__)
 
       Expands all children of *node* into *node*. Example::
 
@@ -168,4 +168,4 @@ DOMEventStream Objects
                DOMEventStream.reset() -> None
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/xml/dom/pulldom.pyi#L92>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/xml/dom/pulldom.pyi#L92>`__)

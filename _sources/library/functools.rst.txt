@@ -22,7 +22,7 @@ The :mod:`!functools` module defines the following functions:
 .. decorator:: cache(user_function)
                cache[_T](user_function: collections.abc.Callable[[...], _T], /) -> functools._lru_cache_wrapper[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L244>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L244>`__)
 
    Simple lightweight unbounded function cache.  Sometimes called
    `"memoize" <https://en.wikipedia.org/wiki/Memoization>`_.
@@ -63,7 +63,7 @@ The :mod:`!functools` module defines the following functions:
 .. decorator:: cached_property(func)
                cached_property(func: collections.abc.Callable[[typing.Any], _T_co]) -> functools.cached_property[_T_co]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L231>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L231>`__)
 
    Transform a method of a class into a property whose value is computed once
    and then cached as a normal attribute for the life of the instance. Similar
@@ -131,7 +131,7 @@ The :mod:`!functools` module defines the following functions:
 .. function:: cmp_to_key(func)
               cmp_to_key[_T](mycmp: collections.abc.Callable[[_T, _T], int]) -> collections.abc.Callable[[_T], _typeshed.SupportsAllComparisons]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L156>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L156>`__)
 
    Transform an old-style comparison function to a :term:`key function`.  Used
    with tools that accept key functions (such as :func:`sorted`, :func:`min`,
@@ -159,7 +159,7 @@ The :mod:`!functools` module defines the following functions:
                lru_cache(maxsize: int | None = 128, typed: bool = False) -> [_T]collections.abc.Callable[[collections.abc.Callable[[...], _T]], functools._lru_cache_wrapper[_T]]
                lru_cache(maxsize: collections.abc.Callable[[...], _T], typed: bool = False) -> functools._lru_cache_wrapper[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L71>`__)
 
    Decorator to wrap a function with a memoizing callable that saves up to the
    *maxsize* most recent calls.  It can save time when an expensive or I/O bound
@@ -214,7 +214,7 @@ The :mod:`!functools` module defines the following functions:
       :no-typesetting:
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L60>`__)
 
    To help measure the effectiveness of the cache and tune the *maxsize*
    parameter, the wrapped function is instrumented with a :func:`!cache_info`
@@ -226,7 +226,7 @@ The :mod:`!functools` module defines the following functions:
       :no-typesetting:
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L61>`__)
 
    The decorator also provides a :func:`!cache_clear` function for clearing or
    invalidating the cache.
@@ -305,7 +305,7 @@ The :mod:`!functools` module defines the following functions:
 .. decorator:: total_ordering
                total_ordering[_T](cls: type[_T]) -> type[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L155>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L155>`__)
 
    Given a class defining one or more rich comparison ordering methods, this
    class decorator supplies the rest.  This simplifies the effort involved
@@ -358,7 +358,7 @@ The :mod:`!functools` module defines the following functions:
 .. data:: Placeholder
    :type: functools._PlaceholderType
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L260>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L260>`__)
 
    A singleton object used as a sentinel to reserve a place
    for positional arguments when calling :func:`partial`
@@ -369,7 +369,7 @@ The :mod:`!functools` module defines the following functions:
 .. function:: partial(func, /, *args, **keywords)
               partial(func: collections.abc.Callable[[...], _T], /, *args: typing.Any, **kwargs: typing.Any) -> functools.partial[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L158>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L158>`__)
 
    Return a new :ref:`partial object<partial-objects>` which when called
    will behave like *func* called with the positional arguments *args*
@@ -445,7 +445,7 @@ The :mod:`!functools` module defines the following functions:
            partialmethod(func: collections.abc.Callable[[...], _T], /, *args: typing.Any, **keywords: typing.Any) -> functools.partialmethod[_T]
            partialmethod(func: typing.Any, /, *args: typing.Any, **keywords: typing.Any) -> functools.partialmethod[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L172>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L172>`__)
 
    Return a new :class:`partialmethod` descriptor which behaves
    like :class:`partial` except that it is designed to be used as a method
@@ -493,7 +493,7 @@ The :mod:`!functools` module defines the following functions:
               reduce(function: collections.abc.Callable[[_T, _S], _T], iterable: collections.abc.Iterable[_S], /, initial: _T) -> _T
               reduce(function: collections.abc.Callable[[_T, _T], _T], iterable: collections.abc.Iterable[_T], /) -> _T
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L36>`__)
 
    Apply *function* of two arguments cumulatively to the items of *iterable*, from
    left to right, so as to reduce the iterable to a single value.  For example,
@@ -527,7 +527,7 @@ The :mod:`!functools` module defines the following functions:
 .. decorator:: singledispatch
                singledispatch[_T](func: collections.abc.Callable[[...], _T]) -> functools._SingleDispatchCallable[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L215>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L215>`__)
 
    Transform a function into a :term:`single-dispatch <single
    dispatch>` :term:`generic function`.
@@ -550,7 +550,7 @@ The :mod:`!functools` module defines the following functions:
       :no-typesetting:
 
 
-      (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L204>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L204>`__)
 
    To add overloaded implementations to the function, use the :func:`!register`
    attribute of the generic function, which can be used as a decorator.  For
@@ -713,7 +713,7 @@ The :mod:`!functools` module defines the following functions:
 .. class:: singledispatchmethod(func)
            singledispatchmethod(func: collections.abc.Callable[[...], _T]) -> functools.singledispatchmethod[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L217>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L217>`__)
 
    Transform a method into a :term:`single-dispatch <single
    dispatch>` :term:`generic function`.
@@ -770,7 +770,7 @@ The :mod:`!functools` module defines the following functions:
 .. function:: update_wrapper(wrapper, wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
               update_wrapper[_PWrapper, _RWrapper, _PWrapped, _RWrapped](wrapper: collections.abc.Callable[[typing.ParamSpec(_PWrapper)], _RWrapper], wrapped: collections.abc.Callable[[typing.ParamSpec(_PWrapped)], _RWrapped], assigned: collections.abc.Iterable[str] = ..., updated: collections.abc.Iterable[str] = ...) -> functools._Wrapped[_PWrapped, _RWrapped, _PWrapper, _RWrapper]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L117>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L117>`__)
 
    Update a *wrapper* function to look like the *wrapped* function. The optional
    arguments are tuples to specify which attributes of the original function are
@@ -818,7 +818,7 @@ The :mod:`!functools` module defines the following functions:
 .. decorator:: wraps(wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
                wraps[_PWrapped, _RWrapped](wrapped: collections.abc.Callable[[typing.ParamSpec(_PWrapped)], _RWrapped], assigned: collections.abc.Iterable[str] = ..., updated: collections.abc.Iterable[str] = ...) -> functools._Wrapper[_PWrapped, _RWrapped]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L123>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L123>`__)
 
    This is a convenience function for invoking :func:`update_wrapper` as a
    function decorator when defining a wrapper function.  It is equivalent to
@@ -863,7 +863,7 @@ have three read-only attributes:
 .. attribute:: partial.func
    :type: func[_T](self: functools.partial[_T]) -> collections.abc.Callable[[...], _T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L160>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L160>`__)
 
    A callable object or function.  Calls to the :class:`partial` object will be
    forwarded to :attr:`func` with new arguments and keywords.
@@ -872,7 +872,7 @@ have three read-only attributes:
 .. attribute:: partial.args
    :type: args[_T](self: functools.partial[_T]) -> tuple[typing.Any, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L162>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L162>`__)
 
    The leftmost positional arguments that will be prepended to the positional
    arguments provided to a :class:`partial` object call.
@@ -881,7 +881,7 @@ have three read-only attributes:
 .. attribute:: partial.keywords
    :type: keywords[_T](self: functools.partial[_T]) -> dict[str, typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/a1c4ca3/stdlib/functools.pyi#L164>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/functools.pyi#L164>`__)
 
    The keyword arguments that will be supplied when the :class:`partial` object is
    called.
