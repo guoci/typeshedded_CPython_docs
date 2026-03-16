@@ -20,7 +20,7 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=89a2f22a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=82640b3f" />
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
@@ -431,8 +431,8 @@ IEEE 754 binary64 double precision format, although the packing of INFs and
 NaNs (if such things exist on the platform) isn’t handled correctly, and
 attempting to unpack a bytes string containing an IEEE INF or NaN will raise an
 exception.</p>
-<p>Note that NaNs type may not be preserved on IEEE platforms (signaling NaN become
-quiet NaN), for example on x86 systems in 32-bit mode.</p>
+<p>Note that NaN type may not be preserved on IEEE platforms (signaling NaNs become
+quiet NaNs), for example on x86 systems in 32-bit mode.</p>
 <p>On non-IEEE platforms with more precision, or larger dynamic range, than IEEE
 754 supports, not all values can be packed; on non-IEEE platforms with less
 precision, or smaller dynamic range, not all values can be unpacked. What
@@ -444,7 +444,7 @@ happens in such cases is partly accidental (alas).</p>
 <h3>Pack functions<a class="headerlink" href="#pack-functions" title="Link to this heading">¶</a></h3>
 <p>The pack routines write 2, 4 or 8 bytes, starting at <em>p</em>. <em>le</em> is an
 <span class="c-expr sig sig-inline c"><span class="kt">int</span></span> argument, non-zero if you want the bytes string in little-endian
-format (exponent last, at <code class="docutils literal notranslate"><span class="pre">p+1</span></code>, <code class="docutils literal notranslate"><span class="pre">p+3</span></code>, or <code class="docutils literal notranslate"><span class="pre">p+6</span></code> <code class="docutils literal notranslate"><span class="pre">p+7</span></code>), zero if you
+format (exponent last, at <code class="docutils literal notranslate"><span class="pre">p+1</span></code>, <code class="docutils literal notranslate"><span class="pre">p+3</span></code>, or <code class="docutils literal notranslate"><span class="pre">p+6</span></code> and <code class="docutils literal notranslate"><span class="pre">p+7</span></code>), zero if you
 want big-endian format (exponent first, at <em>p</em>). The <code class="xref c c-macro docutils literal notranslate"><span class="pre">PY_BIG_ENDIAN</span></code>
 constant can be used to use the native endian: it is equal to <code class="docutils literal notranslate"><span class="pre">1</span></code> on big
 endian processor, or <code class="docutils literal notranslate"><span class="pre">0</span></code> on little endian processor.</p>

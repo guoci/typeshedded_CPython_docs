@@ -16,7 +16,7 @@ scheduler:
 .. class:: scheduler(timefunc=time.monotonic, delayfunc=time.sleep)
            scheduler(timefunc: collections.abc.Callable[[], float] = ..., delayfunc: collections.abc.Callable[[float], object] = ...) -> sched.scheduler
 
-   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/sched.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ed11953/stdlib/sched.pyi#L32>`__)
 
    The :class:`scheduler` class defines a generic interface to scheduling events.
    It needs two functions to actually deal with the "outside world" --- *timefunc*
@@ -73,7 +73,7 @@ Scheduler Objects
 .. method:: scheduler.enterabs(time, priority, action, argument=(), kwargs={})
             scheduler.enterabs(time: float, priority: typing.Any, action: collections.abc.Callable[[...], typing.Any], argument: tuple[typing.Any, ...] = ..., kwargs: dict[str, typing.Any] = ...) -> sched.Event
 
-   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/sched.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ed11953/stdlib/sched.pyi#L39>`__)
 
    Schedule a new event. The *time* argument should be a numeric type compatible
    with the return value of the *timefunc* function passed  to the constructor.
@@ -97,7 +97,7 @@ Scheduler Objects
 .. method:: scheduler.enter(delay, priority, action, argument=(), kwargs={})
             scheduler.enter(delay: float, priority: typing.Any, action: collections.abc.Callable[[...], typing.Any], argument: tuple[typing.Any, ...] = ..., kwargs: dict[str, typing.Any] = ...) -> sched.Event
 
-   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/sched.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ed11953/stdlib/sched.pyi#L42>`__)
 
    Schedule an event for *delay* more time units. Other than the relative time, the
    other arguments, the effect and the return value are the same as those for
@@ -112,7 +112,7 @@ Scheduler Objects
 .. method:: scheduler.cancel(event)
             scheduler.cancel(event: sched.Event) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/sched.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ed11953/stdlib/sched.pyi#L46>`__)
 
    Remove the event from the queue. If *event* is not an event currently in the
    queue, this method will raise a :exc:`ValueError`.
@@ -121,7 +121,7 @@ Scheduler Objects
 .. method:: scheduler.empty()
             scheduler.empty() -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/sched.pyi#L47>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ed11953/stdlib/sched.pyi#L47>`__)
 
    Return ``True`` if the event queue is empty.
 
@@ -129,7 +129,7 @@ Scheduler Objects
 .. method:: scheduler.run(blocking=True)
             scheduler.run(blocking: bool = True) -> float | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/sched.pyi#L45>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ed11953/stdlib/sched.pyi#L45>`__)
 
    Run all scheduled events. This method will wait  (using the *delayfunc*
    function passed to the constructor) for the next event, then execute it and so
@@ -155,7 +155,7 @@ Scheduler Objects
 .. attribute:: scheduler.queue
    :type: queue(self: sched.scheduler) -> list[sched.Event]
 
-   (`typeshed <https://github.com/python/typeshed/blob/25438e5/stdlib/sched.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/ed11953/stdlib/sched.pyi#L49>`__)
 
    Read-only attribute returning a list of upcoming events in the order they
    will be run.  Each event is shown as a :term:`named tuple` with the

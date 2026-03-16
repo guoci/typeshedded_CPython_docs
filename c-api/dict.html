@@ -20,7 +20,7 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=89a2f22a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=82640b3f" />
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
@@ -254,6 +254,11 @@ the dict type.  This function always succeeds.</p>
 <dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return a <a class="reference internal" href="../library/types.html#types.MappingProxyType" title="types.MappingProxyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">types.MappingProxyType</span></code></a> object for a mapping which
 enforces read-only behavior.  This is normally used to create a view to
 prevent modification of the dictionary for non-dynamic class types.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>, or a
+mapping.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c var">
@@ -282,6 +287,10 @@ subclass.</p>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Determine if dictionary <em>p</em> contains <em>key</em>.  If an item in <em>p</em> matches
 <em>key</em>, return <code class="docutils literal notranslate"><span class="pre">1</span></code>, otherwise return <code class="docutils literal notranslate"><span class="pre">0</span></code>.  On error, return <code class="docutils literal notranslate"><span class="pre">-1</span></code>.
 This is equivalent to the Python expression <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">in</span> <span class="pre">p</span></code>.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -290,8 +299,12 @@ This is equivalent to the Python expression <code class="docutils literal notran
 <dd><p>This is the same as <a class="reference internal" href="#c.PyDict_Contains" title="PyDict_Contains"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyDict_Contains()</span></code></a>, but <em>key</em> is specified as a
 <span class="c-expr sig sig-inline c"><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="p">*</span></span> UTF-8 encoded bytes string, rather than a
 <span class="c-expr sig sig-inline c"><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n">PyObject</span></a><span class="p">*</span></span>.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.13.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 </div>
 </dd></dl>
 
@@ -346,8 +359,12 @@ to the value and return <code class="docutils literal notranslate"><span class="
 <li><p>If the key is missing, set <em>*result</em> to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> and return <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 <li><p>On error, raise an exception and return <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
 </ul>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.13.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 </div>
 <p>See also the <a class="reference internal" href="object.html#c.PyObject_GetItem" title="PyObject_GetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetItem()</span></code></a> function.</p>
 </dd></dl>
@@ -358,6 +375,7 @@ to the value and return <code class="docutils literal notranslate"><span class="
 <dd><em class="refcount return_borrowed_ref">Return value: Borrowed reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return a <a class="reference internal" href="../glossary.html#term-borrowed-reference"><span class="xref std std-term">borrowed reference</span></a> to the object from dictionary <em>p</em> which
 has a key <em>key</em>.  Return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the key <em>key</em> is missing <em>without</em>
 setting an exception.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Exceptions that occur while this calls <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> and
@@ -368,6 +386,9 @@ Prefer the <a class="reference internal" href="#c.PyDict_GetItemWithError" title
 <p><span class="versionmodified changed">Changed in version 3.10: </span>Calling this API without an <a class="reference internal" href="../glossary.html#term-attached-thread-state"><span class="xref std std-term">attached thread state</span></a> had been allowed for historical
 reason. It is no longer allowed.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -377,6 +398,9 @@ reason. It is no longer allowed.</p>
 exceptions. Return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> <strong>with</strong> an exception set if an exception
 occurred.  Return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> <strong>without</strong> an exception set if the key
 wasn’t present.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -393,6 +417,9 @@ object are silently ignored.
 Prefer using the <a class="reference internal" href="#c.PyDict_GetItemWithError" title="PyDict_GetItemWithError"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyDict_GetItemWithError()</span></code></a> function with your own
 <a class="reference internal" href="unicode.html#c.PyUnicode_FromString" title="PyUnicode_FromString"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FromString()</span></code></a> <em>key</em> instead.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -403,6 +430,9 @@ Prefer using the <a class="reference internal" href="#c.PyDict_GetItemWithError"
 <span class="c-expr sig sig-inline c"><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n">PyObject</span></a><span class="p">*</span></span>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.13.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 </div>
 </dd></dl>
 
@@ -475,12 +505,20 @@ not raising <a class="reference internal" href="../library/exceptions.html#KeyEr
 <dt class="sig sig-object c" id="c.PyDict_Items">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDict_Items</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDict_Items" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return a <a class="reference internal" href="list.html#c.PyListObject" title="PyListObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyListObject</span></code></a> containing all the items from the dictionary.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyDict_Keys">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDict_Keys</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDict_Keys" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return a <a class="reference internal" href="list.html#c.PyListObject" title="PyListObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyListObject</span></code></a> containing all the keys from the dictionary.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -488,6 +526,10 @@ not raising <a class="reference internal" href="../library/exceptions.html#KeyEr
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyDict_Values</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDict_Values" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return a <a class="reference internal" href="list.html#c.PyListObject" title="PyListObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyListObject</span></code></a> containing all the values from the dictionary
 <em>p</em>.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -495,12 +537,19 @@ not raising <a class="reference internal" href="../library/exceptions.html#KeyEr
 <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDict_Size</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDict_Size" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p id="index-1">Return the number of items in the dictionary.  This is equivalent to
 <code class="docutils literal notranslate"><span class="pre">len(p)</span></code> on a dictionary.</p>
+<p>The argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyDict_GET_SIZE">
 <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyDict_GET_SIZE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDict_GET_SIZE" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Similar to <a class="reference internal" href="#c.PyDict_Size" title="PyDict_Size"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyDict_Size()</span></code></a>, but without error checking.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -516,6 +565,7 @@ and value, respectively, or may be <code class="docutils literal notranslate"><s
 them are borrowed.  <em>ppos</em> should not be altered during iteration. Its
 value represents offsets within the internal dictionary structure, and
 since the structure is sparse, the offsets are not consecutive.</p>
+<p>The first argument can be a <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 <p>For example:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">;</span>
 <span class="n">Py_ssize_t</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -549,7 +599,7 @@ so long as the set of keys does not change.  For example:</p>
 </pre></div>
 </div>
 <p>The function is not thread-safe in the <a class="reference internal" href="../glossary.html#term-free-threading"><span class="xref std std-term">free-threaded</span></a>
-build without external synchronization.  You can use
+build without external synchronization for a mutable <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>. You can use
 <a class="reference internal" href="synchronization.html#c.Py_BEGIN_CRITICAL_SECTION" title="Py_BEGIN_CRITICAL_SECTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_BEGIN_CRITICAL_SECTION</span></code></a> to lock the dictionary while iterating
 over it:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Py_BEGIN_CRITICAL_SECTION</span><span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">dict</span><span class="p">);</span>
@@ -559,6 +609,7 @@ over it:</p>
 <span class="n">Py_END_CRITICAL_SECTION</span><span class="p">();</span>
 </pre></div>
 </div>
+<p>The function is thread-safe on a <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On the free-threaded build, this function can be used safely inside a
@@ -568,6 +619,9 @@ critical section is held. If you need to use these objects outside the
 critical section or when the critical section can be suspended, create a
 <a class="reference internal" href="../glossary.html#term-strong-reference"><span class="xref std std-term">strong reference</span></a> (for example, using
 <a class="reference internal" href="refcounting.html#c.Py_NewRef" title="Py_NewRef"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_NewRef()</span></code></a>).</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.15.0a7 (unreleased): </span>Also accept <a class="reference internal" href="../library/stdtypes.html#frozendict" title="frozendict"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code></a>.</p>
 </div>
 </dd></dl>
 
