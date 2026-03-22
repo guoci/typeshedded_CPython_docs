@@ -2107,9 +2107,6 @@ On error, set an exception, leave the writer unchanged, and return <code class="
 <em>str</em> contains non-ASCII characters.</p>
 <p>On success, return <code class="docutils literal notranslate"><span class="pre">0</span></code>.
 On error, set an exception, leave the writer unchanged, and return <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.14.</span></p>
-</div>
 </dd></dl>
 
 <dl class="c function">
@@ -2124,7 +2121,7 @@ On error, set an exception, leave the writer unchanged, and return <code class="
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyUnicodeWriter_WriteUCS4">
-<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyUnicodeWriter_WriteUCS4</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyUnicodeWriter" title="PyUnicodeWriter"><span class="n"><span class="pre">PyUnicodeWriter</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="#c.Py_UCS4" title="Py_UCS4"><span class="n"><span class="pre">Py_UCS4</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">str</span></span>, <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyUnicodeWriter_WriteUCS4" title="Link to this definition">¶</a><br /></dt>
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyUnicodeWriter_WriteUCS4</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyUnicodeWriter" title="PyUnicodeWriter"><span class="n"><span class="pre">PyUnicodeWriter</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">writer</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.Py_UCS4" title="Py_UCS4"><span class="n"><span class="pre">Py_UCS4</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">str</span></span>, <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyUnicodeWriter_WriteUCS4" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Writer the UCS4 string <em>str</em> into <em>writer</em>.</p>
 <p><em>size</em> is a number of UCS4 characters.</p>
 <p>On success, return <code class="docutils literal notranslate"><span class="pre">0</span></code>.
@@ -2143,8 +2140,12 @@ On error, set an exception, leave the writer unchanged, and return <code class="
 <dt class="sig sig-object c" id="c.PyUnicodeWriter_WriteRepr">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyUnicodeWriter_WriteRepr</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.PyUnicodeWriter" title="PyUnicodeWriter"><span class="n"><span class="pre">PyUnicodeWriter</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyUnicodeWriter_WriteRepr" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Call <a class="reference internal" href="object.html#c.PyObject_Repr" title="PyObject_Repr"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Repr()</span></code></a> on <em>obj</em> and write the output into <em>writer</em>.</p>
+<p>If <em>obj</em> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, write the string <code class="docutils literal notranslate"><span class="pre">&quot;&lt;NULL&gt;&quot;</span></code> into <em>writer</em>.</p>
 <p>On success, return <code class="docutils literal notranslate"><span class="pre">0</span></code>.
 On error, set an exception, leave the writer unchanged, and return <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.14.4: </span>Added support for <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">

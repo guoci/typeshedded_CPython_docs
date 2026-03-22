@@ -422,21 +422,22 @@ value.  Return <code class="docutils literal notranslate"><span class="pre">0</s
 store floating-point values as byte strings. The Pack routines produce a bytes
 string from a C <span class="c-expr sig sig-inline c"><span class="kt">double</span></span>, and the Unpack routines produce a C
 <span class="c-expr sig sig-inline c"><span class="kt">double</span></span> from such a bytes string. The suffix (2, 4 or 8) specifies the
-number of bytes in the bytes string.</p>
-<p>On platforms that appear to use IEEE 754 formats these functions work by
-copying bits. On other platforms, the 2-byte format is identical to the IEEE
-754 binary16 half-precision format, the 4-byte format (32-bit) is identical to
-the IEEE 754 binary32 single precision format, and the 8-byte format to the
-IEEE 754 binary64 double precision format, although the packing of INFs and
-NaNs (if such things exist on the platform) isn’t handled correctly, and
-attempting to unpack a bytes string containing an IEEE INF or NaN will raise an
-exception.</p>
-<p>Note that NaN type may not be preserved on IEEE platforms (signaling NaNs become
-quiet NaNs), for example on x86 systems in 32-bit mode.</p>
-<p>On non-IEEE platforms with more precision, or larger dynamic range, than IEEE
+number of bytes in the bytes string:</p>
+<ul class="simple">
+<li><p>The 2-byte format is the IEEE 754 binary16 half-precision format.</p></li>
+<li><p>The 4-byte format is the IEEE 754 binary32 single-precision format.</p></li>
+<li><p>The 8-byte format is the IEEE 754 binary64 double-precision format.</p></li>
+</ul>
+<p>The NaN type may not be preserved on some platforms while unpacking (signaling
+NaNs become quiet NaNs), for example on x86 systems in 32-bit mode.</p>
+<p>It’s assumed that the <span class="c-expr sig sig-inline c"><span class="kt">double</span></span> type has the IEEE 754 binary64 double
+precision format.  What happens if it’s not true is partly accidental (alas).
+On non-IEEE platforms with more precision, or larger dynamic range, than IEEE
 754 supports, not all values can be packed; on non-IEEE platforms with less
-precision, or smaller dynamic range, not all values can be unpacked. What
-happens in such cases is partly accidental (alas).</p>
+precision, or smaller dynamic range, not all values can be unpacked.  The
+packing of special numbers like INFs and NaNs (if such things exist on the
+platform) may not be handled correctly, and attempting to unpack a bytes string
+containing an IEEE INF or NaN may raise an exception.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.11.</span></p>
 </div>
@@ -445,9 +446,9 @@ happens in such cases is partly accidental (alas).</p>
 <p>The pack routines write 2, 4 or 8 bytes, starting at <em>p</em>. <em>le</em> is an
 <span class="c-expr sig sig-inline c"><span class="kt">int</span></span> argument, non-zero if you want the bytes string in little-endian
 format (exponent last, at <code class="docutils literal notranslate"><span class="pre">p+1</span></code>, <code class="docutils literal notranslate"><span class="pre">p+3</span></code>, or <code class="docutils literal notranslate"><span class="pre">p+6</span></code> and <code class="docutils literal notranslate"><span class="pre">p+7</span></code>), zero if you
-want big-endian format (exponent first, at <em>p</em>). The <code class="xref c c-macro docutils literal notranslate"><span class="pre">PY_BIG_ENDIAN</span></code>
-constant can be used to use the native endian: it is equal to <code class="docutils literal notranslate"><span class="pre">1</span></code> on big
-endian processor, or <code class="docutils literal notranslate"><span class="pre">0</span></code> on little endian processor.</p>
+want big-endian format (exponent first, at <em>p</em>). Use the <code class="xref c c-macro docutils literal notranslate"><span class="pre">PY_LITTLE_ENDIAN</span></code>
+constant to select the native endian: it is equal to <code class="docutils literal notranslate"><span class="pre">0</span></code> on big
+endian processor, or <code class="docutils literal notranslate"><span class="pre">1</span></code> on little endian processor.</p>
 <p>Return value: <code class="docutils literal notranslate"><span class="pre">0</span></code> if all is OK, <code class="docutils literal notranslate"><span class="pre">-1</span></code> if error (and an exception is set,
 most likely <a class="reference internal" href="../library/exceptions.html#OverflowError" title="OverflowError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OverflowError</span></code></a>).</p>
 <dl class="c function">
@@ -466,6 +467,9 @@ most likely <a class="reference internal" href="../library/exceptions.html#Overf
 <dt class="sig sig-object c" id="c.PyFloat_Pack8">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyFloat_Pack8</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n"><span class="pre">x</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">le</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFloat_Pack8" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Pack a C double as the IEEE 754 binary64 double precision format.</p>
+<div class="impl-detail compound">
+<p><strong>CPython implementation detail:</strong> This function always succeeds in CPython.</p>
+</div>
 </dd></dl>
 
 </section>
@@ -474,12 +478,15 @@ most likely <a class="reference internal" href="../library/exceptions.html#Overf
 <p>The unpack routines read 2, 4 or 8 bytes, starting at <em>p</em>.  <em>le</em> is an
 <span class="c-expr sig sig-inline c"><span class="kt">int</span></span> argument, non-zero if the bytes string is in little-endian format
 (exponent last, at <code class="docutils literal notranslate"><span class="pre">p+1</span></code>, <code class="docutils literal notranslate"><span class="pre">p+3</span></code> or <code class="docutils literal notranslate"><span class="pre">p+6</span></code> and <code class="docutils literal notranslate"><span class="pre">p+7</span></code>), zero if big-endian
-(exponent first, at <em>p</em>). The <code class="xref c c-macro docutils literal notranslate"><span class="pre">PY_BIG_ENDIAN</span></code> constant can be used to
-use the native endian: it is equal to <code class="docutils literal notranslate"><span class="pre">1</span></code> on big endian processor, or <code class="docutils literal notranslate"><span class="pre">0</span></code>
+(exponent first, at <em>p</em>). Use the <code class="xref c c-macro docutils literal notranslate"><span class="pre">PY_LITTLE_ENDIAN</span></code> constant to
+select the native endian: it is equal to <code class="docutils literal notranslate"><span class="pre">0</span></code> on big endian processor, or <code class="docutils literal notranslate"><span class="pre">1</span></code>
 on little endian processor.</p>
 <p>Return value: The unpacked double.  On error, this is <code class="docutils literal notranslate"><span class="pre">-1.0</span></code> and
 <a class="reference internal" href="exceptions.html#c.PyErr_Occurred" title="PyErr_Occurred"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyErr_Occurred()</span></code></a> is true (and an exception is set, most likely
 <a class="reference internal" href="../library/exceptions.html#OverflowError" title="OverflowError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OverflowError</span></code></a>).</p>
+<div class="impl-detail compound">
+<p><strong>CPython implementation detail:</strong> These functions always succeed in CPython.</p>
+</div>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyFloat_Unpack2">
 <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyFloat_Unpack2</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">le</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyFloat_Unpack2" title="Link to this definition">¶</a><br /></dt>

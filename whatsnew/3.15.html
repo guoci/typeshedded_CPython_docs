@@ -458,6 +458,10 @@ insertion order, but comparison does not take order into account.</p>
 <a class="reference internal" href="../library/pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a>, <a class="reference internal" href="../library/pprint.html#module-pprint" title="pprint: Data pretty printer."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pprint</span></code></a> and <a class="reference internal" href="../library/xml.etree.elementtree.html#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code></a>.</p>
 <p><a class="reference internal" href="../library/functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> and <a class="reference internal" href="../library/functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> accept <code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code> for <em>globals</em>, and
 <a class="reference internal" href="../library/functions.html#type" title="type"><code class="xref py py-func docutils literal notranslate"><span class="pre">type()</span></code></a> and <a class="reference internal" href="../library/stdtypes.html#str.maketrans" title="str.maketrans"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.maketrans()</span></code></a> accept <code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code> for <em>dict</em>.</p>
+<p>Code checking for <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> type using <code class="docutils literal notranslate"><span class="pre">isinstance(arg,</span> <span class="pre">dict)</span></code> can be
+updated to <code class="docutils literal notranslate"><span class="pre">isinstance(arg,</span> <span class="pre">(dict,</span> <span class="pre">frozendict))</span></code> to accept also the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">frozendict</span></code> type, or to <code class="docutils literal notranslate"><span class="pre">isinstance(arg,</span> <span class="pre">collections.abc.Mapping)</span></code>
+to accept also other mapping types such as <a class="reference internal" href="../library/types.html#types.MappingProxyType" title="types.MappingProxyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">MappingProxyType</span></code></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><span class="target" id="index-13"></span><a class="pep reference external" href="https://peps.python.org/pep-0814/"><strong>PEP 814</strong></a> for the full specification and rationale.</p>
@@ -842,12 +846,14 @@ inline code when color output is enabled.
 <ul class="simple">
 <li><p><a class="reference internal" href="../library/binascii.html#binascii.b2a_ascii85" title="binascii.b2a_ascii85"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_ascii85()</span></code></a> and <a class="reference internal" href="../library/binascii.html#binascii.a2b_ascii85" title="binascii.a2b_ascii85"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_ascii85()</span></code></a></p></li>
 <li><p><a class="reference internal" href="../library/binascii.html#binascii.b2a_base85" title="binascii.b2a_base85"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_base85()</span></code></a> and <a class="reference internal" href="../library/binascii.html#binascii.a2b_base85" title="binascii.a2b_base85"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_base85()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../library/binascii.html#binascii.b2a_z85" title="binascii.b2a_z85"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_z85()</span></code></a> and <a class="reference internal" href="../library/binascii.html#binascii.a2b_z85" title="binascii.a2b_z85"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_z85()</span></code></a></p></li>
 </ul>
 <p>(Contributed by James Seo and Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/101178">gh-101178</a>.)</p>
 </li>
 <li><p>Added the <em>wrapcol</em> parameter in <a class="reference internal" href="../library/binascii.html#binascii.b2a_base64" title="binascii.b2a_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_base64()</span></code></a>.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/143214">gh-143214</a>.)</p></li>
+<li><p>Added the <em>alphabet</em> parameter in <a class="reference internal" href="../library/binascii.html#binascii.b2a_base64" title="binascii.b2a_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">b2a_base64()</span></code></a> and
+<a class="reference internal" href="../library/binascii.html#binascii.a2b_base64" title="binascii.a2b_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_base64()</span></code></a>.
+(Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/145980">gh-145980</a>.)</p></li>
 <li><p>Added the <em>ignorechars</em> parameter in <a class="reference internal" href="../library/binascii.html#binascii.a2b_base64" title="binascii.a2b_base64"><code class="xref py py-func docutils literal notranslate"><span class="pre">a2b_base64()</span></code></a>.
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/144001">gh-144001</a>.)</p></li>
 </ul>
@@ -1501,7 +1507,7 @@ code results in constants, the code can be simplified by the JIT.</p>
 <p>The JIT avoids <a class="reference internal" href="../glossary.html#term-reference-count"><span class="xref std std-term">reference count</span></a>s where possible. This generally
 reduces the cost of most operations in Python.</p>
 <p>(Contributed by Ken Jin, Donghee Na, Zheao Li, Hai Zhu, Savannah Ostrowski,
-Reiden Ong, Noam Cohen, Tomas Roun, PuQing, and Cajetan Rodrigues in <a class="reference external" href="https://github.com/python/cpython/issues/134584">gh-134584</a>.)</p>
+Reiden Ong, Noam Cohen, Tomas Roun, PuQing, Cajetan Rodrigues, and Sacul in <a class="reference external" href="https://github.com/python/cpython/issues/134584">gh-134584</a>.)</p>
 <p class="rubric">Better machine code generation</p>
 <p>The JIT compiler’s machine code generator now produces better machine code
 for x86-64 and AArch64 macOS and Linux targets. In general, users should
@@ -1644,6 +1650,18 @@ imported or accessed from the <code class="xref py py-mod docutils literal notra
 </section>
 <section id="wave">
 <h3>wave<a class="headerlink" href="#wave" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added support for IEEE floating-point WAVE audio
+(<code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_IEEE_FLOAT</span></code>) in <a class="reference internal" href="../library/wave.html#module-wave" title="wave: Provide an interface to the WAV sound format."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wave</span></code></a>.</p></li>
+<li><p>Added <a class="reference internal" href="../library/wave.html#wave.Wave_read.getformat" title="wave.Wave_read.getformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_read.getformat()</span></code></a>, <a class="reference internal" href="../library/wave.html#wave.Wave_write.getformat" title="wave.Wave_write.getformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.getformat()</span></code></a>,
+and <a class="reference internal" href="../library/wave.html#wave.Wave_write.setformat" title="wave.Wave_write.setformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.setformat()</span></code></a> for explicit frame format handling.</p></li>
+<li><p><a class="reference internal" href="../library/wave.html#wave.Wave_write.setparams" title="wave.Wave_write.setparams"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.setparams()</span></code></a> accepts both 7-item tuples including
+<code class="docutils literal notranslate"><span class="pre">format</span></code> and 6-item tuples for backwards compatibility (defaulting to
+<code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_PCM</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_IEEE_FLOAT</span></code> output now includes a <code class="docutils literal notranslate"><span class="pre">fact</span></code> chunk,
+as required for non-PCM WAVE formats.</p></li>
+</ul>
+<p>(Contributed by Lionel Koenig and Michiel W. Beijen in <a class="reference external" href="https://github.com/python/cpython/issues/60729">gh-60729</a>.)</p>
 <ul class="simple">
 <li><p>Removed the <code class="docutils literal notranslate"><span class="pre">getmark()</span></code>, <code class="docutils literal notranslate"><span class="pre">setmark()</span></code> and <code class="docutils literal notranslate"><span class="pre">getmarkers()</span></code> methods
 of the <a class="reference internal" href="../library/wave.html#wave.Wave_read" title="wave.Wave_read"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wave_read</span></code></a> and <a class="reference internal" href="../library/wave.html#wave.Wave_write" title="wave.Wave_write"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wave_write</span></code></a> classes,
