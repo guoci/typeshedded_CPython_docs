@@ -735,11 +735,11 @@ Flags
 
 
 .. class:: RegexFlag
-           RegexFlag(value: typing.Any, names: None = None) -> _EnumMemberT
-           RegexFlag(value: str, names: _EnumNames, *, module: str | None = None, qualname: str | None = None, type: type[Any] | None = None, start: int = 1, boundary: enum.FlagBoundary | None = None) -> type[enum.Enum]
-           RegexFlag(value: typing.Any, *values: typing.Any) -> _EnumMemberT
+           RegexFlag(cls: type[_EnumMemberT], value: typing.Any, names: None = None) -> _EnumMemberT
+           RegexFlag(cls: type[re.RegexFlag], value: str, names: enum._EnumNames, *, module: str | None = None, qualname: str | None = None, type: type[Any] | None = None, start: int = 1, boundary: enum.FlagBoundary | None = None) -> type[enum.Enum]
+           RegexFlag(cls: type[_EnumMemberT], value: typing.Any, *values: typing.Any) -> _EnumMemberT
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L201>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L201>`__)
 
    An :class:`enum.IntFlag` class containing the regex options listed below.
 
@@ -748,7 +748,7 @@ Flags
 .. data:: A
           ASCII
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L223>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L223>`__)
 
    Make ``\w``, ``\W``, ``\b``, ``\B``, ``\d``, ``\D``, ``\s`` and ``\S``
    perform ASCII-only matching instead of full Unicode matching.  This is only
@@ -768,7 +768,7 @@ Flags
 .. data:: DEBUG
    :type: typing.Literal[re.RegexFlag.DEBUG]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L225>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L225>`__)
 
    Display debug information about compiled expression.
 
@@ -778,7 +778,7 @@ Flags
 .. data:: I
           IGNORECASE
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L226>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L226>`__)
 
    Perform case-insensitive matching;
    expressions like ``[A-Z]`` will also  match lowercase letters.
@@ -801,7 +801,7 @@ Flags
 .. data:: L
           LOCALE
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L228>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L228>`__)
 
    Make ``\w``, ``\W``, ``\b``, ``\B`` and case-insensitive matching
    dependent on the current locale.
@@ -831,7 +831,7 @@ Flags
 .. data:: M
           MULTILINE
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L230>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L230>`__)
 
    When specified, the pattern character ``'^'`` matches at the beginning of the
    string and at the beginning of each line (immediately following each newline);
@@ -845,7 +845,7 @@ Flags
 .. data:: NOFLAG
    :type: typing.Literal[re.RegexFlag.NOFLAG]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L242>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L242>`__)
 
    Indicates no flag being applied, the value is ``0``.  This flag may be used
    as a default value for a function keyword argument or as a base value that
@@ -860,7 +860,7 @@ Flags
 .. data:: S
           DOTALL
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L232>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L232>`__)
 
    Make the ``'.'`` special character match any character at all, including a
    newline; without this flag, ``'.'`` will match anything *except* a newline.
@@ -871,7 +871,7 @@ Flags
 .. data:: U
           UNICODE
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L236>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L236>`__)
 
    In Python 3, Unicode characters are matched by default
    for ``str`` patterns.
@@ -883,7 +883,7 @@ Flags
 .. data:: X
           VERBOSE
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L234>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L234>`__)
 
    .. index:: single: # (hash); in regular expressions
 
@@ -912,10 +912,10 @@ Functions
 ^^^^^^^^^
 
 .. function:: compile(pattern, flags=0)
-              compile(pattern: AnyStr, flags: _FlagsType = 0) -> re.Pattern[AnyStr]
-              compile(pattern: re.Pattern[AnyStr], flags: _FlagsType = 0) -> re.Pattern[AnyStr]
+              compile(pattern: AnyStr, flags: re._FlagsType = 0) -> re.Pattern[AnyStr]
+              compile(pattern: re.Pattern[AnyStr], flags: re._FlagsType = 0) -> re.Pattern[AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L253>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L253>`__)
 
    Compile a regular expression pattern into a :ref:`regular expression object
    <re-objects>`, which can be used for matching using its
@@ -948,10 +948,10 @@ Functions
 
 
 .. function:: search(pattern, string, flags=0)
-              search(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> re.Match[str] | None
-              search(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
+              search(pattern: re.Pattern[str] | str, string: str, flags: re._FlagsType = 0) -> re.Match[str] | None
+              search(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: re._FlagsType = 0) -> re.Match[bytes] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L257>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L257>`__)
 
    Scan through *string* looking for the first location where the regular expression
    *pattern* produces a match, and return a corresponding :class:`~re.Match`. Return
@@ -965,10 +965,10 @@ Functions
 
 .. function:: prefixmatch(pattern, string, flags=0)
 .. function:: match(pattern, string, flags=0)
-              match(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> re.Match[str] | None
-              match(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
+              match(pattern: re.Pattern[str] | str, string: str, flags: re._FlagsType = 0) -> re.Match[str] | None
+              match(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: re._FlagsType = 0) -> re.Match[bytes] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L261>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L261>`__)
 
    If zero or more characters at the beginning of *string* match the regular
    expression *pattern*, return a corresponding :class:`~re.Match`.  Return
@@ -1001,10 +1001,10 @@ Functions
 
 
 .. function:: fullmatch(pattern, string, flags=0)
-              fullmatch(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> re.Match[str] | None
-              fullmatch(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> re.Match[bytes] | None
+              fullmatch(pattern: re.Pattern[str] | str, string: str, flags: re._FlagsType = 0) -> re.Match[str] | None
+              fullmatch(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: re._FlagsType = 0) -> re.Match[bytes] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L265>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L265>`__)
 
    If the whole *string* matches the regular expression *pattern*, return a
    corresponding :class:`~re.Match`.  Return ``None`` if the string does not match
@@ -1018,10 +1018,10 @@ Functions
 
 
 .. function:: split(pattern, string, maxsplit=0, flags=0)
-              split(pattern: re.Pattern[str] | str, string: str, maxsplit: int = 0, flags: _FlagsType = 0) -> list[str | typing.Any]
-              split(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, maxsplit: int = 0, flags: _FlagsType = 0) -> list[bytes | typing.Any]
+              split(pattern: re.Pattern[str] | str, string: str, maxsplit: int = 0, flags: re._FlagsType = 0) -> list[str | typing.Any]
+              split(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, maxsplit: int = 0, flags: re._FlagsType = 0) -> list[bytes | typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L269>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L269>`__)
 
    Split *string* by the occurrences of *pattern*.  If capturing parentheses are
    used in *pattern*, then the text of all groups in the pattern are also returned
@@ -1077,10 +1077,10 @@ Functions
 
 
 .. function:: findall(pattern, string, flags=0)
-              findall(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> list[typing.Any]
-              findall(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> list[typing.Any]
+              findall(pattern: re.Pattern[str] | str, string: str, flags: re._FlagsType = 0) -> list[typing.Any]
+              findall(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: re._FlagsType = 0) -> list[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L275>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L275>`__)
 
    Return all non-overlapping matches of *pattern* in *string*, as a list of
    strings or tuples.  The *string* is scanned left-to-right, and matches
@@ -1107,10 +1107,10 @@ Functions
 
 
 .. function:: finditer(pattern, string, flags=0)
-              finditer(pattern: re.Pattern[str] | str, string: str, flags: _FlagsType = 0) -> collections.abc.Iterator[re.Match[str]]
-              finditer(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: _FlagsType = 0) -> collections.abc.Iterator[re.Match[bytes]]
+              finditer(pattern: re.Pattern[str] | str, string: str, flags: re._FlagsType = 0) -> collections.abc.Iterator[re.Match[str]]
+              finditer(pattern: re.Pattern[bytes] | bytes, string: collections.abc.Buffer, flags: re._FlagsType = 0) -> collections.abc.Iterator[re.Match[bytes]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L279>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L279>`__)
 
    Return an :term:`iterator` yielding :class:`~re.Match` objects over
    all non-overlapping matches for the RE *pattern* in *string*.  The *string*
@@ -1126,10 +1126,10 @@ Functions
 
 
 .. function:: sub(pattern, repl, string, count=0, flags=0)
-              sub(pattern: re.Pattern[str] | str, repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0, flags: _FlagsType = 0) -> str
-              sub(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0, flags: _FlagsType = 0) -> bytes
+              sub(pattern: re.Pattern[str] | str, repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0, flags: re._FlagsType = 0) -> str
+              sub(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0, flags: re._FlagsType = 0) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L283>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L283>`__)
 
    Return the string obtained by replacing the leftmost non-overlapping occurrences
    of *pattern* in *string* by the replacement *repl*.  If the pattern isn't found,
@@ -1214,10 +1214,10 @@ Functions
 
 
 .. function:: subn(pattern, repl, string, count=0, flags=0)
-              subn(pattern: re.Pattern[str] | str, repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0, flags: _FlagsType = 0) -> tuple[str, int]
-              subn(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0, flags: _FlagsType = 0) -> tuple[bytes, int]
+              subn(pattern: re.Pattern[str] | str, repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0, flags: re._FlagsType = 0) -> tuple[str, int]
+              subn(pattern: re.Pattern[bytes] | bytes, repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0, flags: re._FlagsType = 0) -> tuple[bytes, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L295>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L295>`__)
 
    Perform the same operation as :func:`sub`, but return a tuple ``(new_string,
    number_of_subs_made)``.
@@ -1230,7 +1230,7 @@ Functions
 .. function:: escape(pattern)
               escape[AnyStr: (str, bytes)](pattern: AnyStr) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L306>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L306>`__)
 
    Escape special characters in *pattern*.
    This is useful if you want to match an arbitrary literal string that may
@@ -1268,7 +1268,7 @@ Functions
 .. function:: purge()
               purge() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L307>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L307>`__)
 
    Clear the regular expression cache.
 
@@ -1277,9 +1277,9 @@ Exceptions
 ^^^^^^^^^^
 
 .. exception:: PatternError(msg, pattern=None, pos=None)
-               PatternError(msg: str, pattern: bytes | str | None = None, pos: int | None = None) -> re.error
+               PatternError(cls: type[re.error], *args: typing.Any, **kwds: typing.Any) -> re.error
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L50>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L50>`__)
 
    Exception raised when a string passed to one of the functions here is not a
    valid regular expression (for example, it might contain unmatched parentheses)
@@ -1290,35 +1290,35 @@ Exceptions
    .. attribute:: msg
       :type: str
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L57>`__)
 
       The unformatted error message.
 
    .. attribute:: pattern
       :type: bytes | str | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L58>`__)
 
       The regular expression pattern.
 
    .. attribute:: pos
       :type: int | None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L59>`__)
 
       The index in *pattern* where compilation failed (may be ``None``).
 
    .. attribute:: lineno
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L60>`__)
 
       The line corresponding to *pos* (may be ``None``).
 
    .. attribute:: colno
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L61>`__)
 
       The column corresponding to *pos* (may be ``None``).
 
@@ -1337,7 +1337,7 @@ Regular Expression Objects
 .. class:: Pattern
            Pattern() -> re.Pattern[AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L121>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L121>`__)
 
    Compiled regular expression object returned by :func:`re.compile`.
 
@@ -1346,11 +1346,9 @@ Regular Expression Objects
       See :ref:`types-genericalias`.
 
 .. method:: Pattern.search(string[, pos[, endpos]])
-            Pattern.search(string: str, pos: int = 0, endpos: int = ...) -> re.Match[str] | None
-            Pattern.search(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
             Pattern.search(string: AnyStr, pos: int = 0, endpos: int = ...) -> re.Match[AnyStr] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L131>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L131>`__)
 
    Scan through *string* looking for the first location where this regular
    expression produces a match, and return a corresponding :class:`~re.Match`.
@@ -1378,11 +1376,9 @@ Regular Expression Objects
 
 .. method:: Pattern.prefixmatch(string[, pos[, endpos]])
 .. method:: Pattern.match(string[, pos[, endpos]])
-            Pattern.match(string: str, pos: int = 0, endpos: int = ...) -> re.Match[str] | None
-            Pattern.match(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
             Pattern.match(string: AnyStr, pos: int = 0, endpos: int = ...) -> re.Match[AnyStr] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L137>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L137>`__)
 
    If zero or more characters at the *beginning* of *string* match this regular
    expression, return a corresponding :class:`~re.Match`. Return ``None`` if the
@@ -1417,11 +1413,9 @@ Regular Expression Objects
 
 
 .. method:: Pattern.fullmatch(string[, pos[, endpos]])
-            Pattern.fullmatch(string: str, pos: int = 0, endpos: int = ...) -> re.Match[str] | None
-            Pattern.fullmatch(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> re.Match[bytes] | None
             Pattern.fullmatch(string: AnyStr, pos: int = 0, endpos: int = ...) -> re.Match[AnyStr] | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L143>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L143>`__)
 
    If the whole *string* matches this regular expression, return a corresponding
    :class:`~re.Match`.  Return ``None`` if the string does not match the pattern;
@@ -1440,21 +1434,17 @@ Regular Expression Objects
 
 
 .. method:: Pattern.split(string, maxsplit=0)
-            Pattern.split(string: str, maxsplit: int = 0) -> list[str | typing.Any]
-            Pattern.split(string: collections.abc.Buffer, maxsplit: int = 0) -> list[bytes | typing.Any]
             Pattern.split(string: AnyStr, maxsplit: int = 0) -> list[AnyStr | typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L151>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L151>`__)
 
    Identical to the :func:`split` function, using the compiled pattern.
 
 
 .. method:: Pattern.findall(string[, pos[, endpos]])
-            Pattern.findall(string: str, pos: int = 0, endpos: int = ...) -> list[typing.Any]
-            Pattern.findall(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> list[typing.Any]
             Pattern.findall(string: AnyStr, pos: int = 0, endpos: int = ...) -> list[AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L158>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L158>`__)
 
    Similar to the :func:`findall` function, using the compiled pattern, but
    also accepts optional *pos* and *endpos* parameters that limit the search
@@ -1462,11 +1452,9 @@ Regular Expression Objects
 
 
 .. method:: Pattern.finditer(string[, pos[, endpos]])
-            Pattern.finditer(string: str, pos: int = 0, endpos: int = ...) -> collections.abc.Iterator[re.Match[str]]
-            Pattern.finditer(string: collections.abc.Buffer, pos: int = 0, endpos: int = ...) -> collections.abc.Iterator[re.Match[bytes]]
             Pattern.finditer(string: AnyStr, pos: int = 0, endpos: int = ...) -> collections.abc.Iterator[re.Match[AnyStr]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L164>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L164>`__)
 
    Similar to the :func:`finditer` function, using the compiled pattern, but
    also accepts optional *pos* and *endpos* parameters that limit the search
@@ -1474,29 +1462,25 @@ Regular Expression Objects
 
 
 .. method:: Pattern.sub(repl, string, count=0)
-            Pattern.sub(repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0) -> str
-            Pattern.sub(repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0) -> bytes
             Pattern.sub(repl: (collections.abc.Callable[[re.Match[AnyStr]], AnyStr]) | AnyStr, string: AnyStr, count: int = 0) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L172>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L172>`__)
 
    Identical to the :func:`sub` function, using the compiled pattern.
 
 
 .. method:: Pattern.subn(repl, string, count=0)
-            Pattern.subn(repl: (collections.abc.Callable[[re.Match[str]], str]) | str, string: str, count: int = 0) -> tuple[str, int]
-            Pattern.subn(repl: (collections.abc.Callable[[re.Match[bytes]], collections.abc.Buffer]) | collections.abc.Buffer, string: collections.abc.Buffer, count: int = 0) -> tuple[bytes, int]
             Pattern.subn(repl: (collections.abc.Callable[[re.Match[AnyStr]], AnyStr]) | AnyStr, string: AnyStr, count: int = 0) -> tuple[AnyStr, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L183>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L183>`__)
 
    Identical to the :func:`subn` function, using the compiled pattern.
 
 
 .. attribute:: Pattern.flags
-   :type: flags[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> int
+   :type: re.Pattern.flags[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L123>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L123>`__)
 
    The regex matching flags.  This is a combination of the flags given to
    :func:`.compile`, any ``(?...)`` inline flags in the pattern, and implicit
@@ -1504,17 +1488,17 @@ Regular Expression Objects
 
 
 .. attribute:: Pattern.groups
-   :type: groups[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> int
+   :type: re.Pattern.groups[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L127>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L127>`__)
 
    The number of capturing groups in the pattern.
 
 
 .. attribute:: Pattern.groupindex
-   :type: groupindex[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> collections.abc.Mapping[str, int]
+   :type: re.Pattern.groupindex[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> collections.abc.Mapping[str, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L125>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L125>`__)
 
    A dictionary mapping any symbolic group names defined by ``(?P<id>)`` to group
    numbers.  The dictionary is empty if no symbolic groups were used in the
@@ -1522,9 +1506,9 @@ Regular Expression Objects
 
 
 .. attribute:: Pattern.pattern
-   :type: pattern[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> AnyStr
+   :type: re.Pattern.pattern[AnyStr: (str, bytes)](self: re.Pattern[AnyStr]) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L129>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L129>`__)
 
    The pattern string from which the pattern object was compiled.
 
@@ -1550,7 +1534,7 @@ when there is no match, you can test whether there was a match with a simple
 .. class:: Match
            Match() -> re.Match[AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L65>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L65>`__)
 
    Match object returned by successful ``match``\ es and ``search``\ es.
 
@@ -1559,11 +1543,9 @@ when there is no match, you can test whether there was a match with a simple
       See :ref:`types-genericalias`.
 
 .. method:: Match.expand(template)
-            Match.expand(template: str) -> str
-            Match.expand(template: collections.abc.Buffer) -> bytes
             Match.expand(template: AnyStr) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L82>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L82>`__)
 
    Return the string obtained by doing backslash substitution on the template
    string *template*, as done by the :meth:`~Pattern.sub` method.
@@ -1581,7 +1563,7 @@ when there is no match, you can test whether there was a match with a simple
             Match.group(group: int | str, /) -> AnyStr | typing.Any
             Match.group(group1: int | str, group2: int | str, /, *groups: int | str) -> tuple[AnyStr | typing.Any, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L89>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L89>`__)
 
    Returns one or more subgroups of the match.  If there is a single argument, the
    result is a single string; if there are multiple arguments, the result is a
@@ -1636,7 +1618,7 @@ when there is no match, you can test whether there was a match with a simple
             Match.__getitem__(key: typing.Literal[0], /) -> AnyStr
             Match.__getitem__(key: int | str, /) -> AnyStr | typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L113>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L113>`__)
 
    This is identical to ``m.group(g)``.  This allows easier access to
    an individual group from a match::
@@ -1664,7 +1646,7 @@ when there is no match, you can test whether there was a match with a simple
             Match.groups() -> tuple[AnyStr | typing.Any, ...]
             Match.groups(default: _T) -> tuple[AnyStr | _T, ...]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L97>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L97>`__)
 
    Return a tuple containing all the subgroups of the match, from 1 up to however
    many groups are in the pattern.  The *default* argument is used for groups that
@@ -1691,7 +1673,7 @@ when there is no match, you can test whether there was a match with a simple
             Match.groupdict() -> dict[str, AnyStr | typing.Any]
             Match.groupdict(default: _T) -> dict[str, AnyStr | _T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L103>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L103>`__)
 
    Return a dictionary containing all the *named* subgroups of the match, keyed by
    the subgroup name.  The *default* argument is used for groups that did not
@@ -1705,7 +1687,7 @@ when there is no match, you can test whether there was a match with a simple
 .. method:: Match.start([group])
             Match.end([group])
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L106>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L106>`__)
 
    Return the indices of the start and end of the substring matched by *group*;
    *group* defaults to zero (meaning the whole matched substring). Return ``-1`` if
@@ -1731,7 +1713,7 @@ when there is no match, you can test whether there was a match with a simple
 .. method:: Match.span([group])
             Match.span[AnyStr: (str, bytes)](group: int | str = 0, /) -> tuple[int, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L108>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L108>`__)
 
    For a match *m*, return the 2-tuple ``(m.start(group), m.end(group))``. Note
    that if *group* did not contribute to the match, this is ``(-1, -1)``.
@@ -1739,9 +1721,9 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.pos
-   :type: pos[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> int
+   :type: re.Match.pos[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L67>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L67>`__)
 
    The value of *pos* which was passed to the :meth:`~Pattern.search` or
    :meth:`~Pattern.match` method of a :ref:`regex object <re-objects>`.  This is
@@ -1749,9 +1731,9 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.endpos
-   :type: endpos[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> int
+   :type: re.Match.endpos[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L69>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L69>`__)
 
    The value of *endpos* which was passed to the :meth:`~Pattern.search` or
    :meth:`~Pattern.match` method of a :ref:`regex object <re-objects>`.  This is
@@ -1759,9 +1741,9 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.lastindex
-   :type: lastindex[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> int | None
+   :type: re.Match.lastindex[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> int | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L71>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L71>`__)
 
    The integer index of the last matched capturing group, or ``None`` if no group
    was matched at all. For example, the expressions ``(a)b``, ``((a)(b))``, and
@@ -1771,27 +1753,27 @@ when there is no match, you can test whether there was a match with a simple
 
 
 .. attribute:: Match.lastgroup
-   :type: lastgroup[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> str | None
+   :type: re.Match.lastgroup[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> str | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L73>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L73>`__)
 
    The name of the last matched capturing group, or ``None`` if the group didn't
    have a name, or if no group was matched at all.
 
 
 .. attribute:: Match.re
-   :type: re[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> re.Pattern[AnyStr]
+   :type: re.Match.re[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> re.Pattern[AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L80>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L80>`__)
 
    The :ref:`regular expression object <re-objects>` whose :meth:`~Pattern.match` or
    :meth:`~Pattern.search` method produced this match instance.
 
 
 .. attribute:: Match.string
-   :type: string[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> AnyStr
+   :type: re.Match.string[AnyStr: (str, bytes)](self: re.Match[AnyStr]) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/re.pyi#L75>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/re.pyi#L75>`__)
 
    The string passed to :meth:`~Pattern.match` or :meth:`~Pattern.search`.
 

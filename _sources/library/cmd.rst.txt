@@ -16,7 +16,7 @@ interface.
 .. class:: Cmd(completekey='tab', stdin=None, stdout=None)
            Cmd(completekey: str = 'tab', stdin: typing.IO[str] | None = None, stdout: typing.IO[str] | None = None) -> cmd.Cmd
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L10>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L10>`__)
 
    A :class:`Cmd` instance or subclass instance is a line-oriented interpreter
    framework.  There is no good reason to instantiate :class:`Cmd` itself; rather,
@@ -58,7 +58,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.cmdloop(intro=None)
             Cmd.cmdloop(intro: typing.Any | None = None) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L28>`__)
 
    Repeatedly issue a prompt, accept input, parse an initial prefix off the
    received input, and dispatch to action methods, passing them the remainder of
@@ -101,7 +101,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.do_help(arg)
             Cmd.do_help(arg: str) -> bool | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L44>`__)
 
    All subclasses of :class:`Cmd` inherit a predefined :meth:`!do_help`.  This
    method, called with an argument ``'bar'``, invokes the corresponding method
@@ -115,7 +115,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.onecmd(str)
             Cmd.onecmd(line: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L34>`__)
 
    Interpret the argument as though it had been typed in response to the prompt.
    This may be overridden, but should not normally need to be; see the
@@ -129,7 +129,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.emptyline()
             Cmd.emptyline() -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L35>`__)
 
    Method called when an empty line is entered in response to the prompt. If this
    method is not overridden, it repeats the last nonempty command entered.
@@ -138,7 +138,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.default(line)
             Cmd.default(line: str) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L36>`__)
 
    Method called on an input line when the command prefix is not recognized. If
    this method is not overridden, it prints an error message and returns.
@@ -147,7 +147,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.completedefault(text, line, begidx, endidx)
             Cmd.completedefault(*ignored: typing.Any) -> list[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L37>`__)
 
    Method called to complete an input line when no command-specific
    :meth:`!complete_\*` method is available.  By default, it returns an empty list.
@@ -156,7 +156,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.columnize(list, displaywidth=80)
             Cmd.columnize(list: list[str] | None, displaywidth: int = 80) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L46>`__)
 
    Method called to display a list of strings as a compact set of columns.
    Each column is only as wide as necessary.
@@ -166,7 +166,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.precmd(line)
             Cmd.precmd(line: str) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L29>`__)
 
    Hook method executed just before the command line *line* is interpreted, but
    after the input prompt is generated and issued.  This method is a stub in
@@ -179,7 +179,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.postcmd(stop, line)
             Cmd.postcmd(stop: bool, line: str) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L30>`__)
 
    Hook method executed just after a command dispatch is finished.  This method is
    a stub in :class:`Cmd`; it exists to be overridden by subclasses.  *line* is the
@@ -193,7 +193,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.preloop()
             Cmd.preloop() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L31>`__)
 
    Hook method executed once when :meth:`cmdloop` is called.  This method is a stub
    in :class:`Cmd`; it exists to be overridden by subclasses.
@@ -202,7 +202,7 @@ A :class:`Cmd` instance has the following methods:
 .. method:: Cmd.postloop()
             Cmd.postloop() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L32>`__)
 
    Hook method executed once when :meth:`cmdloop` is about to return. This method
    is a stub in :class:`Cmd`; it exists to be overridden by subclasses.
@@ -213,7 +213,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.prompt
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L11>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L11>`__)
 
    The prompt issued to solicit input.
 
@@ -221,7 +221,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.identchars
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L12>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L12>`__)
 
    The string of characters accepted for the command prefix.
 
@@ -229,7 +229,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.lastcmd
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L14>`__)
 
    The last nonempty command prefix seen.
 
@@ -237,7 +237,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.cmdqueue
    :type: list[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L24>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L24>`__)
 
    A list of queued input lines.  The cmdqueue list is checked in
    :meth:`cmdloop` when new input is needed; if it is nonempty, its elements
@@ -247,7 +247,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.intro
    :type: typing.Any | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L15>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L15>`__)
 
    A string to issue as an intro or banner.  May be overridden by giving the
    :meth:`cmdloop` method an argument.
@@ -256,7 +256,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.doc_header
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L17>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L17>`__)
 
    The header to issue if the help output has a section for documented commands.
 
@@ -264,7 +264,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.misc_header
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L18>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L18>`__)
 
    The header to issue if the help output has a section for miscellaneous  help
    topics (that is, there are :meth:`!help_\*` methods without corresponding
@@ -274,7 +274,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.undoc_header
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L19>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L19>`__)
 
    The header to issue if the help output has a section for undocumented  commands
    (that is, there are :meth:`!do_\*` methods without corresponding :meth:`!help_\*`
@@ -284,7 +284,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.ruler
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L13>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L13>`__)
 
    The character used to draw separator lines under the help-message headers.  If
    empty, no ruler line is drawn.  It defaults to ``'='``.
@@ -293,7 +293,7 @@ Instances of :class:`Cmd` subclasses have some public instance variables:
 .. attribute:: Cmd.use_rawinput
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/cmd.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/cmd.pyi#L21>`__)
 
    A flag, defaulting to true.  If true, :meth:`cmdloop` uses :func:`input` to
    display a prompt and read the next command; if false, :data:`sys.stdout.write() <sys.stdout>`

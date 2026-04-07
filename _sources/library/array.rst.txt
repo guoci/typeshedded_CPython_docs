@@ -9,7 +9,7 @@
 --------------
 
 This module defines an object type which can compactly represent an array of
-basic values: characters, integers, floating-point numbers.  Arrays are mutable :term:`sequence`
+basic values: characters, integers, floating-point numbers, complex numbers.  Arrays are mutable :term:`sequence`
 types and behave very much like lists, except that the type of objects stored in
 them is constrained.  The type is specified at object creation time by using a
 :dfn:`type code`, which is a single character.  The following type codes are
@@ -42,10 +42,17 @@ defined:
 +-----------+--------------------+-------------------+-----------------------+-------+
 | ``'Q'``   | unsigned long long | int               | 8                     |       |
 +-----------+--------------------+-------------------+-----------------------+-------+
+| ``'e'``   | _Float16           | float             | 2                     | \(3)  |
++-----------+--------------------+-------------------+-----------------------+-------+
 | ``'f'``   | float              | float             | 4                     |       |
 +-----------+--------------------+-------------------+-----------------------+-------+
 | ``'d'``   | double             | float             | 8                     |       |
 +-----------+--------------------+-------------------+-----------------------+-------+
+| ``'F'``   | float complex      | complex           | 8                     | \(4)  |
++-----------+--------------------+-------------------+-----------------------+-------+
+| ``'D'``   | double complex     | complex           | 16                    | \(4)  |
++-----------+--------------------+-------------------+-----------------------+-------+
+
 
 Notes:
 
@@ -63,6 +70,31 @@ Notes:
 (2)
    .. versionadded:: 3.13
 
+(3)
+   The IEEE 754 binary16 "half precision" type was introduced in the 2008
+   revision of the `IEEE 754 standard <ieee 754 standard_>`_.
+   This type is not widely supported by C compilers.  It's available
+   as :c:expr:`_Float16` type, if the compiler supports the Annex H
+   of the C23 standard.
+
+   .. versionadded:: 3.15
+
+(4)
+   Complex types (``F`` and ``D``) are available unconditionally,
+   regardless on support for complex types (the Annex G of the C11 standard)
+   by the C compiler.
+   As specified in the C11 standard, each complex type is represented by a
+   two-element C array containing, respectively, the real and imaginary parts.
+
+   .. versionadded:: 3.15
+
+.. seealso::
+
+   The :ref:`ctypes <ctypes-fundamental-data-types>` and
+   :ref:`struct <format-characters>` modules,
+   as well as third-party modules like `numpy <https://numpy.org/doc/stable/reference/arrays.interface.html#object.__array_interface__>`__,
+   use similar -- but slightly different -- type codes.
+
 
 The actual representation of values is determined by the machine architecture
 (strictly speaking, by the C implementation).  The actual size can be accessed
@@ -74,7 +106,7 @@ The module defines the following item:
 .. data:: typecodes
    :type: str
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L18>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L18>`__)
 
    A string with all available type codes.
 
@@ -83,14 +115,14 @@ The module defines the following type:
 
 
 .. class:: array(typecode[, initializer])
-           array(typecode: _IntTypeCode, initializer: collections.abc.Iterable[int] | bytearray | bytes = ..., /) -> array.array[int]
-           array(typecode: _FloatTypeCode, initializer: collections.abc.Iterable[float] | bytearray | bytes = ..., /) -> array.array[float]
-           array(typecode: typing.Literal['w'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
-           array(typecode: typing.Literal['u'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
-           array(typecode: str, initializer: collections.abc.Iterable[_T], /) -> array.array[_T]
-           array(typecode: str, initializer: bytearray | bytes = ..., /) -> array.array[_T]
+           array(cls: type[array.array[int]], typecode: array._IntTypeCode, initializer: collections.abc.Iterable[int] | bytearray | bytes = ..., /) -> array.array[int]
+           array(cls: type[array.array[float]], typecode: array._FloatTypeCode, initializer: collections.abc.Iterable[float] | bytearray | bytes = ..., /) -> array.array[float]
+           array(cls: type[array.array[str]], typecode: typing.Literal['w'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
+           array(cls: type[array.array[str]], typecode: typing.Literal['u'], initializer: collections.abc.Iterable[str] | bytearray | bytes = ..., /) -> array.array[str]
+           array(cls: type[array.array[_T]], typecode: str, initializer: collections.abc.Iterable[_T], /) -> array.array[_T]
+           array(cls: type[array.array[_T]], typecode: str, initializer: bytearray | bytes = ..., /) -> array.array[_T]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L21>`__)
 
    A new array whose items are restricted by *typecode*, and initialized
    from the optional *initializer* value, which must be a :class:`bytes`
@@ -114,33 +146,33 @@ The module defines the following type:
 
 
    .. attribute:: typecode
-      :type: typecode[_T: (int, float, str)](self: array.array[_T]) -> _TypeCode
+      :type: array.array.typecode[_T: (int, float, str)](self: array.array[_T]) -> array._TypeCode
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L23>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L23>`__)
 
       The typecode character used to create the array.
 
 
    .. attribute:: itemsize
-      :type: itemsize[_T: (int, float, str)](self: array.array[_T]) -> int
+      :type: array.array.itemsize[_T: (int, float, str)](self: array.array[_T]) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L25>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L25>`__)
 
       The length in bytes of one array item in the internal representation.
 
 
-   .. method:: append(x)
+   .. method:: append(value, /)
                append[_T: (int, float, str)](v: _T, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L55>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L55>`__)
 
-      Append a new item with value *x* to the end of the array.
+      Append a new item with the specified value to the end of the array.
 
 
    .. method:: buffer_info()
                buffer_info[_T: (int, float, str)]() -> tuple[int, int]
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L56>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L56>`__)
 
       Return a tuple ``(address, length)`` giving the current memory address and the
       length in elements of the buffer used to hold array's contents.  The size of the
@@ -162,26 +194,27 @@ The module defines the following type:
    .. method:: byteswap()
                byteswap[_T: (int, float, str)]() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L57>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L57>`__)
 
       "Byteswap" all items of the array.  This is only supported for values which are
-      1, 2, 4, or 8 bytes in size; for other types of values, :exc:`RuntimeError` is
+      1, 2, 4, 8 or 16 bytes in size; for other types of values, :exc:`RuntimeError` is
       raised.  It is useful when reading data from a file written on a machine with a
-      different byte order.
+      different byte order.  Note, that for complex types the order of
+      components (the real part, followed by imaginary part) is preserved.
 
 
-   .. method:: count(x)
+   .. method:: count(value, /)
                count[_T: (int, float, str)](v: _T, /) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L58>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L58>`__)
 
-      Return the number of occurrences of *x* in the array.
+      Return the number of occurrences of *value* in the array.
 
 
-   .. method:: extend(iterable)
+   .. method:: extend(iterable, /)
                extend[_T: (int, float, str)](bb: collections.abc.Iterable[_T], /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L59>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L59>`__)
 
       Append items from *iterable* to the end of the array.  If *iterable* is another
       array, it must have *exactly* the same type code; if not, :exc:`TypeError` will
@@ -189,10 +222,10 @@ The module defines the following type:
       must be the right type to be appended to the array.
 
 
-   .. method:: frombytes(buffer)
+   .. method:: frombytes(buffer, /)
                frombytes[_T: (int, float, str)](buffer: collections.abc.Buffer, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L60>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L60>`__)
 
       Appends items from the :term:`bytes-like object`, interpreting
       its content as an array of machine values (as if it had been read
@@ -202,10 +235,10 @@ The module defines the following type:
          :meth:`!fromstring` is renamed to :meth:`frombytes` for clarity.
 
 
-   .. method:: fromfile(f, n)
+   .. method:: fromfile(f, n, /)
                fromfile[_T: (int, float, str)](f: _typeshed.SupportsRead[bytes], n: int, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L61>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L61>`__)
 
       Read *n* items (as machine values) from the :term:`file object` *f* and append
       them to the end of the array.  If less than *n* items are available,
@@ -213,19 +246,19 @@ The module defines the following type:
       inserted into the array.
 
 
-   .. method:: fromlist(list)
+   .. method:: fromlist(list, /)
                fromlist[_T: (int, float, str)](list: list[_T], /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L62>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L62>`__)
 
       Append items from the list.  This is equivalent to ``for x in list:
       a.append(x)`` except that if there is a type error, the array is unchanged.
 
 
-   .. method:: fromunicode(s)
+   .. method:: fromunicode(ustr, /)
                fromunicode[_T: (int, float, str)](ustr: str, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L63>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L63>`__)
 
       Extends this array with data from the given Unicode string.
       The array must have type code ``'u'`` or ``'w'``; otherwise a :exc:`ValueError` is raised.
@@ -233,51 +266,51 @@ The module defines the following type:
       array of some other type.
 
 
-   .. method:: index(x[, start[, stop]])
+   .. method:: index(value[, start[, stop]])
                index[_T: (int, float, str)](v: _T, start: int = 0, stop: int = ..., /) -> int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L65>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L65>`__)
 
       Return the smallest *i* such that *i* is the index of the first occurrence of
-      *x* in the array.  The optional arguments *start* and *stop* can be
-      specified to search for *x* within a subsection of the array.  Raise
-      :exc:`ValueError` if *x* is not found.
+      *value* in the array.  The optional arguments *start* and *stop* can be
+      specified to search for *value* within a subsection of the array.  Raise
+      :exc:`ValueError` if *value* is not found.
 
       .. versionchanged:: 3.10
          Added optional *start* and *stop* parameters.
 
 
-   .. method:: insert(i, x)
+   .. method:: insert(index, value, /)
                insert[_T: (int, float, str)](i: int, v: _T, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L69>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L69>`__)
 
-      Insert a new item with value *x* in the array before position *i*. Negative
+      Insert a new item *value* in the array before position *index*. Negative
       values are treated as being relative to the end of the array.
 
 
-   .. method:: pop([i])
+   .. method:: pop(index=-1, /)
                pop[_T: (int, float, str)](i: int = -1, /) -> _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L70>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L70>`__)
 
       Removes the item with the index *i* from the array and returns it. The optional
       argument defaults to ``-1``, so that by default the last item is removed and
       returned.
 
 
-   .. method:: remove(x)
+   .. method:: remove(value, /)
                remove[_T: (int, float, str)](v: _T, /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L71>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L71>`__)
 
-      Remove the first occurrence of *x* from the array.
+      Remove the first occurrence of *value* from the array.
 
 
    .. method:: clear()
                clear[_T: (int, float, str)]() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/typing.pyi#L695>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/typing.pyi#L695>`__)
 
       Remove all elements from the array.
 
@@ -287,7 +320,7 @@ The module defines the following type:
    .. method:: reverse()
                reverse[_T: (int, float, str)]() -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/typing.pyi#L697>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/typing.pyi#L697>`__)
 
       Reverse the order of the items in the array.
 
@@ -295,7 +328,7 @@ The module defines the following type:
    .. method:: tobytes()
                tobytes[_T: (int, float, str)]() -> bytes
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L72>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L72>`__)
 
       Convert the array to an array of machine values and return the bytes
       representation (the same sequence of bytes that would be written to a file by
@@ -305,10 +338,10 @@ The module defines the following type:
          :meth:`!tostring` is renamed to :meth:`tobytes` for clarity.
 
 
-   .. method:: tofile(f)
+   .. method:: tofile(f, /)
                tofile[_T: (int, float, str)](f: _typeshed.SupportsWrite[bytes], /) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L73>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L73>`__)
 
       Write all items (as machine values) to the :term:`file object` *f*.
 
@@ -316,7 +349,7 @@ The module defines the following type:
    .. method:: tolist()
                tolist[_T: (int, float, str)]() -> list[_T]
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L74>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L74>`__)
 
       Convert the array to an ordinary list with the same items.
 
@@ -324,7 +357,7 @@ The module defines the following type:
    .. method:: tounicode()
                tounicode[_T: (int, float, str)]() -> str
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/array.pyi#L75>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/array.pyi#L75>`__)
 
       Convert the array to a Unicode string.  The array must have a type ``'u'`` or ``'w'``;
       otherwise a :exc:`ValueError` is raised. Use ``array.tobytes().decode(enc)`` to
@@ -356,3 +389,5 @@ Examples::
 
    `NumPy <https://numpy.org/>`_
       The NumPy package defines another array type.
+
+.. _ieee 754 standard: https://en.wikipedia.org/wiki/IEEE_754-2008_revision

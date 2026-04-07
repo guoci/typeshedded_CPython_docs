@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>3. Configure Python &#8212; Python 3.15.0a7 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Configure Python &#8212; Python 3.15.0a8 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=cf041bec"></script>
+    <script src="../_static/documentation_options.js?v=271eb82e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
@@ -32,7 +32,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a7 documentation"
+          title="Search within Python 3.15.0a8 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -226,7 +226,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a8 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Setup and Usage</a> &#187;</li>
@@ -757,6 +757,20 @@ information, including how to install the necessary build-time dependencies.</p>
 <dd><p><code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> options.</p>
 </dd></dl>
 
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-disable-epoll">
+<span class="sig-name descname"><span class="pre">--disable-epoll</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-disable-epoll" title="Link to this definition">¶</a></dt>
+<dd><p>Build without <code class="docutils literal notranslate"><span class="pre">epoll</span></code>, meaning that <a class="reference internal" href="../library/select.html#select.epoll" title="select.epoll"><code class="xref py py-func docutils literal notranslate"><span class="pre">select.epoll()</span></code></a> will not be
+present even if the system provides an
+<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/epoll_create(2)">epoll_create</a></em> function.
+This may be used on systems where <em class="manpage">epoll_create</em> or
+<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/epoll_create1(2)">epoll_create1</a></em> is available
+but incompatible with Linux semantics.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
+</div>
+</dd></dl>
+
 </section>
 <section id="c-compiler-options">
 <h3><span class="section-number">3.3.2. </span>C compiler options<a class="headerlink" href="#c-compiler-options" title="Link to this heading">¶</a></h3>
@@ -1207,9 +1221,16 @@ default). When enabled, the arena size on 64-bit platforms is increased to
 <code class="docutils literal notranslate"><span class="pre">MEM_LARGE_PAGES</span></code> (Windows) with automatic fallback to regular pages.</p>
 <p>Even when compiled with this option, huge pages are <strong>not</strong> used at runtime
 unless the <span class="target" id="index-11"></span><a class="reference internal" href="cmdline.html#envvar-PYTHON_PYMALLOC_HUGEPAGES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHON_PYMALLOC_HUGEPAGES</span></code></a> environment variable is set
-to <code class="docutils literal notranslate"><span class="pre">1</span></code>. This opt-in is required because huge pages carry risks on Linux:
-if the huge-page pool is exhausted, page faults (including copy-on-write
-faults after <a class="reference internal" href="../library/os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a>) deliver <code class="docutils literal notranslate"><span class="pre">SIGBUS</span></code> and kill the process.</p>
+to <code class="docutils literal notranslate"><span class="pre">1</span></code>. This opt-in is required because huge pages</p>
+<ul class="simple">
+<li><p>carry risks on Linux: if the huge-page pool is exhausted, page faults
+(including copy-on-write faults after <a class="reference internal" href="../library/os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a>) deliver <code class="docutils literal notranslate"><span class="pre">SIGBUS</span></code>
+and kill the process.</p></li>
+<li><p>need a special privilege on Windows. See the <a class="reference external" href="https://learn.microsoft.com/windows/win32/memory/large-page-support">Windows documentation for large pages</a>
+for details. Python will fail on startup if the required privilege
+<a class="reference external" href="https://learn.microsoft.com/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/lock-pages-in-memory">SeLockMemoryPrivilege</a>
+is not held by the user.</p></li>
+</ul>
 <p>The configure script checks that the platform supports <code class="docutils literal notranslate"><span class="pre">MAP_HUGETLB</span></code>
 and emits a warning if it is not available.</p>
 <p>On Windows, use the <code class="docutils literal notranslate"><span class="pre">--pymalloc-hugepages</span></code> flag with <code class="docutils literal notranslate"><span class="pre">build.bat</span></code> or
@@ -1303,9 +1324,11 @@ overflow when downcasting from wide types to narrow types.</p></li>
 <p>See also the <a class="reference internal" href="../library/devmode.html#devmode"><span class="std std-ref">Python Development Mode</span></a> and the
 <a class="reference internal" href="#cmdoption-with-trace-refs"><code class="xref std std-option docutils literal notranslate"><span class="pre">--with-trace-refs</span></code></a> configure option.</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 3.8: </span>Release builds and debug builds are now ABI compatible: defining the
+<p><span class="versionmodified changed">Changed in version 3.8: </span>Release builds are now ABI compatible with debug builds: defining the
 <code class="docutils literal notranslate"><span class="pre">Py_DEBUG</span></code> macro no longer implies the <code class="docutils literal notranslate"><span class="pre">Py_TRACE_REFS</span></code> macro (see the
-<a class="reference internal" href="#cmdoption-with-trace-refs"><code class="xref std std-option docutils literal notranslate"><span class="pre">--with-trace-refs</span></code></a> option).</p>
+<a class="reference internal" href="#cmdoption-with-trace-refs"><code class="xref std std-option docutils literal notranslate"><span class="pre">--with-trace-refs</span></code></a> option). However, debug builds still expose
+more symbols than release builds and code built against a debug build is not
+necessarily compatible with a release build.</p>
 </div>
 </section>
 <section id="debug-options">
@@ -2418,7 +2441,7 @@ new, uncommitted work.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a8 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python Setup and Usage</a> &#187;</li>

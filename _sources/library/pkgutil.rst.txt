@@ -12,18 +12,18 @@ This module provides utilities for the import system, in particular package
 support.
 
 .. class:: ModuleInfo(module_finder, name, ispkg)
-           ModuleInfo(*Unknown, **Unknown) -> pkgutil.ModuleInfo
+           ModuleInfo(_cls: type[pkgutil.ModuleInfo], module_finder: _typeshed.importlib.MetaPathFinderProtocol | _typeshed.importlib.PathEntryFinderProtocol, name: str, ispkg: bool) -> pkgutil.ModuleInfo
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L25>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L25>`__)
 
     A namedtuple that holds a brief summary of a module's info.
 
     .. versionadded:: 3.6
 
 .. function:: extend_path(path, name)
-              extend_path[_PathT: collections.abc.Iterable[str]](path: _PathT, name: str) -> _PathT
+              extend_path[_PathT: typing.collections.abc.Iterable[str]](path: _PathT, name: str) -> _PathT
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L30>`__)
 
    Extend the search path for the modules which comprise a package.  Intended
    use is to place the following code in a package's :file:`__init__.py`::
@@ -57,9 +57,9 @@ support.
 
 
 .. function:: get_importer(path_item)
-              get_importer(path_item: StrOrBytesPath) -> _typeshed.importlib.PathEntryFinderProtocol | None
+              get_importer(path_item: pkgutil.StrOrBytesPath) -> _typeshed.importlib.PathEntryFinderProtocol | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L51>`__)
 
    Retrieve a :term:`finder` for the given *path_item*.
 
@@ -77,7 +77,7 @@ support.
 .. function:: iter_importers(fullname='')
               iter_importers(fullname: str = '') -> collections.abc.Iterator[_typeshed.importlib.MetaPathFinderProtocol | _typeshed.importlib.PathEntryFinderProtocol]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L52>`__)
 
    Yield :term:`finder` objects for the given module name.
 
@@ -96,9 +96,9 @@ support.
 
 
 .. function:: iter_modules(path=None, prefix='')
-              iter_modules(path: typing.collections.abc.Iterable[StrOrBytesPath] | None = None, prefix: str = '') -> collections.abc.Iterator[pkgutil.ModuleInfo]
+              iter_modules(path: typing.collections.abc.Iterable[pkgutil.StrOrBytesPath] | None = None, prefix: str = '') -> collections.abc.Iterator[pkgutil.ModuleInfo]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L53>`__)
 
    Yields :class:`ModuleInfo` for all submodules on *path*, or, if
    *path* is ``None``, all top-level modules on :data:`sys.path`.
@@ -120,9 +120,9 @@ support.
 
 
 .. function:: walk_packages(path=None, prefix='', onerror=None)
-              walk_packages(path: typing.collections.abc.Iterable[StrOrBytesPath] | None = None, prefix: str = '', onerror: (collections.abc.Callable[[str], object]) | None = None) -> collections.abc.Iterator[pkgutil.ModuleInfo]
+              walk_packages(path: typing.collections.abc.Iterable[pkgutil.StrOrBytesPath] | None = None, prefix: str = '', onerror: (collections.abc.Callable[[str], object]) | None = None) -> collections.abc.Iterator[pkgutil.ModuleInfo]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L55>`__)
 
    Yields :class:`ModuleInfo` for all modules recursively on
    *path*, or, if *path* is ``None``, all accessible modules.
@@ -164,7 +164,7 @@ support.
 .. function:: get_data(package, resource)
               get_data(package: str, resource: str) -> bytes | None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L58>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L58>`__)
 
    Get a resource from a package.
 
@@ -172,11 +172,15 @@ support.
    :meth:`get_data <importlib.abc.ResourceLoader.get_data>` API.  The
    *package* argument should be the name of a package, in standard module format
    (``foo.bar``).  The *resource* argument should be in the form of a relative
-   filename, using ``/`` as the path separator.  The parent directory name
-   ``..`` is not allowed, and nor is a rooted name (starting with a ``/``).
+   filename, using ``/`` as the path separator.
 
    The function returns a binary string that is the contents of the specified
    resource.
+
+   This function uses the :term:`loader` method
+   :func:`~importlib.abc.FileLoader.get_data`
+   to support modules installed in the filesystem, but also in zip files,
+   databases, or elsewhere.
 
    For packages located in the filesystem, which have already been imported,
    this is the rough equivalent of::
@@ -184,17 +188,37 @@ support.
       d = os.path.dirname(sys.modules[package].__file__)
       data = open(os.path.join(d, resource), 'rb').read()
 
+   Like the :func:`open` function, :func:`!get_data` can follow parent
+   directories (``../``) and absolute paths (starting with ``/`` or ``C:/``,
+   for example).
+   It can open compilation/installation artifacts like ``.py`` and ``.pyc``
+   files or files with :func:`reserved filenames <os.path.isreserved>`.
+   To be compatible with non-filesystem loaders, avoid using these features.
+
+   .. warning::
+
+      This function is intended for trusted input.
+      It does not verify that *resource* "belongs" to *package*.
+
+   If you use a user-provided *resource* path, consider verifying it.
+   For example, require an alphanumeric filename with a known extension, or
+   install and check a list of known resources.
+
    If the package cannot be located or loaded, or it uses a :term:`loader`
    which does not support :meth:`get_data <importlib.abc.ResourceLoader.get_data>`,
    then ``None`` is returned.  In particular, the :term:`loader` for
    :term:`namespace packages <namespace package>` does not support
    :meth:`get_data <importlib.abc.ResourceLoader.get_data>`.
 
+   .. seealso::
+
+      The :mod:`importlib.resources` module provides structured access to
+      module resources.
 
 .. function:: resolve_name(name)
               resolve_name(name: str) -> typing.Any
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/pkgutil.pyi#L59>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/pkgutil.pyi#L59>`__)
 
    Resolve a name to an object.
 

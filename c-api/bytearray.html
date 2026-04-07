@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>Byte Array Objects &#8212; Python 3.15.0a7 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Array Objects &#8212; Python 3.15.0a8 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=cf041bec"></script>
+    <script src="../_static/documentation_options.js?v=271eb82e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
@@ -32,7 +32,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a7 documentation"
+          title="Search within Python 3.15.0a8 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -178,7 +178,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a8 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API reference manual</a> &#187;</li>
@@ -250,37 +250,51 @@ subtype of the bytearray type.  This function always succeeds.</p>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyByteArray_FromObject">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyByteArray_FromObject</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyByteArray_FromObject" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return a new bytearray object from any object, <em>o</em>, that implements the
+<dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><em class="threadsafety threadsafety-shared"> Thread safety: <a class="reference internal" href="../library/threadsafety.html#threadsafety-level-shared"><span class="std std-ref">Safe for concurrent use on the same object</span></a>.</em><p>Return a new bytearray object from any object, <em>o</em>, that implements the
 <a class="reference internal" href="buffer.html#bufferobjects"><span class="std std-ref">buffer protocol</span></a>.</p>
 <p>On failure, return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> with an exception set.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the object implements the buffer protocol, then the buffer
+must not be mutated while the bytearray object is being created.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyByteArray_FromStringAndSize">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyByteArray_FromStringAndSize</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">string</span></span>, <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyByteArray_FromStringAndSize" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Create a new bytearray object from <em>string</em> and its length, <em>len</em>.</p>
+<dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><em class="threadsafety threadsafety-atomic"> Thread safety: <a class="reference internal" href="../library/threadsafety.html#threadsafety-level-atomic"><span class="std std-ref">Atomic</span></a>.</em><p>Create a new bytearray object from <em>string</em> and its length, <em>len</em>.</p>
 <p>On failure, return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> with an exception set.</p>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyByteArray_Concat">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyByteArray_Concat</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">a</span></span>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyByteArray_Concat" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Concat bytearrays <em>a</em> and <em>b</em> and return a new bytearray with the result.</p>
+<dd><em class="refcount return_new_ref">Return value: New reference.</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><em class="threadsafety threadsafety-shared"> Thread safety: <a class="reference internal" href="../library/threadsafety.html#threadsafety-level-shared"><span class="std std-ref">Safe for concurrent use on the same object</span></a>.</em><p>Concat bytearrays <em>a</em> and <em>b</em> and return a new bytearray with the result.</p>
 <p>On failure, return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> with an exception set.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the object implements the buffer protocol, then the buffer
+must not be mutated while the bytearray object is being created.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyByteArray_Size">
 <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyByteArray_Size</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bytearray</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyByteArray_Size" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return the size of <em>bytearray</em> after checking for a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> pointer.</p>
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><em class="threadsafety threadsafety-atomic"> Thread safety: <a class="reference internal" href="../library/threadsafety.html#threadsafety-level-atomic"><span class="std std-ref">Atomic</span></a>.</em><p>Return the size of <em>bytearray</em> after checking for a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> pointer.</p>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyByteArray_AsString">
 <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyByteArray_AsString</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bytearray</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyByteArray_AsString" title="Link to this definition">¶</a><br /></dt>
-<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return the contents of <em>bytearray</em> as a char array after checking for a
+<dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><em class="threadsafety threadsafety-compatible"> Thread safety: <a class="reference internal" href="../library/threadsafety.html#threadsafety-level-compatible"><span class="std std-ref">Safe to call from multiple threads with external synchronization only</span></a>.</em><p>Return the contents of <em>bytearray</em> as a char array after checking for a
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> pointer.  The returned array always has an extra
 null byte appended.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not thread-safe to mutate the bytearray object while using the returned char array.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
@@ -300,13 +314,17 @@ Failure is a <code class="docutils literal notranslate"><span class="pre">-1</sp
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyByteArray_AS_STRING">
 <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyByteArray_AS_STRING</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bytearray</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyByteArray_AS_STRING" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Similar to <a class="reference internal" href="#c.PyByteArray_AsString" title="PyByteArray_AsString"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyByteArray_AsString()</span></code></a>, but without error checking.</p>
+<dd><em class="threadsafety threadsafety-compatible"> Thread safety: <a class="reference internal" href="../library/threadsafety.html#threadsafety-level-compatible"><span class="std std-ref">Safe to call from multiple threads with external synchronization only</span></a>.</em><p>Similar to <a class="reference internal" href="#c.PyByteArray_AsString" title="PyByteArray_AsString"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyByteArray_AsString()</span></code></a>, but without error checking.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not thread-safe to mutate the bytearray object while using the returned char array.</p>
+</div>
 </dd></dl>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.PyByteArray_GET_SIZE">
 <a class="reference internal" href="intro.html#c.Py_ssize_t" title="Py_ssize_t"><span class="n"><span class="pre">Py_ssize_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PyByteArray_GET_SIZE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bytearray</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyByteArray_GET_SIZE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Similar to <a class="reference internal" href="#c.PyByteArray_Size" title="PyByteArray_Size"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyByteArray_Size()</span></code></a>, but without error checking.</p>
+<dd><em class="threadsafety threadsafety-atomic"> Thread safety: <a class="reference internal" href="../library/threadsafety.html#threadsafety-level-atomic"><span class="std std-ref">Atomic</span></a>.</em><p>Similar to <a class="reference internal" href="#c.PyByteArray_Size" title="PyByteArray_Size"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyByteArray_Size()</span></code></a>, but without error checking.</p>
 </dd></dl>
 
 </section>
@@ -402,7 +420,7 @@ Failure is a <code class="docutils literal notranslate"><span class="pre">-1</sp
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a8 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API reference manual</a> &#187;</li>

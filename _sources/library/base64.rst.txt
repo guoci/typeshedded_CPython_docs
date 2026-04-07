@@ -51,10 +51,10 @@ The :rfc:`4648` encodings are suitable for encoding binary data so that it can b
 safely sent by email, used as parts of URLs, or included as part of an HTTP
 POST request.
 
-.. function:: b64encode(s, altchars=None, *, wrapcol=0)
+.. function:: b64encode(s, altchars=None, *, padded=True, wrapcol=0)
               b64encode(s: collections.abc.Buffer, altchars: collections.abc.Buffer | None = None) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L31>`__)
 
    Encode the :term:`bytes-like object` *s* using Base64 and return the encoded
    :class:`bytes`.
@@ -64,22 +64,23 @@ POST request.
    This allows an application to e.g. generate URL or filesystem safe Base64
    strings.  The default is ``None``, for which the standard Base64 alphabet is used.
 
+   If *padded* is true (default), pad the encoded data with the '='
+   character to a size multiple of 4.
+   If *padded* is false, do not add the pad characters.
+
    If *wrapcol* is non-zero, insert a newline (``b'\n'``) character
    after at most every *wrapcol* characters.
    If *wrapcol* is zero (default), do not insert any newlines.
 
-   May assert or raise a :exc:`ValueError` if the length of *altchars* is not 2.  Raises a
-   :exc:`TypeError` if *altchars* is not a :term:`bytes-like object`.
-
    .. versionchanged:: 3.15
-      Added the *wrapcol* parameter.
+      Added the *padded* and *wrapcol* parameters.
 
 
-.. function:: b64decode(s, altchars=None, validate=False)
-              b64decode(s, altchars=None, validate=True, *, ignorechars)
+.. function:: b64decode(s, altchars=None, validate=False, *, padded=True)
+              b64decode(s, altchars=None, validate=True, *, ignorechars, padded=True)
               b64decode(s: collections.abc.Buffer | str, altchars: collections.abc.Buffer | str | None = None, validate: bool = False) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L32>`__)
 
    Decode the Base64 encoded :term:`bytes-like object` or ASCII string
    *s* and return the decoded :class:`bytes`.
@@ -87,6 +88,14 @@ POST request.
    Optional *altchars* must be a :term:`bytes-like object` or ASCII string
    of length 2 which specifies the alternative alphabet used instead of the
    ``+`` and ``/`` characters.
+
+   If *padded* is true, the last group of 4 base 64 alphabet characters must
+   be padded with the '=' character.
+   If *padded* is false, padding is neither required nor recognized:
+   the '=' character is not treated as padding but as a non-alphabet
+   character, which means it is silently discarded when *validate* is false,
+   or causes an :exc:`~binascii.Error` when *validate* is true unless
+   b'=' is included in *ignorechars*.
 
    A :exc:`binascii.Error` exception is raised
    if *s* is incorrectly padded.
@@ -112,7 +121,7 @@ POST request.
    For more information about the strict base64 check, see :func:`binascii.a2b_base64`
 
    .. versionchanged:: 3.15
-      Added the *ignorechars* parameter.
+      Added the *ignorechars* and *padded* parameters.
 
    .. deprecated:: 3.15
       Accepting the ``+`` and ``/`` characters with an alternative alphabet
@@ -122,7 +131,7 @@ POST request.
 .. function:: standard_b64encode(s)
               standard_b64encode(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L33>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L33>`__)
 
    Encode :term:`bytes-like object` *s* using the standard Base64 alphabet
    and return the encoded :class:`bytes`.
@@ -131,28 +140,31 @@ POST request.
 .. function:: standard_b64decode(s)
               standard_b64decode(s: collections.abc.Buffer | str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L34>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L34>`__)
 
    Decode :term:`bytes-like object` or ASCII string *s* using the standard
    Base64 alphabet and return the decoded :class:`bytes`.
 
 
-.. function:: urlsafe_b64encode(s)
+.. function:: urlsafe_b64encode(s, *, padded=True)
               urlsafe_b64encode(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L35>`__)
 
    Encode :term:`bytes-like object` *s* using the
    URL- and filesystem-safe alphabet, which
    substitutes ``-`` instead of ``+`` and ``_`` instead of ``/`` in the
    standard Base64 alphabet, and return the encoded :class:`bytes`.  The result
-   can still contain ``=``.
+   can still contain ``=`` if *padded* is true (default).
+
+   .. versionchanged:: 3.15
+      Added the *padded* parameter.
 
 
-.. function:: urlsafe_b64decode(s)
+.. function:: urlsafe_b64decode(s, *, padded=False)
               urlsafe_b64decode(s: collections.abc.Buffer | str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L36>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L36>`__)
 
    Decode :term:`bytes-like object` or ASCII string *s*
    using the URL- and filesystem-safe
@@ -160,23 +172,38 @@ POST request.
    ``/`` in the standard Base64 alphabet, and return the decoded
    :class:`bytes`.
 
+   .. versionchanged:: 3.15
+      Added the *padded* parameter.
+      Padding of input is no longer required by default.
+
    .. deprecated:: 3.15
       Accepting the ``+`` and ``/`` characters is now deprecated.
 
 
-.. function:: b32encode(s)
+.. function:: b32encode(s, *, padded=True, wrapcol=0)
               b32encode(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L37>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L37>`__)
 
    Encode the :term:`bytes-like object` *s* using Base32 and return the
    encoded :class:`bytes`.
 
+   If *padded* is true (default), pad the encoded data with the '='
+   character to a size multiple of 8.
+   If *padded* is false, do not add the pad characters.
 
-.. function:: b32decode(s, casefold=False, map01=None)
+   If *wrapcol* is non-zero, insert a newline (``b'\n'``) character
+   after at most every *wrapcol* characters.
+   If *wrapcol* is zero (default), do not add any newlines.
+
+   .. versionchanged:: 3.15
+      Added the *padded* and *wrapcol* parameters.
+
+
+.. function:: b32decode(s, casefold=False, map01=None, *, padded=True, ignorechars=b'')
               b32decode(s: collections.abc.Buffer | str, casefold: bool = False, map01: collections.abc.Buffer | str | None = None) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L38>`__)
 
    Decode the Base32 encoded :term:`bytes-like object` or ASCII string *s* and
    return the decoded :class:`bytes`.
@@ -192,26 +219,42 @@ POST request.
    digit 0 is always mapped to the letter O).  For security purposes the default is
    ``None``, so that 0 and 1 are not allowed in the input.
 
+   If *padded* is true, the last group of 8 base 32 alphabet characters must
+   be padded with the '=' character.
+   If *padded* is false, padding is neither required nor recognized:
+   the '=' character is not treated as padding but as a non-alphabet
+   character, which means it raises an :exc:`~binascii.Error` unless
+   b'=' is included in *ignorechars*.
+
+   *ignorechars* should be a :term:`bytes-like object` containing characters
+   to ignore from the input.
+
    A :exc:`binascii.Error` is raised if *s* is
    incorrectly padded or if there are non-alphabet characters present in the
    input.
 
+   .. versionchanged:: 3.15
+      Added the *ignorechars* and *padded* parameters.
 
-.. function:: b32hexencode(s)
+
+.. function:: b32hexencode(s, *, padded=True, wrapcol=0)
               b32hexencode(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L43>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L43>`__)
 
    Similar to :func:`b32encode` but uses the Extended Hex Alphabet, as defined in
    :rfc:`4648`.
 
    .. versionadded:: 3.10
 
+   .. versionchanged:: 3.15
+      Added the *padded* and *wrapcol* parameters.
 
-.. function:: b32hexdecode(s, casefold=False)
+
+.. function:: b32hexdecode(s, casefold=False, *, padded=True, ignorechars=b'')
               b32hexdecode(s: collections.abc.Buffer | str, casefold: bool = False) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L44>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L44>`__)
 
    Similar to :func:`b32decode` but uses the Extended Hex Alphabet, as defined in
    :rfc:`4648`.
@@ -223,20 +266,30 @@ POST request.
 
    .. versionadded:: 3.10
 
+   .. versionchanged:: 3.15
+      Added the *ignorechars* and *padded* parameters.
 
-.. function:: b16encode(s)
+
+.. function:: b16encode(s, *, wrapcol=0)
               b16encode(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L39>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L39>`__)
 
    Encode the :term:`bytes-like object` *s* using Base16 and return the
    encoded :class:`bytes`.
 
+   If *wrapcol* is non-zero, insert a newline (``b'\n'``) character
+   after at most every *wrapcol* characters.
+   If *wrapcol* is zero (default), do not add any newlines.
 
-.. function:: b16decode(s, casefold=False)
+   .. versionchanged:: 3.15
+      Added the *wrapcol* parameter.
+
+
+.. function:: b16decode(s, casefold=False, *, ignorechars=b'')
               b16decode(s: collections.abc.Buffer | str, casefold: bool = False) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L40>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L40>`__)
 
    Decode the Base16 encoded :term:`bytes-like object` or ASCII string *s* and
    return the decoded :class:`bytes`.
@@ -245,9 +298,16 @@ POST request.
    lowercase alphabet is acceptable as input.  For security purposes, the default
    is ``False``.
 
+   *ignorechars* should be a :term:`bytes-like object` containing characters
+   to ignore from the input.
+
    A :exc:`binascii.Error` is raised if *s* is
    incorrectly padded or if there are non-alphabet characters present in the
    input.
+
+   .. versionchanged:: 3.15
+      Added the *ignorechars* parameter.
+
 
 .. _base64-base-85:
 
@@ -273,7 +333,7 @@ Refer to the documentation of the individual functions for more information.
 .. function:: a85encode(b, *, foldspaces=False, wrapcol=0, pad=False, adobe=False)
               a85encode(b: collections.abc.Buffer, *, foldspaces: bool = False, wrapcol: int = 0, pad: bool = False, adobe: bool = False) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L46>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L46>`__)
 
    Encode the :term:`bytes-like object` *b* using Ascii85 and return the
    encoded :class:`bytes`.
@@ -299,7 +359,7 @@ Refer to the documentation of the individual functions for more information.
 .. function:: a85decode(b, *, foldspaces=False, adobe=False, ignorechars=b' \t\n\r\v')
               a85decode(b: collections.abc.Buffer | str, *, foldspaces: bool = False, adobe: bool = False, ignorechars: bytearray | bytes = b' \t\n\r\x0b') -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L49>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L49>`__)
 
    Decode the Ascii85 encoded :term:`bytes-like object` or ASCII string *b* and
    return the decoded :class:`bytes`.
@@ -319,10 +379,10 @@ Refer to the documentation of the individual functions for more information.
    .. versionadded:: 3.4
 
 
-.. function:: b85encode(b, pad=False)
+.. function:: b85encode(b, pad=False, *, wrapcol=0)
               b85encode(b: collections.abc.Buffer, pad: bool = False) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L52>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L52>`__)
 
    Encode the :term:`bytes-like object` *b* using base85 (as used in e.g.
    git-style binary diffs) and return the encoded :class:`bytes`.
@@ -330,25 +390,38 @@ Refer to the documentation of the individual functions for more information.
    If *pad* is true, the input is padded with ``b'\0'`` so its length is a
    multiple of 4 bytes before encoding.
 
+   If *wrapcol* is non-zero, insert a newline (``b'\n'``) character
+   after at most every *wrapcol* characters.
+   If *wrapcol* is zero (default), do not add any newlines.
+
    .. versionadded:: 3.4
 
+   .. versionchanged:: 3.15
+      Added the *wrapcol* parameter.
 
-.. function:: b85decode(b)
+
+.. function:: b85decode(b, *, ignorechars=b'')
               b85decode(b: collections.abc.Buffer | str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L53>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L53>`__)
 
    Decode the base85-encoded :term:`bytes-like object` or ASCII string *b* and
    return the decoded :class:`bytes`.  Padding is implicitly removed, if
    necessary.
 
+   *ignorechars* should be a :term:`bytes-like object` containing characters
+   to ignore from the input.
+
    .. versionadded:: 3.4
 
+   .. versionchanged:: 3.15
+      Added the *ignorechars* parameter.
 
-.. function:: z85encode(s, pad=False)
+
+.. function:: z85encode(s, pad=False, *, wrapcol=0)
               z85encode(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L60>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L60>`__)
 
    Encode the :term:`bytes-like object` *s* using Z85 (as used in ZeroMQ)
    and return the encoded :class:`bytes`.  See `Z85  specification
@@ -357,22 +430,35 @@ Refer to the documentation of the individual functions for more information.
    If *pad* is true, the input is padded with ``b'\0'`` so its length is a
    multiple of 4 bytes before encoding.
 
+   If *wrapcol* is non-zero, insert a newline (``b'\n'``) character
+   after at most every *wrapcol* characters.
+   If *wrapcol* is zero (default), do not add any newlines.
+
    .. versionadded:: 3.13
 
    .. versionchanged:: 3.15
       The *pad* parameter was added.
 
+   .. versionchanged:: 3.15
+      Added the *wrapcol* parameter.
 
-.. function:: z85decode(s)
+
+.. function:: z85decode(s, *, ignorechars=b'')
               z85decode(s: collections.abc.Buffer | str) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L61>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L61>`__)
 
    Decode the Z85-encoded :term:`bytes-like object` or ASCII string *s* and
    return the decoded :class:`bytes`.  See `Z85  specification
    <https://rfc.zeromq.org/spec/32/>`_ for more information.
 
+   *ignorechars* should be a :term:`bytes-like object` containing characters
+   to ignore from the input.
+
    .. versionadded:: 3.13
+
+   .. versionchanged:: 3.15
+      Added the *ignorechars* parameter.
 
 
 .. _base64-legacy:
@@ -383,7 +469,7 @@ Legacy Interface
 .. function:: decode(input, output)
               decode(input: typing.IO[bytes], output: typing.IO[bytes]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L54>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L54>`__)
 
    Decode the contents of the binary *input* file and write the resulting binary
    data to the *output* file. *input* and *output* must be :term:`file objects
@@ -394,7 +480,7 @@ Legacy Interface
 .. function:: decodebytes(s)
               decodebytes(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L57>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L57>`__)
 
    Decode the :term:`bytes-like object` *s*, which must contain one or more
    lines of base64 encoded data, and return the decoded :class:`bytes`.
@@ -405,7 +491,7 @@ Legacy Interface
 .. function:: encode(input, output)
               encode(input: typing.IO[bytes], output: typing.IO[bytes]) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L55>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L55>`__)
 
    Encode the contents of the binary *input* file and write the resulting base64
    encoded data to the *output* file. *input* and *output* must be :term:`file
@@ -418,7 +504,7 @@ Legacy Interface
 .. function:: encodebytes(s)
               encodebytes(s: collections.abc.Buffer) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/base64.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/base64.pyi#L56>`__)
 
    Encode the :term:`bytes-like object` *s*, which can contain arbitrary binary
    data, and return :class:`bytes` containing the base64-encoded data, with newlines

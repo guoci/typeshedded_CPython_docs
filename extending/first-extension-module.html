@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="200">
 <meta property="og:image:height" content="200">
 
-    <title>Your first C API extension module &#8212; Python 3.15.0a7 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your first C API extension module &#8212; Python 3.15.0a8 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=234b1a7c" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/profiling-sampling-visualization.css?v=0c2600ae" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
     
-    <script src="../_static/documentation_options.js?v=cf041bec"></script>
+    <script src="../_static/documentation_options.js?v=271eb82e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/profiling-sampling-visualization.js?v=9811ed04"></script>
@@ -32,7 +32,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.15.0a7 documentation"
+          title="Search within Python 3.15.0a8 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -195,7 +195,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a8 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -435,13 +435,19 @@ Let’s start with the basics: the name and docstring.</p>
 <p>The information should be defined in a <code class="docutils literal notranslate"><span class="pre">static</span></code> array of
 <a class="reference internal" href="../c-api/module.html#c.PyModuleDef_Slot" title="PyModuleDef_Slot"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyModuleDef_Slot</span></code></a> entries, which are essentially key-value pairs.
 Define this array just before your export hook:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">PyModuleDef_Slot</span><span class="w"> </span><span class="n">spam_slots</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyABIInfo_VAR</span><span class="p">(</span><span class="n">abi_info</span><span class="p">);</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">PyModuleDef_Slot</span><span class="w"> </span><span class="n">spam_slots</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="n">Py_mod_abi</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">abi_info</span><span class="p">},</span>
 <span class="w">   </span><span class="p">{</span><span class="n">Py_mod_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;spam&quot;</span><span class="p">},</span>
 <span class="w">   </span><span class="p">{</span><span class="n">Py_mod_doc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A wonderful module with an example function&quot;</span><span class="p">},</span>
 <span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">PyABIInfo_VAR(abi_info);</span></code> macro and the <a class="reference internal" href="../c-api/module.html#c.Py_mod_abi" title="Py_mod_abi"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_abi</span></code></a> slot
+are a bit of boilerplate that helps prevent extensions compiled for
+a different version of Python from crashing the interpreter.</p>
 <p>For both <a class="reference internal" href="../c-api/module.html#c.Py_mod_name" title="Py_mod_name"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_name</span></code></a> and <a class="reference internal" href="../c-api/module.html#c.Py_mod_doc" title="Py_mod_doc"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_doc</span></code></a>, the values are C
 strings – that is, NUL-terminated, UTF-8 encoded byte arrays.</p>
 <p>Note the zero-filled sentinel entry at the end.
@@ -526,11 +532,14 @@ Add this array just below the <code class="docutils literal notranslate"><span c
 <p>Next, we’ll add the method to the module.
 Add a <a class="reference internal" href="../c-api/module.html#c.Py_mod_methods" title="Py_mod_methods"><code class="xref c c-data docutils literal notranslate"><span class="pre">Py_mod_methods</span></code></a> slot to your <a class="reference internal" href="../c-api/structures.html#c.PyMethodDef" title="PyMethodDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMethodDef</span></code></a> array:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span>
+<span class="n">PyABIInfo_VAR</span><span class="p">(</span><span class="n">abi_info</span><span class="p">);</span>
+
 <span class="k">static</span><span class="w"> </span><span class="n">PyModuleDef_Slot</span><span class="w"> </span><span class="n">spam_slots</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">{</span><span class="n">Py_mod_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;spam&quot;</span><span class="p">},</span>
+<span class="hll"><span class="w">    </span><span class="p">{</span><span class="n">Py_mod_abi</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">abi_info</span><span class="p">},</span>
+</span><span class="w">    </span><span class="p">{</span><span class="n">Py_mod_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;spam&quot;</span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span><span class="n">Py_mod_doc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A wonderful module with an example function&quot;</span><span class="p">},</span>
-<span class="hll"><span class="w">    </span><span class="p">{</span><span class="n">Py_mod_methods</span><span class="p">,</span><span class="w"> </span><span class="n">spam_methods</span><span class="p">},</span>
-</span><span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span><span class="n">Py_mod_methods</span><span class="p">,</span><span class="w"> </span><span class="n">spam_methods</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">}</span>
 <span class="p">};</span>
 
 </pre></div>
@@ -732,7 +741,10 @@ and completed this tutorial!</p>
 
 <span class="c1">/// Module slot table</span>
 
+<span class="n">PyABIInfo_VAR</span><span class="p">(</span><span class="n">abi_info</span><span class="p">);</span>
+
 <span class="k">static</span><span class="w"> </span><span class="n">PyModuleDef_Slot</span><span class="w"> </span><span class="n">spam_slots</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="n">Py_mod_abi</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">abi_info</span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span><span class="n">Py_mod_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;spam&quot;</span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span><span class="n">Py_mod_doc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A wonderful module with an example function&quot;</span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span><span class="n">Py_mod_methods</span><span class="p">,</span><span class="w"> </span><span class="n">spam_methods</span><span class="p">},</span>
@@ -967,7 +979,7 @@ function size checks for this case and raises an error.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.15.0a7 Documentation</a> &#187;
+      <a href="../index.html">3.15.0a8 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Extending and Embedding the Python Interpreter</a> &#187;</li>

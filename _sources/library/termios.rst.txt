@@ -30,9 +30,9 @@ The module defines the following functions:
 
 
 .. function:: tcgetattr(fd)
-              tcgetattr(fd: FileDescriptorLike, /) -> list[typing.Any]
+              tcgetattr(fd: termios.FileDescriptorLike, /) -> list[typing.Any]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L294>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L294>`__)
 
    Return a list containing the tty attributes for file descriptor *fd*, as
    follows: ``[iflag, oflag, cflag, lflag, ispeed, ospeed, cc]`` where *cc* is a
@@ -44,9 +44,9 @@ The module defines the following functions:
 
 
 .. function:: tcsetattr(fd, when, attributes)
-              tcsetattr(fd: FileDescriptorLike, when: int, attributes: _Attr, /) -> None
+              tcsetattr(fd: termios.FileDescriptorLike, when: int, attributes: termios._Attr, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L295>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L295>`__)
 
    Set the tty attributes for file descriptor *fd* from the *attributes*, which is
    a list like the one returned by :func:`tcgetattr`.  The *when* argument
@@ -55,47 +55,47 @@ The module defines the following functions:
    .. data:: TCSANOW
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L128>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L128>`__)
 
       Change attributes immediately.
 
    .. data:: TCSADRAIN
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L126>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L126>`__)
 
       Change attributes after transmitting all queued output.
 
    .. data:: TCSAFLUSH
       :type: int
 
-      (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L127>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L127>`__)
 
       Change attributes after transmitting all queued output and
       discarding all queued input.
 
 
 .. function:: tcsendbreak(fd, duration)
-              tcsendbreak(fd: FileDescriptorLike, duration: int, /) -> None
+              tcsendbreak(fd: termios.FileDescriptorLike, duration: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L296>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L296>`__)
 
    Send a break on file descriptor *fd*.  A zero *duration* sends a break for
    0.25--0.5 seconds; a nonzero *duration* has a system dependent meaning.
 
 
 .. function:: tcdrain(fd)
-              tcdrain(fd: FileDescriptorLike, /) -> None
+              tcdrain(fd: termios.FileDescriptorLike, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L297>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L297>`__)
 
    Wait until all output written to file descriptor *fd* has been transmitted.
 
 
 .. function:: tcflush(fd, queue)
-              tcflush(fd: FileDescriptorLike, queue: int, /) -> None
+              tcflush(fd: termios.FileDescriptorLike, queue: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L298>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L298>`__)
 
    Discard queued data on file descriptor *fd*.  The *queue* selector specifies
    which queue: :const:`TCIFLUSH` for the input queue, :const:`TCOFLUSH` for the
@@ -103,9 +103,9 @@ The module defines the following functions:
 
 
 .. function:: tcflow(fd, action)
-              tcflow(fd: FileDescriptorLike, action: int, /) -> None
+              tcflow(fd: termios.FileDescriptorLike, action: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L299>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L299>`__)
 
    Suspend or resume input or output on file descriptor *fd*.  The *action*
    argument can be :const:`TCOOFF` to suspend output, :const:`TCOON` to restart
@@ -113,9 +113,9 @@ The module defines the following functions:
 
 
 .. function:: tcgetwinsize(fd)
-              tcgetwinsize(fd: FileDescriptorLike, /) -> tuple[int, int]
+              tcgetwinsize(fd: termios.FileDescriptorLike, /) -> tuple[int, int]
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L301>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L301>`__)
 
    Return a tuple ``(ws_row, ws_col)`` containing the tty window size for file
    descriptor *fd*. Requires :const:`termios.TIOCGWINSZ` or
@@ -125,9 +125,9 @@ The module defines the following functions:
 
 
 .. function:: tcsetwinsize(fd, winsize)
-              tcsetwinsize(fd: FileDescriptorLike, winsize: tuple[int, int], /) -> None
+              tcsetwinsize(fd: termios.FileDescriptorLike, winsize: tuple[int, int], /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/282b1a8/stdlib/termios.pyi#L302>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/termios.pyi#L302>`__)
 
    Set the tty window size for file descriptor *fd* from *winsize*, which is
    a two-item tuple ``(ws_row, ws_col)`` like the one returned by
