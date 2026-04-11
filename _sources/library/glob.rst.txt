@@ -45,7 +45,7 @@ The :mod:`!glob` module defines the following functions:
                    include_hidden=False)
               glob[AnyStr: (str, bytes)](pathname: AnyStr, *, root_dir: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, dir_fd: int | None = None, recursive: bool = False, include_hidden: bool = False) -> list[AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/glob.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/glob.pyi#L27>`__)
 
    Return a possibly empty list of path names that match *pathname*, which must be
    a string containing a path specification. *pathname* can be either absolute
@@ -86,6 +86,11 @@ The :mod:`!glob` module defines the following functions:
       This function may return duplicate path names if *pathname*
       contains multiple "``**``" patterns and *recursive* is true.
 
+   .. note::
+      Any :exc:`OSError` exceptions raised from scanning the filesystem are
+      suppressed. This includes :exc:`PermissionError` when accessing
+      directories without read permission.
+
    .. versionchanged:: 3.5
       Support for recursive globs using "``**``".
 
@@ -100,7 +105,7 @@ The :mod:`!glob` module defines the following functions:
                     include_hidden=False)
               iglob[AnyStr: (str, bytes)](pathname: AnyStr, *, root_dir: os.PathLike[bytes] | os.PathLike[str] | bytes | str | None = None, dir_fd: int | None = None, recursive: bool = False, include_hidden: bool = False) -> collections.abc.Iterator[AnyStr]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/glob.pyi#L35>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/glob.pyi#L35>`__)
 
    Return an :term:`iterator` which yields the same values as :func:`glob`
    without actually storing them all simultaneously.
@@ -111,6 +116,11 @@ The :mod:`!glob` module defines the following functions:
    .. note::
       This function may return duplicate path names if *pathname*
       contains multiple "``**``" patterns and *recursive* is true.
+
+   .. note::
+      Any :exc:`OSError` exceptions raised from scanning the filesystem are
+      suppressed. This includes :exc:`PermissionError` when accessing
+      directories without read permission.
 
    .. versionchanged:: 3.5
       Support for recursive globs using "``**``".
@@ -125,7 +135,7 @@ The :mod:`!glob` module defines the following functions:
 .. function:: escape(pathname)
               escape[AnyStr: (str, bytes)](pathname: AnyStr) -> AnyStr
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/glob.pyi#L56>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/glob.pyi#L56>`__)
 
    Escape all special characters (``'?'``, ``'*'`` and ``'['``).
    This is useful if you want to match an arbitrary literal string that may
@@ -139,7 +149,7 @@ The :mod:`!glob` module defines the following functions:
 .. function:: translate(pathname, *, recursive=False, include_hidden=False, seps=None)
               translate(pat: str, *, recursive: bool = False, include_hidden: bool = False, seps: collections.abc.Sequence[str] | None = None) -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/glob.pyi#L60>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/glob.pyi#L60>`__)
 
    Convert the given path specification to a regular expression for use with
    :func:`re.match`. The path specification can contain shell-style wildcards.

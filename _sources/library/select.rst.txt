@@ -30,7 +30,7 @@ The module defines the following:
 .. exception:: error
                error(cls: type[OSError], *args: typing.Any, **kwds: typing.Any) -> OSError
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L42>`__)
 
    A deprecated alias of :exc:`OSError`.
 
@@ -61,7 +61,7 @@ The module defines the following:
               epoll(sizehint: int = -1) -> select.epoll
               epoll(sizehint: int = -1, flags: int = 0) -> select.epoll
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L114>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L114>`__)
 
    (Only supported on Linux 2.5.44 and newer.) Return an edge polling object,
    which can be used as Edge or Level Triggered interface for I/O
@@ -105,7 +105,7 @@ The module defines the following:
 .. function:: poll()
               poll() -> select.poll
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L27>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L27>`__)
 
    (Not supported by all operating systems.)  Returns a polling object, which
    supports registering and unregistering file descriptors, and then polling them
@@ -133,7 +133,7 @@ The module defines the following:
 .. function:: select(rlist, wlist, xlist, timeout=None)
               select[_R = typing.Never, _W = typing.Never, _X = typing.Never](rlist: collections.abc.Iterable[_R], wlist: collections.abc.Iterable[_W], xlist: collections.abc.Iterable[_X], timeout: float | None = None, /) -> tuple[list[_R], list[_W], list[_X]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L38>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L38>`__)
 
    This is a straightforward interface to the Unix :c:func:`!select` system call.
    The first three arguments are iterables of 'waitable objects': either
@@ -190,7 +190,7 @@ The module defines the following:
 .. data:: PIPE_BUF
    :type: int
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L9>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L9>`__)
 
    The minimum number of bytes which can be written without blocking to a pipe
    when the pipe has been reported as ready for writing by :func:`~select.select`,
@@ -359,7 +359,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. method:: epoll.close()
             epoll.close() -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L131>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L131>`__)
 
    Close the control file descriptor of the epoll object.
 
@@ -367,7 +367,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. attribute:: epoll.closed
    :type: bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L132>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L132>`__)
 
    ``True`` if the epoll object is closed.
 
@@ -375,7 +375,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. method:: epoll.fileno()
             epoll.fileno() -> int
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L133>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L133>`__)
 
    Return the file descriptor number of the control fd.
 
@@ -383,7 +383,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. method:: epoll.fromfd(fd)
             epoll.fromfd(cls: type[select.epoll], fd: select.FileDescriptorLike, /) -> select.epoll
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L139>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L139>`__)
 
    Create an epoll object from a given file descriptor.
 
@@ -391,7 +391,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. method:: epoll.register(fd[, eventmask])
             epoll.register(fd: select.FileDescriptorLike, eventmask: int = ...) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L134>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L134>`__)
 
    Register a fd descriptor with the epoll object.
 
@@ -399,7 +399,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. method:: epoll.modify(fd, eventmask)
             epoll.modify(fd: select.FileDescriptorLike, eventmask: int) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L135>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L135>`__)
 
    Modify a registered file descriptor.
 
@@ -407,7 +407,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. method:: epoll.unregister(fd)
             epoll.unregister(fd: select.FileDescriptorLike) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L136>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L136>`__)
 
    Remove a registered file descriptor from the epoll object.
 
@@ -418,7 +418,7 @@ Edge and Level Trigger Polling (epoll) Objects
 .. method:: epoll.poll(timeout=None, maxevents=-1)
             epoll.poll(timeout: float | None = None, maxevents: int = -1) -> list[tuple[int, int]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L137>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L137>`__)
 
    Wait for events.
    If *timeout* is given, it specifies the length of time in seconds
@@ -451,7 +451,7 @@ linearly scanned again. :c:func:`!select` is *O*\ (*highest file descriptor*), w
 .. method:: poll.register(fd[, eventmask])
             poll.register(fd: select.FileDescriptorLike, eventmask: int = 7, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L29>`__)
 
    Register a file descriptor with the polling object.  Future calls to the
    :meth:`poll` method will then check whether the file descriptor has any
@@ -490,7 +490,7 @@ linearly scanned again. :c:func:`!select` is *O*\ (*highest file descriptor*), w
 .. method:: poll.modify(fd, eventmask)
             poll.modify(fd: select.FileDescriptorLike, eventmask: int, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L30>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L30>`__)
 
    Modifies an already registered fd. This has the same effect as
    ``register(fd, eventmask)``.  Attempting to modify a file descriptor
@@ -501,7 +501,7 @@ linearly scanned again. :c:func:`!select` is *O*\ (*highest file descriptor*), w
 .. method:: poll.unregister(fd)
             poll.unregister(fd: select.FileDescriptorLike, /) -> None
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L31>`__)
 
    Remove a file descriptor being tracked by a polling object.  Just like the
    :meth:`register` method, *fd* can be an integer or an object with a
@@ -514,7 +514,7 @@ linearly scanned again. :c:func:`!select` is *O*\ (*highest file descriptor*), w
 .. method:: poll.poll([timeout])
             poll.poll(timeout: float | None = None, /) -> list[tuple[int, int]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/select.pyi#L32>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/select.pyi#L32>`__)
 
    Polls the set of registered file descriptors, and returns a possibly empty list
    containing ``(fd, event)`` 2-tuples for the descriptors that have events or

@@ -31,15 +31,13 @@ not** have to exist as physical files and directories on the file system:
 for example, a package and its resources can be imported from a zip file using
 :py:mod:`zipimport`.
 
-.. note::
+.. warning::
 
-   This module provides functionality similar to `pkg_resources
-   <https://setuptools.readthedocs.io/en/latest/pkg_resources.html>`_ `Basic
-   Resource Access
-   <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#basic-resource-access>`_
-   without the performance overhead of that package.  This makes reading
-   resources included in packages easier, with more stable and consistent
-   semantics.
+   :mod:`importlib.resources` follows the same security model as the built-in
+   :func:`open` function. Passing untrusted inputs to the functions
+   in this module is unsafe.
+
+.. note::
 
    The standalone backport of this module provides more information
    on `using importlib.resources
@@ -54,7 +52,7 @@ for example, a package and its resources can be imported from a zip file using
 .. class:: Anchor
            Anchor[Anchor, type[types.ModuleType | str]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_common.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_common.pyi#L16>`__)
 
     Represents an anchor for resources, either a :class:`module object
     <types.ModuleType>` or a module name as a string. Defined as
@@ -64,7 +62,7 @@ for example, a package and its resources can be imported from a zip file using
               files(anchor: types.ModuleType | str | None = None) -> importlib.resources.abc.Traversable
               files(package: types.ModuleType | str | None = None) -> importlib.resources.abc.Traversable
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_common.pyi#L22>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_common.pyi#L22>`__)
 
     Returns a :class:`~importlib.resources.abc.Traversable` object
     representing the resource container (think directory) and its resources
@@ -93,7 +91,7 @@ for example, a package and its resources can be imported from a zip file using
 .. function:: as_file(traversable)
               as_file(path: importlib.resources.abc.Traversable) -> contextlib.AbstractContextManager[pathlib.Path, typing.Literal[False]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_common.pyi#L42>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_common.pyi#L42>`__)
 
     Given a :class:`~importlib.resources.abc.Traversable` object representing
     a file or directory, typically from :func:`importlib.resources.files`,
@@ -151,7 +149,7 @@ For all the following functions:
 .. function:: open_binary(anchor, *path_names)
               open_binary(anchor: importlib.resources._functional.Anchor, *path_names: importlib.resources._functional.StrPath) -> typing.BinaryIO
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_functional.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_functional.pyi#L14>`__)
 
     Open the named resource for binary reading.
 
@@ -173,7 +171,7 @@ For all the following functions:
               open_text(anchor: importlib.resources._functional.Anchor, *path_names: typing.Unpack[tuple[importlib.resources._functional.StrPath]], *, encoding: str | None = 'utf-8', errors: str | None = 'strict') -> _io.TextIOWrapper
               open_text(anchor: importlib.resources._functional.Anchor, *path_names: importlib.resources._functional.StrPath, *, encoding: str | None, errors: str | None = 'strict') -> _io.TextIOWrapper
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_functional.pyi#L16>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_functional.pyi#L16>`__)
 
     Open the named resource for text reading.
     By default, the contents are read as strict UTF-8.
@@ -201,7 +199,7 @@ For all the following functions:
 .. function:: read_binary(anchor, *path_names)
               read_binary(anchor: importlib.resources._functional.Anchor, *path_names: importlib.resources._functional.StrPath) -> bytes
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_functional.pyi#L21>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_functional.pyi#L21>`__)
 
     Read and return the contents of the named resource as :class:`bytes`.
 
@@ -220,7 +218,7 @@ For all the following functions:
               read_text(anchor: importlib.resources._functional.Anchor, *path_names: typing.Unpack[tuple[importlib.resources._functional.StrPath]], *, encoding: str | None = 'utf-8', errors: str | None = 'strict') -> str
               read_text(anchor: importlib.resources._functional.Anchor, *path_names: importlib.resources._functional.StrPath, *, encoding: str | None, errors: str | None = 'strict') -> str
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_functional.pyi#L23>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_functional.pyi#L23>`__)
 
     Read and return the contents of the named resource as :class:`str`.
     By default, the contents are read as strict UTF-8.
@@ -245,7 +243,7 @@ For all the following functions:
 .. function:: path(anchor, *path_names)
               path(anchor: importlib.resources._functional.Anchor, *path_names: importlib.resources._functional.StrPath) -> contextlib.AbstractContextManager[pathlib.Path, typing.Literal[False]]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_functional.pyi#L28>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_functional.pyi#L28>`__)
 
     Provides the path to the *resource* as an actual file system path.  This
     function returns a context manager for use in a :keyword:`with` statement.
@@ -275,7 +273,7 @@ For all the following functions:
 .. function:: is_resource(anchor, *path_names)
               is_resource(anchor: importlib.resources._functional.Anchor, *path_names: importlib.resources._functional.StrPath) -> bool
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_functional.pyi#L29>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_functional.pyi#L29>`__)
 
     Return ``True`` if the named resource exists, otherwise ``False``.
     This function does not consider directories to be resources.
@@ -294,7 +292,7 @@ For all the following functions:
 .. function:: contents(anchor, *path_names)
               contents(anchor: importlib.resources._functional.Anchor, *path_names: importlib.resources._functional.StrPath) -> collections.abc.Iterator[str]
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/importlib/resources/_functional.pyi#L31>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/resources/_functional.pyi#L31>`__)
 
     Return an iterable over the named items within the package or path.
     The iterable returns names of resources (e.g. files) and non-resources

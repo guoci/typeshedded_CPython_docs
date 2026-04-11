@@ -143,7 +143,7 @@ Programmatic Interface
                  ignoredirs=(), infile=None, outfile=None, timing=False)
            Trace(count: int = 1, trace: int = 1, countfuncs: int = 0, countcallers: int = 0, ignoremods: collections.abc.Sequence[str] = ..., ignoredirs: collections.abc.Sequence[str] = ..., infile: os.PathLike[str] | str | None = None, outfile: os.PathLike[str] | str | None = None, timing: bool = False) -> trace.Trace
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L51>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L51>`__)
 
    Create an object to trace execution of a single statement or expression.  All
    parameters are optional.  *count* enables counting of line numbers.  *trace*
@@ -159,7 +159,7 @@ Programmatic Interface
    .. method:: run(cmd)
                run(cmd: types.CodeType | str) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L74>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L74>`__)
 
       Execute the command and gather statistics from the execution with
       the current tracing parameters.  *cmd* must be a string or code object,
@@ -168,7 +168,7 @@ Programmatic Interface
    .. method:: runctx(cmd, globals=None, locals=None)
                runctx(cmd: types.CodeType | str, globals: collections.abc.Mapping[str, typing.Any] | None = None, locals: collections.abc.Mapping[str, typing.Any] | None = None) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L75>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L75>`__)
 
       Execute the command and gather statistics from the execution with the
       current tracing parameters, in the defined global and local
@@ -178,7 +178,7 @@ Programmatic Interface
    .. method:: runfunc(func, /, *args, **kwds)
                runfunc[_P, _T](trace.Trace, collections.abc.Callable[[typing.ParamSpec(_P)], _T], typing.ParamSpec(_P)) -> _T
 
-      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L78>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L78>`__)
 
       Call *func* with the given arguments under control of the :class:`Trace`
       object with the current tracing parameters.
@@ -186,7 +186,7 @@ Programmatic Interface
    .. method:: results()
                results() -> trace.CoverageResults
 
-      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L86>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L86>`__)
 
       Return a :class:`CoverageResults` object that contains the cumulative
       results of all previous calls to ``run``, ``runctx`` and ``runfunc``
@@ -196,7 +196,7 @@ Programmatic Interface
 .. class:: CoverageResults
            CoverageResults(counts: dict[tuple[str, int], int] | None = None, calledfuncs: dict[tuple[str, str | None, str], int] | None = None, infile: os.PathLike[str] | str | None = None, callers: dict[tuple[tuple[str, str | None, str], tuple[str, str | None, str]], int] | None = None, outfile: os.PathLike[str] | str | None = None) -> trace.CoverageResults
 
-   (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L14>`__)
+   (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L14>`__)
 
    A container for coverage results, created by :meth:`Trace.results`.  Should
    not be created directly by the user.
@@ -204,7 +204,7 @@ Programmatic Interface
    .. method:: update(other)
                update(other: trace.CoverageResults) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L29>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L29>`__)
 
       Merge in data from another :class:`CoverageResults` object.
 
@@ -212,7 +212,7 @@ Programmatic Interface
                              *, ignore_missing_files=False)
                write_results(show_missing: bool = True, summary: bool = False, coverdir: os.PathLike[str] | str | None = None, *, ignore_missing_files: bool = False) -> None
 
-      (`typeshed <https://github.com/python/typeshed/blob/5632132/stdlib/trace.pyi#L31>`__)
+      (`typeshed <https://github.com/python/typeshed/blob/46b01bf/stdlib/trace.pyi#L31>`__)
 
       Write coverage results.  Set *show_missing* to show lines that had no
       hits.  Set *summary* to include in the output the coverage summary per

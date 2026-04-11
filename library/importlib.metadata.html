@@ -240,11 +240,9 @@ the metadata of an installed <a class="reference external" href="https://packagi
 such as its entry points
 or its top-level names (<a class="reference external" href="https://packaging.python.org/en/latest/glossary/#term-Import-Package">Import Package</a>s, modules, if any).
 Built in part on Python’s import system, this library
-intends to replace similar functionality in the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#entry-points">entry point
-API</a> and <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#metadata-api">metadata API</a> of <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>. Along with
-<a class="reference internal" href="importlib.resources.html#module-importlib.resources" title="importlib.resources: Package resource reading, opening, and access"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.resources</span></code></a>,
-this package can eliminate the need to use the older and less efficient
-<code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> package.</p>
+provides the entry point and metadata APIs that were previously
+exposed by the now-removed <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> package. Along with
+<a class="reference internal" href="importlib.resources.html#module-importlib.resources" title="importlib.resources: Package resource reading, opening, and access"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.resources</span></code></a>, it supersedes <code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">importlib.metadata</span></code> operates on third-party <em>distribution packages</em>
 installed into Python’s <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory via tools such as
 <a class="extlink-pypi reference external" href="https://pypi.org/project/pip/">pip</a>.
@@ -322,7 +320,7 @@ collection of <a class="reference internal" href="#entry-points"><span class="st
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.PackageNotFoundError" title="importlib.metadata.PackageNotFoundError"><span class="pre">PackageNotFoundError</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L45">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L45">typeshed</a>)</p>
 <p>Subclass of <a class="reference internal" href="exceptions.html#ModuleNotFoundError" title="ModuleNotFoundError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a> raised by several functions in this
 module when queried for a distribution package which is not installed in the
 current Python environment.</p>
@@ -351,7 +349,7 @@ current Python environment.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.EntryPoints" title="importlib.metadata.EntryPoints"><span class="pre">EntryPoints</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L304">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L304">typeshed</a>)</p>
 <p>Returns a <a class="reference internal" href="#importlib.metadata.EntryPoints" title="importlib.metadata.EntryPoints"><code class="xref py py-class docutils literal notranslate"><span class="pre">EntryPoints</span></code></a> instance describing entry points for the
 current environment. Any given keyword parameters are passed to the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">select()</span></code> method for comparison to the attributes of
@@ -374,7 +372,7 @@ instances do not currently compare equal, even if they have the same attributes)
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.EntryPoints" title="importlib.metadata.EntryPoints"><span class="pre">EntryPoints</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L124">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L124">typeshed</a>)</p>
 <p>Details of a collection of installed entry points.</p>
 <p>Also provides a <code class="docutils literal notranslate"><span class="pre">.groups</span></code> attribute that reports all identified entry
 point groups, and a <code class="docutils literal notranslate"><span class="pre">.names</span></code> attribute that reports all identified entry
@@ -386,7 +384,7 @@ point names.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">EntryPoint</span></span><a class="headerlink" href="#importlib.metadata.EntryPoint" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">EntryPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.EntryPoint" title="importlib.metadata.EntryPoint"><span class="pre">EntryPoint</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L64">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L64">typeshed</a>)</p>
 <p>Details of an installed entry point.</p>
 <p>Each <code class="xref py py-class docutils literal notranslate"><span class="pre">EntryPoint</span></code> instance has <code class="docutils literal notranslate"><span class="pre">.name</span></code>, <code class="docutils literal notranslate"><span class="pre">.group</span></code>, and <code class="docutils literal notranslate"><span class="pre">.value</span></code>
 attributes and a <code class="docutils literal notranslate"><span class="pre">.load()</span></code> method to resolve the value. There are also
@@ -467,7 +465,7 @@ for compatibility options.</p>
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.metadata" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">importlib.metadata._meta.PackageMetadata</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L298">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L298">typeshed</a>)</p>
 <p>Return the distribution metadata corresponding to the named
 distribution package as a <a class="reference internal" href="#importlib.metadata.PackageMetadata" title="importlib.metadata.PackageMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">PackageMetadata</span></code></a> instance.</p>
 <p>Raises <a class="reference internal" href="#importlib.metadata.PackageNotFoundError" title="importlib.metadata.PackageNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PackageNotFoundError</span></code></a> if the named distribution
@@ -479,7 +477,7 @@ package is not installed in the current Python environment.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">PackageMetadata</span></span><a class="headerlink" href="#importlib.metadata.PackageMetadata" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">PackageMetadata</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">importlib.metadata._meta.PackageMetadata</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/_meta.pyi#L11">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/_meta.pyi#L11">typeshed</a>)</p>
 <p>A concrete implementation of the
 <a class="reference external" href="https://importlib-metadata.readthedocs.io/en/latest/api.html#importlib_metadata.PackageMetadata">PackageMetadata protocol</a>.</p>
 <p>In addition to providing the defined protocol methods and attributes, subscripting
@@ -518,7 +516,7 @@ through the payload. Line continuation characters have been removed.</p>
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.version" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L319">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L319">typeshed</a>)</p>
 <p>Return the installed distribution package
 <a class="reference external" href="https://packaging.python.org/en/latest/specifications/core-metadata/#version">version</a>
 for the named distribution package.</p>
@@ -541,7 +539,7 @@ number, as a string:</p>
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.files" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.metadata.PackagePath" title="importlib.metadata.PackagePath"><span class="pre">PackagePath</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L320">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L320">typeshed</a>)</p>
 <p>Return the full set of files contained within the named
 distribution package as <a class="reference internal" href="#importlib.metadata.PackagePath" title="importlib.metadata.PackagePath"><code class="xref py py-class docutils literal notranslate"><span class="pre">PackagePath</span></code></a> instances.</p>
 <p>Raises <a class="reference internal" href="#importlib.metadata.PackageNotFoundError" title="importlib.metadata.PackageNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PackageNotFoundError</span></code></a> if the named distribution
@@ -564,7 +562,7 @@ are missing.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.PackagePath" title="importlib.metadata.PackagePath"><span class="pre">PackagePath</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L201">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L201">typeshed</a>)</p>
 <blockquote>
 <div><p>A <a class="reference internal" href="pathlib.html#pathlib.PurePath" title="pathlib.PurePath"><code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.PurePath</span></code></a> derived object with additional <code class="docutils literal notranslate"><span class="pre">dist</span></code>,
 <code class="docutils literal notranslate"><span class="pre">size</span></code>, and <code class="docutils literal notranslate"><span class="pre">hash</span></code> properties corresponding to the distribution
@@ -574,7 +572,7 @@ package’s installation metadata for that file, also:</p>
 <span class="sig-name descname"><span class="pre">locate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.PackagePath.locate" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">locate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><span class="pre">PathLike</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L204">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L204">typeshed</a>)</p>
 <p>If possible, return the concrete <a class="reference internal" href="#importlib.metadata.SimplePath" title="importlib.metadata.SimplePath"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimplePath</span></code></a> allowing to access data,
 or raise a <a class="reference internal" href="exceptions.html#NotImplementedError" title="NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a> otherwise.</p>
 </dd></dl>
@@ -587,7 +585,7 @@ or raise a <a class="reference internal" href="exceptions.html#NotImplementedErr
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">SimplePath</span></span><a class="headerlink" href="#importlib.metadata.SimplePath" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">SimplePath</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">importlib.metadata._meta.SimplePath</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/_meta.pyi#L29">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/_meta.pyi#L29">typeshed</a>)</p>
 <blockquote>
 <div><p>A protocol representing a minimal subset of <a class="reference internal" href="pathlib.html#pathlib.Path" title="pathlib.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a> that allows to
 check if it <code class="docutils literal notranslate"><span class="pre">exists()</span></code>, to traverse using <code class="docutils literal notranslate"><span class="pre">joinpath()</span></code> and <code class="docutils literal notranslate"><span class="pre">parent</span></code>,
@@ -640,7 +638,7 @@ distribution is not known to have the metadata present.</p>
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">requires</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.requires" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">requires</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L321">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L321">typeshed</a>)</p>
 <p>Return the declared dependency specifiers for the named
 distribution package.</p>
 <p>Raises <a class="reference internal" href="#importlib.metadata.PackageNotFoundError" title="importlib.metadata.PackageNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PackageNotFoundError</span></code></a> if the named distribution
@@ -662,7 +660,7 @@ function:</p>
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">packages_distributions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.packages_distributions" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">packages_distributions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L38">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L38">typeshed</a>)</p>
 <p>Return a mapping from the top level module and import package
 names found via <a class="reference internal" href="sys.html#sys.meta_path" title="sys.meta_path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.meta_path</span></code></a> to the names of the distribution
 packages (if any) that provide the corresponding files.</p>
@@ -705,7 +703,7 @@ distribution package by calling the <a class="reference internal" href="#importl
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.distribution" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><span class="pre">Distribution</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L289">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L289">typeshed</a>)</p>
 <p>Return a <a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a> instance describing the named
 distribution package.</p>
 <p>Raises <a class="reference internal" href="#importlib.metadata.PackageNotFoundError" title="importlib.metadata.PackageNotFoundError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">PackageNotFoundError</span></code></a> if the named distribution
@@ -724,7 +722,7 @@ package is not installed in the current Python environment.</p>
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">Distribution</span></span><a class="headerlink" href="#importlib.metadata.Distribution" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">Distribution</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><span class="pre">Distribution</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L221">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L221">typeshed</a>)</p>
 <p>Details of an installed distribution package.</p>
 <p>Note: different <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code> instances do not currently compare
 equal, even if they relate to the same installed distribution and
@@ -734,7 +732,7 @@ accordingly have the same attributes.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.Distribution.at" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">importlib.metadata.StrPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">importlib.metadata.PathDistribution</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L237">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L237">typeshed</a>)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -749,7 +747,7 @@ accordingly have the same attributes.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><span class="pre">Distribution</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L227">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L227">typeshed</a>)</p>
 <p>Return a <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code> instance at the given path or
 with the given name.</p>
 </dd></dl>
@@ -780,7 +778,7 @@ with the given name.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Iterable" title="collections.abc.Iterable"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><span class="pre">Distribution</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L230">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L230">typeshed</a>)</p>
 <p>Returns an iterable of <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code> instances for all packages
 (see <a class="reference internal" href="#distribution-discovery">distribution-discovery</a>).</p>
 <p>The optional argument <em>context</em> is a <a class="reference internal" href="#importlib.metadata.DistributionFinder.Context" title="importlib.metadata.DistributionFinder.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code></a>
@@ -792,7 +790,7 @@ instance, used to modify the search for distributions. Alternatively,
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.metadata.Distribution.metadata">
 <span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#importlib.metadata.PackageMetadata" title="importlib.metadata.PackageMetadata"><span class="pre">PackageMetadata</span></a></em><a class="headerlink" href="#importlib.metadata.Distribution.metadata" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L241">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L241">typeshed</a>)</p>
 <p>There are all kinds of additional metadata available on <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code>
 instances as a <a class="reference internal" href="#importlib.metadata.PackageMetadata" title="importlib.metadata.PackageMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">PackageMetadata</span></code></a> instance:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Requires-Python&#39;</span><span class="p">]</span>
@@ -808,19 +806,19 @@ See the PyPA <a class="reference external" href="https://packaging.python.org/en
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.metadata.Distribution.name">
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.metadata.Distribution.name" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L258">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L258">typeshed</a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.metadata.Distribution.requires">
 <span class="sig-name descname"><span class="pre">requires</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#importlib.metadata.Distribution.requires" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L255">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L255">typeshed</a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.metadata.Distribution.version">
 <span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></em><a class="headerlink" href="#importlib.metadata.Distribution.version" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L251">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L251">typeshed</a>)</p>
 <p>A few metadata fields are also available as shortcut properties.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 3.10: </span>The <code class="docutils literal notranslate"><span class="pre">name</span></code> shortcut was added.</p>
@@ -830,7 +828,7 @@ See the PyPA <a class="reference external" href="https://packaging.python.org/en
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.metadata.Distribution.origin">
 <span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">importlib.metadata.Distribution.origin(self:</span> <span class="pre">importlib.metadata.Distribution)</span> <span class="pre">-&gt;</span> <span class="pre">types.SimpleNamespace</span> <span class="pre">|</span> <span class="pre">None</span></em><a class="headerlink" href="#importlib.metadata.Distribution.origin" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L261">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L261">typeshed</a>)</p>
 <p>For editable packages, an <code class="docutils literal notranslate"><span class="pre">origin</span></code> property may present <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0610/"><strong>PEP 610</strong></a>
 metadata (for non-editable packages, <code class="docutils literal notranslate"><span class="pre">origin</span></code> is <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>):</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">url</span>
@@ -846,14 +844,14 @@ metadata (for non-editable packages, <code class="docutils literal notranslate">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.metadata.Distribution.entry_points">
 <span class="sig-name descname"><span class="pre">entry_points</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#importlib.metadata.EntryPoints" title="importlib.metadata.EntryPoints"><span class="pre">EntryPoints</span></a></em><a class="headerlink" href="#importlib.metadata.Distribution.entry_points" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L243">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L243">typeshed</a>)</p>
 <p>The entry points provided by this distribution package.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="importlib.metadata.Distribution.files">
 <span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="stdtypes.html#list" title="list"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.metadata.PackagePath" title="importlib.metadata.PackagePath"><span class="pre">PackagePath</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></em><a class="headerlink" href="#importlib.metadata.Distribution.files" title="Link to this definition">¶</a></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L253">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L253">typeshed</a>)</p>
 <p>All files contained in this distribution package.
 Like <a class="reference internal" href="#importlib.metadata.files" title="importlib.metadata.files"><code class="xref py py-func docutils literal notranslate"><span class="pre">files()</span></code></a>, this returns <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> if there are no records.</p>
 </dd></dl>
@@ -870,7 +868,7 @@ Like <a class="reference internal" href="#importlib.metadata.files" title="impor
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">importlib.metadata._meta.SimplePath</span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L225">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L225">typeshed</a>)</p>
 <p>Like <code class="xref py py-meth docutils literal notranslate"><span class="pre">PackagePath.locate()</span></code>, return a <a class="reference internal" href="#importlib.metadata.SimplePath" title="importlib.metadata.SimplePath"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimplePath</span></code></a> for the given path.
 Takes a <a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a> or a <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p>
 </dd></dl>
@@ -880,7 +878,7 @@ Takes a <a class="reference internal" href="os.html#os.PathLike" title="os.PathL
 <span class="sig-name descname"><span class="pre">read_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.metadata.Distribution.read_text" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">read_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="stdtypes.html#str" title="str"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="constants.html#None" title="None"><span class="pre">None</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L223">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L223">typeshed</a>)</p>
 <p>A shortcut for <code class="docutils literal notranslate"><span class="pre">distribution.locate_file(filename).read_text()</span></code>.</p>
 </dd></dl>
 
@@ -901,7 +899,7 @@ This metadata finder search defaults to <code class="docutils literal notranslat
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">DistributionFinder</span></span><a class="headerlink" href="#importlib.metadata.DistributionFinder" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">importlib.metadata.</span></span><span class="sig-name descname"><span class="pre">DistributionFinder</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.DistributionFinder" title="importlib.metadata.DistributionFinder"><span class="pre">DistributionFinder</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L263">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L263">typeshed</a>)</p>
 <p>A <a class="reference internal" href="importlib.html#importlib.abc.MetaPathFinder" title="importlib.abc.MetaPathFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetaPathFinder</span></code></a> subclass capable of discovering
 installed distributions.</p>
 <p>Custom providers should implement this interface in order to
@@ -921,7 +919,7 @@ supply metadata.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#importlib.metadata.DistributionFinder.Context" title="importlib.metadata.DistributionFinder.Context"><span class="pre">Context</span></a></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L264">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L264">typeshed</a>)</p>
 <p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code> gives a custom provider a means to
 solicit additional details from the callers of distribution discovery
 functions like <a class="reference internal" href="#importlib.metadata.distributions" title="importlib.metadata.distributions"><code class="xref py py-func docutils literal notranslate"><span class="pre">distributions()</span></code></a> or <a class="reference internal" href="#importlib.metadata.Distribution.discover" title="importlib.metadata.Distribution.discover"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Distribution.discover()</span></code></a>
@@ -982,7 +980,7 @@ distribution finder should search.</p>
 </dl>
 
 <span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="collections.abc.html#collections.abc.Iterable" title="collections.abc.Iterable"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><span class="pre">Distribution</span></a><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/5632132/stdlib/importlib/metadata/__init__.pyi#L291">typeshed</a>)</p>
+<dd><p>(<a class="reference external" href="https://github.com/python/typeshed/blob/46b01bf/stdlib/importlib/metadata/__init__.pyi#L291">typeshed</a>)</p>
 <p>Returns an iterable of <a class="reference internal" href="#importlib.metadata.Distribution" title="importlib.metadata.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a> instances for all packages.</p>
 <p>The <em>kwargs</em> argument may contain either a keyword argument <code class="docutils literal notranslate"><span class="pre">context</span></code>, a
 <a class="reference internal" href="#importlib.metadata.DistributionFinder.Context" title="importlib.metadata.DistributionFinder.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionFinder.Context</span></code></a> instance, or pass keyword arguments for

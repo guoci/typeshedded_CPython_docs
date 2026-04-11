@@ -133,6 +133,7 @@
 <li><a class="reference internal" href="#hashlib">hashlib</a></li>
 <li><a class="reference internal" href="#http-client">http.client</a></li>
 <li><a class="reference internal" href="#http-cookies">http.cookies</a></li>
+<li><a class="reference internal" href="#http-server">http.server</a></li>
 <li><a class="reference internal" href="#inspect">inspect</a></li>
 <li><a class="reference internal" href="#json">json</a></li>
 <li><a class="reference internal" href="#locale">locale</a></li>
@@ -162,6 +163,7 @@
 <li><a class="reference internal" href="#urllib-parse">urllib.parse</a></li>
 <li><a class="reference internal" href="#venv">venv</a></li>
 <li><a class="reference internal" href="#warnings">warnings</a></li>
+<li><a class="reference internal" href="#wave">wave</a></li>
 <li><a class="reference internal" href="#xml-parsers-expat">xml.parsers.expat</a></li>
 <li><a class="reference internal" href="#zlib">zlib</a></li>
 </ul>
@@ -176,7 +178,7 @@
 <li><a class="reference internal" href="#collections-abc">collections.abc</a></li>
 <li><a class="reference internal" href="#ctypes">ctypes</a></li>
 <li><a class="reference internal" href="#glob">glob</a></li>
-<li><a class="reference internal" href="#http-server">http.server</a></li>
+<li><a class="reference internal" href="#id1">http.server</a></li>
 <li><a class="reference internal" href="#importlib-resources">importlib.resources</a></li>
 <li><a class="reference internal" href="#pathlib">pathlib</a></li>
 <li><a class="reference internal" href="#platform">platform</a></li>
@@ -184,8 +186,8 @@
 <li><a class="reference internal" href="#sre">sre_*</a></li>
 <li><a class="reference internal" href="#sysconfig">sysconfig</a></li>
 <li><a class="reference internal" href="#threading">threading</a></li>
-<li><a class="reference internal" href="#id1">typing</a></li>
-<li><a class="reference internal" href="#wave">wave</a></li>
+<li><a class="reference internal" href="#id2">typing</a></li>
+<li><a class="reference internal" href="#id3">wave</a></li>
 <li><a class="reference internal" href="#zipimport">zipimport</a></li>
 </ul>
 </li>
@@ -200,7 +202,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#c-api-changes">C API changes</a><ul>
-<li><a class="reference internal" href="#id2">New features</a></li>
+<li><a class="reference internal" href="#id4">New features</a></li>
 <li><a class="reference internal" href="#changed-c-apis">Changed C APIs</a></li>
 <li><a class="reference internal" href="#porting-to-python-3-15">Porting to Python 3.15</a></li>
 <li><a class="reference internal" href="#removed-c-apis">Removed C APIs</a></li>
@@ -208,7 +210,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#build-changes">Build changes</a></li>
-<li><a class="reference internal" href="#id5">Porting to Python 3.15</a></li>
+<li><a class="reference internal" href="#id7">Porting to Python 3.15</a></li>
 </ul>
 </li>
 </ul>
@@ -713,8 +715,8 @@ which must return <a class="reference internal" href="../library/stdtypes.html#b
 such as data buffering, network protocol parsing, encoding, decoding,
 and compression. Common code patterns which can be optimized with
 <a class="reference internal" href="../library/stdtypes.html#bytearray.take_bytes" title="bytearray.take_bytes"><code class="xref py py-func docutils literal notranslate"><span class="pre">take_bytes()</span></code></a> are listed below.</p>
-<table class="docutils align-default" id="id6">
-<caption><span class="caption-text">Suggested optimizing refactors</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Suggested optimizing refactors</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Description</p></th>
 <th class="head"><p>Old</p></th>
@@ -1012,6 +1014,16 @@ response headers.
 (Contributed by Nick Burns and Senthil Kumaran in <a class="reference external" href="https://github.com/python/cpython/issues/92936">gh-92936</a>.)</p></li>
 </ul>
 </section>
+<section id="http-server">
+<h3>http.server<a class="headerlink" href="#http-server" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>The logging of <a class="reference internal" href="../library/http.server.html#http.server.BaseHTTPRequestHandler" title="http.server.BaseHTTPRequestHandler"><code class="xref py py-mod docutils literal notranslate"><span class="pre">BaseHTTPRequestHandler</span></code></a>,
+as used by the <a class="reference internal" href="../library/http.server.html#http-server-cli"><span class="std std-ref">command-line interface</span></a>,
+is colored by default.
+This can be controlled with <a class="reference internal" href="../using/cmdline.html#using-on-controlling-color"><span class="std std-ref">environment variables</span></a>.
+(Contributed by Hugo van Kemenade in <a class="reference external" href="https://github.com/python/cpython/issues/146292">gh-146292</a>.)</p></li>
+</ul>
+</section>
 <section id="inspect">
 <h3>inspect<a class="headerlink" href="#inspect" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -1284,6 +1296,10 @@ creation of corrupted links.
 <section id="timeit">
 <h3>timeit<a class="headerlink" href="#timeit" title="Link to this heading">¶</a></h3>
 <ul class="simple">
+<li><p>The output of the <a class="reference internal" href="../library/timeit.html#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-mod docutils literal notranslate"><span class="pre">timeit</span></code></a> command-line interface is colored by default.
+This can be controlled with
+<a class="reference internal" href="../using/cmdline.html#using-on-controlling-color"><span class="std std-ref">environment variables</span></a>.
+(Contributed by Hugo van Kemenade in <a class="reference external" href="https://github.com/python/cpython/issues/146609">gh-146609</a>.)</p></li>
 <li><p>The command-line interface now colorizes error tracebacks
 by default. This can be controlled with
 <a class="reference internal" href="../using/cmdline.html#using-on-controlling-color"><span class="std std-ref">environment variables</span></a>.
@@ -1456,6 +1472,21 @@ constructed starting from different parent directories of the filename
 (Contributed by Serhiy Storchaka in <a class="reference external" href="https://github.com/python/cpython/issues/135801">gh-135801</a>.)</p></li>
 </ul>
 </section>
+<section id="wave">
+<h3>wave<a class="headerlink" href="#wave" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added support for IEEE floating-point WAVE audio
+(<code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_IEEE_FLOAT</span></code>) in <a class="reference internal" href="../library/wave.html#module-wave" title="wave: Provide an interface to the WAV sound format."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wave</span></code></a>.</p></li>
+<li><p>Added <a class="reference internal" href="../library/wave.html#wave.Wave_read.getformat" title="wave.Wave_read.getformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_read.getformat()</span></code></a>, <a class="reference internal" href="../library/wave.html#wave.Wave_write.getformat" title="wave.Wave_write.getformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.getformat()</span></code></a>,
+and <a class="reference internal" href="../library/wave.html#wave.Wave_write.setformat" title="wave.Wave_write.setformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.setformat()</span></code></a> for explicit frame format handling.</p></li>
+<li><p><a class="reference internal" href="../library/wave.html#wave.Wave_write.setparams" title="wave.Wave_write.setparams"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.setparams()</span></code></a> accepts both 7-item tuples including
+<code class="docutils literal notranslate"><span class="pre">format</span></code> and 6-item tuples for backwards compatibility (defaulting to
+<code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_PCM</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_IEEE_FLOAT</span></code> output now includes a <code class="docutils literal notranslate"><span class="pre">fact</span></code> chunk,
+as required for non-PCM WAVE formats.</p></li>
+</ul>
+<p>(Contributed by Lionel Koenig and Michiel W. Beijen in <a class="reference external" href="https://github.com/python/cpython/issues/60729">gh-60729</a>.)</p>
+</section>
 <section id="xml-parsers-expat">
 <h3>xml.parsers.expat<a class="headerlink" href="#xml-parsers-expat" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -1543,8 +1574,8 @@ x86-64 Linux and AArch64 macOS systems.</p>
 always, LLVM is only needed when building CPython with the JIT enabled;
 end users running Python do not need LLVM installed. Instructions for
 installing LLVM can be found in the <a class="reference external" href="https://github.com/python/cpython/blob/main/Tools/jit/README.md">JIT compiler documentation</a>
-for all supported platforms.</p>
-<p>(Contributed by Savannah Ostrowski in <a class="reference external" href="https://github.com/python/cpython/issues/140973">gh-140973</a>.)</p>
+for all supported platforms.
+(Contributed by Savannah Ostrowski in <a class="reference external" href="https://github.com/python/cpython/issues/140973">gh-140973</a>.)</p>
 <p class="rubric">A new tracing frontend</p>
 <p>The JIT compiler now supports significantly more bytecode operations and
 control flow than in Python 3.14, enabling speedups on a wider variety of
@@ -1552,33 +1583,39 @@ code. For example, simple Python object creation is now understood by the
 3.15 JIT compiler. Overloaded operations and generators are also partially
 supported. This was made possible by an overhauled JIT tracing frontend
 that records actual execution paths through code, rather than estimating
-them as the previous implementation did.</p>
-<p>(Contributed by Ken Jin in <a class="reference external" href="https://github.com/python/cpython/issues/139109">gh-139109</a>. Support for Windows added by
+them as the previous implementation did.
+(Contributed by Ken Jin in <a class="reference external" href="https://github.com/python/cpython/issues/139109">gh-139109</a>. Support for Windows added by
 Mark Shannon in <a class="reference external" href="https://github.com/python/cpython/issues/141703">gh-141703</a>.)</p>
 <p class="rubric">Basic register allocation in the JIT</p>
 <p>A basic form of register allocation has been added to the JIT compiler’s
 optimizer. This allows the JIT compiler to avoid certain stack operations
 altogether and instead operate on registers. This allows the JIT to produce
-more efficient traces by avoiding reads and writes to memory.</p>
-<p>(Contributed by Mark Shannon in <a class="reference external" href="https://github.com/python/cpython/issues/135379">gh-135379</a>.)</p>
+more efficient traces by avoiding reads and writes to memory.
+(Contributed by Mark Shannon in <a class="reference external" href="https://github.com/python/cpython/issues/135379">gh-135379</a>.)</p>
 <p class="rubric">More JIT optimizations</p>
 <p>More <a class="reference external" href="https://en.wikipedia.org/wiki/Constant_folding">constant-propagation</a>
 is now performed. This means when the JIT compiler detects that certain user
-code results in constants, the code can be simplified by the JIT.</p>
-<p>(Contributed by Ken Jin and Savannah Ostrowski in <a class="reference external" href="https://github.com/python/cpython/issues/132732">gh-132732</a>.)</p>
-<p>The JIT avoids <a class="reference internal" href="../glossary.html#term-reference-count"><span class="xref std std-term">reference count</span></a>s where possible. This generally
-reduces the cost of most operations in Python.</p>
-<p>(Contributed by Ken Jin, Donghee Na, Zheao Li, Hai Zhu, Savannah Ostrowski,
+code results in constants, the code can be simplified by the JIT.
+(Contributed by Ken Jin and Savannah Ostrowski in <a class="reference external" href="https://github.com/python/cpython/issues/132732">gh-132732</a>.)</p>
+<p><a class="reference internal" href="../glossary.html#term-reference-count"><span class="xref std std-term">Reference count</span></a>s are avoided whenever it is safe to do so. This generally
+reduces the cost of most operations in Python.
+(Contributed by Ken Jin, Donghee Na, Zheao Li, Hai Zhu, Savannah Ostrowski,
 Reiden Ong, Noam Cohen, Tomas Roun, PuQing, Cajetan Rodrigues, and Sacul in <a class="reference external" href="https://github.com/python/cpython/issues/134584">gh-134584</a>.)</p>
+<p>The JIT optimizer now supports significantly more operations than in 3.14.
+(Contributed by Kumar Aditya, Ken Jin, and Sacul in <a class="reference external" href="https://github.com/python/cpython/issues/131798">gh-131798</a>.)</p>
 <p class="rubric">Better machine code generation</p>
 <p>The JIT compiler’s machine code generator now produces better machine code
 for x86-64 and AArch64 macOS and Linux targets. In general, users should
 experience lower memory usage for generated machine code and more efficient
-machine code versus the old JIT.</p>
-<p>(Contributed by Brandt Bucher in <a class="reference external" href="https://github.com/python/cpython/issues/136528">gh-136528</a> and <a class="reference external" href="https://github.com/python/cpython/issues/136528">gh-136528</a>.
+machine code versus 3.14.
+(Contributed by Brandt Bucher in <a class="reference external" href="https://github.com/python/cpython/issues/136528">gh-136528</a> and <a class="reference external" href="https://github.com/python/cpython/issues/136528">gh-136528</a>.
 Implementation for AArch64 contributed by Mark Shannon in <a class="reference external" href="https://github.com/python/cpython/issues/139855">gh-139855</a>.
 Additional optimizations for AArch64 contributed by Mark Shannon and
 Diego Russo in <a class="reference external" href="https://github.com/python/cpython/issues/140683">gh-140683</a> and <a class="reference external" href="https://github.com/python/cpython/issues/142305">gh-142305</a>.)</p>
+<p class="rubric">Maintainability</p>
+<p>The JIT optimizer’s operations have been simplified.
+This was made possible by a refactoring of JIT data structures.
+(Contributed by Zhongtian Zheng in <a class="reference external" href="https://github.com/python/cpython/issues/148211">gh-148211</a> and Hai Zhu in <a class="reference external" href="https://github.com/python/cpython/issues/143421">gh-143421</a>.)</p>
 </section>
 </section>
 <section id="removed">
@@ -1608,8 +1645,8 @@ functions, which have been deprecated since Python 3.13. Use
 (Contributed by Barney Gale in <a class="reference external" href="https://github.com/python/cpython/issues/137466">gh-137466</a>.)</p></li>
 </ul>
 </section>
-<section id="http-server">
-<h3>http.server<a class="headerlink" href="#http-server" title="Link to this heading">¶</a></h3>
+<section id="id1">
+<h3>http.server<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Removed the <code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code> class
 and the <code class="docutils literal notranslate"><span class="pre">--cgi</span></code> flag from the <strong class="program">python -m http.server</strong>
@@ -1674,8 +1711,8 @@ in Python 3.14.
 (Contributed by Bénédikt Tran in <a class="reference external" href="https://github.com/python/cpython/issues/134087">gh-134087</a>.)</p></li>
 </ul>
 </section>
-<section id="id1">
-<h3>typing<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<section id="id2">
+<h3>typing<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="../library/typing.html#typing.ByteString" title="typing.ByteString"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.ByteString</span></code></a> has been removed from <code class="docutils literal notranslate"><span class="pre">typing.__all__</span></code>.
 <code class="xref py py-class docutils literal notranslate"><span class="pre">typing.ByteString</span></code> has been deprecated since Python 3.9, and is
@@ -1692,20 +1729,8 @@ or <code class="docutils literal notranslate"><span class="pre">TD</span> <span 
 (Contributed by Bénédikt Tran in <a class="reference external" href="https://github.com/python/cpython/issues/133823">gh-133823</a>.)</p></li>
 </ul>
 </section>
-<section id="wave">
-<h3>wave<a class="headerlink" href="#wave" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Added support for IEEE floating-point WAVE audio
-(<code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_IEEE_FLOAT</span></code>) in <a class="reference internal" href="../library/wave.html#module-wave" title="wave: Provide an interface to the WAV sound format."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wave</span></code></a>.</p></li>
-<li><p>Added <a class="reference internal" href="../library/wave.html#wave.Wave_read.getformat" title="wave.Wave_read.getformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_read.getformat()</span></code></a>, <a class="reference internal" href="../library/wave.html#wave.Wave_write.getformat" title="wave.Wave_write.getformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.getformat()</span></code></a>,
-and <a class="reference internal" href="../library/wave.html#wave.Wave_write.setformat" title="wave.Wave_write.setformat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.setformat()</span></code></a> for explicit frame format handling.</p></li>
-<li><p><a class="reference internal" href="../library/wave.html#wave.Wave_write.setparams" title="wave.Wave_write.setparams"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wave.Wave_write.setparams()</span></code></a> accepts both 7-item tuples including
-<code class="docutils literal notranslate"><span class="pre">format</span></code> and 6-item tuples for backwards compatibility (defaulting to
-<code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_PCM</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WAVE_FORMAT_IEEE_FLOAT</span></code> output now includes a <code class="docutils literal notranslate"><span class="pre">fact</span></code> chunk,
-as required for non-PCM WAVE formats.</p></li>
-</ul>
-<p>(Contributed by Lionel Koenig and Michiel W. Beijen in <a class="reference external" href="https://github.com/python/cpython/issues/60729">gh-60729</a>.)</p>
+<section id="id3">
+<h3>wave<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Removed the <code class="docutils literal notranslate"><span class="pre">getmark()</span></code>, <code class="docutils literal notranslate"><span class="pre">setmark()</span></code> and <code class="docutils literal notranslate"><span class="pre">getmarkers()</span></code> methods
 of the <a class="reference internal" href="../library/wave.html#wave.Wave_read" title="wave.Wave_read"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wave_read</span></code></a> and <a class="reference internal" href="../library/wave.html#wave.Wave_write" title="wave.Wave_write"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wave_write</span></code></a> classes,
@@ -2262,8 +2287,8 @@ use <a class="reference internal" href="../library/sys.html#sys._clear_internal_
 </section>
 <section id="c-api-changes">
 <h2>C API changes<a class="headerlink" href="#c-api-changes" title="Link to this heading">¶</a></h2>
-<section id="id2">
-<h3>New features<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="id4">
+<h3>New features<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <ul>
 <li><p>Add <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseArray" title="PyArg_ParseArray"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseArray()</span></code></a> and <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseArrayAndKeywords" title="PyArg_ParseArrayAndKeywords"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseArrayAndKeywords()</span></code></a>
 functions to parse arguments of functions using the <a class="reference internal" href="../c-api/structures.html#c.METH_FASTCALL" title="METH_FASTCALL"><code class="xref c c-macro docutils literal notranslate"><span class="pre">METH_FASTCALL</span></code></a>
@@ -2315,6 +2340,16 @@ a module from a <em>spec</em> and <em>initfunc</em>.
 (Contributed by Itamar Oren in <a class="reference external" href="https://github.com/python/cpython/issues/116146">gh-116146</a>.)</p></li>
 <li><p>Add <a class="reference internal" href="../c-api/tuple.html#c.PyTuple_FromArray" title="PyTuple_FromArray"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_FromArray()</span></code></a> to create a <a class="reference internal" href="../library/stdtypes.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> from an array.
 (Contributed by Victor Stinner in <a class="reference external" href="https://github.com/python/cpython/issues/111489">gh-111489</a>.)</p></li>
+<li><p>Add functions that are guaranteed to be safe for use in
+<a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_traverse" title="PyTypeObject.tp_traverse"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_traverse</span></code></a> handlers:
+<a class="reference internal" href="../c-api/gcsupport.html#c.PyObject_GetTypeData_DuringGC" title="PyObject_GetTypeData_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetTypeData_DuringGC()</span></code></a>,
+<a class="reference internal" href="../c-api/gcsupport.html#c.PyObject_GetItemData_DuringGC" title="PyObject_GetItemData_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_GetItemData_DuringGC()</span></code></a>,
+<a class="reference internal" href="../c-api/gcsupport.html#c.PyType_GetModuleState_DuringGC" title="PyType_GetModuleState_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GetModuleState_DuringGC()</span></code></a>,
+<a class="reference internal" href="../c-api/gcsupport.html#c.PyModule_GetState_DuringGC" title="PyModule_GetState_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyModule_GetState_DuringGC()</span></code></a>, <a class="reference internal" href="../c-api/gcsupport.html#c.PyModule_GetToken_DuringGC" title="PyModule_GetToken_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyModule_GetToken_DuringGC()</span></code></a>,
+<a class="reference internal" href="../c-api/gcsupport.html#c.PyType_GetBaseByToken_DuringGC" title="PyType_GetBaseByToken_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GetBaseByToken_DuringGC()</span></code></a>,
+<a class="reference internal" href="../c-api/gcsupport.html#c.PyType_GetModule_DuringGC" title="PyType_GetModule_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GetModule_DuringGC()</span></code></a>,
+<a class="reference internal" href="../c-api/gcsupport.html#c.PyType_GetModuleByToken_DuringGC" title="PyType_GetModuleByToken_DuringGC"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GetModuleByToken_DuringGC()</span></code></a>.
+(Contributed by Petr Viktorin in <a class="reference external" href="https://github.com/python/cpython/issues/145925">gh-145925</a>.)</p></li>
 <li><p>Add <a class="reference internal" href="../c-api/object.html#c.PyObject_Dump" title="PyObject_Dump"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Dump()</span></code></a> to dump an object to <code class="docutils literal notranslate"><span class="pre">stderr</span></code>.
 It should only be used for debugging.
 (Contributed by Victor Stinner in <a class="reference external" href="https://github.com/python/cpython/issues/141070">gh-141070</a>.)</p></li>
@@ -2521,8 +2556,8 @@ Special thanks to Steve Dower, and the MSVC team including Hulon Jenkins.)</p>
 </li>
 </ul>
 </section>
-<section id="id5">
-<h2>Porting to Python 3.15<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<section id="id7">
+<h2>Porting to Python 3.15<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 <p>This section lists previously described changes and other bugfixes
 that may require changes to your code.</p>
 <ul>
@@ -2606,6 +2641,7 @@ to make padding required.
 <li><a class="reference internal" href="#hashlib">hashlib</a></li>
 <li><a class="reference internal" href="#http-client">http.client</a></li>
 <li><a class="reference internal" href="#http-cookies">http.cookies</a></li>
+<li><a class="reference internal" href="#http-server">http.server</a></li>
 <li><a class="reference internal" href="#inspect">inspect</a></li>
 <li><a class="reference internal" href="#json">json</a></li>
 <li><a class="reference internal" href="#locale">locale</a></li>
@@ -2635,6 +2671,7 @@ to make padding required.
 <li><a class="reference internal" href="#urllib-parse">urllib.parse</a></li>
 <li><a class="reference internal" href="#venv">venv</a></li>
 <li><a class="reference internal" href="#warnings">warnings</a></li>
+<li><a class="reference internal" href="#wave">wave</a></li>
 <li><a class="reference internal" href="#xml-parsers-expat">xml.parsers.expat</a></li>
 <li><a class="reference internal" href="#zlib">zlib</a></li>
 </ul>
@@ -2649,7 +2686,7 @@ to make padding required.
 <li><a class="reference internal" href="#collections-abc">collections.abc</a></li>
 <li><a class="reference internal" href="#ctypes">ctypes</a></li>
 <li><a class="reference internal" href="#glob">glob</a></li>
-<li><a class="reference internal" href="#http-server">http.server</a></li>
+<li><a class="reference internal" href="#id1">http.server</a></li>
 <li><a class="reference internal" href="#importlib-resources">importlib.resources</a></li>
 <li><a class="reference internal" href="#pathlib">pathlib</a></li>
 <li><a class="reference internal" href="#platform">platform</a></li>
@@ -2657,8 +2694,8 @@ to make padding required.
 <li><a class="reference internal" href="#sre">sre_*</a></li>
 <li><a class="reference internal" href="#sysconfig">sysconfig</a></li>
 <li><a class="reference internal" href="#threading">threading</a></li>
-<li><a class="reference internal" href="#id1">typing</a></li>
-<li><a class="reference internal" href="#wave">wave</a></li>
+<li><a class="reference internal" href="#id2">typing</a></li>
+<li><a class="reference internal" href="#id3">wave</a></li>
 <li><a class="reference internal" href="#zipimport">zipimport</a></li>
 </ul>
 </li>
@@ -2673,7 +2710,7 @@ to make padding required.
 </ul>
 </li>
 <li><a class="reference internal" href="#c-api-changes">C API changes</a><ul>
-<li><a class="reference internal" href="#id2">New features</a></li>
+<li><a class="reference internal" href="#id4">New features</a></li>
 <li><a class="reference internal" href="#changed-c-apis">Changed C APIs</a></li>
 <li><a class="reference internal" href="#porting-to-python-3-15">Porting to Python 3.15</a></li>
 <li><a class="reference internal" href="#removed-c-apis">Removed C APIs</a></li>
@@ -2681,7 +2718,7 @@ to make padding required.
 </ul>
 </li>
 <li><a class="reference internal" href="#build-changes">Build changes</a></li>
-<li><a class="reference internal" href="#id5">Porting to Python 3.15</a></li>
+<li><a class="reference internal" href="#id7">Porting to Python 3.15</a></li>
 </ul>
 </li>
 </ul>
